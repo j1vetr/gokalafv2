@@ -36,7 +36,7 @@ export default function Home() {
             >
               {/* Removed Online Koçluk Pill */}
               
-              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4">
                 Sınırları <br className="hidden lg:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow">Yok Et</span>
               </h1>
@@ -47,12 +47,12 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
                 <Link href="/packages">
-                  <Button className="w-full sm:w-auto bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-wide text-lg h-14 px-8 shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)] transition-all">
+                  <Button className="w-full sm:w-auto bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-wide text-base md:text-lg h-12 md:h-14 px-8 shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)] transition-all">
                     Hemen Başla
                   </Button>
                 </Link>
                 <Link href="/contact">
-                  <Button variant="outline" className="w-full sm:w-auto border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white text-lg h-14 px-8 uppercase font-bold">
+                  <Button variant="outline" className="w-full sm:w-auto border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white text-base md:text-lg h-12 md:h-14 px-8 uppercase font-bold">
                     İletişime Geç
                   </Button>
                 </Link>
@@ -88,12 +88,12 @@ export default function Home() {
       </section>
 
       {/* SYSTEM / PILLARS SECTION - REDESIGNED FOR WOW FACTOR */}
-      <section className="py-32 bg-[#080808] border-t border-white/5 relative overflow-hidden">
+      <section className="py-20 bg-[#080808] border-t border-white/5 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-           <div className="max-w-4xl mx-auto text-center mb-24">
-             <h2 className="text-5xl md:text-7xl font-heading font-bold uppercase text-white mb-6 tracking-tighter">
+           <div className="max-w-4xl mx-auto text-center mb-16">
+             <h2 className="text-4xl md:text-6xl font-heading font-bold uppercase text-white mb-4 tracking-tighter">
                Sistem <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Nasıl İşler?</span>
              </h2>
              <p className="text-gray-400 text-xl font-light max-w-2xl mx-auto">
@@ -149,20 +149,20 @@ export default function Home() {
       </section>
 
       {/* MINIMAL CTA SECTION */}
-      <section className="py-32 relative overflow-hidden flex items-center justify-center bg-[#050505]">
+      <section className="py-24 relative overflow-hidden flex items-center justify-center bg-[#050505]">
         <div className="absolute inset-0 bg-primary/5 z-0"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center">
-           <h2 className="text-5xl md:text-8xl font-heading font-bold uppercase text-white mb-8 tracking-tighter">
+           <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase text-white mb-6 tracking-tighter">
              Hazır Mısın?
            </h2>
-           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light">
+           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light">
              En iyi versiyonuna ulaşmak için tek yapman gereken ilk adımı atmak.
            </p>
            <Link href="/packages">
-             <Button className="h-20 px-16 text-2xl font-heading font-bold uppercase bg-primary text-black hover:bg-primary/90 shadow-[0_0_40px_rgba(204,255,0,0.4)] hover:shadow-[0_0_60px_rgba(204,255,0,0.6)] transition-all hover:scale-105 rounded-none -skew-x-12">
-               <span className="skew-x-12 inline-flex items-center gap-3">Planı Seç ve Başla <ArrowRight className="w-8 h-8" /></span>
+             <Button className="h-16 px-12 text-xl font-heading font-bold uppercase bg-primary text-black hover:bg-primary/90 shadow-[0_0_40px_rgba(204,255,0,0.4)] hover:shadow-[0_0_60px_rgba(204,255,0,0.6)] transition-all hover:scale-105 rounded-none -skew-x-12">
+               <span className="skew-x-12 inline-flex items-center gap-3">Planı Seç ve Başla <ArrowRight className="w-6 h-6" /></span>
              </Button>
            </Link>
         </div>

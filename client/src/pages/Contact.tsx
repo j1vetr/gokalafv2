@@ -20,21 +20,21 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-[#050505] relative overflow-hidden">
+    <div className="min-h-screen pt-32 pb-12 bg-[#050505] relative overflow-hidden">
       {/* Background Texture */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold uppercase mb-6 text-white tracking-tighter">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold uppercase mb-4 text-white tracking-tighter">
             İletişime <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Geç</span>
           </h1>
-          <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 font-light max-w-xl mx-auto">
             Hedeflerin hakkında konuşalım. Başlamak için veya aklına takılanları sormak için formu doldurman yeterli.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
           
           {/* Left Side: Contact Info & Visual */}
           <div className="flex flex-col gap-8">
@@ -84,33 +84,33 @@ export default function Contact() {
             <h3 className="text-3xl font-heading font-bold uppercase mb-8 text-white relative z-10">Mesaj Gönder</h3>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Adın</label>
-                  <Input {...register("name", { required: true })} placeholder="İsim" className="bg-black/30 border-white/10 focus:border-primary h-14 text-white placeholder:text-gray-600 rounded-xl" />
+                  <Input {...register("name", { required: true })} placeholder="İsim" className="bg-black/30 border-white/10 focus:border-primary h-12 text-white placeholder:text-gray-600 rounded-xl" />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Soyadın</label>
-                  <Input {...register("surname", { required: true })} placeholder="Soyisim" className="bg-black/30 border-white/10 focus:border-primary h-14 text-white placeholder:text-gray-600 rounded-xl" />
+                  <Input {...register("surname", { required: true })} placeholder="Soyisim" className="bg-black/30 border-white/10 focus:border-primary h-12 text-white placeholder:text-gray-600 rounded-xl" />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">E-Posta Adresi</label>
-                <Input {...register("email", { required: true })} type="email" placeholder="ornek@mail.com" className="bg-black/30 border-white/10 focus:border-primary h-14 text-white placeholder:text-gray-600 rounded-xl" />
+                <Input {...register("email", { required: true })} type="email" placeholder="ornek@mail.com" className="bg-black/30 border-white/10 focus:border-primary h-12 text-white placeholder:text-gray-600 rounded-xl" />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Konu / Hedefin</label>
-                <Input {...register("subject")} placeholder="Örn: Kilo vermek istiyorum" className="bg-black/30 border-white/10 focus:border-primary h-14 text-white placeholder:text-gray-600 rounded-xl" />
+                <Input {...register("subject")} placeholder="Örn: Kilo vermek istiyorum" className="bg-black/30 border-white/10 focus:border-primary h-12 text-white placeholder:text-gray-600 rounded-xl" />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500 ml-1">Mesajın</label>
-                <Textarea {...register("message", { required: true })} placeholder="Bize hedeflerinden bahset..." className="min-h-[160px] bg-black/30 border-white/10 focus:border-primary text-white placeholder:text-gray-600 rounded-xl resize-none p-4" />
+                <Textarea {...register("message", { required: true })} placeholder="Bize hedeflerinden bahset..." className="min-h-[120px] bg-black/30 border-white/10 focus:border-primary text-white placeholder:text-gray-600 rounded-xl resize-none p-4" />
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-16 text-lg rounded-xl shadow-[0_0_20px_rgba(204,255,0,0.2)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] transition-all">
+              <Button type="submit" size="lg" className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-12 text-base rounded-xl shadow-[0_0_20px_rgba(204,255,0,0.2)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] transition-all">
                 Gönder <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </form>

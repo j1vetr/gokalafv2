@@ -27,10 +27,10 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-primary font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Profesyonel Koçluk</h2>
-            <h1 className="text-6xl md:text-9xl font-heading font-bold uppercase text-white mb-8 tracking-tighter drop-shadow-2xl">
+            <h1 className="text-5xl md:text-8xl font-heading font-bold uppercase text-white mb-6 tracking-tighter drop-shadow-2xl">
               Gokalaf
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
               "Amacım sadece sana bir antrenman programı vermek değil; vücudunu tanımanı, sınırlarını zorlamanı ve disiplini bir yaşam tarzı haline getirmeni sağlamak."
             </p>
           </motion.div>

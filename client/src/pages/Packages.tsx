@@ -50,91 +50,91 @@ export default function Packages() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
+        <div className="text-center max-w-4xl mx-auto mb-8">
            <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             className="inline-block mb-4"
+             className="inline-block mb-2"
            >
-             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-4 py-1">
+             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
               Kendine Yatırım Yap
              </Badge>
            </motion.div>
            
-           <h1 className="text-4xl md:text-7xl font-heading font-bold uppercase mb-6 text-white">
+           <h1 className="text-3xl md:text-5xl font-heading font-bold uppercase mb-4 text-white">
              Senin Hedefin, <br/> <span className="text-primary text-glow">Senin Planın.</span>
            </h1>
-           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+           <p className="text-base text-gray-400 max-w-xl mx-auto">
              Süreyi seç ve değişime başla.
            </p>
         </div>
 
         {/* DURATION SELECTOR */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-white/5 backdrop-blur-md rounded-2xl p-2 flex flex-wrap md:flex-nowrap gap-2 border border-white/10">
+        <div className="max-w-3xl mx-auto mb-8">
+          <div className="bg-white/5 backdrop-blur-md rounded-xl p-1.5 flex flex-wrap md:flex-nowrap gap-1.5 border border-white/10">
             {durations.map((d) => (
               <button
                 key={d.weeks}
                 onClick={() => setSelectedDuration(d.weeks)}
-                className={`flex-1 py-4 px-2 rounded-xl text-center transition-all duration-300 relative overflow-hidden group ${
+                className={`flex-1 py-3 px-2 rounded-lg text-center transition-all duration-300 relative overflow-hidden group ${
                   selectedDuration === d.weeks 
                     ? "bg-primary text-black shadow-[0_0_20px_rgba(204,255,0,0.3)]" 
                     : "hover:bg-white/5 text-gray-400 hover:text-white"
                 }`}
               >
-                <div className="font-heading font-bold text-xl md:text-2xl uppercase relative z-10">{d.label}</div>
+                <div className="font-heading font-bold text-lg md:text-xl uppercase relative z-10">{d.label}</div>
               </button>
             ))}
           </div>
         </div>
 
         {/* SINGLE PACKAGE CARD */}
-        <div className="max-w-2xl mx-auto mb-24">
+        <div className="max-w-xl mx-auto mb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedDuration}
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="relative rounded-3xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_60px_rgba(204,255,0,0.1)] z-10"
+              className="relative rounded-2xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_40px_rgba(204,255,0,0.1)] z-10"
             >
-               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-8 py-2 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
                   Normal Plan
                 </div>
               
-              <div className="bg-[#080808] rounded-[22px] h-full flex flex-col p-8 md:p-12 relative overflow-hidden">
+              <div className="bg-[#080808] rounded-[20px] h-full flex flex-col p-6 md:p-8 relative overflow-hidden">
                 {/* Background Glow */}
-                <div className="absolute top-0 right-0 w-60 h-60 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                <div className="text-center mb-10 relative z-10 border-b border-white/5 pb-8">
-                  <div className="w-20 h-20 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
-                    <Trophy size={40} />
+                <div className="text-center mb-6 relative z-10 border-b border-white/5 pb-6">
+                  <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
+                    <Trophy size={32} />
                   </div>
-                  <h3 className="text-4xl font-heading font-bold uppercase text-white mb-2">Normal Plan</h3>
-                  <p className="text-gray-400">Kapsamlı Koçluk Paketi</p>
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white mb-1">Normal Plan</h3>
+                  <p className="text-sm text-gray-400">Kapsamlı Koçluk Paketi</p>
                 </div>
 
-                <div className="text-center mb-10 relative z-10">
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-6xl md:text-7xl font-bold tracking-tight text-white">
+                <div className="text-center mb-6 relative z-10">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-4xl md:text-5xl font-bold tracking-tight text-white">
                       ₺{prices[selectedDuration].toLocaleString('tr-TR')}
                     </span>
                   </div>
-                  <div className="text-primary text-lg mt-2 font-bold flex items-center justify-center gap-2">
-                    <TrendingUp size={18} />
+                  <div className="text-primary text-base mt-1 font-bold flex items-center justify-center gap-1.5">
+                    <TrendingUp size={16} />
                     {selectedDuration} Haftalık Plan
                   </div>
                 </div>
 
-                <div className="space-y-5 flex-grow mb-10 relative z-10 bg-white/5 p-6 rounded-2xl border border-white/5">
+                <div className="space-y-3 flex-grow mb-8 relative z-10 bg-white/5 p-4 rounded-xl border border-white/5">
                   {packageFeatures.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-4 text-base text-gray-200">
-                      <div className="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                        <Check size={14} />
+                    <div key={idx} className="flex items-start gap-3 text-sm text-gray-200">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={12} />
                       </div>
                       <span className="leading-relaxed">{feature}</span>
                     </div>
@@ -142,7 +142,7 @@ export default function Packages() {
                 </div>
 
                 <Link href="/contact">
-                  <Button className="w-full h-16 text-xl font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_30px_rgba(204,255,0,0.25)] hover:shadow-[0_0_50px_rgba(204,255,0,0.4)] transition-all transform hover:-translate-y-1">
+                  <Button className="w-full h-12 text-lg font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_20px_rgba(204,255,0,0.2)] hover:shadow-[0_0_30px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
                     Hemen Başla
                   </Button>
                 </Link>

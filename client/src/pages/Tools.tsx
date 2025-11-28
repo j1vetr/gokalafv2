@@ -206,22 +206,22 @@ export default function Tools() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-4 py-1">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
             Gelişim Araçları
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-heading font-bold uppercase mb-6 text-white tracking-tighter">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold uppercase mb-4 text-white tracking-tighter">
             Vücudunu <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Analiz Et</span>
           </h1>
-          <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
+          <p className="text-base text-gray-400 font-light max-w-xl mx-auto">
             Profesyonel koçluk sistemimde kullandığım hesaplama araçlarını ücretsiz olarak deneyimle.
             Verilerini gir, haritanı çıkar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {tools.map((tool) => (
             <Dialog key={tool.id}>
               <DialogTrigger asChild>
