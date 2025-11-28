@@ -109,8 +109,8 @@ export default function Home() {
         </div>
 
         {/* IMAGE - Absolute positioned to section bottom */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[5%] lg:translate-x-0 z-10 flex items-end justify-center pointer-events-none">
-           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] lg:w-[500px] lg:h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[60px] lg:blur-[100px] rounded-full opacity-60"></div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[5%] lg:translate-x-0 z-10 flex items-end justify-center pointer-events-none w-full lg:w-auto">
+           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[80px] lg:blur-[100px] rounded-full opacity-60"></div>
            
            <motion.img 
              initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -118,7 +118,7 @@ export default function Home() {
              transition={{ duration: 0.8, delay: 0.2 }}
              src="https://www.gokalaf.com/wp-content/uploads/2025/05/53e0affa-b231-4296-b408-d66a1f4ff838-min.png" 
              alt="Gokalaf" 
-             className="relative z-10 h-[100svh] lg:h-auto lg:max-h-[100vh] w-auto object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+             className="relative z-10 h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-auto lg:max-h-[100vh] w-auto max-w-[90vw] sm:max-w-none object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
            />
         </div>
 
