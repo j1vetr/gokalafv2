@@ -69,8 +69,7 @@ export default function Packages() {
              Senin Hedefin, <br/> <span className="text-primary text-glow">Senin Planın.</span>
            </h1>
            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-             Sadece bir program değil, hayatını değiştirecek bir sistem satın alıyorsun. 
-             Süreyi seç, tasarruf et ve değişime başla.
+             Süreyi seç ve değişime başla.
            </p>
         </div>
 
@@ -103,7 +102,7 @@ export default function Packages() {
               transition={{ duration: 0.4 }}
               className="relative rounded-3xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_60px_rgba(204,255,0,0.1)] z-10"
             >
-               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-8 py-2 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505]">
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-8 py-2 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
                   Normal Plan
                 </div>
               
