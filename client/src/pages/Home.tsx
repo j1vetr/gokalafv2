@@ -77,7 +77,7 @@ export default function Home() {
 
         {/* TEXT CONTENT - In container */}
         <div className="container mx-auto px-4 z-20 relative lg:absolute lg:inset-0 lg:flex lg:items-center">
-          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-[45vh] sm:pt-[40vh] md:pt-[35vh] lg:pt-0 lg:pr-12">
+          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-[18vh] sm:pt-[20vh] md:pt-[22vh] lg:pt-0 lg:pr-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
