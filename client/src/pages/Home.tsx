@@ -3,7 +3,7 @@ import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import generatedVideo from '@assets/generated_videos/dark_cinematic_gym_background_with_neon_green_accents.mp4';
+import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
 export default function Home() {
   const ref = useRef(null);
