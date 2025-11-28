@@ -148,6 +148,15 @@
     }
   }
   
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
   .animate-gradient-x {
     animation: gradient-x 3s ease infinite;
   }
@@ -158,5 +167,9 @@
   
   .animate-pulse-ring {
     animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 4s linear infinite;
   }
 }

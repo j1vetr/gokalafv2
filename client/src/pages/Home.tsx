@@ -83,13 +83,21 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-3 lg:mb-4 relative">
-                Sınırları <br className="hidden lg:block" />
-                <span className="relative inline-block">
-                  <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow animate-gradient-x bg-[length:200%_auto] relative z-10">Yok Et</span>
-                </span>
-              </h1>
+              <div className="relative inline-block mb-3 lg:mb-4 p-4 sm:p-6 lg:p-8">
+                {/* Rotating Border Animation */}
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <div className="absolute inset-[-50%] animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0deg,transparent_60deg,#ccff00_120deg,transparent_180deg,transparent_240deg,#ccff00_300deg,transparent_360deg)]"></div>
+                </div>
+                <div className="absolute inset-[2px] bg-[#050505] rounded-lg"></div>
+                
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl relative z-10">
+                  Sınırları <br className="hidden lg:block" />
+                  <span className="relative inline-block">
+                    <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow animate-gradient-x bg-[length:200%_auto] relative z-10">Yok Et</span>
+                  </span>
+                </h1>
+              </div>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xs sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-4 lg:mb-8">
                 Bilimsel veriler, kişiselleştirilmiş stratejiler ve disiplinli takip sistemiyle potansiyelini açığa çıkar.
