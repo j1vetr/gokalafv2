@@ -50,37 +50,37 @@ export default function Packages() {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-8">
+        <div className="text-center max-w-4xl mx-auto mb-6">
            <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              className="inline-block mb-2"
            >
-             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
+             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-[10px]">
               Kendine Yatırım Yap
              </Badge>
            </motion.div>
            
-           <h1 className="text-3xl md:text-5xl font-heading font-bold uppercase mb-4 text-white">
+           <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white">
              Senin Hedefin, <br/> <span className="text-primary text-glow">Senin Planın.</span>
            </h1>
-           <p className="text-base text-gray-400 max-w-xl mx-auto">
+           <p className="text-sm text-gray-400 max-w-xl mx-auto">
              Süreyi seç ve değişime başla.
            </p>
         </div>
 
         {/* DURATION SELECTOR */}
-        <div className="max-w-3xl mx-auto mb-8">
-          <div className="bg-white/5 backdrop-blur-md rounded-xl p-1.5 flex flex-wrap md:flex-nowrap gap-1.5 border border-white/10">
+        <div className="max-w-2xl mx-auto mb-6">
+          <div className="bg-white/5 backdrop-blur-md rounded-xl p-1 flex flex-wrap md:flex-nowrap gap-1 border border-white/10">
             {durations.map((d) => (
               <button
                 key={d.weeks}
                 onClick={() => setSelectedDuration(d.weeks)}
-                className={`flex-1 py-3 px-2 rounded-lg text-center transition-all duration-300 relative overflow-hidden group ${
+                className={`flex-1 py-2.5 px-2 rounded-lg text-center transition-all duration-300 relative overflow-hidden group ${
                   selectedDuration === d.weeks 
                     ? "bg-primary text-black shadow-[0_0_20px_rgba(204,255,0,0.3)]" 
                     : "hover:bg-white/5 text-gray-400 hover:text-white"
@@ -93,48 +93,48 @@ export default function Packages() {
         </div>
 
         {/* SINGLE PACKAGE CARD */}
-        <div className="max-w-xl mx-auto mb-16">
+        <div className="max-w-lg mx-auto mb-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedDuration}
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="relative rounded-2xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_40px_rgba(204,255,0,0.1)] z-10"
+              className="relative rounded-xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_30px_rgba(204,255,0,0.1)] z-10"
             >
-               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
                   Normal Plan
                 </div>
               
-              <div className="bg-[#080808] rounded-[20px] h-full flex flex-col p-6 md:p-8 relative overflow-hidden">
+              <div className="bg-[#080808] rounded-[18px] h-full flex flex-col p-5 md:p-6 relative overflow-hidden">
                 {/* Background Glow */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                <div className="text-center mb-6 relative z-10 border-b border-white/5 pb-6">
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-                    <Trophy size={32} />
+                <div className="text-center mb-4 relative z-10 border-b border-white/5 pb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
+                    <Trophy size={24} />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white mb-1">Normal Plan</h3>
-                  <p className="text-sm text-gray-400">Kapsamlı Koçluk Paketi</p>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold uppercase text-white mb-1">Normal Plan</h3>
+                  <p className="text-xs text-gray-400">Kapsamlı Koçluk Paketi</p>
                 </div>
 
-                <div className="text-center mb-6 relative z-10">
+                <div className="text-center mb-4 relative z-10">
                   <div className="flex items-center justify-center gap-2">
-                    <span className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                    <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
                       ₺{prices[selectedDuration].toLocaleString('tr-TR')}
                     </span>
                   </div>
-                  <div className="text-primary text-base mt-1 font-bold flex items-center justify-center gap-1.5">
-                    <TrendingUp size={16} />
+                  <div className="text-primary text-sm mt-1 font-bold flex items-center justify-center gap-1">
+                    <TrendingUp size={14} />
                     {selectedDuration} Haftalık Plan
                   </div>
                 </div>
 
-                <div className="space-y-3 flex-grow mb-8 relative z-10 bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="space-y-2 flex-grow mb-6 relative z-10 bg-white/5 p-3 rounded-lg border border-white/5">
                   {packageFeatures.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-sm text-gray-200">
-                      <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                        <Check size={12} />
+                    <div key={idx} className="flex items-start gap-2 text-xs text-gray-300">
+                      <div className="w-4 h-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={10} />
                       </div>
                       <span className="leading-relaxed">{feature}</span>
                     </div>
@@ -142,7 +142,7 @@ export default function Packages() {
                 </div>
 
                 <Link href="/contact">
-                  <Button className="w-full h-12 text-lg font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_20px_rgba(204,255,0,0.2)] hover:shadow-[0_0_30px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
+                  <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
                     Hemen Başla
                   </Button>
                 </Link>

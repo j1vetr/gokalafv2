@@ -43,13 +43,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
               className={cn(
-                "text-base font-bold uppercase tracking-wider transition-all duration-300 relative group py-2",
+                "text-sm font-bold uppercase tracking-wider transition-all duration-300 relative group py-2",
                 location === link.href ? "text-primary" : "text-white/80 hover:text-white"
               )}
             >
@@ -62,14 +62,14 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4">
           <Link href="/dashboard">
-            <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase">
+            <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs">
               Giriş Yap
             </Button>
           </Link>
           <Link href="/packages">
-            <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-8 h-12 text-lg shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1">
+            <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-6 h-10 text-sm shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1">
               Başvuru Yap
             </Button>
           </Link>
