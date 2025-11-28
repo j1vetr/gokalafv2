@@ -326,5 +326,131 @@ export async function registerRoutes(
     }
   });
 
+  // ===== DAILY HABITS ROUTES =====
+  
+  app.get("/api/habits/today", requireAuth, async (req, res) => {
+    try {
+      const today = new Date();
+      const habit = await storage.getDailyHabit(req.session.userId!, today);
+      const streak = await storage.getHabitStreak(req.session.userId!);
+      res.json({ habit, streak });
+    } catch (error) {
+      res.status(500).json({ error: "Alışkanlık verileri yüklenemedi" });
+    }
+  });
+
+  app.get("/api/habits", requireAuth, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 30;
+      const habits = await storage.getDailyHabits(req.session.userId!, limit);
+      const streak = await storage.getHabitStreak(req.session.userId!);
+      res.json({ habits, streak });
+    } catch (error) {
+      res.status(500).json({ error: "Alışkanlık verileri yüklenemedi" });
+    }
+  });
+
+  app.post("/api/habits", requireAuth, async (req, res) => {
+    try {
+      const data = z.object({
+        date: z.string().optional(),
+        waterGlasses: z.number().min(0).max(20).optional(),
+        didWorkout: z.boolean().optional(),
+        sleepHours: z.number().min(0).max(24).optional(),
+        notes: z.string().optional(),
+      }).parse(req.body);
+
+      const habit = await storage.upsertDailyHabit({
+        userId: req.session.userId!,
+        date: data.date ? new Date(data.date) : new Date(),
+        waterGlasses: data.waterGlasses ?? 0,
+        didWorkout: data.didWorkout ?? false,
+        sleepHours: data.sleepHours?.toString() ?? null,
+        notes: data.notes ?? null,
+      });
+
+      const streak = await storage.getHabitStreak(req.session.userId!);
+      res.json({ habit, streak });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Alışkanlık kaydedilemedi" });
+    }
+  });
+
+  // ===== BODY MEASUREMENTS ROUTES =====
+  
+  app.get("/api/measurements", requireAuth, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 20;
+      const measurements = await storage.getBodyMeasurements(req.session.userId!, limit);
+      res.json({ measurements });
+    } catch (error) {
+      res.status(500).json({ error: "Ölçümler yüklenemedi" });
+    }
+  });
+
+  app.get("/api/measurements/latest", requireAuth, async (req, res) => {
+    try {
+      const measurement = await storage.getLatestBodyMeasurement(req.session.userId!);
+      res.json({ measurement });
+    } catch (error) {
+      res.status(500).json({ error: "Ölçüm yüklenemedi" });
+    }
+  });
+
+  app.post("/api/measurements", requireAuth, async (req, res) => {
+    try {
+      const data = z.object({
+        date: z.string().optional(),
+        weight: z.number().positive().optional(),
+        chest: z.number().positive().optional(),
+        waist: z.number().positive().optional(),
+        hips: z.number().positive().optional(),
+        arms: z.number().positive().optional(),
+        thighs: z.number().positive().optional(),
+        notes: z.string().optional(),
+      }).parse(req.body);
+
+      const measurement = await storage.createBodyMeasurement({
+        userId: req.session.userId!,
+        date: data.date ? new Date(data.date) : new Date(),
+        weight: data.weight?.toString() ?? null,
+        chest: data.chest?.toString() ?? null,
+        waist: data.waist?.toString() ?? null,
+        hips: data.hips?.toString() ?? null,
+        arms: data.arms?.toString() ?? null,
+        thighs: data.thighs?.toString() ?? null,
+        notes: data.notes ?? null,
+      });
+
+      res.json({ measurement });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Ölçüm kaydedilemedi" });
+    }
+  });
+
+  // ===== USER ACTIVE ORDER (for dashboard) =====
+  
+  app.get("/api/orders/active", requireAuth, async (req, res) => {
+    try {
+      const orders = await storage.getUserOrders(req.session.userId!);
+      const activeOrder = orders.find(o => o.status === "active" || o.status === "paid");
+      
+      if (activeOrder) {
+        const pkg = await storage.getPackage(activeOrder.packageId);
+        res.json({ order: activeOrder, package: pkg });
+      } else {
+        res.json({ order: null, package: null });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Aktif sipariş yüklenemedi" });
+    }
+  });
+
   return httpServer;
 }

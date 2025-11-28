@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { Pool, neonConfig } from "@neondatabase/serverless";
-import { eq, and, desc } from "drizzle-orm";
+import { eq, and, desc, sql } from "drizzle-orm";
 import * as schema from "@shared/schema";
 import type {
   User,
@@ -13,6 +13,10 @@ import type {
   InsertUserProgress,
   CalculatorResult,
   InsertCalculatorResult,
+  DailyHabit,
+  InsertDailyHabit,
+  BodyMeasurement,
+  InsertBodyMeasurement,
 } from "@shared/schema";
 import ws from "ws";
 
@@ -50,6 +54,17 @@ export interface IStorage {
   // Calculator Results
   saveCalculatorResult(result: InsertCalculatorResult): Promise<CalculatorResult>;
   getUserCalculatorResults(userId: string, type?: string): Promise<CalculatorResult[]>;
+
+  // Daily Habits
+  getDailyHabit(userId: string, date: Date): Promise<DailyHabit | undefined>;
+  getDailyHabits(userId: string, limit?: number): Promise<DailyHabit[]>;
+  upsertDailyHabit(habit: InsertDailyHabit): Promise<DailyHabit>;
+  getHabitStreak(userId: string): Promise<number>;
+
+  // Body Measurements
+  getBodyMeasurements(userId: string, limit?: number): Promise<BodyMeasurement[]>;
+  createBodyMeasurement(measurement: InsertBodyMeasurement): Promise<BodyMeasurement>;
+  getLatestBodyMeasurement(userId: string): Promise<BodyMeasurement | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -151,6 +166,93 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(schema.calculatorResults)
       .where(eq(schema.calculatorResults.userId, userId))
       .orderBy(desc(schema.calculatorResults.createdAt));
+  }
+
+  // DAILY HABITS
+  async getDailyHabit(userId: string, date: Date): Promise<DailyHabit | undefined> {
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const [habit] = await db.select().from(schema.dailyHabits)
+      .where(and(
+        eq(schema.dailyHabits.userId, userId),
+        and(
+          sql`${schema.dailyHabits.date} >= ${startOfDay}`,
+          sql`${schema.dailyHabits.date} <= ${endOfDay}`
+        )
+      ))
+      .limit(1);
+    return habit;
+  }
+
+  async getDailyHabits(userId: string, limit: number = 30): Promise<DailyHabit[]> {
+    return db.select().from(schema.dailyHabits)
+      .where(eq(schema.dailyHabits.userId, userId))
+      .orderBy(desc(schema.dailyHabits.date))
+      .limit(limit);
+  }
+
+  async upsertDailyHabit(habit: InsertDailyHabit): Promise<DailyHabit> {
+    const existing = await this.getDailyHabit(habit.userId, habit.date);
+    
+    if (existing) {
+      const [updated] = await db.update(schema.dailyHabits)
+        .set(habit)
+        .where(eq(schema.dailyHabits.id, existing.id))
+        .returning();
+      return updated;
+    }
+    
+    const [created] = await db.insert(schema.dailyHabits).values(habit).returning();
+    return created;
+  }
+
+  async getHabitStreak(userId: string): Promise<number> {
+    const habits = await this.getDailyHabits(userId, 365);
+    let streak = 0;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    for (let i = 0; i < 365; i++) {
+      const checkDate = new Date(today);
+      checkDate.setDate(checkDate.getDate() - i);
+      
+      const habit = habits.find(h => {
+        const habitDate = new Date(h.date);
+        habitDate.setHours(0, 0, 0, 0);
+        return habitDate.getTime() === checkDate.getTime();
+      });
+
+      if (habit && (habit.didWorkout || habit.waterGlasses >= 8)) {
+        streak++;
+      } else if (i > 0) {
+        break;
+      }
+    }
+    return streak;
+  }
+
+  // BODY MEASUREMENTS
+  async getBodyMeasurements(userId: string, limit: number = 20): Promise<BodyMeasurement[]> {
+    return db.select().from(schema.bodyMeasurements)
+      .where(eq(schema.bodyMeasurements.userId, userId))
+      .orderBy(desc(schema.bodyMeasurements.date))
+      .limit(limit);
+  }
+
+  async createBodyMeasurement(measurement: InsertBodyMeasurement): Promise<BodyMeasurement> {
+    const [created] = await db.insert(schema.bodyMeasurements).values(measurement).returning();
+    return created;
+  }
+
+  async getLatestBodyMeasurement(userId: string): Promise<BodyMeasurement | undefined> {
+    const [measurement] = await db.select().from(schema.bodyMeasurements)
+      .where(eq(schema.bodyMeasurements.userId, userId))
+      .orderBy(desc(schema.bodyMeasurements.date))
+      .limit(1);
+    return measurement;
   }
 }
 
