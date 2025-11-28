@@ -142,11 +142,6 @@ export default function Packages() {
                 }`}
               >
                 <div className="font-heading font-bold text-xl md:text-2xl uppercase relative z-10">{d.label}</div>
-                {d.discount > 0 && (
-                  <div className={`text-xs font-bold uppercase tracking-wide relative z-10 ${selectedDuration === d.weeks ? "text-black/70" : "text-green-400"}`}>
-                    %{d.discount * 100} İndirim
-                  </div>
-                )}
               </button>
             ))}
           </div>
