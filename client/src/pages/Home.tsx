@@ -50,17 +50,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] lg:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]"></div>
         </div>
 
-        <div className="container mx-auto px-4 z-10 relative h-full flex flex-col lg:flex-row lg:items-center">
-          
-          {/* 1. TEXT CONTENT */}
-          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-8 lg:pt-0 order-1 lg:order-1 lg:pr-12">
+        {/* TEXT CONTENT - In container */}
+        <div className="container mx-auto px-4 z-20 relative">
+          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-8 lg:pt-0 lg:pr-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Removed Online Koçluk Pill */}
-              
               <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4 relative">
                 Sınırları <br className="hidden lg:block" />
                 <span className="relative inline-block">
@@ -77,30 +74,27 @@ export default function Home() {
                 <Link href="/packages">
                   <Button className="w-full sm:w-auto bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-wide text-base md:text-lg h-12 md:h-14 px-8 shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)] transition-all relative overflow-hidden group">
                     <span className="relative z-10">Hemen Başla</span>
-                    {/* Shine Effect */}
                     <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
-                    {/* Continuous Pulse Glow */}
                     <div className="absolute inset-0 rounded-md animate-pulse-ring opacity-50 border-2 border-primary z-0"></div>
                   </Button>
                 </Link>
               </div>
             </motion.div>
           </div>
+        </div>
 
-          {/* 2. IMAGE - Positioned at bottom of hero section */}
-          <div className="lg:w-1/2 absolute bottom-0 right-0 lg:right-auto h-auto order-2 lg:order-2 flex items-end justify-center lg:justify-end pointer-events-none">
-             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] lg:w-[500px] lg:h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[60px] lg:blur-[100px] rounded-full opacity-60"></div>
-             
-             <motion.img 
-               initial={{ opacity: 0, scale: 0.95, y: 20 }}
-               animate={{ opacity: 1, scale: 1, y: 0 }}
-               transition={{ duration: 0.8, delay: 0.2 }}
-               src="https://www.gokalaf.com/wp-content/uploads/2025/05/53e0affa-b231-4296-b408-d66a1f4ff838-min.png" 
-               alt="Gokalaf" 
-               className="relative z-10 h-auto max-h-[55vh] lg:max-h-[100vh] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
-             />
-          </div>
-
+        {/* IMAGE - Absolute positioned to section bottom */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[5%] lg:translate-x-0 z-10 flex items-end justify-center pointer-events-none">
+           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] lg:w-[500px] lg:h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[60px] lg:blur-[100px] rounded-full opacity-60"></div>
+           
+           <motion.img 
+             initial={{ opacity: 0, scale: 0.95, y: 20 }}
+             animate={{ opacity: 1, scale: 1, y: 0 }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             src="https://www.gokalaf.com/wp-content/uploads/2025/05/53e0affa-b231-4296-b408-d66a1f4ff838-min.png" 
+             alt="Gokalaf" 
+             className="relative z-10 h-auto max-h-[60vh] lg:max-h-[95vh] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+           />
         </div>
 
         {/* Scroll Down Indicator */}
