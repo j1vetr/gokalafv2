@@ -78,22 +78,7 @@ export default function About() {
               </div>
 
               <div className="grid grid-cols-2 gap-6">
-                {[
-                  { icon: <Award />, title: "Deneyim", desc: "10+ Yıllık Tecrübe" },
-                  { icon: <User />, title: "Odak", desc: "Birebir İlgi" },
-                  { icon: <Star />, title: "Kalite", desc: "Premium Hizmet" },
-                  { icon: <Zap />, title: "Hız", desc: "Hızlı İletişim" }
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition-colors">
-                    <div className="p-2 bg-primary/10 text-primary rounded-lg shrink-0">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white uppercase text-sm mb-1">{item.title}</h4>
-                      <p className="text-gray-400 text-xs">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                
               </div>
 
               <Link href="/packages">
