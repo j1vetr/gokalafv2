@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Check, HelpCircle, Trophy, Crown, Star, Zap, TrendingUp } from "lucide-react";
+import { Check, HelpCircle, Trophy, Zap, TrendingUp } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
@@ -11,77 +10,24 @@ export default function Packages() {
   const [selectedDuration, setSelectedDuration] = useState<number>(12); // Default 12 weeks
 
   const durations = [
-    { weeks: 4, label: "4 Hafta", discount: 0 },
-    { weeks: 8, label: "8 Hafta", discount: 0.05 },
-    { weeks: 12, label: "12 Hafta", discount: 0.10 }, // 10% discount
-    { weeks: 24, label: "24 Hafta", discount: 0.15 }  // 15% discount
+    { weeks: 8, label: "8 Hafta" },
+    { weeks: 12, label: "12 Hafta" },
+    { weeks: 16, label: "16 Hafta" },
+    { weeks: 24, label: "24 Hafta" }
   ];
 
-  // Base prices for 4 weeks
-  const basePrices = {
-    starter: 3500,
-    pro: 4500, // Slightly higher base for dynamic calc
-    vip: 8000
+  const prices: Record<number, number> = {
+    8: 5950,
+    12: 7280,
+    16: 8660,
+    24: 12000
   };
 
-  const calculatePrice = (base: number, weeks: number) => {
-    const durationObj = durations.find(d => d.weeks === weeks);
-    const discount = durationObj ? durationObj.discount : 0;
-    const total = base * (weeks / 4) * (1 - discount);
-    return Math.floor(total / 100) * 100; // Round to nearest 100
-  };
-
-  const packages = [
-    { 
-      id: "starter",
-      name: "Başlangıç", 
-      icon: <Zap className="w-6 h-6" />,
-      desc: "Fitness dünyasına sağlam bir giriş.",
-      basePrice: basePrices.starter,
-      features: [
-        "Kişiye Özel Antrenman Programı", 
-        "Beslenme & Makro Rehberliği", 
-        "Haftalık Check-in (E-mail)", 
-        "Temel Video Form Analizi",
-        "WhatsApp Desteği (Mesai Saatleri)"
-      ],
-      color: "blue"
-    },
-    { 
-      id: "pro",
-      name: "Değişim", 
-      icon: <Trophy className="w-6 h-6" />,
-      desc: "Ciddi sonuçlar isteyenler için ideal.",
-      isPopular: true,
-      basePrice: basePrices.pro,
-      features: [
-        "Her Şey Dahil Kişiye Özel Program", 
-        "Detaylı Beslenme & Tarifler", 
-        "Haftalık Detaylı Video Analiz", 
-        "7/24 WhatsApp Desteği",
-        "Form Düzeltme & Teknik Analiz",
-        "Kardiyo & Supplement Planlaması",
-        "Öncelikli Soru Cevap"
-      ],
-      color: "primary"
-    },
-    { 
-      id: "vip",
-      name: "VIP Elite", 
-      icon: <Crown className="w-6 h-6" />,
-      desc: "Profesyonel sporcu disiplini.",
-      basePrice: basePrices.vip,
-      features: [
-        "Haftalık 30dk Görüntülü Görüşme", 
-        "Tamamen Dinamik Program (Anlık Revize)", 
-        "Yarışma/Fotoğraf Çekimi Hazırlığı", 
-        "7/24 Öncelikli VIP Destek",
-        "Tüm E-Kitaplara Erişim",
-        "Kan Tahlili Yorumlama",
-        "Postür Analizi"
-      ],
-      color: "gold"
-    }
+  const packageFeatures = [
+    "Kişiye ve hedeflere özel antrenman programlaması",
+    "Olduğu konum ve hedefe yönelik beslenme planlaması",
+    "Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması",
+    "Whatsapp üstünden direkt olarak “Gokalaf” ile iletişim"
   ];
 
   const faqs = [
@@ -147,91 +93,65 @@ export default function Packages() {
           </div>
         </div>
 
-        {/* PRICING CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-24">
+        {/* SINGLE PACKAGE CARD */}
+        <div className="max-w-2xl mx-auto mb-24">
           <AnimatePresence mode="wait">
-            {packages.map((pkg) => {
-              const price = calculatePrice(pkg.basePrice, selectedDuration);
-              const isVip = pkg.id === 'vip';
-              const isPro = pkg.id === 'pro';
+            <motion.div
+              key={selectedDuration}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="relative rounded-3xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_60px_rgba(204,255,0,0.1)] z-10"
+            >
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-8 py-2 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505]">
+                  Normal Plan
+                </div>
               
-              return (
-                <motion.div
-                  key={pkg.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className={`relative rounded-3xl p-1 ${
-                    pkg.isPopular 
-                      ? "bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_40px_rgba(204,255,0,0.15)] z-10 md:-translate-y-4" 
-                      : isVip 
-                        ? "bg-gradient-to-b from-yellow-500/50 via-yellow-900/10 to-transparent" 
-                        : "bg-gradient-to-b from-white/10 to-transparent"
-                  }`}
-                >
-                  {pkg.isPopular && (
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-primary/20">
-                      En Çok Tercih Edilen
-                    </div>
-                  )}
-                  
-                  <div className="bg-[#080808] rounded-[22px] h-full flex flex-col p-6 md:p-8 relative overflow-hidden">
-                    {/* Background Glow */}
-                    <div className={`absolute top-0 right-0 w-40 h-40 bg-${pkg.color === 'gold' ? 'yellow-500' : pkg.color === 'primary' ? 'primary' : 'blue-500'}/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none`}></div>
+              <div className="bg-[#080808] rounded-[22px] h-full flex flex-col p-8 md:p-12 relative overflow-hidden">
+                {/* Background Glow */}
+                <div className="absolute top-0 right-0 w-60 h-60 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                    <div className="mb-8 relative z-10">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                        pkg.isPopular ? "bg-primary text-black" : isVip ? "bg-yellow-500 text-black" : "bg-blue-500/20 text-blue-500"
-                      }`}>
-                        {pkg.icon}
-                      </div>
-                      <h3 className="text-2xl font-heading font-bold uppercase text-white">{pkg.name}</h3>
-                      <p className="text-sm text-gray-400 mt-2 min-h-[40px]">{pkg.desc}</p>
-                    </div>
-
-                    <div className="mb-8 relative z-10">
-                      <div className="flex items-end gap-2">
-                        <span className={`text-4xl md:text-5xl font-bold tracking-tight ${pkg.isPopular ? "text-primary" : isVip ? "text-yellow-400" : "text-white"}`}>
-                          ₺{price.toLocaleString('tr-TR')}
-                        </span>
-                        <span className="text-gray-500 font-medium mb-2">/ {selectedDuration} hafta</span>
-                      </div>
-                      {selectedDuration > 4 && (
-                         <div className="text-green-400 text-sm mt-2 font-bold flex items-center gap-1">
-                           <TrendingUp size={14} />
-                           Aylık sadece ₺{Math.round(price / (selectedDuration / 4)).toLocaleString('tr-TR')}
-                         </div>
-                      )}
-                    </div>
-
-                    <div className="space-y-4 flex-grow mb-8 relative z-10">
-                      {pkg.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3 text-sm text-gray-300">
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                            pkg.isPopular ? "bg-primary/20 text-primary" : isVip ? "bg-yellow-500/20 text-yellow-500" : "bg-blue-500/20 text-blue-500"
-                          }`}>
-                            <Check size={12} />
-                          </div>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link href="/contact">
-                      <Button className={`w-full h-14 text-lg font-bold uppercase tracking-wide relative z-10 ${
-                        pkg.isPopular 
-                          ? "bg-primary text-black hover:bg-primary/90 shadow-[0_0_20px_rgba(204,255,0,0.2)]" 
-                          : isVip
-                            ? "bg-yellow-500 text-black hover:bg-yellow-400 shadow-[0_0_20px_rgba(234,179,8,0.2)]"
-                            : "bg-white/10 text-white hover:bg-white hover:text-black border border-white/10"
-                      }`}>
-                        {isVip ? "Başvuru Yap" : "Planı Seç"}
-                      </Button>
-                    </Link>
+                <div className="text-center mb-10 relative z-10 border-b border-white/5 pb-8">
+                  <div className="w-20 h-20 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
+                    <Trophy size={40} />
                   </div>
-                </motion.div>
-              );
-            })}
+                  <h3 className="text-4xl font-heading font-bold uppercase text-white mb-2">Normal Plan</h3>
+                  <p className="text-gray-400">Kapsamlı Koçluk Paketi</p>
+                </div>
+
+                <div className="text-center mb-10 relative z-10">
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="text-6xl md:text-7xl font-bold tracking-tight text-white">
+                      ₺{prices[selectedDuration].toLocaleString('tr-TR')}
+                    </span>
+                  </div>
+                  <div className="text-primary text-lg mt-2 font-bold flex items-center justify-center gap-2">
+                    <TrendingUp size={18} />
+                    {selectedDuration} Haftalık Plan
+                  </div>
+                   <div className="text-gray-500 text-sm mt-2 font-medium">
+                     Aylık ortalama ₺{Math.round(prices[selectedDuration] / (selectedDuration / 4)).toLocaleString('tr-TR')}
+                   </div>
+                </div>
+
+                <div className="space-y-5 flex-grow mb-10 relative z-10 bg-white/5 p-6 rounded-2xl border border-white/5">
+                  {packageFeatures.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-4 text-base text-gray-200">
+                      <div className="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={14} />
+                      </div>
+                      <span className="leading-relaxed">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link href="/contact">
+                  <Button className="w-full h-16 text-xl font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_30px_rgba(204,255,0,0.25)] hover:shadow-[0_0_50px_rgba(204,255,0,0.4)] transition-all transform hover:-translate-y-1">
+                    Hemen Başla
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </AnimatePresence>
         </div>
 
