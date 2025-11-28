@@ -88,7 +88,7 @@ export default function Home() {
           </div>
 
           {/* 2. IMAGE */}
-          <div className="lg:w-1/2 relative h-[50vh] lg:h-screen order-2 lg:order-2 flex items-end justify-center lg:justify-end mt-8 lg:mt-0 overflow-visible pointer-events-none">
+          <div className="lg:w-1/2 absolute lg:relative bottom-0 right-0 h-[55vh] lg:h-full order-2 lg:order-2 flex items-end justify-center lg:justify-end overflow-visible pointer-events-none">
              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] lg:w-[500px] lg:h-[500px] bg-gradient-to-t from-primary/20 to-transparent blur-[60px] lg:blur-[100px] rounded-full opacity-60"></div>
              
              <motion.img 
@@ -97,7 +97,7 @@ export default function Home() {
                transition={{ duration: 0.8, delay: 0.2 }}
                src="https://www.gokalaf.com/wp-content/uploads/2025/05/53e0affa-b231-4296-b408-d66a1f4ff838-min.png" 
                alt="Gokalaf" 
-               className="relative z-10 h-full max-h-[50vh] lg:max-h-[90vh] w-auto object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+               className="relative z-10 h-auto max-h-[60vh] lg:max-h-[95vh] w-auto object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
              />
           </div>
 
