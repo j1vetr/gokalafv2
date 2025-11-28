@@ -77,6 +77,7 @@ export async function registerRoutes(
       const { password: _, ...userWithoutPassword } = user;
       res.json({ user: userWithoutPassword });
     } catch (error) {
+      console.error("Register error:", error);
       if (error instanceof z.ZodError) {
         return res.status(400).json({ error: "Geçersiz veri", details: error.errors });
       }

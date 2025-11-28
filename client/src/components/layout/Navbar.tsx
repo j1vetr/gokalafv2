@@ -10,7 +10,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const { user, isAuthenticated, isAdmin, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +66,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           {isAuthenticated ? (
             <>
-              <Link href={isAdmin ? "/admin" : "/dashboard"}>
+              <Link href="/dashboard">
                 <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs" data-testid="button-dashboard">
                   <User className="w-4 h-4 mr-2" />
                   {user?.fullName?.split(" ")[0] || "Panel"}
@@ -120,7 +120,7 @@ export function Navbar() {
               <div className="flex flex-col gap-4 mt-8">
                 {isAuthenticated ? (
                   <>
-                    <Link href={isAdmin ? "/admin" : "/dashboard"} onClick={() => setIsOpen(false)}>
+                    <Link href="/dashboard" onClick={() => setIsOpen(false)}>
                       <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
                         <User className="w-5 h-5 mr-3" /> Panelim
                       </Button>

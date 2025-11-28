@@ -47,7 +47,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (!authLoading && (!isAuthenticated || !isAdmin)) {
-      setLocation("/login");
+      setLocation("/gokadmin/login");
     }
   }, [authLoading, isAuthenticated, isAdmin, setLocation]);
 

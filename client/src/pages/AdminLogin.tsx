@@ -1,18 +1,15 @@
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { useAuth } from "@/hooks/useAuth";
-import { LogIn, Mail, Lock, AlertCircle } from "lucide-react";
+import { Shield, Mail, Lock, AlertCircle } from "lucide-react";
 
-export default function Login() {
+export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
   const [, setLocation] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,12 +18,24 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const result = await login(email, password);
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ email, password }),
+      });
       
-      if (result.success) {
-        setLocation("/dashboard");
+      const data = await res.json();
+      
+      if (res.ok) {
+        if (data.user?.role === "admin") {
+          setLocation("/gokadmin");
+        } else {
+          setError("Bu sayfa sadece yöneticiler içindir");
+          await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
+        }
       } else {
-        setError(result.error || "Giriş başarısız");
+        setError(data.error || "Giriş başarısız");
       }
     } catch (err) {
       setError("Bağlantı hatası. Lütfen tekrar deneyin.");
@@ -35,21 +44,21 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-12 bg-[#050505] flex items-center justify-center">
-      <div className="w-full max-w-md px-4">
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
-            Hoş Geldin
-          </Badge>
-          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-2 text-white">
-            Giriş <span className="text-primary">Yap</span>
+          <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/30">
+            <Shield className="w-10 h-10 text-red-400" />
+          </div>
+          <h1 className="text-3xl font-heading font-bold uppercase text-white mb-2">
+            Admin <span className="text-red-400">Girişi</span>
           </h1>
-          <p className="text-gray-400 text-sm">
-            Hesabına giriş yaparak paneline eriş
+          <p className="text-gray-500 text-sm">
+            Yönetim paneline erişmek için giriş yapın
           </p>
         </div>
 
-        <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-8">
+        <div className="bg-[#0A0A0A] border border-red-500/20 rounded-2xl p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
               <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 flex items-center gap-3 text-red-400">
@@ -66,10 +75,10 @@ export default function Login() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="ornek@email.com"
+                  placeholder="admin@gokalaf.com"
                   required
                   className="pl-12 h-12 bg-white/5 border-white/10 text-white placeholder:text-gray-600"
-                  data-testid="input-email"
+                  data-testid="input-admin-email"
                 />
               </div>
             </div>
@@ -85,7 +94,7 @@ export default function Login() {
                   placeholder="••••••••"
                   required
                   className="pl-12 h-12 bg-white/5 border-white/10 text-white placeholder:text-gray-600"
-                  data-testid="input-password"
+                  data-testid="input-admin-password"
                 />
               </div>
             </div>
@@ -93,30 +102,21 @@ export default function Login() {
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full h-12 bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase"
-              data-testid="button-login"
+              className="w-full h-12 bg-red-500 text-white hover:bg-red-600 font-heading font-bold uppercase"
+              data-testid="button-admin-login"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   Giriş Yapılıyor...
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  <LogIn size={18} /> Giriş Yap
+                  <Shield size={18} /> Yönetici Girişi
                 </span>
               )}
             </Button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-gray-500 text-sm">
-              Hesabın yok mu?{" "}
-              <Link href="/register" className="text-primary hover:underline font-medium" data-testid="link-register">
-                Kayıt Ol
-              </Link>
-            </p>
-          </div>
         </div>
       </div>
     </div>
