@@ -128,9 +128,6 @@ export default function Packages() {
                     <TrendingUp size={18} />
                     {selectedDuration} Haftalık Plan
                   </div>
-                   <div className="text-gray-500 text-sm mt-2 font-medium">
-                     Aylık ortalama ₺{Math.round(prices[selectedDuration] / (selectedDuration / 4)).toLocaleString('tr-TR')}
-                   </div>
                 </div>
 
                 <div className="space-y-5 flex-grow mb-10 relative z-10 bg-white/5 p-6 rounded-2xl border border-white/5">
