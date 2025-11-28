@@ -76,14 +76,14 @@ export default function Home() {
         </div>
 
         {/* TEXT CONTENT - In container */}
-        <div className="container mx-auto px-4 z-20 relative">
-          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-8 lg:pt-0 lg:pr-12">
+        <div className="container mx-auto px-4 z-20 relative lg:absolute lg:inset-0 lg:flex lg:items-center">
+          <div className="lg:w-1/2 relative z-30 text-center lg:text-left pt-[45vh] sm:pt-[40vh] md:pt-[35vh] lg:pt-0 lg:pr-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4 relative">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-3 lg:mb-4 relative">
                 Sınırları <br className="hidden lg:block" />
                 <span className="relative inline-block">
                   <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
@@ -91,7 +91,7 @@ export default function Home() {
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg text-gray-400 max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-6 lg:mb-8">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xs sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-4 lg:mb-8">
                 Bilimsel veriler, kişiselleştirilmiş stratejiler ve disiplinli takip sistemiyle potansiyelini açığa çıkar.
               </p>
 
