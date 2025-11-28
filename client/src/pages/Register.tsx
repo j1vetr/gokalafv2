@@ -45,7 +45,7 @@ export default function Register() {
       email: formData.email,
       password: formData.password,
       fullName: formData.fullName,
-      phone: formData.phone || undefined,
+      phone: formData.phone,
     });
 
     if (result.success) {
@@ -127,7 +127,7 @@ export default function Register() {
             </div>
 
             <div className="space-y-2">
-              <Label className="text-gray-400 uppercase tracking-wider text-xs font-bold">Telefon (Opsiyonel)</Label>
+              <Label className="text-gray-400 uppercase tracking-wider text-xs font-bold">Telefon</Label>
               <div className="relative">
                 <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                 <Input
@@ -136,6 +136,7 @@ export default function Register() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="0555 555 55 55"
+                  required
                   className="pl-12 h-12 bg-white/5 border-white/10 text-white placeholder:text-gray-600"
                   data-testid="input-phone"
                 />
