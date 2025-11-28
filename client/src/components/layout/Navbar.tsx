@@ -4,7 +4,6 @@ import { Menu, X, Dumbbell, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { LiftingAnimation } from "@/components/ui/LiftingAnimation";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,9 +38,8 @@ export function Navbar() {
             <img 
               src="https://www.gokalaf.com/wp-content/uploads/2023/02/ALAFCOACHING-FINAL-8-scaled.png" 
               alt="Gokalaf Logo" 
-              className="h-14 md:h-20 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(204,255,0,0.2)]"
+              className="h-16 md:h-24 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(204,255,0,0.2)]"
             />
-            <LiftingAnimation />
         </Link>
 
         {/* Desktop Nav */}
