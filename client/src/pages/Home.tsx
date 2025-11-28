@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, TrendingUp, Activity, Dumbbell, Calendar, Users, Star, ChevronRight, Play, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Check, TrendingUp, Activity, Dumbbell, Calendar, Users, Star, ChevronRight, Play, ShieldCheck, Zap, Trophy } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
