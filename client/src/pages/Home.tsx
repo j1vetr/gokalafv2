@@ -1,13 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity } from "lucide-react";
+import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity, ChevronLeft } from "lucide-react";
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
+
+import transformation1 from '@assets/transformations/transformation_1.jpeg';
+import transformation2 from '@assets/transformations/transformation_2.jpeg';
+import transformation3 from '@assets/transformations/transformation_3.jpeg';
+import transformation4 from '@assets/transformations/transformation_4.jpeg';
+import transformation5 from '@assets/transformations/transformation_5.jpeg';
+import transformation6 from '@assets/transformations/transformation_6.jpeg';
+import transformation7 from '@assets/transformations/transformation_7.jpeg';
+import transformation8 from '@assets/transformations/transformation_8.jpeg';
+import transformation9 from '@assets/transformations/transformation_9.jpeg';
+import transformation10 from '@assets/transformations/transformation_10.jpeg';
+
+const transformations = [
+  transformation1, transformation2, transformation3, transformation4, transformation5,
+  transformation6, transformation7, transformation8, transformation9, transformation10
+];
 
 export default function Home() {
   const ref = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [currentTransformation, setCurrentTransformation] = useState(0);
+
+  const nextTransformation = () => {
+    setCurrentTransformation((prev) => (prev + 1) % transformations.length);
+  };
+
+  const prevTransformation = () => {
+    setCurrentTransformation((prev) => (prev - 1 + transformations.length) % transformations.length);
+  };
   
   // Cycle through steps 0 -> 1 -> 2 every 2 seconds
   useEffect(() => {
@@ -189,6 +214,99 @@ export default function Home() {
                </div>
              ))}
            </div>
+        </div>
+      </section>
+
+      {/* TRANSFORMATIONS GALLERY */}
+      <section className="py-20 bg-[#050505] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
+        
+        {/* Ambient Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4 block">Gerçek Sonuçlar</span>
+              <h2 className="text-4xl md:text-6xl font-heading font-bold uppercase text-white mb-4 tracking-tighter">
+                Dönüşümler
+              </h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Danışanlarımın elde ettiği gerçek sonuçlar. Sıra sende.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Main Carousel */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevTransformation}
+              className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/50 rounded-full flex items-center justify-center transition-all group"
+              data-testid="button-prev-transformation"
+            >
+              <ChevronLeft className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
+            </button>
+            
+            <button 
+              onClick={nextTransformation}
+              className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/50 rounded-full flex items-center justify-center transition-all group"
+              data-testid="button-next-transformation"
+            >
+              <ChevronRight className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
+            </button>
+
+            {/* Main Image Display */}
+            <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+              {/* Glowing Border Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 opacity-50 pointer-events-none"></div>
+              
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentTransformation}
+                  src={transformations[currentTransformation]}
+                  alt={`Dönüşüm ${currentTransformation + 1}`}
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+              
+              {/* Counter Badge */}
+              <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
+                <span className="text-primary font-bold">{currentTransformation + 1}</span>
+                <span className="text-gray-400 mx-1">/</span>
+                <span className="text-white">{transformations.length}</span>
+              </div>
+            </div>
+
+            {/* Thumbnail Strip */}
+            <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide justify-center">
+              {transformations.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentTransformation(idx)}
+                  className={`shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                    idx === currentTransformation 
+                      ? "border-primary shadow-[0_0_15px_rgba(204,255,0,0.4)] scale-110" 
+                      : "border-white/10 opacity-50 hover:opacity-80 hover:border-white/30"
+                  }`}
+                  data-testid={`thumbnail-${idx}`}
+                >
+                  <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
