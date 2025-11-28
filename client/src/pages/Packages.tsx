@@ -33,11 +33,11 @@ export default function Packages() {
   const faqs = [
     {
       q: "Ödemeyi nasıl yapabilirim?",
-      a: "Ödemeleri Havale/EFT veya Kredi Kartı (iyzico güvencesiyle) ile peşin veya taksitli olarak yapabilirsiniz."
+      a: "Ödemeleri Kredi Kartı ile (Shopier güvencesiyle) peşin veya taksitli olarak güvenle yapabilirsiniz."
     },
     {
       q: "Programlar nasıl teslim ediliyor?",
-      a: "Kayıt sonrası size özel panelinize giriş bilgileriniz iletilir. Antrenman ve beslenme programlarınız bu panel üzerinden yönetilir. Mobil uyumludur."
+      a: "Satın alım sonrası WhatsApp üzerinden iletişime geçiyorum. Size özel panelinize giriş bilgileriniz ve program detaylarınız buradan iletilir. Antrenman ve beslenme programlarınız bu panel üzerinden yönetilir."
     },
     {
       q: "Salona gitmek zorunda mıyım?",
@@ -141,11 +141,9 @@ export default function Packages() {
                   ))}
                 </div>
 
-                <Link href="/contact">
-                  <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
-                    Hemen Başla
-                  </Button>
-                </Link>
+                <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
+                  Satın Al
+                </Button>
               </div>
             </motion.div>
           </AnimatePresence>

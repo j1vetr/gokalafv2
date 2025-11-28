@@ -36,7 +36,6 @@ export function Footer() {
               <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Hakkımda</Link></li>
               <li><Link href="/tools" className="text-muted-foreground hover:text-primary transition-colors">Ücretsiz Araçlar</Link></li>
               <li><Link href="/packages" className="text-muted-foreground hover:text-primary transition-colors">Paketler</Link></li>
-              <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">İletişim</Link></li>
             </ul>
           </div>
 
