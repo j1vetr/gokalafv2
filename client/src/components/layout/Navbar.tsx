@@ -1,14 +1,16 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, Dumbbell, User } from "lucide-react";
+import { Menu, User, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useAuth } from "@/hooks/useAuth";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,16 +64,38 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/dashboard">
-            <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs">
-              Giriş Yap
-            </Button>
-          </Link>
-          <Link href="/packages">
-            <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-6 h-10 text-sm shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1">
-              Başvuru Yap
-            </Button>
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link href={isAdmin ? "/admin" : "/dashboard"}>
+                <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs" data-testid="button-dashboard">
+                  <User className="w-4 h-4 mr-2" />
+                  {user?.fullName?.split(" ")[0] || "Panel"}
+                </Button>
+              </Link>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={logout}
+                className="text-white/50 hover:text-red-400 hover:bg-red-500/10 font-medium tracking-wide uppercase text-xs"
+                data-testid="button-logout"
+              >
+                <LogOut className="w-4 h-4" />
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs" data-testid="button-login">
+                  Giriş Yap
+                </Button>
+              </Link>
+              <Link href="/packages">
+                <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-6 h-10 text-sm shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1" data-testid="button-apply">
+                  Başvuru Yap
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Nav */}
@@ -94,16 +118,35 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col gap-4 mt-8">
-                <Link href="/dashboard" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
-                    <User className="w-5 h-5 mr-3" /> Üye Girişi
-                  </Button>
-                </Link>
-                <Link href="/packages" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-14 text-xl shadow-[0_0_20px_rgba(204,255,0,0.3)]">
-                    Hemen Başla
-                  </Button>
-                </Link>
+                {isAuthenticated ? (
+                  <>
+                    <Link href={isAdmin ? "/admin" : "/dashboard"} onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
+                        <User className="w-5 h-5 mr-3" /> Panelim
+                      </Button>
+                    </Link>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => { logout(); setIsOpen(false); }}
+                      className="w-full justify-start h-14 text-lg border-red-500/30 text-red-400 hover:bg-red-500/10 uppercase font-bold"
+                    >
+                      <LogOut className="w-5 h-5 mr-3" /> Çıkış Yap
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/login" onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
+                        <User className="w-5 h-5 mr-3" /> Giriş Yap
+                      </Button>
+                    </Link>
+                    <Link href="/packages" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-14 text-xl shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                        Hemen Başla
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </SheetContent>

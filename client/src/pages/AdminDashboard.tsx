@@ -1,163 +1,343 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { 
-  LayoutDashboard, 
-  Package, 
-  Users, 
-  DollarSign, 
-  FileText,
-  Plus,
-  Search,
-  MoreHorizontal
-} from "lucide-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useAuth } from "@/hooks/useAuth";
+import { Package, Users, DollarSign, LogOut, Search, Clock, CheckCircle, XCircle } from "lucide-react";
+
+interface User {
+  id: string;
+  email: string;
+  fullName: string;
+  phone?: string;
+  role: string;
+  createdAt: string;
+}
+
+interface Order {
+  id: string;
+  userId: string;
+  packageId: string;
+  totalPrice: string;
+  status: string;
+  createdAt: string;
+}
+
+interface PackageInfo {
+  id: string;
+  name: string;
+  weeks: number;
+  price: string;
+  isActive: boolean;
+}
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState("packages");
+  const { user, isAuthenticated, isAdmin, isLoading: authLoading, logout } = useAuth();
+  const [, setLocation] = useLocation();
+  const [activeTab, setActiveTab] = useState("orders");
+  const [users, setUsers] = useState<User[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [packages, setPackages] = useState<PackageInfo[]>([]);
+  const [userMap, setUserMap] = useState<Record<string, User>>({});
+  const [packageMap, setPackageMap] = useState<Record<string, PackageInfo>>({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const SidebarItem = ({ id, icon: Icon, label }: { id: string, icon: any, label: string }) => (
+  useEffect(() => {
+    if (!authLoading && (!isAuthenticated || !isAdmin)) {
+      setLocation("/login");
+    }
+  }, [authLoading, isAuthenticated, isAdmin, setLocation]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [usersRes, ordersRes, packagesRes] = await Promise.all([
+          fetch("/api/admin/users", { credentials: "include" }),
+          fetch("/api/admin/orders", { credentials: "include" }),
+          fetch("/api/admin/packages", { credentials: "include" }),
+        ]);
+        
+        if (usersRes.ok) {
+          const data = await usersRes.json();
+          setUsers(data.users || []);
+          const map: Record<string, User> = {};
+          (data.users || []).forEach((u: User) => { map[u.id] = u; });
+          setUserMap(map);
+        }
+        
+        if (ordersRes.ok) {
+          const data = await ordersRes.json();
+          setOrders(data.orders || []);
+        }
+        
+        if (packagesRes.ok) {
+          const data = await packagesRes.json();
+          setPackages(data.packages || []);
+          const map: Record<string, PackageInfo> = {};
+          (data.packages || []).forEach((p: PackageInfo) => { map[p.id] = p; });
+          setPackageMap(map);
+        }
+      } catch (error) {
+        console.error("Veri yüklenemedi:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    if (isAuthenticated && isAdmin) {
+      fetchData();
+    }
+  }, [isAuthenticated, isAdmin]);
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case "pending":
+        return <Badge className="bg-yellow-500/20 text-yellow-400"><Clock size={12} className="mr-1" /> Bekliyor</Badge>;
+      case "paid":
+        return <Badge className="bg-blue-500/20 text-blue-400"><CheckCircle size={12} className="mr-1" /> Ödendi</Badge>;
+      case "active":
+        return <Badge className="bg-green-500/20 text-green-400"><CheckCircle size={12} className="mr-1" /> Aktif</Badge>;
+      case "completed":
+        return <Badge className="bg-gray-500/20 text-gray-400"><CheckCircle size={12} className="mr-1" /> Bitti</Badge>;
+      case "cancelled":
+        return <Badge className="bg-red-500/20 text-red-400"><XCircle size={12} className="mr-1" /> İptal</Badge>;
+      default:
+        return <Badge>{status}</Badge>;
+    }
+  };
+
+  const filteredUsers = users.filter(u => 
+    u.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    u.email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const totalRevenue = orders
+    .filter(o => o.status !== "cancelled" && o.status !== "pending")
+    .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+
+  if (authLoading || isLoading) {
+    return (
+      <div className="min-h-screen pt-32 pb-12 bg-[#050505] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  const SidebarItem = ({ id, icon: Icon, label, count }: { id: string, icon: any, label: string, count?: number }) => (
     <button
       onClick={() => setActiveTab(id)}
-      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-sm font-bold uppercase tracking-wide ${
+      className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-sm font-bold uppercase tracking-wide ${
         activeTab === id 
-          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
-          : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+          ? "bg-primary text-black" 
+          : "text-gray-400 hover:bg-white/5 hover:text-white"
       }`}
     >
-      <Icon size={18} />
-      {label}
+      <span className="flex items-center gap-3">
+        <Icon size={18} />
+        {label}
+      </span>
+      {count !== undefined && (
+        <span className={`text-xs px-2 py-0.5 rounded-full ${activeTab === id ? "bg-black/20" : "bg-white/10"}`}>
+          {count}
+        </span>
+      )}
     </button>
   );
 
   return (
-    <div className="min-h-screen bg-background pt-20 pb-12 flex flex-col md:flex-row container mx-auto gap-8">
-      {/* Sidebar */}
-      <aside className="w-full md:w-64 shrink-0 space-y-6">
-        <div className="flex items-center gap-4 px-4 mb-6">
-          <div className="w-12 h-12 rounded-full bg-destructive/20 border border-destructive text-destructive flex items-center justify-center font-bold text-xl">
-            AD
-          </div>
-          <div>
-            <h3 className="font-bold font-heading text-lg">Yönetim Paneli</h3>
-            <p className="text-xs text-muted-foreground uppercase">Admin</p>
-          </div>
-        </div>
+    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-64 shrink-0">
+            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-4 sticky top-28">
+              <div className="flex items-center gap-3 px-2 mb-6 pb-4 border-b border-white/10">
+                <div className="w-10 h-10 rounded-full bg-red-500/20 border border-red-500/50 text-red-400 flex items-center justify-center font-bold">
+                  A
+                </div>
+                <div>
+                  <h3 className="font-bold text-white text-sm">Admin Panel</h3>
+                  <p className="text-xs text-gray-500">{user?.email}</p>
+                </div>
+              </div>
 
-        <nav className="space-y-2">
-          <SidebarItem id="packages" icon={Package} label="Paketler" />
-          <SidebarItem id="users" icon={Users} label="Kullanıcılar" />
-          <SidebarItem id="sales" icon={DollarSign} label="Satışlar" />
-          <SidebarItem id="content" icon={FileText} label="İçerik / S.S.S" />
-        </nav>
-      </aside>
+              <nav className="space-y-2">
+                <SidebarItem id="orders" icon={DollarSign} label="Siparişler" count={orders.length} />
+                <SidebarItem id="users" icon={Users} label="Kullanıcılar" count={users.length} />
+                <SidebarItem id="packages" icon={Package} label="Paketler" count={packages.length} />
+              </nav>
 
-      {/* Main Content */}
-      <main className="flex-1 min-h-[600px] bg-card/30 rounded-xl border border-white/5 p-6">
-        
-        {activeTab === "packages" && (
-          <div className="space-y-6 animate-in fade-in">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-heading font-bold uppercase">Paket Yönetimi</h2>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 uppercase font-bold">
-                <Plus className="w-4 h-4 mr-2" /> Yeni Paket Ekle
-              </Button>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Button 
+                  variant="ghost" 
+                  onClick={logout}
+                  className="w-full justify-start text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                >
+                  <LogOut size={16} className="mr-2" /> Çıkış Yap
+                </Button>
+              </div>
             </div>
+          </aside>
 
-            <div className="rounded-md border border-white/10 overflow-hidden">
-              <Table>
-                <TableHeader className="bg-white/5">
-                  <TableRow className="hover:bg-white/5 border-white/10">
-                    <TableHead className="text-primary font-bold uppercase">Paket Adı</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Süre</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Fiyat</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Durum</TableHead>
-                    <TableHead className="text-right text-primary font-bold uppercase">İşlem</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[
-                    { name: "Başlangıç Paketi", duration: "4 Hafta", price: "3.500 ₺", status: "Aktif" },
-                    { name: "Değişim Paketi", duration: "12 Hafta", price: "9.000 ₺", status: "Aktif" },
-                    { name: "VIP Koçluk", duration: "24 Hafta", price: "16.000 ₺", status: "Aktif" },
-                    { name: "Yaz Kampı", duration: "8 Hafta", price: "7.000 ₺", status: "Pasif" },
-                  ].map((pkg, i) => (
-                    <TableRow key={i} className="hover:bg-white/5 border-white/10">
-                      <TableCell className="font-medium">{pkg.name}</TableCell>
-                      <TableCell>{pkg.duration}</TableCell>
-                      <TableCell>{pkg.price}</TableCell>
-                      <TableCell>
-                        <Badge variant={pkg.status === "Aktif" ? "default" : "secondary"} className={pkg.status === "Aktif" ? "bg-green-500/20 text-green-500 hover:bg-green-500/30" : ""}>
-                          {pkg.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button variant="ghost" size="icon"><MoreHorizontal className="w-4 h-4" /></Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "users" && (
-          <div className="space-y-6 animate-in fade-in">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-heading font-bold uppercase">Danışanlar</h2>
-              <div className="relative w-64">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Danışan Ara..." className="pl-8 bg-background/50 border-white/10" />
+          {/* Main Content */}
+          <main className="flex-1">
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <DollarSign className="text-green-400" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-gray-500 text-xs uppercase">Toplam Gelir</p>
+                    <p className="text-xl font-bold text-white">₺{totalRevenue.toLocaleString("tr-TR")}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <Users className="text-blue-400" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-gray-500 text-xs uppercase">Kullanıcılar</p>
+                    <p className="text-xl font-bold text-white">{users.length}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Package className="text-primary" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-gray-500 text-xs uppercase">Aktif Siparişler</p>
+                    <p className="text-xl font-bold text-white">{orders.filter(o => o.status === "active").length}</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-md border border-white/10 overflow-hidden">
-              <Table>
-                <TableHeader className="bg-white/5">
-                  <TableRow className="hover:bg-white/5 border-white/10">
-                    <TableHead className="text-primary font-bold uppercase">Ad Soyad</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Aktif Paket</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Başlangıç</TableHead>
-                    <TableHead className="text-primary font-bold uppercase">Durum</TableHead>
-                    <TableHead className="text-right text-primary font-bold uppercase">Detay</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[
-                    { name: "Ahmet Yılmaz", plan: "Değişim Paketi", start: "10.05.2025", status: "Aktif" },
-                    { name: "Ayşe Demir", plan: "Başlangıç Paketi", start: "12.05.2025", status: "Aktif" },
-                    { name: "Mehmet Kaya", plan: "VIP Koçluk", start: "01.04.2025", status: "Aktif" },
-                    { name: "Zeynep Çelik", plan: "-", start: "-", status: "Pasif" },
-                  ].map((user, i) => (
-                    <TableRow key={i} className="hover:bg-white/5 border-white/10">
-                      <TableCell className="font-medium">{user.name}</TableCell>
-                      <TableCell>{user.plan}</TableCell>
-                      <TableCell>{user.start}</TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className={user.status === "Aktif" ? "border-green-500 text-green-500" : "border-muted text-muted-foreground"}>
-                          {user.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button size="sm" variant="outline" className="h-8">Görüntüle</Button>
-                      </TableCell>
+            {/* Orders Tab */}
+            {activeTab === "orders" && (
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden">
+                <div className="p-6 border-b border-white/10">
+                  <h2 className="text-xl font-heading font-bold uppercase text-white">Siparişler</h2>
+                </div>
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-white/10 hover:bg-transparent">
+                      <TableHead className="text-primary">Kullanıcı</TableHead>
+                      <TableHead className="text-primary">Paket</TableHead>
+                      <TableHead className="text-primary">Tutar</TableHead>
+                      <TableHead className="text-primary">Durum</TableHead>
+                      <TableHead className="text-primary">Tarih</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        )}
+                  </TableHeader>
+                  <TableBody>
+                    {orders.map((order) => (
+                      <TableRow key={order.id} className="border-white/10 hover:bg-white/5">
+                        <TableCell className="text-white">{userMap[order.userId]?.fullName || "-"}</TableCell>
+                        <TableCell className="text-gray-400">{packageMap[order.packageId]?.name || "-"}</TableCell>
+                        <TableCell className="text-white font-medium">₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}</TableCell>
+                        <TableCell>{getStatusBadge(order.status)}</TableCell>
+                        <TableCell className="text-gray-500">{new Date(order.createdAt).toLocaleDateString("tr-TR")}</TableCell>
+                      </TableRow>
+                    ))}
+                    {orders.length === 0 && (
+                      <TableRow>
+                        <TableCell colSpan={5} className="text-center py-8 text-gray-500">
+                          Henüz sipariş bulunmuyor
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
 
-        {(activeTab !== "packages" && activeTab !== "users") && (
-          <div className="flex flex-col items-center justify-center h-[400px] text-muted-foreground">
-            <p>Bu panel tasarımı hazırlanmaktadır.</p>
-          </div>
-        )}
-      </main>
+            {/* Users Tab */}
+            {activeTab === "users" && (
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden">
+                <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                  <h2 className="text-xl font-heading font-bold uppercase text-white">Kullanıcılar</h2>
+                  <div className="relative w-64">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
+                    <Input 
+                      placeholder="Ara..." 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10 bg-white/5 border-white/10"
+                    />
+                  </div>
+                </div>
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-white/10 hover:bg-transparent">
+                      <TableHead className="text-primary">Ad Soyad</TableHead>
+                      <TableHead className="text-primary">Email</TableHead>
+                      <TableHead className="text-primary">Telefon</TableHead>
+                      <TableHead className="text-primary">Rol</TableHead>
+                      <TableHead className="text-primary">Kayıt Tarihi</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredUsers.map((u) => (
+                      <TableRow key={u.id} className="border-white/10 hover:bg-white/5">
+                        <TableCell className="text-white font-medium">{u.fullName}</TableCell>
+                        <TableCell className="text-gray-400">{u.email}</TableCell>
+                        <TableCell className="text-gray-400">{u.phone || "-"}</TableCell>
+                        <TableCell>
+                          <Badge className={u.role === "admin" ? "bg-red-500/20 text-red-400" : "bg-blue-500/20 text-blue-400"}>
+                            {u.role === "admin" ? "Admin" : "Kullanıcı"}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-gray-500">{new Date(u.createdAt).toLocaleDateString("tr-TR")}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+
+            {/* Packages Tab */}
+            {activeTab === "packages" && (
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden">
+                <div className="p-6 border-b border-white/10">
+                  <h2 className="text-xl font-heading font-bold uppercase text-white">Paketler</h2>
+                </div>
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-white/10 hover:bg-transparent">
+                      <TableHead className="text-primary">Paket Adı</TableHead>
+                      <TableHead className="text-primary">Süre</TableHead>
+                      <TableHead className="text-primary">Fiyat</TableHead>
+                      <TableHead className="text-primary">Durum</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {packages.map((pkg) => (
+                      <TableRow key={pkg.id} className="border-white/10 hover:bg-white/5">
+                        <TableCell className="text-white font-medium">{pkg.name}</TableCell>
+                        <TableCell className="text-gray-400">{pkg.weeks} Hafta</TableCell>
+                        <TableCell className="text-white">₺{parseFloat(pkg.price).toLocaleString("tr-TR")}</TableCell>
+                        <TableCell>
+                          <Badge className={pkg.isActive ? "bg-green-500/20 text-green-400" : "bg-gray-500/20 text-gray-400"}>
+                            {pkg.isActive ? "Aktif" : "Pasif"}
+                          </Badge>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </main>
+        </div>
+      </div>
     </div>
   );
 }

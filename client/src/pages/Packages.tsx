@@ -141,9 +141,11 @@ export default function Packages() {
                   ))}
                 </div>
 
-                <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1">
-                  Satın Al
-                </Button>
+                <Link href={`/checkout?weeks=${selectedDuration}`}>
+                  <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1" data-testid="button-buy">
+                    Satın Al
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
