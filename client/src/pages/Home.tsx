@@ -93,7 +93,7 @@ export default function Home() {
              transition={{ duration: 0.8, delay: 0.2 }}
              src="https://www.gokalaf.com/wp-content/uploads/2025/05/53e0affa-b231-4296-b408-d66a1f4ff838-min.png" 
              alt="Gokalaf" 
-             className="relative z-10 h-auto max-h-[60vh] lg:max-h-[95vh] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+             className="relative z-10 h-auto max-h-[85vh] lg:max-h-[100vh] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
            />
         </div>
 
