@@ -1,38 +1,154 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
+import { drizzle } from "drizzle-orm/neon-serverless";
+import { Pool } from "@neondatabase/serverless";
+import { eq, and, desc } from "drizzle-orm";
+import * as schema from "@shared/schema";
+import type {
+  User,
+  InsertUser,
+  Package,
+  InsertPackage,
+  Order,
+  InsertOrder,
+  UserProgress,
+  InsertUserProgress,
+  CalculatorResult,
+  InsertCalculatorResult,
+} from "@shared/schema";
 
-// modify the interface with any CRUD methods
-// you might need
+const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+const db = drizzle({ client: pool, schema });
 
 export interface IStorage {
+  // Users
   getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  updateUser(id: string, updates: Partial<InsertUser>): Promise<User | undefined>;
+  getAllUsers(): Promise<User[]>;
+
+  // Packages
+  getPackage(id: string): Promise<Package | undefined>;
+  getAllPackages(): Promise<Package[]>;
+  getActivePackages(): Promise<Package[]>;
+  createPackage(pkg: InsertPackage): Promise<Package>;
+  updatePackage(id: string, updates: Partial<InsertPackage>): Promise<Package | undefined>;
+
+  // Orders
+  getOrder(id: string): Promise<Order | undefined>;
+  getUserOrders(userId: string): Promise<Order[]>;
+  getAllOrders(): Promise<Order[]>;
+  createOrder(order: InsertOrder): Promise<Order>;
+  updateOrder(id: string, updates: Partial<InsertOrder>): Promise<Order | undefined>;
+
+  // User Progress
+  getUserProgressByOrder(orderId: string): Promise<UserProgress[]>;
+  createProgress(progress: InsertUserProgress): Promise<UserProgress>;
+
+  // Calculator Results
+  saveCalculatorResult(result: InsertCalculatorResult): Promise<CalculatorResult>;
+  getUserCalculatorResults(userId: string, type?: string): Promise<CalculatorResult[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
-  }
-
+export class DatabaseStorage implements IStorage {
+  // USERS
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(schema.users).where(eq(schema.users.id, id)).limit(1);
+    return user;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(schema.users).where(eq(schema.users.email, email)).limit(1);
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db.insert(schema.users).values(insertUser).returning();
     return user;
+  }
+
+  async updateUser(id: string, updates: Partial<InsertUser>): Promise<User | undefined> {
+    const [user] = await db.update(schema.users).set(updates).where(eq(schema.users.id, id)).returning();
+    return user;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return db.select().from(schema.users).orderBy(desc(schema.users.createdAt));
+  }
+
+  // PACKAGES
+  async getPackage(id: string): Promise<Package | undefined> {
+    const [pkg] = await db.select().from(schema.packages).where(eq(schema.packages.id, id)).limit(1);
+    return pkg;
+  }
+
+  async getAllPackages(): Promise<Package[]> {
+    return db.select().from(schema.packages).orderBy(schema.packages.weeks);
+  }
+
+  async getActivePackages(): Promise<Package[]> {
+    return db.select().from(schema.packages).where(eq(schema.packages.isActive, true)).orderBy(schema.packages.weeks);
+  }
+
+  async createPackage(insertPackage: InsertPackage): Promise<Package> {
+    const [pkg] = await db.insert(schema.packages).values(insertPackage).returning();
+    return pkg;
+  }
+
+  async updatePackage(id: string, updates: Partial<InsertPackage>): Promise<Package | undefined> {
+    const [pkg] = await db.update(schema.packages).set(updates).where(eq(schema.packages.id, id)).returning();
+    return pkg;
+  }
+
+  // ORDERS
+  async getOrder(id: string): Promise<Order | undefined> {
+    const [order] = await db.select().from(schema.orders).where(eq(schema.orders.id, id)).limit(1);
+    return order;
+  }
+
+  async getUserOrders(userId: string): Promise<Order[]> {
+    return db.select().from(schema.orders).where(eq(schema.orders.userId, userId)).orderBy(desc(schema.orders.createdAt));
+  }
+
+  async getAllOrders(): Promise<Order[]> {
+    return db.select().from(schema.orders).orderBy(desc(schema.orders.createdAt));
+  }
+
+  async createOrder(insertOrder: InsertOrder): Promise<Order> {
+    const [order] = await db.insert(schema.orders).values(insertOrder).returning();
+    return order;
+  }
+
+  async updateOrder(id: string, updates: Partial<InsertOrder>): Promise<Order | undefined> {
+    const [order] = await db.update(schema.orders).set(updates).where(eq(schema.orders.id, id)).returning();
+    return order;
+  }
+
+  // USER PROGRESS
+  async getUserProgressByOrder(orderId: string): Promise<UserProgress[]> {
+    return db.select().from(schema.userProgress).where(eq(schema.userProgress.orderId, orderId)).orderBy(schema.userProgress.week);
+  }
+
+  async createProgress(insertProgress: InsertUserProgress): Promise<UserProgress> {
+    const [progress] = await db.insert(schema.userProgress).values(insertProgress).returning();
+    return progress;
+  }
+
+  // CALCULATOR RESULTS
+  async saveCalculatorResult(insertResult: InsertCalculatorResult): Promise<CalculatorResult> {
+    const [result] = await db.insert(schema.calculatorResults).values(insertResult).returning();
+    return result;
+  }
+
+  async getUserCalculatorResults(userId: string, type?: string): Promise<CalculatorResult[]> {
+    if (type) {
+      return db.select().from(schema.calculatorResults)
+        .where(and(eq(schema.calculatorResults.userId, userId), eq(schema.calculatorResults.calculatorType, type)))
+        .orderBy(desc(schema.calculatorResults.createdAt));
+    }
+    return db.select().from(schema.calculatorResults)
+      .where(eq(schema.calculatorResults.userId, userId))
+      .orderBy(desc(schema.calculatorResults.createdAt));
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
