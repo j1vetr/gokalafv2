@@ -42,6 +42,14 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Auto-slide transformations every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTransformation((prev) => (prev + 1) % transformations.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -298,12 +306,12 @@ export default function Home() {
             </div>
 
             {/* Thumbnail Strip */}
-            <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide justify-center">
+            <div className="mt-6 flex gap-2 justify-center flex-wrap">
               {transformations.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentTransformation(idx)}
-                  className={`shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  className={`shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     idx === currentTransformation 
                       ? "border-primary shadow-[0_0_15px_rgba(204,255,0,0.4)] scale-110" 
                       : "border-white/10 opacity-50 hover:opacity-80 hover:border-white/30"
