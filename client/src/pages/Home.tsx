@@ -126,21 +126,32 @@ export default function Home() {
                }
              ].map((item, i) => (
                <div key={i} className="relative z-10 group">
-                 <div className="bg-[#0A0A0A] border border-white/10 p-8 rounded-3xl hover:border-primary/50 transition-all duration-500 h-full relative overflow-hidden hover:-translate-y-2 shadow-2xl">
-                   {/* Background Gradient on Hover */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                 <div className="bg-[#0A0A0A] border border-white/10 p-8 rounded-3xl transition-all duration-500 h-full relative overflow-hidden hover:-translate-y-2 shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,255,0,0.15)]">
                    
-                   <div className="flex justify-between items-start mb-8 relative">
-                     <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                       {item.icon}
-                     </div>
-                     <span className="text-6xl font-heading font-bold text-white/5 group-hover:text-primary/20 transition-colors select-none">{item.step}</span>
+                   {/* Animated Border Gradient */}
+                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                     <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_90deg,#ccff00_180deg,transparent_270deg,transparent_360deg)] animate-spin-slow-linear" style={{ animationDuration: '4s' }}></div>
                    </div>
                    
-                   <h3 className="text-2xl font-heading font-bold uppercase text-white mb-4 group-hover:text-primary transition-colors relative">{item.title}</h3>
-                   <p className="text-gray-400 leading-relaxed relative">
-                     {item.desc}
-                   </p>
+                   {/* Inner Content Background to cover the spinning border center */}
+                   <div className="absolute inset-[1px] bg-[#0A0A0A] rounded-[23px] z-0"></div>
+
+                   {/* Background Gradient on Hover (Inner) */}
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                   
+                   <div className="relative z-20">
+                     <div className="flex justify-between items-start mb-8 relative">
+                       <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors duration-300 shadow-lg group-hover:shadow-primary/20">
+                         {item.icon}
+                       </div>
+                       <span className="text-6xl font-heading font-bold text-white/5 group-hover:text-primary/20 transition-colors select-none">{item.step}</span>
+                     </div>
+                     
+                     <h3 className="text-2xl font-heading font-bold uppercase text-white mb-4 group-hover:text-primary transition-colors relative">{item.title}</h3>
+                     <p className="text-gray-400 leading-relaxed relative">
+                       {item.desc}
+                     </p>
+                   </div>
                  </div>
                </div>
              ))}
