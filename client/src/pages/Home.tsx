@@ -46,9 +46,12 @@ export default function Home() {
             >
               {/* Removed Online Koçluk Pill */}
               
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl mb-4 relative">
                 Sınırları <br className="hidden lg:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow">Yok Et</span>
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow animate-gradient-x bg-[length:200%_auto] relative z-10">Yok Et</span>
+                </span>
               </h1>
               
               <p className="text-base sm:text-lg text-gray-400 max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-6 lg:mb-8">
@@ -57,8 +60,12 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
                 <Link href="/packages">
-                  <Button className="w-full sm:w-auto bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-wide text-base md:text-lg h-12 md:h-14 px-8 shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)] transition-all">
-                    Hemen Başla
+                  <Button className="w-full sm:w-auto bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-wide text-base md:text-lg h-12 md:h-14 px-8 shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)] transition-all relative overflow-hidden group">
+                    <span className="relative z-10">Hemen Başla</span>
+                    {/* Shine Effect */}
+                    <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+                    {/* Continuous Pulse Glow */}
+                    <div className="absolute inset-0 rounded-md animate-pulse-ring opacity-50 border-2 border-primary z-0"></div>
                   </Button>
                 </Link>
               </div>
