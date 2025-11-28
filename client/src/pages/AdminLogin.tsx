@@ -29,7 +29,8 @@ export default function AdminLogin() {
       
       if (res.ok) {
         if (data.user?.role === "admin") {
-          setLocation("/gokadmin");
+          window.location.href = "/gokadmin";
+          return;
         } else {
           setError("Bu sayfa sadece yöneticiler içindir");
           await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
