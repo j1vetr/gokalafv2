@@ -12,6 +12,10 @@ import Tools from "@/pages/Tools";
 import Packages from "@/pages/Packages";
 import UserDashboard from "@/pages/UserDashboard";
 import AdminDashboard from "@/pages/AdminDashboard";
+import BMICalculator from "@/pages/calculators/BMICalculator";
+import CalorieCalculator from "@/pages/calculators/CalorieCalculator";
+import TDEECalculator from "@/pages/calculators/TDEECalculator";
+import MacroCalculator from "@/pages/calculators/MacroCalculator";
 import NotFound from "@/pages/not-found";
 
 function App() {
@@ -25,6 +29,10 @@ function App() {
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/tools" component={Tools} />
+            <Route path="/tools/bmi" component={BMICalculator} />
+            <Route path="/tools/calories" component={CalorieCalculator} />
+            <Route path="/tools/tdee" component={TDEECalculator} />
+            <Route path="/tools/macros" component={MacroCalculator} />
             <Route path="/packages" component={Packages} />
             <Route path="/dashboard" component={UserDashboard} />
             <Route path="/admin" component={AdminDashboard} />
