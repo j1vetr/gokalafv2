@@ -23,7 +23,6 @@ export function Navbar() {
     { name: "Hakkımda", href: "/about" },
     { name: "Araçlar", href: "/tools" },
     { name: "Paketler", href: "/packages" },
-    { name: "İletişim", href: "/contact" },
   ];
 
   return (

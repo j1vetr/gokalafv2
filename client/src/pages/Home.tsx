@@ -61,11 +61,6 @@ export default function Home() {
                     Hemen Başla
                   </Button>
                 </Link>
-                <Link href="/contact">
-                  <Button variant="outline" className="w-full sm:w-auto border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white text-base md:text-lg h-12 md:h-14 px-8 uppercase font-bold">
-                    İletişime Geç
-                  </Button>
-                </Link>
               </div>
             </motion.div>
           </div>

@@ -9,7 +9,6 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Tools from "@/pages/Tools";
 import Packages from "@/pages/Packages";
-import Contact from "@/pages/Contact";
 import UserDashboard from "@/pages/UserDashboard";
 import AdminDashboard from "@/pages/AdminDashboard";
 import NotFound from "@/pages/not-found";
@@ -25,7 +24,6 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/tools" component={Tools} />
             <Route path="/packages" component={Packages} />
-            <Route path="/contact" component={Contact} />
             <Route path="/dashboard" component={UserDashboard} />
             <Route path="/admin" component={AdminDashboard} />
             <Route component={NotFound} />

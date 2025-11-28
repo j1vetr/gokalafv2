@@ -96,7 +96,7 @@ export default function About() {
                 ))}
               </div>
 
-              <Link href="/contact">
+              <Link href="/packages">
                 <Button className="h-14 px-8 text-lg font-bold uppercase bg-white text-black hover:bg-gray-200 rounded-none">
                   Benimle Çalış <ArrowRight className="ml-2" />
                 </Button>
