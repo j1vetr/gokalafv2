@@ -9,7 +9,7 @@ export default function About() {
     <div className="min-h-screen bg-[#050505]">
       
       {/* IMMERSIVE HERO */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0024-scaled-1.jpg" 
@@ -38,7 +38,7 @@ export default function About() {
       </section>
 
       {/* BIO & STATS SECTION */}
-      <section className="py-20 bg-[#050505]">
+      <section className="pt-8 pb-20 bg-[#050505]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -50,7 +50,7 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                 <div className="absolute bottom-8 left-8">
-                   <div className="text-white text-2xl font-bold uppercase mb-1">Gökhan Kalafatoğlu</div>
+                   <div className="text-white text-2xl font-bold uppercase mb-1">Göktuğ Alaf</div>
                    <div className="text-primary font-medium uppercase tracking-wider text-sm">Head Coach & Founder</div>
                 </div>
               </div>
