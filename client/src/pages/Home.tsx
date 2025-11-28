@@ -2,10 +2,20 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
   const ref = useRef(null);
+  const [activeStep, setActiveStep] = useState(0);
+  
+  // Cycle through steps 0 -> 1 -> 2 every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 3);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -125,29 +135,41 @@ export default function Home() {
                  desc: "Vücudunun verdiği tepkilere göre program revize edilir. Plato çizmeden, sürekli gelişim ve hedefe ulaşım sağlanır." 
                }
              ].map((item, i) => (
-               <div key={i} className="relative z-10 group">
-                 <div className="bg-[#0A0A0A] border border-white/10 p-8 rounded-3xl transition-all duration-500 h-full relative overflow-hidden hover:-translate-y-2 shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,255,0,0.15)]">
+               <div key={i} className="relative z-10">
+                 <div className={`bg-[#0A0A0A] border p-8 rounded-3xl transition-all duration-700 h-full relative overflow-hidden shadow-2xl ${
+                   i === activeStep 
+                     ? "border-primary/50 -translate-y-4 shadow-[0_0_40px_rgba(204,255,0,0.2)]" 
+                     : "border-white/10"
+                 }`}>
                    
-                   {/* Animated Border Gradient */}
-                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                     <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_90deg,#ccff00_180deg,transparent_270deg,transparent_360deg)] animate-spin-slow-linear" style={{ animationDuration: '4s' }}></div>
+                   {/* Animated Border Gradient - Active State */}
+                   <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${i === activeStep ? "opacity-100" : "opacity-0"}`}>
+                     <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_90deg,#ccff00_180deg,transparent_270deg,transparent_360deg)] animate-spin-slow-linear" style={{ animationDuration: '3s' }}></div>
                    </div>
                    
-                   {/* Inner Content Background to cover the spinning border center */}
+                   {/* Inner Content Background */}
                    <div className="absolute inset-[1px] bg-[#0A0A0A] rounded-[23px] z-0"></div>
 
-                   {/* Background Gradient on Hover (Inner) */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                   {/* Background Gradient - Active State (Inner) */}
+                   <div className={`absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent transition-opacity duration-700 z-10 ${i === activeStep ? "opacity-100" : "opacity-0"}`}></div>
                    
                    <div className="relative z-20">
                      <div className="flex justify-between items-start mb-8 relative">
-                       <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors duration-300 shadow-lg group-hover:shadow-primary/20">
+                       <div className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-700 shadow-lg ${
+                         i === activeStep 
+                           ? "bg-primary text-black shadow-primary/30 scale-110" 
+                           : "bg-white/5 text-white"
+                       }`}>
                          {item.icon}
                        </div>
-                       <span className="text-6xl font-heading font-bold text-white/5 group-hover:text-primary/20 transition-colors select-none">{item.step}</span>
+                       <span className={`text-6xl font-heading font-bold transition-colors duration-700 select-none ${
+                         i === activeStep ? "text-primary/20" : "text-white/5"
+                       }`}>{item.step}</span>
                      </div>
                      
-                     <h3 className="text-2xl font-heading font-bold uppercase text-white mb-4 group-hover:text-primary transition-colors relative">{item.title}</h3>
+                     <h3 className={`text-2xl font-heading font-bold uppercase mb-4 transition-colors duration-700 relative ${
+                       i === activeStep ? "text-primary" : "text-white"
+                     }`}>{item.title}</h3>
                      <p className="text-gray-400 leading-relaxed relative">
                        {item.desc}
                      </p>
