@@ -3,6 +3,7 @@ import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import generatedVideo from '@assets/generated_videos/dark_cinematic_gym_background_with_neon_green_accents.mp4';
 
 export default function Home() {
   const ref = useRef(null);
@@ -29,8 +30,22 @@ export default function Home() {
         {/* Dynamic Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[#050505]"></div>
-          <div className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] lg:w-[50vw] lg:h-[50vw] bg-primary/15 rounded-full blur-[100px]"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] lg:w-[40vw] lg:h-[40vw] bg-primary/5 rounded-full blur-[120px]"></div>
+          
+          {/* Video Background */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen grayscale-[50%]"
+          >
+            <source src={generatedVideo} type="video/mp4" />
+          </video>
+
+          {/* Overlays for blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50"></div>
+          
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay"></div>
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] lg:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]"></div>
         </div>
