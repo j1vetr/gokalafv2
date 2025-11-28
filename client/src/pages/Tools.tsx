@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Activity, Calculator, Scale, Dumbbell, Utensils, TrendingUp, Calendar, Zap, Info, RotateCcw } from "lucide-react";
+import { Activity, Calculator, Scale, Dumbbell, Utensils, TrendingUp, Calendar, Zap, Info, RotateCcw, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,15 +11,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 // Placeholder components for tools not yet implemented
 const ToolPlaceholder = ({ title }: { title: string }) => (
-  <div className="p-12 text-center space-y-6 border border-dashed border-white/10 rounded-xl bg-white/5">
-    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary animate-pulse">
-      <Calculator size={40} />
+  <div className="p-12 text-center space-y-6 border border-dashed border-white/10 rounded-2xl bg-white/5">
+    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary animate-pulse">
+      <Calculator size={48} />
     </div>
     <div>
-      <h3 className="text-2xl font-bold uppercase mb-2">{title}</h3>
-      <p className="text-muted-foreground max-w-md mx-auto">Bu araç şu anda geliştirilme aşamasındadır. Çok yakında hizmetinizde olacak!</p>
+      <h3 className="text-2xl font-heading font-bold uppercase mb-2 text-white">{title}</h3>
+      <p className="text-gray-400 max-w-md mx-auto">Bu araç şu anda geliştirilme aşamasındadır. Çok yakında hizmetinizde olacak!</p>
     </div>
-    <Button disabled variant="outline">Yakında</Button>
+    <Button disabled variant="outline" className="border-white/20 text-gray-400">Yakında</Button>
   </div>
 );
 
@@ -47,16 +47,16 @@ const BMICalculator = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Inputs */}
-      <div className="space-y-6 p-6 bg-card/50 rounded-xl border border-white/5">
-        <h3 className="text-xl font-heading font-bold uppercase mb-4 flex items-center gap-2">
+      <div className="space-y-8 p-8 bg-black/40 rounded-3xl border border-white/10">
+        <h3 className="text-xl font-heading font-bold uppercase mb-4 flex items-center gap-2 text-white">
           <Activity className="text-primary" /> Verilerini Gir
         </h3>
         
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <div className="flex justify-between">
-              <Label>Boyunuz (cm)</Label>
-              <span className="text-primary font-bold">{height} cm</span>
+        <div className="space-y-6">
+          <div className="space-y-4">
+            <div className="flex justify-between text-sm">
+              <Label className="text-gray-400 uppercase tracking-wider font-bold">Boyunuz (cm)</Label>
+              <span className="text-primary font-bold text-lg">{height} cm</span>
             </div>
             <Slider 
               value={[height]} 
@@ -68,10 +68,10 @@ const BMICalculator = () => {
             />
           </div>
 
-          <div className="space-y-2">
-            <div className="flex justify-between">
-              <Label>Kilonuz (kg)</Label>
-              <span className="text-primary font-bold">{weight} kg</span>
+          <div className="space-y-4">
+            <div className="flex justify-between text-sm">
+              <Label className="text-gray-400 uppercase tracking-wider font-bold">Kilonuz (kg)</Label>
+              <span className="text-primary font-bold text-lg">{weight} kg</span>
             </div>
             <Slider 
               value={[weight]} 
@@ -84,9 +84,9 @@ const BMICalculator = () => {
           </div>
 
           <div className="space-y-2">
-             <Label>Cinsiyet</Label>
+             <Label className="text-gray-400 uppercase tracking-wider font-bold text-sm">Cinsiyet</Label>
              <Select defaultValue="male">
-               <SelectTrigger className="bg-background/50 border-white/10">
+               <SelectTrigger className="bg-white/5 border-white/10 h-12 text-white">
                  <SelectValue placeholder="Seçiniz" />
                </SelectTrigger>
                <SelectContent>
@@ -96,40 +96,40 @@ const BMICalculator = () => {
              </Select>
           </div>
 
-          <Button onClick={calculateBMI} size="lg" className="w-full bg-primary text-primary-foreground font-bold uppercase mt-4">
+          <Button onClick={calculateBMI} size="lg" className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase mt-4 h-14 text-lg">
             Hesapla
           </Button>
         </div>
       </div>
 
       {/* Result */}
-      <div className="bg-card/50 rounded-xl border border-white/5 p-6 flex flex-col justify-center items-center text-center relative overflow-hidden">
+      <div className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
         {bmi ? (
-          <div className="space-y-6 w-full relative z-10 animate-in fade-in zoom-in duration-500">
-            <div className="text-sm text-muted-foreground uppercase tracking-widest font-bold">Vücut Kitle İndeksiniz</div>
+          <div className="space-y-8 w-full relative z-10 animate-in fade-in zoom-in duration-500">
+            <div className="text-sm text-gray-500 uppercase tracking-[0.2em] font-bold">Vücut Kitle İndeksiniz</div>
             
-            <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
-               <div className={`absolute inset-0 rounded-full border-8 opacity-20 ${status?.color.replace('text-', 'border-')}`}></div>
-               <div className={`absolute inset-0 rounded-full border-t-8 border-l-8 ${status?.color.replace('text-', 'border-')} animate-spin-slow duration-[3s]`}></div>
-               <div className="text-5xl font-bold font-heading text-white">{bmi}</div>
+            <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
+               <div className={`absolute inset-0 rounded-full border-[12px] opacity-10 ${status?.color.replace('text-', 'border-')}`}></div>
+               <div className={`absolute inset-0 rounded-full border-t-[12px] border-l-[12px] ${status?.color.replace('text-', 'border-')} animate-spin-slow duration-[3s]`}></div>
+               <div className="text-6xl font-bold font-heading text-white">{bmi}</div>
             </div>
 
             <div>
-              <Badge className={`text-lg px-4 py-1 mb-2 ${status?.bg} text-black hover:${status?.bg} border-none`}>
+              <Badge className={`text-xl px-6 py-2 mb-3 ${status?.bg} text-black hover:${status?.bg} border-none font-bold uppercase`}>
                 {status?.label}
               </Badge>
-              <p className="text-muted-foreground mt-2">{status?.desc}</p>
+              <p className="text-gray-400 mt-2 text-lg">{status?.desc}</p>
             </div>
 
-            <Button variant="ghost" size="sm" onClick={() => setBmi(null)} className="text-muted-foreground hover:text-white">
+            <Button variant="ghost" size="sm" onClick={() => setBmi(null)} className="text-gray-500 hover:text-white uppercase tracking-wider text-xs">
               <RotateCcw className="w-4 h-4 mr-2" /> Yeniden Hesapla
             </Button>
           </div>
         ) : (
-          <div className="text-center space-y-4 opacity-50">
-             <Activity size={64} className="mx-auto text-muted-foreground" />
-             <h3 className="text-xl font-bold uppercase">Sonuç Bekleniyor</h3>
-             <p className="text-sm">Sol taraftaki bilgileri doldurup hesapla butonuna basın.</p>
+          <div className="text-center space-y-6 opacity-30">
+             <Activity size={80} className="mx-auto text-white" />
+             <h3 className="text-2xl font-heading font-bold uppercase text-white">Sonuç Bekleniyor</h3>
+             <p className="text-gray-400">Sol taraftaki bilgileri doldurup hesapla butonuna basın.</p>
           </div>
         )}
       </div>
@@ -138,8 +138,6 @@ const BMICalculator = () => {
 };
 
 export default function Tools() {
-  const [activeTool, setActiveTool] = useState<string | null>(null);
-
   const tools = [
     {
       id: "bmi",
@@ -183,11 +181,11 @@ export default function Tools() {
     },
     {
       id: "neat",
-      title: "Günlük Aktivite (NEAT)",
+      title: "Günlük Aktivite",
       desc: "Günlük aktivite düzeyinize göre harcadığınız ekstra kaloriyi hesaplayın.",
       icon: <Zap className="w-8 h-8" />,
       category: "Yaşam Tarzı",
-      component: <ToolPlaceholder title="Günlük Aktivite (NEAT)" />
+      component: <ToolPlaceholder title="Günlük Aktivite" />
     },
     {
       id: "weight-tracker",
@@ -208,58 +206,58 @@ export default function Tools() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12">
+    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider">
+          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-4 py-1">
             Gelişim Araçları
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold uppercase mb-6">
-            Vücudunu <span className="text-primary">Analiz Et</span>
+          <h1 className="text-5xl md:text-7xl font-heading font-bold uppercase mb-6 text-white tracking-tighter">
+            Vücudunu <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Analiz Et</span>
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-gray-400 font-light max-w-2xl mx-auto">
             Profesyonel koçluk sistemimde kullandığım hesaplama araçlarını ücretsiz olarak deneyimle.
             Verilerini gir, haritanı çıkar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {tools.map((tool) => (
             <Dialog key={tool.id}>
               <DialogTrigger asChild>
-                <Card className="bg-card border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="p-3 bg-white/5 rounded-lg text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        {tool.icon}
-                      </div>
-                      <Badge variant="outline" className="bg-transparent border-white/10 text-xs text-muted-foreground">
-                        {tool.category}
-                      </Badge>
+                <div className="group bg-[#0A0A0A] border border-white/10 p-6 rounded-3xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden flex flex-col h-full shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="flex justify-between items-start mb-6 relative z-10">
+                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                      {tool.icon}
                     </div>
-                    <CardTitle className="text-xl font-heading uppercase group-hover:text-primary transition-colors">
-                      {tool.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
+                    <Badge variant="outline" className="bg-transparent border-white/10 text-[10px] uppercase tracking-wider text-gray-500">
+                      {tool.category}
+                    </Badge>
+                  </div>
+                  
+                  <div className="flex-grow relative z-10">
+                    <h3 className="text-xl font-heading font-bold uppercase text-white mb-2 group-hover:text-primary transition-colors">{tool.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">
                       {tool.desc}
-                    </CardDescription>
-                    <div className="mt-6 flex items-center text-primary text-sm font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                      Hesapla <span className="ml-2 text-lg">→</span>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex items-center text-primary text-xs font-bold uppercase tracking-widest opacity-50 group-hover:opacity-100 transition-all group-hover:translate-x-2 relative z-10">
+                    Hesapla <ArrowRight className="ml-2 w-4 h-4" />
+                  </div>
+                </div>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[900px] bg-[#0A0A0A] border-white/10 text-foreground max-h-[90vh] overflow-y-auto">
-                <div className="border-b border-white/10 pb-4 mb-4">
-                   <h2 className="text-2xl font-heading font-bold uppercase text-primary flex items-center gap-3">
-                     {tool.icon} {tool.title}
+              <DialogContent className="sm:max-w-[900px] bg-[#050505] border-white/10 text-white max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-3xl">
+                <div className="p-8 border-b border-white/10 bg-[#0A0A0A]">
+                   <h2 className="text-3xl font-heading font-bold uppercase text-white flex items-center gap-4">
+                     <span className="text-primary">{tool.icon}</span> {tool.title}
                    </h2>
-                   <p className="text-muted-foreground">{tool.desc}</p>
+                   <p className="text-gray-400 mt-2 text-lg">{tool.desc}</p>
                 </div>
                 
-                <div className="min-h-[300px]">
+                <div className="p-8 bg-[#050505]">
                    {tool.component}
                 </div>
               </DialogContent>
