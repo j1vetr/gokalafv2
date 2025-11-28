@@ -103,3 +103,46 @@ export const insertCalculatorResultSchema = createInsertSchema(calculatorResults
 
 export type InsertCalculatorResult = z.infer<typeof insertCalculatorResultSchema>;
 export type CalculatorResult = typeof calculatorResults.$inferSelect;
+
+// DAILY HABITS TABLE (günlük alışkanlık takibi)
+export const dailyHabits = pgTable("daily_habits", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").notNull().references(() => users.id),
+  date: timestamp("date").notNull(),
+  waterGlasses: integer("water_glasses").default(0).notNull(),
+  didWorkout: boolean("did_workout").default(false).notNull(),
+  sleepHours: decimal("sleep_hours", { precision: 3, scale: 1 }),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertDailyHabitSchema = createInsertSchema(dailyHabits).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertDailyHabit = z.infer<typeof insertDailyHabitSchema>;
+export type DailyHabit = typeof dailyHabits.$inferSelect;
+
+// BODY MEASUREMENTS TABLE (vücut ölçüleri)
+export const bodyMeasurements = pgTable("body_measurements", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").notNull().references(() => users.id),
+  date: timestamp("date").notNull(),
+  weight: decimal("weight", { precision: 5, scale: 2 }),
+  chest: decimal("chest", { precision: 5, scale: 1 }),
+  waist: decimal("waist", { precision: 5, scale: 1 }),
+  hips: decimal("hips", { precision: 5, scale: 1 }),
+  arms: decimal("arms", { precision: 5, scale: 1 }),
+  thighs: decimal("thighs", { precision: 5, scale: 1 }),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertBodyMeasurementSchema = createInsertSchema(bodyMeasurements).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertBodyMeasurement = z.infer<typeof insertBodyMeasurementSchema>;
+export type BodyMeasurement = typeof bodyMeasurements.$inferSelect;
