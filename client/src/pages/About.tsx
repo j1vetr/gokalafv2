@@ -66,13 +66,13 @@ export default function About() {
                 </h2>
                 <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                   <p>
-                    Merhaba, ben Gökhan. Yıllardır fitness ve vücut geliştirme alanında edindiğim tecrübeyi, bilimsel verilerle harmanlayarak danışanlarıma aktarıyorum.
+                    16 yaşında çelimsiz görüntümü değiştirmek için başladığım bu süreç, her geçen yıl gelişmenin verdiği özgüven ve görünümle hayatımdaki en büyük tutkum oldu. Tutkuya dönüşmesiyle beraber Elektronik Mühendisliği okuduğum yıllarda kendimi güncel, bilime dayalı kaynak ve kanallardan eğittim. Son sınıf öğrencisi olduğumda alt yapımın verdiği özgüven ve vücut geliştirme tutkum neticesinde insanlara yardım etmeye ve aynı zamanda sosyal medyaya içerik üreticiliğine başladım.
                   </p>
                   <p>
-                    Fitness yolculuğu sadece fiziksel bir değişim değil, zihinsel bir dönüşümdür. Her bireyin fizyolojisi farklıdır. Bu yüzden <span className="text-white font-bold">kopyala-yapıştır programlara karşıyım.</span>
+                    2021 Yılında Türkiye Genç Erkek Klasik Fizik kategorisinde şampiyon olup, bir atlet olarak kariyerimi başlattım ve yurt dışından profesyonel koçlar ile çalışmaya başladım.
                   </p>
                   <p>
-                    Senin hedeflerine, metabolizmana ve yaşam rutinine uygun, sürdürülebilir bir sistem kuruyoruz. Kısa vadeli çözümler değil, ömür boyu sürecek bir değişim vadediyorum.
+                    Aldığım ve almakta olduğum eğitim ve hizmetleri en iyi şekilde yorumlayıp, yüzlerce kişiye istekleri ve ihtiyaçlarını doğrultusunda aktardım. Hala da aktarmaya devam ediyorum. Bir atlet ve antrenör olarak uzun yıllar buradayım.
                   </p>
                 </div>
               </div>
