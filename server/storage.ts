@@ -1,5 +1,7 @@
-import { drizzle } from "drizzle-orm/neon-serverless";
-import { Pool, neonConfig } from "@neondatabase/serverless";
+import { drizzle as drizzleNeon } from "drizzle-orm/neon-serverless";
+import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
+import { Pool as NeonPool, neonConfig } from "@neondatabase/serverless";
+import { Pool as PgPool } from "pg";
 import { eq, and, desc, sql } from "drizzle-orm";
 import * as schema from "@shared/schema";
 import type {
@@ -20,10 +22,19 @@ import type {
 } from "@shared/schema";
 import ws from "ws";
 
-neonConfig.webSocketConstructor = ws;
+const isProduction = process.env.NODE_ENV === "production";
+const isLocalDb = process.env.DATABASE_URL?.includes("localhost") || process.env.DATABASE_URL?.includes("127.0.0.1");
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
-const db = drizzle({ client: pool, schema });
+let db: ReturnType<typeof drizzleNeon> | ReturnType<typeof drizzlePg>;
+
+if (isLocalDb || isProduction) {
+  const pool = new PgPool({ connectionString: process.env.DATABASE_URL! });
+  db = drizzlePg({ client: pool, schema });
+} else {
+  neonConfig.webSocketConstructor = ws;
+  const pool = new NeonPool({ connectionString: process.env.DATABASE_URL! });
+  db = drizzleNeon({ client: pool, schema });
+}
 
 export interface RevenueData {
   month: string;

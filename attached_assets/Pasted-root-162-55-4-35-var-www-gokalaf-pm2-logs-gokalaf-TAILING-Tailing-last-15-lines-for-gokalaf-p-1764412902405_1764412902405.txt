@@ -1,0 +1,103 @@
+root@162-55-4-35:/var/www/gokalaf# pm2 logs gokalaf
+[TAILING] Tailing last 15 lines for [gokalaf] process (change the value with --lines option)
+/root/.pm2/logs/gokalaf-out.log last 15 lines:
+16|gokalaf | 1:24:59 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+16|gokalaf | 1:30:00 PM [express] serving on port 5999
+16|gokalaf | 📧 Initializing email scheduler...
+16|gokalaf | ✅ Email scheduler initialized:
+16|gokalaf |    - Daily reminders: 18:00 (Istanbul)
+16|gokalaf |    - Package expiry check: 09:00 (Istanbul)
+16|gokalaf | ✅ SMTP connection verified
+16|gokalaf | 1:38:59 PM [express] serving on port 5999
+16|gokalaf | 📧 Initializing email scheduler...
+16|gokalaf | ✅ Email scheduler initialized:
+16|gokalaf |    - Daily reminders: 18:00 (Istanbul)
+16|gokalaf |    - Package expiry check: 09:00 (Istanbul)
+16|gokalaf | ✅ SMTP connection verified
+16|gokalaf | 1:39:44 PM [express] GET /api/auth/me 401 in 2ms :: {"error":"Giriş yapılmamış"}
+16|gokalaf | 1:40:46 PM [express] POST /api/auth/register 500 in 25ms :: {"error":"Kayıt işlemi başarısız"}
+
+/root/.pm2/logs/gokalaf-error.log last 15 lines:
+16|gokalaf |       exponent: '0x10001',
+16|gokalaf |       pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 8f f2 20 c4 19 42 95 d3 d2 c1 4e 27 e0 18 7e c3 52 ... 244 more bytes>,
+16|gokalaf |       valid_from: 'Nov 21 13:49:29 2025 GMT',
+16|gokalaf |       valid_to: 'Feb 19 13:49:28 2026 GMT',
+16|gokalaf |       fingerprint: '4C:72:6F:37:52:09:9B:D3:B3:CE:B3:D2:7E:45:1B:74:37:D6:1C:27',
+16|gokalaf |       fingerprint256: '5C:B0:EF:82:35:BF:99:D4:49:38:CA:8C:45:2E:DA:1F:63:67:04:41:B8:31:9F:E0:BD:DF:AB:1B:CF:B4:A8:52',
+16|gokalaf |       fingerprint512: 'D6:2F:95:65:59:BD:75:48:F4:F0:AD:EE:CA:FD:02:EF:13:16:E0:22:B2:3F:B0:AC:91:1A:46:86:36:2E:BD:2A:DA:87:17:7C:BE:50:FA:68:58:A2:3D:7E:80:DC:E5:DE:77:CA:4A:FD:37:BE:D2:3B:B0:9B:73:80:B5:F4:9E:D4',
+16|gokalaf |       ext_key_usage: [Array],
+16|gokalaf |       serialNumber: '05E323D812BC6088489D6F426FA225EC80DB',
+16|gokalaf |       raw: <Buffer 30 82 05 20 30 82 04 08 a0 03 02 01 02 02 12 05 e3 23 d8 12 bc 60 88 48 9d 6f 42 6f a2 25 ec 80 db 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 33 ... 1266 more bytes>,
+16|gokalaf |       issuerCertificate: [Object]
+16|gokalaf |     }
+16|gokalaf |   },
+16|gokalaf |   [Symbol(kMessage)]: "Hostname/IP does not match certificate's altnames: Host: localhost. is not in the cert's altnames: DNS:www.yardimselidernegi.com, DNS:yardimselidernegi.com"
+16|gokalaf | }
+
+16|gokalaf  | Register error: zs {
+16|gokalaf  |   [Symbol(kTarget)]: i {
+16|gokalaf  |     _events: [Object: null prototype] {
+16|gokalaf  |       error: [Function],
+16|gokalaf  |       message: [Function],
+16|gokalaf  |       close: [Function],
+16|gokalaf  |       open: [Function]
+16|gokalaf  |     },
+16|gokalaf  |     _eventsCount: 4,
+16|gokalaf  |     _maxListeners: undefined,
+16|gokalaf  |     _binaryType: 'arraybuffer',
+16|gokalaf  |     _closeCode: 1006,
+16|gokalaf  |     _closeFrameReceived: false,
+16|gokalaf  |     _closeFrameSent: false,
+16|gokalaf  |     _closeMessage: <Buffer >,
+16|gokalaf  |     _closeTimer: null,
+16|gokalaf  |     _errorEmitted: true,
+16|gokalaf  |     _extensions: {},
+16|gokalaf  |     _paused: false,
+16|gokalaf  |     _protocol: '',
+16|gokalaf  |     _readyState: 3,
+16|gokalaf  |     _receiver: null,
+16|gokalaf  |     _sender: null,
+16|gokalaf  |     _socket: null,
+16|gokalaf  |     _bufferedAmount: 0,
+16|gokalaf  |     _isServer: false,
+16|gokalaf  |     _redirects: 0,
+16|gokalaf  |     _autoPong: true,
+16|gokalaf  |     _url: 'wss://localhost/v2',
+16|gokalaf  |     _req: null,
+16|gokalaf  |     [Symbol(shapeMode)]: false,
+16|gokalaf  |     [Symbol(kCapture)]: false
+16|gokalaf  |   },
+16|gokalaf  |   [Symbol(kType)]: 'error',
+16|gokalaf  |   [Symbol(kError)]: Error [ERR_TLS_CERT_ALTNAME_INVALID]: Hostname/IP does not match certificate's altnames: Host: localhost. is not in the cert's altnames: DNS:www.yardimselidernegi.com, DNS:yardimselidernegi.com
+16|gokalaf  |       at Object.checkServerIdentity (node:tls:316:12)
+16|gokalaf  |       at TLSSocket.onConnectSecure (node:_tls_wrap:1687:27)
+16|gokalaf  |       at TLSSocket.emit (node:events:524:28)
+16|gokalaf  |       at TLSSocket._finishInit (node:_tls_wrap:1076:8)
+16|gokalaf  |       at ssl.onhandshakedone (node:_tls_wrap:862:12) {
+16|gokalaf  |     code: 'ERR_TLS_CERT_ALTNAME_INVALID',
+16|gokalaf  |     reason: "Host: localhost. is not in the cert's altnames: DNS:www.yardimselidernegi.com, DNS:yardimselidernegi.com",
+16|gokalaf  |     host: 'localhost',
+16|gokalaf  |     cert: {
+16|gokalaf  |       subject: [Object: null prototype],
+16|gokalaf  |       issuer: [Object: null prototype],
+16|gokalaf  |       subjectaltname: 'DNS:www.yardimselidernegi.com, DNS:yardimselidernegi.com',
+16|gokalaf  |       infoAccess: [Object: null prototype],
+16|gokalaf  |       ca: false,
+16|gokalaf  |       modulus: '8FF220C4194295D3D2C14E27E0187EC3528005A6A0B1AD7BE9747C8683C116F89049E3420FA007DC4B006848D17B96A4C93A3C1DD2264F415C55EB168766101548CAA998BAF6A4717858C78513CB4EB66413332C170915B150FDB9B283EBCD9F69205EDB278714E74D7AC8CFC64457F65BD26FBE542B9847AC38ED243FDCF470F62AE53B170C679A49FC016B0C1ABE30BE5BEFE0515EE839E516832E9A6930CD70631F32E6CAD771CC7C1DCF6E7D42A0E31735FFB192A370AF36705FC541A3FEA7326F0839B1E64A470E97D3DFFCDCE58896FA64EE04E1406FBE8B64F6DA55C20851DDED31C8BC39A3ED0DB84BEF9CFFCCC8708D0C4A6EC716B4050759BEF52B',
+16|gokalaf  |       bits: 2048,
+16|gokalaf  |       exponent: '0x10001',
+16|gokalaf  |       pubkey: <Buffer 30 82 01 22 30 0d 06 09 2a 86 48 86 f7 0d 01 01 01 05 00 03 82 01 0f 00 30 82 01 0a 02 82 01 01 00 8f f2 20 c4 19 42 95 d3 d2 c1 4e 27 e0 18 7e c3 52 ... 244 more bytes>,
+16|gokalaf  |       valid_from: 'Nov 21 13:49:29 2025 GMT',
+16|gokalaf  |       valid_to: 'Feb 19 13:49:28 2026 GMT',
+16|gokalaf  |       fingerprint: '4C:72:6F:37:52:09:9B:D3:B3:CE:B3:D2:7E:45:1B:74:37:D6:1C:27',
+16|gokalaf  |       fingerprint256: '5C:B0:EF:82:35:BF:99:D4:49:38:CA:8C:45:2E:DA:1F:63:67:04:41:B8:31:9F:E0:BD:DF:AB:1B:CF:B4:A8:52',
+16|gokalaf  |       fingerprint512: 'D6:2F:95:65:59:BD:75:48:F4:F0:AD:EE:CA:FD:02:EF:13:16:E0:22:B2:3F:B0:AC:91:1A:46:86:36:2E:BD:2A:DA:87:17:7C:BE:50:FA:68:58:A2:3D:7E:80:DC:E5:DE:77:CA:4A:FD:37:BE:D2:3B:B0:9B:73:80:B5:F4:9E:D4',
+16|gokalaf  |       ext_key_usage: [Array],
+16|gokalaf  |       serialNumber: '05E323D812BC6088489D6F426FA225EC80DB',
+16|gokalaf  |       raw: <Buffer 30 82 05 20 30 82 04 08 a0 03 02 01 02 02 12 05 e3 23 d8 12 bc 60 88 48 9d 6f 42 6f a2 25 ec 80 db 30 0d 06 09 2a 86 48 86 f7 0d 01 01 0b 05 00 30 33 ... 1266 more bytes>,
+16|gokalaf  |       issuerCertificate: [Object]
+16|gokalaf  |     }
+16|gokalaf  |   },
+16|gokalaf  |   [Symbol(kMessage)]: "Hostname/IP does not match certificate's altnames: Host: localhost. is not in the cert's altnames: DNS:www.yardimselidernegi.com, DNS:yardimselidernegi.com"
+16|gokalaf  | }
+16|gokalaf  | 1:41:22 PM [express] POST /api/auth/register 500 in 7ms :: {"error":"Kayıt işlemi başarısız"}
