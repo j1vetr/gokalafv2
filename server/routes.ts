@@ -2,23 +2,19 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import session from "express-session";
-import connectPgSimple from "connect-pg-simple";
-import { Pool } from "pg";
+import createMemoryStore from "memorystore";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
 import { sendWelcomeEmail, sendOrderConfirmationEmail } from "./email/service";
 
-const PgSession = connectPgSimple(session);
-const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+const MemoryStore = createMemoryStore(session);
 
-// Session middleware
+// Session middleware with memory store (auto-cleans expired sessions)
 const sessionMiddleware = session({
-  store: new PgSession({
-    pool: pool as any,
-    tableName: 'session',
-    createTableIfMissing: false,
+  store: new MemoryStore({
+    checkPeriod: 86400000, // Clean up expired sessions every 24h
   }),
   secret: process.env.SESSION_SECRET || "gokalaf-secret-key-change-in-production",
   resave: false,
