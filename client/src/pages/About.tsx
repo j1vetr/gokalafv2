@@ -65,22 +65,22 @@ export default function About() {
       <section className="pt-8 pb-20 bg-[#050505]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+            <div className="relative max-w-md mx-auto lg:mx-0">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                 <img 
                   src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0049-scaled-1.jpg" 
                   alt="Gokalaf Portrait" 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                <div className="absolute bottom-8 left-8">
-                   <div className="text-white text-2xl font-bold uppercase mb-1">Göktuğ Alaf</div>
-                   <div className="text-primary font-medium uppercase tracking-wider text-sm">Head Coach & Founder</div>
+                <div className="absolute bottom-6 left-6">
+                   <div className="text-white text-xl font-bold uppercase mb-1">Göktuğ Alaf</div>
+                   <div className="text-primary font-medium uppercase tracking-wider text-xs">Head Coach & Founder</div>
                 </div>
               </div>
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary opacity-50"></div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary opacity-50"></div>
+              <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-primary opacity-50"></div>
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-primary opacity-50"></div>
             </div>
 
             <div className="space-y-10">
