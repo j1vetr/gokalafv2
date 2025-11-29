@@ -37,6 +37,7 @@ import NotFound from "@/pages/not-found";
 function AppContent() {
   const [location] = useLocation();
   const isAdminRoute = location.startsWith("/gokadmin");
+  const isDashboard = location === "/dashboard";
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-black">
@@ -72,7 +73,7 @@ function AppContent() {
           <Route component={NotFound} />
         </Switch>
       </main>
-      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && !isDashboard && <Footer />}
       <Toaster />
     </div>
   );
