@@ -455,8 +455,8 @@ export default function UserDashboard() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 pb-24 lg:pb-8 lg:ml-[288px]">
-          <div className="w-full px-4 lg:pl-12 lg:pr-8 py-8 lg:py-10 max-w-[1200px]">
+        <main className="flex-1 pb-24 lg:pb-8 lg:ml-[304px]">
+          <div className="w-full px-4 lg:pl-8 lg:pr-8 py-8 lg:py-10 max-w-[1200px]">
             <AnimatePresence mode="wait">
               {/* OVERVIEW PAGE */}
               {activePage === "overview" && (
