@@ -80,8 +80,15 @@ export async function registerRoutes(
       sendWelcomeEmail({ id: user.id, email: user.email, fullName: user.fullName })
         .catch(err => console.error("Welcome email error:", err));
       
-      const { password: _, ...userWithoutPassword } = user;
-      res.json({ user: userWithoutPassword });
+      // Explicitly save session before sending response
+      req.session.save((err) => {
+        if (err) {
+          console.error("Session save error:", err);
+          return res.status(500).json({ error: "Oturum kaydedilemedi" });
+        }
+        const { password: _, ...userWithoutPassword } = user;
+        res.json({ user: userWithoutPassword });
+      });
     } catch (error) {
       console.error("Register error:", error);
       if (error instanceof z.ZodError) {
@@ -112,8 +119,15 @@ export async function registerRoutes(
       req.session.userId = user.id;
       req.session.userRole = user.role;
 
-      const { password: _, ...userWithoutPassword } = user;
-      res.json({ user: userWithoutPassword });
+      // Explicitly save session before sending response
+      req.session.save((err) => {
+        if (err) {
+          console.error("Session save error:", err);
+          return res.status(500).json({ error: "Oturum kaydedilemedi" });
+        }
+        const { password: _, ...userWithoutPassword } = user;
+        res.json({ user: userWithoutPassword });
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ error: "Geçersiz veri" });
