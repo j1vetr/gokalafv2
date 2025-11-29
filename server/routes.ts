@@ -17,7 +17,8 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 const sessionMiddleware = session({
   store: new PgSession({
     pool: pool as any,
-    createTableIfMissing: true,
+    tableName: 'session',
+    createTableIfMissing: false,
   }),
   secret: process.env.SESSION_SECRET || "gokalaf-secret-key-change-in-production",
   resave: false,
