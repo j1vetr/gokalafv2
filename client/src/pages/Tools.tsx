@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Activity, Utensils, Zap, Scale, ArrowRight } from "lucide-react";
+import { Activity, Utensils, Zap, Scale, ArrowRight, Target, Percent, Dumbbell, Droplets } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 
@@ -36,6 +36,38 @@ export default function Tools() {
       icon: <Scale className="w-8 h-8" />,
       category: "Beslenme",
       path: "/tools/macros"
+    },
+    {
+      id: "ideal-weight",
+      title: "İdeal Kilo",
+      desc: "Boyunuza ve cinsiyetinize göre bilimsel formüllerle ideal kilonuzu hesaplayın.",
+      icon: <Target className="w-8 h-8" />,
+      category: "Hedef",
+      path: "/tools/ideal-weight"
+    },
+    {
+      id: "body-fat",
+      title: "Yağ Oranı",
+      desc: "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
+      icon: <Percent className="w-8 h-8" />,
+      category: "Analiz",
+      path: "/tools/body-fat"
+    },
+    {
+      id: "one-rep-max",
+      title: "One Rep Max",
+      desc: "Kaldırdığınız ağırlık ve tekrardan 1RM değerinizi hesaplayın.",
+      icon: <Dumbbell className="w-8 h-8" />,
+      category: "Güç",
+      path: "/tools/one-rep-max"
+    },
+    {
+      id: "water-intake",
+      title: "Su İhtiyacı",
+      desc: "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
+      icon: <Droplets className="w-8 h-8" />,
+      category: "Hidrasyon",
+      path: "/tools/water-intake"
     }
   ];
 

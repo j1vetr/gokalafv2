@@ -21,6 +21,10 @@ import BMICalculator from "@/pages/calculators/BMICalculator";
 import CalorieCalculator from "@/pages/calculators/CalorieCalculator";
 import TDEECalculator from "@/pages/calculators/TDEECalculator";
 import MacroCalculator from "@/pages/calculators/MacroCalculator";
+import IdealWeightCalculator from "@/pages/calculators/IdealWeightCalculator";
+import BodyFatCalculator from "@/pages/calculators/BodyFatCalculator";
+import OneRepMaxCalculator from "@/pages/calculators/OneRepMaxCalculator";
+import WaterIntakeCalculator from "@/pages/calculators/WaterIntakeCalculator";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import KVKK from "@/pages/legal/KVKK";
 import CancellationPolicy from "@/pages/legal/CancellationPolicy";
@@ -44,6 +48,10 @@ function AppContent() {
           <Route path="/tools/calories" component={CalorieCalculator} />
           <Route path="/tools/tdee" component={TDEECalculator} />
           <Route path="/tools/macros" component={MacroCalculator} />
+          <Route path="/tools/ideal-weight" component={IdealWeightCalculator} />
+          <Route path="/tools/body-fat" component={BodyFatCalculator} />
+          <Route path="/tools/one-rep-max" component={OneRepMaxCalculator} />
+          <Route path="/tools/water-intake" component={WaterIntakeCalculator} />
           <Route path="/packages" component={Packages} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
