@@ -348,12 +348,12 @@ export default function UserDashboard() {
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-blue-500/3 rounded-full blur-3xl" />
       </div>
 
-      <div className="flex min-h-screen pt-20">
+      <div className="flex min-h-screen pt-28">
         {/* Sidebar Navigation */}
         <motion.aside 
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="hidden lg:flex flex-col w-72 border-r border-white/5 bg-[#0A0A0A]/80 backdrop-blur-xl fixed left-0 top-20 bottom-0 z-40"
+          className="hidden lg:flex flex-col w-72 border-r border-white/5 bg-[#0A0A0A]/80 backdrop-blur-xl fixed left-0 top-28 bottom-0 z-40"
         >
           <div className="p-6 border-b border-white/5">
             <div className="flex items-center gap-4">
