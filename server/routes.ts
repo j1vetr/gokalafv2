@@ -49,6 +49,60 @@ export async function registerRoutes(
   
   app.use(sessionMiddleware);
 
+  // ===== SEO SITEMAP =====
+  app.get("/sitemap.xml", (req, res) => {
+    const baseUrl = "https://gokalaf.toov.com.tr";
+    const pages = [
+      { loc: "/", priority: "1.0", changefreq: "weekly" },
+      { loc: "/hakkimizda", priority: "0.8", changefreq: "monthly" },
+      { loc: "/paketler", priority: "0.9", changefreq: "weekly" },
+      { loc: "/araclar", priority: "0.8", changefreq: "monthly" },
+      { loc: "/araclar/vki", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/kalori", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/tdee", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/makro", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/ideal-kilo", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/vucut-yagi", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/bir-tekrar-max", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/su-tuketimi", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/kalp-atisi", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/protein", priority: "0.7", changefreq: "monthly" },
+      { loc: "/araclar/dinlenme", priority: "0.7", changefreq: "monthly" },
+      { loc: "/giris", priority: "0.6", changefreq: "monthly" },
+      { loc: "/kayit", priority: "0.6", changefreq: "monthly" },
+      { loc: "/gizlilik", priority: "0.3", changefreq: "yearly" },
+      { loc: "/kvkk", priority: "0.3", changefreq: "yearly" },
+      { loc: "/iptal-iade", priority: "0.3", changefreq: "yearly" },
+      { loc: "/mesafeli-satis", priority: "0.3", changefreq: "yearly" },
+    ];
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${baseUrl}${page.loc}</loc>
+    <priority>${page.priority}</priority>
+    <changefreq>${page.changefreq}</changefreq>
+  </url>`).join("\n")}
+</urlset>`;
+
+    res.setHeader("Content-Type", "application/xml");
+    res.send(sitemap);
+  });
+
+  app.get("/robots.txt", (req, res) => {
+    const robotsTxt = `User-agent: *
+Allow: /
+Disallow: /gokadmin
+Disallow: /panel
+Disallow: /odeme
+Disallow: /api/
+
+Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
+
+    res.setHeader("Content-Type", "text/plain");
+    res.send(robotsTxt);
+  });
+
   // ===== AUTH ROUTES =====
   
   // Register
@@ -671,6 +725,332 @@ export async function registerRoutes(
       }
     } catch (error) {
       res.status(500).json({ error: "Aktif sipariş yüklenemedi" });
+    }
+  });
+
+  // ===== COUPON ROUTES =====
+
+  app.get("/api/admin/coupons", requireAdmin, async (req, res) => {
+    try {
+      const coupons = await storage.getAllCoupons();
+      res.json({ coupons });
+    } catch (error) {
+      res.status(500).json({ error: "Kuponlar yüklenemedi" });
+    }
+  });
+
+  app.post("/api/admin/coupons", requireAdmin, async (req, res) => {
+    try {
+      const data = z.object({
+        code: z.string().min(3).max(20),
+        discountType: z.enum(["percentage", "fixed"]),
+        discountValue: z.string(),
+        minOrderAmount: z.string().optional().nullable(),
+        maxUsageCount: z.number().int().positive().optional().nullable(),
+        validFrom: z.string(),
+        validUntil: z.string(),
+        isActive: z.boolean().default(true),
+      }).parse(req.body);
+
+      const coupon = await storage.createCoupon({
+        code: data.code,
+        discountType: data.discountType,
+        discountValue: data.discountValue,
+        minOrderAmount: data.minOrderAmount || null,
+        maxUsageCount: data.maxUsageCount || null,
+        validFrom: new Date(data.validFrom),
+        validUntil: new Date(data.validUntil),
+        isActive: data.isActive,
+        createdBy: req.session.userId!,
+      });
+
+      await storage.createSystemLog({
+        userId: req.session.userId!,
+        action: "create_coupon",
+        entityType: "coupon",
+        entityId: coupon.id,
+        details: JSON.stringify({ code: coupon.code, discountType: data.discountType, discountValue: data.discountValue }),
+        ipAddress: req.ip,
+        userAgent: req.get("user-agent"),
+      });
+
+      res.json({ coupon });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      console.error("Coupon create error:", error);
+      res.status(500).json({ error: "Kupon oluşturulamadı" });
+    }
+  });
+
+  app.patch("/api/admin/coupons/:id", requireAdmin, async (req, res) => {
+    try {
+      const data = z.object({
+        code: z.string().min(3).max(20).optional(),
+        discountType: z.enum(["percentage", "fixed"]).optional(),
+        discountValue: z.string().optional(),
+        minOrderAmount: z.string().optional().nullable(),
+        maxUsageCount: z.number().int().positive().optional().nullable(),
+        validFrom: z.string().optional(),
+        validUntil: z.string().optional(),
+        isActive: z.boolean().optional(),
+      }).parse(req.body);
+
+      const updates: any = {};
+      if (data.code) updates.code = data.code;
+      if (data.discountType) updates.discountType = data.discountType;
+      if (data.discountValue) updates.discountValue = data.discountValue;
+      if (data.minOrderAmount !== undefined) updates.minOrderAmount = data.minOrderAmount;
+      if (data.maxUsageCount !== undefined) updates.maxUsageCount = data.maxUsageCount;
+      if (data.validFrom) updates.validFrom = new Date(data.validFrom);
+      if (data.validUntil) updates.validUntil = new Date(data.validUntil);
+      if (data.isActive !== undefined) updates.isActive = data.isActive;
+
+      const coupon = await storage.updateCoupon(req.params.id, updates);
+
+      await storage.createSystemLog({
+        userId: req.session.userId!,
+        action: "update_coupon",
+        entityType: "coupon",
+        entityId: req.params.id,
+        details: JSON.stringify(updates),
+        ipAddress: req.ip,
+        userAgent: req.get("user-agent"),
+      });
+
+      res.json({ coupon });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Kupon güncellenemedi" });
+    }
+  });
+
+  app.delete("/api/admin/coupons/:id", requireAdmin, async (req, res) => {
+    try {
+      const coupon = await storage.getCoupon(req.params.id);
+      await storage.deleteCoupon(req.params.id);
+
+      await storage.createSystemLog({
+        userId: req.session.userId!,
+        action: "delete_coupon",
+        entityType: "coupon",
+        entityId: req.params.id,
+        details: JSON.stringify({ code: coupon?.code }),
+        ipAddress: req.ip,
+        userAgent: req.get("user-agent"),
+      });
+
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: "Kupon silinemedi" });
+    }
+  });
+
+  app.get("/api/admin/coupons/:id/usage", requireAdmin, async (req, res) => {
+    try {
+      const usage = await storage.getCouponUsage(req.params.id);
+      res.json({ usage });
+    } catch (error) {
+      res.status(500).json({ error: "Kullanım geçmişi yüklenemedi" });
+    }
+  });
+
+  app.post("/api/coupons/validate", requireAuth, async (req, res) => {
+    try {
+      const { code, orderAmount } = z.object({
+        code: z.string(),
+        orderAmount: z.number().positive(),
+      }).parse(req.body);
+
+      const coupon = await storage.getCouponByCode(code);
+
+      if (!coupon) {
+        return res.status(404).json({ error: "Kupon bulunamadı" });
+      }
+
+      if (!coupon.isActive) {
+        return res.status(400).json({ error: "Bu kupon aktif değil" });
+      }
+
+      const now = new Date();
+      if (new Date(coupon.validFrom) > now) {
+        return res.status(400).json({ error: "Kupon henüz geçerli değil" });
+      }
+      if (new Date(coupon.validUntil) < now) {
+        return res.status(400).json({ error: "Kuponun süresi dolmuş" });
+      }
+
+      if (coupon.maxUsageCount && coupon.usedCount >= coupon.maxUsageCount) {
+        return res.status(400).json({ error: "Kupon kullanım limiti dolmuş" });
+      }
+
+      if (coupon.minOrderAmount && orderAmount < parseFloat(coupon.minOrderAmount)) {
+        return res.status(400).json({ 
+          error: `Minimum sipariş tutarı ₺${parseFloat(coupon.minOrderAmount).toLocaleString("tr-TR")} olmalıdır` 
+        });
+      }
+
+      let discountAmount = 0;
+      if (coupon.discountType === "percentage") {
+        discountAmount = orderAmount * (parseFloat(coupon.discountValue) / 100);
+      } else {
+        discountAmount = parseFloat(coupon.discountValue);
+      }
+
+      discountAmount = Math.min(discountAmount, orderAmount);
+
+      res.json({
+        valid: true,
+        coupon: {
+          id: coupon.id,
+          code: coupon.code,
+          discountType: coupon.discountType,
+          discountValue: coupon.discountValue,
+        },
+        discountAmount,
+        finalAmount: orderAmount - discountAmount,
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Kupon doğrulanamadı" });
+    }
+  });
+
+  // ===== SYSTEM LOGS ROUTES =====
+
+  app.get("/api/admin/system-logs", requireAdmin, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 100;
+      const offset = parseInt(req.query.offset as string) || 0;
+      const action = req.query.action as string;
+      const userId = req.query.userId as string;
+
+      let logs;
+      if (userId) {
+        logs = await storage.getSystemLogsByUser(userId, limit);
+      } else if (action) {
+        logs = await storage.getSystemLogsByAction(action, limit);
+      } else {
+        logs = await storage.getSystemLogs(limit, offset);
+      }
+
+      const total = await storage.getSystemLogsCount();
+
+      res.json({ logs, total });
+    } catch (error) {
+      res.status(500).json({ error: "Loglar yüklenemedi" });
+    }
+  });
+
+  // ===== BACKUP ROUTES =====
+
+  app.get("/api/admin/backup/tables", requireAdmin, async (req, res) => {
+    try {
+      const tables = [
+        { name: "users", label: "Kullanıcılar" },
+        { name: "packages", label: "Paketler" },
+        { name: "orders", label: "Siparişler" },
+        { name: "coupons", label: "Kuponlar" },
+        { name: "user_progress", label: "Kullanıcı İlerlemesi" },
+        { name: "daily_habits", label: "Günlük Alışkanlıklar" },
+        { name: "body_measurements", label: "Vücut Ölçüleri" },
+        { name: "calculator_results", label: "Hesaplayıcı Sonuçları" },
+        { name: "email_logs", label: "Email Logları" },
+        { name: "system_logs", label: "Sistem Logları" },
+      ];
+      res.json({ tables });
+    } catch (error) {
+      res.status(500).json({ error: "Tablo listesi yüklenemedi" });
+    }
+  });
+
+  app.get("/api/admin/backup/:table", requireAdmin, async (req, res) => {
+    try {
+      const tableName = req.params.table;
+      const validTables = ["users", "packages", "orders", "coupons", "user_progress", "daily_habits", "body_measurements", "calculator_results", "email_logs", "system_logs", "coupon_usage"];
+      
+      if (!validTables.includes(tableName)) {
+        return res.status(400).json({ error: "Geçersiz tablo adı" });
+      }
+
+      const { Pool } = await import("pg");
+      const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+      
+      const result = await pool.query(`SELECT * FROM ${tableName}`);
+      
+      await storage.createSystemLog({
+        userId: req.session.userId!,
+        action: "backup_table",
+        entityType: "backup",
+        entityId: tableName,
+        details: JSON.stringify({ rowCount: result.rows.length }),
+        ipAddress: req.ip,
+        userAgent: req.get("user-agent"),
+      });
+
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Disposition", `attachment; filename=${tableName}_backup_${new Date().toISOString().split("T")[0]}.json`);
+      res.json({
+        table: tableName,
+        exportedAt: new Date().toISOString(),
+        rowCount: result.rows.length,
+        data: result.rows,
+      });
+
+      await pool.end();
+    } catch (error) {
+      console.error("Backup error:", error);
+      res.status(500).json({ error: "Yedekleme başarısız" });
+    }
+  });
+
+  app.get("/api/admin/backup/full/download", requireAdmin, async (req, res) => {
+    try {
+      const { Pool } = await import("pg");
+      const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+
+      const tables = ["users", "packages", "orders", "coupons", "coupon_usage", "user_progress", "daily_habits", "body_measurements", "calculator_results", "email_logs", "system_logs"];
+      
+      const backup: any = {
+        exportedAt: new Date().toISOString(),
+        tables: {},
+      };
+
+      for (const table of tables) {
+        try {
+          const result = await pool.query(`SELECT * FROM ${table}`);
+          backup.tables[table] = {
+            rowCount: result.rows.length,
+            data: result.rows,
+          };
+        } catch (e) {
+          backup.tables[table] = { rowCount: 0, data: [], error: "Tablo bulunamadı" };
+        }
+      }
+
+      await storage.createSystemLog({
+        userId: req.session.userId!,
+        action: "backup_full",
+        entityType: "backup",
+        entityId: "full",
+        details: JSON.stringify({ tables: Object.keys(backup.tables) }),
+        ipAddress: req.ip,
+        userAgent: req.get("user-agent"),
+      });
+
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Disposition", `attachment; filename=gokalaf_full_backup_${new Date().toISOString().split("T")[0]}.json`);
+      res.json(backup);
+
+      await pool.end();
+    } catch (error) {
+      console.error("Full backup error:", error);
+      res.status(500).json({ error: "Tam yedekleme başarısız" });
     }
   });
 

@@ -17,6 +17,12 @@ import type {
   InsertDailyHabit,
   BodyMeasurement,
   InsertBodyMeasurement,
+  Coupon,
+  InsertCoupon,
+  CouponUsage,
+  InsertCouponUsage,
+  SystemLog,
+  InsertSystemLog,
 } from "@shared/schema";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
@@ -96,6 +102,24 @@ export interface IStorage {
   getDashboardStats(): Promise<DashboardStats>;
   getMonthlyRevenue(year?: number): Promise<RevenueData[]>;
   getRecentActivity(limit?: number): Promise<{ type: string; message: string; date: Date; userId?: string }[]>;
+
+  // Coupons
+  getCoupon(id: string): Promise<Coupon | undefined>;
+  getCouponByCode(code: string): Promise<Coupon | undefined>;
+  getAllCoupons(): Promise<Coupon[]>;
+  createCoupon(coupon: InsertCoupon): Promise<Coupon>;
+  updateCoupon(id: string, updates: Partial<InsertCoupon>): Promise<Coupon | undefined>;
+  deleteCoupon(id: string): Promise<boolean>;
+  incrementCouponUsage(id: string): Promise<void>;
+  getCouponUsage(couponId: string): Promise<CouponUsage[]>;
+  createCouponUsage(usage: InsertCouponUsage): Promise<CouponUsage>;
+
+  // System Logs
+  createSystemLog(log: InsertSystemLog): Promise<SystemLog>;
+  getSystemLogs(limit?: number, offset?: number): Promise<SystemLog[]>;
+  getSystemLogsByUser(userId: string, limit?: number): Promise<SystemLog[]>;
+  getSystemLogsByAction(action: string, limit?: number): Promise<SystemLog[]>;
+  getSystemLogsCount(): Promise<number>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -424,6 +448,78 @@ export class DatabaseStorage implements IStorage {
     return activities
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, limit);
+  }
+
+  // COUPONS
+  async getCoupon(id: string): Promise<Coupon | undefined> {
+    const [coupon] = await db.select().from(schema.coupons).where(eq(schema.coupons.id, id)).limit(1);
+    return coupon;
+  }
+
+  async getCouponByCode(code: string): Promise<Coupon | undefined> {
+    const [coupon] = await db.select().from(schema.coupons).where(eq(schema.coupons.code, code.toUpperCase())).limit(1);
+    return coupon;
+  }
+
+  async getAllCoupons(): Promise<Coupon[]> {
+    return db.select().from(schema.coupons).orderBy(desc(schema.coupons.createdAt));
+  }
+
+  async createCoupon(insertCoupon: InsertCoupon): Promise<Coupon> {
+    const [coupon] = await db.insert(schema.coupons).values({
+      ...insertCoupon,
+      code: insertCoupon.code.toUpperCase(),
+    }).returning();
+    return coupon;
+  }
+
+  async updateCoupon(id: string, updates: Partial<InsertCoupon>): Promise<Coupon | undefined> {
+    const updateData = updates.code ? { ...updates, code: updates.code.toUpperCase() } : updates;
+    const [coupon] = await db.update(schema.coupons).set(updateData).where(eq(schema.coupons.id, id)).returning();
+    return coupon;
+  }
+
+  async deleteCoupon(id: string): Promise<boolean> {
+    const result = await db.delete(schema.coupons).where(eq(schema.coupons.id, id));
+    return true;
+  }
+
+  async incrementCouponUsage(id: string): Promise<void> {
+    await db.update(schema.coupons)
+      .set({ usedCount: sql`${schema.coupons.usedCount} + 1` })
+      .where(eq(schema.coupons.id, id));
+  }
+
+  async getCouponUsage(couponId: string): Promise<CouponUsage[]> {
+    return db.select().from(schema.couponUsage).where(eq(schema.couponUsage.couponId, couponId));
+  }
+
+  async createCouponUsage(usage: InsertCouponUsage): Promise<CouponUsage> {
+    const [result] = await db.insert(schema.couponUsage).values(usage).returning();
+    return result;
+  }
+
+  // SYSTEM LOGS
+  async createSystemLog(log: InsertSystemLog): Promise<SystemLog> {
+    const [result] = await db.insert(schema.systemLogs).values(log).returning();
+    return result;
+  }
+
+  async getSystemLogs(limit: number = 100, offset: number = 0): Promise<SystemLog[]> {
+    return db.select().from(schema.systemLogs).orderBy(desc(schema.systemLogs.createdAt)).limit(limit).offset(offset);
+  }
+
+  async getSystemLogsByUser(userId: string, limit: number = 50): Promise<SystemLog[]> {
+    return db.select().from(schema.systemLogs).where(eq(schema.systemLogs.userId, userId)).orderBy(desc(schema.systemLogs.createdAt)).limit(limit);
+  }
+
+  async getSystemLogsByAction(action: string, limit: number = 50): Promise<SystemLog[]> {
+    return db.select().from(schema.systemLogs).where(eq(schema.systemLogs.action, action)).orderBy(desc(schema.systemLogs.createdAt)).limit(limit);
+  }
+
+  async getSystemLogsCount(): Promise<number> {
+    const result = await db.select({ count: sql<number>`count(*)` }).from(schema.systemLogs);
+    return Number(result[0]?.count || 0);
   }
 }
 

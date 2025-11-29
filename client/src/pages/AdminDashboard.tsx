@@ -15,7 +15,8 @@ import {
   Package, Users, DollarSign, LogOut, Search, Clock, CheckCircle, XCircle, 
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
-  ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw
+  ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
+  Ticket, FileText, Database
 } from "lucide-react";
 import {
   AreaChart,
@@ -588,6 +589,31 @@ export default function AdminDashboard() {
                 <SidebarItem id="users" icon={Users} label="Kullanıcılar" count={users.length} />
                 <SidebarItem id="packages" icon={Package} label="Paketler" count={packages.length} />
                 <SidebarItem id="reports" icon={BarChart3} label="Raporlar" />
+              </nav>
+
+              <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Yönetim</p>
+              <nav className="space-y-2">
+                <button
+                  onClick={() => setLocation("/gokadmin/kuponlar")}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
+                  data-testid="nav-coupons"
+                >
+                  <Ticket size={18} /> Kuponlar
+                </button>
+                <button
+                  onClick={() => setLocation("/gokadmin/loglar")}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
+                  data-testid="nav-logs"
+                >
+                  <FileText size={18} /> Sistem Logları
+                </button>
+                <button
+                  onClick={() => setLocation("/gokadmin/yedekleme")}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
+                  data-testid="nav-backup"
+                >
+                  <Database size={18} /> Yedekleme
+                </button>
               </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">

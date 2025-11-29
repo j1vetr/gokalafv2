@@ -172,3 +172,67 @@ export const insertEmailLogSchema = createInsertSchema(emailLogs).omit({
 
 export type InsertEmailLog = z.infer<typeof insertEmailLogSchema>;
 export type EmailLog = typeof emailLogs.$inferSelect;
+
+// COUPONS TABLE (kupon/indirim kodları)
+export const coupons = pgTable("coupons", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  code: text("code").notNull().unique(),
+  discountType: text("discount_type").notNull(), // percentage, fixed
+  discountValue: decimal("discount_value", { precision: 10, scale: 2 }).notNull(),
+  minOrderAmount: decimal("min_order_amount", { precision: 10, scale: 2 }),
+  maxUsageCount: integer("max_usage_count"), // null = unlimited
+  usedCount: integer("used_count").default(0).notNull(),
+  validFrom: timestamp("valid_from").notNull(),
+  validUntil: timestamp("valid_until").notNull(),
+  isActive: boolean("is_active").default(true).notNull(),
+  createdBy: varchar("created_by").references(() => users.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertCouponSchema = createInsertSchema(coupons).omit({
+  id: true,
+  usedCount: true,
+  createdAt: true,
+});
+
+export type InsertCoupon = z.infer<typeof insertCouponSchema>;
+export type Coupon = typeof coupons.$inferSelect;
+
+// COUPON USAGE TABLE (kupon kullanım geçmişi)
+export const couponUsage = pgTable("coupon_usage", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  couponId: varchar("coupon_id").notNull().references(() => coupons.id),
+  userId: varchar("user_id").notNull().references(() => users.id),
+  orderId: varchar("order_id").references(() => orders.id),
+  discountAmount: decimal("discount_amount", { precision: 10, scale: 2 }).notNull(),
+  usedAt: timestamp("used_at").defaultNow().notNull(),
+});
+
+export const insertCouponUsageSchema = createInsertSchema(couponUsage).omit({
+  id: true,
+  usedAt: true,
+});
+
+export type InsertCouponUsage = z.infer<typeof insertCouponUsageSchema>;
+export type CouponUsage = typeof couponUsage.$inferSelect;
+
+// SYSTEM LOGS TABLE (sistem logları)
+export const systemLogs = pgTable("system_logs", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  action: text("action").notNull(), // login, logout, create_user, update_order, delete_user, etc.
+  entityType: text("entity_type"), // user, order, package, coupon, etc.
+  entityId: varchar("entity_id"),
+  details: text("details"), // JSON string with additional details
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertSystemLogSchema = createInsertSchema(systemLogs).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertSystemLog = z.infer<typeof insertSystemLogSchema>;
+export type SystemLog = typeof systemLogs.$inferSelect;

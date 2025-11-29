@@ -18,6 +18,9 @@ const Checkout = lazy(() => import("@/pages/Checkout"));
 const UserDashboard = lazy(() => import("@/pages/UserDashboard"));
 const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
 const AdminLogin = lazy(() => import("@/pages/AdminLogin"));
+const AdminCoupons = lazy(() => import("@/pages/AdminCoupons"));
+const AdminSystemLogs = lazy(() => import("@/pages/AdminSystemLogs"));
+const AdminBackup = lazy(() => import("@/pages/AdminBackup"));
 const BMICalculator = lazy(() => import("@/pages/calculators/BMICalculator"));
 const CalorieCalculator = lazy(() => import("@/pages/calculators/CalorieCalculator"));
 const TDEECalculator = lazy(() => import("@/pages/calculators/TDEECalculator"));
@@ -79,6 +82,9 @@ function AppContent() {
             <Route path="/panel" component={UserDashboard} />
             <Route path="/gokadmin/login" component={AdminLogin} />
             <Route path="/gokadmin" component={AdminDashboard} />
+            <Route path="/gokadmin/kuponlar" component={AdminCoupons} />
+            <Route path="/gokadmin/loglar" component={AdminSystemLogs} />
+            <Route path="/gokadmin/yedekleme" component={AdminBackup} />
             <Route path="/gizlilik" component={PrivacyPolicy} />
             <Route path="/kvkk" component={KVKK} />
             <Route path="/iptal-iade" component={CancellationPolicy} />
