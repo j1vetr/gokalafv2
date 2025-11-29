@@ -64,9 +64,9 @@ export function Footer() {
             <h4 className="text-sm font-bold uppercase mb-5 text-primary tracking-wider">Hızlı Erişim</h4>
             <ul className="space-y-3">
               <li><Link href="/" className="text-gray-400 hover:text-primary transition-colors text-sm">Anasayfa</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-primary transition-colors text-sm">Hakkımda</Link></li>
-              <li><Link href="/tools" className="text-gray-400 hover:text-primary transition-colors text-sm">Ücretsiz Araçlar</Link></li>
-              <li><Link href="/packages" className="text-gray-400 hover:text-primary transition-colors text-sm">Paketler</Link></li>
+              <li><Link href="/hakkimizda" className="text-gray-400 hover:text-primary transition-colors text-sm">Hakkımda</Link></li>
+              <li><Link href="/araclar" className="text-gray-400 hover:text-primary transition-colors text-sm">Ücretsiz Araçlar</Link></li>
+              <li><Link href="/paketler" className="text-gray-400 hover:text-primary transition-colors text-sm">Paketler</Link></li>
             </ul>
           </div>
 

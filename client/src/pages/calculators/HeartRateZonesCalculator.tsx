@@ -128,7 +128,7 @@ export default function HeartRateZonesCalculator() {
   return (
     <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/tools">
+        <Link href="/araclar">
           <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
             <ArrowLeft className="w-4 h-4 mr-2" /> Araçlara Dön
           </Button>

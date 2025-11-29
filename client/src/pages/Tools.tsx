@@ -11,7 +11,7 @@ export default function Tools() {
       desc: "Boy ve kilonuza göre BMI değerinizi ve ideal aralığınızı hesaplayın.",
       icon: <Activity className="w-8 h-8" />,
       category: "Sağlık",
-      path: "/tools/bmi",
+      path: "/araclar/vki",
       color: "blue"
     },
     {
@@ -20,7 +20,7 @@ export default function Tools() {
       desc: "Hedefinize göre günlük almanız gereken kalori miktarını hesaplayın.",
       icon: <Utensils className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/tools/calories",
+      path: "/araclar/kalori",
       color: "orange"
     },
     {
@@ -29,7 +29,7 @@ export default function Tools() {
       desc: "Total Daily Energy Expenditure - günlük toplam enerji harcamanızı öğrenin.",
       icon: <Zap className="w-8 h-8" />,
       category: "Enerji",
-      path: "/tools/tdee",
+      path: "/araclar/tdee",
       color: "yellow"
     },
     {
@@ -38,7 +38,7 @@ export default function Tools() {
       desc: "Protein, karbonhidrat ve yağ miktarlarınızı hesaplayın.",
       icon: <Scale className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/tools/macros",
+      path: "/araclar/makro",
       color: "green"
     },
     {
@@ -47,7 +47,7 @@ export default function Tools() {
       desc: "Boyunuza ve cinsiyetinize göre bilimsel formüllerle ideal kilonuzu hesaplayın.",
       icon: <Target className="w-8 h-8" />,
       category: "Hedef",
-      path: "/tools/ideal-weight",
+      path: "/araclar/ideal-kilo",
       color: "purple"
     },
     {
@@ -56,7 +56,7 @@ export default function Tools() {
       desc: "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
       icon: <Percent className="w-8 h-8" />,
       category: "Analiz",
-      path: "/tools/body-fat",
+      path: "/araclar/vucut-yagi",
       color: "pink"
     },
     {
@@ -65,7 +65,7 @@ export default function Tools() {
       desc: "Kaldırdığınız ağırlık ve tekrardan maksimum kaldırma kapasiteni hesaplayın.",
       icon: <Dumbbell className="w-8 h-8" />,
       category: "Güç",
-      path: "/tools/one-rep-max",
+      path: "/araclar/bir-tekrar-max",
       color: "red"
     },
     {
@@ -74,7 +74,7 @@ export default function Tools() {
       desc: "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
       icon: <Droplets className="w-8 h-8" />,
       category: "Hidrasyon",
-      path: "/tools/water-intake",
+      path: "/araclar/su-tuketimi",
       color: "cyan"
     },
     {
@@ -83,7 +83,7 @@ export default function Tools() {
       desc: "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın.",
       icon: <Heart className="w-8 h-8" />,
       category: "Kardio",
-      path: "/tools/heart-rate-zones",
+      path: "/araclar/kalp-atisi",
       color: "rose"
     },
     {
@@ -92,7 +92,7 @@ export default function Tools() {
       desc: "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
       icon: <Beef className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/tools/protein-intake",
+      path: "/araclar/protein",
       color: "amber"
     },
     {
@@ -101,7 +101,7 @@ export default function Tools() {
       desc: "Antrenman tipinize göre ideal dinlenme sürenizi öğrenin.",
       icon: <Timer className="w-8 h-8" />,
       category: "Antrenman",
-      path: "/tools/rest-timer",
+      path: "/araclar/dinlenme",
       color: "teal"
     }
   ];

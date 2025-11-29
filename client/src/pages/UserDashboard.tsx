@@ -478,7 +478,7 @@ export default function UserDashboard() {
                       </p>
                     </div>
                     {!activePackage && (
-                      <Link href="/packages">
+                      <Link href="/paketler">
                         <Button className="bg-primary text-black hover:bg-primary/90 font-bold" data-testid="button-buy-package">
                           <Sparkles className="w-4 h-4 mr-2" />
                           Paket Satın Al
@@ -710,7 +710,7 @@ export default function UserDashboard() {
 
                   {/* Quick Actions */}
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Link href="/tools">
+                    <Link href="/araclar">
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -1109,7 +1109,7 @@ export default function UserDashboard() {
                     <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
                       <h2 className="text-xl font-heading font-bold text-white mb-6">Beslenme Hesaplayıcıları</h2>
                       <div className="space-y-4">
-                        <Link href="/tools/calories">
+                        <Link href="/araclar/kalori">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-calories-calc">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/30 transition-colors">
                               <Flame className="w-6 h-6 text-orange-400" />
@@ -1121,7 +1121,7 @@ export default function UserDashboard() {
                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                           </div>
                         </Link>
-                        <Link href="/tools/macros">
+                        <Link href="/araclar/makro">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-macros-calc">
                             <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
                               <Scale className="w-6 h-6 text-green-400" />
@@ -1133,7 +1133,7 @@ export default function UserDashboard() {
                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                           </div>
                         </Link>
-                        <Link href="/tools/tdee">
+                        <Link href="/araclar/tdee">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-tdee-calc">
                             <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
                               <Zap className="w-6 h-6 text-blue-400" />
@@ -1309,7 +1309,7 @@ export default function UserDashboard() {
                   <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
                     <h2 className="text-xl font-heading font-bold text-white mb-6">Antrenman Hesaplayıcıları</h2>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <Link href="/tools/one-rep-max">
+                      <Link href="/araclar/bir-tekrar-max">
                         <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-1rm-calc">
                           <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center group-hover:bg-red-500/30 transition-colors">
                             <Dumbbell className="w-6 h-6 text-red-400" />
@@ -1321,7 +1321,7 @@ export default function UserDashboard() {
                           <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         </div>
                       </Link>
-                      <Link href="/tools/body-fat">
+                      <Link href="/araclar/vucut-yagi">
                         <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-bodyfat-calc">
                           <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
                             <Activity className="w-6 h-6 text-purple-400" />
@@ -1413,7 +1413,7 @@ export default function UserDashboard() {
                       <div className="text-center py-8">
                         <Package className="w-12 h-12 text-gray-500 mx-auto mb-4" />
                         <p className="text-gray-400 mb-4">Henüz aktif paketiniz yok</p>
-                        <Link href="/packages">
+                        <Link href="/paketler">
                           <Button className="bg-primary text-black hover:bg-primary/90" data-testid="button-buy-package-settings">
                             Paketleri İncele
                           </Button>

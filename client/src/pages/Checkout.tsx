@@ -65,7 +65,7 @@ export default function Checkout() {
       if (res.ok) {
         const data = await res.json();
         window.open(`https://www.shopier.com/ShowProductNew/products.php?id=gokalaf&product=${selectedPackage.weeks}hafta`, "_blank");
-        setLocation("/dashboard?order=" + data.order.id);
+        setLocation("/panel?order=" + data.order.id);
       }
     } catch (error) {
       console.error("Sipariş oluşturulamadı:", error);
@@ -85,7 +85,7 @@ export default function Checkout() {
   return (
     <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
       <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/packages" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+        <Link href="/paketler" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
           <ArrowLeft size={16} /> Paketlere Dön
         </Link>
 

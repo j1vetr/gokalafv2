@@ -125,7 +125,7 @@ export default function Login() {
           <div className="mt-6 text-center">
             <p className="text-gray-500 text-sm">
               Hesabın yok mu?{" "}
-              <Link href="/register" className="text-primary hover:underline font-medium" data-testid="link-register">
+              <Link href="/kayit" className="text-primary hover:underline font-medium" data-testid="link-register">
                 Kayıt Ol
               </Link>
             </p>

@@ -22,9 +22,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Anasayfa", href: "/" },
-    { name: "Hakkımda", href: "/about" },
-    { name: "Araçlar", href: "/tools" },
-    { name: "Paketler", href: "/packages" },
+    { name: "Hakkımda", href: "/hakkimizda" },
+    { name: "Araçlar", href: "/araclar" },
+    { name: "Paketler", href: "/paketler" },
   ];
 
   return (
@@ -66,7 +66,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           {isAuthenticated ? (
             <>
-              <Link href="/dashboard">
+              <Link href="/panel">
                 <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs" data-testid="button-dashboard">
                   <User className="w-4 h-4 mr-2" />
                   {user?.fullName?.split(" ")[0] || "Panel"}
@@ -84,12 +84,12 @@ export function Navbar() {
             </>
           ) : (
             <>
-              <Link href="/login">
+              <Link href="/giris">
                 <Button variant="ghost" size="sm" className="text-white/70 hover:text-primary hover:bg-white/5 font-medium tracking-wide uppercase text-xs" data-testid="button-login">
                   Giriş Yap
                 </Button>
               </Link>
-              <Link href="/packages">
+              <Link href="/paketler">
                 <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-6 h-10 text-sm shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1" data-testid="button-apply">
                   Hemen Başla
                 </Button>
@@ -120,7 +120,7 @@ export function Navbar() {
               <div className="flex flex-col gap-4 mt-8">
                 {isAuthenticated ? (
                   <>
-                    <Link href="/dashboard" onClick={() => setIsOpen(false)}>
+                    <Link href="/panel" onClick={() => setIsOpen(false)}>
                       <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
                         <User className="w-5 h-5 mr-3" /> Panelim
                       </Button>
@@ -135,12 +135,12 @@ export function Navbar() {
                   </>
                 ) : (
                   <>
-                    <Link href="/login" onClick={() => setIsOpen(false)}>
+                    <Link href="/giris" onClick={() => setIsOpen(false)}>
                       <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
                         <User className="w-5 h-5 mr-3" /> Giriş Yap
                       </Button>
                     </Link>
-                    <Link href="/packages" onClick={() => setIsOpen(false)}>
+                    <Link href="/paketler" onClick={() => setIsOpen(false)}>
                       <Button className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-14 text-xl shadow-[0_0_20px_rgba(204,255,0,0.3)]">
                         Hemen Başla
                       </Button>

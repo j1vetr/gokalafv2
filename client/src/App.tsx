@@ -49,7 +49,7 @@ function PageLoader() {
 function AppContent() {
   const [location] = useLocation();
   const isAdminRoute = location.startsWith("/gokadmin");
-  const isDashboard = location === "/dashboard";
+  const isDashboard = location === "/panel";
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-black">
@@ -59,24 +59,24 @@ function AppContent() {
         <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/tools" component={Tools} />
-            <Route path="/tools/bmi" component={BMICalculator} />
-            <Route path="/tools/calories" component={CalorieCalculator} />
-            <Route path="/tools/tdee" component={TDEECalculator} />
-            <Route path="/tools/macros" component={MacroCalculator} />
-            <Route path="/tools/ideal-weight" component={IdealWeightCalculator} />
-            <Route path="/tools/body-fat" component={BodyFatCalculator} />
-            <Route path="/tools/one-rep-max" component={OneRepMaxCalculator} />
-            <Route path="/tools/water-intake" component={WaterIntakeCalculator} />
-            <Route path="/tools/heart-rate-zones" component={HeartRateZonesCalculator} />
-            <Route path="/tools/protein-intake" component={ProteinIntakeCalculator} />
-            <Route path="/tools/rest-timer" component={RestTimerCalculator} />
-            <Route path="/packages" component={Packages} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/dashboard" component={UserDashboard} />
+            <Route path="/hakkimizda" component={About} />
+            <Route path="/araclar" component={Tools} />
+            <Route path="/araclar/vki" component={BMICalculator} />
+            <Route path="/araclar/kalori" component={CalorieCalculator} />
+            <Route path="/araclar/tdee" component={TDEECalculator} />
+            <Route path="/araclar/makro" component={MacroCalculator} />
+            <Route path="/araclar/ideal-kilo" component={IdealWeightCalculator} />
+            <Route path="/araclar/vucut-yagi" component={BodyFatCalculator} />
+            <Route path="/araclar/bir-tekrar-max" component={OneRepMaxCalculator} />
+            <Route path="/araclar/su-tuketimi" component={WaterIntakeCalculator} />
+            <Route path="/araclar/kalp-atisi" component={HeartRateZonesCalculator} />
+            <Route path="/araclar/protein" component={ProteinIntakeCalculator} />
+            <Route path="/araclar/dinlenme" component={RestTimerCalculator} />
+            <Route path="/paketler" component={Packages} />
+            <Route path="/giris" component={Login} />
+            <Route path="/kayit" component={Register} />
+            <Route path="/odeme" component={Checkout} />
+            <Route path="/panel" component={UserDashboard} />
             <Route path="/gokadmin/login" component={AdminLogin} />
             <Route path="/gokadmin" component={AdminDashboard} />
             <Route path="/gizlilik" component={PrivacyPolicy} />

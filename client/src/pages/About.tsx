@@ -106,7 +106,7 @@ export default function About() {
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Link href="/packages">
+                <Link href="/paketler">
                   <Button className="h-14 px-8 text-lg font-bold uppercase bg-white text-black hover:bg-gray-200 rounded-none">
                     Benimle Çalış <ArrowRight className="ml-2" />
                   </Button>
