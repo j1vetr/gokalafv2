@@ -353,7 +353,7 @@ export default function UserDashboard() {
         <motion.aside 
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="hidden lg:flex flex-col w-72 border-r border-white/5 bg-[#0A0A0A]/50 backdrop-blur-xl fixed left-0 top-20 bottom-0 z-40"
+          className="hidden lg:flex flex-col w-72 border-r border-white/5 bg-[#0A0A0A]/80 backdrop-blur-xl fixed left-0 top-20 bottom-0 z-40"
         >
           <div className="p-6 border-b border-white/5">
             <div className="flex items-center gap-4">
@@ -455,8 +455,8 @@ export default function UserDashboard() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 lg:ml-72 pb-24 lg:pb-8">
-          <div className="container mx-auto px-4 lg:px-8 py-6">
+        <main className="flex-1 lg:ml-80 pb-24 lg:pb-8">
+          <div className="max-w-6xl mx-auto px-4 lg:px-12 py-8">
             <AnimatePresence mode="wait">
               {/* OVERVIEW PAGE */}
               {activePage === "overview" && (
