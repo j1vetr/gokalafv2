@@ -135,6 +135,103 @@ export default function AdminDashboard() {
   const [showAssignModal, setShowAssignModal] = useState(false);
   const [assignUserId, setAssignUserId] = useState("");
   const [assignForm, setAssignForm] = useState({ packageId: "", startDate: "", endDate: "" });
+  
+  const [reportMonth, setReportMonth] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  });
+
+  const monthOptions = (() => {
+    const options: { value: string; label: string }[] = [];
+    const now = new Date();
+    for (let i = 0; i < 12; i++) {
+      const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const value = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+      const label = date.toLocaleDateString("tr-TR", { month: "long", year: "numeric" });
+      options.push({ value, label: label.charAt(0).toUpperCase() + label.slice(1) });
+    }
+    return options;
+  })();
+
+  const getMonthlyStats = (monthKey: string) => {
+    const [year, month] = monthKey.split("-").map(Number);
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 0, 23, 59, 59);
+    
+    const monthOrders = orders.filter(order => {
+      const orderDate = new Date(order.createdAt);
+      return orderDate >= startDate && orderDate <= endDate;
+    });
+
+    const prevMonthStart = new Date(year, month - 2, 1);
+    const prevMonthEnd = new Date(year, month - 1, 0, 23, 59, 59);
+    const prevMonthOrders = orders.filter(order => {
+      const orderDate = new Date(order.createdAt);
+      return orderDate >= prevMonthStart && orderDate <= prevMonthEnd;
+    });
+
+    const totalRevenue = monthOrders
+      .filter(o => o.status !== "cancelled")
+      .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+    
+    const prevRevenue = prevMonthOrders
+      .filter(o => o.status !== "cancelled")
+      .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+
+    const totalOrders = monthOrders.length;
+    const prevTotalOrders = prevMonthOrders.length;
+
+    const paidOrders = monthOrders.filter(o => o.status === "paid" || o.status === "active" || o.status === "completed").length;
+    const pendingOrders = monthOrders.filter(o => o.status === "pending").length;
+    const cancelledOrders = monthOrders.filter(o => o.status === "cancelled").length;
+    const activeOrders = monthOrders.filter(o => o.status === "active").length;
+
+    const packageSales = packages.map(pkg => {
+      const pkgOrders = monthOrders.filter(o => o.packageId === pkg.id);
+      const pkgRevenue = pkgOrders
+        .filter(o => o.status !== "cancelled")
+        .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+      return {
+        id: pkg.id,
+        name: pkg.name,
+        weeks: pkg.weeks,
+        unitsSold: pkgOrders.length,
+        revenue: pkgRevenue,
+        price: parseFloat(pkg.price)
+      };
+    }).sort((a, b) => b.revenue - a.revenue);
+
+    const newUsers = users.filter(u => {
+      const userDate = new Date(u.createdAt);
+      return userDate >= startDate && userDate <= endDate;
+    }).length;
+
+    const prevNewUsers = users.filter(u => {
+      const userDate = new Date(u.createdAt);
+      return userDate >= prevMonthStart && userDate <= prevMonthEnd;
+    }).length;
+
+    const revenueChange = prevRevenue > 0 ? ((totalRevenue - prevRevenue) / prevRevenue) * 100 : 0;
+    const orderChange = prevTotalOrders > 0 ? ((totalOrders - prevTotalOrders) / prevTotalOrders) * 100 : 0;
+    const userChange = prevNewUsers > 0 ? ((newUsers - prevNewUsers) / prevNewUsers) * 100 : 0;
+
+    return {
+      totalRevenue,
+      prevRevenue,
+      totalOrders,
+      prevTotalOrders,
+      paidOrders,
+      pendingOrders,
+      cancelledOrders,
+      activeOrders,
+      packageSales,
+      newUsers,
+      prevNewUsers,
+      revenueChange,
+      orderChange,
+      userChange
+    };
+  };
 
   useEffect(() => {
     if (!authLoading && (!isAuthenticated || !isAdmin)) {
@@ -964,98 +1061,290 @@ export default function AdminDashboard() {
                 </motion.div>
               )}
 
-              {activeTab === "reports" && (
-                <motion.div
-                  key="reports"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
-                >
-                  <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                    <h2 className="text-xl font-heading font-bold uppercase text-white mb-6">Yıllık Gelir Analizi</h2>
-                    <div className="h-80">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={revenueData}>
-                          <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                          <XAxis dataKey="month" stroke="#666" fontSize={12} />
-                          <YAxis stroke="#666" fontSize={12} tickFormatter={(v) => `₺${(v/1000).toFixed(0)}k`} />
-                          <Tooltip 
-                            contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
-                            formatter={(value: number, name: string) => [
-                              name === "revenue" ? `₺${value.toLocaleString("tr-TR")}` : value,
-                              name === "revenue" ? "Gelir" : "Sipariş"
-                            ]}
-                          />
-                          <Legend formatter={(value) => value === "revenue" ? "Gelir" : "Sipariş Sayısı"} />
-                          <Bar dataKey="revenue" fill="#ccff00" radius={[4, 4, 0, 0]} />
-                          <Bar dataKey="orderCount" fill="#00ccff" radius={[4, 4, 0, 0]} />
-                        </BarChart>
-                      </ResponsiveContainer>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <h3 className="text-sm text-gray-500 uppercase mb-2">Ortalama Sipariş Değeri</h3>
-                      <p className="text-3xl font-bold text-white">
-                        ₺{orders.length > 0 
-                          ? (orders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0) / orders.length).toLocaleString("tr-TR", { maximumFractionDigits: 0 })
-                          : "0"
-                        }
-                      </p>
-                    </div>
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <h3 className="text-sm text-gray-500 uppercase mb-2">Dönüşüm Oranı</h3>
-                      <p className="text-3xl font-bold text-white">
-                        {users.length > 0 
-                          ? ((orders.filter(o => o.status !== "cancelled").length / users.length) * 100).toFixed(1)
-                          : "0"
-                        }%
-                      </p>
-                    </div>
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <h3 className="text-sm text-gray-500 uppercase mb-2">Tamamlanma Oranı</h3>
-                      <p className="text-3xl font-bold text-white">
-                        {orders.length > 0 
-                          ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1)
-                          : "0"
-                        }%
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                    <h3 className="font-heading font-bold text-white uppercase mb-4">Paket Dağılımı</h3>
-                    <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <PieChart>
-                          <Pie
-                            data={packages.map(pkg => ({
-                              name: pkg.name,
-                              value: orders.filter(o => o.packageId === pkg.id).length
-                            })).filter(d => d.value > 0)}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={100}
-                            dataKey="value"
-                            label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
-                            labelLine={false}
-                          >
-                            {packages.map((_, index) => (
-                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              {activeTab === "reports" && (() => {
+                const monthStats = getMonthlyStats(reportMonth);
+                const selectedMonthLabel = monthOptions.find(m => m.value === reportMonth)?.label || "";
+                
+                return (
+                  <motion.div
+                    key="reports"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="space-y-6"
+                  >
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-2">
+                      <div>
+                        <h1 className="text-2xl font-heading font-bold text-white uppercase">Detaylı Raporlar</h1>
+                        <p className="text-gray-500 text-sm mt-1">Satış ve performans analizleri</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Calendar size={18} className="text-primary" />
+                        <Select value={reportMonth} onValueChange={setReportMonth}>
+                          <SelectTrigger className="w-[200px] bg-[#0A0A0A] border-white/10 text-white" data-testid="select-report-month">
+                            <SelectValue placeholder="Ay seçin" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-[#0A0A0A] border-white/10">
+                            {monthOptions.map(option => (
+                              <SelectItem key={option.value} value={option.value} className="text-white hover:bg-white/10">
+                                {option.label}
+                              </SelectItem>
                             ))}
-                          </Pie>
-                          <Tooltip 
-                            contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
-                            formatter={(value: number) => [value, "Sipariş"]}
-                          />
-                        </PieChart>
-                      </ResponsiveContainer>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              )}
+
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                          <BarChart3 size={20} className="text-primary" />
+                        </div>
+                        <div>
+                          <h2 className="text-lg font-heading font-bold text-white uppercase">{selectedMonthLabel} Özeti</h2>
+                          <p className="text-gray-500 text-xs">Seçili ay için detaylı istatistikler</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="bg-black/30 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-xs text-gray-500 uppercase">Toplam Gelir</p>
+                            {monthStats.revenueChange !== 0 && (
+                              <Badge className={`text-xs ${monthStats.revenueChange > 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                                {monthStats.revenueChange > 0 ? <TrendingUp size={10} className="mr-1" /> : <TrendingDown size={10} className="mr-1" />}
+                                {Math.abs(monthStats.revenueChange).toFixed(0)}%
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-2xl font-bold text-primary" data-testid="stat-monthly-total-revenue">
+                            ₺{monthStats.totalRevenue.toLocaleString("tr-TR")}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">Önceki ay: ₺{monthStats.prevRevenue.toLocaleString("tr-TR")}</p>
+                        </div>
+
+                        <div className="bg-black/30 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-xs text-gray-500 uppercase">Toplam Sipariş</p>
+                            {monthStats.orderChange !== 0 && (
+                              <Badge className={`text-xs ${monthStats.orderChange > 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                                {monthStats.orderChange > 0 ? <TrendingUp size={10} className="mr-1" /> : <TrendingDown size={10} className="mr-1" />}
+                                {Math.abs(monthStats.orderChange).toFixed(0)}%
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-2xl font-bold text-white" data-testid="stat-monthly-total-orders">
+                            {monthStats.totalOrders}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">Önceki ay: {monthStats.prevTotalOrders}</p>
+                        </div>
+
+                        <div className="bg-black/30 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-xs text-gray-500 uppercase">Yeni Üye</p>
+                            {monthStats.userChange !== 0 && (
+                              <Badge className={`text-xs ${monthStats.userChange > 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                                {monthStats.userChange > 0 ? <TrendingUp size={10} className="mr-1" /> : <TrendingDown size={10} className="mr-1" />}
+                                {Math.abs(monthStats.userChange).toFixed(0)}%
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-2xl font-bold text-blue-400" data-testid="stat-monthly-new-users">
+                            {monthStats.newUsers}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">Önceki ay: {monthStats.prevNewUsers}</p>
+                        </div>
+
+                        <div className="bg-black/30 rounded-xl p-4">
+                          <p className="text-xs text-gray-500 uppercase mb-2">Sipariş Durumu</p>
+                          <div className="space-y-1">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs text-green-400">Ödendi/Aktif</span>
+                              <span className="text-sm font-bold text-white">{monthStats.paidOrders}</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs text-yellow-400">Bekliyor</span>
+                              <span className="text-sm font-bold text-white">{monthStats.pendingOrders}</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs text-red-400">İptal</span>
+                              <span className="text-sm font-bold text-white">{monthStats.cancelledOrders}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                      <div className="flex items-center justify-between mb-6">
+                        <h3 className="font-heading font-bold text-white uppercase">Paket Satışları - {selectedMonthLabel}</h3>
+                        <Badge className="bg-white/10 text-gray-300">{monthStats.packageSales.reduce((sum, p) => sum + p.unitsSold, 0)} toplam satış</Badge>
+                      </div>
+                      
+                      {monthStats.packageSales.some(p => p.unitsSold > 0) ? (
+                        <div className="overflow-x-auto">
+                          <Table>
+                            <TableHeader>
+                              <TableRow className="border-white/10">
+                                <TableHead className="text-gray-400">Paket Adı</TableHead>
+                                <TableHead className="text-gray-400 text-center">Süre</TableHead>
+                                <TableHead className="text-gray-400 text-center">Birim Fiyat</TableHead>
+                                <TableHead className="text-gray-400 text-center">Satış Adedi</TableHead>
+                                <TableHead className="text-gray-400 text-right">Toplam Gelir</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {monthStats.packageSales.map((pkg, idx) => (
+                                <TableRow key={pkg.id} className="border-white/10 hover:bg-white/5" data-testid={`row-package-sales-${idx}`}>
+                                  <TableCell className="font-medium text-white">
+                                    <div className="flex items-center gap-2">
+                                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }} />
+                                      {pkg.name}
+                                    </div>
+                                  </TableCell>
+                                  <TableCell className="text-center text-gray-400">{pkg.weeks} Hafta</TableCell>
+                                  <TableCell className="text-center text-gray-400">₺{pkg.price.toLocaleString("tr-TR")}</TableCell>
+                                  <TableCell className="text-center">
+                                    <Badge className={pkg.unitsSold > 0 ? "bg-primary/20 text-primary" : "bg-gray-500/20 text-gray-400"}>
+                                      {pkg.unitsSold} adet
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="text-right font-bold text-primary">
+                                    ₺{pkg.revenue.toLocaleString("tr-TR")}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                              <TableRow className="border-white/10 bg-primary/10">
+                                <TableCell colSpan={3} className="font-bold text-white uppercase">Toplam</TableCell>
+                                <TableCell className="text-center">
+                                  <Badge className="bg-primary/30 text-primary font-bold">
+                                    {monthStats.packageSales.reduce((sum, p) => sum + p.unitsSold, 0)} adet
+                                  </Badge>
+                                </TableCell>
+                                <TableCell className="text-right font-bold text-primary text-lg">
+                                  ₺{monthStats.totalRevenue.toLocaleString("tr-TR")}
+                                </TableCell>
+                              </TableRow>
+                            </TableBody>
+                          </Table>
+                        </div>
+                      ) : (
+                        <div className="text-center py-12 text-gray-500">
+                          <ShoppingCart size={48} className="mx-auto mb-4 opacity-30" />
+                          <p>Bu ay henüz satış yapılmamış</p>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-6">Aylık Paket Dağılımı</h3>
+                        <div className="h-64">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                              <Pie
+                                data={monthStats.packageSales.filter(p => p.unitsSold > 0).map(p => ({
+                                  name: p.name,
+                                  value: p.unitsSold
+                                }))}
+                                cx="50%"
+                                cy="50%"
+                                innerRadius={50}
+                                outerRadius={90}
+                                dataKey="value"
+                                label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                                labelLine={false}
+                              >
+                                {monthStats.packageSales.map((_, index) => (
+                                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                ))}
+                              </Pie>
+                              <Tooltip 
+                                contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                                formatter={(value: number) => [`${value} adet`, "Satış"]}
+                              />
+                            </PieChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-6">Gelir Dağılımı</h3>
+                        <div className="h-64">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={monthStats.packageSales.filter(p => p.revenue > 0)} layout="vertical">
+                              <CartesianGrid strokeDasharray="3 3" stroke="#222" horizontal={false} />
+                              <XAxis type="number" stroke="#666" fontSize={12} tickFormatter={(v) => `₺${(v/1000).toFixed(0)}k`} />
+                              <YAxis type="category" dataKey="name" stroke="#666" fontSize={11} width={100} />
+                              <Tooltip 
+                                contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                                formatter={(value: number) => [`₺${value.toLocaleString("tr-TR")}`, "Gelir"]}
+                              />
+                              <Bar dataKey="revenue" fill="#ccff00" radius={[0, 4, 4, 0]} />
+                            </BarChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                      <h2 className="text-xl font-heading font-bold uppercase text-white mb-6">Yıllık Gelir Analizi</h2>
+                      <div className="h-80">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={revenueData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#222" />
+                            <XAxis dataKey="month" stroke="#666" fontSize={12} />
+                            <YAxis stroke="#666" fontSize={12} tickFormatter={(v) => `₺${(v/1000).toFixed(0)}k`} />
+                            <Tooltip 
+                              contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                              formatter={(value: number, name: string) => [
+                                name === "revenue" ? `₺${value.toLocaleString("tr-TR")}` : value,
+                                name === "revenue" ? "Gelir" : "Sipariş"
+                              ]}
+                            />
+                            <Legend formatter={(value) => value === "revenue" ? "Gelir" : "Sipariş Sayısı"} />
+                            <Bar dataKey="revenue" fill="#ccff00" radius={[4, 4, 0, 0]} />
+                            <Bar dataKey="orderCount" fill="#00ccff" radius={[4, 4, 0, 0]} />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="text-sm text-gray-500 uppercase mb-2">Ortalama Sipariş Değeri</h3>
+                        <p className="text-3xl font-bold text-white">
+                          ₺{orders.length > 0 
+                            ? (orders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0) / orders.length).toLocaleString("tr-TR", { maximumFractionDigits: 0 })
+                            : "0"
+                          }
+                        </p>
+                        <p className="text-xs text-gray-500 mt-2">Tüm zamanlar</p>
+                      </div>
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="text-sm text-gray-500 uppercase mb-2">Dönüşüm Oranı</h3>
+                        <p className="text-3xl font-bold text-white">
+                          {users.length > 0 
+                            ? ((orders.filter(o => o.status !== "cancelled").length / users.length) * 100).toFixed(1)
+                            : "0"
+                          }%
+                        </p>
+                        <p className="text-xs text-gray-500 mt-2">Kullanıcı → Müşteri</p>
+                      </div>
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="text-sm text-gray-500 uppercase mb-2">Tamamlanma Oranı</h3>
+                        <p className="text-3xl font-bold text-white">
+                          {orders.length > 0 
+                            ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1)
+                            : "0"
+                          }%
+                        </p>
+                        <p className="text-xs text-gray-500 mt-2">Tamamlanan paketler</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
             </AnimatePresence>
           </main>
         </div>
