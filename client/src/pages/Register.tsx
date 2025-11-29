@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
-import { UserPlus, Mail, Lock, User, Phone, AlertCircle } from "lucide-react";
+import { UserPlus, Mail, Lock, User, Phone, MapPin, AlertCircle } from "lucide-react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
 export default function Register() {
@@ -15,6 +15,7 @@ export default function Register() {
     confirmPassword: "",
     fullName: "",
     phone: "",
+    address: "",
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +47,7 @@ export default function Register() {
       password: formData.password,
       fullName: formData.fullName,
       phone: formData.phone,
+      address: formData.address,
     });
 
     if (result.success) {
@@ -139,6 +141,23 @@ export default function Register() {
                   required
                   className="pl-12 h-12 bg-white/5 border-white/10 text-white placeholder:text-gray-600"
                   data-testid="input-phone"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-gray-400 uppercase tracking-wider text-xs font-bold">Adres (Ödeme için)</Label>
+              <div className="relative">
+                <MapPin className="absolute left-4 top-3 text-gray-500 w-5 h-5" />
+                <textarea
+                  name="address"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  placeholder="Fatura/Teslimat adresi"
+                  required
+                  rows={3}
+                  className="w-full pl-12 py-3 bg-white/5 border border-white/10 text-white placeholder:text-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                  data-testid="input-address"
                 />
               </div>
             </div>

@@ -56,7 +56,7 @@ export async function registerRoutes(
   // Register
   app.post("/api/auth/register", async (req, res) => {
     try {
-      const { email, password, fullName, phone } = insertUserSchema.parse(req.body);
+      const { email, password, fullName, phone, address } = insertUserSchema.parse(req.body);
       
       const existingUser = await storage.getUserByEmail(email);
       if (existingUser) {
@@ -69,6 +69,7 @@ export async function registerRoutes(
         password: hashedPassword,
         fullName,
         phone: phone || null,
+        address: address || null,
         role: "user",
       });
 
