@@ -25,6 +25,9 @@ import IdealWeightCalculator from "@/pages/calculators/IdealWeightCalculator";
 import BodyFatCalculator from "@/pages/calculators/BodyFatCalculator";
 import OneRepMaxCalculator from "@/pages/calculators/OneRepMaxCalculator";
 import WaterIntakeCalculator from "@/pages/calculators/WaterIntakeCalculator";
+import HeartRateZonesCalculator from "@/pages/calculators/HeartRateZonesCalculator";
+import ProteinIntakeCalculator from "@/pages/calculators/ProteinIntakeCalculator";
+import RestTimerCalculator from "@/pages/calculators/RestTimerCalculator";
 import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
 import KVKK from "@/pages/legal/KVKK";
 import CancellationPolicy from "@/pages/legal/CancellationPolicy";
@@ -52,6 +55,9 @@ function AppContent() {
           <Route path="/tools/body-fat" component={BodyFatCalculator} />
           <Route path="/tools/one-rep-max" component={OneRepMaxCalculator} />
           <Route path="/tools/water-intake" component={WaterIntakeCalculator} />
+          <Route path="/tools/heart-rate-zones" component={HeartRateZonesCalculator} />
+          <Route path="/tools/protein-intake" component={ProteinIntakeCalculator} />
+          <Route path="/tools/rest-timer" component={RestTimerCalculator} />
           <Route path="/packages" component={Packages} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
