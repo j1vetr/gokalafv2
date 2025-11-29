@@ -704,11 +704,6 @@ export default function UserDashboard() {
                           className="bg-white/5 border-white/10 text-center text-xl h-14"
                           data-testid="input-sleep-hours"
                         />
-                        <div className="text-center text-gray-500 text-xs mt-2">
-                          {sleepHours && parseFloat(sleepHours) >= 7 && parseFloat(sleepHours) <= 9 
-                            ? "✓ İdeal uyku" 
-                            : "Hedef: 7-9 saat"}
-                        </div>
                       </div>
                     </div>
                   </motion.div>
