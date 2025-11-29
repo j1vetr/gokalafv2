@@ -131,6 +131,10 @@ export default function AdminDashboard() {
   const [editUserForm, setEditUserForm] = useState({ fullName: "", email: "", phone: "", role: "user" });
   const [editOrderForm, setEditOrderForm] = useState({ status: "", startDate: "", endDate: "" });
   const [editPackageForm, setEditPackageForm] = useState({ name: "", price: "", isActive: true });
+  
+  const [showAssignModal, setShowAssignModal] = useState(false);
+  const [assignUserId, setAssignUserId] = useState("");
+  const [assignForm, setAssignForm] = useState({ packageId: "", startDate: "", endDate: "" });
 
   useEffect(() => {
     if (!authLoading && (!isAuthenticated || !isAdmin)) {
@@ -307,6 +311,53 @@ export default function AdminDashboard() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleAssignPackage = async () => {
+    if (!assignUserId || !assignForm.packageId || !assignForm.startDate || !assignForm.endDate) {
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/admin/assign-package", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          userId: assignUserId,
+          packageId: assignForm.packageId,
+          startDate: assignForm.startDate,
+          endDate: assignForm.endDate,
+        }),
+      });
+      if (res.ok) {
+        await fetchAllData();
+        setShowAssignModal(false);
+        setAssignUserId("");
+        setAssignForm({ packageId: "", startDate: "", endDate: "" });
+      } else {
+        const data = await res.json();
+        alert(data.error || "Paket atanamadı");
+      }
+    } catch (error) {
+      console.error("Paket atanamadı:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const openAssignModal = (userId: string) => {
+    setAssignUserId(userId);
+    const today = new Date();
+    const startDate = today.toISOString().split("T")[0];
+    setAssignForm({ packageId: "", startDate, endDate: "" });
+    setShowAssignModal(true);
+  };
+
+  const calculateEndDate = (startDate: string, weeks: number) => {
+    const start = new Date(startDate);
+    start.setDate(start.getDate() + weeks * 7);
+    return start.toISOString().split("T")[0];
   };
 
   const getStatusBadge = (status: string) => {
@@ -807,18 +858,30 @@ export default function AdminDashboard() {
                                     <Edit size={16} />
                                   </Button>
                                   {u.role !== "admin" && (
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      onClick={() => {
-                                        setUserToDelete(u);
-                                        setShowDeleteConfirm(true);
-                                      }}
-                                      className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
-                                      data-testid={`button-delete-user-${u.id}`}
-                                    >
-                                      <Trash2 size={16} />
-                                    </Button>
+                                    <>
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => openAssignModal(u.id)}
+                                        className="text-green-400 hover:text-green-300 hover:bg-green-500/10"
+                                        data-testid={`button-assign-package-${u.id}`}
+                                        title="Paket Ata"
+                                      >
+                                        <Package size={16} />
+                                      </Button>
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => {
+                                          setUserToDelete(u);
+                                          setShowDeleteConfirm(true);
+                                        }}
+                                        className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                                        data-testid={`button-delete-user-${u.id}`}
+                                      >
+                                        <Trash2 size={16} />
+                                      </Button>
+                                    </>
                                   )}
                                 </div>
                               </TableCell>
@@ -1265,6 +1328,104 @@ export default function AdminDashboard() {
             </Button>
             <Button onClick={handleDeleteUser} disabled={isSubmitting} className="bg-red-500 hover:bg-red-600 text-white" data-testid="button-confirm-delete">
               {isSubmitting ? "Siliniyor..." : "Evet, Sil"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showAssignModal} onOpenChange={setShowAssignModal}>
+        <DialogContent className="bg-[#0A0A0A] border-white/10 text-white max-w-md" data-testid="modal-assign-package">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-heading uppercase flex items-center gap-2">
+              <Package size={24} className="text-primary" /> Paket Ata
+            </DialogTitle>
+            <DialogDescription className="text-gray-500">
+              {userMap[assignUserId]?.fullName} kullanıcısına paket atayın
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div>
+              <Label className="text-gray-400">Paket Seçin</Label>
+              <Select 
+                value={assignForm.packageId} 
+                onValueChange={(v) => {
+                  const pkg = packages.find(p => p.id === v);
+                  setAssignForm({ 
+                    ...assignForm, 
+                    packageId: v,
+                    endDate: pkg && assignForm.startDate ? calculateEndDate(assignForm.startDate, pkg.weeks) : ""
+                  });
+                }}
+              >
+                <SelectTrigger className="bg-white/5 border-white/10 mt-1" data-testid="select-assign-package">
+                  <SelectValue placeholder="Paket seçin..." />
+                </SelectTrigger>
+                <SelectContent className="bg-[#111] border-white/10">
+                  {packages.filter(p => p.isActive).map((pkg) => (
+                    <SelectItem key={pkg.id} value={pkg.id} className="text-white hover:bg-white/10">
+                      {pkg.name} - {pkg.weeks} Hafta - ₺{parseFloat(pkg.price).toLocaleString("tr-TR")}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="text-gray-400">Başlangıç Tarihi</Label>
+                <Input 
+                  type="date"
+                  value={assignForm.startDate}
+                  onChange={(e) => {
+                    const pkg = packages.find(p => p.id === assignForm.packageId);
+                    setAssignForm({ 
+                      ...assignForm, 
+                      startDate: e.target.value,
+                      endDate: pkg ? calculateEndDate(e.target.value, pkg.weeks) : ""
+                    });
+                  }}
+                  className="bg-white/5 border-white/10 mt-1"
+                  data-testid="input-assign-start-date"
+                />
+              </div>
+              <div>
+                <Label className="text-gray-400">Bitiş Tarihi</Label>
+                <Input 
+                  type="date"
+                  value={assignForm.endDate}
+                  onChange={(e) => setAssignForm({ ...assignForm, endDate: e.target.value })}
+                  className="bg-white/5 border-white/10 mt-1"
+                  data-testid="input-assign-end-date"
+                />
+              </div>
+            </div>
+            {assignForm.packageId && (
+              <div className="p-4 bg-primary/10 border border-primary/20 rounded-xl">
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Package size={16} />
+                  <span className="font-bold">{packages.find(p => p.id === assignForm.packageId)?.name}</span>
+                </div>
+                <p className="text-sm text-gray-400">
+                  Bu paket kullanıcıya <strong className="text-white">ücretsiz</strong> olarak atanacak ve otomatik olarak <strong className="text-green-400">aktif</strong> duruma geçecektir.
+                </p>
+              </div>
+            )}
+          </div>
+          <DialogFooter>
+            <Button 
+              variant="outline" 
+              onClick={() => setShowAssignModal(false)} 
+              className="border-white/20"
+              data-testid="button-cancel-assign"
+            >
+              İptal
+            </Button>
+            <Button 
+              onClick={handleAssignPackage} 
+              disabled={isSubmitting || !assignForm.packageId || !assignForm.startDate || !assignForm.endDate} 
+              className="bg-primary text-black hover:bg-primary/90"
+              data-testid="button-confirm-assign"
+            >
+              {isSubmitting ? "Atanıyor..." : "Paketi Ata"}
             </Button>
           </DialogFooter>
         </DialogContent>

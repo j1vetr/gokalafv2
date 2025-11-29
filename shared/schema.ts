@@ -50,6 +50,8 @@ export const orders = pgTable("orders", {
   status: text("status").notNull().default("pending"), // pending, paid, active, completed, cancelled
   paymentMethod: text("payment_method"), // shopier
   paymentId: text("payment_id"), // shopier transaction ID
+  source: text("source").notNull().default("shopier"), // shopier, admin_assigned
+  adminAssignedBy: varchar("admin_assigned_by").references(() => users.id), // admin who assigned
   startDate: timestamp("start_date"),
   endDate: timestamp("end_date"),
   createdAt: timestamp("created_at").defaultNow().notNull(),

@@ -445,6 +445,50 @@ export async function registerRoutes(
     }
   });
 
+  // Admin Assign Package to User
+  app.post("/api/admin/assign-package", requireAdmin, async (req, res) => {
+    try {
+      const data = z.object({
+        userId: z.string(),
+        packageId: z.string(),
+        startDate: z.string(),
+        endDate: z.string(),
+        notes: z.string().optional(),
+      }).parse(req.body);
+
+      const user = await storage.getUser(data.userId);
+      if (!user) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+
+      const pkg = await storage.getPackage(data.packageId);
+      if (!pkg) {
+        return res.status(404).json({ error: "Paket bulunamadı" });
+      }
+
+      const order = await storage.createOrder({
+        userId: data.userId,
+        packageId: data.packageId,
+        totalPrice: pkg.price,
+        status: "active",
+        source: "admin_assigned",
+        adminAssignedBy: req.session.userId!,
+        paymentMethod: "admin",
+        paymentId: null,
+        startDate: new Date(data.startDate),
+        endDate: new Date(data.endDate),
+      });
+
+      res.json({ order, message: "Paket başarıyla atandı" });
+    } catch (error) {
+      console.error("Assign package error:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri", details: error.errors });
+      }
+      res.status(500).json({ error: "Paket atanamadı" });
+    }
+  });
+
   // ===== CALCULATOR ROUTES =====
   
   app.post("/api/calculator/save", async (req, res) => {
