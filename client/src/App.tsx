@@ -21,6 +21,10 @@ import BMICalculator from "@/pages/calculators/BMICalculator";
 import CalorieCalculator from "@/pages/calculators/CalorieCalculator";
 import TDEECalculator from "@/pages/calculators/TDEECalculator";
 import MacroCalculator from "@/pages/calculators/MacroCalculator";
+import PrivacyPolicy from "@/pages/legal/PrivacyPolicy";
+import KVKK from "@/pages/legal/KVKK";
+import CancellationPolicy from "@/pages/legal/CancellationPolicy";
+import DistanceSalesContract from "@/pages/legal/DistanceSalesContract";
 import NotFound from "@/pages/not-found";
 
 function AppContent() {
@@ -47,6 +51,10 @@ function AppContent() {
           <Route path="/dashboard" component={UserDashboard} />
           <Route path="/gokadmin/login" component={AdminLogin} />
           <Route path="/gokadmin" component={AdminDashboard} />
+          <Route path="/gizlilik" component={PrivacyPolicy} />
+          <Route path="/kvkk" component={KVKK} />
+          <Route path="/iptal-iade" component={CancellationPolicy} />
+          <Route path="/mesafeli-satis" component={DistanceSalesContract} />
           <Route component={NotFound} />
         </Switch>
       </main>
