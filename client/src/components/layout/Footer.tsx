@@ -1,6 +1,14 @@
 import { Link } from "wouter";
 import { Instagram, Youtube, Mail } from "lucide-react";
 
+function KickIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M1.333 0v24h5.338v-7.96l6.036 7.96h6.672l-7.33-9.604L19.38 4.802h-6.672l-6.036 7.959V0H1.333z"/>
+    </svg>
+  );
+}
+
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -24,11 +32,14 @@ export function Footer() {
               Online fitness ve vücut geliştirme koçluğu. Kişiye özel antrenman ve beslenme programlarıyla hedeflerine ulaş.
             </p>
             <div className="flex gap-3">
-              <a href="https://instagram.com/alaboratovar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black hover:border-primary transition-all">
+              <a href="https://www.instagram.com/gokalaf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black hover:border-primary transition-all">
                 <Instagram size={18} />
               </a>
-              <a href="https://youtube.com/@alaboratovar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black hover:border-primary transition-all">
+              <a href="https://www.youtube.com/gokalaf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black hover:border-primary transition-all">
                 <Youtube size={18} />
+              </a>
+              <a href="https://kick.com/gokalaf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-black hover:border-primary transition-all">
+                <KickIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

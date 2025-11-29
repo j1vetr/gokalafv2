@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, Trophy, Target, Zap, User, Award, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Trophy, Target, Zap, User, Award, Star, Instagram, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
+
+function KickIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M1.333 0v24h5.338v-7.96l6.036 7.96h6.672l-7.33-9.604L19.38 4.802h-6.672l-6.036 7.959V0H1.333z"/>
+    </svg>
+  );
+}
 
 export default function About() {
   return (
@@ -81,11 +89,26 @@ export default function About() {
                 
               </div>
 
-              <Link href="/packages">
-                <Button className="h-14 px-8 text-lg font-bold uppercase bg-white text-black hover:bg-gray-200 rounded-none">
-                  Benimle Çalış <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link href="/packages">
+                  <Button className="h-14 px-8 text-lg font-bold uppercase bg-white text-black hover:bg-gray-200 rounded-none">
+                    Benimle Çalış <ArrowRight className="ml-2" />
+                  </Button>
+                </Link>
+                
+                <div className="flex items-center gap-3 ml-4">
+                  <span className="text-gray-500 text-sm uppercase tracking-wider">Takip Et:</span>
+                  <a href="https://www.instagram.com/gokalaf/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:text-white hover:border-transparent transition-all">
+                    <Instagram size={20} />
+                  </a>
+                  <a href="https://www.youtube.com/gokalaf" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-red-500 hover:text-white hover:border-transparent transition-all">
+                    <Youtube size={20} />
+                  </a>
+                  <a href="https://kick.com/gokalaf/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-green-500 hover:text-white hover:border-transparent transition-all">
+                    <KickIcon className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
