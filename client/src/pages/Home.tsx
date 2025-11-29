@@ -120,6 +120,16 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
+              
+              <a 
+                href="https://proteinocean.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 hover:bg-white/10 hover:text-white hover:border-primary/30 transition-all group"
+              >
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span>Proteinocean'da <span className="text-primary font-bold">ALAF10</span> koduyla %10 indirim</span>
+              </a>
             </motion.div>
           </div>
         </div>
