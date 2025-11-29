@@ -91,6 +91,16 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <a 
+                href="https://proteinocean.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 transition-all"
+              >
+                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                <span>Proteinocean'da <span className="font-bold">ALAF10</span> koduyla %10 İNDİRİM !</span>
+              </a>
+              
               <div className="relative inline-block mb-3 lg:mb-4 p-4 sm:p-6 lg:p-8">
                 {/* Rotating Border Animation */}
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -120,16 +130,6 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-              
-              <a 
-                href="https://proteinocean.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs text-gray-400 hover:bg-white/10 hover:text-white hover:border-primary/30 transition-all group"
-              >
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                <span>Proteinocean'da <span className="text-primary font-bold">ALAF10</span> koduyla %10 indirim</span>
-              </a>
             </motion.div>
           </div>
         </div>
