@@ -872,11 +872,11 @@ export default function UserDashboard() {
                   exit={{ opacity: 0, y: -20 }}
                   className="space-y-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-heading font-bold text-white uppercase">Vücut Ölçüleri</h1>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Vücut Ölçüleri</h1>
                     <Dialog open={showMeasurementDialog} onOpenChange={setShowMeasurementDialog}>
                       <DialogTrigger asChild>
-                        <Button className="bg-primary text-black hover:bg-primary/90" data-testid="button-add-measurement">
+                        <Button className="bg-primary text-black hover:bg-primary/90 w-full sm:w-auto" data-testid="button-add-measurement">
                           <Plus className="w-4 h-4 mr-2" /> Yeni Ölçüm
                         </Button>
                       </DialogTrigger>
@@ -1006,10 +1006,51 @@ export default function UserDashboard() {
 
                   {/* Measurement History */}
                   <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden">
-                    <div className="p-6 border-b border-white/10">
-                      <h2 className="text-xl font-heading font-bold text-white">Ölçüm Geçmişi</h2>
+                    <div className="p-4 md:p-6 border-b border-white/10">
+                      <h2 className="text-lg md:text-xl font-heading font-bold text-white">Ölçüm Geçmişi</h2>
                     </div>
-                    <div className="overflow-x-auto">
+                    
+                    {/* Mobile Card View */}
+                    <div className="md:hidden p-4 space-y-4">
+                      {measurements.slice(0, 10).map((m) => (
+                        <div key={m.id} className="bg-white/5 rounded-xl p-4 space-y-3" data-testid={`card-measurement-${m.id}`}>
+                          <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                            <span className="text-primary font-medium">{new Date(m.date).toLocaleDateString("tr-TR")}</span>
+                            {m.weight && <span className="text-white font-bold">{m.weight} kg</span>}
+                          </div>
+                          <div className="grid grid-cols-3 gap-3 text-sm">
+                            <div className="text-center">
+                              <div className="text-gray-500 text-xs">Göğüs</div>
+                              <div className="text-white">{m.chest || "-"}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-gray-500 text-xs">Bel</div>
+                              <div className="text-white">{m.waist || "-"}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-gray-500 text-xs">Kalça</div>
+                              <div className="text-white">{m.hips || "-"}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-gray-500 text-xs">Kol</div>
+                              <div className="text-white">{m.arms || "-"}</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-gray-500 text-xs">Bacak</div>
+                              <div className="text-white">{m.thighs || "-"}</div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {measurements.length === 0 && (
+                        <div className="p-8 text-center text-gray-500">
+                          Henüz ölçüm kaydı yok. İlk ölçümünüzü ekleyin!
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Desktop Table View */}
+                    <div className="hidden md:block overflow-x-auto">
                       <table className="w-full">
                         <thead>
                           <tr className="border-b border-white/10">
