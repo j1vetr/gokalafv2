@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gokalaf.toov.com.tr/sitemap.xml
+
+# Disallow admin pages
+Disallow: /gokadmin
+Disallow: /gokadmin/*
