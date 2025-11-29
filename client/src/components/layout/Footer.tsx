@@ -103,8 +103,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Alaf Coaching. Tüm hakları saklıdır.</p>
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+          <p>© 2025 Alaf Coaching. Tüm Hakları Saklıdır.</p>
+          <p>Tasarım & Geliştirici : <a href="https://toov.com.tr" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">TOOV</a> &lt;3</p>
         </div>
       </div>
     </footer>
