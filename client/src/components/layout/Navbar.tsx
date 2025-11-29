@@ -91,7 +91,7 @@ export function Navbar() {
               </Link>
               <Link href="/packages">
                 <Button className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase tracking-widest px-6 h-10 text-sm shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] transition-all transform hover:-translate-y-1" data-testid="button-apply">
-                  Başvuru Yap
+                  Hemen Başla
                 </Button>
               </Link>
             </>
