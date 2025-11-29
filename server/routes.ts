@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
-import { Pool } from "@neondatabase/serverless";
+import { Pool } from "pg";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
