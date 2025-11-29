@@ -148,3 +148,26 @@ export const insertBodyMeasurementSchema = createInsertSchema(bodyMeasurements).
 
 export type InsertBodyMeasurement = z.infer<typeof insertBodyMeasurementSchema>;
 export type BodyMeasurement = typeof bodyMeasurements.$inferSelect;
+
+// EMAIL LOGS TABLE (email gönderim kayıtları)
+export const emailLogs = pgTable("email_logs", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id),
+  templateKey: text("template_key").notNull(), // welcome, order_confirmation, package_expiry, daily_reminder
+  toEmail: text("to_email").notNull(),
+  subject: text("subject").notNull(),
+  contextData: text("context_data"), // JSON string with template variables
+  status: text("status").notNull().default("pending"), // pending, sent, failed
+  error: text("error"),
+  scheduledFor: timestamp("scheduled_for"),
+  sentAt: timestamp("sent_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertEmailLogSchema = createInsertSchema(emailLogs).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertEmailLog = z.infer<typeof insertEmailLogSchema>;
+export type EmailLog = typeof emailLogs.$inferSelect;

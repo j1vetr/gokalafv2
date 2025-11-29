@@ -8,6 +8,7 @@ import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
+import { sendWelcomeEmail, sendOrderConfirmationEmail } from "./email/service";
 
 const PgSession = connectPgSimple(session);
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
@@ -73,6 +74,9 @@ export async function registerRoutes(
 
       req.session.userId = user.id;
       req.session.userRole = user.role;
+      
+      sendWelcomeEmail({ id: user.id, email: user.email, fullName: user.fullName })
+        .catch(err => console.error("Welcome email error:", err));
       
       const { password: _, ...userWithoutPassword } = user;
       res.json({ user: userWithoutPassword });
@@ -478,6 +482,12 @@ export async function registerRoutes(
         startDate: new Date(data.startDate),
         endDate: new Date(data.endDate),
       });
+
+      sendOrderConfirmationEmail(
+        { id: user.id, email: user.email, fullName: user.fullName },
+        { totalPrice: pkg.price, startDate: order.startDate, endDate: order.endDate },
+        { name: pkg.name, weeks: pkg.weeks }
+      ).catch(err => console.error("Order confirmation email error:", err));
 
       res.json({ order, message: "Paket başarıyla atandı" });
     } catch (error) {
