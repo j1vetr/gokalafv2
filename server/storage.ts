@@ -25,6 +25,32 @@ neonConfig.webSocketConstructor = ws;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 const db = drizzle({ client: pool, schema });
 
+export interface RevenueData {
+  month: string;
+  year: number;
+  revenue: number;
+  orderCount: number;
+}
+
+export interface DashboardStats {
+  totalUsers: number;
+  totalOrders: number;
+  totalRevenue: number;
+  activeOrders: number;
+  pendingOrders: number;
+  completedOrders: number;
+  thisMonthRevenue: number;
+  lastMonthRevenue: number;
+  newUsersThisMonth: number;
+}
+
+export interface UserWithDetails {
+  user: User;
+  orders: Order[];
+  measurements: BodyMeasurement[];
+  habits: DailyHabit[];
+}
+
 export interface IStorage {
   // Users
   getUser(id: string): Promise<User | undefined>;
@@ -32,6 +58,8 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   updateUser(id: string, updates: Partial<InsertUser>): Promise<User | undefined>;
   getAllUsers(): Promise<User[]>;
+  deleteUser(id: string): Promise<boolean>;
+  getUserWithDetails(id: string): Promise<UserWithDetails | undefined>;
 
   // Packages
   getPackage(id: string): Promise<Package | undefined>;
@@ -54,6 +82,7 @@ export interface IStorage {
   // Calculator Results
   saveCalculatorResult(result: InsertCalculatorResult): Promise<CalculatorResult>;
   getUserCalculatorResults(userId: string, type?: string): Promise<CalculatorResult[]>;
+  getCalculatorUsageStats(): Promise<{ type: string; count: number }[]>;
 
   // Daily Habits
   getDailyHabit(userId: string, date: Date): Promise<DailyHabit | undefined>;
@@ -65,6 +94,11 @@ export interface IStorage {
   getBodyMeasurements(userId: string, limit?: number): Promise<BodyMeasurement[]>;
   createBodyMeasurement(measurement: InsertBodyMeasurement): Promise<BodyMeasurement>;
   getLatestBodyMeasurement(userId: string): Promise<BodyMeasurement | undefined>;
+
+  // Admin Analytics
+  getDashboardStats(): Promise<DashboardStats>;
+  getMonthlyRevenue(year?: number): Promise<RevenueData[]>;
+  getRecentActivity(limit?: number): Promise<{ type: string; message: string; date: Date; userId?: string }[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -253,6 +287,146 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(schema.bodyMeasurements.date))
       .limit(1);
     return measurement;
+  }
+
+  // DELETE USER
+  async deleteUser(id: string): Promise<boolean> {
+    await db.delete(schema.dailyHabits).where(eq(schema.dailyHabits.userId, id));
+    await db.delete(schema.bodyMeasurements).where(eq(schema.bodyMeasurements.userId, id));
+    await db.delete(schema.calculatorResults).where(eq(schema.calculatorResults.userId, id));
+    const orders = await db.select().from(schema.orders).where(eq(schema.orders.userId, id));
+    for (const order of orders) {
+      await db.delete(schema.userProgress).where(eq(schema.userProgress.orderId, order.id));
+    }
+    await db.delete(schema.orders).where(eq(schema.orders.userId, id));
+    const result = await db.delete(schema.users).where(eq(schema.users.id, id)).returning();
+    return result.length > 0;
+  }
+
+  // USER WITH DETAILS
+  async getUserWithDetails(id: string): Promise<UserWithDetails | undefined> {
+    const user = await this.getUser(id);
+    if (!user) return undefined;
+
+    const orders = await this.getUserOrders(id);
+    const measurements = await this.getBodyMeasurements(id, 10);
+    const habits = await this.getDailyHabits(id, 30);
+
+    return { user, orders, measurements, habits };
+  }
+
+  // CALCULATOR USAGE STATS
+  async getCalculatorUsageStats(): Promise<{ type: string; count: number }[]> {
+    const results = await db.select({
+      type: schema.calculatorResults.calculatorType,
+      count: sql<number>`count(*)::int`
+    })
+    .from(schema.calculatorResults)
+    .groupBy(schema.calculatorResults.calculatorType);
+    return results;
+  }
+
+  // DASHBOARD STATS
+  async getDashboardStats(): Promise<DashboardStats> {
+    const allUsers = await db.select().from(schema.users);
+    const allOrders = await db.select().from(schema.orders);
+    
+    const now = new Date();
+    const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+
+    const totalRevenue = allOrders
+      .filter(o => o.status !== "cancelled" && o.status !== "pending")
+      .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+
+    const thisMonthOrders = allOrders.filter(o => {
+      const orderDate = new Date(o.createdAt);
+      return orderDate >= thisMonthStart && o.status !== "cancelled" && o.status !== "pending";
+    });
+    const thisMonthRevenue = thisMonthOrders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+
+    const lastMonthOrders = allOrders.filter(o => {
+      const orderDate = new Date(o.createdAt);
+      return orderDate >= lastMonthStart && orderDate <= lastMonthEnd && o.status !== "cancelled" && o.status !== "pending";
+    });
+    const lastMonthRevenue = lastMonthOrders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+
+    const newUsersThisMonth = allUsers.filter(u => {
+      const userDate = new Date(u.createdAt);
+      return userDate >= thisMonthStart;
+    }).length;
+
+    return {
+      totalUsers: allUsers.filter(u => u.role !== "admin").length,
+      totalOrders: allOrders.length,
+      totalRevenue,
+      activeOrders: allOrders.filter(o => o.status === "active").length,
+      pendingOrders: allOrders.filter(o => o.status === "pending").length,
+      completedOrders: allOrders.filter(o => o.status === "completed").length,
+      thisMonthRevenue,
+      lastMonthRevenue,
+      newUsersThisMonth
+    };
+  }
+
+  // MONTHLY REVENUE
+  async getMonthlyRevenue(year?: number): Promise<RevenueData[]> {
+    const targetYear = year || new Date().getFullYear();
+    const allOrders = await db.select().from(schema.orders);
+    
+    const monthNames = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
+    const monthlyData: RevenueData[] = [];
+
+    for (let month = 0; month < 12; month++) {
+      const monthOrders = allOrders.filter(o => {
+        const orderDate = new Date(o.createdAt);
+        return orderDate.getFullYear() === targetYear && 
+               orderDate.getMonth() === month && 
+               o.status !== "cancelled" && 
+               o.status !== "pending";
+      });
+
+      monthlyData.push({
+        month: monthNames[month],
+        year: targetYear,
+        revenue: monthOrders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0),
+        orderCount: monthOrders.length
+      });
+    }
+
+    return monthlyData;
+  }
+
+  // RECENT ACTIVITY
+  async getRecentActivity(limit: number = 10): Promise<{ type: string; message: string; date: Date; userId?: string }[]> {
+    const activities: { type: string; message: string; date: Date; userId?: string }[] = [];
+
+    const recentUsers = await db.select().from(schema.users).orderBy(desc(schema.users.createdAt)).limit(limit);
+    for (const user of recentUsers) {
+      activities.push({
+        type: "user",
+        message: `${user.fullName} kayıt oldu`,
+        date: user.createdAt,
+        userId: user.id
+      });
+    }
+
+    const recentOrders = await db.select().from(schema.orders).orderBy(desc(schema.orders.createdAt)).limit(limit);
+    for (const order of recentOrders) {
+      const user = await this.getUser(order.userId);
+      const pkg = await this.getPackage(order.packageId);
+      activities.push({
+        type: "order",
+        message: `${user?.fullName || "Kullanıcı"} - ${pkg?.name || "Paket"} siparişi (${order.status})`,
+        date: order.createdAt,
+        userId: order.userId
+      });
+    }
+
+    return activities
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, limit);
   }
 }
 

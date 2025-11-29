@@ -290,6 +290,161 @@ export async function registerRoutes(
     }
   });
 
+  // Admin Dashboard Stats
+  app.get("/api/admin/stats", requireAdmin, async (req, res) => {
+    try {
+      const stats = await storage.getDashboardStats();
+      res.json({ stats });
+    } catch (error) {
+      console.error("Stats error:", error);
+      res.status(500).json({ error: "İstatistikler yüklenemedi" });
+    }
+  });
+
+  // Monthly Revenue
+  app.get("/api/admin/revenue", requireAdmin, async (req, res) => {
+    try {
+      const year = req.query.year ? parseInt(req.query.year as string) : undefined;
+      const revenue = await storage.getMonthlyRevenue(year);
+      res.json({ revenue });
+    } catch (error) {
+      console.error("Revenue error:", error);
+      res.status(500).json({ error: "Gelir verileri yüklenemedi" });
+    }
+  });
+
+  // Recent Activity
+  app.get("/api/admin/activity", requireAdmin, async (req, res) => {
+    try {
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : 10;
+      const activity = await storage.getRecentActivity(limit);
+      res.json({ activity });
+    } catch (error) {
+      res.status(500).json({ error: "Aktiviteler yüklenemedi" });
+    }
+  });
+
+  // Calculator Usage Stats
+  app.get("/api/admin/calculator-stats", requireAdmin, async (req, res) => {
+    try {
+      const stats = await storage.getCalculatorUsageStats();
+      res.json({ stats });
+    } catch (error) {
+      res.status(500).json({ error: "Hesaplayıcı istatistikleri yüklenemedi" });
+    }
+  });
+
+  // Get User with Details
+  app.get("/api/admin/users/:id", requireAdmin, async (req, res) => {
+    try {
+      const details = await storage.getUserWithDetails(req.params.id);
+      if (!details) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+      const { password, ...userWithoutPassword } = details.user;
+      res.json({ 
+        user: userWithoutPassword, 
+        orders: details.orders,
+        measurements: details.measurements,
+        habits: details.habits
+      });
+    } catch (error) {
+      res.status(500).json({ error: "Kullanıcı detayları yüklenemedi" });
+    }
+  });
+
+  // Update User (Admin)
+  app.patch("/api/admin/users/:id", requireAdmin, async (req, res) => {
+    try {
+      const updateData = z.object({
+        fullName: z.string().optional(),
+        email: z.string().email().optional(),
+        phone: z.string().optional(),
+        role: z.enum(["user", "admin"]).optional(),
+      }).parse(req.body);
+
+      const updatedUser = await storage.updateUser(req.params.id, updateData);
+      if (!updatedUser) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+
+      const { password, ...userWithoutPassword } = updatedUser;
+      res.json({ user: userWithoutPassword });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Kullanıcı güncellenemedi" });
+    }
+  });
+
+  // Delete User (Admin)
+  app.delete("/api/admin/users/:id", requireAdmin, async (req, res) => {
+    try {
+      const success = await storage.deleteUser(req.params.id);
+      if (!success) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: "Kullanıcı silinemedi" });
+    }
+  });
+
+  // Update Order (Admin)
+  app.patch("/api/admin/orders/:id", requireAdmin, async (req, res) => {
+    try {
+      const updateData = z.object({
+        status: z.enum(["pending", "paid", "active", "completed", "cancelled"]).optional(),
+        startDate: z.string().optional(),
+        endDate: z.string().optional(),
+        paymentMethod: z.string().optional(),
+        paymentId: z.string().optional(),
+      }).parse(req.body);
+
+      const updates: any = { ...updateData };
+      if (updates.startDate) updates.startDate = new Date(updates.startDate);
+      if (updates.endDate) updates.endDate = new Date(updates.endDate);
+
+      const updatedOrder = await storage.updateOrder(req.params.id, updates);
+      if (!updatedOrder) {
+        return res.status(404).json({ error: "Sipariş bulunamadı" });
+      }
+
+      res.json({ order: updatedOrder });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Sipariş güncellenemedi" });
+    }
+  });
+
+  // Update Package (Admin)
+  app.patch("/api/admin/packages/:id", requireAdmin, async (req, res) => {
+    try {
+      const updateData = z.object({
+        name: z.string().optional(),
+        weeks: z.number().optional(),
+        price: z.string().optional(),
+        features: z.array(z.string()).optional(),
+        isActive: z.boolean().optional(),
+      }).parse(req.body);
+
+      const updatedPackage = await storage.updatePackage(req.params.id, updateData);
+      if (!updatedPackage) {
+        return res.status(404).json({ error: "Paket bulunamadı" });
+      }
+
+      res.json({ package: updatedPackage });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Paket güncellenemedi" });
+    }
+  });
+
   // ===== CALCULATOR ROUTES =====
   
   app.post("/api/calculator/save", async (req, res) => {
