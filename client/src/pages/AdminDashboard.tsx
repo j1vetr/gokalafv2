@@ -587,9 +587,9 @@ export default function AdminDashboard() {
                         <h3 className="font-heading font-bold text-white uppercase">Son Aktiviteler</h3>
                         <Activity size={18} className="text-primary" />
                       </div>
-                      <div className="space-y-3 max-h-80 overflow-y-auto pr-2">
+                      <div className="space-y-3 max-h-80 overflow-y-auto pr-2" data-testid="activity-list">
                         {activities.slice(0, 8).map((activity, i) => (
-                          <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                          <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" data-testid={`activity-item-${i}`}>
                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                               activity.type === "user" ? "bg-blue-500/20 text-blue-400" : "bg-green-500/20 text-green-400"
                             }`}>
@@ -847,6 +847,7 @@ export default function AdminDashboard() {
                       {packages.map((pkg) => (
                         <div
                           key={pkg.id}
+                          data-testid={`card-package-${pkg.id}`}
                           className={`p-5 rounded-xl border transition-all ${
                             pkg.isActive 
                               ? "bg-gradient-to-br from-primary/10 to-transparent border-primary/30" 
@@ -1123,7 +1124,7 @@ export default function AdminDashboard() {
             </div>
           </div>
           <DialogFooter className="mt-6">
-            <Button variant="outline" onClick={() => setShowUserEditModal(false)} className="border-white/20">
+            <Button variant="outline" onClick={() => setShowUserEditModal(false)} className="border-white/20" data-testid="button-cancel-user-edit">
               İptal
             </Button>
             <Button onClick={handleUpdateUser} disabled={isSubmitting} className="bg-primary text-black hover:bg-primary/90" data-testid="button-save-user">
@@ -1184,7 +1185,7 @@ export default function AdminDashboard() {
             </div>
           )}
           <DialogFooter className="mt-6">
-            <Button variant="outline" onClick={() => setShowOrderModal(false)} className="border-white/20">
+            <Button variant="outline" onClick={() => setShowOrderModal(false)} className="border-white/20" data-testid="button-cancel-order-edit">
               İptal
             </Button>
             <Button onClick={handleUpdateOrder} disabled={isSubmitting} className="bg-primary text-black hover:bg-primary/90" data-testid="button-save-order">
@@ -1234,7 +1235,7 @@ export default function AdminDashboard() {
             </div>
           )}
           <DialogFooter className="mt-6">
-            <Button variant="outline" onClick={() => setShowPackageModal(false)} className="border-white/20">
+            <Button variant="outline" onClick={() => setShowPackageModal(false)} className="border-white/20" data-testid="button-cancel-package-edit">
               İptal
             </Button>
             <Button onClick={handleUpdatePackage} disabled={isSubmitting} className="bg-primary text-black hover:bg-primary/90" data-testid="button-save-package">
@@ -1259,7 +1260,7 @@ export default function AdminDashboard() {
             <p className="text-red-400 text-sm mt-2">Bu işlem geri alınamaz. Kullanıcının tüm verileri silinecektir.</p>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setShowDeleteConfirm(false)} className="border-white/20">
+            <Button variant="outline" onClick={() => setShowDeleteConfirm(false)} className="border-white/20" data-testid="button-cancel-delete">
               İptal
             </Button>
             <Button onClick={handleDeleteUser} disabled={isSubmitting} className="bg-red-500 hover:bg-red-600 text-white" data-testid="button-confirm-delete">
