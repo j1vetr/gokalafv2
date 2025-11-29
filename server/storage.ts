@@ -1,7 +1,5 @@
-import { drizzle as drizzleNeon } from "drizzle-orm/neon-serverless";
-import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
-import { Pool as NeonPool, neonConfig } from "@neondatabase/serverless";
-import { Pool as PgPool } from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 import { eq, and, desc, sql } from "drizzle-orm";
 import * as schema from "@shared/schema";
 import type {
@@ -21,17 +19,8 @@ import type {
   InsertBodyMeasurement,
 } from "@shared/schema";
 
-const isLocalDb = process.env.DATABASE_URL?.includes("localhost") || process.env.DATABASE_URL?.includes("127.0.0.1");
-
-let db: ReturnType<typeof drizzleNeon> | ReturnType<typeof drizzlePg>;
-
-if (isLocalDb) {
-  const pool = new PgPool({ connectionString: process.env.DATABASE_URL! });
-  db = drizzlePg({ client: pool, schema });
-} else {
-  const pool = new NeonPool({ connectionString: process.env.DATABASE_URL! });
-  db = drizzleNeon({ client: pool, schema });
-}
+const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+const db = drizzle({ client: pool, schema });
 
 export interface RevenueData {
   month: string;

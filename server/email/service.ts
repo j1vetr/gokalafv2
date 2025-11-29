@@ -1,23 +1,12 @@
 import nodemailer from "nodemailer";
 import { emailTemplates, EmailTemplate } from "./templates";
-import { drizzle as drizzleNeon } from "drizzle-orm/neon-serverless";
-import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
-import { Pool as NeonPool } from "@neondatabase/serverless";
-import { Pool as PgPool } from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 import { emailLogs, users, orders, packages, dailyHabits, bodyMeasurements } from "@shared/schema";
 import { eq, and, gte, lte, sql } from "drizzle-orm";
 
-const isLocalDb = process.env.DATABASE_URL?.includes("localhost") || process.env.DATABASE_URL?.includes("127.0.0.1");
-
-let db: ReturnType<typeof drizzleNeon> | ReturnType<typeof drizzlePg>;
-
-if (isLocalDb) {
-  const pool = new PgPool({ connectionString: process.env.DATABASE_URL! });
-  db = drizzlePg({ client: pool });
-} else {
-  const pool = new NeonPool({ connectionString: process.env.DATABASE_URL! });
-  db = drizzleNeon({ client: pool });
-}
+const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+const db = drizzle({ client: pool });
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "mail.toov.com.tr",
