@@ -24,7 +24,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
-      setLocation("/login");
+      setLocation("/giris");
     }
   }, [authLoading, isAuthenticated, setLocation]);
 

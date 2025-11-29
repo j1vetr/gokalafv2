@@ -111,7 +111,7 @@ export default function UserDashboard() {
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
-      setLocation("/login");
+      setLocation("/giris");
     }
   }, [authLoading, isAuthenticated, setLocation]);
 

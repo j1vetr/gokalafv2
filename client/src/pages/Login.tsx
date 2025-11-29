@@ -25,7 +25,7 @@ export default function Login() {
       const result = await login(email, password);
       
       if (result.success) {
-        setLocation("/dashboard");
+        setLocation("/panel");
       } else {
         setError(result.error || "Giriş başarısız");
       }

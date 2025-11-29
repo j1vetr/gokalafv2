@@ -51,7 +51,7 @@ export default function Register() {
     });
 
     if (result.success) {
-      setLocation("/dashboard");
+      setLocation("/panel");
     } else {
       setError(result.error || "Kayıt başarısız");
     }
