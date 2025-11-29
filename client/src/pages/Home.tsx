@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity, ChevronLeft } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
 import transformation1 from '@assets/transformations/transformation_1.jpeg';
@@ -26,13 +26,13 @@ export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const [currentTransformation, setCurrentTransformation] = useState(0);
 
-  const nextTransformation = () => {
+  const nextTransformation = useCallback(() => {
     setCurrentTransformation((prev) => (prev + 1) % transformations.length);
-  };
+  }, []);
 
-  const prevTransformation = () => {
+  const prevTransformation = useCallback(() => {
     setCurrentTransformation((prev) => (prev - 1 + transformations.length) % transformations.length);
-  };
+  }, []);
   
   // Cycle through steps 0 -> 1 -> 2 every 2 seconds
   useEffect(() => {
@@ -69,7 +69,8 @@ export default function Home() {
             autoPlay 
             loop 
             muted 
-            playsInline 
+            playsInline
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen grayscale-[50%]"
           >
             <source src={generatedVideo} type="video/mp4" />
@@ -328,7 +329,7 @@ export default function Home() {
                   }`}
                   data-testid={`thumbnail-${idx}`}
                 >
-                  <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </button>
               ))}
             </div>
