@@ -68,8 +68,11 @@ const goals = [
 export default function Onboarding() {
   const { user, refetch } = useAuth();
   const [, setLocation] = useLocation();
-  const [completedSteps, setCompletedSteps] = useState<string[]>(["profile"]);
-  const [selectedGoal, setSelectedGoal] = useState<string | null>((user as any)?.fitnessGoal || null);
+  const userGoal = (user as any)?.fitnessGoal;
+  const [completedSteps, setCompletedSteps] = useState<string[]>(
+    userGoal ? ["profile", "goals"] : ["profile"]
+  );
+  const [selectedGoal, setSelectedGoal] = useState<string | null>(userGoal || null);
   const [showGoalSelection, setShowGoalSelection] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
