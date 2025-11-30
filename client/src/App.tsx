@@ -37,6 +37,7 @@ const KVKK = lazy(() => import("@/pages/legal/KVKK"));
 const CancellationPolicy = lazy(() => import("@/pages/legal/CancellationPolicy"));
 const DistanceSalesContract = lazy(() => import("@/pages/legal/DistanceSalesContract"));
 const Onboarding = lazy(() => import("@/pages/Onboarding"));
+const Maintenance = lazy(() => import("@/pages/Maintenance"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -91,6 +92,7 @@ function AppContent() {
             <Route path="/kvkk" component={KVKK} />
             <Route path="/iptal-iade" component={CancellationPolicy} />
             <Route path="/mesafeli-satis" component={DistanceSalesContract} />
+            <Route path="/bakim" component={Maintenance} />
             <Route component={NotFound} />
           </Switch>
         </Suspense>

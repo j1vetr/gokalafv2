@@ -356,6 +356,42 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
+  // ===== SITE SETTINGS ROUTES =====
+  
+  app.get("/api/maintenance", async (req, res) => {
+    try {
+      const isEnabled = await storage.isMaintenanceMode();
+      res.json({ maintenanceMode: isEnabled });
+    } catch (error) {
+      console.error("Maintenance check error:", error);
+      res.json({ maintenanceMode: false });
+    }
+  });
+
+  app.post("/api/admin/maintenance", requireAdmin, async (req, res) => {
+    try {
+      const { enabled } = req.body;
+      if (typeof enabled !== "boolean") {
+        return res.status(400).json({ error: "enabled parametresi boolean olmalı" });
+      }
+      await storage.setMaintenanceMode(enabled);
+      
+      await storage.createSystemLog({
+        userId: req.session?.userId,
+        action: enabled ? "maintenance_enabled" : "maintenance_disabled",
+        entityType: "settings",
+        details: JSON.stringify({ enabled }),
+        ipAddress: req.ip,
+        userAgent: req.headers["user-agent"],
+      });
+      
+      res.json({ success: true, maintenanceMode: enabled });
+    } catch (error) {
+      console.error("Maintenance toggle error:", error);
+      res.status(500).json({ error: "Bakım modu değiştirilemedi" });
+    }
+  });
+
   // ===== ADMIN ROUTES =====
   
   app.get("/api/admin/orders", requireAdmin, async (req, res) => {
