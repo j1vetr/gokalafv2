@@ -5,19 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   CheckCircle2, 
-  Circle, 
   ArrowRight, 
   User, 
   Target, 
-  Package, 
-  Activity,
+  Package,
   ChevronRight,
   Dumbbell,
   Scale,
   Calculator,
-  MessageCircle
+  Activity
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { apiRequest } from "@/lib/queryClient";
 
 interface Step {
   id: string;
@@ -31,77 +30,75 @@ interface Step {
 const steps: Step[] = [
   {
     id: "profile",
-    title: "Profilini Tamamla",
-    description: "Kişisel bilgilerini gir, sana özel programlar için hazır ol.",
+    title: "Profil Tamamlandı",
+    description: "Bilgilerin kayıtlı.",
     icon: <User className="w-6 h-6" />,
-    action: "Profil bilgileri kayıttan alındı",
   },
   {
     id: "goals",
     title: "Hedefini Belirle",
-    description: "Kilo vermek mi, kas yapmak mı? Hedefine göre programını belirleyelim.",
+    description: "Ne yapmak istiyorsun?",
     icon: <Target className="w-6 h-6" />,
-    action: "Hedef Seç",
+    action: "Seç",
   },
   {
     id: "calculate",
     title: "Değerlerini Hesapla",
-    description: "BMI, TDEE ve makro değerlerini öğren, yolculuğuna bilinçli başla.",
+    description: "BMI, kalori hesapla.",
     icon: <Calculator className="w-6 h-6" />,
-    action: "Hesaplayıcılara Git",
+    action: "Hesapla",
     actionLink: "/araclar",
   },
   {
     id: "package",
     title: "Paket Seç",
-    description: "Sana uygun koçluk paketini seç, dönüşümüne bugün başla.",
+    description: "Koçluk paketini al.",
     icon: <Package className="w-6 h-6" />,
-    action: "Paketleri Gör",
+    action: "Paketler",
     actionLink: "/paketler",
-  },
-  {
-    id: "whatsapp",
-    title: "WhatsApp Grubuna Katıl",
-    description: "Koçunla ve toplulukla iletişimde kal, motivasyonunu yüksek tut.",
-    icon: <MessageCircle className="w-6 h-6" />,
-    action: "WhatsApp'a Git",
-    actionLink: "https://wa.me/905555555555",
   },
 ];
 
 const goals = [
-  { id: "lose", label: "Kilo Vermek", icon: <Scale className="w-8 h-8" />, color: "from-red-500 to-orange-500" },
-  { id: "maintain", label: "Formu Korumak", icon: <Activity className="w-8 h-8" />, color: "from-green-500 to-emerald-500" },
-  { id: "gain", label: "Kas Yapmak", icon: <Dumbbell className="w-8 h-8" />, color: "from-blue-500 to-purple-500" },
+  { id: "lose", label: "Kilo Ver", icon: <Scale className="w-8 h-8" />, color: "from-red-500 to-orange-500" },
+  { id: "maintain", label: "Formu Koru", icon: <Activity className="w-8 h-8" />, color: "from-green-500 to-emerald-500" },
+  { id: "gain", label: "Kas Yap", icon: <Dumbbell className="w-8 h-8" />, color: "from-blue-500 to-purple-500" },
 ];
 
 export default function Onboarding() {
-  const { user } = useAuth();
+  const { user, refetch } = useAuth();
   const [, setLocation] = useLocation();
   const [completedSteps, setCompletedSteps] = useState<string[]>(["profile"]);
-  const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
+  const [selectedGoal, setSelectedGoal] = useState<string | null>((user as any)?.fitnessGoal || null);
   const [showGoalSelection, setShowGoalSelection] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleStepAction = (step: Step) => {
     if (step.id === "goals") {
       setShowGoalSelection(true);
     } else if (step.actionLink) {
-      if (step.actionLink.startsWith("http")) {
-        window.open(step.actionLink, "_blank");
-      } else {
-        setLocation(step.actionLink);
-      }
+      setLocation(step.actionLink);
       if (!completedSteps.includes(step.id)) {
         setCompletedSteps([...completedSteps, step.id]);
       }
     }
   };
 
-  const handleGoalSelect = (goalId: string) => {
+  const handleGoalSelect = async (goalId: string) => {
     setSelectedGoal(goalId);
-    setShowGoalSelection(false);
-    if (!completedSteps.includes("goals")) {
-      setCompletedSteps([...completedSteps, "goals"]);
+    setIsSaving(true);
+    
+    try {
+      await apiRequest("PATCH", "/api/users/me/goal", { goal: goalId });
+      await refetch();
+      setShowGoalSelection(false);
+      if (!completedSteps.includes("goals")) {
+        setCompletedSteps([...completedSteps, "goals"]);
+      }
+    } catch (error) {
+      console.error("Goal save error:", error);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -121,21 +118,21 @@ export default function Onboarding() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-4 max-w-3xl relative z-10">
+      <div className="container mx-auto px-4 max-w-2xl relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
             Hoş Geldin
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold uppercase text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase text-white mb-3">
             Merhaba, <span className="text-primary">{user?.fullName?.split(" ")[0] || "Şampiyon"}</span>!
           </h1>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Dönüşüm yolculuğuna başlamadan önce birkaç adımı tamamlayalım. Bu adımlar seni koçluk sürecine hazırlayacak.
+          <p className="text-gray-400 text-sm">
+            Hızlıca başla, adımları tamamla.
           </p>
         </motion.div>
 
@@ -143,13 +140,13 @@ export default function Onboarding() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-8"
+          className="mb-6"
         >
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-500 uppercase tracking-wider font-bold">İlerleme</span>
-            <span className="text-sm text-primary font-bold">{completedSteps.length}/{steps.length}</span>
+            <span className="text-xs text-gray-500 uppercase tracking-wider font-bold">İlerleme</span>
+            <span className="text-xs text-primary font-bold">{completedSteps.length}/{steps.length}</span>
           </div>
-          <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
@@ -167,36 +164,37 @@ export default function Onboarding() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="bg-black/40 backdrop-blur-sm rounded-3xl border border-white/10 p-8 mb-8"
+              className="bg-black/40 backdrop-blur-sm rounded-2xl border border-white/10 p-6 mb-6"
             >
-              <h2 className="text-2xl font-heading font-bold uppercase text-white mb-6 text-center">
+              <h2 className="text-xl font-heading font-bold uppercase text-white mb-4 text-center">
                 Hedefini Seç
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3">
                 {goals.map((goal) => (
                   <motion.button
                     key={goal.id}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleGoalSelect(goal.id)}
-                    className={`p-6 rounded-2xl border-2 transition-all duration-300 ${
+                    disabled={isSaving}
+                    className={`p-4 rounded-xl border-2 transition-all duration-300 ${
                       selectedGoal === goal.id
                         ? "border-primary bg-primary/10"
                         : "border-white/10 hover:border-white/30 bg-white/5"
-                    }`}
+                    } ${isSaving ? "opacity-50" : ""}`}
                     data-testid={`button-goal-${goal.id}`}
                   >
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${goal.color} flex items-center justify-center text-white`}>
+                    <div className={`w-12 h-12 mx-auto mb-2 rounded-lg bg-gradient-to-br ${goal.color} flex items-center justify-center text-white`}>
                       {goal.icon}
                     </div>
-                    <span className="text-white font-heading font-bold uppercase text-sm">{goal.label}</span>
+                    <span className="text-white font-heading font-bold uppercase text-xs">{goal.label}</span>
                   </motion.button>
                 ))}
               </div>
               <Button
                 variant="ghost"
                 onClick={() => setShowGoalSelection(false)}
-                className="w-full mt-4 text-gray-500 hover:text-white"
+                className="w-full mt-3 text-gray-500 hover:text-white text-sm"
                 data-testid="button-cancel-goal"
               >
                 Geri
@@ -209,7 +207,7 @@ export default function Onboarding() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="space-y-4 mb-8"
+              className="space-y-3 mb-6"
             >
               {steps.map((step, index) => {
                 const isCompleted = completedSteps.includes(step.id);
@@ -221,44 +219,44 @@ export default function Onboarding() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className={`bg-black/40 backdrop-blur-sm rounded-2xl border p-6 transition-all duration-300 ${
-                      isCompleted ? "border-primary/30 bg-primary/5" : "border-white/10"
+                    className={`bg-black/40 backdrop-blur-sm rounded-xl border p-4 transition-all duration-300 ${
+                      isCompleted || isGoalStep ? "border-primary/30 bg-primary/5" : "border-white/10"
                     }`}
                     data-testid={`step-${step.id}`}
                   >
-                    <div className="flex items-start gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                        isCompleted ? "bg-primary text-black" : "bg-white/10 text-gray-400"
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
+                        isCompleted || isGoalStep ? "bg-primary text-black" : "bg-white/10 text-gray-400"
                       }`}>
-                        {isCompleted ? <CheckCircle2 className="w-6 h-6" /> : step.icon}
+                        {isCompleted || isGoalStep ? <CheckCircle2 className="w-5 h-5" /> : step.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className={`font-heading font-bold uppercase ${isCompleted ? "text-primary" : "text-white"}`}>
+                        <div className="flex items-center gap-2">
+                          <h3 className={`font-heading font-bold uppercase text-sm ${isCompleted || isGoalStep ? "text-primary" : "text-white"}`}>
                             {step.title}
                           </h3>
                           {isGoalStep && (
-                            <Badge className="bg-primary/20 text-primary text-xs">
+                            <Badge className="bg-primary/20 text-primary text-[10px] px-2 py-0">
                               {goals.find(g => g.id === selectedGoal)?.label}
                             </Badge>
                           )}
                         </div>
-                        <p className="text-gray-500 text-sm">{step.description}</p>
+                        <p className="text-gray-500 text-xs">{step.description}</p>
                       </div>
-                      {step.action && !isCompleted && step.id !== "profile" && (
+                      {step.action && !isCompleted && !isGoalStep && step.id !== "profile" && (
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => handleStepAction(step)}
-                          className="text-primary hover:text-white hover:bg-primary/20 shrink-0"
+                          className="text-primary hover:text-white hover:bg-primary/20 shrink-0 text-xs px-3 h-8"
                           data-testid={`button-${step.id}`}
                         >
-                          {step.action} <ChevronRight className="w-4 h-4 ml-1" />
+                          {step.action} <ChevronRight className="w-3 h-3 ml-1" />
                         </Button>
                       )}
-                      {(isCompleted || step.id === "profile") && (
+                      {(isCompleted || isGoalStep || step.id === "profile") && (
                         <div className="text-primary shrink-0">
-                          <CheckCircle2 className="w-6 h-6" />
+                          <CheckCircle2 className="w-5 h-5" />
                         </div>
                       )}
                     </div>
@@ -273,19 +271,19 @@ export default function Onboarding() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex gap-3 justify-center"
         >
           <Button
             variant="ghost"
             onClick={handleSkip}
-            className="text-gray-500 hover:text-white uppercase tracking-wider"
+            className="text-gray-500 hover:text-white uppercase tracking-wider text-xs"
             data-testid="button-skip"
           >
             Atla
           </Button>
           <Button
             onClick={handleComplete}
-            className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase px-8"
+            className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase px-6 text-sm"
             data-testid="button-complete"
           >
             Panele Git <ArrowRight className="w-4 h-4 ml-2" />

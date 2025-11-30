@@ -212,6 +212,31 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     res.json({ user: userWithoutPassword });
   });
 
+  // Update user fitness goal
+  app.patch("/api/users/me/goal", requireAuth, async (req, res) => {
+    try {
+      const { goal } = z.object({
+        goal: z.enum(["lose", "maintain", "gain"]),
+      }).parse(req.body);
+
+      const updatedUser = await storage.updateUser(req.session.userId!, {
+        fitnessGoal: goal,
+      });
+
+      if (!updatedUser) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+
+      const { password: _, ...userWithoutPassword } = updatedUser;
+      res.json({ user: userWithoutPassword });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz hedef" });
+      }
+      res.status(500).json({ error: "Hedef güncellenemedi" });
+    }
+  });
+
   // ===== PACKAGE ROUTES =====
   
   app.get("/api/packages", async (req, res) => {

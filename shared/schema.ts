@@ -10,7 +10,8 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
   fullName: text("full_name").notNull(),
   phone: text("phone"),
-  address: text("address"), // ödeme için adres bilgisi
+  address: text("address"),
+  fitnessGoal: text("fitness_goal"), // lose, maintain, gain
   role: text("role").notNull().default("user"), // user or admin
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
