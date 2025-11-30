@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,7 @@ export default function ProteinIntakeCalculator() {
   const [result, setResult] = useState<ProteinResult | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const calculate = () => {
     const weightNum = parseFloat(weight);
@@ -76,6 +77,10 @@ export default function ProteinIntakeCalculator() {
       perMeal: Math.round(optimal / meals),
       meals
     });
+
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   };
 
   const saveResult = async () => {
@@ -215,8 +220,10 @@ export default function ProteinIntakeCalculator() {
 
         {result && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            ref={resultRef}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-4"
           >
             <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">

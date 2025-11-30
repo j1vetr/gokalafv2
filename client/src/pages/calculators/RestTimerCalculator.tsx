@@ -24,6 +24,7 @@ export default function RestTimerCalculator() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const recommendations: Record<string, RestRecommendation> = {
     strength: {
@@ -121,6 +122,10 @@ export default function RestTimerCalculator() {
     setRecommendation(rec);
     setTimerSeconds(rec.maxSeconds);
     setIsRunning(false);
+
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   };
 
   const startTimer = (seconds: number) => {
@@ -194,8 +199,10 @@ export default function RestTimerCalculator() {
 
         {recommendation && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            ref={resultRef}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-6"
           >
             <div className={`bg-gradient-to-br ${colorMap[recommendation.color]} border rounded-2xl p-6`}>

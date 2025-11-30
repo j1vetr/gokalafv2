@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ export default function CalorieCalculator() {
   const [activity, setActivity] = useState("moderate");
   const [goal, setGoal] = useState("maintain");
   const [result, setResult] = useState<any>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const activityLevels = {
     sedentary: { label: "Hareketsiz", multiplier: 1.2 },
@@ -46,6 +48,10 @@ export default function CalorieCalculator() {
       target: Math.round(targetCalories),
       goal: goals[goal as keyof typeof goals].label,
     });
+
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   };
 
   return (
@@ -170,9 +176,14 @@ export default function CalorieCalculator() {
             </div>
           </div>
 
-          <div className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
+          <div ref={resultRef} className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
             {result ? (
-              <div className="space-y-8 w-full relative z-10 animate-in fade-in zoom-in duration-500">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="space-y-8 w-full relative z-10"
+              >
                 <div className="text-sm text-gray-500 uppercase tracking-[0.2em] font-bold">Günlük Kalori İhtiyacınız</div>
                 
                 <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
@@ -211,7 +222,7 @@ export default function CalorieCalculator() {
                 >
                   <RotateCcw className="w-4 h-4 mr-2" /> Yeniden Hesapla
                 </Button>
-              </div>
+              </motion.div>
             ) : (
               <div className="text-center space-y-6 opacity-30">
                  <Utensils size={80} className="mx-auto text-white" />

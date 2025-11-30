@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Activity, RotateCcw } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function BMICalculator() {
   const [height, setHeight] = useState(175);
   const [weight, setWeight] = useState(75);
   const [gender, setGender] = useState("male");
   const [bmi, setBmi] = useState<number | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const calculateBMI = () => {
     const h = height / 100;
     const result = weight / (h * h);
     setBmi(parseFloat(result.toFixed(1)));
+    
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   };
 
   const getBMIStatus = (val: number) => {
@@ -105,9 +111,14 @@ export default function BMICalculator() {
             </div>
           </div>
 
-          <div className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
+          <div ref={resultRef} className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
             {bmi ? (
-              <div className="space-y-8 w-full relative z-10 animate-in fade-in zoom-in duration-500">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="space-y-8 w-full relative z-10"
+              >
                 <div className="text-sm text-gray-500 uppercase tracking-[0.2em] font-bold">Vücut Kitle İndeksiniz</div>
                 
                 <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
@@ -132,7 +143,7 @@ export default function BMICalculator() {
                 >
                   <RotateCcw className="w-4 h-4 mr-2" /> Yeniden Hesapla
                 </Button>
-              </div>
+              </motion.div>
             ) : (
               <div className="text-center space-y-6 opacity-30">
                  <Activity size={80} className="mx-auto text-white" />
