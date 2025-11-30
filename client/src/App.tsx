@@ -1,12 +1,12 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
-import { AuthProvider } from "@/hooks/useAuth";
+import { AuthProvider, useAuth } from "@/hooks/useAuth";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
@@ -53,13 +53,43 @@ function PageLoader() {
 
 function AppContent() {
   const [location] = useLocation();
+  const { isAdmin, isLoading: authLoading } = useAuth();
+  const [maintenanceMode, setMaintenanceMode] = useState(false);
+  const [maintenanceChecked, setMaintenanceChecked] = useState(false);
+  
   const isAdminRoute = location.startsWith("/gokadmin");
   const isDashboard = location === "/panel";
+  const isMaintenancePage = location === "/bakim";
+
+  useEffect(() => {
+    const checkMaintenance = async () => {
+      try {
+        const res = await fetch("/api/maintenance");
+        if (res.ok) {
+          const data = await res.json();
+          setMaintenanceMode(data.maintenanceMode || false);
+        }
+      } catch (error) {
+        console.error("Maintenance check failed:", error);
+      } finally {
+        setMaintenanceChecked(true);
+      }
+    };
+    checkMaintenance();
+  }, []);
+
+  if (!maintenanceChecked || authLoading) {
+    return <PageLoader />;
+  }
+
+  if (maintenanceMode && !isAdmin && !isAdminRoute && !isMaintenancePage) {
+    return <Redirect to="/bakim" />;
+  }
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-black">
       <ScrollToTop />
-      {!isAdminRoute && <Navbar />}
+      {!isAdminRoute && !isMaintenancePage && <Navbar />}
       <main>
         <Suspense fallback={<PageLoader />}>
           <Switch>
@@ -97,7 +127,7 @@ function AppContent() {
           </Switch>
         </Suspense>
       </main>
-      {!isAdminRoute && !isDashboard && <Footer />}
+      {!isAdminRoute && !isDashboard && !isMaintenancePage && <Footer />}
       <Toaster />
     </div>
   );
