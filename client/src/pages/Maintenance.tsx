@@ -36,7 +36,7 @@ export default function Maintenance() {
             <img 
               src="https://www.gokalaf.com/wp-content/uploads/2023/02/ALAFCOACHING-FINAL-8-scaled.png" 
               alt="Gokalaf Logo" 
-              className="h-16 md:h-20 mx-auto object-contain"
+              className="h-24 md:h-32 mx-auto object-contain"
             />
           </motion.div>
 
