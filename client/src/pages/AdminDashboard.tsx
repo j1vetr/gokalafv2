@@ -16,7 +16,7 @@ import {
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
   ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
-  Ticket, FileText, Database
+  Ticket, FileText, Database, Wrench
 } from "lucide-react";
 import {
   AreaChart,
@@ -141,6 +141,9 @@ export default function AdminDashboard() {
     const now = new Date();
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   });
+
+  const [maintenanceMode, setMaintenanceMode] = useState(false);
+  const [isTogglingMaintenance, setIsTogglingMaintenance] = useState(false);
 
   const monthOptions = (() => {
     const options: { value: string; label: string }[] = [];
@@ -293,10 +296,36 @@ export default function AdminDashboard() {
         const data = await calcRes.json();
         setCalculatorStats(data.stats || []);
       }
+
+      const maintenanceRes = await fetch("/api/maintenance", { credentials: "include" });
+      if (maintenanceRes.ok) {
+        const data = await maintenanceRes.json();
+        setMaintenanceMode(data.maintenanceMode || false);
+      }
     } catch (error) {
       console.error("Veri yüklenemedi:", error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const toggleMaintenanceMode = async () => {
+    setIsTogglingMaintenance(true);
+    try {
+      const res = await fetch("/api/admin/maintenance", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ enabled: !maintenanceMode }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setMaintenanceMode(data.maintenanceMode);
+      }
+    } catch (error) {
+      console.error("Bakım modu değiştirilemedi:", error);
+    } finally {
+      setIsTogglingMaintenance(false);
     }
   };
 
@@ -617,6 +646,23 @@ export default function AdminDashboard() {
               </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
+                <div 
+                  className={`flex items-center justify-between p-3 rounded-lg border transition-all ${maintenanceMode ? "bg-orange-500/20 border-orange-500/30" : "bg-white/5 border-white/10"}`}
+                  data-testid="maintenance-toggle-container"
+                >
+                  <div className="flex items-center gap-2">
+                    <Wrench size={16} className={maintenanceMode ? "text-orange-400" : "text-gray-400"} />
+                    <span className={`text-sm font-medium ${maintenanceMode ? "text-orange-400" : "text-gray-400"}`}>
+                      Bakım Modu
+                    </span>
+                  </div>
+                  <Switch 
+                    checked={maintenanceMode}
+                    onCheckedChange={toggleMaintenanceMode}
+                    disabled={isTogglingMaintenance}
+                    data-testid="switch-maintenance"
+                  />
+                </div>
                 <Button 
                   variant="ghost" 
                   onClick={fetchAllData}
