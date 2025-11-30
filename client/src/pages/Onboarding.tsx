@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,14 +40,6 @@ const steps: Step[] = [
     description: "Ne yapmak istiyorsun?",
     icon: <Target className="w-6 h-6" />,
     action: "Seç",
-  },
-  {
-    id: "calculate",
-    title: "Değerlerini Hesapla",
-    description: "BMI, kalori hesapla.",
-    icon: <Calculator className="w-6 h-6" />,
-    action: "Hesapla",
-    actionLink: "/araclar",
   },
   {
     id: "package",
@@ -273,24 +265,36 @@ export default function Onboarding() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex gap-3 justify-center"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-col items-center gap-4"
         >
-          <Button
-            variant="ghost"
-            onClick={handleSkip}
-            className="text-gray-500 hover:text-white uppercase tracking-wider text-xs"
-            data-testid="button-skip"
+          <div className="flex gap-3">
+            <Button
+              variant="ghost"
+              onClick={handleSkip}
+              className="text-gray-500 hover:text-white uppercase tracking-wider text-xs"
+              data-testid="button-skip"
+            >
+              Atla
+            </Button>
+            <Button
+              onClick={handleComplete}
+              className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase px-6 text-sm"
+              data-testid="button-complete"
+            >
+              Panele Git <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+
+          <Link 
+            href="/araclar" 
+            className="flex items-center gap-2 text-gray-500 hover:text-primary text-xs transition-colors mt-2"
+            data-testid="link-calculators"
           >
-            Atla
-          </Button>
-          <Button
-            onClick={handleComplete}
-            className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase px-6 text-sm"
-            data-testid="button-complete"
-          >
-            Panele Git <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
+            <Calculator className="w-4 h-4" />
+            <span>İstersen hesaplayıcılarımızı kullan</span>
+            <ChevronRight className="w-3 h-3" />
+          </Link>
         </motion.div>
       </div>
     </div>
