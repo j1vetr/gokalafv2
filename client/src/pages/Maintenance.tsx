@@ -33,9 +33,11 @@ export default function Maintenance() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <span className="text-primary font-heading font-bold text-2xl tracking-widest uppercase">
-              GOKALAF
-            </span>
+            <img 
+              src="https://www.gokalaf.com/wp-content/uploads/2023/02/ALAFCOACHING-FINAL-8-scaled.png" 
+              alt="Gokalaf Logo" 
+              className="h-16 md:h-20 mx-auto object-contain"
+            />
           </motion.div>
 
           <motion.h1
