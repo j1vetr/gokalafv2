@@ -315,6 +315,9 @@ export class DatabaseStorage implements IStorage {
     await db.delete(schema.dailyHabits).where(eq(schema.dailyHabits.userId, id));
     await db.delete(schema.bodyMeasurements).where(eq(schema.bodyMeasurements.userId, id));
     await db.delete(schema.calculatorResults).where(eq(schema.calculatorResults.userId, id));
+    await db.delete(schema.couponUsage).where(eq(schema.couponUsage.userId, id));
+    await db.delete(schema.systemLogs).where(eq(schema.systemLogs.userId, id));
+    await db.delete(schema.emailLogs).where(eq(schema.emailLogs.userId, id));
     const orders = await db.select().from(schema.orders).where(eq(schema.orders.userId, id));
     for (const order of orders) {
       await db.delete(schema.userProgress).where(eq(schema.userProgress.orderId, order.id));
