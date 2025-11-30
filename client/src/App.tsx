@@ -36,6 +36,7 @@ const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const KVKK = lazy(() => import("@/pages/legal/KVKK"));
 const CancellationPolicy = lazy(() => import("@/pages/legal/CancellationPolicy"));
 const DistanceSalesContract = lazy(() => import("@/pages/legal/DistanceSalesContract"));
+const Onboarding = lazy(() => import("@/pages/Onboarding"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -78,6 +79,7 @@ function AppContent() {
             <Route path="/paketler" component={Packages} />
             <Route path="/giris" component={Login} />
             <Route path="/kayit" component={Register} />
+            <Route path="/hosgeldin" component={Onboarding} />
             <Route path="/odeme" component={Checkout} />
             <Route path="/panel" component={UserDashboard} />
             <Route path="/gokadmin/login" component={AdminLogin} />
