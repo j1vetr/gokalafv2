@@ -1108,41 +1108,41 @@ export default function UserDashboard() {
                     {/* Quick Calculators */}
                     <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
                       <h2 className="text-xl font-heading font-bold text-white mb-6">Beslenme Hesaplayıcıları</h2>
-                      <div className="space-y-4">
-                        <Link href="/araclar/kalori">
+                      <div className="flex flex-col gap-3">
+                        <Link href="/araclar/kalori" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-calories-calc">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/30 transition-colors">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/30 transition-colors shrink-0">
                               <Flame className="w-6 h-6 text-orange-400" />
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <h3 className="font-bold text-white">Kalori Hesaplama</h3>
                               <p className="text-sm text-gray-400">Günlük kalori ihtiyacını hesapla</p>
                             </div>
-                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
-                        <Link href="/araclar/makro">
+                        <Link href="/araclar/makro" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-macros-calc">
-                            <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                            <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors shrink-0">
                               <Scale className="w-6 h-6 text-green-400" />
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <h3 className="font-bold text-white">Makro Hesaplama</h3>
                               <p className="text-sm text-gray-400">Protein, karbonhidrat, yağ</p>
                             </div>
-                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
-                        <Link href="/araclar/tdee">
+                        <Link href="/araclar/tdee" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-tdee-calc">
-                            <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                            <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors shrink-0">
                               <Zap className="w-6 h-6 text-blue-400" />
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <h3 className="font-bold text-white">TDEE Hesaplama</h3>
                               <p className="text-sm text-gray-400">Günlük enerji harcaması</p>
                             </div>
-                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
                       </div>
@@ -1187,28 +1187,6 @@ export default function UserDashboard() {
                             <Plus className="w-6 h-6" />
                           </Button>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tips */}
-                  <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-6">
-                    <h3 className="font-bold text-white mb-4 flex items-center gap-2">
-                      <Star className="w-5 h-5 text-primary" />
-                      Beslenme İpuçları
-                    </h3>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="bg-black/30 rounded-xl p-4">
-                        <div className="text-primary font-bold mb-1">Protein</div>
-                        <p className="text-sm text-gray-400">Her öğünde yeterli protein almayı unutma</p>
-                      </div>
-                      <div className="bg-black/30 rounded-xl p-4">
-                        <div className="text-primary font-bold mb-1">Hidrasyon</div>
-                        <p className="text-sm text-gray-400">Günde en az 2-3 litre su tüket</p>
-                      </div>
-                      <div className="bg-black/30 rounded-xl p-4">
-                        <div className="text-primary font-bold mb-1">Zamanlama</div>
-                        <p className="text-sm text-gray-400">Antrenman öncesi ve sonrası beslenmeye dikkat et</p>
                       </div>
                     </div>
                   </div>
