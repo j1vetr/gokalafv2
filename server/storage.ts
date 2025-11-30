@@ -312,17 +312,26 @@ export class DatabaseStorage implements IStorage {
 
   // DELETE USER
   async deleteUser(id: string): Promise<boolean> {
+    // Clear references in other tables first
+    await db.update(schema.orders).set({ adminAssignedBy: null }).where(eq(schema.orders.adminAssignedBy, id));
+    await db.update(schema.coupons).set({ createdBy: null }).where(eq(schema.coupons.createdBy, id));
+    
+    // Delete user's own data
     await db.delete(schema.dailyHabits).where(eq(schema.dailyHabits.userId, id));
     await db.delete(schema.bodyMeasurements).where(eq(schema.bodyMeasurements.userId, id));
     await db.delete(schema.calculatorResults).where(eq(schema.calculatorResults.userId, id));
     await db.delete(schema.couponUsage).where(eq(schema.couponUsage.userId, id));
     await db.delete(schema.systemLogs).where(eq(schema.systemLogs.userId, id));
     await db.delete(schema.emailLogs).where(eq(schema.emailLogs.userId, id));
+    
+    // Delete user's orders and progress
     const orders = await db.select().from(schema.orders).where(eq(schema.orders.userId, id));
     for (const order of orders) {
       await db.delete(schema.userProgress).where(eq(schema.userProgress.orderId, order.id));
     }
     await db.delete(schema.orders).where(eq(schema.orders.userId, id));
+    
+    // Finally delete the user
     const result = await db.delete(schema.users).where(eq(schema.users.id, id)).returning();
     return result.length > 0;
   }
