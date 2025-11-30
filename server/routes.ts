@@ -477,13 +477,16 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
   // Delete User (Admin)
   app.delete("/api/admin/users/:id", requireAdmin, async (req, res) => {
     try {
+      console.log(`🗑️ Deleting user: ${req.params.id}`);
       const success = await storage.deleteUser(req.params.id);
       if (!success) {
         return res.status(404).json({ error: "Kullanıcı bulunamadı" });
       }
+      console.log(`✅ User deleted: ${req.params.id}`);
       res.json({ success: true });
-    } catch (error) {
-      res.status(500).json({ error: "Kullanıcı silinemedi" });
+    } catch (error: any) {
+      console.error(`❌ Delete user error:`, error?.message || error);
+      res.status(500).json({ error: "Kullanıcı silinemedi", details: error?.message });
     }
   });
 

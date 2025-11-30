@@ -312,27 +312,51 @@ export class DatabaseStorage implements IStorage {
 
   // DELETE USER
   async deleteUser(id: string): Promise<boolean> {
+    console.log(`[deleteUser] Starting deletion for user: ${id}`);
+    
     // Clear references in other tables first
+    console.log(`[deleteUser] Clearing adminAssignedBy references...`);
     await db.update(schema.orders).set({ adminAssignedBy: null }).where(eq(schema.orders.adminAssignedBy, id));
+    
+    console.log(`[deleteUser] Clearing coupon createdBy references...`);
     await db.update(schema.coupons).set({ createdBy: null }).where(eq(schema.coupons.createdBy, id));
     
     // Delete user's own data
+    console.log(`[deleteUser] Deleting dailyHabits...`);
     await db.delete(schema.dailyHabits).where(eq(schema.dailyHabits.userId, id));
+    
+    console.log(`[deleteUser] Deleting bodyMeasurements...`);
     await db.delete(schema.bodyMeasurements).where(eq(schema.bodyMeasurements.userId, id));
+    
+    console.log(`[deleteUser] Deleting calculatorResults...`);
     await db.delete(schema.calculatorResults).where(eq(schema.calculatorResults.userId, id));
+    
+    console.log(`[deleteUser] Deleting couponUsage...`);
     await db.delete(schema.couponUsage).where(eq(schema.couponUsage.userId, id));
+    
+    console.log(`[deleteUser] Deleting systemLogs...`);
     await db.delete(schema.systemLogs).where(eq(schema.systemLogs.userId, id));
+    
+    console.log(`[deleteUser] Deleting emailLogs...`);
     await db.delete(schema.emailLogs).where(eq(schema.emailLogs.userId, id));
     
     // Delete user's orders and progress
+    console.log(`[deleteUser] Finding user orders...`);
     const orders = await db.select().from(schema.orders).where(eq(schema.orders.userId, id));
+    console.log(`[deleteUser] Found ${orders.length} orders`);
+    
     for (const order of orders) {
+      console.log(`[deleteUser] Deleting progress for order: ${order.id}`);
       await db.delete(schema.userProgress).where(eq(schema.userProgress.orderId, order.id));
     }
+    
+    console.log(`[deleteUser] Deleting orders...`);
     await db.delete(schema.orders).where(eq(schema.orders.userId, id));
     
     // Finally delete the user
+    console.log(`[deleteUser] Deleting user...`);
     const result = await db.delete(schema.users).where(eq(schema.users.id, id)).returning();
+    console.log(`[deleteUser] User deleted: ${result.length > 0}`);
     return result.length > 0;
   }
 
