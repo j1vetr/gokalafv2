@@ -120,6 +120,12 @@ export interface IStorage {
   getSystemLogsByUser(userId: string, limit?: number): Promise<SystemLog[]>;
   getSystemLogsByAction(action: string, limit?: number): Promise<SystemLog[]>;
   getSystemLogsCount(): Promise<number>;
+
+  // Site Settings
+  getSiteSetting(key: string): Promise<string | null>;
+  setSiteSetting(key: string, value: string): Promise<void>;
+  isMaintenanceMode(): Promise<boolean>;
+  setMaintenanceMode(enabled: boolean): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -556,6 +562,32 @@ export class DatabaseStorage implements IStorage {
   async getSystemLogsCount(): Promise<number> {
     const result = await db.select({ count: sql<number>`count(*)` }).from(schema.systemLogs);
     return Number(result[0]?.count || 0);
+  }
+
+  // SITE SETTINGS
+  async getSiteSetting(key: string): Promise<string | null> {
+    const [setting] = await db.select().from(schema.siteSettings).where(eq(schema.siteSettings.key, key)).limit(1);
+    return setting?.value || null;
+  }
+
+  async setSiteSetting(key: string, value: string): Promise<void> {
+    const existing = await this.getSiteSetting(key);
+    if (existing !== null) {
+      await db.update(schema.siteSettings)
+        .set({ value, updatedAt: new Date() })
+        .where(eq(schema.siteSettings.key, key));
+    } else {
+      await db.insert(schema.siteSettings).values({ key, value });
+    }
+  }
+
+  async isMaintenanceMode(): Promise<boolean> {
+    const value = await this.getSiteSetting("maintenance_mode");
+    return value === "true";
+  }
+
+  async setMaintenanceMode(enabled: boolean): Promise<void> {
+    await this.setSiteSetting("maintenance_mode", enabled ? "true" : "false");
   }
 }
 

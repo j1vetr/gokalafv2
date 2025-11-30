@@ -217,6 +217,16 @@ export const insertCouponUsageSchema = createInsertSchema(couponUsage).omit({
 export type InsertCouponUsage = z.infer<typeof insertCouponUsageSchema>;
 export type CouponUsage = typeof couponUsage.$inferSelect;
 
+// SITE SETTINGS TABLE (site ayarları)
+export const siteSettings = pgTable("site_settings", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  key: text("key").notNull().unique(),
+  value: text("value").notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export type SiteSetting = typeof siteSettings.$inferSelect;
+
 // SYSTEM LOGS TABLE (sistem logları)
 export const systemLogs = pgTable("system_logs", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
