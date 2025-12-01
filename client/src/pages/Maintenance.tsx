@@ -27,19 +27,6 @@ export default function Maintenance() {
           transition={{ duration: 0.8 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <img 
-              src="https://www.gokalaf.com/wp-content/uploads/2023/02/ALAFCOACHING-FINAL-8-scaled.png" 
-              alt="Gokalaf Logo" 
-              className="h-24 md:h-32 mx-auto object-contain"
-            />
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
