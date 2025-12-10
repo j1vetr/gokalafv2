@@ -33,7 +33,7 @@ export default function Packages() {
   const faqs = [
     {
       q: "Ödemeyi nasıl yapabilirim?",
-      a: "Ödemeleri Kredi Kartı ile (Shopier güvencesiyle) peşin veya taksitli olarak güvenle yapabilirsiniz."
+      a: "Ödemeleri Kredi Kartı ile (Shopier güvencesiyle) güvenle yapabilirsiniz."
     },
     {
       q: "Programlar nasıl teslim ediliyor?",
@@ -41,7 +41,7 @@ export default function Packages() {
     },
     {
       q: "Salona gitmek zorunda mıyım?",
-      a: "Hayır. Evde veya parkta antrenman yapmak istiyorsanız, ekipman durumunuza göre program hazırlanır. Ancak en iyi sonuçlar için spor salonu üyeliği önerilir."
+      a: "Evet. Programlar spor salonu ekipmanlarına göre hazırlanmaktadır. Etkili sonuçlar için spor salonu üyeliği gerekmektedir."
     },
     {
       q: "İptal ve iade hakkım var mı?",
