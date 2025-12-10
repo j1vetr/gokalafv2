@@ -486,7 +486,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
       
       shopier.setBuyer({
-        buyer_id_nr: `${referenceId} - ${productName}`,
+        buyer_id_nr: referenceId,
         product_name: productName,
         buyer_name: buyerName,
         buyer_surname: buyerSurname,
@@ -547,7 +547,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       }
 
       const rawOrderId = String(callbackResult.order_id);
-      const referenceId = rawOrderId.includes(" - ") ? rawOrderId.split(" - ")[0] : rawOrderId;
+      const referenceId = rawOrderId.trim();
       const payment_id = String(callbackResult.payment_id);
       const installment = callbackResult.installment;
 
