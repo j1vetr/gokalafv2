@@ -1,33 +1,62 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Check, HelpCircle, Trophy, Zap, TrendingUp } from "lucide-react";
+import { Check, HelpCircle, Trophy, TrendingUp, Loader2 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Packages() {
-  const [selectedDuration, setSelectedDuration] = useState<number>(12); // Default 12 weeks
+interface Package {
+  id: string;
+  name: string;
+  weeks: number;
+  price: string;
+  features: string[];
+  isActive: boolean;
+}
 
-  const durations = [
+export default function Packages() {
+  const [selectedDuration, setSelectedDuration] = useState<number>(12);
+
+  const { data: packages = [], isLoading } = useQuery<Package[]>({
+    queryKey: ["/api/packages"],
+    queryFn: async () => {
+      const res = await fetch("/api/packages");
+      if (!res.ok) throw new Error("Paketler yüklenemedi");
+      const data = await res.json();
+      return data.packages || [];
+    },
+  });
+
+  const activePackages = Array.isArray(packages) ? packages.filter(p => p.isActive) : [];
+  
+  const defaultDurations = [
     { weeks: 8, label: "8 Hafta" },
     { weeks: 12, label: "12 Hafta" },
     { weeks: 16, label: "16 Hafta" },
     { weeks: 24, label: "24 Hafta" }
   ];
 
-  const prices: Record<number, number> = {
-    8: 5950,
-    12: 7280,
-    16: 8660,
-    24: 12000
-  };
+  const durations = activePackages.length > 0
+    ? activePackages
+        .map(p => ({ weeks: p.weeks, label: `${p.weeks} Hafta` }))
+        .sort((a, b) => a.weeks - b.weeks)
+    : defaultDurations;
 
-  const packageFeatures = [
+  useEffect(() => {
+    if (durations.length > 0 && !durations.find(d => d.weeks === selectedDuration)) {
+      setSelectedDuration(durations[0]?.weeks || 12);
+    }
+  }, [durations, selectedDuration]);
+
+  const selectedPackage = activePackages.find(p => p.weeks === selectedDuration);
+  const price = selectedPackage ? parseFloat(selectedPackage.price) : 0;
+  const features = selectedPackage?.features || [
     "Kişiye ve hedeflere özel antrenman programlaması",
     "Olduğu konum ve hedefe yönelik beslenme planlaması",
     "Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması",
-    "Whatsapp üstünden direkt olarak “Gokalaf” ile iletişim"
+    "Whatsapp üstünden direkt olarak Gokalaf ile iletişim"
   ];
 
   const faqs = [
@@ -48,6 +77,14 @@ export default function Packages() {
       a: "Dijital içerik ve kişiye özel hizmet olduğu için program hazırlandıktan sonra iade yapılmamaktadır. Ancak sağlık sorunu gibi durumlarda üyelik dondurma hakkınız saklıdır."
     }
   ];
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-28 pb-12 bg-[#050505] flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
@@ -80,6 +117,7 @@ export default function Packages() {
               <button
                 key={d.weeks}
                 onClick={() => setSelectedDuration(d.weeks)}
+                data-testid={`button-duration-${d.weeks}`}
                 className={`flex-1 py-2.5 px-2 rounded-lg text-center transition-all duration-300 relative overflow-hidden group ${
                   selectedDuration === d.weeks 
                     ? "bg-primary text-black shadow-[0_0_20px_rgba(204,255,0,0.3)]" 
@@ -120,8 +158,8 @@ export default function Packages() {
 
                 <div className="text-center mb-4 relative z-10">
                   <div className="flex items-center justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                      ₺{(prices[selectedDuration] || 0).toLocaleString('tr-TR')}
+                    <span className="text-3xl md:text-4xl font-bold tracking-tight text-white" data-testid="text-package-price">
+                      ₺{price.toLocaleString('tr-TR')}
                     </span>
                   </div>
                   <div className="text-primary text-sm mt-1 font-bold flex items-center justify-center gap-1">
@@ -131,7 +169,7 @@ export default function Packages() {
                 </div>
 
                 <div className="space-y-2 flex-grow mb-6 relative z-10 bg-white/5 p-3 rounded-lg border border-white/5">
-                  {packageFeatures.map((feature, idx) => (
+                  {features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-gray-300">
                       <div className="w-4 h-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
                         <Check size={10} />
