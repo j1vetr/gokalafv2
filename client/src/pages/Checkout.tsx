@@ -24,7 +24,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
-      setLocation("/giris");
+      setLocation("/kayit?redirect=checkout");
     }
   }, [authLoading, isAuthenticated, setLocation]);
 

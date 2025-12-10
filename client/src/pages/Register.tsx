@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
-import { UserPlus, Mail, Lock, User, Phone, MapPin, AlertCircle } from "lucide-react";
+import { UserPlus, Mail, Lock, User, Phone, MapPin, AlertCircle, ShoppingCart } from "lucide-react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
 export default function Register() {
@@ -19,8 +19,16 @@ export default function Register() {
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isFromCheckout, setIsFromCheckout] = useState(false);
   const { register } = useAuth();
   const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("redirect") === "checkout") {
+      setIsFromCheckout(true);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -87,6 +95,12 @@ export default function Register() {
 
         <div className="bg-[#0A0A0A]/90 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
+            {isFromCheckout && (
+              <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 flex items-center gap-3 text-primary">
+                <ShoppingCart size={20} />
+                <span className="text-sm font-medium">Paket satın almak için önce kayıt olmanız gerekmektedir.</span>
+              </div>
+            )}
             {error && (
               <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 flex items-center gap-3 text-red-400">
                 <AlertCircle size={20} />
