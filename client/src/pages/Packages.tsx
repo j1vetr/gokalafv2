@@ -121,7 +121,7 @@ export default function Packages() {
                 <div className="text-center mb-4 relative z-10">
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                      ₺{prices[selectedDuration].toLocaleString('tr-TR')}
+                      ₺{(prices[selectedDuration] || 0).toLocaleString('tr-TR')}
                     </span>
                   </div>
                   <div className="text-primary text-sm mt-1 font-bold flex items-center justify-center gap-1">
