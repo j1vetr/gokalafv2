@@ -438,6 +438,103 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
+  // ===== SHOPIER PAYMENT INITIATION =====
+  
+  app.post("/api/shopier/initiate", requireAuth, async (req, res) => {
+    try {
+      const { orderId } = req.body;
+      
+      const order = await storage.getOrder(orderId);
+      if (!order) {
+        return res.status(404).json({ error: "Sipariş bulunamadı" });
+      }
+      
+      if (order.userId !== req.session.userId) {
+        return res.status(403).json({ error: "Bu siparişe erişim yetkiniz yok" });
+      }
+      
+      const user = await storage.getUser(req.session.userId!);
+      if (!user) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+      
+      const pkg = await storage.getPackage(order.packageId);
+      if (!pkg) {
+        return res.status(404).json({ error: "Paket bulunamadı" });
+      }
+
+      const apiKey = process.env.SHOPIER_API_KEY;
+      const apiSecret = process.env.SHOPIER_API_SECRET;
+      
+      if (!apiKey || !apiSecret) {
+        console.error("Shopier API credentials not configured");
+        return res.status(500).json({ error: "Ödeme sistemi yapılandırılmamış" });
+      }
+
+      const buyerName = user.fullName?.split(" ")[0] || "Müşteri";
+      const buyerSurname = user.fullName?.split(" ").slice(1).join(" ") || "Kullanıcı";
+      const buyerEmail = user.email;
+      const buyerPhone = user.phone || "5000000000";
+      const buyerAddress = user.address || "Türkiye";
+      const buyerCity = "İstanbul";
+      const buyerCountry = "Türkiye";
+      const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
+      const productType = 1;
+      const productPrice = parseFloat(order.totalPrice.toString()).toFixed(2);
+      const currency = 0; // TL
+      const orderId2 = order.id;
+      
+      const callbackUrl = process.env.NODE_ENV === "production" 
+        ? "https://gokalaf.com/api/shopier/callback"
+        : `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co/api/shopier/callback`;
+      
+      const randomNr = Math.random().toString(36).substring(2, 15);
+      
+      const dataToSign = `${randomNr}${orderId2}${productPrice}${currency}`;
+      const signature = crypto
+        .createHmac("sha256", apiSecret)
+        .update(dataToSign)
+        .digest("base64");
+
+      const formData = {
+        API_key: apiKey,
+        website_index: 1,
+        platform_order_id: orderId2,
+        product_name: productName,
+        product_type: productType,
+        buyer_name: buyerName,
+        buyer_surname: buyerSurname,
+        buyer_email: buyerEmail,
+        buyer_phone: buyerPhone,
+        buyer_id_nr: "",
+        buyer_account_age: 1,
+        buyer_postal_code: "34000",
+        buyer_address: buyerAddress,
+        buyer_city: buyerCity,
+        buyer_country: buyerCountry,
+        shipping_address: buyerAddress,
+        shipping_city: buyerCity,
+        shipping_country: buyerCountry,
+        shipping_postal_code: "34000",
+        total_order_value: productPrice,
+        currency: currency,
+        current_language: 0,
+        modul_version: "1.0.4",
+        random_nr: randomNr,
+        signature: signature,
+        callback_url: callbackUrl,
+      };
+
+      res.json({ 
+        formData,
+        paymentUrl: "https://www.shopier.com/ShowProductNew/api_pay2.php"
+      });
+    } catch (error) {
+      console.error("Shopier initiate error:", error);
+      res.status(500).json({ error: "Ödeme başlatılamadı" });
+    }
+  });
+
   // ===== SHOPIER PAYMENT CALLBACK =====
   
   app.post("/api/shopier/callback", async (req, res) => {

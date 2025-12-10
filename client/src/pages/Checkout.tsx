@@ -55,18 +55,44 @@ export default function Checkout() {
     
     setIsProcessing(true);
     try {
-      const res = await fetch("/api/orders", {
+      const orderRes = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({ packageId: selectedPackage.id }),
       });
       
-      if (res.ok) {
-        const data = await res.json();
-        const orderId = data.order.id;
-        const shopierUrl = `https://www.shopier.com/ShowProductNew/products.php?id=gokalaf&product=${selectedPackage.weeks}hafta&platform_order_id=${orderId}`;
-        window.location.href = shopierUrl;
+      if (orderRes.ok) {
+        const orderData = await orderRes.json();
+        const orderId = orderData.order.id;
+        
+        const paymentRes = await fetch("/api/shopier/initiate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ orderId }),
+        });
+        
+        if (paymentRes.ok) {
+          const { formData, paymentUrl } = await paymentRes.json();
+          
+          const form = document.createElement("form");
+          form.method = "POST";
+          form.action = paymentUrl;
+          
+          Object.entries(formData).forEach(([key, value]) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = String(value);
+            form.appendChild(input);
+          });
+          
+          document.body.appendChild(form);
+          form.submit();
+        } else {
+          console.error("Ödeme başlatılamadı");
+        }
       }
     } catch (error) {
       console.error("Sipariş oluşturulamadı:", error);
