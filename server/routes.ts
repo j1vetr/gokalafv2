@@ -483,10 +483,11 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       const productPrice = parseFloat(order.totalPrice.toString());
 
       const referenceId = order.referenceId || order.id.split("-")[0].slice(-4);
+      const shopierOrderId = `${referenceId} - ${pkg.weeks} Haftalık`;
       const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
       
       shopier.setBuyer({
-        buyer_id_nr: referenceId,
+        buyer_id_nr: shopierOrderId,
         product_name: productName,
         buyer_name: buyerName,
         buyer_surname: buyerSurname,
