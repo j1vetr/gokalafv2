@@ -176,11 +176,11 @@ export default function AdminDashboard() {
     });
 
     const totalRevenue = monthOrders
-      .filter(o => o.status !== "cancelled")
+      .filter(o => o.status === "paid" || o.status === "active" || o.status === "completed")
       .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
     
     const prevRevenue = prevMonthOrders
-      .filter(o => o.status !== "cancelled")
+      .filter(o => o.status === "paid" || o.status === "active" || o.status === "completed")
       .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
 
     const totalOrders = monthOrders.length;
@@ -193,14 +193,13 @@ export default function AdminDashboard() {
 
     const packageSales = packages.map(pkg => {
       const pkgOrders = monthOrders.filter(o => o.packageId === pkg.id);
-      const pkgRevenue = pkgOrders
-        .filter(o => o.status !== "cancelled")
-        .reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
+      const paidPkgOrders = pkgOrders.filter(o => o.status === "paid" || o.status === "active" || o.status === "completed");
+      const pkgRevenue = paidPkgOrders.reduce((sum, o) => sum + parseFloat(o.totalPrice), 0);
       return {
         id: pkg.id,
         name: pkg.name,
         weeks: pkg.weeks,
-        unitsSold: pkgOrders.length,
+        unitsSold: paidPkgOrders.length,
         revenue: pkgRevenue,
         price: parseFloat(pkg.price)
       };
