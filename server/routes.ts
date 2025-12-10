@@ -8,7 +8,7 @@ import crypto from "crypto";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
-import { sendWelcomeEmail, sendOrderConfirmationEmail } from "./email/service";
+import { sendWelcomeEmail, sendOrderConfirmationEmail, sendAdminNewUserNotification, sendAdminNewOrderNotification } from "./email/service";
 import { Shopier } from "shopier-api";
 
 function verifyShopierSignature(postData: any, apiSecret: string): boolean {
@@ -168,6 +168,9 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       
       sendWelcomeEmail({ id: user.id, email: user.email, fullName: user.fullName })
         .catch(err => console.error("Welcome email error:", err));
+      
+      sendAdminNewUserNotification({ id: user.id, email: user.email, fullName: user.fullName, phone: user.phone || undefined })
+        .catch(err => console.error("Admin new user notification error:", err));
       
       // Explicitly save session before sending response
       req.session.save((err) => {
@@ -566,6 +569,12 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
               await sendOrderConfirmationEmail(
                 { id: user.id, email: user.email, fullName: user.fullName },
                 { totalPrice: order.totalPrice, startDate, endDate },
+                { name: pkg.name, weeks: pkg.weeks }
+              );
+              
+              await sendAdminNewOrderNotification(
+                { id: user.id, email: user.email, fullName: user.fullName, phone: user.phone || undefined },
+                { id: platform_order_id, totalPrice: order.totalPrice },
                 { name: pkg.name, weeks: pkg.weeks }
               );
             } catch (emailError) {

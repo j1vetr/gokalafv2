@@ -169,6 +169,66 @@ export async function sendDailyReminderEmail(
   return sendEmail(user.email, template, "daily_reminder", user.id, { streak, lastWeight });
 }
 
+const ADMIN_EMAIL = "hello@toov.com.tr";
+
+export async function sendAdminNewUserNotification(user: { 
+  id: string; 
+  email: string; 
+  fullName: string;
+  phone?: string;
+}) {
+  const registeredAt = new Date().toLocaleDateString("tr-TR", { 
+    day: "numeric", 
+    month: "long", 
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  const template = emailTemplates.adminNewUser({
+    fullName: user.fullName,
+    email: user.email,
+    phone: user.phone,
+    registeredAt,
+  });
+
+  return sendEmail(ADMIN_EMAIL, template, "admin_new_user", user.id, {
+    userEmail: user.email,
+    fullName: user.fullName,
+  });
+}
+
+export async function sendAdminNewOrderNotification(
+  user: { id: string; email: string; fullName: string; phone?: string },
+  order: { id: string; totalPrice: string },
+  pkg: { name: string; weeks: number }
+) {
+  const orderDate = new Date().toLocaleDateString("tr-TR", { 
+    day: "numeric", 
+    month: "long", 
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  const template = emailTemplates.adminNewOrder({
+    customerName: user.fullName,
+    customerEmail: user.email,
+    customerPhone: user.phone,
+    packageName: pkg.name,
+    weeks: pkg.weeks,
+    totalPrice: order.totalPrice,
+    orderId: order.id,
+    orderDate,
+  });
+
+  return sendEmail(ADMIN_EMAIL, template, "admin_new_order", user.id, {
+    orderId: order.id,
+    packageName: pkg.name,
+    totalPrice: order.totalPrice,
+  });
+}
+
 export async function checkAndSendPackageExpiryReminders() {
   console.log("🔍 Checking for package expiry reminders...");
   

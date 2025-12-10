@@ -435,5 +435,143 @@ export const emailTemplates = {
         </p>
       </div>
     `)
+  }),
+
+  adminNewUser: (data: { 
+    fullName: string; 
+    email: string;
+    phone?: string;
+    registeredAt: string;
+  }): EmailTemplate => ({
+    subject: `Yeni Kullanıcı Kaydı - ${data.fullName}`,
+    html: wrapTemplate(`
+      <div class="header" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+        <h1>GOKALAF</h1>
+        <div class="subtitle" style="color: #fff;">Admin Bildirimi</div>
+      </div>
+      <div class="content">
+        <div class="greeting">Yeni Kullanıcı Kaydı! 👤</div>
+        <p class="text">
+          Sisteme yeni bir kullanıcı kayıt oldu.
+        </p>
+        
+        <div class="highlight-box" style="border-color: rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);">
+          <div class="highlight-title" style="color: #4CAF50;">👤 Kullanıcı Bilgileri</div>
+          <div style="margin-top: 16px;">
+            <div class="stat-row">
+              <span class="stat-label">Ad Soyad</span>
+              <span class="stat-value">${data.fullName}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">E-posta</span>
+              <span class="stat-value">${data.email}</span>
+            </div>
+            ${data.phone ? `
+            <div class="stat-row">
+              <span class="stat-label">Telefon</span>
+              <span class="stat-value">${data.phone}</span>
+            </div>
+            ` : ''}
+            <div class="stat-row" style="border-bottom: none;">
+              <span class="stat-label">Kayıt Tarihi</span>
+              <span class="stat-value" style="color: #4CAF50;">${data.registeredAt}</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://gokalaf.com/gokadmin" class="cta-button" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+            Admin Paneli
+          </a>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-brand">GOKALAF COACHING</div>
+        <p class="footer-text">Admin Bildirim Sistemi</p>
+        <p class="footer-text" style="margin-top: 16px;">
+          © ${new Date().getFullYear()} Gokalaf. Tüm hakları saklıdır.
+        </p>
+      </div>
+    `)
+  }),
+
+  adminNewOrder: (data: { 
+    customerName: string; 
+    customerEmail: string;
+    customerPhone?: string;
+    packageName: string;
+    weeks: number;
+    totalPrice: string;
+    orderId: string;
+    orderDate: string;
+  }): EmailTemplate => ({
+    subject: `Yeni Sipariş - ${data.packageName} (${data.totalPrice} ₺)`,
+    html: wrapTemplate(`
+      <div class="header" style="background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);">
+        <h1>GOKALAF</h1>
+        <div class="subtitle" style="color: #fff;">Yeni Sipariş</div>
+      </div>
+      <div class="content">
+        <div class="greeting">Yeni Sipariş Geldi! 💰</div>
+        <p class="text">
+          Bir müşteri yeni bir koçluk paketi satın aldı.
+        </p>
+        
+        <div class="highlight-box" style="border-color: rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%);">
+          <div class="highlight-title" style="color: #2196F3;">📦 Sipariş Detayları</div>
+          <div style="margin-top: 16px;">
+            <div class="stat-row">
+              <span class="stat-label">Paket</span>
+              <span class="stat-value">${data.packageName}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Süre</span>
+              <span class="stat-value">${data.weeks} Hafta</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Tutar</span>
+              <span class="stat-value" style="color: #4CAF50; font-size: 18px;">${data.totalPrice} ₺</span>
+            </div>
+            <div class="stat-row" style="border-bottom: none;">
+              <span class="stat-label">Sipariş Tarihi</span>
+              <span class="stat-value">${data.orderDate}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-title">👤 Müşteri Bilgileri</div>
+          <div style="margin-top: 16px;">
+            <div class="stat-row">
+              <span class="stat-label">Ad Soyad</span>
+              <span class="stat-value">${data.customerName}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">E-posta</span>
+              <span class="stat-value">${data.customerEmail}</span>
+            </div>
+            ${data.customerPhone ? `
+            <div class="stat-row" style="border-bottom: none;">
+              <span class="stat-label">Telefon</span>
+              <span class="stat-value">${data.customerPhone}</span>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://gokalaf.com/gokadmin" class="cta-button" style="background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);">
+            Siparişi Görüntüle
+          </a>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-brand">GOKALAF COACHING</div>
+        <p class="footer-text">Admin Bildirim Sistemi</p>
+        <p class="footer-text" style="margin-top: 16px;">
+          © ${new Date().getFullYear()} Gokalaf. Tüm hakları saklıdır.
+        </p>
+      </div>
+    `)
   })
 };
