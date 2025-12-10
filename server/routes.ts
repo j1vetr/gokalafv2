@@ -9,6 +9,7 @@ import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
 import { sendWelcomeEmail, sendOrderConfirmationEmail } from "./email/service";
+import { Shopier } from "shopier-api";
 
 function verifyShopierSignature(postData: any, apiSecret: string): boolean {
   try {
@@ -471,64 +472,38 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
         return res.status(500).json({ error: "Ödeme sistemi yapılandırılmamış" });
       }
 
+      const shopier = new Shopier(apiKey, apiSecret);
+      
       const buyerName = user.fullName?.split(" ")[0] || "Müşteri";
       const buyerSurname = user.fullName?.split(" ").slice(1).join(" ") || "Kullanıcı";
-      const buyerEmail = user.email;
-      const buyerPhone = user.phone || "5000000000";
-      const buyerAddress = user.address || "Türkiye";
-      const buyerCity = "İstanbul";
-      const buyerCountry = "Türkiye";
-      const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
-      const productType = 1;
-      const productPrice = parseFloat(order.totalPrice.toString()).toFixed(2);
-      const currency = 0; // TL
-      const orderId2 = order.id;
-      
-      const callbackUrl = process.env.NODE_ENV === "production" 
-        ? "https://gokalaf.com/api/shopier/callback"
-        : `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co/api/shopier/callback`;
-      
-      const randomNr = Math.random().toString(36).substring(2, 15);
-      
-      const dataToSign = `${randomNr}${orderId2}${productPrice}${currency}`;
-      const signature = crypto
-        .createHmac("sha256", apiSecret)
-        .update(dataToSign)
-        .digest("base64");
+      const productPrice = parseFloat(order.totalPrice.toString());
 
-      const formData = {
-        API_key: apiKey,
-        website_index: 1,
-        platform_order_id: orderId2,
-        product_name: productName,
-        product_type: productType,
+      shopier.setBuyer({
+        buyer_id_nr: order.id,
+        product_name: `${pkg.name} - ${pkg.weeks} Hafta`,
         buyer_name: buyerName,
         buyer_surname: buyerSurname,
-        buyer_email: buyerEmail,
-        buyer_phone: buyerPhone,
-        buyer_id_nr: "",
-        buyer_account_age: 1,
-        buyer_postal_code: "34000",
-        buyer_address: buyerAddress,
-        buyer_city: buyerCity,
-        buyer_country: buyerCountry,
-        shipping_address: buyerAddress,
-        shipping_city: buyerCity,
-        shipping_country: buyerCountry,
-        shipping_postal_code: "34000",
-        total_order_value: productPrice,
-        currency: currency,
-        current_language: 0,
-        modul_version: "1.0.4",
-        random_nr: randomNr,
-        signature: signature,
-        callback_url: callbackUrl,
-      };
-
-      res.json({ 
-        formData,
-        paymentUrl: "https://www.shopier.com/ShowProductNew/api_pay2.php"
+        buyer_email: user.email,
+        buyer_phone: user.phone || "5000000000"
       });
+
+      shopier.setOrderBilling({
+        billing_address: user.address || "Türkiye",
+        billing_city: "İstanbul",
+        billing_country: "Türkiye",
+        billing_postcode: "34000"
+      });
+
+      shopier.setOrderShipping({
+        shipping_address: user.address || "Türkiye",
+        shipping_city: "İstanbul",
+        shipping_country: "Türkiye",
+        shipping_postcode: "34000"
+      });
+
+      const paymentHTML = shopier.generatePaymentHTML(productPrice);
+      
+      res.send(paymentHTML);
     } catch (error) {
       console.error("Shopier initiate error:", error);
       res.status(500).json({ error: "Ödeme başlatılamadı" });
@@ -539,20 +514,23 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
   
   app.post("/api/shopier/callback", async (req, res) => {
     try {
+      const apiKey = process.env.SHOPIER_API_KEY;
       const apiSecret = process.env.SHOPIER_API_SECRET;
-      if (!apiSecret) {
-        console.error("Shopier API Secret not configured");
+      if (!apiKey || !apiSecret) {
+        console.error("Shopier API credentials not configured");
         return res.redirect("/odeme-basarisiz");
       }
 
       console.log("Shopier callback received:", JSON.stringify(req.body, null, 2));
 
-      const isValidSignature = verifyShopierSignature(req.body, apiSecret);
-      if (!isValidSignature) {
-        console.error("Shopier callback: Invalid signature");
+      const shopier = new Shopier(apiKey, apiSecret);
+      const callbackResult = shopier.callback(req.body);
+      
+      if (!callbackResult || !callbackResult.order_id) {
+        console.error("Shopier callback: Invalid callback data");
         await storage.createSystemLog({
           userId: null,
-          action: "shopier_callback_invalid_signature",
+          action: "shopier_callback_invalid",
           entityType: "payment",
           details: JSON.stringify({ body: req.body }),
           ipAddress: req.ip,
@@ -561,9 +539,11 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
         return res.redirect("/odeme-basarisiz");
       }
 
-      const { status, platform_order_id, payment_id, installment } = req.body;
+      const platform_order_id = String(callbackResult.order_id);
+      const payment_id = String(callbackResult.payment_id);
+      const installment = callbackResult.installment;
 
-      if (status === "success" && platform_order_id) {
+      if (platform_order_id) {
         const order = await storage.getOrder(platform_order_id);
         if (order) {
           const pkg = await storage.getPackage(order.packageId);
@@ -616,18 +596,9 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
           console.error(`Shopier callback: Order not found - ${platform_order_id}`);
           return res.redirect("/odeme-basarisiz");
         }
-      } else {
-        await storage.createSystemLog({
-          userId: null,
-          action: "payment_failed",
-          entityType: "payment",
-          details: JSON.stringify({ status, platform_order_id, payment_id }),
-          ipAddress: req.ip,
-          userAgent: req.headers["user-agent"],
-        });
-        console.log(`❌ Payment failed for order ${platform_order_id}`);
-        return res.redirect("/odeme-basarisiz");
       }
+      
+      return res.redirect("/odeme-basarisiz");
     } catch (error) {
       console.error("Shopier callback error:", error);
       return res.redirect("/odeme-basarisiz");
