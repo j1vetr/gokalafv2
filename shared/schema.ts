@@ -13,6 +13,7 @@ export const users = pgTable("users", {
   address: text("address"),
   fitnessGoal: text("fitness_goal"), // lose, maintain, gain
   role: text("role").notNull().default("user"), // user or admin
+  trafficSource: text("traffic_source"), // instagram, google, chatgpt, bing, direct, etc.
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

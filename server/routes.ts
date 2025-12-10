@@ -146,7 +146,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
   // Register
   app.post("/api/auth/register", async (req, res) => {
     try {
-      const { email, password, fullName, phone, address } = insertUserSchema.parse(req.body);
+      const { email, password, fullName, phone, address, trafficSource } = insertUserSchema.parse(req.body);
       
       const existingUser = await storage.getUserByEmail(email);
       if (existingUser) {
@@ -161,6 +161,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
         phone: phone || null,
         address: address || null,
         role: "user",
+        trafficSource: trafficSource || null,
       });
 
       req.session.userId = user.id;

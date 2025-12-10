@@ -8,6 +8,34 @@ import { useAuth } from "@/hooks/useAuth";
 import { UserPlus, Mail, Lock, User, Phone, MapPin, AlertCircle, ShoppingCart } from "lucide-react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
+function detectTrafficSource(): string {
+  const params = new URLSearchParams(window.location.search);
+  const utmSource = params.get("utm_source");
+  if (utmSource) {
+    return utmSource.toLowerCase();
+  }
+  
+  const referrer = document.referrer.toLowerCase();
+  if (!referrer || referrer.includes(window.location.hostname)) {
+    return "direct";
+  }
+  if (referrer.includes("instagram.com")) return "instagram";
+  if (referrer.includes("google.")) return "google";
+  if (referrer.includes("bing.com")) return "bing";
+  if (referrer.includes("chatgpt.com") || referrer.includes("chat.openai.com")) return "chatgpt";
+  if (referrer.includes("facebook.com")) return "facebook";
+  if (referrer.includes("twitter.com") || referrer.includes("x.com")) return "twitter";
+  if (referrer.includes("youtube.com")) return "youtube";
+  if (referrer.includes("tiktok.com")) return "tiktok";
+  
+  try {
+    const url = new URL(referrer);
+    return url.hostname.replace("www.", "");
+  } catch {
+    return "other";
+  }
+}
+
 export default function Register() {
   const [formData, setFormData] = useState({
     email: "",
@@ -20,6 +48,7 @@ export default function Register() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isFromCheckout, setIsFromCheckout] = useState(false);
+  const [trafficSource, setTrafficSource] = useState("direct");
   const { register } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -28,6 +57,7 @@ export default function Register() {
     if (params.get("redirect") === "checkout") {
       setIsFromCheckout(true);
     }
+    setTrafficSource(detectTrafficSource());
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +86,7 @@ export default function Register() {
       fullName: formData.fullName,
       phone: formData.phone,
       address: formData.address,
+      trafficSource,
     });
 
     if (result.success) {
