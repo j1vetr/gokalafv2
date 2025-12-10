@@ -40,8 +40,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="/logo.png" 
+              src="/images/logo.webp" 
               alt="Gokalaf Logo" 
+              loading="lazy"
               className="h-16 mb-5 object-contain"
             />
             <p className="text-gray-400 text-sm leading-relaxed mb-5">

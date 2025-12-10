@@ -37,8 +37,9 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50 relative group">
             <img 
-              src="/logo.png" 
+              src="/images/logo.webp" 
               alt="Gokalaf Logo" 
+              loading="eager"
               className="h-16 md:h-24 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(204,255,0,0.2)]"
             />
         </Link>

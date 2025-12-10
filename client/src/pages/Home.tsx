@@ -5,20 +5,17 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect, useCallback } from "react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
-import transformation1 from '@assets/transformations/transformation_1.jpeg';
-import transformation2 from '@assets/transformations/transformation_2.jpeg';
-import transformation3 from '@assets/transformations/transformation_3.jpeg';
-import transformation4 from '@assets/transformations/transformation_4.jpeg';
-import transformation5 from '@assets/transformations/transformation_5.jpeg';
-import transformation6 from '@assets/transformations/transformation_6.jpeg';
-import transformation7 from '@assets/transformations/transformation_7.jpeg';
-import transformation8 from '@assets/transformations/transformation_8.jpeg';
-import transformation9 from '@assets/transformations/transformation_9.jpeg';
-import transformation10 from '@assets/transformations/transformation_10.jpeg';
-
 const transformations = [
-  transformation1, transformation2, transformation3, transformation4, transformation5,
-  transformation6, transformation7, transformation8, transformation9, transformation10
+  '/images/transformations/transformation_1.webp',
+  '/images/transformations/transformation_2.webp',
+  '/images/transformations/transformation_3.webp',
+  '/images/transformations/transformation_4.webp',
+  '/images/transformations/transformation_5.webp',
+  '/images/transformations/transformation_6.webp',
+  '/images/transformations/transformation_7.webp',
+  '/images/transformations/transformation_8.webp',
+  '/images/transformations/transformation_9.webp',
+  '/images/transformations/transformation_10.webp'
 ];
 
 export default function Home() {
@@ -143,7 +140,8 @@ export default function Home() {
              initial={{ opacity: 0, scale: 0.95, y: 20 }}
              animate={{ opacity: 1, scale: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.2 }}
-             src="/gokalaf.png" 
+             src="/images/gokalaf.webp"
+             loading="eager" 
              alt="Gokalaf" 
              className="relative z-10 h-[90vh] sm:h-[92vh] md:h-[95vh] lg:h-auto lg:max-h-[100vh] w-auto max-w-[100vw] sm:max-w-none object-contain object-bottom [filter:drop-shadow(2px_0_0_#ccff00)_drop-shadow(-2px_0_0_#ccff00)_drop-shadow(0_2px_0_#ccff00)_drop-shadow(0_-2px_0_#ccff00)]"
            />
