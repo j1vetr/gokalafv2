@@ -54,17 +54,6 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden bg-[#050505]">
-      {/* MAINTENANCE BANNER */}
-      <div className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 text-white py-3 px-4 text-center relative z-50 shadow-lg">
-        <div className="container mx-auto flex items-center justify-center gap-3">
-          <span className="w-3 h-3 bg-white rounded-full animate-pulse"></span>
-          <p className="font-heading font-bold text-sm md:text-base uppercase tracking-wide">
-            BAKIMDAYIZ - SATIN ALIMLAR GEÇİCİ OLARAK KAPALIDIR
-          </p>
-          <span className="w-3 h-3 bg-white rounded-full animate-pulse"></span>
-        </div>
-      </div>
-
       {/* HERO SECTION */}
       <section ref={ref} className="relative min-h-[100svh] flex flex-col lg:flex-row items-center pt-20 lg:pt-0 overflow-hidden">
         
