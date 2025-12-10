@@ -10,6 +10,7 @@ export default function Packages() {
   const [selectedDuration, setSelectedDuration] = useState<number>(12); // Default 12 weeks
 
   const durations = [
+    { weeks: 1, label: "Test (1₺)" },
     { weeks: 8, label: "8 Hafta" },
     { weeks: 12, label: "12 Hafta" },
     { weeks: 16, label: "16 Hafta" },
@@ -17,6 +18,7 @@ export default function Packages() {
   ];
 
   const prices: Record<number, number> = {
+    1: 1,
     8: 5950,
     12: 7280,
     16: 8660,
