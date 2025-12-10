@@ -548,7 +548,8 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       }
 
       const rawOrderId = String(callbackResult.order_id);
-      const referenceId = rawOrderId.trim();
+      // Extract just the GOKxxxx part if it contains package info (e.g., "GOK1001 - 8 Haftalık" -> "GOK1001")
+      const referenceId = rawOrderId.trim().split(" - ")[0].trim();
       const payment_id = String(callbackResult.payment_id);
       const installment = callbackResult.installment;
 
