@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Timer, Play, Pause, RotateCcw, Volume2, VolumeX, Info, Dumbbell, Zap, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 interface RestRecommendation {
   type: string;
@@ -151,6 +153,29 @@ export default function RestTimerCalculator() {
 
   return (
     <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+      <SEO
+        title="Bel-Kalça Oranı Hesaplama | Vücut Tipi Analizi - Gokalaf"
+        description="Bel-kalça oranınızı hesaplayın. WHR değeriniz ile sağlık risklerinizi ve vücut tipinizi analiz edin."
+        keywords="bel kalça oranı, whr hesaplama, vücut tipi, karın yağı, sağlık riski analizi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Bel-Kalça Oranı Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/bel-kalca-orani",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         <Link href="/araclar">
           <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
@@ -309,6 +334,8 @@ export default function RestTimerCalculator() {
             </div>
           </motion.div>
         )}
+
+        <RelatedCalculators currentSlug="bel-kalca-orani" />
       </div>
     </div>
   );

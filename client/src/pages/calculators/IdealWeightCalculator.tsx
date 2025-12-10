@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Target, RotateCcw, TrendingUp, TrendingDown, Check } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function IdealWeightCalculator() {
   const [height, setHeight] = useState(175);
@@ -66,6 +68,29 @@ export default function IdealWeightCalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="İdeal Kilo Hesaplama | Boyunuza Göre İdeal Kilonuz - Gokalaf"
+        description="İdeal kilo hesaplayıcı ile boyunuza ve cinsiyetinize göre olmanız gereken kiloyu öğrenin. 4 farklı formülle ideal kilo hesaplama."
+        keywords="ideal kilo hesaplama, boy kilo oranı, ideal ağırlık, kilo hesaplama, sağlıklı kilo"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "İdeal Kilo Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/ideal-kilo",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -206,6 +231,8 @@ export default function IdealWeightCalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="ideal-kilo" />
       </div>
     </div>
   );

@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Droplets, RotateCcw, GlassWater, Sun, Moon } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function WaterIntakeCalculator() {
   const [weight, setWeight] = useState(75);
@@ -78,6 +80,29 @@ export default function WaterIntakeCalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="Günlük Su İhtiyacı Hesaplama | Su Tüketimi Hesaplayıcı - Gokalaf"
+        description="Günlük su ihtiyacınızı hesaplayın. Kilo, aktivite seviyesi ve hava durumuna göre ne kadar su içmeniz gerektiğini öğrenin."
+        keywords="günlük su ihtiyacı, su tüketimi hesaplama, ne kadar su içmeliyim, su hesaplayıcı, sağlıklı su tüketimi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Su Tüketimi Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/su-tuketimi",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -239,6 +264,8 @@ export default function WaterIntakeCalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="su-tuketimi" />
       </div>
     </div>
   );

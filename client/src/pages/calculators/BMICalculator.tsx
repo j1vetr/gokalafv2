@@ -6,6 +6,8 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Activity, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function BMICalculator() {
   const [height, setHeight] = useState(175);
@@ -35,6 +37,29 @@ export default function BMICalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="Vücut Kitle İndeksi (BMI) Hesaplama | Ücretsiz VKİ Hesaplayıcı - Gokalaf"
+        description="Vücut kitle indeksi (BMI) hesaplama aracı ile boy ve kilonuza göre VKİ değerinizi anında öğrenin. Ücretsiz online BMI hesaplayıcı."
+        keywords="vücut kitle indeksi hesaplama, bmi hesaplama, vki hesaplama, boy kilo indeksi, ideal kilo hesaplama"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Vücut Kitle İndeksi (BMI) Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/vucut-kitle-indeksi",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -153,6 +178,8 @@ export default function BMICalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="vucut-kitle-indeksi" />
       </div>
     </div>
   );

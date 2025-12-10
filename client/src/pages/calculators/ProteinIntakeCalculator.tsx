@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Beef, Save, Info, Target, Dumbbell, Activity } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 interface ProteinResult {
   minimum: number;
@@ -115,6 +117,29 @@ export default function ProteinIntakeCalculator() {
 
   return (
     <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+      <SEO
+        title="Günlük Protein İhtiyacı Hesaplama | Protein Hesaplayıcı - Gokalaf"
+        description="Günlük protein ihtiyacınızı hesaplayın. Kilonuz ve aktivite seviyenize göre kas yapmak için gereken protein miktarını öğrenin."
+        keywords="protein ihtiyacı hesaplama, günlük protein, kas yapmak için protein, protein hesaplayıcı, spor beslenme"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Protein İhtiyacı Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/protein-ihtiyaci",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         <Link href="/araclar">
           <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
@@ -296,6 +321,8 @@ export default function ProteinIntakeCalculator() {
             </Button>
           </motion.div>
         )}
+
+        <RelatedCalculators currentSlug="protein-ihtiyaci" />
       </div>
     </div>
   );

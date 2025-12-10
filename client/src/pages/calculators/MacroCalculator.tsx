@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Utensils, RotateCcw } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function MacroCalculator() {
   const [age, setAge] = useState(25);
@@ -71,6 +73,29 @@ export default function MacroCalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="Makro Besin Hesaplama | Protein Karbonhidrat Yağ Oranları - Gokalaf"
+        description="Makro besin hesaplayıcı ile günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize göre makro dağılımı."
+        keywords="makro hesaplama, protein hesaplama, karbonhidrat hesaplama, makro besin, beslenme programı"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Makro Besin Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/makro-hesaplama",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -270,6 +295,8 @@ export default function MacroCalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="makro-hesaplama" />
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Dumbbell, RotateCcw, Trophy, Target } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function OneRepMaxCalculator() {
   const [weight, setWeight] = useState(60);
@@ -42,6 +44,29 @@ export default function OneRepMaxCalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="1RM Hesaplama | One Rep Max Hesaplayıcı - Gokalaf"
+        description="1RM (One Rep Max) hesaplayıcı ile maksimum kaldırabileceğiniz ağırlığı hesaplayın. Antrenman yüzdelerinizi öğrenin."
+        keywords="1rm hesaplama, one rep max, maksimum ağırlık, bench press 1rm, squat 1rm, güç antrenmanı"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "1RM Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/one-rep-max",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -170,6 +195,8 @@ export default function OneRepMaxCalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="one-rep-max" />
       </div>
     </div>
   );

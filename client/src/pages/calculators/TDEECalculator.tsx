@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Zap, RotateCcw } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function TDEECalculator() {
   const [age, setAge] = useState(25);
@@ -56,6 +58,29 @@ export default function TDEECalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="TDEE Hesaplama | Toplam Günlük Enerji Harcaması Hesaplayıcı - Gokalaf"
+        description="TDEE (Toplam Günlük Enerji Harcaması) hesaplayıcı ile metabolizmanızı ve günlük yakmanız gereken kaloriyi öğrenin. Ücretsiz TDEE hesaplama."
+        keywords="tdee hesaplama, günlük enerji harcaması, metabolizma hesaplama, tdee nedir, kalori yakma hesaplama"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "TDEE Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/tdee-hesaplama",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -224,6 +249,8 @@ export default function TDEECalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="tdee-hesaplama" />
       </div>
     </div>
   );

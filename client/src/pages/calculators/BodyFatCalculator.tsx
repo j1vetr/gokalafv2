@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Percent, RotateCcw, Flame } from "lucide-react";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 export default function BodyFatCalculator() {
   const [gender, setGender] = useState("male");
@@ -98,6 +100,29 @@ export default function BodyFatCalculator() {
 
   return (
     <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+      <SEO
+        title="Vücut Yağ Oranı Hesaplama | Yağ Yüzdesi Hesaplayıcı - Gokalaf"
+        description="Vücut yağ oranınızı hesaplayın. Bel, boyun ve kalça ölçülerinizle yağ yüzdenizi ve kategorisinizi öğrenin."
+        keywords="vücut yağ oranı hesaplama, yağ yüzdesi, body fat hesaplama, yağ oranı ölçme, fit vücut"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Vücut Yağ Oranı Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/vucut-yag-orani",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
@@ -255,6 +280,8 @@ export default function BodyFatCalculator() {
             )}
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="vucut-yag-orani" />
       </div>
     </div>
   );

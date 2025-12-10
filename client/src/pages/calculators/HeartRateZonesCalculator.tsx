@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Heart, Save, Info } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 interface HeartRateZone {
   name: string;
@@ -132,6 +134,29 @@ export default function HeartRateZonesCalculator() {
 
   return (
     <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+      <SEO
+        title="Kalp Atış Hızı Bölgeleri Hesaplama | Antrenman Nabız Hesaplayıcı - Gokalaf"
+        description="Kalp atış hızı bölgelerinizi hesaplayın. Yağ yakma, kardiyo ve maksimum performans için ideal nabız aralıklarınızı öğrenin."
+        keywords="kalp atış hızı hesaplama, nabız bölgeleri, yağ yakma nabzı, kardiyo kalp atış hızı, antrenman nabız"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Kalp Atış Hızı Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/kalp-atis-hizi",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       <div className="container mx-auto px-4 max-w-4xl">
         <Link href="/araclar">
           <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
@@ -252,6 +277,8 @@ export default function HeartRateZonesCalculator() {
             </Button>
           </motion.div>
         )}
+
+        <RelatedCalculators currentSlug="kalp-atis-hizi" />
       </div>
     </div>
   );
