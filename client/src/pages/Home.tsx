@@ -145,7 +145,7 @@ export default function Home() {
              transition={{ duration: 0.8, delay: 0.2 }}
              src="/gokalaf.png" 
              alt="Gokalaf" 
-             className="relative z-10 h-[90vh] sm:h-[92vh] md:h-[95vh] lg:h-auto lg:max-h-[100vh] w-auto max-w-[100vw] sm:max-w-none object-contain object-bottom drop-shadow-[0_0_25px_rgba(204,255,0,0.4)] [filter:drop-shadow(0_0_8px_rgba(204,255,0,0.6))_drop-shadow(0_0_20px_rgba(204,255,0,0.3))]"
+             className="relative z-10 h-[90vh] sm:h-[92vh] md:h-[95vh] lg:h-auto lg:max-h-[100vh] w-auto max-w-[100vw] sm:max-w-none object-contain object-bottom [filter:drop-shadow(2px_0_0_#ccff00)_drop-shadow(-2px_0_0_#ccff00)_drop-shadow(0_2px_0_#ccff00)_drop-shadow(0_-2px_0_#ccff00)]"
            />
         </div>
 
