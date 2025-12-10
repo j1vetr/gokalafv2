@@ -1,0 +1,26 @@
+19|gokalaf | At":"2025-11-29T18:48:19.810Z"},{"id":"f5b94c0e-2159-4a87-abd6-8a32b441f7a8","name":"Normal Plan - 12 Hafta","weeks":12,"price":"7280.00","features":["Kişiye ve hedeflere özel antrenman programlaması","Olduğu konum ve hedefe yönelik beslenme planlaması","Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması","Whatsapp üstünden direkt olarak Gokalaf ile iletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"},{"id":"2cfb9889-79e2-4066-8052-c239fcb923e4","name":"Normal Plan - 16 Hafta","weeks":16,"price":"8660.00","features":["Kişiye ve hedeflere özel antrenman programlaması","Olduğu konum ve hedefe yönelik beslenme planlaması","Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması","Whatsapp üstünden direkt olarak Gokalaf ile iletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"},{"id":"27373bba-a207-4ba6-b08b-2d1a87189e39","name":"Normal Plan - 24 Hafta","weeks":24,"price":"12000.00","features":["Kişiye ve hedeflere özel antrenman programlaması","Olduğu konum ve hedefe yönelik beslenme planlaması","Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması","Whatsapp üstünden direkt olarak Gokalaf ile iletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"}]}
+19|gokalaf | 3:55:59 PM [express] POST /api/orders 200 in 4ms :: {"order":{"id":"7e962c3c-14b1-4f7a-bab3-9a1750c5685f","userId":"1f340836-55db-45be-9862-e0dd144ff011","packageId":"59b79b32-0a29-4c54-a6bf-625d7caa1532","totalPrice":"1.00","status":"pending","paymentMethod":null,"paymentId":null,"source":"shopier","adminAssignedBy":null,"startDate":null,"endDate":null,"createdAt":"2025-12-10T15:55:59.669Z","updatedAt":"2025-12-10T15:55:59.669Z"}}
+19|gokalaf | 3:55:59 PM [express] POST /api/shopier/initiate 500 in 14ms :: {"error":"Ödeme sistemi yapılandırılmamış"}
+19|gokalaf | 3:56:02 PM [express] POST /api/orders 200 in 5ms :: {"order":{"id":"8364a774-9918-459e-ab1d-1141a07ea86a","userId":"1f340836-55db-45be-9862-e0dd144ff011","packageId":"59b79b32-0a29-4c54-a6bf-625d7caa1532","totalPrice":"1.00","status":"pending","paymentMethod":null,"paymentId":null,"source":"shopier","adminAssignedBy":null,"startDate":null,"endDate":null,"createdAt":"2025-12-10T15:56:02.672Z","updatedAt":"2025-12-10T15:56:02.672Z"}}
+19|gokalaf | 3:56:02 PM [express] POST /api/shopier/initiate 500 in 2ms :: {"error":"Ödeme sistemi yapılandırılmamış"}
+19|gokalaf | 3:56:03 PM [express] POST /api/orders 200 in 5ms :: {"order":{"id":"065f49fd-26d1-4b55-9b20-5680d0e5fad7","userId":"1f340836-55db-45be-9862-e0dd144ff011","packageId":"59b79b32-0a29-4c54-a6bf-625d7caa1532","totalPrice":"1.00","status":"pending","paymentMethod":null,"paymentId":null,"source":"shopier","adminAssignedBy":null,"startDate":null,"endDate":null,"createdAt":"2025-12-10T15:56:03.674Z","updatedAt":"2025-12-10T15:56:03.674Z"}}
+19|gokalaf | 3:56:03 PM [express] POST /api/shopier/initiate 500 in 4ms :: {"error":"Ödeme sistemi yapılandırılmamış"}
+
+/root/.pm2/logs/gokalaf-error.log last 15 lines:
+19|gokalaf | }
+19|gokalaf | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+19|gokalaf |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+19|gokalaf |     at listenInCluster (node:net:1965:12)
+19|gokalaf |     at doListen (node:net:2139:7)
+19|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+19|gokalaf |   code: 'EADDRINUSE',
+19|gokalaf |   errno: -98,
+19|gokalaf |   syscall: 'listen',
+19|gokalaf |   address: '0.0.0.0',
+19|gokalaf |   port: 5000
+19|gokalaf | }
+19|gokalaf | Shopier API credentials not configured
+19|gokalaf | Shopier API credentials not configured
+19|gokalaf | Shopier API credentials not configured
+
+
