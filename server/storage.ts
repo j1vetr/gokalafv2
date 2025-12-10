@@ -73,11 +73,13 @@ export interface IStorage {
 
   // Orders
   getOrder(id: string): Promise<Order | undefined>;
+  getOrderByReferenceId(referenceId: string): Promise<Order | undefined>;
   getUserOrders(userId: string): Promise<Order[]>;
   getAllOrders(): Promise<Order[]>;
   createOrder(order: InsertOrder): Promise<Order>;
   updateOrder(id: string, updates: Partial<InsertOrder>): Promise<Order | undefined>;
   cancelStaleOrders(minutesOld: number): Promise<number>;
+  getNextReferenceId(): Promise<string>;
 
   // User Progress
   getUserProgressByOrder(orderId: string): Promise<UserProgress[]>;
@@ -193,8 +195,38 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(schema.orders).orderBy(desc(schema.orders.createdAt));
   }
 
+  async getNextReferenceId(): Promise<string> {
+    const result = await db
+      .select({ referenceId: schema.orders.referenceId })
+      .from(schema.orders)
+      .where(sql`${schema.orders.referenceId} IS NOT NULL`)
+      .orderBy(desc(schema.orders.createdAt))
+      .limit(100);
+    
+    let maxNum = 1000;
+    for (const row of result) {
+      if (row.referenceId) {
+        const match = row.referenceId.match(/GOK(\d+)/);
+        if (match) {
+          const num = parseInt(match[1], 10);
+          if (num >= maxNum) maxNum = num + 1;
+        }
+      }
+    }
+    return `GOK${maxNum}`;
+  }
+
+  async getOrderByReferenceId(referenceId: string): Promise<Order | undefined> {
+    const [order] = await db
+      .select()
+      .from(schema.orders)
+      .where(eq(schema.orders.referenceId, referenceId));
+    return order;
+  }
+
   async createOrder(insertOrder: InsertOrder): Promise<Order> {
-    const [order] = await db.insert(schema.orders).values(insertOrder).returning();
+    const referenceId = await this.getNextReferenceId();
+    const [order] = await db.insert(schema.orders).values({ ...insertOrder, referenceId }).returning();
     return order;
   }
 

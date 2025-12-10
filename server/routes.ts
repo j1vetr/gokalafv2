@@ -482,11 +482,11 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       const buyerSurname = user.fullName?.split(" ").slice(1).join(" ") || "Kullanıcı";
       const productPrice = parseFloat(order.totalPrice.toString());
 
-      const shortOrderId = order.id.split("-")[0].slice(-4);
+      const referenceId = order.referenceId || order.id.split("-")[0].slice(-4);
       const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
       
       shopier.setBuyer({
-        buyer_id_nr: `${shortOrderId}_${order.id}`,
+        buyer_id_nr: `${referenceId} - ${productName}`,
         product_name: productName,
         buyer_name: buyerName,
         buyer_surname: buyerSurname,
@@ -547,12 +547,15 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       }
 
       const rawOrderId = String(callbackResult.order_id);
-      const platform_order_id = rawOrderId.includes("_") ? rawOrderId.split("_").slice(1).join("_") : rawOrderId;
+      const referenceId = rawOrderId.includes(" - ") ? rawOrderId.split(" - ")[0] : rawOrderId;
       const payment_id = String(callbackResult.payment_id);
       const installment = callbackResult.installment;
 
-      if (platform_order_id) {
-        const order = await storage.getOrder(platform_order_id);
+      if (referenceId) {
+        let order = await storage.getOrderByReferenceId(referenceId);
+        if (!order) {
+          order = await storage.getOrder(referenceId);
+        }
         if (order) {
           const pkg = await storage.getPackage(order.packageId);
           const weeks = pkg?.weeks || 12;
@@ -560,7 +563,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
           const endDate = new Date();
           endDate.setDate(endDate.getDate() + (weeks * 7));
 
-          await storage.updateOrder(platform_order_id, {
+          await storage.updateOrder(order.id, {
             status: "paid",
             paymentMethod: "shopier",
             paymentId: payment_id,
@@ -579,7 +582,7 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
               
               await sendAdminNewOrderNotification(
                 { id: user.id, email: user.email, fullName: user.fullName, phone: user.phone || undefined },
-                { id: platform_order_id, totalPrice: order.totalPrice },
+                { id: order.id, totalPrice: order.totalPrice },
                 { name: pkg.name, weeks: pkg.weeks }
               );
             } catch (emailError) {
@@ -591,23 +594,23 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
             userId: order.userId,
             action: "payment_success",
             entityType: "order",
-            entityId: platform_order_id,
+            entityId: order.id,
             details: JSON.stringify({ paymentId: payment_id, installment, amount: order.totalPrice }),
             ipAddress: req.ip,
             userAgent: req.headers["user-agent"],
           });
 
           const successToken = crypto.createHmac('sha256', apiSecret)
-            .update(`${platform_order_id}${payment_id}${Date.now()}`)
+            .update(`${order.id}${payment_id}${Date.now()}`)
             .digest('hex')
             .substring(0, 32);
 
-          await storage.setSiteSetting(`payment_token_${platform_order_id}`, successToken);
+          await storage.setSiteSetting(`payment_token_${order.id}`, successToken);
 
-          console.log(`✅ Order ${platform_order_id} marked as paid`);
-          return res.redirect(`/odeme-basarili?order=${platform_order_id}&token=${successToken}`);
+          console.log(`✅ Order ${order.referenceId || order.id} marked as paid`);
+          return res.redirect(`/odeme-basarili?order=${order.id}&token=${successToken}`);
         } else {
-          console.error(`Shopier callback: Order not found - ${platform_order_id}`);
+          console.error(`Shopier callback: Order not found - ${referenceId}`);
           return res.redirect("/odeme-basarisiz");
         }
       }

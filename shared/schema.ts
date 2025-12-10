@@ -47,6 +47,7 @@ export type Package = typeof packages.$inferSelect;
 // ORDERS TABLE (sipariş kaydı)
 export const orders = pgTable("orders", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  referenceId: text("reference_id").unique(), // GOK1001, GOK1002, etc. for Shopier display
   userId: varchar("user_id").notNull().references(() => users.id),
   packageId: varchar("package_id").notNull().references(() => packages.id),
   totalPrice: decimal("total_price", { precision: 10, scale: 2 }).notNull(),
