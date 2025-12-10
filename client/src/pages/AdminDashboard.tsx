@@ -40,6 +40,7 @@ interface User {
   fullName: string;
   phone?: string;
   role: string;
+  trafficSource?: string;
   createdAt: string;
 }
 
@@ -980,6 +981,7 @@ export default function AdminDashboard() {
                             <TableHead className="text-primary">Ad Soyad</TableHead>
                             <TableHead className="text-primary">Email</TableHead>
                             <TableHead className="text-primary">Telefon</TableHead>
+                            <TableHead className="text-primary">Kaynak</TableHead>
                             <TableHead className="text-primary">Rol</TableHead>
                             <TableHead className="text-primary">Kayıt</TableHead>
                             <TableHead className="text-primary text-right">İşlemler</TableHead>
@@ -991,6 +993,11 @@ export default function AdminDashboard() {
                               <TableCell className="text-white font-medium">{u.fullName}</TableCell>
                               <TableCell className="text-gray-400">{u.email}</TableCell>
                               <TableCell className="text-gray-400">{u.phone || "-"}</TableCell>
+                              <TableCell>
+                                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 capitalize">
+                                  {u.trafficSource || "direct"}
+                                </Badge>
+                              </TableCell>
                               <TableCell>
                                 <Badge className={u.role === "admin" ? "bg-red-500/20 text-red-400 border-red-500/30" : "bg-blue-500/20 text-blue-400 border-blue-500/30"}>
                                   {u.role === "admin" ? "Admin" : "Kullanıcı"}
@@ -1413,6 +1420,80 @@ export default function AdminDashboard() {
                         </p>
                         <p className="text-xs text-gray-500 mt-2">Tamamlanan paketler</p>
                       </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                      <h2 className="text-xl font-heading font-bold uppercase text-white mb-6">Trafik Kaynakları - {selectedMonthLabel}</h2>
+                      {(() => {
+                        const [year, month] = reportMonth.split("-").map(Number);
+                        const startDate = new Date(year, month - 1, 1);
+                        const endDate = new Date(year, month, 0, 23, 59, 59);
+                        const monthUsers = users.filter(u => {
+                          const userDate = new Date(u.createdAt);
+                          return userDate >= startDate && userDate <= endDate;
+                        });
+                        
+                        if (monthUsers.length === 0) {
+                          return (
+                            <div className="text-center py-12 text-gray-500">
+                              <Users size={48} className="mx-auto mb-4 opacity-30" />
+                              <p>Bu ay henüz yeni kayıt yok</p>
+                            </div>
+                          );
+                        }
+                        
+                        const sourceCounts: Record<string, number> = {};
+                        monthUsers.forEach(u => {
+                          const source = u.trafficSource || "direct";
+                          sourceCounts[source] = (sourceCounts[source] || 0) + 1;
+                        });
+                        const sourceData = Object.entries(sourceCounts)
+                          .map(([name, value]) => ({ name, value }))
+                          .sort((a, b) => b.value - a.value);
+                        
+                        return (
+                          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                            <div className="h-64">
+                              <ResponsiveContainer width="100%" height="100%">
+                                <PieChart>
+                                  <Pie
+                                    data={sourceData}
+                                    cx="50%"
+                                    cy="50%"
+                                    innerRadius={50}
+                                    outerRadius={90}
+                                    dataKey="value"
+                                    label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                                    labelLine={false}
+                                  >
+                                    {sourceData.map((_, index) => (
+                                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                  </Pie>
+                                  <Tooltip 
+                                    contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                                    formatter={(value: number) => [`${value} kullanıcı`, "Kayıt"]}
+                                  />
+                                </PieChart>
+                              </ResponsiveContainer>
+                            </div>
+                            <div className="space-y-3">
+                              {sourceData.map(({ name: source, value: count }, idx) => (
+                                <div key={source} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }} />
+                                    <span className="text-white capitalize font-medium">{source}</span>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <Badge className="bg-primary/20 text-primary">{count} kullanıcı</Badge>
+                                    <span className="text-gray-500 text-sm">{((count / monthUsers.length) * 100).toFixed(1)}%</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
                   </motion.div>
                 );
