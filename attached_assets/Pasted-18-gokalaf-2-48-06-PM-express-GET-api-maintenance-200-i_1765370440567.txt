@@ -1,0 +1,32 @@
+18|gokalaf | 2:48:06 PM [express] GET /api/maintenance 200 in 10ms :: {"maintenanceMode":true}
+18|gokalaf | 2:56:26 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 2:56:26 PM [express] GET /api/maintenance 200 in 9ms :: {"maintenanceMode":true}
+18|gokalaf | 2:56:27 PM [express] GET /api/maintenance 200 in 2ms :: {"maintenanceMode":true}
+18|gokalaf | 2:56:27 PM [express] GET /api/auth/me 401 in 0ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 3:07:55 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 3:07:55 PM [express] GET /api/maintenance 304 in 8ms :: {"maintenanceMode":true}
+18|gokalaf | 3:11:19 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 3:11:19 PM [express] GET /api/maintenance 304 in 9ms :: {"maintenanceMode":true}
+18|gokalaf | 3:17:50 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 3:17:50 PM [express] GET /api/maintenance 304 in 8ms :: {"maintenanceMode":true}
+18|gokalaf | 3:20:38 PM [express] GET /api/maintenance 304 in 11ms :: {"maintenanceMode":true}
+18|gokalaf | 3:20:38 PM [express] GET /api/auth/me 304 in 12ms :: {"user":{"id":"ab3515f3-15da-4aa5-9212-62f7a4741723","email":"toov@gokalaf.com","fullName":"Admin","phone":"05312822402","address":null,"fitnessGoal":null,"role":"admin","createdAt":"2025-11-29T16:54:23.596Z"}}
+18|gokalaf | 3:28:02 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+18|gokalaf | 3:28:02 PM [express] GET /api/maintenance 200 in 10ms :: {"maintenanceMode":true}
+
+/root/.pm2/logs/gokalaf-error.log last 15 lines:
+18|gokalaf |   syscall: 'listen',
+18|gokalaf |   address: '0.0.0.0',
+18|gokalaf |   port: 5000
+18|gokalaf | }
+18|gokalaf | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+18|gokalaf |     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+18|gokalaf |     at listenInCluster (node:net:1965:12)
+18|gokalaf |     at doListen (node:net:2139:7)
+18|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+18|gokalaf |   code: 'EADDRINUSE',
+18|gokalaf |   errno: -98,
+18|gokalaf |   syscall: 'listen',
+18|gokalaf |   address: '0.0.0.0',
+18|gokalaf |   port: 5000
+18|gokalaf | }
