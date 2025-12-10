@@ -4,10 +4,47 @@ import { storage } from "./storage";
 import session from "express-session";
 import createMemoryStore from "memorystore";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
 import { sendWelcomeEmail, sendOrderConfirmationEmail } from "./email/service";
+
+function verifyShopierSignature(postData: any, apiSecret: string): boolean {
+  try {
+    const { signature, random_nr, platform_order_id, total_order_value, currency } = postData;
+    if (!signature || !random_nr || !platform_order_id || !total_order_value || !currency) {
+      console.error("Shopier signature verification: Missing required fields", { 
+        hasSignature: !!signature, 
+        hasRandomNr: !!random_nr, 
+        hasOrderId: !!platform_order_id, 
+        hasValue: !!total_order_value, 
+        hasCurrency: !!currency 
+      });
+      return false;
+    }
+    const dataString = `${random_nr}${platform_order_id}${total_order_value}${currency}`;
+    const expectedSignatureBuffer = crypto.createHmac('sha256', apiSecret).update(dataString).digest();
+    const receivedSignature = signature.replace(/ /g, '+');
+    let receivedSignatureBuffer: Buffer;
+    try {
+      receivedSignatureBuffer = Buffer.from(receivedSignature, 'base64');
+    } catch {
+      console.error("Shopier signature verification: Invalid base64 signature");
+      return false;
+    }
+    if (expectedSignatureBuffer.length !== receivedSignatureBuffer.length) {
+      console.error("Shopier signature verification: Length mismatch");
+      return false;
+    }
+    const isValid = crypto.timingSafeEqual(expectedSignatureBuffer, receivedSignatureBuffer);
+    console.log("Shopier signature verification:", { dataString, isValid });
+    return isValid;
+  } catch (error) {
+    console.error("Shopier signature verification error:", error);
+    return false;
+  }
+}
 
 const MemoryStore = createMemoryStore(session);
 
@@ -260,6 +297,34 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
+  app.get("/api/orders/:id/public", async (req, res) => {
+    try {
+      const order = await storage.getOrder(req.params.id);
+      if (!order) {
+        return res.status(404).json({ error: "Sipariş bulunamadı" });
+      }
+      if (order.status !== "paid") {
+        return res.status(403).json({ error: "Bu siparişe erişim yetkiniz yok" });
+      }
+      const pkg = await storage.getPackage(order.packageId);
+      res.json({ 
+        order: {
+          id: order.id,
+          totalPrice: order.totalPrice,
+          status: order.status,
+          startDate: order.startDate,
+          endDate: order.endDate,
+        },
+        package: pkg ? {
+          name: pkg.name,
+          weeks: pkg.weeks,
+        } : null
+      });
+    } catch (error) {
+      res.status(500).json({ error: "Sipariş yüklenemedi" });
+    }
+  });
+
   // ===== ORDER ROUTES =====
   
   // Create order (sepete ekle)
@@ -353,6 +418,98 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
         return res.status(400).json({ error: "Geçersiz veri" });
       }
       res.status(500).json({ error: "Sipariş güncellenemedi" });
+    }
+  });
+
+  // ===== SHOPIER PAYMENT CALLBACK =====
+  
+  app.post("/api/shopier/callback", async (req, res) => {
+    try {
+      const apiSecret = process.env.SHOPIER_API_SECRET;
+      if (!apiSecret) {
+        console.error("Shopier API Secret not configured");
+        return res.redirect("/odeme-basarisiz");
+      }
+
+      console.log("Shopier callback received:", JSON.stringify(req.body, null, 2));
+
+      const isValidSignature = verifyShopierSignature(req.body, apiSecret);
+      if (!isValidSignature) {
+        console.error("Shopier callback: Invalid signature");
+        await storage.createSystemLog({
+          userId: null,
+          action: "shopier_callback_invalid_signature",
+          entityType: "payment",
+          details: JSON.stringify({ body: req.body }),
+          ipAddress: req.ip,
+          userAgent: req.headers["user-agent"],
+        });
+        return res.redirect("/odeme-basarisiz");
+      }
+
+      const { status, platform_order_id, payment_id, installment } = req.body;
+
+      if (status === "success" && platform_order_id) {
+        const order = await storage.getOrder(platform_order_id);
+        if (order) {
+          const pkg = await storage.getPackage(order.packageId);
+          const weeks = pkg?.weeks || 12;
+          const startDate = new Date();
+          const endDate = new Date();
+          endDate.setDate(endDate.getDate() + (weeks * 7));
+
+          await storage.updateOrder(platform_order_id, {
+            status: "paid",
+            paymentMethod: "shopier",
+            paymentId: payment_id,
+            startDate,
+            endDate,
+          });
+
+          const user = await storage.getUser(order.userId);
+          if (user && pkg) {
+            try {
+              await sendOrderConfirmationEmail(
+                { id: user.id, email: user.email, fullName: user.fullName },
+                { totalPrice: order.totalPrice, startDate, endDate },
+                { name: pkg.name, weeks: pkg.weeks }
+              );
+            } catch (emailError) {
+              console.error("Order confirmation email failed:", emailError);
+            }
+          }
+
+          await storage.createSystemLog({
+            userId: order.userId,
+            action: "payment_success",
+            entityType: "order",
+            entityId: platform_order_id,
+            details: JSON.stringify({ paymentId: payment_id, installment, amount: order.totalPrice }),
+            ipAddress: req.ip,
+            userAgent: req.headers["user-agent"],
+          });
+
+          console.log(`✅ Order ${platform_order_id} marked as paid`);
+          return res.redirect(`/odeme-basarili?order=${platform_order_id}`);
+        } else {
+          console.error(`Shopier callback: Order not found - ${platform_order_id}`);
+          return res.redirect("/odeme-basarisiz");
+        }
+      } else {
+        await storage.createSystemLog({
+          userId: null,
+          action: "payment_failed",
+          entityType: "payment",
+          details: JSON.stringify({ status, platform_order_id, payment_id }),
+          ipAddress: req.ip,
+          userAgent: req.headers["user-agent"],
+        });
+        console.log(`❌ Payment failed for order ${platform_order_id}`);
+        return res.redirect("/odeme-basarisiz");
+      }
+    } catch (error) {
+      console.error("Shopier callback error:", error);
+      return res.redirect("/odeme-basarisiz");
     }
   });
 

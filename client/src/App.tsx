@@ -38,6 +38,8 @@ const CancellationPolicy = lazy(() => import("@/pages/legal/CancellationPolicy")
 const DistanceSalesContract = lazy(() => import("@/pages/legal/DistanceSalesContract"));
 const Onboarding = lazy(() => import("@/pages/Onboarding"));
 const Maintenance = lazy(() => import("@/pages/Maintenance"));
+const PaymentSuccess = lazy(() => import("@/pages/PaymentSuccess"));
+const PaymentFailed = lazy(() => import("@/pages/PaymentFailed"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -123,6 +125,8 @@ function AppContent() {
             <Route path="/iptal-iade" component={CancellationPolicy} />
             <Route path="/mesafeli-satis" component={DistanceSalesContract} />
             <Route path="/bakim" component={Maintenance} />
+            <Route path="/odeme-basarili" component={PaymentSuccess} />
+            <Route path="/odeme-basarisiz" component={PaymentFailed} />
             <Route component={NotFound} />
           </Switch>
         </Suspense>

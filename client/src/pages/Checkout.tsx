@@ -64,8 +64,9 @@ export default function Checkout() {
       
       if (res.ok) {
         const data = await res.json();
-        window.open(`https://www.shopier.com/ShowProductNew/products.php?id=gokalaf&product=${selectedPackage.weeks}hafta`, "_blank");
-        setLocation("/panel?order=" + data.order.id);
+        const orderId = data.order.id;
+        const shopierUrl = `https://www.shopier.com/ShowProductNew/products.php?id=gokalaf&product=${selectedPackage.weeks}hafta&platform_order_id=${orderId}`;
+        window.location.href = shopierUrl;
       }
     } catch (error) {
       console.error("Sipariş oluşturulamadı:", error);
