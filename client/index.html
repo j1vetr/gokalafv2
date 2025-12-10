@@ -26,6 +26,8 @@
     <meta name="theme-color" content="#050505" />
     
     <link rel="canonical" href="https://gokalaf.com" />
+    <link rel="alternate" hreflang="tr-TR" href="https://gokalaf.com" />
+    <link rel="alternate" hreflang="x-default" href="https://gokalaf.com" />
     
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gokalaf.com" />
@@ -60,26 +62,109 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Organization",
+      "@id": "https://gokalaf.com/#organization",
       "name": "Gokalaf",
-      "description": "Profesyonel online fitness ve vücut geliştirme koçluğu hizmeti",
+      "alternateName": "Gokalaf Coaching",
+      "description": "Profesyonel online fitness ve vücut geliştirme koçluğu hizmeti. Kişiselleştirilmiş antrenman programları, beslenme danışmanlığı ve haftalık takip ile hedeflerinize ulaşın.",
       "url": "https://gokalaf.com",
-      "logo": "https://gokalaf.com/favicon.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gokalaf.com/favicon.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://gokalaf.com/og-image.png",
       "telephone": "+905312822402",
       "email": "alafcoaching@gmail.com",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Gokalaf",
+        "jobTitle": "Fitness Coach",
+        "url": "https://gokalaf.com/hakkimizda"
+      },
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "TR"
+        "addressCountry": "TR",
+        "addressLocality": "Türkiye"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Türkiye"
       },
       "sameAs": [
         "https://www.instagram.com/gokalaf",
         "https://www.youtube.com/@gokalaf",
-        "https://kick.com/gokalaf"
+        "https://kick.com/gokalaf",
+        "https://twitter.com/gokalaf"
       ],
-      "priceRange": "₺₺",
-      "openingHours": "Mo-Su 00:00-24:00",
-      "serviceType": "Online Fitness Koçluğu"
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+905312822402",
+        "contactType": "customer service",
+        "availableLanguage": "Turkish",
+        "areaServed": "TR"
+      },
+      "slogan": "Performans • Güç • Disiplin",
+      "knowsAbout": ["Fitness", "Vücut Geliştirme", "Beslenme", "Antrenman Programı", "Online Koçluk"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Koçluk Paketleri",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "8 Haftalık Koçluk Paketi",
+              "description": "8 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "12 Haftalık Koçluk Paketi",
+              "description": "12 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "16 Haftalık Koçluk Paketi",
+              "description": "16 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "24 Haftalık Koçluk Paketi",
+              "description": "24 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://gokalaf.com/#website",
+      "name": "Gokalaf",
+      "url": "https://gokalaf.com",
+      "publisher": {
+        "@id": "https://gokalaf.com/#organization"
+      },
+      "inLanguage": "tr-TR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://gokalaf.com/araclar?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
     
