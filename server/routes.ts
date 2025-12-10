@@ -482,9 +482,12 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       const buyerSurname = user.fullName?.split(" ").slice(1).join(" ") || "Kullanıcı";
       const productPrice = parseFloat(order.totalPrice.toString());
 
+      const shortOrderId = order.id.split("-")[0].slice(-4);
+      const productName = `${pkg.name} - ${pkg.weeks} Hafta`;
+      
       shopier.setBuyer({
-        buyer_id_nr: order.id,
-        product_name: `${pkg.name} - ${pkg.weeks} Hafta`,
+        buyer_id_nr: `${shortOrderId}_${order.id}`,
+        product_name: productName,
         buyer_name: buyerName,
         buyer_surname: buyerSurname,
         buyer_email: user.email,
@@ -543,7 +546,8 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
         return res.redirect("/odeme-basarisiz");
       }
 
-      const platform_order_id = String(callbackResult.order_id);
+      const rawOrderId = String(callbackResult.order_id);
+      const platform_order_id = rawOrderId.includes("_") ? rawOrderId.split("_").slice(1).join("_") : rawOrderId;
       const payment_id = String(callbackResult.payment_id);
       const installment = callbackResult.installment;
 
