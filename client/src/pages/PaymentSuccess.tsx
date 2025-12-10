@@ -21,10 +21,11 @@ export default function PaymentSuccess() {
     const fetchOrderInfo = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const orderId = urlParams.get("order");
+      const token = urlParams.get("token");
       
-      if (orderId) {
+      if (orderId && token) {
         try {
-          const res = await fetch(`/api/orders/${orderId}/public`);
+          const res = await fetch(`/api/orders/${orderId}/public?token=${encodeURIComponent(token)}`);
           if (res.ok) {
             const data = await res.json();
             setOrderInfo({

@@ -299,6 +299,11 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
 
   app.get("/api/orders/:id/public", async (req, res) => {
     try {
+      const { token } = req.query;
+      if (!token || typeof token !== "string") {
+        return res.status(403).json({ error: "Geçersiz erişim" });
+      }
+
       const order = await storage.getOrder(req.params.id);
       if (!order) {
         return res.status(404).json({ error: "Sipariş bulunamadı" });
@@ -306,6 +311,12 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       if (order.status !== "paid") {
         return res.status(403).json({ error: "Bu siparişe erişim yetkiniz yok" });
       }
+
+      const storedToken = await storage.getSiteSetting(`payment_token_${req.params.id}`);
+      if (!storedToken || storedToken !== token) {
+        return res.status(403).json({ error: "Geçersiz token" });
+      }
+
       const pkg = await storage.getPackage(order.packageId);
       res.json({ 
         order: {
@@ -387,16 +398,12 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
-  // Update order (ödeme sonrası)
-  app.patch("/api/orders/:id", requireAuth, async (req, res) => {
+  // Update order - ADMIN ONLY for security (status, payment fields restricted)
+  app.patch("/api/orders/:id", requireAdmin, async (req, res) => {
     try {
       const order = await storage.getOrder(req.params.id);
       if (!order) {
         return res.status(404).json({ error: "Sipariş bulunamadı" });
-      }
-
-      if (order.userId !== req.session.userId && req.session.userRole !== "admin") {
-        return res.status(403).json({ error: "Bu siparişi güncelleme yetkiniz yok" });
       }
 
       const updateData = z.object({
@@ -410,6 +417,16 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
       const updates: any = { ...updateData };
       if (updates.startDate) updates.startDate = new Date(updates.startDate);
       if (updates.endDate) updates.endDate = new Date(updates.endDate);
+
+      await storage.createSystemLog({
+        userId: req.session?.userId,
+        action: "order_updated_by_admin",
+        entityType: "order",
+        entityId: req.params.id,
+        details: JSON.stringify({ updates: updateData }),
+        ipAddress: req.ip,
+        userAgent: req.headers["user-agent"],
+      });
 
       const updatedOrder = await storage.updateOrder(req.params.id, updates);
       res.json({ order: updatedOrder });
@@ -489,8 +506,15 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
             userAgent: req.headers["user-agent"],
           });
 
+          const successToken = crypto.createHmac('sha256', apiSecret)
+            .update(`${platform_order_id}${payment_id}${Date.now()}`)
+            .digest('hex')
+            .substring(0, 32);
+
+          await storage.setSiteSetting(`payment_token_${platform_order_id}`, successToken);
+
           console.log(`✅ Order ${platform_order_id} marked as paid`);
-          return res.redirect(`/odeme-basarili?order=${platform_order_id}`);
+          return res.redirect(`/odeme-basarili?order=${platform_order_id}&token=${successToken}`);
         } else {
           console.error(`Shopier callback: Order not found - ${platform_order_id}`);
           return res.redirect("/odeme-basarisiz");
