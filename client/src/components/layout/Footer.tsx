@@ -40,7 +40,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="https://www.gokalaf.com/wp-content/uploads/2023/02/ALAFCOACHING-FINAL-8-scaled.png" 
+              src="/logo.png" 
               alt="Gokalaf Logo" 
               className="h-16 mb-5 object-contain"
             />
