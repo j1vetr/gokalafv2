@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
-import { eq, and, desc, sql } from "drizzle-orm";
+import { eq, and, desc, sql, lte } from "drizzle-orm";
 import * as schema from "@shared/schema";
 import type {
   User,
@@ -77,6 +77,7 @@ export interface IStorage {
   getAllOrders(): Promise<Order[]>;
   createOrder(order: InsertOrder): Promise<Order>;
   updateOrder(id: string, updates: Partial<InsertOrder>): Promise<Order | undefined>;
+  cancelStaleOrders(minutesOld: number): Promise<number>;
 
   // User Progress
   getUserProgressByOrder(orderId: string): Promise<UserProgress[]>;
@@ -200,6 +201,21 @@ export class DatabaseStorage implements IStorage {
   async updateOrder(id: string, updates: Partial<InsertOrder>): Promise<Order | undefined> {
     const [order] = await db.update(schema.orders).set(updates).where(eq(schema.orders.id, id)).returning();
     return order;
+  }
+
+  async cancelStaleOrders(minutesOld: number): Promise<number> {
+    const cutoffTime = new Date(Date.now() - minutesOld * 60 * 1000);
+    const result = await db
+      .update(schema.orders)
+      .set({ status: "cancelled" })
+      .where(
+        and(
+          eq(schema.orders.status, "pending"),
+          lte(schema.orders.createdAt, cutoffTime)
+        )
+      )
+      .returning();
+    return result.length;
   }
 
   // USER PROGRESS

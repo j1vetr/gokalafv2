@@ -4,6 +4,7 @@ import {
   checkAndSendDailyReminders,
   verifySmtpConnection 
 } from "./service";
+import { storage } from "../storage";
 
 export function initEmailScheduler() {
   console.log("📧 Initializing email scheduler...");
@@ -28,7 +29,19 @@ export function initEmailScheduler() {
     timezone: "Europe/Istanbul"
   });
 
+  cron.schedule("*/5 * * * *", async () => {
+    try {
+      const cancelledCount = await storage.cancelStaleOrders(30);
+      if (cancelledCount > 0) {
+        console.log(`🗑️ Auto-cancelled ${cancelledCount} stale order(s) older than 30 minutes`);
+      }
+    } catch (error) {
+      console.error("❌ Error cancelling stale orders:", error);
+    }
+  });
+
   console.log("✅ Email scheduler initialized:");
   console.log("   - Daily reminders: 18:00 (Istanbul)");
   console.log("   - Package expiry check: 09:00 (Istanbul)");
+  console.log("   - Stale order cleanup: Every 5 minutes");
 }
