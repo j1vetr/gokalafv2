@@ -8,6 +8,7 @@ import { ArrowLeft, Heart, Save, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { heartRateFAQs } from "@/components/CalculatorFAQ";
 
 interface HeartRateZone {
   name: string;
@@ -279,6 +280,7 @@ export default function HeartRateZonesCalculator() {
         )}
 
         <RelatedCalculators currentSlug="kalp-atis-hizi" />
+        <CalculatorFAQ title="Kalp Atış Hızı Hesaplama" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
       </div>
     </div>
   );

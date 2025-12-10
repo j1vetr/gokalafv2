@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Zap, RotateCcw } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { tdeeFAQs } from "@/components/CalculatorFAQ";
 
 export default function TDEECalculator() {
   const [age, setAge] = useState(25);
@@ -251,6 +252,7 @@ export default function TDEECalculator() {
         </div>
 
         <RelatedCalculators currentSlug="tdee-hesaplama" />
+        <CalculatorFAQ title="TDEE Hesaplama" faqs={tdeeFAQs} schemaUrl="https://gokalaf.com/araclar/tdee-hesaplama" />
       </div>
     </div>
   );

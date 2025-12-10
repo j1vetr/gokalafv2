@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Percent, RotateCcw, Flame } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { bodyFatFAQs } from "@/components/CalculatorFAQ";
 
 export default function BodyFatCalculator() {
   const [gender, setGender] = useState("male");
@@ -282,6 +283,7 @@ export default function BodyFatCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="vucut-yag-orani" />
+        <CalculatorFAQ title="Vücut Yağ Oranı Hesaplama" faqs={bodyFatFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-yag-orani" />
       </div>
     </div>
   );

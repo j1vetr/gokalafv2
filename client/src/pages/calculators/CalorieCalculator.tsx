@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Utensils, RotateCcw, TrendingUp, TrendingDown, Target } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { calorieFAQs } from "@/components/CalculatorFAQ";
 
 export default function CalorieCalculator() {
   const [age, setAge] = useState(25);
@@ -259,6 +260,7 @@ export default function CalorieCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="kalori-hesaplama" />
+        <CalculatorFAQ title="Kalori Hesaplama" faqs={calorieFAQs} schemaUrl="https://gokalaf.com/araclar/kalori-hesaplama" />
       </div>
     </div>
   );

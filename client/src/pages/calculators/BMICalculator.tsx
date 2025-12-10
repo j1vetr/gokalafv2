@@ -8,6 +8,7 @@ import { Activity, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { bmiFAQs } from "@/components/CalculatorFAQ";
 
 export default function BMICalculator() {
   const [height, setHeight] = useState(175);
@@ -180,6 +181,7 @@ export default function BMICalculator() {
         </div>
 
         <RelatedCalculators currentSlug="vucut-kitle-indeksi" />
+        <CalculatorFAQ title="BMI Hesaplama" faqs={bmiFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-kitle-indeksi" />
       </div>
     </div>
   );

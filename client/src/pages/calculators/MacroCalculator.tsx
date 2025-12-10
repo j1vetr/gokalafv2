@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Utensils, RotateCcw } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { macroFAQs } from "@/components/CalculatorFAQ";
 
 export default function MacroCalculator() {
   const [age, setAge] = useState(25);
@@ -297,6 +298,7 @@ export default function MacroCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="makro-hesaplama" />
+        <CalculatorFAQ title="Makro Hesaplama" faqs={macroFAQs} schemaUrl="https://gokalaf.com/araclar/makro-hesaplama" />
       </div>
     </div>
   );

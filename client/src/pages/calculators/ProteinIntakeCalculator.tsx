@@ -9,6 +9,7 @@ import { ArrowLeft, Beef, Save, Info, Target, Dumbbell, Activity } from "lucide-
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { proteinIntakeFAQs } from "@/components/CalculatorFAQ";
 
 interface ProteinResult {
   minimum: number;
@@ -323,6 +324,7 @@ export default function ProteinIntakeCalculator() {
         )}
 
         <RelatedCalculators currentSlug="protein-ihtiyaci" />
+        <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci" />
       </div>
     </div>
   );

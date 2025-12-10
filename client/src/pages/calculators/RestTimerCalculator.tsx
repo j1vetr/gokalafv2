@@ -8,6 +8,7 @@ import { ArrowLeft, Timer, Play, Pause, RotateCcw, Volume2, VolumeX, Info, Dumbb
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { waistHipFAQs } from "@/components/CalculatorFAQ";
 
 interface RestRecommendation {
   type: string;
@@ -336,6 +337,7 @@ export default function RestTimerCalculator() {
         )}
 
         <RelatedCalculators currentSlug="bel-kalca-orani" />
+        <CalculatorFAQ title="Bel-Kalça Oranı Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/bel-kalca-orani" />
       </div>
     </div>
   );

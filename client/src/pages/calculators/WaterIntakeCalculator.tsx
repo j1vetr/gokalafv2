@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Droplets, RotateCcw, GlassWater, Sun, Moon } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { waterIntakeFAQs } from "@/components/CalculatorFAQ";
 
 export default function WaterIntakeCalculator() {
   const [weight, setWeight] = useState(75);
@@ -266,6 +267,7 @@ export default function WaterIntakeCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="su-tuketimi" />
+        <CalculatorFAQ title="Su Tüketimi Hesaplama" faqs={waterIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/su-tuketimi" />
       </div>
     </div>
   );

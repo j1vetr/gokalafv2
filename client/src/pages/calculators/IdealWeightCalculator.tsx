@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Target, RotateCcw, TrendingUp, TrendingDown, Check } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { idealWeightFAQs } from "@/components/CalculatorFAQ";
 
 export default function IdealWeightCalculator() {
   const [height, setHeight] = useState(175);
@@ -233,6 +234,7 @@ export default function IdealWeightCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="ideal-kilo" />
+        <CalculatorFAQ title="İdeal Kilo Hesaplama" faqs={idealWeightFAQs} schemaUrl="https://gokalaf.com/araclar/ideal-kilo" />
       </div>
     </div>
   );

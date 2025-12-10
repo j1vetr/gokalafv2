@@ -7,6 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Dumbbell, RotateCcw, Trophy, Target } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import CalculatorFAQ, { oneRepMaxFAQs } from "@/components/CalculatorFAQ";
 
 export default function OneRepMaxCalculator() {
   const [weight, setWeight] = useState(60);
@@ -197,6 +198,7 @@ export default function OneRepMaxCalculator() {
         </div>
 
         <RelatedCalculators currentSlug="one-rep-max" />
+        <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/one-rep-max" />
       </div>
     </div>
   );
