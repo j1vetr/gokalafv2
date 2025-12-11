@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "@/components/SEO";
 
 interface Package {
   id: string;
@@ -78,6 +79,23 @@ export default function Packages() {
     }
   ];
 
+  const packagesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Online Fitness Koçluk Paketleri",
+    "description": "8, 12, 16 ve 24 haftalık kişiye özel online fitness koçluk paketleri. Antrenman programı, beslenme planı ve birebir WhatsApp iletişimi dahil.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Gokalaf"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "TRY",
+      "availability": "https://schema.org/InStock",
+      "offerCount": 4
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen pt-28 pb-12 bg-[#050505] flex items-center justify-center">
@@ -87,8 +105,16 @@ export default function Packages() {
   }
 
   return (
-    <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
-      <div className="container mx-auto px-4">
+    <>
+      <SEO
+        title="Online Fitness Koçluk Paketleri | 8-12-16-24 Haftalık Programlar | Gokalaf"
+        description="Gokalaf online fitness koçluk paketleri: 8, 12, 16 ve 24 haftalık seçenekler. Kişiye özel antrenman programı, beslenme planı, haftalık takip ve WhatsApp üzerinden birebir iletişim. Shopier güvencesiyle güvenli ödeme."
+        keywords="online fitness paketi, koçluk paketi, antrenman programı, beslenme programı, kişisel antrenör paketi, online PT fiyatları, fitness koçluk ücreti, vücut geliştirme programı, online spor koçluğu"
+        canonicalUrl="https://gokalaf.com/paketler"
+        schema={packagesSchema}
+      />
+      <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
+        <div className="container mx-auto px-4">
         
         {/* HEADER */}
         <div className="text-center max-w-4xl mx-auto mb-6">
@@ -211,7 +237,8 @@ export default function Packages() {
             ))}
           </Accordion>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

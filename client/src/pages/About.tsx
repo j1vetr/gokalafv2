@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Trophy, Target, Zap, User, Award, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -29,10 +30,34 @@ function KickIcon({ className }: { className?: string }) {
 }
 
 export default function About() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Göktuğ Alaf",
+    "alternateName": "Gokalaf",
+    "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
+    "description": "Profesyonel online fitness ve vücut geliştirme koçu. Kişiye özel antrenman ve beslenme programları ile yüzlerce danışana rehberlik.",
+    "url": "https://gokalaf.com/hakkimizda",
+    "image": "https://gokalaf.com/goktug-alaf.jpg",
+    "sameAs": [
+      "https://instagram.com/gokalaf",
+      "https://youtube.com/@gokalaf",
+      "https://kick.com/gokalaf"
+    ]
+  };
+
   return (
-    <div className="min-h-screen bg-[#050505]">
+    <>
+      <SEO
+        title="Göktuğ Alaf Kimdir? | Online Fitness Koçu | Gokalaf"
+        description="Göktuğ Alaf - Profesyonel online fitness ve vücut geliştirme koçu. 4+ yıllık deneyim, yüzlerce başarılı dönüşüm hikayesi. Kişiye özel antrenman ve beslenme programları ile hedeflerine ulaş."
+        keywords="Göktuğ Alaf, Gokalaf, online fitness koçu, vücut geliştirme koçu, personal trainer, kişisel antrenör, fitness koçluğu, beslenme koçu, online PT, spor koçu"
+        canonicalUrl="https://gokalaf.com/hakkimizda"
+        schema={aboutSchema}
+      />
+      <div className="min-h-screen bg-[#050505]">
       
-      {/* IMMERSIVE HERO */}
+        {/* IMMERSIVE HERO */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -162,6 +187,7 @@ export default function About() {
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   );
 }
