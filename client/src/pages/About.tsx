@@ -68,7 +68,7 @@ export default function About() {
             <div className="relative max-w-md mx-auto lg:mx-0">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                 <img 
-                  src="/attached_assets/WhatsApp_Görsel_2025-12-11_saat_14.21.51_b22f8ca1_1765453371355.jpg" 
+                  src="/goktug-alaf.jpg" 
                   alt="Göktuğ Alaf" 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
