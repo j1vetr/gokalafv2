@@ -68,8 +68,8 @@ export default function About() {
             <div className="relative max-w-md mx-auto lg:mx-0">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                 <img 
-                  src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0049-scaled-1.jpg" 
-                  alt="Gokalaf Portrait" 
+                  src="/attached_assets/WhatsApp_Görsel_2025-12-11_saat_14.21.51_b22f8ca1_1765453371355.jpg" 
+                  alt="Göktuğ Alaf" 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
