@@ -90,7 +90,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <a 
-                href="https://proteinocean.com" 
+                href="https://proteinocean.com/d/x10" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 transition-all"
