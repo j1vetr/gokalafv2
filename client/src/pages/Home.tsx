@@ -98,10 +98,22 @@ export default function Home() {
                 href="https://proteinocean.com/d/x10" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-blue-500/10 border border-blue-500/30 rounded-full text-xs text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 transition-all"
+                className="group inline-flex items-center gap-3 px-5 py-3 mb-6 bg-gradient-to-r from-blue-600/20 via-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-xl text-sm hover:border-blue-400 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all duration-300 relative overflow-hidden"
               >
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                <span>Proteinocean'da <span className="font-bold">ALAF10</span> koduyla %10 İNDİRİM !</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <div className="flex items-center gap-2 relative z-10">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <span className="text-white font-bold text-xs">%10</span>
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <span className="text-blue-300 text-xs">Proteinocean'da</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-white font-heading font-bold text-lg tracking-wider px-2 py-0.5 bg-blue-500 rounded animate-pulse">ALAF10</span>
+                      <span className="text-blue-200 font-medium">koduyla indirim!</span>
+                    </div>
+                  </div>
+                </div>
+                <ChevronRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform relative z-10" />
               </a>
               
               <div className="relative inline-block mb-3 lg:mb-4 p-4 sm:p-6 lg:p-8">
