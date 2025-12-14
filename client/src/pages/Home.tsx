@@ -111,7 +111,7 @@ export default function Home() {
                 </div>
                 <div className="absolute inset-[2px] bg-[#050505] rounded-lg"></div>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl relative z-10">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[1.1] tracking-tighter uppercase text-white drop-shadow-2xl relative z-10">
                   Hedef Değil <br className="hidden lg:block" />
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
