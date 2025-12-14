@@ -54,18 +54,18 @@ export default function Packages() {
   const selectedPackage = activePackages.find(p => p.weeks === selectedDuration);
   const price = selectedPackage ? parseFloat(selectedPackage.price) : 0;
   const features = selectedPackage?.features || [
-    "Kişisel antrenman programı",
-    "Beslenme planlaması",
-    "Kardiyo planlaması",
-    "Vitamin & supplement önerisi",
-    "Form analizi (foto/video)",
-    "Teknik düzeltme geri bildirimleri",
-    "Haftalık kontrol",
-    "Geri dönüşe göre plan güncelleme",
-    "Haftalık teknik video analizi",
-    "Makro güncellemesi (gelişime göre)",
-    "Yaşam tarzına uygun planlama",
-    "Haftalık Q&A destek",
+    "Kişisel Antrenman Programı",
+    "Beslenme Planlaması",
+    "Kardiyo Planlaması",
+    "Vitamin & Supplement Önerisi",
+    "Form Analizi (Foto/Video)",
+    "Teknik Düzeltme Geri Bildirimleri",
+    "Haftalık Kontrol",
+    "Geri Dönüşe Göre Plan Güncelleme",
+    "Haftalık Teknik Video Analizi",
+    "Makro Güncellemesi (Gelişime Göre)",
+    "Yaşam Tarzına Uygun Planlama",
+    "Haftalık Q&A Destek",
     "7/24 Whatsapp İletişim"
   ];
 
