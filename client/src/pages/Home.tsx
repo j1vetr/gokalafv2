@@ -98,22 +98,26 @@ export default function Home() {
                 href="https://proteinocean.com/d/x10" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-5 py-3 mb-6 bg-gradient-to-r from-blue-600/20 via-blue-500/30 to-blue-600/20 border-2 border-blue-400/50 rounded-xl text-sm hover:border-blue-400 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all duration-300 relative overflow-hidden"
+                className="group inline-flex items-center gap-4 px-6 py-4 mb-6 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-orange-500/20 border-2 border-orange-400 rounded-2xl hover:border-orange-300 hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all duration-300 relative overflow-hidden shadow-[0_0_20px_rgba(249,115,22,0.3)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <div className="flex items-center gap-2 relative z-10">
-                  <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <span className="text-white font-bold text-xs">%10</span>
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <span className="text-blue-300 text-xs">Proteinocean'da</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-white font-heading font-bold text-lg tracking-wider px-2 py-0.5 bg-blue-500 rounded animate-pulse">ALAF10</span>
-                      <span className="text-blue-200 font-medium">koduyla indirim!</span>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <div className="absolute -top-1 -right-1 w-16 h-16 bg-orange-500/30 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10 flex items-center gap-1 bg-gradient-to-br from-orange-500 to-red-500 text-white font-heading font-black text-2xl px-4 py-2 rounded-xl shadow-lg shadow-orange-500/50 animate-pulse">
+                  <span>%10</span>
+                </div>
+                
+                <div className="flex flex-col items-start relative z-10">
+                  <span className="text-orange-200 text-sm font-medium">Proteinocean'da</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-white font-heading font-black text-xl tracking-widest px-3 py-1 bg-gradient-to-r from-primary to-[#a8e600] text-black rounded-lg shadow-lg shadow-primary/30">ALAF10</span>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-blue-400 group-hover:translate-x-1 transition-transform relative z-10" />
+                
+                <div className="relative z-10 flex items-center gap-1 text-orange-300 font-bold">
+                  <span className="hidden sm:inline">İNDİRİM</span>
+                  <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                </div>
               </a>
               
               <div className="relative inline-block mb-3 lg:mb-4 p-4 sm:p-6 lg:p-8">
