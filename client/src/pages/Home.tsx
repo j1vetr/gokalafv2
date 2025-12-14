@@ -291,31 +291,27 @@ export default function Home() {
             </button>
 
             {/* Main Image Display */}
-            <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
-              {/* Glowing Border Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 opacity-50 pointer-events-none"></div>
-              
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentTransformation}
-                  src={transformations[currentTransformation]}
-                  alt={`Dönüşüm ${currentTransformation + 1}`}
-                  className="w-full h-full object-contain"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                />
-              </AnimatePresence>
+            <div className="relative flex items-center justify-center p-2 md:p-3 rounded-2xl bg-gradient-to-b from-primary/30 via-primary/10 to-primary/30 shadow-2xl shadow-black/50">
+              <div className="relative rounded-xl overflow-hidden border-2 border-primary/40 bg-black">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentTransformation}
+                    src={transformations[currentTransformation]}
+                    alt={`Dönüşüm ${currentTransformation + 1}`}
+                    className="w-auto h-[500px] md:h-[650px] max-w-full object-contain"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </AnimatePresence>
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-              
-              {/* Counter Badge */}
-              <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
-                <span className="text-primary font-bold">{currentTransformation + 1}</span>
-                <span className="text-gray-400 mx-1">/</span>
-                <span className="text-white">{transformations.length}</span>
+                {/* Counter Badge */}
+                <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30">
+                  <span className="text-primary font-bold">{currentTransformation + 1}</span>
+                  <span className="text-gray-400 mx-1">/</span>
+                  <span className="text-white">{transformations.length}</span>
+                </div>
               </div>
             </div>
 
