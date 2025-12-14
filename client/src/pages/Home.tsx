@@ -6,16 +6,21 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
 
 const transformations = [
-  '/images/transformations/transformation_1.webp',
-  '/images/transformations/transformation_2.webp',
-  '/images/transformations/transformation_3.webp',
-  '/images/transformations/transformation_4.webp',
-  '/images/transformations/transformation_5.webp',
-  '/images/transformations/transformation_6.webp',
-  '/images/transformations/transformation_7.webp',
-  '/images/transformations/transformation_8.webp',
-  '/images/transformations/transformation_9.webp',
-  '/images/transformations/transformation_10.webp'
+  '/transformations/a1.jpg',
+  '/transformations/b1.jpg',
+  '/transformations/b2.jpg',
+  '/transformations/c1.jpg',
+  '/transformations/c2.jpg',
+  '/transformations/d1.jpg',
+  '/transformations/d2.jpg',
+  '/transformations/e1.jpg',
+  '/transformations/f1.jpg',
+  '/transformations/g1.jpg',
+  '/transformations/g2.jpg',
+  '/transformations/k1.jpg',
+  '/transformations/k2.jpg',
+  '/transformations/l1.jpg',
+  '/transformations/q1.jpg'
 ];
 
 export default function Home() {
