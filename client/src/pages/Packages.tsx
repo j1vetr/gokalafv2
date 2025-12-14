@@ -54,10 +54,19 @@ export default function Packages() {
   const selectedPackage = activePackages.find(p => p.weeks === selectedDuration);
   const price = selectedPackage ? parseFloat(selectedPackage.price) : 0;
   const features = selectedPackage?.features || [
-    "Kişiye ve hedeflere özel antrenman programlaması",
-    "Olduğu konum ve hedefe yönelik beslenme planlaması",
-    "Haftalık olarak kişinin ilerleyişinin değerlendirilmesi ve gerekli revizelerin yapılması",
-    "Whatsapp üstünden direkt olarak Gokalaf ile iletişim"
+    "Kişisel antrenman programı",
+    "Beslenme planlaması",
+    "Kardiyo planlaması",
+    "Vitamin & supplement önerisi",
+    "Form analizi (foto/video)",
+    "Teknik düzeltme geri bildirimleri",
+    "Haftalık kontrol",
+    "Geri dönüşe göre plan güncelleme",
+    "Haftalık teknik video analizi",
+    "Makro güncellemesi (gelişime göre)",
+    "Yaşam tarzına uygun planlama",
+    "Haftalık Q&A destek",
+    "7/24 Whatsapp İletişim"
   ];
 
   const faqs = [
