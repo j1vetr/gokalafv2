@@ -272,7 +272,7 @@ export default function Home() {
           </div>
 
           {/* Main Carousel */}
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-4xl mx-auto flex flex-col items-center">
             {/* Navigation Arrows */}
             <button 
               onClick={prevTransformation}
