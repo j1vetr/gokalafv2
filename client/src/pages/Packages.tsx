@@ -67,7 +67,7 @@ export default function Packages() {
     },
     {
       q: "Programlar nasıl teslim ediliyor?",
-      a: "Satın alım sonrası WhatsApp üzerinden iletişime geçiyorum. Size özel panelinize giriş bilgileriniz ve program detaylarınız buradan iletilir. Antrenman ve beslenme programlarınız bu panel üzerinden yönetilir."
+      a: "Satın alım sonrası WhatsApp üzerinden iletişime geçiyorum. Antrenman ve beslenme programlarınız size özel Google Sheets dosyası üzerinden eş zamanlı olarak paylaşılır. Tüm güncellemeler anında senkronize edilir ve her yerden erişebilirsiniz."
     },
     {
       q: "Salona gitmek zorunda mıyım?",
