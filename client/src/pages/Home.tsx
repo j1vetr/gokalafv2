@@ -112,10 +112,10 @@ export default function Home() {
                 <div className="absolute inset-[2px] bg-[#050505] rounded-lg"></div>
                 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-heading font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-2xl relative z-10">
-                  Sınırları <br className="hidden lg:block" />
+                  Hedef Değil <br className="hidden lg:block" />
                   <span className="relative inline-block">
                     <span className="absolute inset-0 bg-primary/20 blur-2xl animate-pulse"></span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow animate-gradient-x bg-[length:200%_auto] relative z-10">Yok Et</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#eaff80] to-primary text-glow animate-gradient-x bg-[length:200%_auto] relative z-10">Sistem</span>
                   </span>
                 </h1>
               </div>
