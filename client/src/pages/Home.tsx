@@ -300,11 +300,11 @@ export default function Home() {
                   key={currentTransformation}
                   src={transformations[currentTransformation]}
                   alt={`Dönüşüm ${currentTransformation + 1}`}
-                  className="w-full h-full object-cover"
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5 }}
+                  className="w-full h-full object-contain"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
                 />
               </AnimatePresence>
 
