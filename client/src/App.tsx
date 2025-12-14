@@ -133,6 +133,22 @@ function AppContent() {
       </main>
       {!isAdminRoute && !isDashboard && !isMaintenancePage && <Footer />}
       <Toaster />
+      
+      {/* WhatsApp Floating Button */}
+      {!isAdminRoute && !isMaintenancePage && (
+        <a
+          href="https://wa.me/905312822402"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
+          aria-label="WhatsApp ile iletişime geç"
+          data-testid="button-whatsapp"
+        >
+          <svg viewBox="0 0 32 32" className="w-8 h-8 fill-white">
+            <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.132 6.742 3.052 9.38L1.056 31.2l6.012-1.97A15.91 15.91 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.32 22.598c-.39 1.1-1.932 2.012-3.146 2.278-.832.178-1.916.32-5.57-1.198-4.674-1.94-7.684-6.696-7.918-7.006-.224-.31-1.88-2.502-1.88-4.774 0-2.27 1.19-3.386 1.61-3.848.42-.46.918-.576 1.224-.576.306 0 .612.002.88.016.282.014.66-.108.034 1.592-.224.608-1.12 2.73-1.218 2.93-.098.198-.164.432-.032.696.132.264.198.428.396.66.198.232.418.518.598.696.396.394.808.822 1.224 1.2.416.378.85.752 1.346 1.054.496.302 1.008.536 1.466.75.458.214.842.16 1.17-.098.328-.258 1.392-1.62 1.764-2.178.372-.558.744-.458 1.254-.274.51.184 3.242 1.53 3.796 1.808.554.278.924.418 1.06.648.136.232.136 1.342-.254 2.44z"/>
+          </svg>
+        </a>
+      )}
     </div>
   );
 }
