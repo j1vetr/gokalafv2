@@ -66,7 +66,7 @@ export default function Packages() {
     "Makro güncellemesi (gelişime göre)",
     "Yaşam tarzına uygun planlama",
     "Haftalık Q&A destek",
-    "7/24 İletişim"
+    "7/24 Whatsapp İletişim"
   ];
 
   const faqs = [
