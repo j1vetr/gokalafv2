@@ -103,8 +103,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <div className="absolute -top-1 -right-1 w-16 h-16 bg-blue-500/30 rounded-full blur-xl"></div>
                 
-                <div className="relative z-10 flex items-center gap-1 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-heading font-black text-2xl px-4 py-2 rounded-xl shadow-lg shadow-blue-500/50 animate-pulse">
-                  <span>%10</span>
+                <div className="relative z-10 flex items-center gap-1 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-heading font-black text-xl sm:text-2xl px-3 sm:px-4 py-2 rounded-xl shadow-lg shadow-blue-500/50 animate-pulse">
+                  <span>%10 İndirim</span>
                 </div>
                 
                 <div className="flex flex-col items-start relative z-10">
@@ -114,8 +114,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="relative z-10 flex items-center gap-1 text-blue-300 font-bold">
-                  <span className="hidden sm:inline">İNDİRİM</span>
+                <div className="relative z-10 flex items-center text-blue-300">
                   <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </div>
               </a>
