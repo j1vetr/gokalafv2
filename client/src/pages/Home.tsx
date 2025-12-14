@@ -291,14 +291,14 @@ export default function Home() {
             </button>
 
             {/* Main Image Display */}
-            <div className="relative flex items-center justify-center p-2 md:p-3 rounded-2xl bg-gradient-to-b from-primary/30 via-primary/10 to-primary/30 shadow-2xl shadow-black/50">
-              <div className="relative rounded-xl overflow-hidden border-2 border-primary/40 bg-black">
+            <div className="relative inline-flex mx-auto p-2 md:p-3 rounded-2xl bg-gradient-to-b from-primary/30 via-primary/10 to-primary/30 shadow-2xl shadow-black/50">
+              <div className="relative rounded-xl overflow-hidden border-2 border-primary/40">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentTransformation}
                     src={transformations[currentTransformation]}
                     alt={`Dönüşüm ${currentTransformation + 1}`}
-                    className="w-auto h-[500px] md:h-[650px] max-w-full object-contain"
+                    className="block h-[500px] md:h-[650px] w-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
