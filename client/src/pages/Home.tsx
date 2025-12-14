@@ -110,7 +110,7 @@ export default function Home() {
                 <div className="flex flex-col items-start relative z-10">
                   <span className="text-blue-200 text-sm font-medium">Proteinocean'da</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-white font-heading font-black text-xl tracking-widest px-3 py-1 bg-gradient-to-r from-primary to-[#a8e600] text-black rounded-lg shadow-lg shadow-primary/30">ALAF10</span>
+                    <span className="font-heading font-black text-xl tracking-widest px-3 py-1 bg-gradient-to-r from-primary to-[#a8e600] text-black rounded-lg shadow-lg shadow-primary/30">ALAF10</span>
                   </div>
                 </div>
                 
