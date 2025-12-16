@@ -2,8 +2,52 @@ import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Calendar, BookOpen, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, BookOpen, Share2, ChevronDown, Lightbulb, AlertCircle, CheckCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Article } from "@shared/schema";
+import MarkdownIt from "markdown-it";
+import { useMemo, useState } from "react";
+
+const md = new MarkdownIt({
+  html: true,
+  breaks: true,
+  linkify: true,
+});
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+function parseFAQs(content: string): { mainContent: string; faqs: FAQ[] } {
+  const faqMatch = content.match(/## Sıkça Sorulan Sorular([\s\S]*?)(?=## |$)/i);
+  if (!faqMatch) {
+    return { mainContent: content, faqs: [] };
+  }
+  
+  const faqSection = faqMatch[1];
+  const mainContent = content.replace(/## Sıkça Sorulan Sorular[\s\S]*?(?=## |$)/i, '');
+  
+  const faqs: FAQ[] = [];
+  const questionRegex = /### (.+?)\n([\s\S]*?)(?=### |$)/g;
+  let match;
+  while ((match = questionRegex.exec(faqSection)) !== null) {
+    faqs.push({
+      question: match[1].trim(),
+      answer: match[2].trim()
+    });
+  }
+  
+  return { mainContent, faqs };
+}
+
+function parseInfoBoxes(html: string): string {
+  return html
+    .replace(/<p>💡 (.+?)<\/p>/g, '<div class="info-box tip"><span class="icon">💡</span><span>$1</span></div>')
+    .replace(/<p>⚠️ (.+?)<\/p>/g, '<div class="info-box warning"><span class="icon">⚠️</span><span>$1</span></div>')
+    .replace(/<p>✅ (.+?)<\/p>/g, '<div class="info-box success"><span class="icon">✅</span><span>$1</span></div>')
+    .replace(/<p>📌 (.+?)<\/p>/g, '<div class="info-box note"><span class="icon">📌</span><span>$1</span></div>');
+}
 
 export default function ArticleDetail() {
   const [, params] = useRoute("/yazilar/:slug");
@@ -18,6 +62,16 @@ export default function ArticleDetail() {
     },
     enabled: !!slug,
   });
+
+  const { mainContent, faqs, renderedHtml } = useMemo(() => {
+    if (!article) return { mainContent: '', faqs: [], renderedHtml: '' };
+    
+    const { mainContent, faqs } = parseFAQs(article.content);
+    let html = md.render(mainContent);
+    html = parseInfoBoxes(html);
+    
+    return { mainContent, faqs, renderedHtml: html };
+  }, [article]);
 
   if (isLoading) {
     return (
@@ -129,42 +183,49 @@ export default function ArticleDetail() {
           <div className="max-w-3xl mx-auto">
             {/* Article Content */}
             <div 
-              className="prose prose-invert prose-lg max-w-none
-                prose-headings:font-heading prose-headings:text-white
-                prose-p:text-gray-300 prose-p:leading-relaxed
+              className="article-content prose prose-invert prose-lg max-w-none
+                prose-headings:font-heading prose-headings:text-white prose-headings:scroll-mt-24
+                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-white/10
+                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
+                prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-white
-                prose-ul:text-gray-300 prose-ol:text-gray-300
-                prose-li:marker:text-primary"
-              dangerouslySetInnerHTML={{ 
-                __html: (() => {
-                  const lines = article.content.split('\n');
-                  let result = '';
-                  let inList = false;
-                  
-                  for (const line of lines) {
-                    if (line.startsWith('## ')) {
-                      if (inList) { result += '</ul>'; inList = false; }
-                      result += `<h2>${line.substring(3)}</h2>`;
-                    } else if (line.startsWith('### ')) {
-                      if (inList) { result += '</ul>'; inList = false; }
-                      result += `<h3>${line.substring(4)}</h3>`;
-                    } else if (line.startsWith('- ')) {
-                      if (!inList) { result += '<ul>'; inList = true; }
-                      result += `<li>${line.substring(2)}</li>`;
-                    } else if (line.trim() === '') {
-                      if (inList) { result += '</ul>'; inList = false; }
-                      result += '<br/>';
-                    } else {
-                      if (inList) { result += '</ul>'; inList = false; }
-                      result += `<p>${line}</p>`;
-                    }
-                  }
-                  if (inList) result += '</ul>';
-                  return result;
-                })()
-              }}
+                prose-strong:text-white prose-strong:font-semibold
+                prose-ul:text-gray-300 prose-ol:text-gray-300 prose-ul:my-4 prose-ol:my-4
+                prose-li:marker:text-primary prose-li:mb-2
+                prose-table:w-full prose-table:border-collapse prose-table:my-8
+                prose-th:bg-primary/20 prose-th:text-white prose-th:font-heading prose-th:font-bold prose-th:p-4 prose-th:text-left prose-th:border prose-th:border-white/10
+                prose-td:p-4 prose-td:border prose-td:border-white/10 prose-td:text-gray-300
+                prose-tr:even:bg-white/5"
+              dangerouslySetInnerHTML={{ __html: renderedHtml }}
             />
+
+            {/* FAQ Section */}
+            {faqs.length > 0 && (
+              <div className="mt-16">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-8 pb-3 border-b border-white/10">
+                  Sıkça Sorulan Sorular
+                </h2>
+                <Accordion type="single" collapsible className="space-y-4">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem 
+                      key={index} 
+                      value={`faq-${index}`}
+                      className="bg-white/5 border border-white/10 rounded-xl overflow-hidden"
+                    >
+                      <AccordionTrigger 
+                        className="px-6 py-4 text-left text-white font-medium hover:no-underline hover:bg-white/5 [&[data-state=open]]:bg-primary/10"
+                        data-testid={`faq-trigger-${index}`}
+                      >
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="px-6 pb-4 text-gray-300">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            )}
 
             {/* Article CTA */}
             {article.ctaText && article.ctaLink && (
@@ -213,6 +274,37 @@ export default function ArticleDetail() {
           </div>
         </div>
       </section>
+
+      <style>{`
+        .article-content .info-box {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px 20px;
+          border-radius: 12px;
+          margin: 24px 0;
+        }
+        .article-content .info-box .icon {
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+        .article-content .info-box.tip {
+          background: rgba(204, 255, 0, 0.1);
+          border: 1px solid rgba(204, 255, 0, 0.3);
+        }
+        .article-content .info-box.warning {
+          background: rgba(251, 191, 36, 0.1);
+          border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+        .article-content .info-box.success {
+          background: rgba(34, 197, 94, 0.1);
+          border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .article-content .info-box.note {
+          background: rgba(59, 130, 246, 0.1);
+          border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+      `}</style>
     </div>
   );
 }
