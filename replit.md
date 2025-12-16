@@ -23,29 +23,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend Architecture
 
-**Hybrid SSR/SPA Architecture:**
-The application uses a dual-runtime hybrid architecture:
-- **Next.js 15** (port 3000) for SSR marketing pages with SEO optimization
-- **Vite + Express** (port 5000) for SPA routes (dashboard, auth, admin) and API
-
-**Marketing Pages (SSR via Next.js):**
-- `/` - Home page
-- `/hakkimizda` - About page
-- `/araclar` - Tools/calculators index
-- `/paketler` - Packages listing
-
-**SPA Routes (Vite via Express):**
-- `/giris` - Login
-- `/kayit` - Register
-- `/panel/*` - User dashboard
-- `/odeme/*` - Checkout flow
-- `/gokadmin/*` - Admin panel
-
 **Framework & Tooling:**
-- React 19 with TypeScript for type safety
-- Next.js 15 for SSR marketing pages (app directory)
-- Vite as the build tool for SPA routes
-- Wouter for client-side routing in SPA
+- React 18+ with TypeScript for type safety
+- Vite as the build tool and development server
+- Wouter for client-side routing (lightweight alternative to React Router)
 - TanStack Query (React Query) for server state management
 - Framer Motion for animations and transitions
 
