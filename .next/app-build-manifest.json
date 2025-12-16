@@ -1,0 +1,61 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/app/_not-found/page-037bd55546f3f5cd.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/css/e3d562048bc8f7e3.css",
+      "static/css/84c96f71dd42bf4b.css",
+      "static/chunks/app/layout-b6cc9a8ad29f311e.js"
+    ],
+    "/(marketing)/layout": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/297-4efb25cc8fa748de.js",
+      "static/chunks/59-85af6cd8f8155c39.js",
+      "static/chunks/app/(marketing)/layout-8344b0346d4048ed.js"
+    ],
+    "/(marketing)/paketler/page": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/297-4efb25cc8fa748de.js",
+      "static/chunks/app/(marketing)/paketler/page-8e8dbc87683be9b1.js"
+    ],
+    "/(marketing)/hakkimizda/page": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/297-4efb25cc8fa748de.js",
+      "static/chunks/app/(marketing)/hakkimizda/page-cef606421702f7d9.js"
+    ],
+    "/(marketing)/araclar/page": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/297-4efb25cc8fa748de.js",
+      "static/chunks/app/(marketing)/araclar/page-e56387c31bf975de.js"
+    ],
+    "/(marketing)/page": [
+      "static/chunks/webpack-4bc880909824f65f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-5bd5d867657f2e99.js",
+      "static/chunks/297-4efb25cc8fa748de.js",
+      "static/chunks/app/(marketing)/page-bb1ece77f2acd71f.js"
+    ]
+  }
+}
