@@ -218,8 +218,8 @@ export default function ArticleDetail() {
                       >
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4 text-gray-300">
-                        {faq.answer}
+                      <AccordionContent className="px-6 pb-4 text-gray-300 prose prose-invert prose-sm max-w-none prose-p:text-gray-300 prose-p:leading-relaxed">
+                        <div dangerouslySetInnerHTML={{ __html: md.render(faq.answer) }} />
                       </AccordionContent>
                     </AccordionItem>
                   ))}
