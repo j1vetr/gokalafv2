@@ -24,6 +24,7 @@ export function Navbar() {
     { name: "Anasayfa", href: "/" },
     { name: "Hakkımda", href: "/hakkimizda" },
     { name: "Araçlar", href: "/araclar" },
+    { name: "Yazılar", href: "/yazilar" },
     { name: "Paketler", href: "/paketler" },
   ];
 

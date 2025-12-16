@@ -40,6 +40,8 @@ const Onboarding = lazy(() => import("@/pages/Onboarding"));
 const Maintenance = lazy(() => import("@/pages/Maintenance"));
 const PaymentSuccess = lazy(() => import("@/pages/PaymentSuccess"));
 const PaymentFailed = lazy(() => import("@/pages/PaymentFailed"));
+const Articles = lazy(() => import("@/pages/Articles"));
+const ArticleDetail = lazy(() => import("@/pages/ArticleDetail"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -110,6 +112,8 @@ function AppContent() {
             <Route path="/araclar/protein" component={ProteinIntakeCalculator} />
             <Route path="/araclar/dinlenme" component={RestTimerCalculator} />
             <Route path="/paketler" component={Packages} />
+            <Route path="/yazilar" component={Articles} />
+            <Route path="/yazilar/:slug" component={ArticleDetail} />
             <Route path="/giris" component={Login} />
             <Route path="/kayit" component={Register} />
             <Route path="/hosgeldin" component={Onboarding} />

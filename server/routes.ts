@@ -94,6 +94,7 @@ export async function registerRoutes(
       { loc: "/", priority: "1.0", changefreq: "weekly" },
       { loc: "/hakkimizda", priority: "0.8", changefreq: "monthly" },
       { loc: "/paketler", priority: "0.9", changefreq: "weekly" },
+      { loc: "/yazilar", priority: "0.8", changefreq: "weekly" },
       { loc: "/araclar", priority: "0.8", changefreq: "monthly" },
       { loc: "/araclar/vki", priority: "0.7", changefreq: "monthly" },
       { loc: "/araclar/kalori", priority: "0.7", changefreq: "monthly" },
