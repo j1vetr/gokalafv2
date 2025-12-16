@@ -1386,5 +1386,128 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
+  // ===== ARTICLES API (PUBLIC) =====
+  app.get("/api/articles", async (req, res) => {
+    try {
+      const categoryId = req.query.category as string | undefined;
+      const articles = await storage.getPublishedArticles(categoryId);
+      res.json(articles);
+    } catch (error) {
+      console.error("Articles fetch error:", error);
+      res.status(500).json({ error: "Makaleler yüklenemedi" });
+    }
+  });
+
+  app.get("/api/articles/categories", async (req, res) => {
+    try {
+      const categories = await storage.getAllArticleCategories();
+      res.json(categories);
+    } catch (error) {
+      console.error("Categories fetch error:", error);
+      res.status(500).json({ error: "Kategoriler yüklenemedi" });
+    }
+  });
+
+  app.get("/api/articles/:slug", async (req, res) => {
+    try {
+      const article = await storage.getArticleBySlug(req.params.slug);
+      if (!article || article.status !== "published") {
+        return res.status(404).json({ error: "Makale bulunamadı" });
+      }
+      res.json(article);
+    } catch (error) {
+      console.error("Article fetch error:", error);
+      res.status(500).json({ error: "Makale yüklenemedi" });
+    }
+  });
+
+  // ===== ADMIN ARTICLES API =====
+  app.get("/api/admin/articles", requireAdmin, async (req, res) => {
+    try {
+      const articles = await storage.getAllArticles();
+      res.json(articles);
+    } catch (error) {
+      console.error("Admin articles fetch error:", error);
+      res.status(500).json({ error: "Makaleler yüklenemedi" });
+    }
+  });
+
+  app.post("/api/admin/articles", requireAdmin, async (req, res) => {
+    try {
+      const article = await storage.createArticle(req.body);
+      res.json(article);
+    } catch (error) {
+      console.error("Article create error:", error);
+      res.status(500).json({ error: "Makale oluşturulamadı" });
+    }
+  });
+
+  app.put("/api/admin/articles/:id", requireAdmin, async (req, res) => {
+    try {
+      const article = await storage.updateArticle(req.params.id, req.body);
+      if (!article) {
+        return res.status(404).json({ error: "Makale bulunamadı" });
+      }
+      res.json(article);
+    } catch (error) {
+      console.error("Article update error:", error);
+      res.status(500).json({ error: "Makale güncellenemedi" });
+    }
+  });
+
+  app.delete("/api/admin/articles/:id", requireAdmin, async (req, res) => {
+    try {
+      await storage.deleteArticle(req.params.id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Article delete error:", error);
+      res.status(500).json({ error: "Makale silinemedi" });
+    }
+  });
+
+  // ===== ADMIN ARTICLE CATEGORIES API =====
+  app.get("/api/admin/article-categories", requireAdmin, async (req, res) => {
+    try {
+      const categories = await storage.getAllArticleCategories();
+      res.json(categories);
+    } catch (error) {
+      console.error("Categories fetch error:", error);
+      res.status(500).json({ error: "Kategoriler yüklenemedi" });
+    }
+  });
+
+  app.post("/api/admin/article-categories", requireAdmin, async (req, res) => {
+    try {
+      const category = await storage.createArticleCategory(req.body);
+      res.json(category);
+    } catch (error) {
+      console.error("Category create error:", error);
+      res.status(500).json({ error: "Kategori oluşturulamadı" });
+    }
+  });
+
+  app.put("/api/admin/article-categories/:id", requireAdmin, async (req, res) => {
+    try {
+      const category = await storage.updateArticleCategory(req.params.id, req.body);
+      if (!category) {
+        return res.status(404).json({ error: "Kategori bulunamadı" });
+      }
+      res.json(category);
+    } catch (error) {
+      console.error("Category update error:", error);
+      res.status(500).json({ error: "Kategori güncellenemedi" });
+    }
+  });
+
+  app.delete("/api/admin/article-categories/:id", requireAdmin, async (req, res) => {
+    try {
+      await storage.deleteArticleCategory(req.params.id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Category delete error:", error);
+      res.status(500).json({ error: "Kategori silinemedi" });
+    }
+  });
+
   return httpServer;
 }

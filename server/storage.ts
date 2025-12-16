@@ -23,6 +23,10 @@ import type {
   InsertCouponUsage,
   SystemLog,
   InsertSystemLog,
+  ArticleCategory,
+  InsertArticleCategory,
+  Article,
+  InsertArticle,
 } from "@shared/schema";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
@@ -129,6 +133,23 @@ export interface IStorage {
   setSiteSetting(key: string, value: string): Promise<void>;
   isMaintenanceMode(): Promise<boolean>;
   setMaintenanceMode(enabled: boolean): Promise<void>;
+
+  // Article Categories
+  getArticleCategory(id: string): Promise<ArticleCategory | undefined>;
+  getArticleCategoryBySlug(slug: string): Promise<ArticleCategory | undefined>;
+  getAllArticleCategories(): Promise<ArticleCategory[]>;
+  createArticleCategory(category: InsertArticleCategory): Promise<ArticleCategory>;
+  updateArticleCategory(id: string, updates: Partial<InsertArticleCategory>): Promise<ArticleCategory | undefined>;
+  deleteArticleCategory(id: string): Promise<boolean>;
+
+  // Articles
+  getArticle(id: string): Promise<Article | undefined>;
+  getArticleBySlug(slug: string): Promise<Article | undefined>;
+  getAllArticles(): Promise<Article[]>;
+  getPublishedArticles(categoryId?: string): Promise<Article[]>;
+  createArticle(article: InsertArticle): Promise<Article>;
+  updateArticle(id: string, updates: Partial<InsertArticle>): Promise<Article | undefined>;
+  deleteArticle(id: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -636,6 +657,77 @@ export class DatabaseStorage implements IStorage {
 
   async setMaintenanceMode(enabled: boolean): Promise<void> {
     await this.setSiteSetting("maintenance_mode", enabled ? "true" : "false");
+  }
+
+  // ARTICLE CATEGORIES
+  async getArticleCategory(id: string): Promise<ArticleCategory | undefined> {
+    const [category] = await db.select().from(schema.articleCategories).where(eq(schema.articleCategories.id, id)).limit(1);
+    return category;
+  }
+
+  async getArticleCategoryBySlug(slug: string): Promise<ArticleCategory | undefined> {
+    const [category] = await db.select().from(schema.articleCategories).where(eq(schema.articleCategories.slug, slug)).limit(1);
+    return category;
+  }
+
+  async getAllArticleCategories(): Promise<ArticleCategory[]> {
+    return db.select().from(schema.articleCategories).orderBy(schema.articleCategories.name);
+  }
+
+  async createArticleCategory(category: InsertArticleCategory): Promise<ArticleCategory> {
+    const [result] = await db.insert(schema.articleCategories).values(category).returning();
+    return result;
+  }
+
+  async updateArticleCategory(id: string, updates: Partial<InsertArticleCategory>): Promise<ArticleCategory | undefined> {
+    const [result] = await db.update(schema.articleCategories).set(updates).where(eq(schema.articleCategories.id, id)).returning();
+    return result;
+  }
+
+  async deleteArticleCategory(id: string): Promise<boolean> {
+    const result = await db.delete(schema.articleCategories).where(eq(schema.articleCategories.id, id));
+    return true;
+  }
+
+  // ARTICLES
+  async getArticle(id: string): Promise<Article | undefined> {
+    const [article] = await db.select().from(schema.articles).where(eq(schema.articles.id, id)).limit(1);
+    return article;
+  }
+
+  async getArticleBySlug(slug: string): Promise<Article | undefined> {
+    const [article] = await db.select().from(schema.articles).where(eq(schema.articles.slug, slug)).limit(1);
+    return article;
+  }
+
+  async getAllArticles(): Promise<Article[]> {
+    return db.select().from(schema.articles).orderBy(desc(schema.articles.createdAt));
+  }
+
+  async getPublishedArticles(categoryId?: string): Promise<Article[]> {
+    if (categoryId) {
+      return db.select().from(schema.articles)
+        .where(and(eq(schema.articles.status, "published"), eq(schema.articles.categoryId, categoryId)))
+        .orderBy(desc(schema.articles.publishedAt));
+    }
+    return db.select().from(schema.articles)
+      .where(eq(schema.articles.status, "published"))
+      .orderBy(desc(schema.articles.publishedAt));
+  }
+
+  async createArticle(article: InsertArticle): Promise<Article> {
+    const [result] = await db.insert(schema.articles).values(article).returning();
+    return result;
+  }
+
+  async updateArticle(id: string, updates: Partial<InsertArticle>): Promise<Article | undefined> {
+    const [result] = await db.update(schema.articles).set({ ...updates, updatedAt: new Date() }).where(eq(schema.articles.id, id)).returning();
+    return result;
+  }
+
+  async deleteArticle(id: string): Promise<boolean> {
+    await db.delete(schema.articles).where(eq(schema.articles.id, id));
+    return true;
   }
 }
 
