@@ -42,7 +42,7 @@ export default function Articles() {
   const otherArticles = articles.slice(1);
 
   return (
-    <div className="min-h-screen bg-[#050505] pt-20">
+    <div className="min-h-screen bg-[#050505] pt-28">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-16 lg:py-24">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent"></div>

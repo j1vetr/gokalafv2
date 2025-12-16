@@ -21,7 +21,7 @@ export default function ArticleDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#050505] pt-28 flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
       </div>
     );
@@ -29,7 +29,7 @@ export default function ArticleDetail() {
 
   if (error || !article) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-20">
+      <div className="min-h-screen bg-[#050505] pt-28">
         <div className="container mx-auto px-4 py-20 text-center">
           <BookOpen className="w-16 h-16 text-gray-600 mx-auto mb-4" />
           <h1 className="text-2xl font-heading font-bold text-white mb-4">
@@ -66,7 +66,7 @@ export default function ArticleDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] pt-20">
+    <div className="min-h-screen bg-[#050505] pt-28">
       {/* Hero */}
       <section className="relative">
         {article.heroImage && (
