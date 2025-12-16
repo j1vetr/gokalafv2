@@ -399,3 +399,76 @@ export async function verifySmtpConnection(): Promise<boolean> {
     return false;
   }
 }
+
+export async function sendPurchaseReminderEmail(
+  user: { id: string; email: string; fullName: string },
+  daysSinceRegistration: number
+) {
+  const template = emailTemplates.purchaseReminder({
+    fullName: user.fullName,
+    daysSinceRegistration,
+  });
+
+  return sendEmail(user.email, template, "purchase_reminder", user.id, { daysSinceRegistration });
+}
+
+export async function checkAndSendPurchaseReminders() {
+  console.log("🔍 Checking for purchase reminders...");
+  
+  try {
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+
+    const usersWithoutOrders = await db
+      .select({
+        userId: users.id,
+        userEmail: users.email,
+        userFullName: users.fullName,
+        createdAt: users.createdAt,
+      })
+      .from(users)
+      .leftJoin(orders, eq(users.id, orders.userId))
+      .where(
+        and(
+          eq(users.role, "user"),
+          sql`${orders.id} IS NULL`,
+          lte(users.createdAt, twoDaysAgo)
+        )
+      )
+      .groupBy(users.id, users.email, users.fullName, users.createdAt);
+
+    let sentCount = 0;
+    const twoDaysAgoTimestamp = new Date();
+    twoDaysAgoTimestamp.setDate(twoDaysAgoTimestamp.getDate() - 2);
+
+    for (const user of usersWithoutOrders) {
+      const alreadySentRecently = await db
+        .select()
+        .from(emailLogs)
+        .where(
+          and(
+            eq(emailLogs.userId, user.userId),
+            eq(emailLogs.templateKey, "purchase_reminder"),
+            gte(emailLogs.createdAt, twoDaysAgoTimestamp)
+          )
+        )
+        .limit(1);
+
+      if (alreadySentRecently.length === 0) {
+        const daysSinceRegistration = Math.floor(
+          (Date.now() - new Date(user.createdAt!).getTime()) / (1000 * 60 * 60 * 24)
+        );
+
+        await sendPurchaseReminderEmail(
+          { id: user.userId, email: user.userEmail, fullName: user.userFullName },
+          daysSinceRegistration
+        );
+        sentCount++;
+      }
+    }
+    
+    console.log(`✅ Purchase reminder check complete. Sent ${sentCount} emails to users without orders.`);
+  } catch (error) {
+    console.error("❌ Purchase reminder error:", error);
+  }
+}

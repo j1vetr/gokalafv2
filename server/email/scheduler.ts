@@ -2,6 +2,7 @@ import cron from "node-cron";
 import { 
   checkAndSendPackageExpiryReminders, 
   checkAndSendDailyReminders,
+  checkAndSendPurchaseReminders,
   verifySmtpConnection 
 } from "./service";
 import { storage } from "../storage";
@@ -40,8 +41,16 @@ export function initEmailScheduler() {
     }
   });
 
+  cron.schedule("0 10 */2 * *", async () => {
+    console.log("⏰ Running purchase reminder job (every 2 days at 10:00)...");
+    await checkAndSendPurchaseReminders();
+  }, {
+    timezone: "Europe/Istanbul"
+  });
+
   console.log("✅ Email scheduler initialized:");
   console.log("   - Daily reminders: 18:00 (Istanbul)");
   console.log("   - Package expiry check: 09:00 (Istanbul)");
+  console.log("   - Purchase reminders: Every 2 days at 10:00 (Istanbul)");
   console.log("   - Stale order cleanup: Every 5 minutes");
 }
