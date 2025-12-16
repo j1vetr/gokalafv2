@@ -249,3 +249,49 @@ export const insertSystemLogSchema = createInsertSchema(systemLogs).omit({
 
 export type InsertSystemLog = z.infer<typeof insertSystemLogSchema>;
 export type SystemLog = typeof systemLogs.$inferSelect;
+
+// ARTICLE CATEGORIES TABLE (makale kategorileri)
+export const articleCategories = pgTable("article_categories", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description"),
+  isFeatured: boolean("is_featured").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertArticleCategorySchema = createInsertSchema(articleCategories).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertArticleCategory = z.infer<typeof insertArticleCategorySchema>;
+export type ArticleCategory = typeof articleCategories.$inferSelect;
+
+// ARTICLES TABLE (makaleler)
+export const articles = pgTable("articles", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  categoryId: varchar("category_id").references(() => articleCategories.id),
+  slug: text("slug").notNull().unique(),
+  title: text("title").notNull(),
+  excerpt: text("excerpt").notNull(),
+  heroImage: text("hero_image"),
+  content: text("content").notNull(),
+  ctaText: text("cta_text"),
+  ctaLink: text("cta_link"),
+  status: text("status").notNull().default("draft"), // draft, published
+  publishedAt: timestamp("published_at"),
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const insertArticleSchema = createInsertSchema(articles).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export type InsertArticle = z.infer<typeof insertArticleSchema>;
+export type Article = typeof articles.$inferSelect;
