@@ -169,7 +169,7 @@ export async function sendDailyReminderEmail(
   return sendEmail(user.email, template, "daily_reminder", user.id, { streak, lastWeight });
 }
 
-const ADMIN_EMAIL = "hello@toov.com.tr";
+const ADMIN_EMAILS = ["hello@toov.com.tr", "alafcoaching2@gmail.com"];
 
 export async function sendAdminNewUserNotification(user: { 
   id: string; 
@@ -192,10 +192,15 @@ export async function sendAdminNewUserNotification(user: {
     registeredAt,
   });
 
-  return sendEmail(ADMIN_EMAIL, template, "admin_new_user", user.id, {
-    userEmail: user.email,
-    fullName: user.fullName,
-  });
+  const results = await Promise.all(
+    ADMIN_EMAILS.map(email => 
+      sendEmail(email, template, "admin_new_user", user.id, {
+        userEmail: user.email,
+        fullName: user.fullName,
+      })
+    )
+  );
+  return results.every(r => r);
 }
 
 export async function sendAdminNewOrderNotification(
@@ -222,11 +227,16 @@ export async function sendAdminNewOrderNotification(
     orderDate,
   });
 
-  return sendEmail(ADMIN_EMAIL, template, "admin_new_order", user.id, {
-    orderId: order.id,
-    packageName: pkg.name,
-    totalPrice: order.totalPrice,
-  });
+  const results = await Promise.all(
+    ADMIN_EMAILS.map(email => 
+      sendEmail(email, template, "admin_new_order", user.id, {
+        orderId: order.id,
+        packageName: pkg.name,
+        totalPrice: order.totalPrice,
+      })
+    )
+  );
+  return results.every(r => r);
 }
 
 export async function checkAndSendPackageExpiryReminders() {
