@@ -3,7 +3,7 @@ import { emailTemplates, EmailTemplate } from "./templates";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import { emailLogs, users, orders, packages, dailyHabits, bodyMeasurements } from "@shared/schema";
-import { eq, and, gte, lte, sql } from "drizzle-orm";
+import { eq, and, gte, lte, sql, isNull } from "drizzle-orm";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 const db = drizzle({ client: pool });
@@ -431,7 +431,7 @@ export async function checkAndSendPurchaseReminders() {
       .where(
         and(
           eq(users.role, "user"),
-          sql`${orders.id} IS NULL`,
+          isNull(orders.id),
           lte(users.createdAt, twoDaysAgo)
         )
       )
