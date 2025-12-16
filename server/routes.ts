@@ -1390,7 +1390,14 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
   // ===== ARTICLES API (PUBLIC) =====
   app.get("/api/articles", async (req, res) => {
     try {
-      const categoryId = req.query.category as string | undefined;
+      let categoryId = req.query.category as string | undefined;
+      
+      if (categoryId) {
+        const categories = await storage.getAllArticleCategories();
+        const category = categories.find(c => c.slug === categoryId || c.id === categoryId);
+        categoryId = category?.id;
+      }
+      
       const articles = await storage.getPublishedArticles(categoryId);
       res.json(articles);
     } catch (error) {
