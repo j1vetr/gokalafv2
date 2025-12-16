@@ -183,26 +183,22 @@ export default function ArticleDetail() {
           <div className="max-w-3xl mx-auto">
             {/* Article Content */}
             <div 
-              className="article-content prose prose-invert prose-lg max-w-none
-                prose-headings:font-heading prose-headings:text-white prose-headings:scroll-mt-24
-                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-white/10
-                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-primary
-                prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
+              className="article-content prose prose-invert prose-lg md:prose-xl max-w-none
+                prose-headings:font-heading prose-headings:text-white prose-headings:scroll-mt-24 prose-headings:leading-tight
+                prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b prose-h2:border-primary/30
+                prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-primary
+                prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-white prose-strong:font-semibold
-                prose-ul:text-gray-300 prose-ol:text-gray-300 prose-ul:my-4 prose-ol:my-4
-                prose-li:marker:text-primary prose-li:mb-2
-                prose-table:w-full prose-table:border-collapse prose-table:my-8
-                prose-th:bg-primary/20 prose-th:text-white prose-th:font-heading prose-th:font-bold prose-th:p-4 prose-th:text-left prose-th:border prose-th:border-white/10
-                prose-td:p-4 prose-td:border prose-td:border-white/10 prose-td:text-gray-300
-                prose-tr:even:bg-white/5"
+                prose-ul:text-gray-300 prose-ol:text-gray-300 prose-ul:my-6 prose-ol:my-6 prose-ul:text-lg prose-ol:text-lg
+                prose-li:marker:text-primary prose-li:mb-3"
               dangerouslySetInnerHTML={{ __html: renderedHtml }}
             />
 
             {/* FAQ Section */}
             {faqs.length > 0 && (
-              <div className="mt-16">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-8 pb-3 border-b border-white/10">
+              <div className="mt-20">
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-10 pb-4 border-b border-primary/30">
                   Sıkça Sorulan Sorular
                 </h2>
                 <Accordion type="single" collapsible className="space-y-4">
@@ -279,13 +275,14 @@ export default function ArticleDetail() {
         .article-content .info-box {
           display: flex;
           align-items: flex-start;
-          gap: 12px;
-          padding: 16px 20px;
-          border-radius: 12px;
-          margin: 24px 0;
+          gap: 16px;
+          padding: 20px 24px;
+          border-radius: 16px;
+          margin: 32px 0;
+          font-size: 1.1rem;
         }
         .article-content .info-box .icon {
-          font-size: 20px;
+          font-size: 24px;
           flex-shrink: 0;
         }
         .article-content .info-box.tip {
@@ -303,6 +300,50 @@ export default function ArticleDetail() {
         .article-content .info-box.note {
           background: rgba(59, 130, 246, 0.1);
           border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .article-content table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          margin: 40px 0;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .article-content thead {
+          background: linear-gradient(135deg, rgba(204, 255, 0, 0.2) 0%, rgba(204, 255, 0, 0.1) 100%);
+        }
+        .article-content th {
+          padding: 16px 20px;
+          text-align: left;
+          font-weight: 700;
+          color: #fff;
+          font-family: 'Oswald', sans-serif;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          border-bottom: 2px solid rgba(204, 255, 0, 0.3);
+        }
+        .article-content td {
+          padding: 16px 20px;
+          color: #d1d5db;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          font-size: 1rem;
+        }
+        .article-content tbody tr {
+          background: rgba(255, 255, 255, 0.02);
+          transition: background 0.2s ease;
+        }
+        .article-content tbody tr:nth-child(even) {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        .article-content tbody tr:hover {
+          background: rgba(204, 255, 0, 0.05);
+        }
+        .article-content tbody tr:last-child td {
+          border-bottom: none;
         }
       `}</style>
     </div>
