@@ -573,5 +573,73 @@ export const emailTemplates = {
         </p>
       </div>
     `)
+  }),
+
+  purchaseReminder: (data: { fullName: string; daysSinceRegistration: number }): EmailTemplate => ({
+    subject: "Dönüşümün Seni Bekliyor! 💪 - Gokalaf",
+    html: wrapTemplate(`
+      <div class="header">
+        <h1>GOKALAF</h1>
+        <div class="subtitle">Performans • Güç • Disiplin</div>
+      </div>
+      <div class="content">
+        <div class="greeting">Merhaba ${data.fullName}! 👋</div>
+        <p class="text">
+          Kayıt olduğun için teşekkürler! Henüz bir koçluk paketi almadığını fark ettik. 
+          Hedeflerine ulaşmak için en doğru zamanda harekete geçmenin tam zamanı.
+        </p>
+        
+        <div class="highlight-box">
+          <div class="highlight-title">🎯 Sana Özel Avantajlar</div>
+          <div style="margin-top: 16px; color: #b0b0b0;">
+            <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              ✓ Kişiye özel antrenman programı
+            </div>
+            <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              ✓ Detaylı beslenme planlaması
+            </div>
+            <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              ✓ Haftalık form takibi ve video analizi
+            </div>
+            <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              ✓ 7/24 WhatsApp iletişim
+            </div>
+            <div style="padding: 8px 0;">
+              ✓ Sürekli güncellenen program
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box" style="background-color: rgba(204, 255, 0, 0.1); border: 1px solid rgba(204, 255, 0, 0.3); border-radius: 12px; padding: 20px; margin: 24px 0;">
+          <p style="color: #ccff00; font-weight: 700; margin: 0 0 8px 0;">💡 Bilgi</p>
+          <p style="color: #b0b0b0; margin: 0;">
+            Yüzlerce danışan ile çalıştım ve en iyi sonuçlar erken başlayanlardan geldi. 
+            Bugün başla, 8 hafta sonra farkı gör!
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="https://gokalaf.com/paketler" class="cta-button">
+            Paketleri İncele
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="text" style="font-size: 14px; text-align: center;">
+          Sorularını yanıtlamak için buradayım. WhatsApp üzerinden bana ulaşabilirsin!
+        </p>
+      </div>
+      <div class="footer">
+        <div class="footer-brand">GOKALAF COACHING</div>
+        <p class="footer-text">Hedef Değil, Sistem.</p>
+        <p class="footer-text" style="margin-top: 16px;">
+          © ${new Date().getFullYear()} Gokalaf. Tüm hakları saklıdır.
+        </p>
+        <p class="footer-text" style="margin-top: 10px; font-size: 11px; color: #555;">
+          Bu e-postayı almak istemiyorsan lütfen bize bildirin.
+        </p>
+      </div>
+    `)
   })
 };
