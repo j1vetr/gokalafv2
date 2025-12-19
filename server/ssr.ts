@@ -51,7 +51,15 @@ import { log } from "./index";
 
 const BOT_USER_AGENTS = [
   'googlebot',
+  'google-structured-data-testing-tool',
+  'google-inspectiontool',
+  'google-site-verification',
+  'googleother',
+  'storebot-google',
+  'adsbot-google',
+  'mediapartners-google',
   'bingbot',
+  'bingpreview',
   'yandex',
   'baiduspider',
   'duckduckbot',
@@ -67,6 +75,9 @@ const BOT_USER_AGENTS = [
   'redditbot',
   'discordbot',
   'slackbot',
+  'lighthouse',
+  'pagespeed',
+  'chrome-lighthouse',
 ];
 
 const BOT_REGEX = /bot|crawler|spider|scraper|prerender/i;
