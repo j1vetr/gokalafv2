@@ -42,6 +42,8 @@ const PaymentSuccess = lazy(() => import("@/pages/PaymentSuccess"));
 const PaymentFailed = lazy(() => import("@/pages/PaymentFailed"));
 const Articles = lazy(() => import("@/pages/Articles"));
 const ArticleDetail = lazy(() => import("@/pages/ArticleDetail"));
+const Exercises = lazy(() => import("@/pages/Exercises"));
+const ExerciseDetail = lazy(() => import("@/pages/ExerciseDetail"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -114,6 +116,8 @@ function AppContent() {
             <Route path="/paketler" component={Packages} />
             <Route path="/yazilar" component={Articles} />
             <Route path="/yazilar/:slug" component={ArticleDetail} />
+            <Route path="/egzersiz-akademisi" component={Exercises} />
+            <Route path="/egzersiz-akademisi/:slug" component={ExerciseDetail} />
             <Route path="/giris" component={Login} />
             <Route path="/kayit" component={Register} />
             <Route path="/hosgeldin" component={Onboarding} />
