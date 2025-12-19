@@ -272,81 +272,59 @@ export function generateAboutMeta(): MetaTags {
 }
 
 export function generateToolsMeta(): MetaTags {
+  const tools = [
+    { name: "VKİ Hesaplayıcı", desc: "Vücut kitle indeksinizi hesaplayın", path: "vki" },
+    { name: "Kalori Hesaplayıcı", desc: "Günlük kalori ihtiyacınızı hesaplayın", path: "kalori" },
+    { name: "TDEE Hesaplayıcı", desc: "Toplam günlük enerji harcamanızı hesaplayın", path: "tdee" },
+    { name: "Makro Hesaplayıcı", desc: "Protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın", path: "makro" },
+    { name: "İdeal Kilo Hesaplayıcı", desc: "Boyunuza göre ideal kilonuzu hesaplayın", path: "ideal-kilo" },
+    { name: "Vücut Yağ Oranı", desc: "Vücut yağ yüzdenizi hesaplayın", path: "vucut-yagi" },
+    { name: "1RM Hesaplayıcı", desc: "Maksimum kaldırma kapasitesini hesaplayın", path: "bir-tekrar-max" },
+    { name: "Su İhtiyacı", desc: "Günlük su ihtiyacınızı hesaplayın", path: "su-tuketimi" },
+    { name: "Kalp Hızı Bölgeleri", desc: "Antrenman kalp hızı bölgelerini hesaplayın", path: "kalp-atisi" },
+    { name: "Protein İhtiyacı", desc: "Günlük protein ihtiyacınızı hesaplayın", path: "protein" },
+    { name: "Dinlenme Süresi", desc: "Setler arası dinlenme süresini hesaplayın", path: "dinlenme" }
+  ];
+
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${BASE_URL}/araclar#toolspage`,
     "name": "Fitness Araçları | Gokalaf",
-    "description": "Ücretsiz fitness hesaplayıcıları: BMI, kalori, TDEE ve makro hesaplayıcı.",
+    "description": "Ücretsiz fitness hesaplayıcıları: VKİ, kalori, TDEE, makro, ideal kilo ve daha fazlası.",
     "url": `${BASE_URL}/araclar`,
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "BMI Hesaplayıcı",
-            "description": "Vücut kitle indeksinizi hesaplayın",
-            "url": `${BASE_URL}/araclar/bmi`,
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Kalori Hesaplayıcı",
-            "description": "Günlük kalori ihtiyacınızı hesaplayın",
-            "url": `${BASE_URL}/araclar/kalori`,
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "TDEE Hesaplayıcı",
-            "description": "Toplam günlük enerji harcamanızı hesaplayın",
-            "url": `${BASE_URL}/araclar/tdee`,
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Makro Hesaplayıcı",
-            "description": "Protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın",
-            "url": `${BASE_URL}/araclar/makro`,
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web"
-          }
+      "numberOfItems": tools.length,
+      "itemListElement": tools.map((tool, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": tool.name,
+          "description": tool.desc,
+          "url": `${BASE_URL}/araclar/${tool.path}`,
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
         }
-      ]
+      }))
     },
     "inLanguage": "tr-TR"
   });
 
   return {
-    title: "Fitness Araçları | Gokalaf",
-    description: "Ücretsiz fitness hesaplayıcıları: BMI, kalori, TDEE ve makro hesaplayıcı. Antrenman ve beslenme planlaması için kullanışlı araçlar.",
-    keywords: "bmi hesaplama, kalori hesaplama, tdee hesaplama, makro hesaplama, fitness hesaplayıcı, vücut kitle indeksi, günlük kalori",
-    ogTitle: "Fitness Araçları | Gokalaf",
-    ogDescription: "Ücretsiz fitness hesaplayıcıları: BMI, kalori, TDEE ve makro hesaplayıcı.",
+    title: "Fitness Araçları - Ücretsiz Hesaplayıcılar | Gokalaf",
+    description: "Ücretsiz fitness hesaplayıcıları: VKİ, kalori, TDEE, makro, ideal kilo, vücut yağ oranı, 1RM ve daha fazlası. Antrenman ve beslenme planlaması için kullanışlı araçlar.",
+    keywords: "vki hesaplama, bmi hesaplama, kalori hesaplama, tdee hesaplama, makro hesaplama, ideal kilo, vücut yağ oranı, one rep max, protein hesaplama, fitness hesaplayıcı",
+    ogTitle: "Fitness Araçları - Ücretsiz Hesaplayıcılar | Gokalaf",
+    ogDescription: "11 ücretsiz fitness hesaplayıcısı: VKİ, kalori, TDEE, makro, ideal kilo ve daha fazlası.",
     ogImage: DEFAULT_OG_IMAGE,
     ogUrl: `${BASE_URL}/araclar`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Fitness Araçları | Gokalaf",
-    twitterDescription: "Ücretsiz fitness hesaplayıcıları: BMI, kalori, TDEE ve makro hesaplayıcı.",
+    twitterDescription: "11 ücretsiz fitness hesaplayıcısı ile antrenman ve beslenme planlaması.",
     twitterImage: DEFAULT_OG_IMAGE,
     canonical: `${BASE_URL}/araclar`,
     schema,
