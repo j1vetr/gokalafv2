@@ -9,10 +9,17 @@ import {
   generateArticleDetailMeta,
   generateAboutMeta,
   generateToolsMeta,
-  generateBmiToolMeta,
+  generateVkiToolMeta,
   generateCalorieToolMeta,
   generateTdeeToolMeta,
   generateMacroToolMeta,
+  generateIdealKiloToolMeta,
+  generateVucutYagiToolMeta,
+  generateOneRepMaxToolMeta,
+  generateSuTuketimiToolMeta,
+  generateKalpAtisiToolMeta,
+  generateProteinToolMeta,
+  generateDinlenmeToolMeta,
   injectMeta,
   injectBody,
 } from "./seo/meta-inject";
@@ -23,10 +30,17 @@ import {
   renderArticleDetail,
   renderAbout,
   renderTools,
-  renderBmiTool,
+  renderVkiTool,
   renderCalorieTool,
   renderTdeeTool,
   renderMacroTool,
+  renderIdealKiloTool,
+  renderVucutYagiTool,
+  renderOneRepMaxTool,
+  renderSuTuketimiTool,
+  renderKalpAtisiTool,
+  renderProteinTool,
+  renderDinlenmeTool,
   render404,
 } from "./render";
 import { log } from "./index";
@@ -125,8 +139,8 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleTools,
   },
   {
-    pattern: /^\/araclar\/bmi\/?$/,
-    handler: handleBmiTool,
+    pattern: /^\/araclar\/vki\/?$/,
+    handler: handleVkiTool,
   },
   {
     pattern: /^\/araclar\/kalori\/?$/,
@@ -139,6 +153,34 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
   {
     pattern: /^\/araclar\/makro\/?$/,
     handler: handleMacroTool,
+  },
+  {
+    pattern: /^\/araclar\/ideal-kilo\/?$/,
+    handler: handleIdealKiloTool,
+  },
+  {
+    pattern: /^\/araclar\/vucut-yagi\/?$/,
+    handler: handleVucutYagiTool,
+  },
+  {
+    pattern: /^\/araclar\/bir-tekrar-max\/?$/,
+    handler: handleOneRepMaxTool,
+  },
+  {
+    pattern: /^\/araclar\/su-tuketimi\/?$/,
+    handler: handleSuTuketimiTool,
+  },
+  {
+    pattern: /^\/araclar\/kalp-atisi\/?$/,
+    handler: handleKalpAtisiTool,
+  },
+  {
+    pattern: /^\/araclar\/protein\/?$/,
+    handler: handleProteinTool,
+  },
+  {
+    pattern: /^\/araclar\/dinlenme\/?$/,
+    handler: handleDinlenmeTool,
   },
 ];
 
@@ -195,9 +237,9 @@ async function handleTools(req: Request, res: Response): Promise<void> {
   sendSSRResponse(res, meta, body);
 }
 
-async function handleBmiTool(req: Request, res: Response): Promise<void> {
-  const meta = generateBmiToolMeta();
-  const body = renderBmiTool();
+async function handleVkiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateVkiToolMeta();
+  const body = renderVkiTool();
   sendSSRResponse(res, meta, body);
 }
 
@@ -216,6 +258,48 @@ async function handleTdeeTool(req: Request, res: Response): Promise<void> {
 async function handleMacroTool(req: Request, res: Response): Promise<void> {
   const meta = generateMacroToolMeta();
   const body = renderMacroTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleIdealKiloTool(req: Request, res: Response): Promise<void> {
+  const meta = generateIdealKiloToolMeta();
+  const body = renderIdealKiloTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleVucutYagiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateVucutYagiToolMeta();
+  const body = renderVucutYagiTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleOneRepMaxTool(req: Request, res: Response): Promise<void> {
+  const meta = generateOneRepMaxToolMeta();
+  const body = renderOneRepMaxTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleSuTuketimiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateSuTuketimiToolMeta();
+  const body = renderSuTuketimiTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleKalpAtisiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateKalpAtisiToolMeta();
+  const body = renderKalpAtisiTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleProteinTool(req: Request, res: Response): Promise<void> {
+  const meta = generateProteinToolMeta();
+  const body = renderProteinTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleDinlenmeTool(req: Request, res: Response): Promise<void> {
+  const meta = generateDinlenmeToolMeta();
+  const body = renderDinlenmeTool();
   sendSSRResponse(res, meta, body);
 }
 
