@@ -3,10 +3,9 @@ import type { Article, Package } from "@shared/schema";
 
 const md = new MarkdownIt({
   html: true,
-  breaks: false,
   linkify: true,
   typographer: true,
-}).enable(['table']);
+});
 
 const articleStyles = `
   <style>
