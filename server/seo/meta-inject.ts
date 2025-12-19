@@ -77,9 +77,14 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
   const priceRange = activePackages.length > 0
     ? `${Math.min(...prices).toLocaleString('tr-TR')} - ${Math.max(...prices).toLocaleString('tr-TR')} TL`
     : "";
-  const description = activePackages.length > 0
-    ? `Gokalaf koçluk paketleri: ${weekOptions}. Profesyonel antrenman ve beslenme programları ile fitness hedeflerinize ulaşın.`
-    : "Gokalaf koçluk paketleri ile profesyonel antrenman ve beslenme programları.";
+
+  const faqItems = [
+    { question: "Online fitness koçluğu nasıl çalışır?", answer: "Paket satın aldıktan sonra size özel antrenman ve beslenme programı hazırlanır. Haftalık check-in'lerle ilerlemeniz takip edilir, WhatsApp üzerinden 7/24 iletişim kurabilirsiniz." },
+    { question: "Hangi paketi seçmeliyim?", answer: "Hedeflerinize bağlı olarak değişir. 8 haftalık paket hızlı sonuç isteyenler için, 12-16 hafta orta vadeli hedefler için, 24 hafta ise uzun vadeli dönüşüm için idealdir." },
+    { question: "Paket süresince ne sıklıkla iletişim kurabilirim?", answer: "WhatsApp üzerinden 7/24 iletişim kurabilirsiniz. Ayrıca haftalık check-in görüşmeleri ve form analizi geri bildirimleri alırsınız." },
+    { question: "Beslenme programı da dahil mi?", answer: "Evet, tüm paketlerde kişiselleştirilmiş beslenme planı, makro hesaplaması ve supplement önerileri dahildir." },
+    { question: "Ödeme seçenekleri nelerdir?", answer: "Kredi kartı ile güvenli ödeme yapabilirsiniz. Taksit seçenekleri mevcuttur." }
+  ];
 
   const offers = activePackages.map(pkg => ({
     "@type": "Offer",
@@ -92,32 +97,43 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
     "seller": { "@id": `${BASE_URL}/#organization` }
   }));
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Gokalaf Koçluk Paketleri",
-    "description": description,
-    "url": `${BASE_URL}/paketler`,
-    "numberOfItems": activePackages.length,
-    "itemListElement": offers.map((offer, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": offer
-    }))
-  });
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Gokalaf Online Fitness Koçluk Paketleri",
+      "description": `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri.`,
+      "url": `${BASE_URL}/paketler`,
+      "numberOfItems": activePackages.length,
+      "itemListElement": offers.map((offer, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": offer
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+      }))
+    }
+  ]);
 
   return {
-    title: "Koçluk Paketleri | Gokalaf",
-    description,
-    keywords: "fitness koçluk paketi, online pt fiyat, antrenman programı fiyat, beslenme danışmanlığı, 8 haftalık program, 12 haftalık program",
-    ogTitle: "Koçluk Paketleri | Gokalaf",
-    ogDescription: priceRange ? `${description} Fiyatlar: ${priceRange}` : description,
+    title: "Online Fitness Koçluk Paketleri - Fiyatlar ve İçerikler | Gokalaf",
+    description: `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri ile kişiselleştirilmiş antrenman programı, beslenme danışmanlığı ve 7/24 WhatsApp desteği.${priceRange ? ` Fiyatlar: ${priceRange}` : ''}`,
+    keywords: "online fitness koçluğu fiyat, personal trainer online, pt paketi, antrenman programı satın al, beslenme danışmanlığı paket, fitness koçu fiyatları, 8 haftalık program, 12 haftalık program, 16 haftalık program, 24 haftalık program, gokalaf paket",
+    ogTitle: "Online Fitness Koçluk Paketleri | Gokalaf",
+    ogDescription: `${weekOptions} seçenekleri. Kişisel antrenman ve beslenme programı, haftalık takip, 7/24 destek.${priceRange ? ` ${priceRange}` : ''}`,
     ogImage: DEFAULT_OG_IMAGE,
     ogUrl: `${BASE_URL}/paketler`,
     ogType: "website",
     twitterCard: "summary_large_image",
-    twitterTitle: "Koçluk Paketleri | Gokalaf",
-    twitterDescription: description,
+    twitterTitle: "Online Fitness Koçluk Paketleri | Gokalaf",
+    twitterDescription: `Profesyonel online koçluk. ${weekOptions} paket seçenekleri.`,
     twitterImage: DEFAULT_OG_IMAGE,
     canonical: `${BASE_URL}/paketler`,
     schema,
@@ -126,10 +142,23 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
 
 export function generateArticlesListMeta(articles: Article[]): MetaTags {
   const publishedArticles = articles.filter(a => a.status === 'published' && a.slug);
-  const latestTitles = publishedArticles.slice(0, 3).map(a => a.title).join(", ");
-  const description = publishedArticles.length > 0
-    ? `Fitness, beslenme ve sağlık hakkında uzman makaleler. ${latestTitles} ve daha fazlası.`
-    : "Fitness, beslenme ve sağlık hakkında uzman makaleler. Gokalaf blog yazıları.";
+  const articleCount = publishedArticles.length;
+  const categories = Array.from(new Set(publishedArticles.map(a => a.categoryId).filter(Boolean)));
+  
+  const categoryNames: Record<string, string> = {
+    'takviye': 'supplement',
+    'beslenme': 'beslenme',
+    'antrenman': 'antrenman',
+    'saglik': 'sağlık'
+  };
+  const categoryKeywords = categories.map(c => categoryNames[c || ''] || '').filter(Boolean).join(', ');
+
+  const faqItems = [
+    { question: "Gokalaf blogda hangi konularda yazılar var?", answer: "Fitness, vücut geliştirme, beslenme, supplement kullanımı, egzersiz teknikleri ve sağlıklı yaşam konularında detaylı makaleler bulabilirsiniz." },
+    { question: "Makaleler kimler tarafından yazılıyor?", answer: "Tüm makaleler Gokalaf koçluk ekibi tarafından, güncel bilimsel araştırmalar ve deneyimler ışığında hazırlanmaktadır." },
+    { question: "Blog yazıları ücretsiz mi?", answer: "Evet, tüm blog yazılarımız tamamen ücretsizdir. Fitness yolculuğunuzda size yardımcı olacak bilgilere özgürce erişebilirsiniz." },
+    { question: "Yeni yazılar ne sıklıkla ekleniyor?", answer: "Düzenli olarak yeni içerikler ekliyoruz. En güncel makaleler için sayfamızı takip edebilirsiniz." }
+  ];
 
   const blogPosts = publishedArticles.slice(0, 10).map((article, index) => ({
     "@type": "ListItem",
@@ -139,36 +168,47 @@ export function generateArticlesListMeta(articles: Article[]): MetaTags {
       "headline": article.title,
       "url": `${BASE_URL}/yazilar/${article.slug}`,
       "description": article.excerpt || article.title,
-      "image": article.heroImage || DEFAULT_OG_IMAGE,
+      "image": article.heroImage ? (article.heroImage.startsWith('http') ? article.heroImage : `${BASE_URL}${article.heroImage}`) : DEFAULT_OG_IMAGE,
       "datePublished": formatDateISO(article.publishedAt),
       "author": { "@id": `${BASE_URL}/#organization` }
     }
   }));
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "@id": `${BASE_URL}/yazilar#blog`,
-    "name": "Gokalaf Blog - Fitness ve Beslenme Yazıları",
-    "description": description,
-    "url": `${BASE_URL}/yazilar`,
-    "publisher": { "@id": `${BASE_URL}/#organization` },
-    "blogPost": blogPosts,
-    "inLanguage": "tr-TR"
-  });
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": `${BASE_URL}/yazilar#blog`,
+      "name": "Gokalaf Blog - Fitness, Beslenme ve Antrenman Rehberi",
+      "description": `${articleCount} uzman makale ile fitness, beslenme ve sağlık hakkında kapsamlı bilgiler.`,
+      "url": `${BASE_URL}/yazilar`,
+      "publisher": { "@id": `${BASE_URL}/#organization` },
+      "blogPost": blogPosts,
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+      }))
+    }
+  ]);
 
   return {
-    title: "Yazılar | Gokalaf Blog",
-    description,
-    keywords: "fitness blog, beslenme makaleleri, antrenman ipuçları, sağlıklı yaşam, kas yapma, kilo verme, supplement, takviye",
-    ogTitle: "Yazılar | Gokalaf Blog",
-    ogDescription: description,
+    title: "Fitness ve Beslenme Yazıları - Uzman Makaleler | Gokalaf Blog",
+    description: `${articleCount}+ uzman makale ile fitness, vücut geliştirme, beslenme ve supplement rehberleri. Egzersiz teknikleri, diyet önerileri ve sağlıklı yaşam ipuçları.`,
+    keywords: `fitness blog, beslenme rehberi, antrenman makaleleri, supplement kullanımı, egzersiz teknikleri, kilo verme, kas yapma, sağlıklı yaşam, protein takviyesi, kreatin, ${categoryKeywords}, gokalaf blog`,
+    ogTitle: "Fitness ve Beslenme Yazıları | Gokalaf Blog",
+    ogDescription: `${articleCount}+ uzman makale. Fitness, beslenme, antrenman ve supplement rehberleri.`,
     ogImage: DEFAULT_OG_IMAGE,
     ogUrl: `${BASE_URL}/yazilar`,
-    ogType: "website",
+    ogType: "blog",
     twitterCard: "summary_large_image",
-    twitterTitle: "Yazılar | Gokalaf Blog",
-    twitterDescription: description,
+    twitterTitle: "Fitness ve Beslenme Yazıları | Gokalaf Blog",
+    twitterDescription: `${articleCount}+ uzman fitness ve beslenme makalesi.`,
     twitterImage: DEFAULT_OG_IMAGE,
     canonical: `${BASE_URL}/yazilar`,
     schema,
