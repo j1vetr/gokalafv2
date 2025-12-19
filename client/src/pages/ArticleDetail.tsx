@@ -11,9 +11,10 @@ import SEO from "@/components/SEO";
 
 const md = new MarkdownIt({
   html: true,
-  breaks: true,
+  breaks: false,
   linkify: true,
-});
+  typographer: true,
+}).enable(['table']);
 
 interface FAQ {
   question: string;
