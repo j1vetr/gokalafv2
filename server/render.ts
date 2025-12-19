@@ -94,40 +94,103 @@ export function renderArticleDetail(article: Article): string {
     'saglik': 'Sağlık',
   };
   const categoryLabel = categoryLabels[article.categoryId || ''] || article.categoryId || '';
+  const categorySlug = article.categoryId || 'fitness';
 
   const publishedDate = article.publishedAt 
     ? new Date(article.publishedAt).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })
     : '';
+  
+  const wordCount = article.content ? article.content.split(/\s+/).length : 0;
+  const readingTime = Math.ceil(wordCount / 200);
+
+  const imageAlt = `${article.title} - ${categoryLabel} rehberi ve bilgilendirici görsel. Gokalaf fitness blogu.`;
 
   return `
     <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
-      <article style="max-width: 900px; margin: 0 auto; padding: 2rem;">
-        <header style="margin-bottom: 2rem;">
-          ${categoryLabel ? `<span style="background: rgba(204, 255, 0, 0.1); color: #ccff00; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; text-transform: uppercase;">${categoryLabel}</span>` : ''}
-          <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin: 1rem 0;">${escapeHtml(article.title)}</h1>
-          ${publishedDate ? `<time style="color: #666; font-size: 0.875rem;">${publishedDate}</time>` : ''}
-        </header>
-        
-        ${article.heroImage ? `
-          <img 
-            src="${article.heroImage}" 
-            alt="${escapeHtml(article.title)}" 
-            style="width: 100%; height: auto; border-radius: 1rem; margin-bottom: 2rem; max-height: 500px; object-fit: cover;"
-          />
-        ` : ''}
-        
-        <div class="article-content" style="color: #e5e5e5; line-height: 1.8; font-size: 1.125rem;">
-          ${contentHtml}
-        </div>
-        
-        ${article.ctaText && article.ctaLink ? `
-          <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(204, 255, 0, 0.1), transparent); border: 1px solid rgba(204, 255, 0, 0.2); border-radius: 1rem; text-align: center;">
-            <a href="${article.ctaLink}" style="display: inline-block; background: #ccff00; color: #000; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
-              ${escapeHtml(article.ctaText)}
-            </a>
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <li><a href="/" style="color: #a3a3a3; text-decoration: none;">Ana Sayfa</a></li>
+            <li style="color: #666;">›</li>
+            <li><a href="/yazilar" style="color: #a3a3a3; text-decoration: none;">Yazılar</a></li>
+            ${categoryLabel ? `
+              <li style="color: #666;">›</li>
+              <li><span style="color: #a3a3a3;">${categoryLabel}</span></li>
+            ` : ''}
+            <li style="color: #666;">›</li>
+            <li><span style="color: #ccff00;">${escapeHtml(article.title.substring(0, 50))}${article.title.length > 50 ? '...' : ''}</span></li>
+          </ol>
+        </nav>
+
+        <article itemscope itemtype="https://schema.org/Article">
+          <header style="margin-bottom: 2rem;">
+            ${categoryLabel ? `<span itemprop="articleSection" style="background: rgba(204, 255, 0, 0.1); color: #ccff00; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; text-transform: uppercase;">${categoryLabel}</span>` : ''}
+            <h1 itemprop="headline" style="font-size: 2.5rem; font-weight: 700; color: #fff; margin: 1rem 0;">${escapeHtml(article.title)}</h1>
+            <div style="display: flex; align-items: center; gap: 1rem; color: #666; font-size: 0.875rem; flex-wrap: wrap;">
+              ${publishedDate ? `<time itemprop="datePublished" datetime="${article.publishedAt}">${publishedDate}</time>` : ''}
+              <span>•</span>
+              <span>${readingTime} dk okuma</span>
+              <span>•</span>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Gokalaf</span>
+              </span>
+            </div>
+            ${article.excerpt ? `<p itemprop="description" style="color: #a3a3a3; margin-top: 1rem; font-size: 1.1rem; line-height: 1.6;">${escapeHtml(article.excerpt)}</p>` : ''}
+          </header>
+          
+          ${article.heroImage ? `
+            <figure style="margin: 0 0 2rem 0;">
+              <img 
+                itemprop="image"
+                src="${article.heroImage}" 
+                alt="${escapeHtml(imageAlt)}"
+                title="${escapeHtml(article.title)}"
+                loading="eager"
+                width="1200"
+                height="675"
+                style="width: 100%; height: auto; border-radius: 1rem; max-height: 500px; object-fit: cover;"
+              />
+              <figcaption style="text-align: center; color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                ${escapeHtml(article.title)} - Görsel
+              </figcaption>
+            </figure>
+          ` : ''}
+          
+          <div itemprop="articleBody" class="article-content" style="color: #e5e5e5; line-height: 1.8; font-size: 1.125rem;">
+            ${contentHtml}
           </div>
-        ` : ''}
-      </article>
+          
+          <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #1a1a1a;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="width: 48px; height: 48px; background: #ccff00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000;">G</div>
+              <div>
+                <p style="color: #fff; font-weight: 600; margin: 0;">Gokalaf</p>
+                <p style="color: #666; font-size: 0.875rem; margin: 0;">Online Fitness Koçu</p>
+              </div>
+            </div>
+            <p style="color: #a3a3a3; font-size: 0.9rem; line-height: 1.6;">
+              Bu makale Gokalaf ekibi tarafından hazırlanmıştır. Daha fazla ${categoryLabel.toLowerCase()} içeriği için 
+              <a href="/yazilar" style="color: #ccff00; text-decoration: none;">yazılar sayfamızı</a> ziyaret edebilirsiniz.
+            </p>
+          </footer>
+          
+          ${article.ctaText && article.ctaLink ? `
+            <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(204, 255, 0, 0.1), transparent); border: 1px solid rgba(204, 255, 0, 0.2); border-radius: 1rem; text-align: center;">
+              <p style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Profesyonel koçluk ile hedeflerinize ulaşın</p>
+              <a href="${article.ctaLink}" style="display: inline-block; background: #ccff00; color: #000; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+                ${escapeHtml(article.ctaText)}
+              </a>
+            </div>
+          ` : `
+            <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(204, 255, 0, 0.1), transparent); border: 1px solid rgba(204, 255, 0, 0.2); border-radius: 1rem; text-align: center;">
+              <p style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem;">Profesyonel koçluk ile hedeflerinize ulaşın</p>
+              <a href="/paketler" style="display: inline-block; background: #ccff00; color: #000; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+                Koçluk Paketlerini İncele
+              </a>
+            </div>
+          `}
+        </article>
+      </main>
     </div>
   `;
 }

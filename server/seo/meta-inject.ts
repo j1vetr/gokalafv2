@@ -219,7 +219,6 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
   const rawTitle = article.seoTitle || article.title;
   const title = rawTitle.replace(/\s*\|\s*Gokalaf\s*$/i, '');
   const description = article.seoDescription || article.excerpt || article.title;
-  const keywords = `${article.title}, fitness, beslenme, gokalaf`;
   const ogImage = article.heroImage
     ? (article.heroImage.startsWith("http") ? article.heroImage : `${BASE_URL}${article.heroImage}`)
     : DEFAULT_OG_IMAGE;
@@ -232,33 +231,96 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
   };
   const categoryLabel = categoryLabels[article.categoryId || ''] || 'Fitness';
 
+  const keywordsByCategory: Record<string, string> = {
+    'takviye': 'protein tozu, kreatin, bcaa, supplement, takviye rehberi',
+    'beslenme': 'diyet, kalori, makro besin, sağlıklı beslenme, sporcu beslenmesi',
+    'antrenman': 'egzersiz, antrenman programı, kas yapma, güç antrenmanı',
+    'saglik': 'sağlıklı yaşam, wellness, uyku, stres yönetimi',
+  };
+  const categoryKeywords = keywordsByCategory[article.categoryId || ''] || 'fitness, spor';
+  const keywords = `${article.title}, ${categoryLabel.toLowerCase()}, ${categoryKeywords}, gokalaf blog`;
+
   const publishedDate = formatDateISO(article.publishedAt);
   const modifiedDate = formatDateISO(article.updatedAt) || publishedDate;
+  
+  const wordCount = article.content ? article.content.split(/\s+/).length : 800;
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": `${BASE_URL}/yazilar/${article.slug}#article`,
-    "headline": title,
-    "description": description,
-    "image": ogImage,
-    "url": `${BASE_URL}/yazilar/${article.slug}`,
-    "datePublished": publishedDate,
-    "dateModified": modifiedDate,
-    "author": {
-      "@type": "Person",
-      "name": "Gokalaf",
-      "url": `${BASE_URL}/hakkimizda`
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${BASE_URL}/yazilar/${article.slug}#article`,
+      "headline": title,
+      "description": description,
+      "image": {
+        "@type": "ImageObject",
+        "url": ogImage,
+        "width": 1200,
+        "height": 675,
+        "caption": `${title} - ${categoryLabel} rehberi görseli`
+      },
+      "url": `${BASE_URL}/yazilar/${article.slug}`,
+      "datePublished": publishedDate,
+      "dateModified": modifiedDate,
+      "wordCount": wordCount,
+      "author": {
+        "@type": "Person",
+        "name": "Gokalaf",
+        "url": `${BASE_URL}/hakkimizda`,
+        "description": "Profesyonel online fitness koçu ve beslenme danışmanı"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gokalaf",
+        "url": BASE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/logo.png`,
+          "width": 512,
+          "height": 512
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${BASE_URL}/yazilar/${article.slug}`
+      },
+      "articleSection": categoryLabel,
+      "inLanguage": "tr-TR",
+      "keywords": keywords,
+      "isAccessibleForFree": true,
+      "copyrightHolder": { "@type": "Organization", "name": "Gokalaf" }
     },
-    "publisher": { "@id": `${BASE_URL}/#organization` },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/yazilar/${article.slug}`
-    },
-    "articleSection": categoryLabel,
-    "inLanguage": "tr-TR",
-    "keywords": keywords
-  });
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": BASE_URL
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Yazılar",
+          "item": `${BASE_URL}/yazilar`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": categoryLabel,
+          "item": `${BASE_URL}/yazilar?kategori=${article.categoryId || 'fitness'}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": title,
+          "item": `${BASE_URL}/yazilar/${article.slug}`
+        }
+      ]
+    }
+  ]);
 
   return {
     title: `${title} | Gokalaf`,
