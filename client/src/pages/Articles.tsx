@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Calendar, ChevronRight, Sparkles, Dumbbell, Utensils, Pill, Search } from "lucide-react";
 import type { Article, ArticleCategory } from "@shared/schema";
+import SEO from "@/components/SEO";
 
 const categoryIcons: Record<string, any> = {
   "antrenman": Dumbbell,
@@ -52,6 +53,24 @@ export default function Articles() {
 
   return (
     <div className="min-h-screen bg-[#050505] pt-28">
+      <SEO
+        title="Fitness ve Beslenme Yazıları - Uzman Makaleler | Gokalaf Blog"
+        description={`${articles.length}+ uzman makale ile fitness, vücut geliştirme, beslenme ve supplement rehberleri. Egzersiz teknikleri, diyet önerileri ve sağlıklı yaşam ipuçları.`}
+        keywords="fitness blog, beslenme rehberi, antrenman makaleleri, supplement kullanımı, egzersiz teknikleri, kilo verme, kas yapma, sağlıklı yaşam, gokalaf blog"
+        canonical="https://gokalaf.com/yazilar"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Gokalaf Blog - Fitness, Beslenme ve Antrenman Rehberi",
+          "description": "Fitness, vücut geliştirme, beslenme ve sağlık hakkında kapsamlı bilgiler.",
+          "url": "https://gokalaf.com/yazilar",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pb-12">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent"></div>

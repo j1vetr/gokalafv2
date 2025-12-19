@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import type { Article } from "@shared/schema";
 import MarkdownIt from "markdown-it";
 import { useMemo, useState } from "react";
+import SEO from "@/components/SEO";
 
 const md = new MarkdownIt({
   html: true,
@@ -119,8 +120,48 @@ export default function ArticleDetail() {
     }
   };
 
+  const categoryLabels: Record<string, string> = {
+    'takviye': 'Takviye',
+    'beslenme': 'Beslenme',
+    'antrenman': 'Antrenman',
+    'saglik': 'Sağlık',
+  };
+  const categoryLabel = categoryLabels[article.categoryId || ''] || 'Fitness';
+
   return (
     <div className="min-h-screen bg-[#050505] pt-28">
+      <SEO
+        title={`${article.seoTitle || article.title} | Gokalaf`}
+        description={article.seoDescription || article.excerpt || article.title}
+        keywords={`${article.title}, ${categoryLabel.toLowerCase()}, fitness, beslenme, gokalaf blog`}
+        canonical={`https://gokalaf.com/yazilar/${article.slug}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.title,
+          "description": article.seoDescription || article.excerpt,
+          "image": article.heroImage ? (article.heroImage.startsWith("http") ? article.heroImage : `https://gokalaf.com${article.heroImage}`) : "https://gokalaf.com/og-image.png",
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://gokalaf.com/logo.png"
+            }
+          },
+          "datePublished": article.publishedAt,
+          "dateModified": article.updatedAt || article.publishedAt,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://gokalaf.com/yazilar/${article.slug}`
+          }
+        }}
+      />
       {/* Hero */}
       <section className="relative">
         {article.heroImage && (
