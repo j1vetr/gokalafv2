@@ -74,10 +74,18 @@ function getIndexHtml(): string {
     return cachedIndexHtml;
   }
 
-  const dirname = import.meta.dirname;
-  const indexPath = process.env.NODE_ENV === "production"
-    ? path.resolve(dirname, "public", "index.html")
-    : path.resolve(dirname, "..", "client", "index.html");
+  const isProduction = process.env.NODE_ENV === "production";
+  
+  let indexPath: string;
+  if (isProduction) {
+    indexPath = path.resolve(process.cwd(), "dist", "public", "index.html");
+  } else {
+    const dirname = import.meta.dirname || process.cwd();
+    indexPath = path.resolve(dirname, "..", "client", "index.html");
+    if (!fs.existsSync(indexPath)) {
+      indexPath = path.resolve(process.cwd(), "client", "index.html");
+    }
+  }
 
   console.log(`[SSR] Looking for index.html at: ${indexPath}`);
   
