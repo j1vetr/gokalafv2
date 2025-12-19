@@ -117,10 +117,8 @@ export async function registerRoutes(
     ];
 
     try {
-      const articles = await storage.getArticles();
-      const articlePages = articles
-        .filter(a => a.isPublished)
-        .map(a => ({
+      const articles = await storage.getPublishedArticles();
+      const articlePages = articles.map(a => ({
           loc: `/yazilar/${a.slug}`,
           priority: "0.7",
           changefreq: "monthly",
