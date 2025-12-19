@@ -1,104 +1,323 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Ana Sayfalar -->
   <url>
     <loc>https://gokalaf.com/</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/hakkimizda</loc>
-    <lastmod>2025-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://gokalaf.com/paketler</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://gokalaf.com/hakkimizda</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://gokalaf.com/araclar</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Araçlar (11 Hesaplayıcı) -->
+  <url>
+    <loc>https://gokalaf.com/araclar/vki</loc>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/vucut-kitle-indeksi</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/araclar/kalori</loc>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/kalori-hesaplama</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/araclar/tdee</loc>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/tdee-hesaplama</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/araclar/makro</loc>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gokalaf.com/araclar/makro-hesaplama</loc>
-    <lastmod>2025-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gokalaf.com/araclar/ideal-kilo</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/araclar/vucut-yagi</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/araclar/bir-tekrar-max</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gokalaf.com/araclar/su-tuketimi</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/araclar/kalp-atisi</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/araclar/protein</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/araclar/dinlenme</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Yazılar (30 Makale) -->
+  <url>
+    <loc>https://gokalaf.com/yazilar/fitness-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/vucut-yag-orani</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/yazilar/kreatin-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/protein-ihtiyaci</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/yazilar/kreatinin-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/one-rep-max</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/yazilar/omega3-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/kalp-atis-hizi</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/yazilar/kolajen-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gokalaf.com/araclar/bel-kalca-orani</loc>
-    <lastmod>2025-12-10</lastmod>
+    <loc>https://gokalaf.com/yazilar/probiyotik-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/ketojenik-diyet-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/pre-workout-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/zayiflamak-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/dambil-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/barbell-row-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/boy-uzatma-egzersizleri</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/deadlift-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/leg-extension-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/squat-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/leg-press-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/gobek-eritme</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/dumbbell-front-raise-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/katarin-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/balik-yagi-faydalari</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/romanian-deadlift-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/karbonhidrat-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/keratin-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/overhead-press-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/bcaa-ne-ise-yarar</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/glukozamin-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/kardiyo-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/cla-nedir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/gobek-nasil-erir</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/yazilar/biceps-egzersizleri</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Yasal Sayfalar -->
+  <url>
+    <loc>https://gokalaf.com/gizlilik-politikasi</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/kvkk</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/iptal-iade</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gokalaf.com/mesafeli-satis-sozlesmesi</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Kullanıcı Sayfaları -->
   <url>
     <loc>https://gokalaf.com/giris</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://gokalaf.com/kayit</loc>
-    <lastmod>2025-12-10</lastmod>
+    <lastmod>2025-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
