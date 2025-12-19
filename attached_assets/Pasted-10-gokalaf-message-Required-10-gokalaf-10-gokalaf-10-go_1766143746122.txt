@@ -1,0 +1,45 @@
+10|gokalaf |       message: 'Required'
+10|gokalaf |     }
+10|gokalaf |   ]
+10|gokalaf | }
+10|gokalaf | Error: ENOENT: no such file or directory, stat '/var/www/gokalaf/dist/public/index.html'
+10|gokalaf | SSR render error: TypeError [ERR_INVALID_ARG_TYPE]: The "paths[0]" argument must be of type string. Received undefined
+10|gokalaf |     at Object.resolve (node:path:1210:7)
+10|gokalaf |     at rE (/var/www/gokalaf/dist/index.cjs:1183:475)
+10|gokalaf |     at tt (/var/www/gokalaf/dist/index.cjs:1183:2723)
+10|gokalaf |     at Object.Jq [as handler] (/var/www/gokalaf/dist/index.cjs:1183:2021)
+10|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|gokalaf |   code: 'ERR_INVALID_ARG_TYPE'
+10|gokalaf | }
+10|gokalaf | SSR render error: TypeError [ERR_INVALID_ARG_TYPE]: The "paths[0]" argument must be of type string. Received undefined
+10|gokalaf |     at Object.resolve (node:path:1210:7)
+10|gokalaf |     at rE (/var/www/gokalaf/dist/index.cjs:1183:475)
+10|gokalaf |     at tt (/var/www/gokalaf/dist/index.cjs:1183:2723)
+10|gokalaf |     at Object.Jq [as handler] (/var/www/gokalaf/dist/index.cjs:1183:2021)
+10|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|gokalaf |   code: 'ERR_INVALID_ARG_TYPE'
+10|gokalaf | }
+10|gokalaf | SSR render error: TypeError [ERR_INVALID_ARG_TYPE]: The "paths[0]" argument must be of type string. Received undefined
+10|gokalaf |     at Object.resolve (node:path:1210:7)
+10|gokalaf |     at rE (/var/www/gokalaf/dist/index.cjs:1183:475)
+10|gokalaf |     at tt (/var/www/gokalaf/dist/index.cjs:1183:2723)
+10|gokalaf |     at Object.Jq [as handler] (/var/www/gokalaf/dist/index.cjs:1183:2021)
+10|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|gokalaf |   code: 'ERR_INVALID_ARG_TYPE'
+10|gokalaf | }
+10|gokalaf | Error: ENOENT: no such file or directory, stat '/var/www/gokalaf/dist/public/index.html'
+
+/root/.pm2/logs/gokalaf-out.log last 30 lines:
+10|gokalaf |                                                                                                                                                                                  +\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              +\n ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          +\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              +\n ## ⚠️ Yasal Uyarı                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             +\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              +\n Bu makalede yer alan bilgiler yalnızca genel bilgilendirme amaçlıdır ve profesyonel tıbbi tavsiye, teşhis veya tedavi yerine geçmez. Herhangi bir sağlık sorununuz varsa veya bu makaledeki bilgileri uygulamadan önce mutlaka bir sağlık uzmanına danışın. Gokalaf, bu makaledeki bilgilerin kullanımından kaynaklanan herhangi bir sonuçtan sorumlu tutulamaz. Bireysel sağlık durumları farklılık gösterebilir; kendi sağlık durumunuza uygun kararlar almak için doktorunuza başvurun.","ctaText":"","ctaLink":"","status":"published","publishedAt":"2025-12-19T08:16:47.420Z","seoTitle":"Göbek Nasıl Erir? Karın Yağı Azaltma Rehberi | Gokalaf","seoDescription":"Göbek nasıl erir, karın yağından kurtulmanın bilimsel yolları. Beslenme, egzersiz ve yaşam tarzı değişiklikleri ile kalıcı sonuç rehberi.","createdAt":"2025-12-19T08:16:47.420Z","updatedAt":"2025-12-19T08:16:47.420Z"}
+10|gokalaf | 2:28:51 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+10|gokalaf | 2:28:51 PM [express] GET /api/maintenance 200 in 14ms :: {"maintenanceMode":false}
+10|gokalaf | 2:28:52 PM [express] serving on port 5999
+10|gokalaf | 📧 Initializing email scheduler...
+10|gokalaf | ✅ Email scheduler initialized:
+10|gokalaf |    - Daily reminders: 18:00 (Istanbul)
+10|gokalaf |    - Package expiry check: 09:00 (Istanbul)
+10|gokalaf |    - Purchase reminders: Every 2 days at 10:00 (Istanbul)
+10|gokalaf |    - Stale order cleanup: Every 5 minutes
+10|gokalaf | ✅ SMTP connection verified
+
+

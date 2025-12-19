@@ -76,37 +76,27 @@ function getIndexHtml(): string {
 
   const isProduction = process.env.NODE_ENV === "production";
   
-  let cwd: string;
-  try {
-    cwd = process.cwd() || "/var/www/gokalaf";
-  } catch {
-    cwd = "/var/www/gokalaf";
-  }
-  
-  if (!cwd || cwd === "undefined") {
-    cwd = "/var/www/gokalaf";
-  }
-  
   console.log(`[SSR] Environment: ${isProduction ? 'production' : 'development'}`);
-  console.log(`[SSR] CWD: ${cwd}`);
   
-  const possiblePaths = isProduction ? [
-    path.join(cwd, "dist", "public", "index.html"),
+  const possiblePaths: string[] = isProduction ? [
     "/var/www/gokalaf/dist/public/index.html",
-    path.join(cwd, "public", "index.html"),
   ] : [
-    path.join(cwd, "client", "index.html"),
-    path.join(cwd, "dist", "public", "index.html"),
+    "/home/runner/workspace/client/index.html",
+    "/home/runner/workspace/dist/public/index.html",
   ];
   
   let indexPath: string | null = null;
   
   for (const testPath of possiblePaths) {
     console.log(`[SSR] Checking: ${testPath}`);
-    if (fs.existsSync(testPath)) {
-      indexPath = testPath;
-      console.log(`[SSR] Found index.html at: ${testPath}`);
-      break;
+    try {
+      if (fs.existsSync(testPath)) {
+        indexPath = testPath;
+        console.log(`[SSR] Found index.html at: ${testPath}`);
+        break;
+      }
+    } catch (e) {
+      console.log(`[SSR] Error checking ${testPath}:`, e);
     }
   }
   
