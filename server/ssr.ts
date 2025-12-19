@@ -77,10 +77,18 @@ function getIndexHtml(): string {
   const isProduction = process.env.NODE_ENV === "production";
   
   console.log(`[SSR] Environment: ${isProduction ? 'production' : 'development'}`);
+  console.log(`[SSR] CWD: ${process.cwd()}`);
+  
+  const cwd = process.cwd();
   
   const possiblePaths: string[] = isProduction ? [
+    path.join(cwd, "dist/public/index.html"),
+    path.join(cwd, "public/index.html"),
     "/var/www/gokalaf/dist/public/index.html",
+    "/var/www/gokalaf/public/index.html",
   ] : [
+    path.join(cwd, "client/index.html"),
+    path.join(cwd, "dist/public/index.html"),
     "/home/runner/workspace/client/index.html",
     "/home/runner/workspace/dist/public/index.html",
   ];
