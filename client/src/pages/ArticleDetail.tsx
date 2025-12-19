@@ -348,51 +348,61 @@ export default function ArticleDetail() {
         }
         
         .article-content table {
-          width: 100%;
-          max-width: 100%;
-          border-collapse: separate;
-          border-spacing: 0;
-          margin: 40px 0;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          display: block;
-          overflow-x: auto;
+          width: 100% !important;
+          max-width: 100% !important;
+          border-collapse: separate !important;
+          border-spacing: 0 !important;
+          margin: 40px 0 !important;
+          border-radius: 16px !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          display: table !important;
+          table-layout: auto !important;
         }
         .article-content thead {
-          background: linear-gradient(135deg, rgba(204, 255, 0, 0.2) 0%, rgba(204, 255, 0, 0.1) 100%);
+          display: table-header-group !important;
+          background: linear-gradient(135deg, rgba(204, 255, 0, 0.2) 0%, rgba(204, 255, 0, 0.1) 100%) !important;
+        }
+        .article-content tbody {
+          display: table-row-group !important;
+        }
+        .article-content tr {
+          display: table-row !important;
         }
         .article-content th {
-          padding: 16px 20px;
-          text-align: left;
-          font-weight: 700;
-          color: #fff;
-          font-family: 'Oswald', sans-serif;
-          text-transform: uppercase;
-          font-size: 0.9rem;
-          letter-spacing: 0.05em;
-          border-bottom: 2px solid rgba(204, 255, 0, 0.3);
-          white-space: nowrap;
+          display: table-cell !important;
+          padding: 16px 20px !important;
+          text-align: left !important;
+          font-weight: 700 !important;
+          color: #fff !important;
+          font-family: 'Oswald', sans-serif !important;
+          text-transform: uppercase !important;
+          font-size: 0.9rem !important;
+          letter-spacing: 0.05em !important;
+          border-bottom: 2px solid rgba(204, 255, 0, 0.3) !important;
+          white-space: nowrap !important;
+          background: transparent !important;
         }
         .article-content td {
-          padding: 16px 20px;
-          color: #d1d5db;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          font-size: 1rem;
+          display: table-cell !important;
+          padding: 16px 20px !important;
+          color: #d1d5db !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+          font-size: 1rem !important;
+          background: transparent !important;
         }
         .article-content tbody tr {
-          background: rgba(255, 255, 255, 0.02);
-          transition: background 0.2s ease;
+          background: rgba(255, 255, 255, 0.02) !important;
+          transition: background 0.2s ease !important;
         }
         .article-content tbody tr:nth-child(even) {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.05) !important;
         }
         .article-content tbody tr:hover {
-          background: rgba(204, 255, 0, 0.05);
+          background: rgba(204, 255, 0, 0.05) !important;
         }
         .article-content tbody tr:last-child td {
-          border-bottom: none;
+          border-bottom: none !important;
         }
       `}</style>
     </div>
