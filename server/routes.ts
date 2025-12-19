@@ -1517,5 +1517,49 @@ Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
     }
   });
 
+  // ===== EXERCISES API (Egzersiz Akademisi) =====
+  app.get("/api/exercises", async (req, res) => {
+    try {
+      const { muscle, equipment, level, category, search, limit, offset } = req.query;
+      const filters = {
+        muscle: muscle as string | undefined,
+        equipment: equipment as string | undefined,
+        level: level as string | undefined,
+        category: category as string | undefined,
+        search: search as string | undefined,
+        limit: limit ? parseInt(limit as string) : 24,
+        offset: offset ? parseInt(offset as string) : 0,
+      };
+      const result = await storage.getExercisesByFilters(filters);
+      res.json(result);
+    } catch (error) {
+      console.error("Exercises fetch error:", error);
+      res.status(500).json({ error: "Egzersizler yüklenemedi" });
+    }
+  });
+
+  app.get("/api/exercises/filters", async (req, res) => {
+    try {
+      const filters = await storage.getExerciseFilters();
+      res.json(filters);
+    } catch (error) {
+      console.error("Exercise filters fetch error:", error);
+      res.status(500).json({ error: "Filtreler yüklenemedi" });
+    }
+  });
+
+  app.get("/api/exercises/:slug", async (req, res) => {
+    try {
+      const exercise = await storage.getExerciseBySlug(req.params.slug);
+      if (!exercise) {
+        return res.status(404).json({ error: "Egzersiz bulunamadı" });
+      }
+      res.json(exercise);
+    } catch (error) {
+      console.error("Exercise fetch error:", error);
+      res.status(500).json({ error: "Egzersiz yüklenemedi" });
+    }
+  });
+
   return httpServer;
 }

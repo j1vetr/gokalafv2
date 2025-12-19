@@ -27,6 +27,8 @@ import type {
   InsertArticleCategory,
   Article,
   InsertArticle,
+  Exercise,
+  InsertExercise,
 } from "@shared/schema";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
@@ -728,6 +730,97 @@ export class DatabaseStorage implements IStorage {
   async deleteArticle(id: string): Promise<boolean> {
     await db.delete(schema.articles).where(eq(schema.articles.id, id));
     return true;
+  }
+
+  // EXERCISES
+  async getExercise(id: string): Promise<Exercise | undefined> {
+    const [exercise] = await db.select().from(schema.exercises).where(eq(schema.exercises.id, id)).limit(1);
+    return exercise;
+  }
+
+  async getExerciseBySlug(slug: string): Promise<Exercise | undefined> {
+    const [exercise] = await db.select().from(schema.exercises).where(eq(schema.exercises.slug, slug)).limit(1);
+    return exercise;
+  }
+
+  async getAllExercises(): Promise<Exercise[]> {
+    return db.select().from(schema.exercises).orderBy(schema.exercises.name);
+  }
+
+  async getExercisesByFilters(filters: {
+    muscle?: string;
+    equipment?: string;
+    level?: string;
+    category?: string;
+    search?: string;
+    limit?: number;
+    offset?: number;
+  }): Promise<{ exercises: Exercise[]; total: number }> {
+    let query = db.select().from(schema.exercises);
+    const conditions = [];
+
+    if (filters.muscle) {
+      conditions.push(sql`${filters.muscle} = ANY(${schema.exercises.primaryMuscles})`);
+    }
+    if (filters.equipment) {
+      conditions.push(eq(schema.exercises.equipment, filters.equipment));
+    }
+    if (filters.level) {
+      conditions.push(eq(schema.exercises.level, filters.level));
+    }
+    if (filters.category) {
+      conditions.push(eq(schema.exercises.category, filters.category));
+    }
+    if (filters.search) {
+      conditions.push(sql`LOWER(${schema.exercises.name}) LIKE LOWER(${'%' + filters.search + '%'})`);
+    }
+
+    const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
+
+    const countResult = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(schema.exercises)
+      .where(whereClause);
+    const total = Number(countResult[0]?.count || 0);
+
+    let exercisesQuery = db.select().from(schema.exercises).where(whereClause).orderBy(schema.exercises.name);
+    
+    if (filters.limit) {
+      exercisesQuery = exercisesQuery.limit(filters.limit) as typeof exercisesQuery;
+    }
+    if (filters.offset) {
+      exercisesQuery = exercisesQuery.offset(filters.offset) as typeof exercisesQuery;
+    }
+
+    const exercises = await exercisesQuery;
+    return { exercises, total };
+  }
+
+  async getExerciseFilters(): Promise<{
+    muscles: string[];
+    equipment: string[];
+    levels: string[];
+    categories: string[];
+  }> {
+    const musclesResult = await db.selectDistinct({ muscle: sql<string>`unnest(${schema.exercises.primaryMuscles})` }).from(schema.exercises);
+    const equipmentResult = await db.selectDistinct({ equipment: schema.exercises.equipment }).from(schema.exercises).where(sql`${schema.exercises.equipment} IS NOT NULL`);
+    const levelsResult = await db.selectDistinct({ level: schema.exercises.level }).from(schema.exercises);
+    const categoriesResult = await db.selectDistinct({ category: schema.exercises.category }).from(schema.exercises);
+
+    return {
+      muscles: musclesResult.map(r => r.muscle).filter(Boolean).sort(),
+      equipment: equipmentResult.map(r => r.equipment).filter(Boolean).sort() as string[],
+      levels: levelsResult.map(r => r.level).filter(Boolean).sort(),
+      categories: categoriesResult.map(r => r.category).filter(Boolean).sort(),
+    };
+  }
+
+  async updateExerciseTranslation(id: string, instructionsTr: string[]): Promise<Exercise | undefined> {
+    const [result] = await db.update(schema.exercises)
+      .set({ instructionsTr })
+      .where(eq(schema.exercises.id, id))
+      .returning();
+    return result;
   }
 }
 
