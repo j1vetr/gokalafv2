@@ -1,4 +1,4 @@
-import type { Article, Package } from "@shared/schema";
+import type { Article, Package, Exercise } from "@shared/schema";
 
 function formatDateISO(date: Date | string | null | undefined): string | undefined {
   if (!date) return undefined;
@@ -1094,4 +1094,100 @@ function escapeHtml(text: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+const muscleLabels: Record<string, string> = {
+  abdominals: "Karın",
+  abductors: "Dış Bacak",
+  adductors: "İç Bacak",
+  biceps: "Biceps",
+  calves: "Baldır",
+  chest: "Göğüs",
+  forearms: "Ön Kol",
+  glutes: "Kalça",
+  hamstrings: "Arka Bacak",
+  lats: "Sırt",
+  "lower back": "Alt Sırt",
+  "middle back": "Orta Sırt",
+  neck: "Boyun",
+  quadriceps: "Ön Bacak",
+  shoulders: "Omuz",
+  traps: "Trapez",
+  triceps: "Triceps",
+};
+
+const levelLabels: Record<string, string> = {
+  beginner: "Başlangıç",
+  intermediate: "Orta",
+  expert: "İleri",
+};
+
+export function generateExercisesListMeta(total: number): MetaTags {
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${BASE_URL}/egzersiz-akademisi#webpage`,
+    "url": `${BASE_URL}/egzersiz-akademisi`,
+    "name": "Egzersiz Akademisi - 800+ Fitness Hareketi | Gokalaf",
+    "description": `${total}+ fitness egzersizi ve hareket rehberi. Kas gruplarına, ekipmana ve zorluk seviyesine göre doğru egzersizleri öğrenin.`,
+    "isPartOf": { "@id": `${BASE_URL}/#website` },
+    "about": { "@id": `${BASE_URL}/#organization` },
+    "inLanguage": "tr-TR"
+  });
+
+  return {
+    title: `Egzersiz Akademisi - ${total}+ Fitness Hareketi | Gokalaf`,
+    description: `${total}'den fazla fitness egzersizi ve hareket rehberi. Kas gruplarına, ekipmana ve zorluk seviyesine göre filtreleme yaparak doğru egzersizleri öğrenin.`,
+    keywords: "egzersiz, fitness hareketleri, gym egzersizleri, kas çalışma, antrenman rehberi, egzersiz akademisi, vücut geliştirme hareketleri",
+    ogTitle: `Egzersiz Akademisi - ${total}+ Fitness Hareketi | Gokalaf`,
+    ogDescription: `${total}+ fitness egzersizi. Kas gruplarına göre filtreleyerek doğru tekniği öğrenin.`,
+    ogImage: DEFAULT_OG_IMAGE,
+    ogUrl: `${BASE_URL}/egzersiz-akademisi`,
+    ogType: "website",
+    twitterCard: "summary_large_image",
+    twitterTitle: `Egzersiz Akademisi | Gokalaf`,
+    twitterDescription: `${total}+ fitness egzersizi rehberi.`,
+    twitterImage: DEFAULT_OG_IMAGE,
+    canonical: `${BASE_URL}/egzersiz-akademisi`,
+    schema,
+  };
+}
+
+export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
+  const muscles = exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(", ");
+  const level = levelLabels[exercise.level] || exercise.level;
+  const imageUrl = exercise.images[0] ? `${BASE_URL}${exercise.images[0]}` : DEFAULT_OG_IMAGE;
+
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
+    "name": exercise.name,
+    "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
+    "image": imageUrl,
+    "step": (exercise.instructionsTr || exercise.instructionsEn).map((step, i) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "text": step
+    })),
+    "tool": exercise.equipment ? [{ "@type": "HowToTool", "name": exercise.equipment }] : [],
+    "inLanguage": "tr-TR"
+  });
+
+  return {
+    title: `${exercise.name} - Egzersiz Rehberi | Gokalaf`,
+    description: `${exercise.name} egzersizi nasıl yapılır? Adım adım talimatlar, hedef kaslar (${muscles}) ve doğru teknik bilgisi. Seviye: ${level}.`,
+    keywords: `${exercise.name}, ${muscles}, egzersiz, fitness, ${exercise.equipment || ''}, ${level}`,
+    ogTitle: `${exercise.name} - Egzersiz Rehberi | Gokalaf`,
+    ogDescription: `${exercise.name} nasıl yapılır? Hedef kaslar: ${muscles}. ${level} seviye.`,
+    ogImage: imageUrl,
+    ogUrl: `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
+    ogType: "article",
+    twitterCard: "summary_large_image",
+    twitterTitle: `${exercise.name} | Gokalaf Egzersiz Akademisi`,
+    twitterDescription: `${exercise.name} egzersizi. Hedef: ${muscles}.`,
+    twitterImage: imageUrl,
+    canonical: `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
+    schema,
+  };
 }

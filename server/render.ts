@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import type { Article, Package } from "@shared/schema";
+import type { Article, Package, Exercise } from "@shared/schema";
 
 const md = new MarkdownIt({
   html: true,
@@ -745,4 +745,110 @@ function escapeHtml(text: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+const muscleLabels: Record<string, string> = {
+  abdominals: "Karın",
+  abductors: "Dış Bacak",
+  adductors: "İç Bacak",
+  biceps: "Biceps",
+  calves: "Baldır",
+  chest: "Göğüs",
+  forearms: "Ön Kol",
+  glutes: "Kalça",
+  hamstrings: "Arka Bacak",
+  lats: "Sırt",
+  "lower back": "Alt Sırt",
+  "middle back": "Orta Sırt",
+  neck: "Boyun",
+  quadriceps: "Ön Bacak",
+  shoulders: "Omuz",
+  traps: "Trapez",
+  triceps: "Triceps",
+};
+
+const levelLabels: Record<string, string> = {
+  beginner: "Başlangıç",
+  intermediate: "Orta",
+  expert: "İleri",
+};
+
+export function renderExercisesList(exercises: Exercise[], total: number): string {
+  const exerciseCards = exercises.slice(0, 24).map(exercise => `
+    <article style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 0.75rem; overflow: hidden;">
+      <a href="/egzersiz-akademisi/${exercise.slug}" style="text-decoration: none;">
+        ${exercise.images[0] ? `<img src="${exercise.images[0]}" alt="${escapeHtml(exercise.name)}" style="width: 100%; height: 180px; object-fit: cover;" loading="lazy" />` : ''}
+        <div style="padding: 1rem;">
+          <span style="display: inline-block; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; margin-bottom: 0.5rem; ${
+            exercise.level === 'beginner' ? 'background: rgba(34, 197, 94, 0.2); color: #22c55e;' :
+            exercise.level === 'intermediate' ? 'background: rgba(234, 179, 8, 0.2); color: #eab308;' :
+            'background: rgba(239, 68, 68, 0.2); color: #ef4444;'
+          }">${levelLabels[exercise.level] || exercise.level}</span>
+          <h2 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">${escapeHtml(exercise.name)}</h2>
+          <p style="font-size: 0.875rem; color: #a3a3a3;">${exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(', ')}</p>
+        </div>
+      </a>
+    </article>
+  `).join('');
+
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <header style="padding: 2rem; text-align: center;">
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff;">Egzersiz Akademisi</h1>
+        <p style="color: #a3a3a3;">${total}+ fitness egzersizi ve hareket rehberi</p>
+      </header>
+      <main style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+          ${exerciseCards || '<p style="color: #a3a3a3;">Egzersiz bulunamadı.</p>'}
+        </div>
+      </main>
+    </div>
+  `;
+}
+
+export function renderExerciseDetail(exercise: Exercise): string {
+  const muscles = exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(', ');
+  const level = levelLabels[exercise.level] || exercise.level;
+  const instructions = exercise.instructionsTr || exercise.instructionsEn;
+
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <a href="/" style="color: #a3a3a3; text-decoration: none;">Ana Sayfa</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <a href="/egzersiz-akademisi" style="color: #a3a3a3; text-decoration: none;">Egzersiz Akademisi</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <span style="color: #ccff00;">${escapeHtml(exercise.name)}</span>
+        </nav>
+
+        <article>
+          <header style="margin-bottom: 2rem;">
+            <span style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; margin-bottom: 1rem; ${
+              exercise.level === 'beginner' ? 'background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3);' :
+              exercise.level === 'intermediate' ? 'background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3);' :
+              'background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);'
+            }">${level}</span>
+            <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">${escapeHtml(exercise.name)}</h1>
+            <p style="color: #a3a3a3;">Hedef Kaslar: ${muscles}</p>
+          </header>
+
+          ${exercise.images.length > 0 ? `
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+              ${exercise.images.map((img, i) => `
+                <img src="${img}" alt="${escapeHtml(exercise.name)} - ${i === 0 ? 'Başlangıç' : 'Bitiş'} Pozisyonu" style="width: 100%; border-radius: 0.75rem; border: 1px solid #1a1a1a;" />
+              `).join('')}
+            </div>
+          ` : ''}
+
+          <section>
+            <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Nasıl Yapılır?</h2>
+            <ol style="padding-left: 1.5rem;">
+              ${instructions.map(step => `<li style="color: #e5e5e5; margin-bottom: 1rem; line-height: 1.6;">${escapeHtml(step)}</li>`).join('')}
+            </ol>
+          </section>
+        </article>
+      </main>
+    </div>
+  `;
 }

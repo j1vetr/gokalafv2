@@ -20,6 +20,8 @@ import {
   generateKalpAtisiToolMeta,
   generateProteinToolMeta,
   generateDinlenmeToolMeta,
+  generateExercisesListMeta,
+  generateExerciseDetailMeta,
   injectMeta,
   injectBody,
 } from "./seo/meta-inject";
@@ -41,6 +43,8 @@ import {
   renderKalpAtisiTool,
   renderProteinTool,
   renderDinlenmeTool,
+  renderExercisesList,
+  renderExerciseDetail,
   render404,
 } from "./render";
 import { log } from "./index";
@@ -218,6 +222,14 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     pattern: /^\/araclar\/dinlenme\/?$/,
     handler: handleDinlenmeTool,
   },
+  {
+    pattern: /^\/egzersiz-akademisi\/?$/,
+    handler: handleExercisesList,
+  },
+  {
+    pattern: /^\/egzersiz-akademisi\/([^\/]+)\/?$/,
+    handler: handleExerciseDetail,
+  },
 ];
 
 async function handleHome(req: Request, res: Response): Promise<void> {
@@ -358,6 +370,51 @@ async function handleDinlenmeTool(req: Request, res: Response): Promise<void> {
   const meta = generateDinlenmeToolMeta();
   const body = renderDinlenmeTool();
   sendSSRResponse(res, meta, body);
+}
+
+async function handleExercisesList(req: Request, res: Response): Promise<void> {
+  console.log(`[SSR] Exercises list request`);
+  try {
+    const result = await storage.getExercisesByFilters({ limit: 24, offset: 0 });
+    console.log(`[SSR] Found ${result.total} exercises`);
+    const meta = generateExercisesListMeta(result.total);
+    const body = renderExercisesList(result.exercises, result.total);
+    sendSSRResponse(res, meta, body);
+  } catch (error) {
+    console.error(`[SSR] Error handling exercises list:`, error);
+    send404Response(res);
+  }
+}
+
+async function handleExerciseDetail(req: Request, res: Response): Promise<void> {
+  const match = req.path.match(/^\/egzersiz-akademisi\/([^\/]+)\/?$/);
+  const slug = match ? match[1] : null;
+  
+  console.log(`[SSR] Exercise detail request for slug: ${slug}`);
+  
+  if (!slug) {
+    console.log(`[SSR] No slug found, returning 404`);
+    send404Response(res);
+    return;
+  }
+  
+  try {
+    const exercise = await storage.getExerciseBySlug(slug);
+    
+    if (!exercise) {
+      console.log(`[SSR] Exercise not found: ${slug}`);
+      send404Response(res);
+      return;
+    }
+    
+    console.log(`[SSR] Found exercise: ${exercise.name}`);
+    const meta = generateExerciseDetailMeta(exercise);
+    const body = renderExerciseDetail(exercise);
+    sendSSRResponse(res, meta, body);
+  } catch (error) {
+    console.error(`[SSR] Error handling exercise ${slug}:`, error);
+    send404Response(res);
+  }
 }
 
 function sendSSRResponse(
