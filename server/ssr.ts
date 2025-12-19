@@ -75,37 +75,44 @@ function getIndexHtml(): string {
   }
 
   const isProduction = process.env.NODE_ENV === "production";
-  const cwd = process.cwd();
   
-  let indexPath: string;
-  if (isProduction) {
-    indexPath = path.resolve(cwd, "dist", "public", "index.html");
-  } else {
-    indexPath = path.resolve(cwd, "client", "index.html");
+  let cwd: string;
+  try {
+    cwd = process.cwd() || "/var/www/gokalaf";
+  } catch {
+    cwd = "/var/www/gokalaf";
   }
-
+  
+  if (!cwd || cwd === "undefined") {
+    cwd = "/var/www/gokalaf";
+  }
+  
   console.log(`[SSR] Environment: ${isProduction ? 'production' : 'development'}`);
   console.log(`[SSR] CWD: ${cwd}`);
-  console.log(`[SSR] Looking for index.html at: ${indexPath}`);
   
-  if (!fs.existsSync(indexPath)) {
-    console.error(`[SSR] index.html not found at ${indexPath}`);
-    const altPaths = [
-      path.resolve(cwd, "dist", "public", "index.html"),
-      path.resolve(cwd, "client", "index.html"),
-      path.resolve(cwd, "public", "index.html"),
-    ];
-    for (const altPath of altPaths) {
-      if (fs.existsSync(altPath)) {
-        console.log(`[SSR] Found index.html at alternative path: ${altPath}`);
-        indexPath = altPath;
-        break;
-      }
+  const possiblePaths = isProduction ? [
+    path.join(cwd, "dist", "public", "index.html"),
+    "/var/www/gokalaf/dist/public/index.html",
+    path.join(cwd, "public", "index.html"),
+  ] : [
+    path.join(cwd, "client", "index.html"),
+    path.join(cwd, "dist", "public", "index.html"),
+  ];
+  
+  let indexPath: string | null = null;
+  
+  for (const testPath of possiblePaths) {
+    console.log(`[SSR] Checking: ${testPath}`);
+    if (fs.existsSync(testPath)) {
+      indexPath = testPath;
+      console.log(`[SSR] Found index.html at: ${testPath}`);
+      break;
     }
   }
   
-  if (!fs.existsSync(indexPath)) {
-    throw new Error(`index.html not found at ${indexPath}`);
+  if (!indexPath) {
+    console.error(`[SSR] index.html not found in any location`);
+    throw new Error(`index.html not found`);
   }
 
   cachedIndexHtml = fs.readFileSync(indexPath, "utf-8");
