@@ -2,12 +2,30 @@ import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Calendar, BookOpen, Share2, ChevronDown, Lightbulb, AlertCircle, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, BookOpen, Share2, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Article } from "@shared/schema";
 import MarkdownIt from "markdown-it";
 import { useMemo, useState } from "react";
 import SEO from "@/components/SEO";
+
+const fitnessTools = [
+  { name: "VKİ Hesaplama", path: "/araclar/vki", desc: "Vücut kitle indeksini hesapla" },
+  { name: "Kalori Hesaplama", path: "/araclar/kalori", desc: "Günlük kalori ihtiyacını öğren" },
+  { name: "TDEE Hesaplama", path: "/araclar/tdee", desc: "Toplam enerji harcamanı hesapla" },
+  { name: "Makro Hesaplama", path: "/araclar/makro", desc: "Protein, yağ, karbonhidrat oranlarını bul" },
+  { name: "İdeal Kilo", path: "/araclar/ideal-kilo", desc: "Sağlıklı kilo aralığını öğren" },
+  { name: "Vücut Yağı", path: "/araclar/vucut-yagi", desc: "Vücut yağ oranını hesapla" },
+  { name: "1RM Hesaplama", path: "/araclar/bir-tekrar-max", desc: "Maksimum kaldırma kapasiteni bul" },
+  { name: "Su Tüketimi", path: "/araclar/su-tuketimi", desc: "Günlük su ihtiyacını hesapla" },
+  { name: "Kalp Atış Hızı", path: "/araclar/kalp-atisi", desc: "Hedef kalp atış hızını öğren" },
+  { name: "Protein İhtiyacı", path: "/araclar/protein", desc: "Günlük protein ihtiyacını hesapla" },
+];
+
+function getRandomTools(count: number) {
+  const shuffled = [...fitnessTools].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
 
 const md = new MarkdownIt({
   html: true,
@@ -281,6 +299,39 @@ export default function ArticleDetail() {
                 </Link>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Fitness Tools Section */}
+      <section className="py-12 border-t border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <Calculator className="w-6 h-6 text-primary" />
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-white">
+                Fitness Araçlarımız
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {getRandomTools(6).map((tool) => (
+                <Link key={tool.path} href={tool.path}>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group">
+                    <h4 className="font-heading font-bold text-white text-sm md:text-base group-hover:text-primary transition-colors">
+                      {tool.name}
+                    </h4>
+                    <p className="text-gray-500 text-xs mt-1 line-clamp-1">{tool.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-4">
+              <Link href="/araclar">
+                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+                  Tüm Araçları Gör <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

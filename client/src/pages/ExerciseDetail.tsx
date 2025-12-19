@@ -1,12 +1,47 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ArrowLeft, Dumbbell, Target, Gauge, Zap, ChevronRight, X, ZoomIn } from "lucide-react";
+import { ArrowLeft, Dumbbell, Target, Gauge, Zap, ChevronRight, X, ZoomIn, Calculator, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import type { Exercise } from "@shared/schema";
+
+const fitnessTools = [
+  { name: "VKİ Hesaplama", path: "/araclar/vki", desc: "Vücut kitle indeksini hesapla" },
+  { name: "Kalori Hesaplama", path: "/araclar/kalori", desc: "Günlük kalori ihtiyacını öğren" },
+  { name: "TDEE Hesaplama", path: "/araclar/tdee", desc: "Toplam enerji harcamanı hesapla" },
+  { name: "Makro Hesaplama", path: "/araclar/makro", desc: "Protein, yağ, karbonhidrat oranlarını bul" },
+  { name: "İdeal Kilo", path: "/araclar/ideal-kilo", desc: "Sağlıklı kilo aralığını öğren" },
+  { name: "Vücut Yağı", path: "/araclar/vucut-yagi", desc: "Vücut yağ oranını hesapla" },
+  { name: "1RM Hesaplama", path: "/araclar/bir-tekrar-max", desc: "Maksimum kaldırma kapasiteni bul" },
+  { name: "Su Tüketimi", path: "/araclar/su-tuketimi", desc: "Günlük su ihtiyacını hesapla" },
+  { name: "Kalp Atış Hızı", path: "/araclar/kalp-atisi", desc: "Hedef kalp atış hızını öğren" },
+  { name: "Protein İhtiyacı", path: "/araclar/protein", desc: "Günlük protein ihtiyacını hesapla" },
+];
+
+function RandomToolsGrid() {
+  const randomTools = useMemo(() => {
+    const shuffled = [...fitnessTools].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 6);
+  }, []);
+
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+      {randomTools.map((tool) => (
+        <Link key={tool.path} href={tool.path}>
+          <div className="bg-white/5 border border-white/10 rounded-xl p-3 sm:p-4 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer group">
+            <h4 className="font-heading font-bold text-white text-xs sm:text-sm group-hover:text-primary transition-colors">
+              {tool.name}
+            </h4>
+            <p className="text-gray-500 text-[10px] sm:text-xs mt-1 line-clamp-1 hidden sm:block">{tool.desc}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 const levelLabels: Record<string, string> = {
   beginner: "Başlangıç",
@@ -455,6 +490,27 @@ export default function ExerciseDetail() {
                 </motion.li>
               ))}
             </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-8 sm:py-12 border-t border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto lg:mx-0">
+            <div className="flex items-center gap-3 mb-6">
+              <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-white">
+                Fitness Araçlarımız
+              </h3>
+            </div>
+            <RandomToolsGrid />
+            <div className="text-center mt-4">
+              <Link href="/araclar">
+                <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 text-xs sm:text-sm">
+                  Tüm Araçları Gör <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
