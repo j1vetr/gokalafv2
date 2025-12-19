@@ -176,7 +176,8 @@ export function generateArticlesListMeta(articles: Article[]): MetaTags {
 }
 
 export function generateArticleDetailMeta(article: Article): MetaTags {
-  const title = article.seoTitle || article.title;
+  const rawTitle = article.seoTitle || article.title;
+  const title = rawTitle.replace(/\s*\|\s*Gokalaf\s*$/i, '');
   const description = article.seoDescription || article.excerpt || article.title;
   const keywords = `${article.title}, fitness, beslenme, gokalaf`;
   const ogImage = article.heroImage
