@@ -363,7 +363,9 @@ function sendSSRResponse(
     html = injectBody(html, body);
     
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=300, s-maxage=600");
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
     res.send(html);
   } catch (error) {
     console.error("SSR render error:", error);
