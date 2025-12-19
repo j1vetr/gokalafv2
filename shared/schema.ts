@@ -295,3 +295,28 @@ export const insertArticleSchema = createInsertSchema(articles).omit({
 
 export type InsertArticle = z.infer<typeof insertArticleSchema>;
 export type Article = typeof articles.$inferSelect;
+
+// EXERCISES TABLE (egzersiz akademisi)
+export const exercises = pgTable("exercises", {
+  id: varchar("id").primaryKey(), // from the JSON (e.g., "Barbell_Curl")
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  force: text("force"), // pull, push, static
+  level: text("level").notNull(), // beginner, intermediate, expert
+  mechanic: text("mechanic"), // compound, isolation
+  equipment: text("equipment"), // body only, dumbbell, barbell, etc.
+  category: text("category").notNull(), // strength, stretching, plyometrics, etc.
+  primaryMuscles: text("primary_muscles").array().notNull(),
+  secondaryMuscles: text("secondary_muscles").array().notNull(),
+  instructionsEn: text("instructions_en").array().notNull(), // English instructions
+  instructionsTr: text("instructions_tr").array(), // Turkish instructions
+  images: text("images").array().notNull(), // local image paths
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertExerciseSchema = createInsertSchema(exercises).omit({
+  createdAt: true,
+});
+
+export type InsertExercise = z.infer<typeof insertExerciseSchema>;
+export type Exercise = typeof exercises.$inferSelect;
