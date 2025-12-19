@@ -25,6 +25,7 @@ export function Navbar() {
     { name: "Hakkımda", href: "/hakkimizda" },
     { name: "Araçlar", href: "/araclar" },
     { name: "Yazılar", href: "/yazilar" },
+    { name: "Egzersiz Akademisi", href: "/egzersiz-akademisi" },
     { name: "Paketler", href: "/paketler" },
   ];
 
