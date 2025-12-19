@@ -747,6 +747,11 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(schema.exercises).orderBy(schema.exercises.name);
   }
 
+  async getAllExerciseSlugs(): Promise<string[]> {
+    const exercises = await db.select({ slug: schema.exercises.slug }).from(schema.exercises);
+    return exercises.map(e => e.slug);
+  }
+
   async getExercisesByFilters(filters: {
     muscle?: string;
     equipment?: string;

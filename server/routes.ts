@@ -88,13 +88,14 @@ export async function registerRoutes(
   app.use(sessionMiddleware);
 
   // ===== SEO SITEMAP =====
-  app.get("/sitemap.xml", (req, res) => {
+  app.get("/sitemap.xml", async (req, res) => {
     const baseUrl = "https://gokalaf.toov.com.tr";
-    const pages = [
+    const staticPages = [
       { loc: "/", priority: "1.0", changefreq: "weekly" },
       { loc: "/hakkimizda", priority: "0.8", changefreq: "monthly" },
       { loc: "/paketler", priority: "0.9", changefreq: "weekly" },
       { loc: "/yazilar", priority: "0.8", changefreq: "weekly" },
+      { loc: "/egzersiz-akademisi", priority: "0.9", changefreq: "weekly" },
       { loc: "/araclar", priority: "0.8", changefreq: "monthly" },
       { loc: "/araclar/vki", priority: "0.7", changefreq: "monthly" },
       { loc: "/araclar/kalori", priority: "0.7", changefreq: "monthly" },
@@ -115,17 +116,49 @@ export async function registerRoutes(
       { loc: "/mesafeli-satis", priority: "0.3", changefreq: "yearly" },
     ];
 
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    try {
+      const articles = await storage.getArticles();
+      const articlePages = articles
+        .filter(a => a.isPublished)
+        .map(a => ({
+          loc: `/yazilar/${a.slug}`,
+          priority: "0.7",
+          changefreq: "monthly",
+        }));
+
+      const exercises = await storage.getAllExerciseSlugs();
+      const exercisePages = exercises.map(slug => ({
+        loc: `/egzersiz-akademisi/${slug}`,
+        priority: "0.6",
+        changefreq: "monthly",
+      }));
+
+      const allPages = [...staticPages, ...articlePages, ...exercisePages];
+
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(page => `  <url>
+${allPages.map(page => `  <url>
     <loc>${baseUrl}${page.loc}</loc>
     <priority>${page.priority}</priority>
     <changefreq>${page.changefreq}</changefreq>
   </url>`).join("\n")}
 </urlset>`;
 
-    res.setHeader("Content-Type", "application/xml");
-    res.send(sitemap);
+      res.setHeader("Content-Type", "application/xml");
+      res.send(sitemap);
+    } catch (error) {
+      console.error("Sitemap generation error:", error);
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${staticPages.map(page => `  <url>
+    <loc>${baseUrl}${page.loc}</loc>
+    <priority>${page.priority}</priority>
+    <changefreq>${page.changefreq}</changefreq>
+  </url>`).join("\n")}
+</urlset>`;
+      res.setHeader("Content-Type", "application/xml");
+      res.send(sitemap);
+    }
   });
 
   app.get("/robots.txt", (req, res) => {
