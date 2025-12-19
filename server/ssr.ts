@@ -79,12 +79,21 @@ function getIndexHtml(): string {
     ? path.resolve(dirname, "public", "index.html")
     : path.resolve(dirname, "..", "client", "index.html");
 
+  console.log(`[SSR] Looking for index.html at: ${indexPath}`);
+  
   if (!fs.existsSync(indexPath)) {
+    console.error(`[SSR] index.html not found at ${indexPath}`);
     throw new Error(`index.html not found at ${indexPath}`);
   }
 
   cachedIndexHtml = fs.readFileSync(indexPath, "utf-8");
+  console.log(`[SSR] index.html loaded successfully (${cachedIndexHtml.length} bytes)`);
   return cachedIndexHtml;
+}
+
+export function clearSSRCache(): void {
+  cachedIndexHtml = null;
+  console.log("[SSR] Cache cleared");
 }
 
 export function isBot(userAgent: string | undefined): boolean {
@@ -198,31 +207,52 @@ async function handlePackages(req: Request, res: Response): Promise<void> {
 }
 
 async function handleArticlesList(req: Request, res: Response): Promise<void> {
-  const articles = await storage.getPublishedArticles();
-  const meta = generateArticlesListMeta(articles);
-  const body = renderArticlesList(articles);
-  sendSSRResponse(res, meta, body);
+  console.log(`[SSR] Articles list request`);
+  try {
+    const articles = await storage.getPublishedArticles();
+    console.log(`[SSR] Found ${articles.length} published articles`);
+    const meta = generateArticlesListMeta(articles);
+    console.log(`[SSR] Generated meta title: ${meta.title}`);
+    const body = renderArticlesList(articles);
+    console.log(`[SSR] Rendered body length: ${body.length}`);
+    sendSSRResponse(res, meta, body);
+  } catch (error) {
+    console.error(`[SSR] Error handling articles list:`, error);
+    send404Response(res);
+  }
 }
 
 async function handleArticleDetail(req: Request, res: Response): Promise<void> {
   const match = req.path.match(/^\/yazilar\/([^\/]+)\/?$/);
   const slug = match ? match[1] : null;
   
+  console.log(`[SSR] Article detail request for slug: ${slug}`);
+  
   if (!slug) {
+    console.log(`[SSR] No slug found, returning 404`);
     send404Response(res);
     return;
   }
   
-  const article = await storage.getArticleBySlug(slug);
-  
-  if (!article || article.status !== 'published') {
+  try {
+    const article = await storage.getArticleBySlug(slug);
+    
+    if (!article || article.status !== 'published') {
+      console.log(`[SSR] Article not found or not published: ${slug}`);
+      send404Response(res);
+      return;
+    }
+    
+    console.log(`[SSR] Found article: ${article.title}`);
+    const meta = generateArticleDetailMeta(article);
+    console.log(`[SSR] Generated meta title: ${meta.title}`);
+    const body = renderArticleDetail(article);
+    console.log(`[SSR] Rendered body length: ${body.length}`);
+    sendSSRResponse(res, meta, body);
+  } catch (error) {
+    console.error(`[SSR] Error handling article ${slug}:`, error);
     send404Response(res);
-    return;
   }
-  
-  const meta = generateArticleDetailMeta(article);
-  const body = renderArticleDetail(article);
-  sendSSRResponse(res, meta, body);
 }
 
 async function handleAbout(req: Request, res: Response): Promise<void> {
