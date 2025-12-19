@@ -1,0 +1,198 @@
+root@162-55-4-35:/var/www/gokalaf# git pull origin main
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 839 bytes | 839.00 KiB/s, done.
+From https://github.com/j1vetr/gokalafv2
+ * branch            main       -> FETCH_HEAD
+   77043fa..d377e62  main       -> origin/main
+Updating 77043fa..d377e62
+Fast-forward
+ server/ssr.ts | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+root@162-55-4-35:/var/www/gokalaf# npm run build
+
+> rest-express@1.0.0 build
+> tsx script/build.ts
+
+building client...
+vite v7.1.12 building for production...
+✓ 2978 modules transformed.
+rendering chunks (105)...[meta-images] no Replit deployment domain found, skipping meta tag updates
+../dist/public/index.html                                                             8.57 kB │ gzip:   2.28 kB
+../dist/public/assets/professional_gym_rack_with_dumbbells_close_up-Ch6na1P9.mp4  1,839.08 kB
+../dist/public/assets/index-BsLD4Rn6.css                                            187.33 kB │ gzip:  25.53 kB
+../dist/public/assets/professional_gym_rack_with_dumbbells_close_up-C_2c9FW0.js       0.09 kB │ gzip:   0.11 kB
+../dist/public/assets/check-Dz8BduKm.js                                               0.29 kB │ gzip:   0.24 kB
+../dist/public/assets/chevron-down-CFw04f5M.js                                        0.30 kB │ gzip:   0.25 kB
+../dist/public/assets/chevron-left-3ykr_bt0.js                                        0.30 kB │ gzip:   0.25 kB
+../dist/public/assets/chevron-right-D5LUScD8.js                                       0.30 kB │ gzip:   0.25 kB
+../dist/public/assets/plus--6eq6mAz.js                                                0.33 kB │ gzip:   0.25 kB
+../dist/public/assets/clock-CUEkjcxN.js                                               0.34 kB │ gzip:   0.27 kB
+../dist/public/assets/arrow-right-CB-QcqY8.js                                         0.34 kB │ gzip:   0.27 kB
+../dist/public/assets/arrow-left-Brn3y7DE.js                                          0.34 kB │ gzip:   0.27 kB
+../dist/public/assets/search-SCwdqT03.js                                              0.34 kB │ gzip:   0.27 kB
+../dist/public/assets/trending-up-4qzVz7OX.js                                         0.35 kB │ gzip:   0.27 kB
+../dist/public/assets/trending-down-83KA_3OO.js                                       0.35 kB │ gzip:   0.28 kB
+../dist/public/assets/circle-check-big-CVMKR6pq.js                                    0.36 kB │ gzip:   0.28 kB
+../dist/public/assets/flame-Bp-kb-dO.js                                               0.37 kB │ gzip:   0.29 kB
+../dist/public/assets/info-B4UQppBR.js                                                0.37 kB │ gzip:   0.28 kB
+../dist/public/assets/rotate-ccw-Ca5klPIv.js                                          0.37 kB │ gzip:   0.29 kB
+../dist/public/assets/lock-Gbe7MRSZ.js                                                0.37 kB │ gzip:   0.29 kB
+../dist/public/assets/circle-x-vpYF-t6U.js                                            0.38 kB │ gzip:   0.28 kB
+../dist/public/assets/credit-card-ByyqWXIs.js                                         0.38 kB │ gzip:   0.30 kB
+../dist/public/assets/moon-BW3QIMSp.js                                                0.39 kB │ gzip:   0.31 kB
+../dist/public/assets/target-SPCDzgan.js                                              0.39 kB │ gzip:   0.27 kB
+../dist/public/assets/activity-Lb-4Y40k.js                                            0.41 kB │ gzip:   0.30 kB
+../dist/public/assets/percent-DiSv5Av_.js                                             0.41 kB │ gzip:   0.29 kB
+../dist/public/assets/globe-BUNgKtDu.js                                               0.41 kB │ gzip:   0.29 kB
+../dist/public/assets/timer-nWUPB--k.js                                               0.41 kB │ gzip:   0.29 kB
+../dist/public/assets/message-circle-COVoBhZS.js                                      0.41 kB │ gzip:   0.32 kB
+../dist/public/assets/circle-question-mark-ByBbC7kl.js                                0.42 kB │ gzip:   0.31 kB
+../dist/public/assets/database-DCHWZqbj.js                                            0.42 kB │ gzip:   0.31 kB
+../dist/public/assets/circle-alert-ZdI0rAFm.js                                        0.42 kB │ gzip:   0.29 kB
+../dist/public/assets/eye-Mq4Q56J6.js                                                 0.42 kB │ gzip:   0.30 kB
+../dist/public/assets/map-pin-BQ6tOyh2.js                                             0.43 kB │ gzip:   0.33 kB
+../dist/public/assets/calendar-Dt6ymAKe.js                                            0.43 kB │ gzip:   0.31 kB
+../dist/public/assets/heart-CZ560KBv.js                                               0.43 kB │ gzip:   0.32 kB
+../dist/public/assets/utensils-CzaWU92v.js                                            0.43 kB │ gzip:   0.31 kB
+../dist/public/assets/zap-DUbzc8y3.js                                                 0.44 kB │ gzip:   0.31 kB
+../dist/public/assets/shield-2AvY3L6v.js                                              0.44 kB │ gzip:   0.33 kB
+../dist/public/assets/book-open-CcnokSoI.js                                           0.45 kB │ gzip:   0.31 kB
+../dist/public/assets/house-B79sX9M_.js                                               0.45 kB │ gzip:   0.32 kB
+../dist/public/assets/shopping-cart-DnWv0PGo.js                                       0.46 kB │ gzip:   0.33 kB
+../dist/public/assets/users-CdQcVjRK.js                                               0.48 kB │ gzip:   0.33 kB
+../dist/public/assets/refresh-cw-BplnvYP_.js                                          0.49 kB │ gzip:   0.33 kB
+../dist/public/assets/phone-KJI5AOBG.js                                               0.50 kB │ gzip:   0.33 kB
+../dist/public/assets/save-B7pfRSwV.js                                                0.50 kB │ gzip:   0.33 kB
+../dist/public/assets/file-text-DqCRaj9d.js                                           0.51 kB │ gzip:   0.32 kB
+../dist/public/assets/scale-lC3DKLQZ.js                                               0.54 kB │ gzip:   0.34 kB
+../dist/public/assets/droplets-CJXXKR43.js                                            0.54 kB │ gzip:   0.39 kB
+../dist/public/assets/package-rGMSkrsg.js                                             0.55 kB │ gzip:   0.36 kB
+../dist/public/assets/beef-DSOE8rlr.js                                                0.55 kB │ gzip:   0.39 kB
+../dist/public/assets/input-C5YNbUh6.js                                               0.56 kB │ gzip:   0.35 kB
+../dist/public/assets/trophy-asCY8cku.js                                              0.65 kB │ gzip:   0.38 kB
+../dist/public/assets/sparkles-CgF9yEwn.js                                            0.67 kB │ gzip:   0.39 kB
+../dist/public/assets/calculator-B_i0RTER.js                                          0.70 kB │ gzip:   0.39 kB
+../dist/public/assets/dumbbell-CWCcGIt-.js                                            0.73 kB │ gzip:   0.40 kB
+../dist/public/assets/badge-CrKzViNM.js                                               0.74 kB │ gzip:   0.40 kB
+../dist/public/assets/index-Bpwb0LiN.js                                               0.75 kB │ gzip:   0.43 kB
+../dist/public/assets/label-CCAWzyG6.js                                               0.88 kB │ gzip:   0.55 kB
+../dist/public/assets/SEO-Jw112sDb.js                                                 1.16 kB │ gzip:   0.47 kB
+../dist/public/assets/table-CTV2ywGk.js                                               1.56 kB │ gzip:   0.54 kB
+../dist/public/assets/dialog-BYtTO6h_.js                                              2.13 kB │ gzip:   0.83 kB
+../dist/public/assets/index-DXDSU2pj.js                                               2.63 kB │ gzip:   1.18 kB
+../dist/public/assets/not-found-MHXdp-iu.js                                           2.67 kB │ gzip:   1.11 kB
+../dist/public/assets/Maintenance-DO2MEqHz.js                                         2.69 kB │ gzip:   1.14 kB
+../dist/public/assets/PaymentFailed-MUweIBPF.js                                       3.20 kB │ gzip:   1.22 kB
+../dist/public/assets/index-Cnq5S3tE.js                                               3.51 kB │ gzip:   1.68 kB
+../dist/public/assets/Login-AFo9L7_d.js                                               4.30 kB │ gzip:   1.75 kB
+../dist/public/assets/PaymentSuccess-BxK2oU4d.js                                      4.94 kB │ gzip:   1.82 kB
+../dist/public/assets/switch-C02XOQUO.js                                              5.21 kB │ gzip:   2.24 kB
+../dist/public/assets/Checkout-DH2y0p4s.js                                            5.91 kB │ gzip:   2.24 kB
+../dist/public/assets/BMICalculator-Dru-PpbG.js                                       6.88 kB │ gzip:   2.53 kB
+../dist/public/assets/OneRepMaxCalculator-DwXw38Fq.js                                 7.18 kB │ gzip:   2.59 kB
+../dist/public/assets/HeartRateZonesCalculator-hkkCFF3R.js                            7.37 kB │ gzip:   2.91 kB
+../dist/public/assets/Onboarding-CQV22-nY.js                                          7.56 kB │ gzip:   2.79 kB
+../dist/public/assets/IdealWeightCalculator-DThWDYpy.js                               7.91 kB │ gzip:   2.69 kB
+../dist/public/assets/Register-Dj_MNdEs.js                                            8.13 kB │ gzip:   2.64 kB
+../dist/public/assets/AdminLogin-CcJcpWv9.js                                          8.43 kB │ gzip:   2.83 kB
+../dist/public/assets/accordion-Bfx7Vwpy.js                                           8.66 kB │ gzip:   2.93 kB
+../dist/public/assets/useQuery-BAd721fI.js                                            8.71 kB │ gzip:   3.14 kB
+../dist/public/assets/AdminSystemLogs-D1WiZ4Jv.js                                     8.84 kB │ gzip:   2.98 kB
+../dist/public/assets/Packages-Tt5W8xyk.js                                            8.85 kB │ gzip:   3.59 kB
+../dist/public/assets/AdminBackup-DnldIerP.js                                         9.13 kB │ gzip:   2.96 kB
+../dist/public/assets/TDEECalculator-D3RV8TMG.js                                      9.14 kB │ gzip:   2.84 kB
+../dist/public/assets/slider-I-nEIteA.js                                              9.21 kB │ gzip:   3.76 kB
+../dist/public/assets/CalorieCalculator-o-9QhL9r.js                                   9.21 kB │ gzip:   2.86 kB
+../dist/public/assets/ProteinIntakeCalculator-DILtuhb3.js                             9.75 kB │ gzip:   3.23 kB
+../dist/public/assets/Tools-pfXoZ7hj.js                                               9.86 kB │ gzip:   3.25 kB
+../dist/public/assets/WaterIntakeCalculator-DmYwpqTI.js                               9.96 kB │ gzip:   3.64 kB
+../dist/public/assets/MacroCalculator-BCt_C4J0.js                                    10.20 kB │ gzip:   2.94 kB
+../dist/public/assets/BodyFatCalculator-Dz6v5Irf.js                                  10.49 kB │ gzip:   3.41 kB
+../dist/public/assets/About-rEaCeehs.js                                              10.75 kB │ gzip:   3.93 kB
+../dist/public/assets/Articles-vqKHgJLp.js                                           11.51 kB │ gzip:   3.62 kB
+../dist/public/assets/KVKK-Dn_VMBVE.js                                               12.26 kB │ gzip:   3.40 kB
+../dist/public/assets/PrivacyPolicy-EgFcAU1o.js                                      12.32 kB │ gzip:   3.38 kB
+../dist/public/assets/AdminCoupons-DtiMBYzA.js                                       12.46 kB │ gzip:   3.68 kB
+../dist/public/assets/CancellationPolicy-CnV8JGMM.js                                 12.83 kB │ gzip:   3.61 kB
+../dist/public/assets/RestTimerCalculator-ByHeaVay.js                                13.21 kB │ gzip:   4.14 kB
+../dist/public/assets/DistanceSalesContract-250GEHXP.js                              14.31 kB │ gzip:   4.05 kB
+../dist/public/assets/Home-BIdIsldC.js                                               22.01 kB │ gzip:   7.16 kB
+../dist/public/assets/CalculatorFAQ-DQaNdhgk.js                                      43.58 kB │ gzip:  15.93 kB
+../dist/public/assets/UserDashboard-Bzb9_Jna.js                                      50.16 kB │ gzip:  11.00 kB
+../dist/public/assets/select-aZ8B08xk.js                                             50.49 kB │ gzip:  18.10 kB
+../dist/public/assets/AdminDashboard-CzqSA4Ls.js                                     82.44 kB │ gzip:  18.99 kB
+../dist/public/assets/proxy-DnbGWlXf.js                                             112.21 kB │ gzip:  36.91 kB
+../dist/public/assets/ArticleDetail-BwQD2fxa.js                                     114.01 kB │ gzip:  49.65 kB
+../dist/public/assets/index-B1kQaRn9.js                                             342.79 kB │ gzip: 109.34 kB
+../dist/public/assets/AreaChart-DUvHVat-.js                                         394.14 kB │ gzip: 108.25 kB
+✓ built in 7.05s
+building server...
+▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+
+    server/ssr.ts:83:20:
+      83 │     const dirname = import.meta.dirname || process.cwd();
+         ╵                     ~~~~~~~~~~~
+
+  You need to set the output format to "esm" for "import.meta" to work correctly.
+
+1 warning
+
+  dist/index.cjs  1.4mb ⚠️
+
+⚡ Done in 113ms
+root@162-55-4-35:/var/www/gokalaf# pm2 restart gokalaf
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [gokalaf](ids: [ 10 ])
+[PM2] [gokalaf](10) ✓
+┌────┬──────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                     │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 15 │ adegloba                 │ default     │ 1.0.0   │ cluster │ 2889802  │ 6D     │ 0    │ online    │ 0%       │ 94.9mb   │ root     │ disabled │
+│ 5  │ besindegerim             │ default     │ 1.0.0   │ cluster │ 1055     │ 8D     │ 0    │ online    │ 0%       │ 119.0mb  │ root     │ disabled │
+│ 9  │ emerald                  │ default     │ N/A     │ fork    │ 1117     │ 8D     │ 0    │ online    │ 0%       │ 59.7mb   │ root     │ disabled │
+│ 6  │ escapetable              │ default     │ 1.0.0   │ cluster │ 1061     │ 8D     │ 0    │ online    │ 0%       │ 100.7mb  │ root     │ disabled │
+│ 10 │ gokalaf                  │ default     │ 1.0.0   │ fork    │ 3678739  │ 0s     │ 7    │ online    │ 0%       │ 16.8mb   │ root     │ disabled │
+│ 2  │ maison-nomade-contact    │ default     │ N/A     │ fork    │ 3184334  │ 6D     │ 1    │ online    │ 0%       │ 60.5mb   │ root     │ disabled │
+│ 4  │ nasiloldu                │ default     │ N/A     │ fork    │ 1052     │ 8D     │ 0    │ online    │ 0%       │ 130.1mb  │ root     │ disabled │
+│ 3  │ postakod                 │ default     │ 1.0.0   │ fork    │ 1051     │ 8D     │ 0    │ online    │ 0%       │ 119.8mb  │ root     │ disabled │
+│ 7  │ toov                     │ default     │ 1.0.0   │ cluster │ 1094     │ 8D     │ 0    │ online    │ 0%       │ 77.2mb   │ root     │ disabled │
+│ 0  │ watermarktoo-backend     │ default     │ 1.0.0   │ cluster │ 1026     │ 8D     │ 0    │ online    │ 0%       │ 101.1mb  │ root     │ disabled │
+│ 1  │ yosun-restaurant         │ default     │ 1.0.0   │ fork    │ 3678708  │ 0s     │ 690… │ online    │ 0%       │ 53.8mb   │ root     │ disabled │
+└────┴──────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@162-55-4-35:/var/www/gokalaf# pm2 logs gokalaf
+[TAILING] Tailing last 15 lines for [gokalaf] process (change the value with --lines option)
+/root/.pm2/logs/gokalaf-error.log last 15 lines:
+10|gokalaf |     at Object.resolve (node:path:1210:7)
+10|gokalaf |     at rE (/var/www/gokalaf/dist/index.cjs:1183:475)
+10|gokalaf |     at tt (/var/www/gokalaf/dist/index.cjs:1183:2723)
+10|gokalaf |     at Object.Jq [as handler] (/var/www/gokalaf/dist/index.cjs:1183:2021)
+10|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|gokalaf |   code: 'ERR_INVALID_ARG_TYPE'
+10|gokalaf | }
+10|gokalaf | SSR render error: TypeError [ERR_INVALID_ARG_TYPE]: The "paths[0]" argument must be of type string. Received undefined
+10|gokalaf |     at Object.resolve (node:path:1210:7)
+10|gokalaf |     at rE (/var/www/gokalaf/dist/index.cjs:1183:475)
+10|gokalaf |     at tt (/var/www/gokalaf/dist/index.cjs:1183:2723)
+10|gokalaf |     at Object.Jq [as handler] (/var/www/gokalaf/dist/index.cjs:1183:2021)
+10|gokalaf |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+10|gokalaf |   code: 'ERR_INVALID_ARG_TYPE'
+10|gokalaf | }
+
+/root/.pm2/logs/gokalaf-out.log last 15 lines:
+10|gokalaf | 9.810Z"}]}
+10|gokalaf | 12:47:38 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+10|gokalaf | 12:47:38 PM [express] GET /api/maintenance 200 in 14ms :: {"maintenanceMode":false}
+10|gokalaf | 12:48:57 PM [express] GET /api/auth/me 401 in 1ms :: {"error":"Giriş yapılmamış"}
+10|gokalaf | 12:48:57 PM [express] GET /api/maintenance 200 in 11ms :: {"maintenanceMode":false}
+10|gokalaf | 12:49:00 PM [express] GET /api/packages 200 in 4ms :: {"packages":[{"id":"fc1cf71c-6aeb-4021-9784-ee3100c89909","name":"Normal Plan - 8 Hafta","weeks":8,"price":"5950.00","features":["Kişisel Antrenman Programı","Beslenme Planlaması","Kardiyo Planlaması","Vitamin & Supplement Önerisi","Form Analizi (Foto/Video)","Teknik Düzeltme Geri Bildirimleri","Haftalık Kontrol","Geri Dönüşe Göre Plan Güncelleme","Haftalık Teknik Video Analizi","Makro Güncellemesi (Gelişime Göre)","Yaşam Tarzına Uygun Planlama","Haftalık Q&A Destek","7/24 Whatsapp İletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"},{"id":"f5b94c0e-2159-4a87-abd6-8a32b441f7a8","name":"Normal Plan - 12 Hafta","weeks":12,"price":"7280.00","features":["Kişisel Antrenman Programı","Beslenme Planlaması","Kardiyo Planlaması","Vitamin & Supplement Önerisi","Form Analizi (Foto/Video)","Teknik Düzeltme Geri Bildirimleri","Haftalık Kontrol","Geri Dönüşe Göre Plan Güncelleme","Haftalık Teknik Video Analizi","Makro Güncellemesi (Gelişime Göre)","Yaşam Tarzına Uygun Planlama","Haftalık Q&A Destek","7/24 Whatsapp İletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"},{"id":"2cfb9889-79e2-4066-8052-c239fcb923e4","name":"Normal Plan - 16 Hafta","weeks":16,"price":"8660.00","features":["Kişisel Antrenman Programı","Beslenme Planlaması","Kardiyo Planlaması","Vitamin & Supplement Önerisi","Form Analizi (Foto/Video)","Teknik Düzeltme Geri Bildirimleri","Haftalık Kontrol","Geri Dönüşe Göre Plan Güncelleme","Haftalık Teknik Video Analizi","Makro Güncellemesi (Gelişime Göre)","Yaşam Tarzına Uygun Planlama","Haftalık Q&A Destek","7/24 Whatsapp İletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"},{"id":"27373bba-a207-4ba6-b08b-2d1a87189e39","name":"Normal Plan - 24 Hafta","weeks":24,"price":"12000.00","features":["Kişisel Antrenman Programı","Beslenme Planlaması","Kardiyo Planlaması","Vitamin & Supplement Önerisi","Form Analizi (Foto/Video)","Teknik Düzeltme Geri Bildirimleri","Haftalık Kontrol","Geri Dönüşe Göre Plan Güncelleme","Haftalık Teknik Video Analizi","Makro Güncellemesi (Gelişime Göre)","Yaşam Tarzına Uygun Planlama","Haftalık Q&A Destek","7/24 Whatsapp İletişim"],"isActive":true,"createdAt":"2025-11-29T18:48:19.810Z"}]}
+10|gokalaf | 12:53:05 PM [express] serving on port 5999
+10|gokalaf | 📧 Initializing email scheduler...
+10|gokalaf | ✅ Email scheduler initialized:
+10|gokalaf |    - Daily reminders: 18:00 (Istanbul)
+10|gokalaf |    - Package expiry check: 09:00 (Istanbul)
+10|gokalaf |    - Purchase reminders: Every 2 days at 10:00 (Istanbul)
+10|gokalaf |    - Stale order cleanup: Every 5 minutes
+10|gokalaf | ✅ SMTP connection verified

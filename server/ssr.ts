@@ -75,22 +75,36 @@ function getIndexHtml(): string {
   }
 
   const isProduction = process.env.NODE_ENV === "production";
+  const cwd = process.cwd();
   
   let indexPath: string;
   if (isProduction) {
-    indexPath = path.resolve(process.cwd(), "dist", "public", "index.html");
+    indexPath = path.resolve(cwd, "dist", "public", "index.html");
   } else {
-    const dirname = import.meta.dirname || process.cwd();
-    indexPath = path.resolve(dirname, "..", "client", "index.html");
-    if (!fs.existsSync(indexPath)) {
-      indexPath = path.resolve(process.cwd(), "client", "index.html");
-    }
+    indexPath = path.resolve(cwd, "client", "index.html");
   }
 
+  console.log(`[SSR] Environment: ${isProduction ? 'production' : 'development'}`);
+  console.log(`[SSR] CWD: ${cwd}`);
   console.log(`[SSR] Looking for index.html at: ${indexPath}`);
   
   if (!fs.existsSync(indexPath)) {
     console.error(`[SSR] index.html not found at ${indexPath}`);
+    const altPaths = [
+      path.resolve(cwd, "dist", "public", "index.html"),
+      path.resolve(cwd, "client", "index.html"),
+      path.resolve(cwd, "public", "index.html"),
+    ];
+    for (const altPath of altPaths) {
+      if (fs.existsSync(altPath)) {
+        console.log(`[SSR] Found index.html at alternative path: ${altPath}`);
+        indexPath = altPath;
+        break;
+      }
+    }
+  }
+  
+  if (!fs.existsSync(indexPath)) {
     throw new Error(`index.html not found at ${indexPath}`);
   }
 
