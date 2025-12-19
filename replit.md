@@ -75,6 +75,23 @@ The application uses a "performance, power, discipline" aesthetic with:
 - `server/storage.ts` - Database abstraction layer
 - `server/static.ts` - Static file serving with SPA fallback
 - `server/vite.ts` - Development-mode Vite integration
+- `server/ssr.ts` - SSR orchestration and bot detection middleware
+- `server/render.ts` - Pure HTML rendering functions for SSR
+- `server/seo/meta-inject.ts` - Meta tag generation and schema markup
+
+**Server-Side Rendering (SSR) for SEO:**
+The platform implements SSR for search engine bots to improve SEO:
+- Bot detection via user-agent matching (Googlebot, Bingbot, etc.)
+- Route-specific meta tags (title, description, keywords, Open Graph, Twitter Cards)
+- Schema.org JSON-LD markup per page type:
+  - Home: WebPage schema
+  - Packages: ItemList with Offer items
+  - Articles list: Blog schema with BlogPosting items
+  - Article detail: Article schema with author, dates, section
+  - Tools: SoftwareApplication schema for each calculator
+- HTML body content injection for bot crawlers
+- Escape hatch via `?_ssr=true/false` query parameter for testing
+- Works in both development and production modes
 
 ### Data Storage
 

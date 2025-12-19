@@ -34,7 +34,7 @@ export function renderPackages(packages: Package[]): string {
     <article style="background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid #333; border-radius: 1rem; padding: 2rem; margin-bottom: 1.5rem;">
       <h3 style="font-size: 1.5rem; color: #ccff00; margin-bottom: 0.5rem;">${escapeHtml(pkg.name)}</h3>
       <p style="font-size: 1.25rem; color: #fff; margin-bottom: 1rem;">${pkg.weeks} Hafta</p>
-      <p style="font-size: 2rem; font-weight: 700; color: #ccff00;">${pkg.price.toLocaleString('tr-TR')} ₺</p>
+      <p style="font-size: 2rem; font-weight: 700; color: #ccff00;">${Number(pkg.price).toLocaleString('tr-TR')} ₺</p>
       ${pkg.features ? `
         <ul style="list-style: none; padding: 0; margin-top: 1rem;">
           ${pkg.features.map(f => `<li style="color: #a3a3a3; padding: 0.25rem 0;">✓ ${escapeHtml(f)}</li>`).join('')}
@@ -173,6 +173,115 @@ export function renderTools(): string {
             <p style="color: #a3a3a3;">Protein, karbonhidrat ve yağ oranlarınızı belirleyin</p>
           </a>
         </div>
+      </main>
+    </div>
+  `;
+}
+
+export function renderBmiTool(): string {
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem;">
+          <a href="/araclar" style="color: #ccff00; text-decoration: none;">← Tüm Araçlar</a>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">BMI Hesaplayıcı</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Vücut Kitle İndeksi (BMI), boy ve kilonuza göre sağlıklı kilo aralığınızı belirlemenize yardımcı olan bir ölçüttür. 
+          BMI hesaplayarak zayıf, normal kilolu, fazla kilolu veya obez kategorisinde olup olmadığınızı öğrenebilirsiniz.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.5rem; color: #ccff00; margin-bottom: 1rem;">BMI Nasıl Hesaplanır?</h2>
+          <p style="color: #a3a3a3; line-height: 1.8;">
+            BMI = Kilo (kg) / Boy² (m²) formülü ile hesaplanır. Örneğin, 70 kg ağırlığında ve 1.75 m boyunda birinin 
+            BMI değeri 70 / (1.75 × 1.75) = 22.9 olur.
+          </p>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+export function renderCalorieTool(): string {
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem;">
+          <a href="/araclar" style="color: #ccff00; text-decoration: none;">← Tüm Araçlar</a>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Kalori Hesaplayıcı</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Günlük kalori ihtiyacınızı hesaplayarak kilo vermek, korumak veya almak için gereken kalori miktarını öğrenin. 
+          Hesaplama yaş, cinsiyet, boy, kilo ve aktivite seviyenize göre yapılır.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.5rem; color: #ccff00; margin-bottom: 1rem;">Kalori Nedir?</h2>
+          <p style="color: #a3a3a3; line-height: 1.8;">
+            Kalori, besinlerdeki enerji miktarını ölçen birimdir. Vücudumuz günlük aktiviteler ve temel yaşam fonksiyonları 
+            için kalori harcar. Doğru kalori alımı, sağlıklı bir vücut ağırlığının korunması için önemlidir.
+          </p>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+export function renderTdeeTool(): string {
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem;">
+          <a href="/araclar" style="color: #ccff00; text-decoration: none;">← Tüm Araçlar</a>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">TDEE Hesaplayıcı</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Toplam Günlük Enerji Harcaması (TDEE), gün boyunca yaktığınız toplam kalori miktarıdır. 
+          Bu değer bazal metabolizma hızınız ve aktivite seviyenizin birleşiminden oluşur.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.5rem; color: #ccff00; margin-bottom: 1rem;">TDEE Neden Önemli?</h2>
+          <p style="color: #a3a3a3; line-height: 1.8;">
+            TDEE değerinizi bilmek, kilo yönetimi için kritik öneme sahiptir. TDEE'nizin altında kalori alırsanız kilo verirsiniz, 
+            üzerinde alırsanız kilo alırsınız. Kas yapmak veya yağ yakmak için bu değeri bilmeniz gerekir.
+          </p>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+export function renderMacroTool(): string {
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem;">
+          <a href="/araclar" style="color: #ccff00; text-decoration: none;">← Tüm Araçlar</a>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Makro Hesaplayıcı</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro besin dağılımını öğrenerek 
+          beslenme planınızı optimize edin.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.5rem; color: #ccff00; margin-bottom: 1rem;">Makro Besinler Nedir?</h2>
+          <p style="color: #a3a3a3; line-height: 1.8;">
+            Makro besinler protein, karbonhidrat ve yağlardır. Protein kas yapımı için, karbonhidrat enerji için, 
+            yağlar ise hormon üretimi ve beyin fonksiyonları için gereklidir. Doğru makro dağılımı, fitness hedeflerinize 
+            ulaşmanızda büyük rol oynar.
+          </p>
+        </section>
       </main>
     </div>
   `;

@@ -9,6 +9,10 @@ import {
   generateArticleDetailMeta,
   generateAboutMeta,
   generateToolsMeta,
+  generateBmiToolMeta,
+  generateCalorieToolMeta,
+  generateTdeeToolMeta,
+  generateMacroToolMeta,
   injectMeta,
   injectBody,
 } from "./seo/meta-inject";
@@ -19,6 +23,10 @@ import {
   renderArticleDetail,
   renderAbout,
   renderTools,
+  renderBmiTool,
+  renderCalorieTool,
+  renderTdeeTool,
+  renderMacroTool,
   render404,
 } from "./render";
 import { log } from "./index";
@@ -52,9 +60,10 @@ function getIndexHtml(): string {
     return cachedIndexHtml;
   }
 
+  const dirname = import.meta.dirname;
   const indexPath = process.env.NODE_ENV === "production"
-    ? path.resolve(__dirname, "public", "index.html")
-    : path.resolve(__dirname, "..", "client", "index.html");
+    ? path.resolve(dirname, "public", "index.html")
+    : path.resolve(dirname, "..", "client", "index.html");
 
   if (!fs.existsSync(indexPath)) {
     throw new Error(`index.html not found at ${indexPath}`);
@@ -115,6 +124,22 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     pattern: /^\/araclar\/?$/,
     handler: handleTools,
   },
+  {
+    pattern: /^\/araclar\/bmi\/?$/,
+    handler: handleBmiTool,
+  },
+  {
+    pattern: /^\/araclar\/kalori\/?$/,
+    handler: handleCalorieTool,
+  },
+  {
+    pattern: /^\/araclar\/tdee\/?$/,
+    handler: handleTdeeTool,
+  },
+  {
+    pattern: /^\/araclar\/makro\/?$/,
+    handler: handleMacroTool,
+  },
 ];
 
 async function handleHome(req: Request, res: Response): Promise<void> {
@@ -167,6 +192,30 @@ async function handleAbout(req: Request, res: Response): Promise<void> {
 async function handleTools(req: Request, res: Response): Promise<void> {
   const meta = generateToolsMeta();
   const body = renderTools();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleBmiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateBmiToolMeta();
+  const body = renderBmiTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleCalorieTool(req: Request, res: Response): Promise<void> {
+  const meta = generateCalorieToolMeta();
+  const body = renderCalorieTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleTdeeTool(req: Request, res: Response): Promise<void> {
+  const meta = generateTdeeToolMeta();
+  const body = renderTdeeTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleMacroTool(req: Request, res: Response): Promise<void> {
+  const meta = generateMacroToolMeta();
+  const body = renderMacroTool();
   sendSSRResponse(res, meta, body);
 }
 

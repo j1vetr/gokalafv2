@@ -4,6 +4,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { initEmailScheduler } from "./email/scheduler";
+import { ssrMiddleware } from "./ssr";
 
 const app = express();
 
@@ -85,6 +86,9 @@ app.use((req, res, next) => {
     res.status(status).json({ message });
     throw err;
   });
+
+  // SSR middleware for bot crawlers (works in both dev and production)
+  app.use(ssrMiddleware);
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
