@@ -314,6 +314,10 @@ export default function ArticleDetail() {
       </section>
 
       <style>{`
+        .article-content {
+          overflow-x: hidden;
+          max-width: 100%;
+        }
         .article-content .info-box {
           display: flex;
           align-items: flex-start;
@@ -346,6 +350,7 @@ export default function ArticleDetail() {
         
         .article-content table {
           width: 100%;
+          max-width: 100%;
           border-collapse: separate;
           border-spacing: 0;
           margin: 40px 0;
@@ -353,6 +358,8 @@ export default function ArticleDetail() {
           overflow: hidden;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
           border: 1px solid rgba(255, 255, 255, 0.1);
+          display: block;
+          overflow-x: auto;
         }
         .article-content thead {
           background: linear-gradient(135deg, rgba(204, 255, 0, 0.2) 0%, rgba(204, 255, 0, 0.1) 100%);
@@ -367,6 +374,7 @@ export default function ArticleDetail() {
           font-size: 0.9rem;
           letter-spacing: 0.05em;
           border-bottom: 2px solid rgba(204, 255, 0, 0.3);
+          white-space: nowrap;
         }
         .article-content td {
           padding: 16px 20px;
