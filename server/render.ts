@@ -7,6 +7,29 @@ const md = new MarkdownIt({
   linkify: true,
 });
 
+const articleStyles = `
+  <style>
+    .article-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #0a0a0a; border-radius: 0.5rem; overflow: hidden; }
+    .article-content table th { background: #1a1a1a; color: #ccff00; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #333; }
+    .article-content table td { padding: 0.75rem 1rem; border-bottom: 1px solid #1a1a1a; color: #e5e5e5; }
+    .article-content table tr:hover { background: rgba(204, 255, 0, 0.05); }
+    .article-content table tr:last-child td { border-bottom: none; }
+    .article-content blockquote { border-left: 4px solid #ccff00; padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(204, 255, 0, 0.05); border-radius: 0 0.5rem 0.5rem 0; }
+    .article-content blockquote p { margin: 0; color: #e5e5e5; }
+    .article-content ul, .article-content ol { padding-left: 1.5rem; margin: 1rem 0; }
+    .article-content li { margin: 0.5rem 0; color: #e5e5e5; }
+    .article-content h2 { color: #fff; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
+    .article-content h3 { color: #ccff00; font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .article-content p { margin: 1rem 0; }
+    .article-content a { color: #ccff00; text-decoration: none; }
+    .article-content a:hover { text-decoration: underline; }
+    .article-content strong { color: #fff; font-weight: 600; }
+    .article-content code { background: #1a1a1a; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; color: #ccff00; }
+    .article-content .tip-box { background: rgba(204, 255, 0, 0.1); border: 1px solid rgba(204, 255, 0, 0.3); border-radius: 0.5rem; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .article-content .warning-box { background: rgba(255, 165, 0, 0.1); border: 1px solid rgba(255, 165, 0, 0.3); border-radius: 0.5rem; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  </style>
+`;
+
 export function renderHome(): string {
   return `
     <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
@@ -106,6 +129,7 @@ export function renderArticleDetail(article: Article): string {
   const imageAlt = `${article.title} - ${categoryLabel} rehberi ve bilgilendirici görsel. Gokalaf fitness blogu.`;
 
   return `
+    ${articleStyles}
     <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
       <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
         <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem;">
