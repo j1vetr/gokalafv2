@@ -88,39 +88,29 @@ function AnimatedBorderImage({
       className="relative group cursor-pointer"
       onClick={onClick}
     >
-      <div className="relative aspect-square bg-black/50 rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 rounded-2xl overflow-hidden">
-          <div className="absolute inset-0 border-2 border-white/10 rounded-2xl" />
-          <div 
-            className="absolute inset-0 rounded-2xl animate-border-sweep"
-            style={{
-              background: `linear-gradient(90deg, transparent 0%, transparent 40%, #ccff00 50%, transparent 60%, transparent 100%)`,
-              backgroundSize: '200% 100%',
-              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              WebkitMaskComposite: 'xor',
-              maskComposite: 'exclude',
-              padding: '2px',
-            }}
+      <div className="relative aspect-square rounded-2xl p-[2px] overflow-hidden animated-border-container">
+        <div className="absolute inset-0 rounded-2xl bg-white/10" />
+        <div className="animated-border-line" />
+        
+        <div className="relative w-full h-full bg-black/50 rounded-[14px] overflow-hidden">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
           />
-        </div>
-        
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-        
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-          <div className="flex items-center justify-between">
-            <span className="text-xs sm:text-sm font-medium text-white/80 bg-black/40 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full">
-              {label}
-            </span>
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/90 p-1.5 sm:p-2 rounded-full">
-              <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
-            </span>
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+            <div className="flex items-center justify-between">
+              <span className="text-xs sm:text-sm font-medium text-white/80 bg-black/40 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full">
+                {label}
+              </span>
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary/90 p-1.5 sm:p-2 rounded-full">
+                <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -266,7 +256,7 @@ export default function ExerciseDetail() {
         canonical={`/egzersiz-akademisi/${exercise.slug}`}
       />
 
-      <section className="relative pt-28 pb-8 sm:pb-12 overflow-hidden">
+      <section className="relative pt-32 sm:pt-36 pb-8 sm:pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px] opacity-30" />
         
@@ -512,12 +502,44 @@ export default function ExerciseDetail() {
       />
 
       <style>{`
-        @keyframes border-sweep {
-          0% { background-position: -100% 0; }
-          100% { background-position: 200% 0; }
+        .animated-border-container {
+          position: relative;
         }
-        .animate-border-sweep {
-          animation: border-sweep 3s linear infinite;
+        .animated-border-line {
+          position: absolute;
+          inset: 0;
+          border-radius: 1rem;
+          overflow: hidden;
+        }
+        .animated-border-line::before {
+          content: '';
+          position: absolute;
+          width: 150%;
+          height: 4px;
+          background: linear-gradient(90deg, transparent, #ccff00, #ccff00, transparent);
+          top: 0;
+          left: -25%;
+          animation: border-top 2.5s linear infinite;
+          box-shadow: 0 0 10px #ccff00, 0 0 20px #ccff00;
+        }
+        .animated-border-line::after {
+          content: '';
+          position: absolute;
+          width: 150%;
+          height: 4px;
+          background: linear-gradient(90deg, transparent, #ccff00, #ccff00, transparent);
+          bottom: 0;
+          right: -25%;
+          animation: border-bottom 2.5s linear infinite;
+          box-shadow: 0 0 10px #ccff00, 0 0 20px #ccff00;
+        }
+        @keyframes border-top {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        @keyframes border-bottom {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
         }
       `}</style>
     </div>

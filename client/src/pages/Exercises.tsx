@@ -136,7 +136,7 @@ export default function Exercises() {
         canonical="/egzersiz-akademisi"
       />
 
-      <section className="pt-28 pb-8 sm:pb-12 relative overflow-hidden">
+      <section className="pt-32 sm:pt-36 pb-8 sm:pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px] opacity-30" />
         <div className="container mx-auto px-4 relative">
