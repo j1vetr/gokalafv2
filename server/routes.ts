@@ -89,7 +89,7 @@ export async function registerRoutes(
 
   // ===== SEO SITEMAP =====
   app.get("/sitemap.xml", async (req, res) => {
-    const baseUrl = "https://gokalaf.toov.com.tr";
+    const baseUrl = "https://gokalaf.com";
     const staticPages = [
       { loc: "/", priority: "1.0", changefreq: "weekly" },
       { loc: "/hakkimizda", priority: "0.8", changefreq: "monthly" },
@@ -167,7 +167,7 @@ Disallow: /panel
 Disallow: /odeme
 Disallow: /api/
 
-Sitemap: https://gokalaf.toov.com.tr/sitemap.xml`;
+Sitemap: https://gokalaf.com/sitemap.xml`;
 
     res.setHeader("Content-Type", "text/plain");
     res.send(robotsTxt);
