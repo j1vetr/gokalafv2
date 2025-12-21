@@ -56,42 +56,7 @@ const equipmentLabels: Record<string, string> = {
 
 type BodyView = "front" | "back";
 
-interface MuscleZone {
-  id: string;
-  path: string;
-  label: string;
-  view: BodyView;
-}
-
-const muscleZones: MuscleZone[] = [
-  // Front view muscles
-  { id: "chest", path: "M 85 95 Q 100 85 115 95 Q 120 110 115 125 Q 100 130 85 125 Q 80 110 85 95", label: "Göğüs", view: "front" },
-  { id: "shoulders", path: "M 65 90 Q 75 80 85 90 L 85 110 Q 75 115 65 105 Z", label: "Omuz", view: "front" },
-  { id: "shoulders-r", path: "M 115 90 Q 125 80 135 90 L 135 105 Q 125 115 115 110 Z", label: "Omuz", view: "front" },
-  { id: "biceps", path: "M 55 110 Q 65 105 70 115 L 65 145 Q 55 150 50 140 Z", label: "Biceps", view: "front" },
-  { id: "biceps-r", path: "M 130 115 Q 135 105 145 110 L 150 140 Q 145 150 135 145 Z", label: "Biceps", view: "front" },
-  { id: "forearms", path: "M 45 145 Q 55 140 60 150 L 55 185 Q 45 190 40 180 Z", label: "Ön Kol", view: "front" },
-  { id: "forearms-r", path: "M 140 150 Q 145 140 155 145 L 160 180 Q 155 190 145 185 Z", label: "Ön Kol", view: "front" },
-  { id: "abdominals", path: "M 88 130 Q 100 125 112 130 L 112 175 Q 100 180 88 175 Z", label: "Karın", view: "front" },
-  { id: "quadriceps", path: "M 78 185 Q 88 180 95 185 L 92 245 Q 85 250 78 245 Z", label: "Ön Bacak", view: "front" },
-  { id: "quadriceps-r", path: "M 105 185 Q 112 180 122 185 L 122 245 Q 115 250 108 245 Z", label: "Ön Bacak", view: "front" },
-  { id: "calves", path: "M 80 260 Q 88 255 92 260 L 90 310 Q 85 315 80 310 Z", label: "Baldır", view: "front" },
-  { id: "calves-r", path: "M 108 260 Q 112 255 120 260 L 120 310 Q 115 315 110 310 Z", label: "Baldır", view: "front" },
-  
-  // Back view muscles
-  { id: "traps", path: "M 85 70 Q 100 60 115 70 L 115 95 Q 100 100 85 95 Z", label: "Trapez", view: "back" },
-  { id: "lats", path: "M 75 100 Q 85 95 95 100 L 90 145 Q 80 150 75 140 Z", label: "Sırt (Lat)", view: "back" },
-  { id: "lats-r", path: "M 105 100 Q 115 95 125 100 L 125 140 Q 120 150 110 145 Z", label: "Sırt (Lat)", view: "back" },
-  { id: "middle back", path: "M 88 100 Q 100 95 112 100 L 112 130 Q 100 135 88 130 Z", label: "Orta Sırt", view: "back" },
-  { id: "lower back", path: "M 88 135 Q 100 130 112 135 L 112 165 Q 100 170 88 165 Z", label: "Alt Sırt", view: "back" },
-  { id: "triceps", path: "M 55 110 Q 65 105 70 115 L 65 145 Q 55 150 50 140 Z", label: "Triceps", view: "back" },
-  { id: "triceps-r", path: "M 130 115 Q 135 105 145 110 L 150 140 Q 145 150 135 145 Z", label: "Triceps", view: "back" },
-  { id: "glutes", path: "M 78 170 Q 100 165 122 170 L 122 200 Q 100 205 78 200 Z", label: "Kalça", view: "back" },
-  { id: "hamstrings", path: "M 78 205 Q 88 200 95 205 L 92 260 Q 85 265 78 260 Z", label: "Arka Bacak", view: "back" },
-  { id: "hamstrings-r", path: "M 105 205 Q 112 200 122 205 L 122 260 Q 115 265 108 260 Z", label: "Arka Bacak", view: "back" },
-];
-
-function BodyMap({ 
+function RealisticBodyMap({ 
   view, 
   selectedMuscle, 
   onSelectMuscle, 
@@ -104,93 +69,541 @@ function BodyMap({
   hoveredMuscle: string;
   onHoverMuscle: (muscle: string) => void;
 }) {
-  const visibleMuscles = muscleZones.filter(m => m.view === view);
   
+  const getMuscleStyle = (muscleId: string) => {
+    const isSelected = selectedMuscle === muscleId;
+    const isHovered = hoveredMuscle === muscleId;
+    
+    if (isSelected) {
+      return {
+        fill: "url(#muscleGradientActive)",
+        stroke: "#ccff00",
+        strokeWidth: 2,
+        filter: "url(#glowStrong)",
+      };
+    }
+    if (isHovered) {
+      return {
+        fill: "url(#muscleGradientHover)",
+        stroke: "#ccff00",
+        strokeWidth: 1.5,
+        filter: "url(#glowMedium)",
+      };
+    }
+    return {
+      fill: "url(#muscleGradient)",
+      stroke: "#444",
+      strokeWidth: 0.5,
+      filter: "",
+    };
+  };
+
+  const handleClick = (muscleId: string) => {
+    onSelectMuscle(muscleId === selectedMuscle ? "" : muscleId);
+  };
+
   return (
-    <svg viewBox="0 0 200 340" className="w-full h-full max-h-[500px]">
+    <svg viewBox="0 0 200 400" className="w-full h-full max-h-[550px]">
       <defs>
-        <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#2a2a2a" />
-          <stop offset="100%" stopColor="#1a1a1a" />
+        {/* Realistic skin gradient */}
+        <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3a3a3a" />
+          <stop offset="50%" stopColor="#2d2d2d" />
+          <stop offset="100%" stopColor="#252525" />
         </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        
+        {/* Muscle gradients for 3D effect */}
+        <linearGradient id="muscleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(204, 255, 0, 0.15)" />
+          <stop offset="50%" stopColor="rgba(204, 255, 0, 0.08)" />
+          <stop offset="100%" stopColor="rgba(204, 255, 0, 0.12)" />
+        </linearGradient>
+        
+        <linearGradient id="muscleGradientHover" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(204, 255, 0, 0.5)" />
+          <stop offset="50%" stopColor="rgba(204, 255, 0, 0.35)" />
+          <stop offset="100%" stopColor="rgba(204, 255, 0, 0.45)" />
+        </linearGradient>
+        
+        <linearGradient id="muscleGradientActive" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ccff00" />
+          <stop offset="50%" stopColor="#a8d600" />
+          <stop offset="100%" stopColor="#ccff00" />
+        </linearGradient>
+        
+        {/* Shadow for depth */}
+        <filter id="bodyShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="3" dy="3" stdDeviation="5" floodColor="#000" floodOpacity="0.4"/>
+        </filter>
+        
+        {/* Glow effects */}
+        <filter id="glowMedium">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
           </feMerge>
         </filter>
+        
+        <filter id="glowStrong">
+          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        {/* Muscle definition lines */}
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#555" stopOpacity="0"/>
+          <stop offset="50%" stopColor="#555" stopOpacity="1"/>
+          <stop offset="100%" stopColor="#555" stopOpacity="0"/>
+        </linearGradient>
       </defs>
-      
-      {/* Body silhouette */}
-      <g className="body-outline">
-        {/* Head */}
-        <ellipse cx="100" cy="35" rx="22" ry="28" fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Neck */}
-        <rect x="92" y="58" width="16" height="15" fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Torso */}
-        <path d="M 70 73 Q 65 75 60 90 L 55 110 L 50 145 Q 48 155 55 185 L 75 185 L 78 175 Q 100 180 122 175 L 125 185 L 145 185 Q 152 155 150 145 L 145 110 L 140 90 Q 135 75 130 73 Q 100 65 70 73" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Left arm */}
-        <path d="M 60 90 Q 50 95 45 110 L 40 145 L 35 180 Q 30 195 35 200 L 50 200 L 55 185 L 60 150 L 65 115 Q 68 100 70 90" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Right arm */}
-        <path d="M 140 90 Q 150 95 155 110 L 160 145 L 165 180 Q 170 195 165 200 L 150 200 L 145 185 L 140 150 L 135 115 Q 132 100 130 90" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Hips/Pelvis */}
-        <path d="M 75 175 Q 100 170 125 175 L 125 195 Q 100 200 75 195 Z" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Left leg */}
-        <path d="M 75 195 Q 70 200 72 220 L 75 260 L 78 300 Q 77 320 80 330 L 95 330 L 95 300 L 95 250 L 98 200 Q 100 195 95 190" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-        {/* Right leg */}
-        <path d="M 125 195 Q 130 200 128 220 L 125 260 L 122 300 Q 123 320 120 330 L 105 330 L 105 300 L 105 250 L 102 200 Q 100 195 105 190" 
-              fill="url(#bodyGradient)" stroke="#333" strokeWidth="1"/>
-      </g>
 
-      {/* Muscle zones */}
-      {visibleMuscles.map((muscle) => {
-        const baseId = muscle.id.replace(/-r$/, '');
-        const isSelected = selectedMuscle === baseId;
-        const isHovered = hoveredMuscle === muscle.id;
-        
-        return (
-          <motion.path
-            key={muscle.id}
-            d={muscle.path}
-            fill={isSelected ? "#ccff00" : isHovered ? "rgba(204, 255, 0, 0.5)" : "rgba(204, 255, 0, 0.15)"}
-            stroke={isSelected || isHovered ? "#ccff00" : "rgba(204, 255, 0, 0.3)"}
-            strokeWidth={isSelected ? 2 : 1}
+      {view === "front" ? (
+        <g filter="url(#bodyShadow)">
+          {/* FRONT VIEW - Realistic Muscular Body */}
+          
+          {/* Head */}
+          <ellipse cx="100" cy="32" rx="18" ry="24" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.5"/>
+          <ellipse cx="100" cy="30" rx="16" ry="20" fill="none" stroke="#444" strokeWidth="0.3"/>
+          
+          {/* Neck */}
+          <path d="M 88 52 L 88 68 Q 100 72 112 68 L 112 52" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.5"/>
+          
+          {/* Trapezius - Front */}
+          <path 
+            d="M 70 68 Q 85 60 100 62 Q 115 60 130 68 L 125 82 Q 100 78 75 82 Z"
+            {...getMuscleStyle("traps")}
             className="cursor-pointer transition-all duration-200"
-            filter={isSelected || isHovered ? "url(#glow)" : ""}
-            onClick={() => onSelectMuscle(baseId)}
-            onMouseEnter={() => onHoverMuscle(muscle.id)}
+            onClick={() => handleClick("traps")}
+            onMouseEnter={() => onHoverMuscle("traps")}
             onMouseLeave={() => onHoverMuscle("")}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            data-testid={`muscle-${muscle.id}`}
+            data-testid="muscle-front-traps"
           />
-        );
-      })}
 
-      {/* Muscle labels on hover */}
-      {visibleMuscles.map((muscle) => {
-        const isHovered = hoveredMuscle === muscle.id;
-        if (!isHovered) return null;
-        
-        const pathParts = muscle.path.match(/M\s*([\d.]+)\s*([\d.]+)/);
-        const x = pathParts ? parseFloat(pathParts[1]) + 20 : 100;
-        const y = pathParts ? parseFloat(pathParts[2]) : 100;
-        
-        return (
-          <g key={`label-${muscle.id}`}>
-            <rect x={x - 5} y={y - 12} width={muscle.label.length * 7 + 10} height="18" rx="4" fill="rgba(0,0,0,0.8)" />
-            <text x={x} y={y} fill="#ccff00" fontSize="10" fontWeight="bold" className="pointer-events-none">
-              {muscle.label}
-            </text>
-          </g>
-        );
-      })}
+          {/* Left Shoulder/Deltoid */}
+          <path 
+            d="M 58 72 Q 50 78 48 95 Q 50 108 58 115 Q 70 110 75 95 Q 72 78 70 70 Q 65 68 58 72"
+            {...getMuscleStyle("shoulders")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("shoulders")}
+            onMouseEnter={() => onHoverMuscle("shoulders")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-shoulder-l"
+          />
+          
+          {/* Right Shoulder/Deltoid */}
+          <path 
+            d="M 142 72 Q 150 78 152 95 Q 150 108 142 115 Q 130 110 125 95 Q 128 78 130 70 Q 135 68 142 72"
+            {...getMuscleStyle("shoulders")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("shoulders")}
+            onMouseEnter={() => onHoverMuscle("shoulders")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-shoulder-r"
+          />
+
+          {/* Left Chest/Pec */}
+          <path 
+            d="M 72 82 Q 85 78 98 85 L 98 120 Q 85 128 72 122 Q 68 105 72 82"
+            {...getMuscleStyle("chest")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("chest")}
+            onMouseEnter={() => onHoverMuscle("chest")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-chest-l"
+          />
+          {/* Chest definition line */}
+          <path d="M 80 90 Q 88 95 95 92" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.6"/>
+          
+          {/* Right Chest/Pec */}
+          <path 
+            d="M 102 85 Q 115 78 128 82 Q 132 105 128 122 Q 115 128 102 120 Z"
+            {...getMuscleStyle("chest")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("chest")}
+            onMouseEnter={() => onHoverMuscle("chest")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-chest-r"
+          />
+          <path d="M 120 90 Q 112 95 105 92" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.6"/>
+
+          {/* Left Bicep */}
+          <path 
+            d="M 48 115 Q 42 125 40 145 Q 42 165 48 175 Q 58 178 65 170 Q 68 150 65 130 Q 62 118 55 112 Q 50 112 48 115"
+            {...getMuscleStyle("biceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("biceps")}
+            onMouseEnter={() => onHoverMuscle("biceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-bicep-l"
+          />
+          {/* Bicep peak definition */}
+          <path d="M 50 135 Q 55 130 58 138" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Right Bicep */}
+          <path 
+            d="M 152 115 Q 158 125 160 145 Q 158 165 152 175 Q 142 178 135 170 Q 132 150 135 130 Q 138 118 145 112 Q 150 112 152 115"
+            {...getMuscleStyle("biceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("biceps")}
+            onMouseEnter={() => onHoverMuscle("biceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-bicep-r"
+          />
+          <path d="M 150 135 Q 145 130 142 138" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Left Forearm */}
+          <path 
+            d="M 40 178 Q 35 195 32 220 Q 34 240 38 250 Q 48 255 55 248 Q 60 225 58 200 Q 55 182 50 175 Q 45 175 40 178"
+            {...getMuscleStyle("forearms")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("forearms")}
+            onMouseEnter={() => onHoverMuscle("forearms")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-forearm-l"
+          />
+
+          {/* Right Forearm */}
+          <path 
+            d="M 160 178 Q 165 195 168 220 Q 166 240 162 250 Q 152 255 145 248 Q 140 225 142 200 Q 145 182 150 175 Q 155 175 160 178"
+            {...getMuscleStyle("forearms")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("forearms")}
+            onMouseEnter={() => onHoverMuscle("forearms")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-forearm-r"
+          />
+
+          {/* Abdominals - 6 Pack */}
+          <path 
+            d="M 82 125 Q 100 120 118 125 L 118 195 Q 100 200 82 195 Z"
+            {...getMuscleStyle("abdominals")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("abdominals")}
+            onMouseEnter={() => onHoverMuscle("abdominals")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-abs"
+          />
+          {/* Ab definition lines */}
+          <line x1="100" y1="128" x2="100" y2="190" stroke="#444" strokeWidth="0.8" opacity="0.5"/>
+          <path d="M 85 140 Q 100 138 115 140" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.5"/>
+          <path d="M 85 155 Q 100 153 115 155" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.5"/>
+          <path d="M 85 170 Q 100 168 115 170" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.5"/>
+          <path d="M 86 185 Q 100 183 114 185" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.5"/>
+
+          {/* Obliques */}
+          <path d="M 72 125 Q 78 130 82 140 L 82 190 Q 78 198 72 200 Q 68 170 72 125" fill="url(#skinGradient)" stroke="#444" strokeWidth="0.3"/>
+          <path d="M 128 125 Q 122 130 118 140 L 118 190 Q 122 198 128 200 Q 132 170 128 125" fill="url(#skinGradient)" stroke="#444" strokeWidth="0.3"/>
+
+          {/* Hip/Pelvis area */}
+          <path d="M 70 200 Q 100 195 130 200 L 128 220 Q 100 225 72 220 Z" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.5"/>
+
+          {/* Left Quadriceps */}
+          <path 
+            d="M 72 222 Q 68 235 66 265 Q 68 305 72 330 Q 82 340 92 332 Q 98 295 96 260 Q 94 235 92 222 Q 82 218 72 222"
+            {...getMuscleStyle("quadriceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("quadriceps")}
+            onMouseEnter={() => onHoverMuscle("quadriceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-quad-l"
+          />
+          {/* Quad definition - vastus lateralis */}
+          <path d="M 74 250 Q 80 260 78 290" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+          {/* Quad definition - rectus femoris */}
+          <path d="M 82 235 Q 84 270 83 310" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Right Quadriceps */}
+          <path 
+            d="M 128 222 Q 132 235 134 265 Q 132 305 128 330 Q 118 340 108 332 Q 102 295 104 260 Q 106 235 108 222 Q 118 218 128 222"
+            {...getMuscleStyle("quadriceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("quadriceps")}
+            onMouseEnter={() => onHoverMuscle("quadriceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-quad-r"
+          />
+          <path d="M 126 250 Q 120 260 122 290" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+          <path d="M 118 235 Q 116 270 117 310" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Inner thigh gap */}
+          <path d="M 92 225 Q 100 220 108 225" fill="url(#skinGradient)" stroke="none"/>
+
+          {/* Left Calf */}
+          <path 
+            d="M 70 340 Q 65 355 64 375 Q 68 395 75 398 Q 85 395 88 380 Q 90 360 88 345 Q 82 338 70 340"
+            {...getMuscleStyle("calves")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("calves")}
+            onMouseEnter={() => onHoverMuscle("calves")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-calf-l"
+          />
+
+          {/* Right Calf */}
+          <path 
+            d="M 130 340 Q 135 355 136 375 Q 132 395 125 398 Q 115 395 112 380 Q 110 360 112 345 Q 118 338 130 340"
+            {...getMuscleStyle("calves")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("calves")}
+            onMouseEnter={() => onHoverMuscle("calves")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-front-calf-r"
+          />
+
+          {/* Hands */}
+          <ellipse cx="45" cy="262" rx="10" ry="14" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.3"/>
+          <ellipse cx="155" cy="262" rx="10" ry="14" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.3"/>
+        </g>
+      ) : (
+        <g filter="url(#bodyShadow)">
+          {/* BACK VIEW - Realistic Muscular Body */}
+          
+          {/* Head */}
+          <ellipse cx="100" cy="32" rx="18" ry="24" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.5"/>
+          
+          {/* Neck */}
+          <path d="M 88 52 L 88 68 Q 100 72 112 68 L 112 52" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.5"/>
+
+          {/* Trapezius - Upper Back */}
+          <path 
+            d="M 65 65 Q 82 55 100 58 Q 118 55 135 65 L 130 95 Q 100 100 70 95 Z"
+            {...getMuscleStyle("traps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("traps")}
+            onMouseEnter={() => onHoverMuscle("traps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-traps"
+          />
+          {/* Trap definition */}
+          <path d="M 100 62 L 100 92" stroke="#444" strokeWidth="0.5" fill="none" opacity="0.5"/>
+
+          {/* Left Rear Deltoid */}
+          <path 
+            d="M 55 70 Q 45 80 44 100 Q 48 115 58 120 Q 68 115 72 100 Q 70 82 65 70 Q 60 68 55 70"
+            {...getMuscleStyle("shoulders")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("shoulders")}
+            onMouseEnter={() => onHoverMuscle("shoulders")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-shoulder-l"
+          />
+
+          {/* Right Rear Deltoid */}
+          <path 
+            d="M 145 70 Q 155 80 156 100 Q 152 115 142 120 Q 132 115 128 100 Q 130 82 135 70 Q 140 68 145 70"
+            {...getMuscleStyle("shoulders")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("shoulders")}
+            onMouseEnter={() => onHoverMuscle("shoulders")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-shoulder-r"
+          />
+
+          {/* Left Lat */}
+          <path 
+            d="M 68 98 Q 60 110 58 140 Q 62 170 70 185 Q 82 188 88 180 Q 92 150 90 120 Q 88 105 82 98 Q 75 95 68 98"
+            {...getMuscleStyle("lats")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("lats")}
+            onMouseEnter={() => onHoverMuscle("lats")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-lat-l"
+          />
+          {/* Lat striation lines */}
+          <path d="M 70 120 Q 78 125 82 135" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+          <path d="M 68 140 Q 76 145 80 155" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+          <path d="M 68 160 Q 75 165 78 175" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+
+          {/* Right Lat */}
+          <path 
+            d="M 132 98 Q 140 110 142 140 Q 138 170 130 185 Q 118 188 112 180 Q 108 150 110 120 Q 112 105 118 98 Q 125 95 132 98"
+            {...getMuscleStyle("lats")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("lats")}
+            onMouseEnter={() => onHoverMuscle("lats")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-lat-r"
+          />
+          <path d="M 130 120 Q 122 125 118 135" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+          <path d="M 132 140 Q 124 145 120 155" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+          <path d="M 132 160 Q 125 165 122 175" stroke="#444" strokeWidth="0.3" fill="none" opacity="0.4"/>
+
+          {/* Middle Back / Rhomboids */}
+          <path 
+            d="M 88 100 Q 100 95 112 100 L 112 145 Q 100 150 88 145 Z"
+            {...getMuscleStyle("middle back")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("middle back")}
+            onMouseEnter={() => onHoverMuscle("middle back")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-mid"
+          />
+          {/* Spine line */}
+          <line x1="100" y1="100" x2="100" y2="190" stroke="#444" strokeWidth="0.8" opacity="0.5"/>
+
+          {/* Lower Back / Erector Spinae */}
+          <path 
+            d="M 85 150 Q 100 145 115 150 L 115 195 Q 100 200 85 195 Z"
+            {...getMuscleStyle("lower back")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("lower back")}
+            onMouseEnter={() => onHoverMuscle("lower back")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-lower"
+          />
+          {/* Lower back definition */}
+          <path d="M 92 160 Q 100 155 108 160" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+          <path d="M 90 175 Q 100 170 110 175" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Left Tricep */}
+          <path 
+            d="M 45 120 Q 38 135 36 160 Q 40 180 48 188 Q 60 185 65 175 Q 68 155 65 135 Q 60 122 52 118 Q 48 118 45 120"
+            {...getMuscleStyle("triceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("triceps")}
+            onMouseEnter={() => onHoverMuscle("triceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-tricep-l"
+          />
+          {/* Tricep horseshoe definition */}
+          <path d="M 48 140 Q 55 145 52 165" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Right Tricep */}
+          <path 
+            d="M 155 120 Q 162 135 164 160 Q 160 180 152 188 Q 140 185 135 175 Q 132 155 135 135 Q 140 122 148 118 Q 152 118 155 120"
+            {...getMuscleStyle("triceps")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("triceps")}
+            onMouseEnter={() => onHoverMuscle("triceps")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-tricep-r"
+          />
+          <path d="M 152 140 Q 145 145 148 165" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.5"/>
+
+          {/* Left Forearm - Back */}
+          <path 
+            d="M 38 190 Q 32 210 30 235 Q 35 255 42 260 Q 52 258 58 248 Q 62 225 58 205 Q 52 192 48 188 Q 42 188 38 190"
+            {...getMuscleStyle("forearms")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("forearms")}
+            onMouseEnter={() => onHoverMuscle("forearms")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-forearm-l"
+          />
+
+          {/* Right Forearm - Back */}
+          <path 
+            d="M 162 190 Q 168 210 170 235 Q 165 255 158 260 Q 148 258 142 248 Q 138 225 142 205 Q 148 192 152 188 Q 158 188 162 190"
+            {...getMuscleStyle("forearms")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("forearms")}
+            onMouseEnter={() => onHoverMuscle("forearms")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-forearm-r"
+          />
+
+          {/* Glutes */}
+          <path 
+            d="M 72 198 Q 100 192 128 198 L 128 240 Q 100 248 72 240 Z"
+            {...getMuscleStyle("glutes")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("glutes")}
+            onMouseEnter={() => onHoverMuscle("glutes")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-glutes"
+          />
+          {/* Glute separation */}
+          <line x1="100" y1="200" x2="100" y2="238" stroke="#444" strokeWidth="0.6" opacity="0.5"/>
+          <path d="M 80 210 Q 90 215 98 212" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+          <path d="M 120 210 Q 110 215 102 212" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Left Hamstring */}
+          <path 
+            d="M 72 245 Q 66 270 65 300 Q 68 330 75 345 Q 85 348 92 340 Q 96 310 94 275 Q 92 255 90 245 Q 82 242 72 245"
+            {...getMuscleStyle("hamstrings")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("hamstrings")}
+            onMouseEnter={() => onHoverMuscle("hamstrings")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-ham-l"
+          />
+          {/* Hamstring definition - biceps femoris */}
+          <path d="M 75 265 Q 82 280 80 310" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+          <path d="M 84 260 Q 88 285 86 320" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Right Hamstring */}
+          <path 
+            d="M 128 245 Q 134 270 135 300 Q 132 330 125 345 Q 115 348 108 340 Q 104 310 106 275 Q 108 255 110 245 Q 118 242 128 245"
+            {...getMuscleStyle("hamstrings")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("hamstrings")}
+            onMouseEnter={() => onHoverMuscle("hamstrings")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-ham-r"
+          />
+          <path d="M 125 265 Q 118 280 120 310" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+          <path d="M 116 260 Q 112 285 114 320" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Left Calf - Back */}
+          <path 
+            d="M 68 350 Q 62 365 60 385 Q 65 398 75 400 Q 88 396 92 380 Q 94 365 90 352 Q 82 348 68 350"
+            {...getMuscleStyle("calves")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("calves")}
+            onMouseEnter={() => onHoverMuscle("calves")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-calf-l"
+          />
+          {/* Calf diamond shape */}
+          <path d="M 75 360 Q 78 375 76 390" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Right Calf - Back */}
+          <path 
+            d="M 132 350 Q 138 365 140 385 Q 135 398 125 400 Q 112 396 108 380 Q 106 365 110 352 Q 118 348 132 350"
+            {...getMuscleStyle("calves")}
+            className="cursor-pointer transition-all duration-200"
+            onClick={() => handleClick("calves")}
+            onMouseEnter={() => onHoverMuscle("calves")}
+            onMouseLeave={() => onHoverMuscle("")}
+            data-testid="muscle-back-calf-r"
+          />
+          <path d="M 125 360 Q 122 375 124 390" stroke="#444" strokeWidth="0.4" fill="none" opacity="0.4"/>
+
+          {/* Hands */}
+          <ellipse cx="45" cy="272" rx="10" ry="14" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.3"/>
+          <ellipse cx="155" cy="272" rx="10" ry="14" fill="url(#skinGradient)" stroke="#333" strokeWidth="0.3"/>
+        </g>
+      )}
+
+      {/* Hover label */}
+      {hoveredMuscle && (
+        <g>
+          <rect 
+            x="50" 
+            y="10" 
+            width={muscleLabels[hoveredMuscle]?.length * 10 + 20 || 80} 
+            height="28" 
+            rx="6" 
+            fill="rgba(0,0,0,0.9)" 
+            stroke="#ccff00" 
+            strokeWidth="1"
+          />
+          <text 
+            x="60" 
+            y="29" 
+            fill="#ccff00" 
+            fontSize="14" 
+            fontWeight="bold" 
+            className="pointer-events-none"
+          >
+            {muscleLabels[hoveredMuscle] || hoveredMuscle}
+          </text>
+        </g>
+      )}
     </svg>
   );
 }
@@ -276,7 +689,7 @@ export default function Exercises() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 sticky top-24"
+              className="bg-gradient-to-b from-[#0A0A0A] to-[#080808] border border-white/10 rounded-2xl p-6 lg:sticky lg:top-24"
             >
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-heading font-bold text-white">Kas Haritası</h2>
@@ -319,9 +732,9 @@ export default function Exercises() {
                     animate={{ opacity: 1, rotateY: 0 }}
                     exit={{ opacity: 0, rotateY: bodyView === "front" ? 90 : -90 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full max-w-[300px]"
+                    className="w-full max-w-[280px] md:max-w-[320px]"
                   >
-                    <BodyMap
+                    <RealisticBodyMap
                       view={bodyView}
                       selectedMuscle={selectedMuscle}
                       onSelectMuscle={handleMuscleSelect}
@@ -332,7 +745,7 @@ export default function Exercises() {
                 </AnimatePresence>
               </div>
 
-              {/* Muscle buttons grid */}
+              {/* Quick muscle buttons */}
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                 {Object.entries(muscleLabels).map(([key, label]) => (
                   <button
@@ -340,7 +753,7 @@ export default function Exercises() {
                     onClick={() => handleMuscleSelect(key)}
                     className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                       selectedMuscle === key
-                        ? "bg-primary text-black"
+                        ? "bg-primary text-black shadow-lg shadow-primary/30"
                         : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
                     }`}
                     data-testid={`button-muscle-${key}`}
