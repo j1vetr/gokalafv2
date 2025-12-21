@@ -100,51 +100,48 @@ function FeatureTooltip() {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
+    <>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="absolute bottom-16 right-0 w-72 md:w-80 bg-[#0A0A0A] border border-primary/30 rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="fixed bottom-0 left-0 right-0 md:bottom-6 md:left-auto md:right-6 md:w-80 z-[100] bg-[#0A0A0A] border-t md:border border-primary/30 md:rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-primary/20 to-primary/5 px-4 py-3 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-primary/20 to-primary/5 px-4 py-2.5 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-primary" />
-                <h3 className="font-heading font-bold text-white">Bunları Biliyor Musun?</h3>
+                <HelpCircle className="w-4 h-4 text-primary" />
+                <h3 className="font-heading font-bold text-white text-sm">Bunları Biliyor Musun?</h3>
               </div>
               <button 
                 onClick={() => {
                   setIsOpen(false);
                   setTimeout(() => setIsVisible(false), 500);
                 }}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors p-1"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-4">
-              <p className="text-gray-400 text-sm mb-3">
-                Kayıt olarak bu özellikleri kullanabilirsin:
-              </p>
-              <div className="space-y-2">
+            <div className="p-3 md:p-4">
+              <div className="flex flex-wrap gap-2 md:space-y-0 md:block md:space-y-2">
                 {features.map((feature, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-center gap-2 px-2.5 py-1.5 md:p-2 rounded-lg bg-white/5"
                   >
-                    <feature.icon className={`w-4 h-4 ${feature.color}`} />
-                    <span className="text-sm text-gray-300">{feature.text}</span>
+                    <feature.icon className={`w-3.5 h-3.5 md:w-4 md:h-4 ${feature.color}`} />
+                    <span className="text-xs md:text-sm text-gray-300">{feature.text}</span>
                   </motion.div>
                 ))}
               </div>
               <a 
                 href="/kayit" 
-                className="mt-4 block w-full py-2.5 bg-primary text-black font-bold text-center rounded-xl hover:bg-primary/90 transition-colors text-sm"
+                className="mt-3 block w-full py-2 bg-primary text-black font-bold text-center rounded-xl hover:bg-primary/90 transition-colors text-sm"
               >
                 Hemen Kayıt Ol
               </a>
@@ -153,21 +150,23 @@ function FeatureTooltip() {
         )}
       </AnimatePresence>
 
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
-          isOpen 
-            ? "bg-primary text-black" 
-            : "bg-[#0A0A0A] border border-primary/50 text-primary hover:bg-primary/10"
-        }`}
-      >
-        <HelpCircle className="w-7 h-7" />
-      </motion.button>
-    </div>
+      <div className="fixed bottom-6 right-6 z-[100]">
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsOpen(!isOpen)}
+          className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
+            isOpen 
+              ? "bg-primary text-black" 
+              : "bg-[#0A0A0A] border border-primary/50 text-primary hover:bg-primary/10"
+          }`}
+        >
+          <HelpCircle className="w-7 h-7" />
+        </motion.button>
+      </div>
+    </>
   );
 }
 
