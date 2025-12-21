@@ -17,6 +17,8 @@ import type {
   InsertDailyHabit,
   BodyMeasurement,
   InsertBodyMeasurement,
+  DailyNutrition,
+  InsertDailyNutrition,
   Coupon,
   InsertCoupon,
   CouponUsage,
@@ -106,6 +108,12 @@ export interface IStorage {
   getBodyMeasurements(userId: string, limit?: number): Promise<BodyMeasurement[]>;
   createBodyMeasurement(measurement: InsertBodyMeasurement): Promise<BodyMeasurement>;
   getLatestBodyMeasurement(userId: string): Promise<BodyMeasurement | undefined>;
+
+  // Daily Nutrition
+  getDailyNutrition(userId: string, date: Date): Promise<DailyNutrition | undefined>;
+  getDailyNutritionHistory(userId: string, limit?: number): Promise<DailyNutrition[]>;
+  upsertDailyNutrition(nutrition: InsertDailyNutrition): Promise<DailyNutrition>;
+  getWeeklyNutritionSummary(userId: string): Promise<{ avgCalories: number; avgProtein: number; avgCarbs: number; avgFat: number; daysTracked: number }>;
 
   // Admin Analytics
   getDashboardStats(): Promise<DashboardStats>;
@@ -385,6 +393,83 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(schema.bodyMeasurements.date))
       .limit(1);
     return measurement;
+  }
+
+  // DAILY NUTRITION
+  async getDailyNutrition(userId: string, date: Date): Promise<DailyNutrition | undefined> {
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const [nutrition] = await db.select().from(schema.dailyNutrition)
+      .where(and(
+        eq(schema.dailyNutrition.userId, userId),
+        sql`${schema.dailyNutrition.date} >= ${startOfDay}`,
+        sql`${schema.dailyNutrition.date} <= ${endOfDay}`
+      ))
+      .limit(1);
+    return nutrition;
+  }
+
+  async getDailyNutritionHistory(userId: string, limit: number = 30): Promise<DailyNutrition[]> {
+    return db.select().from(schema.dailyNutrition)
+      .where(eq(schema.dailyNutrition.userId, userId))
+      .orderBy(desc(schema.dailyNutrition.date))
+      .limit(limit);
+  }
+
+  async upsertDailyNutrition(nutrition: InsertDailyNutrition): Promise<DailyNutrition> {
+    const existing = await this.getDailyNutrition(nutrition.userId, nutrition.date);
+    
+    if (existing) {
+      const [updated] = await db.update(schema.dailyNutrition)
+        .set({
+          calories: nutrition.calories ?? existing.calories,
+          protein: nutrition.protein ?? existing.protein,
+          carbs: nutrition.carbs ?? existing.carbs,
+          fat: nutrition.fat ?? existing.fat,
+          fiber: nutrition.fiber ?? existing.fiber,
+          notes: nutrition.notes ?? existing.notes,
+        })
+        .where(eq(schema.dailyNutrition.id, existing.id))
+        .returning();
+      return updated;
+    } else {
+      const [created] = await db.insert(schema.dailyNutrition).values(nutrition).returning();
+      return created;
+    }
+  }
+
+  async getWeeklyNutritionSummary(userId: string): Promise<{ avgCalories: number; avgProtein: number; avgCarbs: number; avgFat: number; daysTracked: number }> {
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+    
+    const nutritionData = await db.select().from(schema.dailyNutrition)
+      .where(and(
+        eq(schema.dailyNutrition.userId, userId),
+        sql`${schema.dailyNutrition.date} >= ${weekAgo}`
+      ));
+    
+    if (nutritionData.length === 0) {
+      return { avgCalories: 0, avgProtein: 0, avgCarbs: 0, avgFat: 0, daysTracked: 0 };
+    }
+    
+    const totals = nutritionData.reduce((acc, n) => ({
+      calories: acc.calories + n.calories,
+      protein: acc.protein + parseFloat(n.protein || "0"),
+      carbs: acc.carbs + parseFloat(n.carbs || "0"),
+      fat: acc.fat + parseFloat(n.fat || "0"),
+    }), { calories: 0, protein: 0, carbs: 0, fat: 0 });
+    
+    const count = nutritionData.length;
+    return {
+      avgCalories: Math.round(totals.calories / count),
+      avgProtein: Math.round(totals.protein / count),
+      avgCarbs: Math.round(totals.carbs / count),
+      avgFat: Math.round(totals.fat / count),
+      daysTracked: count
+    };
   }
 
   // DELETE USER

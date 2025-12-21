@@ -1045,6 +1045,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
       const data = z.object({
         date: z.string().optional(),
         weight: z.number().positive().optional(),
+        bodyFatPercentage: z.number().min(1).max(60).optional(),
         chest: z.number().positive().optional(),
         waist: z.number().positive().optional(),
         hips: z.number().positive().optional(),
@@ -1057,6 +1058,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         userId: req.session.userId!,
         date: data.date ? new Date(data.date) : new Date(),
         weight: data.weight?.toString() ?? null,
+        bodyFatPercentage: data.bodyFatPercentage?.toString() ?? null,
         chest: data.chest?.toString() ?? null,
         waist: data.waist?.toString() ?? null,
         hips: data.hips?.toString() ?? null,
@@ -1071,6 +1073,61 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         return res.status(400).json({ error: "Geçersiz veri" });
       }
       res.status(500).json({ error: "Ölçüm kaydedilemedi" });
+    }
+  });
+
+  // ===== DAILY NUTRITION ROUTES =====
+
+  app.get("/api/nutrition/today", requireAuth, async (req, res) => {
+    try {
+      const nutrition = await storage.getDailyNutrition(req.session.userId!, new Date());
+      const summary = await storage.getWeeklyNutritionSummary(req.session.userId!);
+      res.json({ nutrition, summary });
+    } catch (error) {
+      res.status(500).json({ error: "Beslenme verisi yüklenemedi" });
+    }
+  });
+
+  app.get("/api/nutrition", requireAuth, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 30;
+      const nutritionHistory = await storage.getDailyNutritionHistory(req.session.userId!, limit);
+      res.json({ nutrition: nutritionHistory });
+    } catch (error) {
+      res.status(500).json({ error: "Beslenme geçmişi yüklenemedi" });
+    }
+  });
+
+  app.post("/api/nutrition", requireAuth, async (req, res) => {
+    try {
+      const data = z.object({
+        date: z.string().optional(),
+        calories: z.number().int().min(0).optional(),
+        protein: z.number().min(0).optional(),
+        carbs: z.number().min(0).optional(),
+        fat: z.number().min(0).optional(),
+        fiber: z.number().min(0).optional(),
+        notes: z.string().optional(),
+      }).parse(req.body);
+
+      const nutrition = await storage.upsertDailyNutrition({
+        userId: req.session.userId!,
+        date: data.date ? new Date(data.date) : new Date(),
+        calories: data.calories ?? 0,
+        protein: data.protein?.toString() ?? "0",
+        carbs: data.carbs?.toString() ?? "0",
+        fat: data.fat?.toString() ?? "0",
+        fiber: data.fiber?.toString() ?? null,
+        notes: data.notes ?? null,
+      });
+
+      const summary = await storage.getWeeklyNutritionSummary(req.session.userId!);
+      res.json({ nutrition, summary });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçersiz veri" });
+      }
+      res.status(500).json({ error: "Beslenme kaydedilemedi" });
     }
   });
 
