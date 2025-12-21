@@ -659,23 +659,23 @@ export default function UserDashboard() {
 
         {/* Mobile Navigation */}
         <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/10 z-50 safe-area-bottom">
-          <nav className="flex justify-around py-2">
-            {navItems.slice(0, 5).map((item) => {
+          <nav className="flex overflow-x-auto scrollbar-hide py-2 px-1 gap-1">
+            {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activePage === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => setActivePage(item.id)}
-                  className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all ${
+                  className={`flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all min-w-[60px] flex-shrink-0 ${
                     isActive 
-                      ? "text-primary" 
+                      ? "text-primary bg-primary/10" 
                       : "text-gray-500"
                   }`}
                   data-testid={`nav-mobile-${item.id}`}
                 >
                   <Icon className={`w-5 h-5 ${isActive ? "scale-110" : ""} transition-transform`} />
-                  <span className="text-[10px] font-medium">{item.label}</span>
+                  <span className="text-[9px] font-medium whitespace-nowrap">{item.label}</span>
                 </button>
               );
             })}
