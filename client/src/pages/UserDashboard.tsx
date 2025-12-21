@@ -59,12 +59,32 @@ interface BodyMeasurement {
   id: string;
   date: string;
   weight: string | null;
+  bodyFatPercentage: string | null;
   chest: string | null;
   waist: string | null;
   hips: string | null;
   arms: string | null;
   thighs: string | null;
   notes: string | null;
+}
+
+interface DailyNutrition {
+  id: string;
+  date: string;
+  calories: number;
+  protein: string;
+  carbs: string;
+  fat: string;
+  fiber: string | null;
+  notes: string | null;
+}
+
+interface NutritionSummary {
+  avgCalories: number;
+  avgProtein: number;
+  avgCarbs: number;
+  avgFat: number;
+  daysTracked: number;
 }
 
 interface CalculatorResult {
@@ -96,6 +116,7 @@ export default function UserDashboard() {
   
   const [measurementForm, setMeasurementForm] = useState({
     weight: "",
+    bodyFatPercentage: "",
     chest: "",
     waist: "",
     hips: "",
@@ -104,6 +125,18 @@ export default function UserDashboard() {
     notes: ""
   });
   const [showMeasurementDialog, setShowMeasurementDialog] = useState(false);
+  
+  const [todayNutrition, setTodayNutrition] = useState<DailyNutrition | null>(null);
+  const [nutritionHistory, setNutritionHistory] = useState<DailyNutrition[]>([]);
+  const [nutritionSummary, setNutritionSummary] = useState<NutritionSummary | null>(null);
+  const [nutritionForm, setNutritionForm] = useState({
+    calories: "",
+    protein: "",
+    carbs: "",
+    fat: "",
+    fiber: "",
+  });
+  const [showNutritionDialog, setShowNutritionDialog] = useState(false);
   const [profileForm, setProfileForm] = useState({
     fullName: "",
     phone: ""
@@ -118,13 +151,15 @@ export default function UserDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ordersRes, packagesRes, habitsRes, measurementsRes, calcRes, allHabitsRes] = await Promise.all([
+        const [ordersRes, packagesRes, habitsRes, measurementsRes, calcRes, allHabitsRes, nutritionTodayRes, nutritionHistoryRes] = await Promise.all([
           fetch("/api/orders", { credentials: "include" }),
           fetch("/api/packages"),
           fetch("/api/habits/today", { credentials: "include" }),
           fetch("/api/measurements?limit=30", { credentials: "include" }),
           fetch("/api/calculator/results", { credentials: "include" }),
           fetch("/api/habits?limit=30", { credentials: "include" }),
+          fetch("/api/nutrition/today", { credentials: "include" }),
+          fetch("/api/nutrition?limit=30", { credentials: "include" }),
         ]);
         
         if (ordersRes.ok) {
@@ -165,6 +200,26 @@ export default function UserDashboard() {
         if (allHabitsRes.ok) {
           const allHabitsData = await allHabitsRes.json();
           setHabits(allHabitsData.habits || []);
+        }
+
+        if (nutritionTodayRes.ok) {
+          const nutritionData = await nutritionTodayRes.json();
+          setTodayNutrition(nutritionData.nutrition);
+          setNutritionSummary(nutritionData.summary);
+          if (nutritionData.nutrition) {
+            setNutritionForm({
+              calories: nutritionData.nutrition.calories?.toString() || "",
+              protein: nutritionData.nutrition.protein || "",
+              carbs: nutritionData.nutrition.carbs || "",
+              fat: nutritionData.nutrition.fat || "",
+              fiber: nutritionData.nutrition.fiber || "",
+            });
+          }
+        }
+
+        if (nutritionHistoryRes.ok) {
+          const historyData = await nutritionHistoryRes.json();
+          setNutritionHistory(historyData.nutrition || []);
         }
       } catch (error) {
         console.error("Veri yüklenemedi:", error);
@@ -227,6 +282,7 @@ export default function UserDashboard() {
     try {
       const data: any = {};
       if (measurementForm.weight) data.weight = parseFloat(measurementForm.weight);
+      if (measurementForm.bodyFatPercentage) data.bodyFatPercentage = parseFloat(measurementForm.bodyFatPercentage);
       if (measurementForm.chest) data.chest = parseFloat(measurementForm.chest);
       if (measurementForm.waist) data.waist = parseFloat(measurementForm.waist);
       if (measurementForm.hips) data.hips = parseFloat(measurementForm.hips);
@@ -244,11 +300,38 @@ export default function UserDashboard() {
       if (res.ok) {
         const result = await res.json();
         setMeasurements([result.measurement, ...measurements]);
-        setMeasurementForm({ weight: "", chest: "", waist: "", hips: "", arms: "", thighs: "", notes: "" });
+        setMeasurementForm({ weight: "", bodyFatPercentage: "", chest: "", waist: "", hips: "", arms: "", thighs: "", notes: "" });
         setShowMeasurementDialog(false);
       }
     } catch (error) {
       console.error("Ölçüm kaydedilemedi:", error);
+    }
+  };
+
+  const handleNutritionSubmit = async () => {
+    try {
+      const data: any = {};
+      if (nutritionForm.calories) data.calories = parseInt(nutritionForm.calories);
+      if (nutritionForm.protein) data.protein = parseFloat(nutritionForm.protein);
+      if (nutritionForm.carbs) data.carbs = parseFloat(nutritionForm.carbs);
+      if (nutritionForm.fat) data.fat = parseFloat(nutritionForm.fat);
+      if (nutritionForm.fiber) data.fiber = parseFloat(nutritionForm.fiber);
+
+      const res = await fetch("/api/nutrition", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        const result = await res.json();
+        setTodayNutrition(result.nutrition);
+        setNutritionSummary(result.summary);
+        setShowNutritionDialog(false);
+      }
+    } catch (error) {
+      console.error("Beslenme kaydedilemedi:", error);
     }
   };
 
@@ -297,6 +380,23 @@ export default function UserDashboard() {
         date: new Date(m.date).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }),
         weight: m.weight ? parseFloat(m.weight) : null
       })).filter(d => d.weight !== null)
+    : [];
+
+  const bodyFatChartData = measurements.length > 0
+    ? measurements.slice(0, 10).reverse().map(m => ({
+        date: new Date(m.date).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }),
+        bodyFat: m.bodyFatPercentage ? parseFloat(m.bodyFatPercentage) : null
+      })).filter(d => d.bodyFat !== null)
+    : [];
+
+  const nutritionChartData = nutritionHistory.length > 0
+    ? nutritionHistory.slice(0, 14).reverse().map(n => ({
+        date: new Date(n.date).toLocaleDateString("tr-TR", { day: "numeric", month: "short" }),
+        calories: n.calories,
+        protein: parseFloat(n.protein || "0"),
+        carbs: parseFloat(n.carbs || "0"),
+        fat: parseFloat(n.fat || "0"),
+      }))
     : [];
 
   const weeklyWorkouts = habits.reduce((acc, h) => acc + (h.didWorkout ? 1 : 0), 0);
@@ -771,29 +871,90 @@ export default function UserDashboard() {
                     <h1 className="text-3xl font-heading font-bold text-white uppercase">İlerleme Takibi</h1>
                   </div>
 
-                  {/* Weight Chart */}
-                  {weightChartData.length > 1 && (
-                    <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
-                      <h2 className="text-xl font-heading font-bold text-white mb-6">Kilo Grafiği</h2>
-                      <div className="h-64">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart data={weightChartData}>
-                            <defs>
-                              <linearGradient id="weightGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#ccff00" stopOpacity={0.3}/>
-                                <stop offset="95%" stopColor="#ccff00" stopOpacity={0}/>
-                              </linearGradient>
-                            </defs>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                            <XAxis dataKey="date" stroke="#666" fontSize={12} />
-                            <YAxis stroke="#666" fontSize={12} domain={['dataMin - 2', 'dataMax + 2']} />
-                            <Tooltip 
-                              contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
-                              formatter={(value: number) => [`${value} kg`, "Kilo"]}
-                            />
-                            <Area type="monotone" dataKey="weight" stroke="#ccff00" fill="url(#weightGradient)" strokeWidth={2} />
-                          </AreaChart>
-                        </ResponsiveContainer>
+                  {/* Charts Section */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Weight Chart */}
+                    {weightChartData.length > 1 && (
+                      <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                        <h2 className="text-xl font-heading font-bold text-white mb-6">Kilo Grafiği</h2>
+                        <div className="h-64">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <AreaChart data={weightChartData}>
+                              <defs>
+                                <linearGradient id="weightGradient" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="5%" stopColor="#ccff00" stopOpacity={0.3}/>
+                                  <stop offset="95%" stopColor="#ccff00" stopOpacity={0}/>
+                                </linearGradient>
+                              </defs>
+                              <CartesianGrid strokeDasharray="3 3" stroke="#222" />
+                              <XAxis dataKey="date" stroke="#666" fontSize={12} />
+                              <YAxis stroke="#666" fontSize={12} domain={['dataMin - 2', 'dataMax + 2']} />
+                              <Tooltip 
+                                contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                                formatter={(value: number) => [`${value} kg`, "Kilo"]}
+                              />
+                              <Area type="monotone" dataKey="weight" stroke="#ccff00" fill="url(#weightGradient)" strokeWidth={2} />
+                            </AreaChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Body Fat Chart */}
+                    {bodyFatChartData.length > 1 && (
+                      <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                        <h2 className="text-xl font-heading font-bold text-white mb-6">Vücut Yağ Oranı</h2>
+                        <div className="h-64">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <AreaChart data={bodyFatChartData}>
+                              <defs>
+                                <linearGradient id="bodyFatGradient" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="5%" stopColor="#ec4899" stopOpacity={0.3}/>
+                                  <stop offset="95%" stopColor="#ec4899" stopOpacity={0}/>
+                                </linearGradient>
+                              </defs>
+                              <CartesianGrid strokeDasharray="3 3" stroke="#222" />
+                              <XAxis dataKey="date" stroke="#666" fontSize={12} />
+                              <YAxis stroke="#666" fontSize={12} domain={['dataMin - 2', 'dataMax + 2']} />
+                              <Tooltip 
+                                contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                                formatter={(value: number) => [`%${value}`, "Yağ Oranı"]}
+                              />
+                              <Area type="monotone" dataKey="bodyFat" stroke="#ec4899" fill="url(#bodyFatGradient)" strokeWidth={2} />
+                            </AreaChart>
+                          </ResponsiveContainer>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Current Stats Summary */}
+                  {latestMeasurement && (
+                    <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-6">
+                      <h2 className="text-xl font-heading font-bold text-white mb-4">Güncel Durum</h2>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="text-center p-4 bg-black/30 rounded-xl">
+                          <div className="text-3xl font-bold text-primary">{latestMeasurement.weight || "-"}</div>
+                          <div className="text-sm text-gray-400 mt-1">kg</div>
+                          {weightChange && (
+                            <div className={`text-xs mt-2 flex items-center justify-center gap-1 ${parseFloat(weightChange) < 0 ? "text-green-400" : parseFloat(weightChange) > 0 ? "text-red-400" : "text-gray-400"}`}>
+                              {parseFloat(weightChange) < 0 ? <ArrowDown className="w-3 h-3" /> : parseFloat(weightChange) > 0 ? <ArrowUp className="w-3 h-3" /> : null}
+                              {weightChange} kg
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-center p-4 bg-black/30 rounded-xl">
+                          <div className="text-3xl font-bold text-pink-400">{latestMeasurement.bodyFatPercentage || "-"}</div>
+                          <div className="text-sm text-gray-400 mt-1">% yağ</div>
+                        </div>
+                        <div className="text-center p-4 bg-black/30 rounded-xl">
+                          <div className="text-3xl font-bold text-blue-400">{latestMeasurement.waist || "-"}</div>
+                          <div className="text-sm text-gray-400 mt-1">cm bel</div>
+                        </div>
+                        <div className="text-center p-4 bg-black/30 rounded-xl">
+                          <div className="text-3xl font-bold text-purple-400">{latestMeasurement.chest || "-"}</div>
+                          <div className="text-sm text-gray-400 mt-1">cm göğüs</div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -897,6 +1058,20 @@ export default function UserDashboard() {
                               onChange={(e) => setMeasurementForm({ ...measurementForm, weight: e.target.value })}
                               className="bg-white/5 border-white/10 mt-1"
                               data-testid="input-measurement-weight"
+                            />
+                          </div>
+                          <div>
+                            <Label className="text-gray-400">Yağ Oranı (%)</Label>
+                            <Input 
+                              type="number"
+                              step="0.1"
+                              min="1"
+                              max="60"
+                              value={measurementForm.bodyFatPercentage}
+                              onChange={(e) => setMeasurementForm({ ...measurementForm, bodyFatPercentage: e.target.value })}
+                              className="bg-white/5 border-white/10 mt-1"
+                              data-testid="input-measurement-bodyfat"
+                              placeholder="Örn: 18.5"
                             />
                           </div>
                           <div>
@@ -1102,7 +1277,199 @@ export default function UserDashboard() {
                 >
                   <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-heading font-bold text-white uppercase">Beslenme</h1>
+                    <Dialog open={showNutritionDialog} onOpenChange={setShowNutritionDialog}>
+                      <DialogTrigger asChild>
+                        <Button className="bg-primary text-black hover:bg-primary/90" data-testid="button-add-nutrition">
+                          <Plus className="w-4 h-4 mr-2" />
+                          Bugünü Kaydet
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-[#0A0A0A] border-white/10 max-w-md">
+                        <DialogHeader>
+                          <DialogTitle className="text-white font-heading">Günlük Beslenme</DialogTitle>
+                          <DialogDescription className="text-gray-400">
+                            Bugünkü kalori ve makro değerlerini girin
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="grid gap-4 py-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label className="text-gray-400">Kalori (kcal)</Label>
+                              <Input
+                                type="number"
+                                placeholder="2000"
+                                value={nutritionForm.calories}
+                                onChange={(e) => setNutritionForm(prev => ({ ...prev, calories: e.target.value }))}
+                                className="bg-white/5 border-white/10"
+                                data-testid="input-calories"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label className="text-gray-400">Protein (g)</Label>
+                              <Input
+                                type="number"
+                                placeholder="150"
+                                value={nutritionForm.protein}
+                                onChange={(e) => setNutritionForm(prev => ({ ...prev, protein: e.target.value }))}
+                                className="bg-white/5 border-white/10"
+                                data-testid="input-protein"
+                              />
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label className="text-gray-400">Karbonhidrat (g)</Label>
+                              <Input
+                                type="number"
+                                placeholder="200"
+                                value={nutritionForm.carbs}
+                                onChange={(e) => setNutritionForm(prev => ({ ...prev, carbs: e.target.value }))}
+                                className="bg-white/5 border-white/10"
+                                data-testid="input-carbs"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label className="text-gray-400">Yağ (g)</Label>
+                              <Input
+                                type="number"
+                                placeholder="70"
+                                value={nutritionForm.fat}
+                                onChange={(e) => setNutritionForm(prev => ({ ...prev, fat: e.target.value }))}
+                                className="bg-white/5 border-white/10"
+                                data-testid="input-fat"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <DialogFooter>
+                          <Button onClick={handleNutritionSubmit} className="w-full bg-primary text-black hover:bg-primary/90" data-testid="button-save-nutrition">
+                            Kaydet
+                          </Button>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </div>
+
+                  {/* Today's Nutrition Summary */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-gradient-to-br from-orange-500/20 to-orange-500/5 border border-orange-500/20 rounded-2xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-orange-500/30 flex items-center justify-center">
+                          <Flame className="w-5 h-5 text-orange-400" />
+                        </div>
+                        <span className="text-sm text-gray-400">Kalori</span>
+                      </div>
+                      <div className="text-3xl font-bold text-white">{todayNutrition?.calories || 0}</div>
+                      <div className="text-xs text-gray-500 mt-1">kcal bugün</div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.05 }}
+                      className="bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 rounded-2xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-red-500/30 flex items-center justify-center">
+                          <Target className="w-5 h-5 text-red-400" />
+                        </div>
+                        <span className="text-sm text-gray-400">Protein</span>
+                      </div>
+                      <div className="text-3xl font-bold text-white">{todayNutrition?.protein || 0}</div>
+                      <div className="text-xs text-gray-500 mt-1">gram bugün</div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                      className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-2xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/30 flex items-center justify-center">
+                          <Zap className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="text-sm text-gray-400">Karbonhidrat</span>
+                      </div>
+                      <div className="text-3xl font-bold text-white">{todayNutrition?.carbs || 0}</div>
+                      <div className="text-xs text-gray-500 mt-1">gram bugün</div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.15 }}
+                      className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/20 rounded-2xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-purple-500/30 flex items-center justify-center">
+                          <Activity className="w-5 h-5 text-purple-400" />
+                        </div>
+                        <span className="text-sm text-gray-400">Yağ</span>
+                      </div>
+                      <div className="text-3xl font-bold text-white">{todayNutrition?.fat || 0}</div>
+                      <div className="text-xs text-gray-500 mt-1">gram bugün</div>
+                    </motion.div>
+                  </div>
+
+                  {/* Weekly Average */}
+                  {nutritionSummary && nutritionSummary.daysTracked > 0 && (
+                    <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                      <h2 className="text-xl font-heading font-bold text-white mb-4">Haftalık Ortalama</h2>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="text-center p-4 bg-white/5 rounded-xl">
+                          <div className="text-2xl font-bold text-orange-400">{nutritionSummary.avgCalories}</div>
+                          <div className="text-xs text-gray-500">kcal/gün</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/5 rounded-xl">
+                          <div className="text-2xl font-bold text-red-400">{nutritionSummary.avgProtein}g</div>
+                          <div className="text-xs text-gray-500">protein/gün</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/5 rounded-xl">
+                          <div className="text-2xl font-bold text-primary">{nutritionSummary.avgCarbs}g</div>
+                          <div className="text-xs text-gray-500">karb/gün</div>
+                        </div>
+                        <div className="text-center p-4 bg-white/5 rounded-xl">
+                          <div className="text-2xl font-bold text-purple-400">{nutritionSummary.avgFat}g</div>
+                          <div className="text-xs text-gray-500">yağ/gün</div>
+                        </div>
+                      </div>
+                      <div className="text-center text-sm text-gray-500 mt-4">
+                        Son {nutritionSummary.daysTracked} günün ortalaması
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Calorie Chart */}
+                  {nutritionChartData.length > 1 && (
+                    <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                      <h2 className="text-xl font-heading font-bold text-white mb-6">Kalori Grafiği</h2>
+                      <div className="h-64">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <AreaChart data={nutritionChartData}>
+                            <defs>
+                              <linearGradient id="calorieGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#f97316" stopOpacity={0.3}/>
+                                <stop offset="95%" stopColor="#f97316" stopOpacity={0}/>
+                              </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#222" />
+                            <XAxis dataKey="date" stroke="#666" fontSize={12} />
+                            <YAxis stroke="#666" fontSize={12} />
+                            <Tooltip 
+                              contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
+                              formatter={(value: number) => [`${value} kcal`, "Kalori"]}
+                            />
+                            <Area type="monotone" dataKey="calories" stroke="#f97316" fill="url(#calorieGradient)" strokeWidth={2} />
+                          </AreaChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Quick Calculators */}
