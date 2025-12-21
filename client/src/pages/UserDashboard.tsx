@@ -9,11 +9,12 @@ import { useAuth } from "@/hooks/useAuth";
 import { 
   User, Package, LogOut, Clock, CheckCircle, 
   Droplets, Dumbbell, Moon, Flame, Calculator, 
-  Plus, Minus, Scale, Ruler, TrendingUp, Calendar,
+  Plus, Minus, Scale, Ruler, TrendingUp, Calendar as CalendarIcon,
   Target, Award, ChevronRight, Activity, BarChart3, 
   ShoppingBag, Phone, Mail, Zap, Home, LineChart as LineChartIcon,
   Utensils, Settings, ArrowRight, ArrowUp, ArrowDown,
-  Heart, Play, Pause, Timer, Crown, Star, Sparkles
+  Heart, Play, Pause, Timer, Crown, Star, Sparkles, Trophy,
+  Medal, ChevronLeft, Salad
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -94,7 +95,7 @@ interface CalculatorResult {
   createdAt: string;
 }
 
-type ActivePage = "overview" | "progress" | "measurements" | "nutrition" | "workouts" | "settings";
+type ActivePage = "overview" | "progress" | "measurements" | "nutrition" | "workouts" | "calendar" | "achievements" | "settings";
 
 export default function UserDashboard() {
   const { user, isAuthenticated, isLoading: authLoading, logout } = useAuth();
@@ -407,6 +408,131 @@ export default function UserDashboard() {
     ? (habits.filter(h => h.sleepHours).reduce((acc, h) => acc + parseFloat(h.sleepHours || "0"), 0) / habits.filter(h => h.sleepHours).length).toFixed(1)
     : "0";
 
+  // Calendar state
+  const [calendarMonth, setCalendarMonth] = useState(new Date());
+  
+  // Generate calendar days
+  const getCalendarDays = () => {
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startPadding = (firstDay.getDay() + 6) % 7; // Monday start
+    const days: (Date | null)[] = [];
+    
+    for (let i = 0; i < startPadding; i++) {
+      days.push(null);
+    }
+    for (let d = 1; d <= lastDay.getDate(); d++) {
+      days.push(new Date(year, month, d));
+    }
+    return days;
+  };
+
+  const getDayData = (date: Date) => {
+    const dateStr = date.toISOString().split("T")[0];
+    const habit = habits.find(h => h.date.split("T")[0] === dateStr);
+    const measurement = measurements.find(m => m.date.split("T")[0] === dateStr);
+    const nutrition = nutritionHistory.find(n => n.date.split("T")[0] === dateStr);
+    return { habit, measurement, nutrition };
+  };
+
+  // Achievement calculations
+  const achievements = [
+    {
+      id: "first_measurement",
+      name: "İlk Adım",
+      description: "İlk ölçümünü kaydet",
+      icon: Scale,
+      color: "green",
+      unlocked: measurements.length > 0,
+      progress: measurements.length > 0 ? 100 : 0,
+    },
+    {
+      id: "streak_3",
+      name: "Üç Gün Seri",
+      description: "3 gün üst üste antrenman yap",
+      icon: Flame,
+      color: "orange",
+      unlocked: streak >= 3,
+      progress: Math.min((streak / 3) * 100, 100),
+    },
+    {
+      id: "streak_7",
+      name: "Haftalık Şampiyon",
+      description: "7 gün üst üste antrenman yap",
+      icon: Crown,
+      color: "yellow",
+      unlocked: streak >= 7,
+      progress: Math.min((streak / 7) * 100, 100),
+    },
+    {
+      id: "streak_30",
+      name: "Demir İrade",
+      description: "30 gün üst üste antrenman yap",
+      icon: Medal,
+      color: "purple",
+      unlocked: streak >= 30,
+      progress: Math.min((streak / 30) * 100, 100),
+    },
+    {
+      id: "water_master",
+      name: "Su Ustası",
+      description: "Bir günde 8 bardak su iç",
+      icon: Droplets,
+      color: "blue",
+      unlocked: waterCount >= 8 || habits.some(h => h.waterGlasses >= 8),
+      progress: Math.min((waterCount / 8) * 100, 100),
+    },
+    {
+      id: "10_workouts",
+      name: "Fitness Meraklısı",
+      description: "10 antrenman tamamla",
+      icon: Dumbbell,
+      color: "primary",
+      unlocked: weeklyWorkouts >= 10,
+      progress: Math.min((weeklyWorkouts / 10) * 100, 100),
+    },
+    {
+      id: "nutrition_tracker",
+      name: "Beslenme Takipçisi",
+      description: "7 gün beslenme kaydı tut",
+      icon: Salad,
+      color: "green",
+      unlocked: nutritionHistory.length >= 7,
+      progress: Math.min((nutritionHistory.length / 7) * 100, 100),
+    },
+    {
+      id: "5_measurements",
+      name: "Veri Tutkunu",
+      description: "5 ölçüm kaydet",
+      icon: Ruler,
+      color: "pink",
+      unlocked: measurements.length >= 5,
+      progress: Math.min((measurements.length / 5) * 100, 100),
+    },
+    {
+      id: "early_bird",
+      name: "Erken Kalkan",
+      description: "7+ saat uyku ortalaması yakala",
+      icon: Moon,
+      color: "purple",
+      unlocked: parseFloat(avgSleep) >= 7,
+      progress: Math.min((parseFloat(avgSleep) / 7) * 100, 100),
+    },
+    {
+      id: "package_owner",
+      name: "Premium Üye",
+      description: "Bir koçluk paketi satın al",
+      icon: Crown,
+      color: "gold",
+      unlocked: !!activeOrder,
+      progress: activeOrder ? 100 : 0,
+    },
+  ];
+
+  const unlockedCount = achievements.filter(a => a.unlocked).length;
+
   if (authLoading || isLoading) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center">
@@ -424,6 +550,8 @@ export default function UserDashboard() {
     { id: "measurements" as const, label: "Ölçümler", icon: Ruler },
     { id: "nutrition" as const, label: "Beslenme", icon: Utensils },
     { id: "workouts" as const, label: "Antrenman", icon: Dumbbell },
+    { id: "calendar" as const, label: "Takvim", icon: CalendarIcon },
+    { id: "achievements" as const, label: "Başarımlar", icon: Trophy },
     { id: "settings" as const, label: "Ayarlar", icon: Settings },
   ];
 
@@ -1680,6 +1808,316 @@ export default function UserDashboard() {
                       </Link>
                     </div>
                   </div>
+                </motion.div>
+              )}
+
+              {/* CALENDAR PAGE */}
+              {activePage === "calendar" && (
+                <motion.div
+                  key="calendar"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="space-y-6"
+                >
+                  <div className="flex items-center justify-between">
+                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Takvim</h1>
+                  </div>
+
+                  {/* Calendar Header */}
+                  <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-4 md:p-6">
+                    <div className="flex items-center justify-between mb-6">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setCalendarMonth(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1))}
+                        className="border-white/20 w-10 h-10"
+                        data-testid="button-calendar-prev"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </Button>
+                      <h2 className="text-lg md:text-xl font-heading font-bold text-white">
+                        {calendarMonth.toLocaleDateString("tr-TR", { month: "long", year: "numeric" })}
+                      </h2>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setCalendarMonth(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1))}
+                        className="border-white/20 w-10 h-10"
+                        data-testid="button-calendar-next"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </Button>
+                    </div>
+
+                    {/* Day headers */}
+                    <div className="grid grid-cols-7 gap-1 mb-2">
+                      {["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"].map((day) => (
+                        <div key={day} className="text-center text-xs text-gray-500 font-medium py-2">
+                          {day}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Calendar grid */}
+                    <div className="grid grid-cols-7 gap-1">
+                      {getCalendarDays().map((date, i) => {
+                        if (!date) {
+                          return <div key={`empty-${i}`} className="aspect-square" />;
+                        }
+                        
+                        const dayData = getDayData(date);
+                        const isToday = date.toDateString() === new Date().toDateString();
+                        const hasActivity = dayData.habit || dayData.measurement || dayData.nutrition;
+                        
+                        return (
+                          <div
+                            key={date.toISOString()}
+                            className={`aspect-square rounded-lg md:rounded-xl p-1 md:p-2 flex flex-col transition-all ${
+                              isToday 
+                                ? "bg-primary/20 border-2 border-primary" 
+                                : hasActivity 
+                                  ? "bg-white/5 hover:bg-white/10" 
+                                  : "hover:bg-white/5"
+                            }`}
+                            data-testid={`calendar-day-${date.getDate()}`}
+                          >
+                            <div className={`text-xs md:text-sm font-medium mb-1 ${isToday ? "text-primary" : "text-gray-400"}`}>
+                              {date.getDate()}
+                            </div>
+                            <div className="flex flex-wrap gap-0.5 md:gap-1">
+                              {dayData.habit?.didWorkout && (
+                                <div className="w-4 h-4 md:w-5 md:h-5 rounded bg-primary/30 flex items-center justify-center" title="Antrenman">
+                                  <Dumbbell className="w-2.5 h-2.5 md:w-3 md:h-3 text-primary" />
+                                </div>
+                              )}
+                              {dayData.habit && dayData.habit.waterGlasses > 0 && (
+                                <div className="w-4 h-4 md:w-5 md:h-5 rounded bg-blue-500/30 flex items-center justify-center" title={`${dayData.habit.waterGlasses} bardak su`}>
+                                  <Droplets className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-400" />
+                                </div>
+                              )}
+                              {dayData.measurement && (
+                                <div className="w-4 h-4 md:w-5 md:h-5 rounded bg-green-500/30 flex items-center justify-center" title="Ölçüm kaydı">
+                                  <Scale className="w-2.5 h-2.5 md:w-3 md:h-3 text-green-400" />
+                                </div>
+                              )}
+                              {dayData.nutrition && (
+                                <div className="w-4 h-4 md:w-5 md:h-5 rounded bg-orange-500/30 flex items-center justify-center" title="Beslenme kaydı">
+                                  <Utensils className="w-2.5 h-2.5 md:w-3 md:h-3 text-orange-400" />
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Legend */}
+                  <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-4 md:p-6">
+                    <h3 className="text-lg font-heading font-bold text-white mb-4">Renk Açıklamaları</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                      <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                        <div className="w-8 h-8 rounded-lg bg-primary/30 flex items-center justify-center">
+                          <Dumbbell className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-sm text-gray-300">Antrenman</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/30 flex items-center justify-center">
+                          <Droplets className="w-4 h-4 text-blue-400" />
+                        </div>
+                        <span className="text-sm text-gray-300">Su Takibi</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                        <div className="w-8 h-8 rounded-lg bg-green-500/30 flex items-center justify-center">
+                          <Scale className="w-4 h-4 text-green-400" />
+                        </div>
+                        <span className="text-sm text-gray-300">Ölçüm</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+                        <div className="w-8 h-8 rounded-lg bg-orange-500/30 flex items-center justify-center">
+                          <Utensils className="w-4 h-4 text-orange-400" />
+                        </div>
+                        <span className="text-sm text-gray-300">Beslenme</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Today's Summary */}
+                  {(() => {
+                    const todayData = getDayData(new Date());
+                    return (
+                      <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-4 md:p-6">
+                        <h3 className="text-lg font-heading font-bold text-white mb-4">Bugün</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                          <div className="bg-black/30 rounded-xl p-4 text-center">
+                            <Dumbbell className={`w-6 h-6 mx-auto mb-2 ${todayData.habit?.didWorkout ? "text-primary" : "text-gray-600"}`} />
+                            <div className="text-sm text-gray-400">Antrenman</div>
+                            <div className={`text-lg font-bold ${todayData.habit?.didWorkout ? "text-primary" : "text-gray-500"}`}>
+                              {todayData.habit?.didWorkout ? "Tamam ✓" : "Yapılmadı"}
+                            </div>
+                          </div>
+                          <div className="bg-black/30 rounded-xl p-4 text-center">
+                            <Droplets className="w-6 h-6 mx-auto mb-2 text-blue-400" />
+                            <div className="text-sm text-gray-400">Su</div>
+                            <div className="text-lg font-bold text-blue-400">
+                              {todayData.habit?.waterGlasses || 0}/8
+                            </div>
+                          </div>
+                          <div className="bg-black/30 rounded-xl p-4 text-center">
+                            <Scale className={`w-6 h-6 mx-auto mb-2 ${todayData.measurement ? "text-green-400" : "text-gray-600"}`} />
+                            <div className="text-sm text-gray-400">Ölçüm</div>
+                            <div className={`text-lg font-bold ${todayData.measurement ? "text-green-400" : "text-gray-500"}`}>
+                              {todayData.measurement ? `${todayData.measurement.weight || "-"} kg` : "Yok"}
+                            </div>
+                          </div>
+                          <div className="bg-black/30 rounded-xl p-4 text-center">
+                            <Utensils className={`w-6 h-6 mx-auto mb-2 ${todayData.nutrition ? "text-orange-400" : "text-gray-600"}`} />
+                            <div className="text-sm text-gray-400">Kalori</div>
+                            <div className={`text-lg font-bold ${todayData.nutrition ? "text-orange-400" : "text-gray-500"}`}>
+                              {todayData.nutrition ? `${todayData.nutrition.calories} kcal` : "Yok"}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </motion.div>
+              )}
+
+              {/* ACHIEVEMENTS PAGE */}
+              {activePage === "achievements" && (
+                <motion.div
+                  key="achievements"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Başarımlar</h1>
+                    <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 self-start md:self-auto">
+                      <Trophy className="w-4 h-4 mr-2" />
+                      {unlockedCount} / {achievements.length} Rozet
+                    </Badge>
+                  </div>
+
+                  {/* Progress Overview */}
+                  <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-4 md:p-6">
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                      <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-primary/30 flex items-center justify-center">
+                        <Trophy className="w-10 h-10 md:w-12 md:h-12 text-primary" />
+                      </div>
+                      <div className="flex-1 text-center md:text-left">
+                        <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Rozet Koleksiyonu</h2>
+                        <p className="text-gray-400 mb-4">Hedeflerine ulaştıkça yeni rozetler kazan!</p>
+                        <div className="flex items-center gap-4">
+                          <div className="flex-1">
+                            <Progress value={(unlockedCount / achievements.length) * 100} className="h-3 bg-white/10" />
+                          </div>
+                          <span className="text-primary font-bold">{Math.round((unlockedCount / achievements.length) * 100)}%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Unlocked Achievements */}
+                  {achievements.filter(a => a.unlocked).length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-heading font-bold text-white mb-4 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-400" />
+                        Kazanılan Rozetler
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {achievements.filter(a => a.unlocked).map((achievement, i) => {
+                          const Icon = achievement.icon;
+                          const colorClasses: Record<string, string> = {
+                            green: "from-green-500/20 to-green-500/5 border-green-500/30",
+                            orange: "from-orange-500/20 to-orange-500/5 border-orange-500/30",
+                            yellow: "from-yellow-500/20 to-yellow-500/5 border-yellow-500/30",
+                            purple: "from-purple-500/20 to-purple-500/5 border-purple-500/30",
+                            blue: "from-blue-500/20 to-blue-500/5 border-blue-500/30",
+                            primary: "from-primary/20 to-primary/5 border-primary/30",
+                            pink: "from-pink-500/20 to-pink-500/5 border-pink-500/30",
+                            gold: "from-yellow-400/20 to-amber-500/5 border-yellow-400/30",
+                          };
+                          const iconClasses: Record<string, string> = {
+                            green: "bg-green-500/30 text-green-400",
+                            orange: "bg-orange-500/30 text-orange-400",
+                            yellow: "bg-yellow-500/30 text-yellow-400",
+                            purple: "bg-purple-500/30 text-purple-400",
+                            blue: "bg-blue-500/30 text-blue-400",
+                            primary: "bg-primary/30 text-primary",
+                            pink: "bg-pink-500/30 text-pink-400",
+                            gold: "bg-yellow-400/30 text-yellow-400",
+                          };
+                          return (
+                            <motion.div
+                              key={achievement.id}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: i * 0.05 }}
+                              className={`bg-gradient-to-br ${colorClasses[achievement.color]} border rounded-2xl p-4 md:p-5`}
+                              data-testid={`achievement-${achievement.id}`}
+                            >
+                              <div className="flex items-start gap-4">
+                                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl ${iconClasses[achievement.color]} flex items-center justify-center shrink-0`}>
+                                  <Icon className="w-6 h-6 md:w-7 md:h-7" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <h4 className="font-bold text-white truncate">{achievement.name}</h4>
+                                    <CheckCircle className="w-4 h-4 text-green-400 shrink-0" />
+                                  </div>
+                                  <p className="text-sm text-gray-400">{achievement.description}</p>
+                                </div>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Locked Achievements */}
+                  {achievements.filter(a => !a.unlocked).length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-heading font-bold text-white mb-4 flex items-center gap-2">
+                        <Target className="w-5 h-5 text-gray-400" />
+                        Hedefler
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {achievements.filter(a => !a.unlocked).map((achievement, i) => {
+                          const Icon = achievement.icon;
+                          return (
+                            <motion.div
+                              key={achievement.id}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.05 }}
+                              className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-4 md:p-5"
+                              data-testid={`achievement-locked-${achievement.id}`}
+                            >
+                              <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+                                  <Icon className="w-6 h-6 md:w-7 md:h-7 text-gray-600" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <h4 className="font-bold text-gray-400 mb-1 truncate">{achievement.name}</h4>
+                                  <p className="text-sm text-gray-600 mb-3">{achievement.description}</p>
+                                  <div className="flex items-center gap-2">
+                                    <Progress value={achievement.progress} className="h-2 bg-white/5 flex-1" />
+                                    <span className="text-xs text-gray-500">{Math.round(achievement.progress)}%</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               )}
 
