@@ -100,12 +100,12 @@ const apiMuscleToBodyHighlighter: Record<string, string[]> = {
   "lats": ["upper-back"],
 };
 
-type BodyView = "front" | "back";
+type BodyView = "anterior" | "posterior";
 
 export default function Exercises() {
   const [selectedMuscle, setSelectedMuscle] = useState<string>("");
   const [hoveredMuscle, setHoveredMuscle] = useState<string>("");
-  const [bodyView, setBodyView] = useState<BodyView>("front");
+  const [bodyView, setBodyView] = useState<BodyView>("anterior");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 12;
@@ -203,9 +203,9 @@ export default function Exercises() {
                 <h2 className="text-lg font-medium text-gray-300 tracking-wide">KAS HARİTASI</h2>
                 <div className="flex items-center gap-1 bg-[#111] rounded-lg p-1">
                   <button
-                    onClick={() => setBodyView("front")}
+                    onClick={() => setBodyView("anterior")}
                     className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      bodyView === "front" 
+                      bodyView === "anterior" 
                         ? "bg-[#39ff14] text-black" 
                         : "text-gray-500 hover:text-gray-300"
                     }`}
@@ -214,9 +214,9 @@ export default function Exercises() {
                     Ön
                   </button>
                   <button
-                    onClick={() => setBodyView("back")}
+                    onClick={() => setBodyView("posterior")}
                     className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      bodyView === "back" 
+                      bodyView === "posterior" 
                         ? "bg-[#39ff14] text-black" 
                         : "text-gray-500 hover:text-gray-300"
                     }`}
