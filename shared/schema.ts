@@ -136,6 +136,7 @@ export const bodyMeasurements = pgTable("body_measurements", {
   userId: varchar("user_id").notNull().references(() => users.id),
   date: timestamp("date").notNull(),
   weight: decimal("weight", { precision: 5, scale: 2 }),
+  bodyFatPercentage: decimal("body_fat_percentage", { precision: 4, scale: 1 }),
   chest: decimal("chest", { precision: 5, scale: 1 }),
   waist: decimal("waist", { precision: 5, scale: 1 }),
   hips: decimal("hips", { precision: 5, scale: 1 }),
@@ -152,6 +153,28 @@ export const insertBodyMeasurementSchema = createInsertSchema(bodyMeasurements).
 
 export type InsertBodyMeasurement = z.infer<typeof insertBodyMeasurementSchema>;
 export type BodyMeasurement = typeof bodyMeasurements.$inferSelect;
+
+// DAILY NUTRITION TABLE (günlük beslenme takibi)
+export const dailyNutrition = pgTable("daily_nutrition", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").notNull().references(() => users.id),
+  date: timestamp("date").notNull(),
+  calories: integer("calories").default(0).notNull(),
+  protein: decimal("protein", { precision: 5, scale: 1 }).default("0"),
+  carbs: decimal("carbs", { precision: 5, scale: 1 }).default("0"),
+  fat: decimal("fat", { precision: 5, scale: 1 }).default("0"),
+  fiber: decimal("fiber", { precision: 4, scale: 1 }),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertDailyNutritionSchema = createInsertSchema(dailyNutrition).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertDailyNutrition = z.infer<typeof insertDailyNutritionSchema>;
+export type DailyNutrition = typeof dailyNutrition.$inferSelect;
 
 // EMAIL LOGS TABLE (email gönderim kayıtları)
 export const emailLogs = pgTable("email_logs", {
