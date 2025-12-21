@@ -6,10 +6,8 @@ import { Search, Dumbbell, X, ChevronRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import SEO from "@/components/SEO";
+import Model from "react-body-highlighter";
 import type { Exercise } from "@shared/schema";
-
-import bodyFrontImage from "@assets/generated_images/matte_black_muscular_body_front.png";
-import bodyBackImage from "@assets/generated_images/matte_black_muscular_body_back.png";
 
 interface ExercisesResponse {
   exercises: Exercise[];
@@ -57,135 +55,52 @@ const equipmentLabels: Record<string, string> = {
   bands: "Direnç Bandı",
 };
 
+const bodyHighlighterToApiMuscle: Record<string, string> = {
+  "chest": "chest",
+  "abs": "abdominals",
+  "obliques": "abdominals",
+  "upper-back": "middle back",
+  "lower-back": "lower back",
+  "trapezius": "traps",
+  "biceps": "biceps",
+  "triceps": "triceps",
+  "forearm": "forearms",
+  "front-deltoids": "shoulders",
+  "back-deltoids": "shoulders",
+  "quadriceps": "quadriceps",
+  "hamstring": "hamstrings",
+  "gluteal": "glutes",
+  "calves": "calves",
+  "adductor": "adductors",
+  "abductors": "abductors",
+  "neck": "neck",
+  "head": "neck",
+  "knees": "quadriceps",
+  "left-soleus": "calves",
+  "right-soleus": "calves",
+};
+
+const apiMuscleToBodyHighlighter: Record<string, string[]> = {
+  "chest": ["chest"],
+  "abdominals": ["abs", "obliques"],
+  "middle back": ["upper-back"],
+  "lower back": ["lower-back"],
+  "traps": ["trapezius"],
+  "biceps": ["biceps"],
+  "triceps": ["triceps"],
+  "forearms": ["forearm"],
+  "shoulders": ["front-deltoids", "back-deltoids"],
+  "quadriceps": ["quadriceps"],
+  "hamstrings": ["hamstring"],
+  "glutes": ["gluteal"],
+  "calves": ["calves", "left-soleus", "right-soleus"],
+  "adductors": ["adductor"],
+  "abductors": ["abductors"],
+  "neck": ["neck", "head"],
+  "lats": ["upper-back"],
+};
+
 type BodyView = "front" | "back";
-
-interface MuscleZone {
-  id: string;
-  label: string;
-  top: string;
-  left: string;
-  width: string;
-  height: string;
-  clipPath?: string;
-}
-
-const frontMuscleZones: MuscleZone[] = [
-  { id: "shoulders", label: "Omuz", top: "14%", left: "12%", width: "18%", height: "10%", clipPath: "ellipse(50% 45% at 50% 50%)" },
-  { id: "shoulders-r", label: "Omuz", top: "14%", left: "70%", width: "18%", height: "10%", clipPath: "ellipse(50% 45% at 50% 50%)" },
-  { id: "chest", label: "Göğüs", top: "18%", left: "28%", width: "44%", height: "12%", clipPath: "polygon(5% 30%, 50% 0%, 95% 30%, 95% 100%, 50% 85%, 5% 100%)" },
-  { id: "biceps", label: "Biceps", top: "22%", left: "8%", width: "14%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "biceps-r", label: "Biceps", top: "22%", left: "78%", width: "14%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "forearms", label: "Ön Kol", top: "35%", left: "5%", width: "12%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "forearms-r", label: "Ön Kol", top: "35%", left: "83%", width: "12%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "abdominals", label: "Karın", top: "30%", left: "35%", width: "30%", height: "18%", clipPath: "polygon(15% 0%, 85% 0%, 95% 100%, 5% 100%)" },
-  { id: "quadriceps", label: "Ön Bacak", top: "52%", left: "25%", width: "22%", height: "22%", clipPath: "ellipse(48% 50% at 50% 50%)" },
-  { id: "quadriceps-r", label: "Ön Bacak", top: "52%", left: "53%", width: "22%", height: "22%", clipPath: "ellipse(48% 50% at 50% 50%)" },
-  { id: "calves", label: "Baldır", top: "76%", left: "28%", width: "16%", height: "16%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "calves-r", label: "Baldır", top: "76%", left: "56%", width: "16%", height: "16%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-];
-
-const backMuscleZones: MuscleZone[] = [
-  { id: "traps", label: "Trapez", top: "10%", left: "30%", width: "40%", height: "10%", clipPath: "polygon(20% 100%, 50% 0%, 80% 100%)" },
-  { id: "shoulders", label: "Omuz", top: "14%", left: "12%", width: "18%", height: "10%", clipPath: "ellipse(50% 45% at 50% 50%)" },
-  { id: "shoulders-r", label: "Omuz", top: "14%", left: "70%", width: "18%", height: "10%", clipPath: "ellipse(50% 45% at 50% 50%)" },
-  { id: "lats", label: "Sırt (Lat)", top: "22%", left: "20%", width: "25%", height: "18%", clipPath: "polygon(30% 0%, 100% 20%, 90% 100%, 0% 80%)" },
-  { id: "lats-r", label: "Sırt (Lat)", top: "22%", left: "55%", width: "25%", height: "18%", clipPath: "polygon(70% 0%, 0% 20%, 10% 100%, 100% 80%)" },
-  { id: "middle back", label: "Orta Sırt", top: "22%", left: "38%", width: "24%", height: "12%", clipPath: "ellipse(50% 50% at 50% 50%)" },
-  { id: "lower back", label: "Alt Sırt", top: "36%", left: "35%", width: "30%", height: "10%", clipPath: "ellipse(50% 50% at 50% 50%)" },
-  { id: "triceps", label: "Triceps", top: "22%", left: "8%", width: "14%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "triceps-r", label: "Triceps", top: "22%", left: "78%", width: "14%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "forearms", label: "Ön Kol", top: "35%", left: "5%", width: "12%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "forearms-r", label: "Ön Kol", top: "35%", left: "83%", width: "12%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "glutes", label: "Kalça", top: "46%", left: "30%", width: "40%", height: "12%", clipPath: "ellipse(50% 50% at 50% 50%)" },
-  { id: "hamstrings", label: "Arka Bacak", top: "58%", left: "25%", width: "22%", height: "18%", clipPath: "ellipse(48% 50% at 50% 50%)" },
-  { id: "hamstrings-r", label: "Arka Bacak", top: "58%", left: "53%", width: "22%", height: "18%", clipPath: "ellipse(48% 50% at 50% 50%)" },
-  { id: "calves", label: "Baldır", top: "78%", left: "28%", width: "16%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-  { id: "calves-r", label: "Baldır", top: "78%", left: "56%", width: "16%", height: "14%", clipPath: "ellipse(45% 50% at 50% 50%)" },
-];
-
-function InteractiveBodyMap({ 
-  view, 
-  selectedMuscle, 
-  onSelectMuscle, 
-  hoveredMuscle,
-  onHoverMuscle 
-}: { 
-  view: BodyView;
-  selectedMuscle: string;
-  onSelectMuscle: (muscle: string) => void;
-  hoveredMuscle: string;
-  onHoverMuscle: (muscle: string) => void;
-}) {
-  const zones = view === "front" ? frontMuscleZones : backMuscleZones;
-  const bodyImage = view === "front" ? bodyFrontImage : bodyBackImage;
-
-  const handleClick = (muscleId: string) => {
-    const baseId = muscleId.replace(/-r$/, '');
-    onSelectMuscle(baseId === selectedMuscle ? "" : baseId);
-  };
-
-  const isSelected = (muscleId: string) => {
-    const baseId = muscleId.replace(/-r$/, '');
-    return selectedMuscle === baseId;
-  };
-
-  const isHovered = (muscleId: string) => {
-    return hoveredMuscle === muscleId;
-  };
-
-  return (
-    <div className="relative w-full max-w-[280px] md:max-w-[320px] mx-auto">
-      <img 
-        src={bodyImage} 
-        alt={`Vücut ${view === "front" ? "ön" : "arka"} görünüm`}
-        className="w-full h-auto"
-        draggable={false}
-      />
-      
-      {zones.map((zone) => (
-        <div
-          key={zone.id}
-          className="absolute cursor-pointer transition-all duration-300"
-          style={{
-            top: zone.top,
-            left: zone.left,
-            width: zone.width,
-            height: zone.height,
-            clipPath: zone.clipPath,
-            backgroundColor: isSelected(zone.id) 
-              ? "rgba(57, 255, 20, 0.7)" 
-              : isHovered(zone.id) 
-                ? "rgba(57, 255, 20, 0.4)" 
-                : "transparent",
-            boxShadow: isSelected(zone.id) 
-              ? "0 0 30px rgba(57, 255, 20, 0.8), 0 0 60px rgba(57, 255, 20, 0.4), inset 0 0 20px rgba(57, 255, 20, 0.3)" 
-              : isHovered(zone.id)
-                ? "0 0 20px rgba(57, 255, 20, 0.5), 0 0 40px rgba(57, 255, 20, 0.2)"
-                : "none",
-            border: isSelected(zone.id) || isHovered(zone.id) ? "1px solid rgba(57, 255, 20, 0.5)" : "none",
-          }}
-          onClick={() => handleClick(zone.id)}
-          onMouseEnter={() => onHoverMuscle(zone.id)}
-          onMouseLeave={() => onHoverMuscle("")}
-          data-testid={`muscle-zone-${zone.id}`}
-        />
-      ))}
-
-      {hoveredMuscle && (
-        <motion.div
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute left-1/2 -translate-x-1/2 top-4 bg-black/90 border border-[#39ff14] px-4 py-2 rounded-lg shadow-lg"
-          style={{ boxShadow: "0 0 20px rgba(57, 255, 20, 0.3)" }}
-        >
-          <span className="text-[#39ff14] font-medium text-sm">
-            {zones.find(z => z.id === hoveredMuscle)?.label || muscleLabels[hoveredMuscle.replace(/-r$/, '')] || hoveredMuscle}
-          </span>
-        </motion.div>
-      )}
-    </div>
-  );
-}
 
 export default function Exercises() {
   const [selectedMuscle, setSelectedMuscle] = useState<string>("");
@@ -224,6 +139,20 @@ export default function Exercises() {
     setSelectedMuscle("");
     setSearchQuery("");
     setCurrentPage(1);
+  };
+
+  const handleBodyClick = (data: { muscle: string; data: { exercises: string[]; frequency: number } }) => {
+    const apiMuscle = bodyHighlighterToApiMuscle[data.muscle] || data.muscle;
+    handleMuscleSelect(apiMuscle);
+  };
+
+  const getModelData = () => {
+    if (!selectedMuscle) return [];
+    const highlighterMuscles = apiMuscleToBodyHighlighter[selectedMuscle] || [selectedMuscle];
+    return highlighterMuscles.map(muscle => ({
+      name: "Selected",
+      muscles: [muscle],
+    }));
   };
 
   return (
@@ -306,18 +235,30 @@ export default function Exercises() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="w-full"
+                    className="w-full max-w-[280px] md:max-w-[320px] body-highlighter-container"
                   >
-                    <InteractiveBodyMap
-                      view={bodyView}
-                      selectedMuscle={selectedMuscle}
-                      onSelectMuscle={handleMuscleSelect}
-                      hoveredMuscle={hoveredMuscle}
-                      onHoverMuscle={setHoveredMuscle}
+                    <Model
+                      data={getModelData()}
+                      style={{ width: "100%", padding: "0" }}
+                      onClick={handleBodyClick}
+                      type={bodyView}
+                      highlightedColors={["#39ff14"]}
                     />
                   </motion.div>
                 </AnimatePresence>
               </div>
+
+              {hoveredMuscle && (
+                <motion.div
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center mb-4"
+                >
+                  <span className="text-[#39ff14] font-medium text-sm bg-[#39ff14]/10 px-4 py-2 rounded-full">
+                    {muscleLabels[hoveredMuscle] || hoveredMuscle}
+                  </span>
+                </motion.div>
+              )}
 
               {/* Quick muscle buttons */}
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -548,6 +489,31 @@ export default function Exercises() {
           </div>
         </div>
       </section>
+
+      <style>{`
+        .body-highlighter-container svg {
+          width: 100% !important;
+          height: auto !important;
+        }
+        .body-highlighter-container svg polygon {
+          fill: #1a1a1a !important;
+          stroke: #2a2a2a !important;
+          stroke-width: 0.5 !important;
+          transition: all 0.3s ease !important;
+          cursor: pointer !important;
+        }
+        .body-highlighter-container svg polygon:hover {
+          fill: rgba(57, 255, 20, 0.4) !important;
+          stroke: #39ff14 !important;
+          filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.5)) !important;
+        }
+        .body-highlighter-container svg polygon[style*="rgb(57, 255, 20)"],
+        .body-highlighter-container svg polygon[fill="#39ff14"] {
+          fill: #39ff14 !important;
+          stroke: #39ff14 !important;
+          filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.8)) drop-shadow(0 0 30px rgba(57, 255, 20, 0.4)) !important;
+        }
+      `}</style>
     </div>
   );
 }
