@@ -133,6 +133,15 @@ export default function Exercises() {
     setSelectedMuscle(muscle === selectedMuscle ? "" : muscle);
     setCurrentPage(1);
     setSearchQuery("");
+    
+    if (muscle !== selectedMuscle) {
+      setTimeout(() => {
+        const exercisesSection = document.getElementById('exercises-list');
+        if (exercisesSection) {
+          exercisesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   };
 
   const clearSelection = () => {
@@ -306,9 +315,10 @@ export default function Exercises() {
 
             {/* Exercises Section */}
             <motion.div
+              id="exercises-list"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
+              className="space-y-6 scroll-mt-24"
             >
               {/* Search bar */}
               <div className="relative">
