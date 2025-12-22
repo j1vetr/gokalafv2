@@ -108,43 +108,50 @@ export function Navbar() {
               <Menu className="h-8 w-8" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-[#050505]/95 backdrop-blur-2xl border-l-white/10 w-full sm:w-[350px] p-8">
-            <div className="flex flex-col gap-8 mt-12">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  className="text-3xl font-heading font-bold uppercase text-white hover:text-primary transition-colors tracking-wide border-b border-white/5 pb-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="flex flex-col gap-4 mt-8">
+          <SheetContent side="right" className="bg-[#050505]/95 backdrop-blur-2xl border-l-white/10 w-full sm:w-[350px] p-0 overflow-hidden">
+            <div className="flex flex-col h-full overflow-y-auto">
+              <div className="flex flex-col gap-4 p-6 pt-16">
+                {navLinks.map((link) => (
+                  <Link 
+                    key={link.name} 
+                    href={link.href}
+                    className="text-xl font-heading font-bold uppercase text-white hover:text-primary transition-colors tracking-wide border-b border-white/5 pb-3"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex flex-col gap-3 p-6 pt-4 mt-auto pb-8">
                 {isAuthenticated ? (
                   <>
                     <Link href="/panel" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
+                      <Button variant="outline" className="w-full justify-start h-12 text-base border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
                         <User className="w-5 h-5 mr-3" /> Panelim
                       </Button>
                     </Link>
                     <Button 
                       variant="outline" 
                       onClick={() => { logout(); setIsOpen(false); }}
-                      className="w-full justify-start h-14 text-lg border-red-500/30 text-red-400 hover:bg-red-500/10 uppercase font-bold"
+                      className="w-full justify-start h-12 text-base border-red-500/30 text-red-400 hover:bg-red-500/10 uppercase font-bold"
                     >
                       <LogOut className="w-5 h-5 mr-3" /> Çıkış Yap
                     </Button>
                   </>
                 ) : (
                   <>
+                    <Link href="/kayit" onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" className="w-full justify-start h-12 text-base border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
+                        <User className="w-5 h-5 mr-3" /> Kayıt Ol
+                      </Button>
+                    </Link>
                     <Link href="/giris" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full justify-start h-14 text-lg border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
+                      <Button variant="outline" className="w-full justify-start h-12 text-base border-white/10 text-white hover:bg-white/5 hover:text-primary uppercase font-bold">
                         <User className="w-5 h-5 mr-3" /> Giriş Yap
                       </Button>
                     </Link>
                     <Link href="/paketler" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-14 text-xl shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                      <Button className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-12 text-lg shadow-[0_0_20px_rgba(204,255,0,0.3)]">
                         Hemen Başla
                       </Button>
                     </Link>
