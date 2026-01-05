@@ -234,7 +234,7 @@ export default function ProteinIntakeCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="protein-ihtiyaci" />
+        <RelatedCalculators currentSlug="protein" />
         <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci" />
       </div>
     </div>

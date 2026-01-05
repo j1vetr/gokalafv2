@@ -234,7 +234,7 @@ export default function OneRepMaxCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="one-rep-max" />
+        <RelatedCalculators currentSlug="bir-tekrar-max" />
         <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/one-rep-max" />
       </div>
     </div>

@@ -245,7 +245,7 @@ export default function RestTimerCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="dinlenme-suresi" />
+        <RelatedCalculators currentSlug="dinlenme" />
         <CalculatorFAQ title="Dinlenme Süresi Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/dinlenme-suresi" />
       </div>
     </div>

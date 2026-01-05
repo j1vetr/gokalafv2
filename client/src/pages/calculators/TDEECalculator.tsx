@@ -278,7 +278,7 @@ export default function TDEECalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="tdee-hesaplama" />
+        <RelatedCalculators currentSlug="tdee" />
         <CalculatorFAQ title="TDEE Hesaplama" faqs={tdeeFAQs} schemaUrl="https://gokalaf.com/araclar/tdee-hesaplama" />
       </div>
     </div>

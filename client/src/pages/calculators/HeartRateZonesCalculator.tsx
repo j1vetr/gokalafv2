@@ -189,7 +189,7 @@ export default function HeartRateZonesCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="kalp-atis-hizi" />
+        <RelatedCalculators currentSlug="kalp-atisi" />
         <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
       </div>
     </div>

@@ -335,7 +335,7 @@ export default function BodyFatCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="vucut-yag-orani" />
+        <RelatedCalculators currentSlug="vucut-yagi" />
         <CalculatorFAQ title="Vücut Yağ Oranı Hesaplama" faqs={bodyFatFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-yag-orani" />
       </div>
     </div>

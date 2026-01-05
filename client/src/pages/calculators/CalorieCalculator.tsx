@@ -321,7 +321,7 @@ export default function CalorieCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="kalori-hesaplama" />
+        <RelatedCalculators currentSlug="kalori" />
         <CalculatorFAQ title="Kalori Hesaplama" faqs={calorieFAQs} schemaUrl="https://gokalaf.com/araclar/kalori-hesaplama" />
       </div>
     </div>

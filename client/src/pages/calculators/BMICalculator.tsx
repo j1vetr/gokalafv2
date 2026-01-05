@@ -260,7 +260,7 @@ export default function BMICalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="vucut-kitle-indeksi" />
+        <RelatedCalculators currentSlug="vki" />
         <CalculatorFAQ title="BMI Hesaplama" faqs={bmiFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-kitle-indeksi" />
       </div>
     </div>

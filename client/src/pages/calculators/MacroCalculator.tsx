@@ -412,7 +412,7 @@ export default function MacroCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="makro-hesaplama" />
+        <RelatedCalculators currentSlug="makro" />
         <CalculatorFAQ title="Makro Hesaplama" faqs={macroFAQs} schemaUrl="https://gokalaf.com/araclar/makro-hesaplama" />
       </div>
     </div>
