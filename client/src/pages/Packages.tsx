@@ -119,7 +119,7 @@ export default function Packages() {
         title="Online Fitness Koçluk Paketleri | 8-12-16-24 Haftalık Programlar | Gokalaf"
         description="Gokalaf online fitness koçluk paketleri: 8, 12, 16 ve 24 haftalık seçenekler. Kişiye özel antrenman programı, beslenme planı, haftalık takip ve WhatsApp üzerinden birebir iletişim. Shopier güvencesiyle güvenli ödeme."
         keywords="online fitness paketi, koçluk paketi, antrenman programı, beslenme programı, kişisel antrenör paketi, online PT fiyatları, fitness koçluk ücreti, vücut geliştirme programı, online spor koçluğu"
-        canonicalUrl="https://gokalaf.com/paketler"
+        canonical="https://gokalaf.com/paketler"
         schema={packagesSchema}
       />
       <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
