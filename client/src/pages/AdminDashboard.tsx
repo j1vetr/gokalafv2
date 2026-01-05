@@ -643,6 +643,13 @@ export default function AdminDashboard() {
                 >
                   <Database size={18} /> Yedekleme
                 </button>
+                <button
+                  onClick={() => setLocation("/gokadmin/analytics")}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
+                  data-testid="nav-analytics"
+                >
+                  <BarChart3 size={18} /> Analytics
+                </button>
               </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
