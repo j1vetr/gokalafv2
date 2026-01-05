@@ -464,6 +464,15 @@ export function generateVkiToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "VKİ Hesaplayıcı", "item": `${BASE_URL}/araclar/vki` }
+      ]
     }
   ]);
 
@@ -515,6 +524,15 @@ export function generateCalorieToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplayıcı", "item": `${BASE_URL}/araclar/kalori` }
+      ]
     }
   ]);
 
@@ -566,6 +584,15 @@ export function generateTdeeToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplayıcı", "item": `${BASE_URL}/araclar/tdee` }
+      ]
     }
   ]);
 
@@ -617,6 +644,15 @@ export function generateMacroToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Makro Hesaplayıcı", "item": `${BASE_URL}/araclar/makro` }
+      ]
     }
   ]);
 
@@ -667,6 +703,15 @@ export function generateIdealKiloToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "İdeal Kilo Hesaplayıcı", "item": `${BASE_URL}/araclar/ideal-kilo` }
+      ]
     }
   ]);
 
@@ -718,6 +763,15 @@ export function generateVucutYagiToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Vücut Yağ Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/vucut-yagi` }
+      ]
     }
   ]);
 
@@ -769,6 +823,15 @@ export function generateOneRepMaxToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "1RM Hesaplayıcı", "item": `${BASE_URL}/araclar/bir-tekrar-max` }
+      ]
     }
   ]);
 
@@ -820,6 +883,15 @@ export function generateSuTuketimiToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi` }
+      ]
     }
   ]);
 
@@ -871,6 +943,15 @@ export function generateKalpAtisiToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Kalp Hızı Bölgeleri", "item": `${BASE_URL}/araclar/kalp-atisi` }
+      ]
     }
   ]);
 
@@ -922,6 +1003,15 @@ export function generateProteinToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein` }
+      ]
     }
   ]);
 
@@ -973,6 +1063,15 @@ export function generateDinlenmeToolMeta(): MetaTags {
         "name": item.question,
         "acceptedAnswer": { "@type": "Answer", "text": item.answer }
       }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+        { "@type": "ListItem", "position": 3, "name": "Dinlenme Süresi Hesaplayıcı", "item": `${BASE_URL}/araclar/dinlenme` }
+      ]
     }
   ]);
 
@@ -1157,22 +1256,36 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
   const muscles = exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(", ");
   const level = levelLabels[exercise.level] || exercise.level;
   const imageUrl = exercise.images[0] ? `${BASE_URL}${exercise.images[0]}` : DEFAULT_OG_IMAGE;
+  const primaryMuscle = exercise.primaryMuscles[0];
+  const muscleLabel = muscleLabels[primaryMuscle] || primaryMuscle;
 
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
-    "name": exercise.name,
-    "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
-    "image": imageUrl,
-    "step": (exercise.instructionsTr || exercise.instructionsEn).map((step, i) => ({
-      "@type": "HowToStep",
-      "position": i + 1,
-      "text": step
-    })),
-    "tool": exercise.equipment ? [{ "@type": "HowToTool", "name": exercise.equipment }] : [],
-    "inLanguage": "tr-TR"
-  });
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
+      "name": exercise.name,
+      "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
+      "image": imageUrl,
+      "step": (exercise.instructionsTr || exercise.instructionsEn).map((step, i) => ({
+        "@type": "HowToStep",
+        "position": i + 1,
+        "text": step
+      })),
+      "tool": exercise.equipment ? [{ "@type": "HowToTool", "name": exercise.equipment }] : [],
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Egzersiz Akademisi", "item": `${BASE_URL}/egzersiz-akademisi` },
+        { "@type": "ListItem", "position": 3, "name": muscleLabel, "item": `${BASE_URL}/egzersiz-akademisi?muscle=${primaryMuscle}` },
+        { "@type": "ListItem", "position": 4, "name": exercise.name, "item": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}` }
+      ]
+    }
+  ]);
 
   return {
     title: `${exercise.name} - Egzersiz Rehberi | Gokalaf`,
