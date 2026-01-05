@@ -5,10 +5,26 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Percent, RotateCcw, Flame } from "lucide-react";
+import { Percent, RotateCcw, Flame, Shield, AlertCircle } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
 import CalculatorFAQ, { bodyFatFAQs } from "@/components/CalculatorFAQ";
+
+const maleCategories = [
+  { min: 2, max: 5, label: "Esansiyel", color: "bg-red-500", textColor: "text-red-400" },
+  { min: 6, max: 13, label: "Atletik", color: "bg-green-500", textColor: "text-green-400" },
+  { min: 14, max: 17, label: "Fitness", color: "bg-primary", textColor: "text-primary" },
+  { min: 18, max: 24, label: "Ortalama", color: "bg-yellow-500", textColor: "text-yellow-400" },
+  { min: 25, max: 50, label: "Obez", color: "bg-red-500", textColor: "text-red-400" },
+];
+
+const femaleCategories = [
+  { min: 10, max: 13, label: "Esansiyel", color: "bg-red-500", textColor: "text-red-400" },
+  { min: 14, max: 20, label: "Atletik", color: "bg-green-500", textColor: "text-green-400" },
+  { min: 21, max: 24, label: "Fitness", color: "bg-primary", textColor: "text-primary" },
+  { min: 25, max: 31, label: "Ortalama", color: "bg-yellow-500", textColor: "text-yellow-400" },
+  { min: 32, max: 50, label: "Obez", color: "bg-red-500", textColor: "text-red-400" },
+];
 
 export default function BodyFatCalculator() {
   const [gender, setGender] = useState("male");
@@ -24,9 +40,10 @@ export default function BodyFatCalculator() {
     leanMass: number;
     category: string;
     color: string;
-    desc: string;
   } | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
+
+  const categories = gender === "male" ? maleCategories : femaleCategories;
 
   const validateMeasurements = (): boolean => {
     if (gender === "male") {
@@ -59,7 +76,7 @@ export default function BodyFatCalculator() {
     }
 
     if (isNaN(bodyFat) || !isFinite(bodyFat)) {
-      setError("Hesaplama yapılamadı. Lütfen ölçümlerinizi kontrol edin.");
+      setError("Hesaplama yapılamadı. Ölçümlerinizi kontrol edin.");
       setResult(null);
       return;
     }
@@ -69,29 +86,14 @@ export default function BodyFatCalculator() {
     const fatMass = (bodyFat / 100) * weight;
     const leanMass = weight - fatMass;
 
-    let category, color, desc;
-    
-    if (gender === "male") {
-      if (bodyFat < 6) { category = "Esansiyel Yağ"; color = "text-red-400"; desc = "Sağlık için tehlikeli düşüklük"; }
-      else if (bodyFat < 14) { category = "Atletik"; color = "text-green-400"; desc = "Mükemmel form, yarışma seviyesi"; }
-      else if (bodyFat < 18) { category = "Fitness"; color = "text-primary"; desc = "Sağlıklı ve fit"; }
-      else if (bodyFat < 25) { category = "Ortalama"; color = "text-yellow-400"; desc = "Kabul edilebilir aralık"; }
-      else { category = "Obez"; color = "text-red-400"; desc = "Yağ kaybı önerilir"; }
-    } else {
-      if (bodyFat < 14) { category = "Esansiyel Yağ"; color = "text-red-400"; desc = "Sağlık için tehlikeli düşüklük"; }
-      else if (bodyFat < 21) { category = "Atletik"; color = "text-green-400"; desc = "Mükemmel form, yarışma seviyesi"; }
-      else if (bodyFat < 25) { category = "Fitness"; color = "text-primary"; desc = "Sağlıklı ve fit"; }
-      else if (bodyFat < 32) { category = "Ortalama"; color = "text-yellow-400"; desc = "Kabul edilebilir aralık"; }
-      else { category = "Obez"; color = "text-red-400"; desc = "Yağ kaybı önerilir"; }
-    }
+    const cat = categories.find(c => bodyFat >= c.min && bodyFat < c.max) || categories[categories.length - 1];
 
     setResult({
       bodyFat: parseFloat(bodyFat.toFixed(1)),
       fatMass: parseFloat(fatMass.toFixed(1)),
       leanMass: parseFloat(leanMass.toFixed(1)),
-      category,
-      color,
-      desc
+      category: cat.label,
+      color: cat.textColor,
     });
 
     setTimeout(() => {
@@ -99,8 +101,12 @@ export default function BodyFatCalculator() {
     }, 100);
   };
 
+  const getGaugePosition = (val: number) => {
+    return Math.max(0, Math.min(100, (val / 50) * 100));
+  };
+
   return (
-    <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
       <SEO
         title="Vücut Yağ Oranı Hesaplama | Yağ Yüzdesi Hesaplayıcı - Gokalaf"
         description="Vücut yağ oranınızı hesaplayın. Bel, boyun ve kalça ölçülerinizle yağ yüzdenizi ve kategorisinizi öğrenin."
@@ -124,141 +130,188 @@ export default function BodyFatCalculator() {
           }
         }}
       />
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <Badge className="mb-3 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
             Vücut Analizi
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold uppercase mb-4 text-white tracking-tighter">
+          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white tracking-tight">
             Yağ <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Oranı</span>
           </h1>
-          <p className="text-base text-gray-400 font-light max-w-xl mx-auto">
-            US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.
+          <p className="text-sm text-gray-400 font-light">
+            US Navy formülüyle vücut yağ yüzdenizi hesaplayın
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6 p-8 bg-black/40 rounded-3xl border border-white/10">
-            <h3 className="text-xl font-heading font-bold uppercase mb-4 flex items-center gap-2 text-white">
-              <Percent className="text-primary" /> Ölçümlerini Gir
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-2 space-y-3 p-5 bg-black/40 rounded-2xl border border-white/10">
+            <h3 className="text-base font-heading font-bold uppercase flex items-center gap-2 text-white">
+              <Percent className="w-4 h-4 text-primary" /> Ölçümleriniz
             </h3>
             
-            <div className="space-y-5">
-              <div className="space-y-2">
-                <Label className="text-gray-400 uppercase tracking-wider font-bold text-sm">Cinsiyet</Label>
-                <Select value={gender} onValueChange={setGender}>
-                  <SelectTrigger className="bg-white/5 border-white/10 h-12 text-white" data-testid="select-gender">
-                    <SelectValue placeholder="Seçiniz" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="male">Erkek</SelectItem>
-                    <SelectItem value="female">Kadın</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Boy (cm)</Label>
-                  <span className="text-primary font-bold" data-testid="text-height-value">{height} cm</span>
+            <div className="space-y-2.5">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Cinsiyet</Label>
+                  <Select value={gender} onValueChange={setGender}>
+                    <SelectTrigger className="bg-white/5 border-white/10 h-8 text-white text-xs" data-testid="select-gender">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="male">Erkek</SelectItem>
+                      <SelectItem value="female">Kadın</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
-                <Slider value={[height]} onValueChange={(val) => setHeight(val[0])} min={140} max={220} step={1} className="py-2" data-testid="slider-height" />
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Kilo (kg)</Label>
-                  <span className="text-primary font-bold" data-testid="text-weight-value">{weight} kg</span>
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Boy</Label>
+                    <span className="text-primary font-bold" data-testid="text-height-value">{height}</span>
+                  </div>
+                  <Slider value={[height]} onValueChange={(val) => setHeight(val[0])} min={140} max={220} step={1} className="py-1" data-testid="slider-height" />
                 </div>
-                <Slider value={[weight]} onValueChange={(val) => setWeight(val[0])} min={40} max={150} step={0.5} className="py-2" data-testid="slider-weight" />
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Bel Çevresi (cm)</Label>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Kilo</Label>
+                    <span className="text-primary font-bold" data-testid="text-weight-value">{weight} kg</span>
+                  </div>
+                  <Slider value={[weight]} onValueChange={(val) => setWeight(val[0])} min={40} max={150} step={0.5} className="py-1" data-testid="slider-weight" />
+                </div>
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Boyun</Label>
+                    <span className="text-primary font-bold" data-testid="text-neck-value">{neck} cm</span>
+                  </div>
+                  <Slider value={[neck]} onValueChange={(val) => setNeck(val[0])} min={25} max={60} step={0.5} className="py-1" data-testid="slider-neck" />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold">Bel Çevresi</Label>
                   <span className="text-primary font-bold" data-testid="text-waist-value">{waist} cm</span>
                 </div>
-                <Slider value={[waist]} onValueChange={(val) => setWaist(val[0])} min={50} max={150} step={0.5} className="py-2" data-testid="slider-waist" />
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Boyun Çevresi (cm)</Label>
-                  <span className="text-primary font-bold" data-testid="text-neck-value">{neck} cm</span>
-                </div>
-                <Slider value={[neck]} onValueChange={(val) => setNeck(val[0])} min={25} max={60} step={0.5} className="py-2" data-testid="slider-neck" />
+                <Slider value={[waist]} onValueChange={(val) => setWaist(val[0])} min={50} max={150} step={0.5} className="py-1" data-testid="slider-waist" />
               </div>
 
               {gender === "female" && (
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <Label className="text-gray-400 uppercase tracking-wider font-bold">Kalça Çevresi (cm)</Label>
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Kalça Çevresi</Label>
                     <span className="text-primary font-bold" data-testid="text-hip-value">{hip} cm</span>
                   </div>
-                  <Slider value={[hip]} onValueChange={(val) => setHip(val[0])} min={60} max={150} step={0.5} className="py-2" data-testid="slider-hip" />
+                  <Slider value={[hip]} onValueChange={(val) => setHip(val[0])} min={60} max={150} step={0.5} className="py-1" data-testid="slider-hip" />
+                </div>
+              )}
+
+              {error && (
+                <div className="p-2 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-xs flex items-center gap-2" data-testid="error-message">
+                  <AlertCircle className="w-4 h-4" />
+                  {error}
                 </div>
               )}
 
               <Button 
                 onClick={calculateBodyFat} 
-                size="lg" 
-                className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase mt-4 h-14 text-lg"
+                className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-10 text-sm"
                 data-testid="button-calculate-body-fat"
               >
                 Hesapla
               </Button>
-
-              {error && (
-                <div className="mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm text-center" data-testid="error-message">
-                  {error}
-                </div>
-              )}
             </div>
           </div>
 
-          <div ref={resultRef} className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
+          <div ref={resultRef} className="lg:col-span-3 bg-black/40 rounded-2xl border border-white/10 p-5 flex flex-col justify-center">
             {result ? (
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="space-y-6 w-full relative z-10"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-4"
               >
-                <div className="text-sm text-gray-500 uppercase tracking-[0.2em] font-bold">Vücut Yağ Oranın</div>
-                
-                <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
-                  <svg className="absolute inset-0 w-full h-full -rotate-90">
-                    <circle cx="96" cy="96" r="88" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="12" />
-                    <circle 
-                      cx="96" cy="96" r="88" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="12" 
-                      strokeLinecap="round"
-                      strokeDasharray={`${(result.bodyFat / 50) * 553} 553`}
-                      className={result.color}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Vücut Yağ Oranınız</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold font-heading text-white" data-testid="text-body-fat-result">%{result.bodyFat}</span>
+                    </div>
+                  </div>
+                  <Badge className={`${result.color} bg-white/5 border-white/10 font-bold uppercase text-xs px-3 py-1`} data-testid="text-body-fat-category">
+                    {result.category}
+                  </Badge>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="h-3 rounded-full bg-white/5 overflow-hidden flex">
+                    {categories.map((cat, i) => (
+                      <div 
+                        key={i} 
+                        className={`${cat.color} h-full`}
+                        style={{ width: `${((cat.max - cat.min) / 48) * 100}%` }}
+                      />
+                    ))}
+                  </div>
+                  <div className="relative h-4">
+                    <motion.div 
+                      className="absolute top-0 w-0.5 h-4 bg-white rounded-full"
+                      initial={{ left: "0%" }}
+                      animate={{ left: `${getGaugePosition(result.bodyFat)}%` }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
                     />
-                  </svg>
-                  <div className="text-center">
-                    <div className="text-5xl font-bold font-heading text-white" data-testid="text-body-fat-result">%{result.bodyFat}</div>
-                    <div className={`text-sm font-bold ${result.color}`} data-testid="text-body-fat-category">{result.category}</div>
+                  </div>
+                  <div className="flex justify-between text-[9px] text-gray-500">
+                    {categories.map((cat, i) => (
+                      <span key={i} className={cat.textColor}>{cat.label}</span>
+                    ))}
                   </div>
                 </div>
 
-                <p className="text-gray-400" data-testid="text-body-fat-description">{result.desc}</p>
-
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  <div className="bg-white/5 rounded-xl p-4">
-                    <Flame className="w-6 h-6 text-orange-400 mx-auto mb-2" />
-                    <div className="text-xs text-gray-500 uppercase mb-1">Yağ Kütlesi</div>
+                <div className="grid grid-cols-2 gap-3">
+                  <motion.div 
+                    className="bg-gradient-to-br from-orange-500/20 to-orange-500/5 p-3 rounded-xl border border-orange-500/20"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <Flame className="w-4 h-4 text-orange-400 mb-1" />
+                    <div className="text-[10px] text-gray-500 uppercase">Yağ Kütlesi</div>
                     <div className="text-2xl font-bold text-orange-400" data-testid="text-fat-mass">{result.fatMass} kg</div>
-                  </div>
-                  <div className="bg-white/5 rounded-xl p-4">
-                    <svg className="w-6 h-6 text-blue-400 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    <div className="text-xs text-gray-500 uppercase mb-1">Yağsız Kütle</div>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 p-3 rounded-xl border border-blue-500/20"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <Shield className="w-4 h-4 text-blue-400 mb-1" />
+                    <div className="text-[10px] text-gray-500 uppercase">Yağsız Kütle</div>
                     <div className="text-2xl font-bold text-blue-400" data-testid="text-lean-mass">{result.leanMass} kg</div>
+                  </motion.div>
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Vücut Kompozisyonu</div>
+                  <div className="flex h-4 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="bg-orange-500 h-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${result.bodyFat}%` }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    <motion.div 
+                      className="bg-blue-500 h-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${100 - result.bodyFat}%` }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                    />
+                  </div>
+                  <div className="flex justify-between text-[9px] text-gray-500 mt-1">
+                    <span className="text-orange-400">Yağ %{result.bodyFat}</span>
+                    <span className="text-blue-400">Yağsız %{(100 - result.bodyFat).toFixed(1)}</span>
                   </div>
                 </div>
 
@@ -266,17 +319,17 @@ export default function BodyFatCalculator() {
                   variant="ghost" 
                   size="sm" 
                   onClick={() => setResult(null)} 
-                  className="text-gray-500 hover:text-white uppercase tracking-wider text-xs mt-4"
+                  className="text-gray-500 hover:text-white uppercase tracking-wider text-xs w-full"
                   data-testid="button-reset-body-fat"
                 >
-                  <RotateCcw className="w-4 h-4 mr-2" /> Yeniden Hesapla
+                  <RotateCcw className="w-3 h-3 mr-2" /> Yeniden Hesapla
                 </Button>
               </motion.div>
             ) : (
-              <div className="text-center space-y-6 opacity-30">
-                <Percent size={80} className="mx-auto text-white" />
-                <h3 className="text-2xl font-heading font-bold uppercase text-white">Sonuç Bekleniyor</h3>
-                <p className="text-gray-400">Sol taraftaki bilgileri doldurup hesapla butonuna basın.</p>
+              <div className="text-center py-8 opacity-40">
+                <Percent size={48} className="mx-auto text-white mb-3" />
+                <h3 className="text-lg font-heading font-bold uppercase text-white mb-1">Sonuç Bekleniyor</h3>
+                <p className="text-xs text-gray-400">Ölçümlerinizi girin ve hesapla butonuna basın</p>
               </div>
             )}
           </div>

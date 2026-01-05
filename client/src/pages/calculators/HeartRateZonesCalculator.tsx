@@ -1,136 +1,45 @@
 import { useState, useRef } from "react";
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Heart, Save, Info } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import { Heart, RotateCcw, Activity, Flame, Zap, Wind, AlertTriangle } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
 import CalculatorFAQ, { heartRateFAQs } from "@/components/CalculatorFAQ";
 
-interface HeartRateZone {
-  name: string;
-  minBpm: number;
-  maxBpm: number;
-  description: string;
-  color: string;
-  percentage: string;
-}
+const zoneConfig = [
+  { name: "Toparlanma", pct: "50-60%", icon: Wind, color: "blue", colorClass: "from-blue-500/20 to-blue-500/5 border-blue-500/30 text-blue-400" },
+  { name: "Yağ Yakımı", pct: "60-70%", icon: Flame, color: "green", colorClass: "from-green-500/20 to-green-500/5 border-green-500/30 text-green-400" },
+  { name: "Aerobik", pct: "70-80%", icon: Activity, color: "yellow", colorClass: "from-yellow-500/20 to-yellow-500/5 border-yellow-500/30 text-yellow-400" },
+  { name: "Anaerobik", pct: "80-90%", icon: Zap, color: "orange", colorClass: "from-orange-500/20 to-orange-500/5 border-orange-500/30 text-orange-400" },
+  { name: "Maksimum", pct: "90-100%", icon: AlertTriangle, color: "red", colorClass: "from-red-500/20 to-red-500/5 border-red-500/30 text-red-400" },
+];
 
 export default function HeartRateZonesCalculator() {
-  const [age, setAge] = useState("");
-  const [restingHR, setRestingHR] = useState("");
-  const [zones, setZones] = useState<HeartRateZone[] | null>(null);
-  const [maxHR, setMaxHR] = useState(0);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [age, setAge] = useState(30);
+  const [restingHR, setRestingHR] = useState(60);
+  const [result, setResult] = useState<{ maxHR: number; zones: { min: number; max: number }[] } | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
   const calculateZones = () => {
-    const ageNum = parseInt(age);
-    const restingHRNum = parseInt(restingHR) || 60;
-    
-    if (isNaN(ageNum) || ageNum < 10 || ageNum > 100) return;
+    const maxHeartRate = 220 - age;
+    const hrReserve = maxHeartRate - restingHR;
 
-    const maxHeartRate = 220 - ageNum;
-    setMaxHR(maxHeartRate);
-
-    const heartRateReserve = maxHeartRate - restingHRNum;
-
-    const calculateZone = (lowPct: number, highPct: number) => {
-      return {
-        min: Math.round(restingHRNum + heartRateReserve * lowPct),
-        max: Math.round(restingHRNum + heartRateReserve * highPct)
-      };
-    };
-
-    const zone1 = calculateZone(0.5, 0.6);
-    const zone2 = calculateZone(0.6, 0.7);
-    const zone3 = calculateZone(0.7, 0.8);
-    const zone4 = calculateZone(0.8, 0.9);
-    const zone5 = calculateZone(0.9, 1.0);
-
-    const calculatedZones: HeartRateZone[] = [
-      {
-        name: "Bölge 1 - Toparlanma",
-        minBpm: zone1.min,
-        maxBpm: zone1.max,
-        description: "Hafif aktivite, ısınma ve soğuma",
-        color: "blue",
-        percentage: "50-60%"
-      },
-      {
-        name: "Bölge 2 - Yağ Yakımı",
-        minBpm: zone2.min,
-        maxBpm: zone2.max,
-        description: "Dayanıklılık geliştirme, yağ yakımı",
-        color: "green",
-        percentage: "60-70%"
-      },
-      {
-        name: "Bölge 3 - Aerobik",
-        minBpm: zone3.min,
-        maxBpm: zone3.max,
-        description: "Kardiyovasküler fitness, dayanıklılık",
-        color: "yellow",
-        percentage: "70-80%"
-      },
-      {
-        name: "Bölge 4 - Anaerobik",
-        minBpm: zone4.min,
-        maxBpm: zone4.max,
-        description: "Yüksek yoğunluklu antrenman, hız",
-        color: "orange",
-        percentage: "80-90%"
-      },
-      {
-        name: "Bölge 5 - Maksimum",
-        minBpm: zone5.min,
-        maxBpm: zone5.max,
-        description: "Maksimum efor, sprint antrenmanı",
-        color: "red",
-        percentage: "90-100%"
-      }
+    const zones = [
+      { min: Math.round(restingHR + hrReserve * 0.5), max: Math.round(restingHR + hrReserve * 0.6) },
+      { min: Math.round(restingHR + hrReserve * 0.6), max: Math.round(restingHR + hrReserve * 0.7) },
+      { min: Math.round(restingHR + hrReserve * 0.7), max: Math.round(restingHR + hrReserve * 0.8) },
+      { min: Math.round(restingHR + hrReserve * 0.8), max: Math.round(restingHR + hrReserve * 0.9) },
+      { min: Math.round(restingHR + hrReserve * 0.9), max: maxHeartRate },
     ];
 
-    setZones(calculatedZones);
+    setResult({ maxHR: maxHeartRate, zones });
 
     setTimeout(() => {
       resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 100);
-  };
-
-  const saveResult = async () => {
-    if (!zones) return;
-    setSaving(true);
-    try {
-      await fetch("/api/calculator/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          calculatorType: "heartRate",
-          inputData: { age: parseInt(age), restingHR: parseInt(restingHR) || 60 },
-          resultData: { maxHR, zones }
-        })
-      });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } catch (error) {
-      console.error("Kaydetme hatası:", error);
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const colorMap: Record<string, string> = {
-    blue: "from-blue-500/20 to-blue-500/5 border-blue-500/30 text-blue-400",
-    green: "from-green-500/20 to-green-500/5 border-green-500/30 text-green-400",
-    yellow: "from-yellow-500/20 to-yellow-500/5 border-yellow-500/30 text-yellow-400",
-    orange: "from-orange-500/20 to-orange-500/5 border-orange-500/30 text-orange-400",
-    red: "from-red-500/20 to-red-500/5 border-red-500/30 text-red-400"
   };
 
   return (
@@ -146,141 +55,142 @@ export default function HeartRateZonesCalculator() {
           "url": "https://gokalaf.com/araclar/kalp-atis-hizi",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "TRY"
-          },
-          "author": {
-            "@type": "Organization",
-            "name": "Gokalaf",
-            "url": "https://gokalaf.com"
-          }
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+          "author": { "@type": "Organization", "name": "Gokalaf", "url": "https://gokalaf.com" }
         }}
       />
       <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/araclar">
-          <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Araçlara Dön
-          </Button>
-        </Link>
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <Badge className="mb-3 bg-rose-500/10 text-rose-400 border-rose-500/20 hover:bg-rose-500/20 uppercase tracking-wider px-3 py-1 text-xs">
+            Kardiyovasküler
+          </Badge>
+          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white tracking-tight">
+            Kalp Hızı <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-red-400">Bölgeleri</span>
+          </h1>
+          <p className="text-sm text-gray-400 font-light">
+            Karvonen formülüyle antrenman bölgelerinizi hesaplayın
+          </p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-br from-rose-500/20 to-rose-500/5 border border-rose-500/30 rounded-3xl p-8 mb-8"
-        >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-rose-500/30 flex items-center justify-center">
-              <Heart className="w-8 h-8 text-rose-400" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-heading font-bold text-white uppercase">Kalp Hızı Bölgeleri</h1>
-              <p className="text-gray-400">Karvonen formülüyle antrenman bölgelerini hesaplayın</p>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 mb-6"
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <Label className="text-gray-400">Yaş</Label>
-              <Input
-                type="number"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                placeholder="Örn: 30"
-                className="bg-white/5 border-white/10 mt-1 text-lg h-12"
-                data-testid="input-age"
-              />
-            </div>
-            <div>
-              <Label className="text-gray-400">Dinlenme Kalp Hızı (opsiyonel)</Label>
-              <Input
-                type="number"
-                value={restingHR}
-                onChange={(e) => setRestingHR(e.target.value)}
-                placeholder="Örn: 60 (varsayılan)"
-                className="bg-white/5 border-white/10 mt-1 text-lg h-12"
-                data-testid="input-resting-hr"
-              />
-            </div>
-          </div>
-
-          <Button
-            onClick={calculateZones}
-            className="w-full mt-6 bg-rose-500 hover:bg-rose-600 text-white font-bold py-6 text-lg"
-            disabled={!age}
-            data-testid="button-calculate"
-          >
-            Hesapla
-          </Button>
-        </motion.div>
-
-        {zones && (
-          <motion.div
-            ref={resultRef}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="space-y-4"
-          >
-            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 mb-6">
-              <div className="text-center mb-6">
-                <p className="text-gray-400 text-sm">Maksimum Kalp Hızı</p>
-                <p className="text-5xl font-bold text-rose-400">{maxHR} <span className="text-xl text-gray-400">BPM</span></p>
-              </div>
-              
-              <div className="flex items-center gap-2 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl text-sm text-blue-300">
-                <Info className="w-4 h-4 shrink-0" />
-                <span>Karvonen formülü kullanılarak hesaplandı: THR = ((Max HR - Rest HR) x %Intensity) + Rest HR</span>
-              </div>
-            </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-2 space-y-4 p-5 bg-black/40 rounded-2xl border border-white/10">
+            <h3 className="text-base font-heading font-bold uppercase flex items-center gap-2 text-white">
+              <Heart className="w-4 h-4 text-rose-400" /> Bilgileriniz
+            </h3>
+            
             <div className="space-y-3">
-              {zones.map((zone, i) => (
-                <motion.div
-                  key={zone.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`bg-gradient-to-r ${colorMap[zone.color]} border rounded-xl p-5`}
-                  data-testid={`zone-${i + 1}`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-bold text-white">{zone.name}</h3>
-                    <Badge className={`bg-${zone.color}-500/30 ${colorMap[zone.color].split(' ').pop()}`}>
-                      {zone.percentage}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm text-gray-400">{zone.description}</p>
-                    <p className="text-2xl font-bold text-white">
-                      {zone.minBpm} - {zone.maxBpm} <span className="text-sm text-gray-400">BPM</span>
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold">Yaş</Label>
+                  <span className="text-rose-400 font-bold" data-testid="text-age-value">{age}</span>
+                </div>
+                <Slider value={[age]} onValueChange={(val) => setAge(val[0])} min={15} max={80} step={1} className="py-1" data-testid="slider-age" />
+              </div>
 
-            <Button
-              onClick={saveResult}
-              disabled={saving || saved}
-              className="w-full mt-6 bg-primary text-black hover:bg-primary/90 font-bold py-4"
-              data-testid="button-save"
-            >
-              {saved ? "✓ Kaydedildi" : saving ? "Kaydediliyor..." : <><Save className="w-4 h-4 mr-2" /> Sonucu Kaydet</>}
-            </Button>
-          </motion.div>
-        )}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold">Dinlenme Nabzı</Label>
+                  <span className="text-rose-400 font-bold" data-testid="text-resting-hr">{restingHR} BPM</span>
+                </div>
+                <Slider value={[restingHR]} onValueChange={(val) => setRestingHR(val[0])} min={40} max={100} step={1} className="py-1" data-testid="slider-resting-hr" />
+              </div>
+
+              <div className="bg-white/5 rounded-lg p-2.5 border border-white/10 text-[10px] text-gray-400">
+                Dinlenme nabzınızı sabah uyandığınızda yatakta iken ölçün.
+              </div>
+
+              <Button 
+                onClick={calculateZones} 
+                className="w-full bg-rose-500 text-white hover:bg-rose-600 font-heading font-bold uppercase h-10 text-sm"
+                data-testid="button-calculate-hr"
+              >
+                Hesapla
+              </Button>
+            </div>
+          </div>
+
+          <div ref={resultRef} className="lg:col-span-3 bg-black/40 rounded-2xl border border-white/10 p-5 flex flex-col justify-center">
+            {result ? (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-4"
+              >
+                <div className="text-center">
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Maksimum Kalp Hızı</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <Heart className="w-6 h-6 text-rose-400" />
+                    <span className="text-4xl font-bold font-heading text-white" data-testid="text-max-hr">{result.maxHR}</span>
+                    <span className="text-sm text-gray-500">BPM</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {result.zones.map((zone, i) => {
+                    const config = zoneConfig[i];
+                    const Icon = config.icon;
+                    return (
+                      <motion.div 
+                        key={i}
+                        className={`bg-gradient-to-r ${config.colorClass} border rounded-xl p-3 flex items-center justify-between`}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                        data-testid={`zone-${i + 1}`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-4 h-4" />
+                          <div>
+                            <div className="text-xs font-bold text-white">Bölge {i + 1} - {config.name}</div>
+                            <div className="text-[9px] text-gray-400">{config.pct}</div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-lg font-bold text-white">{zone.min} - {zone.max}</div>
+                          <div className="text-[9px] text-gray-500">BPM</div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Antrenman Önerileri</div>
+                  <div className="grid grid-cols-2 gap-2 text-[10px]">
+                    <div className="flex items-start gap-1.5">
+                      <Flame className="w-3 h-3 text-green-400 mt-0.5" />
+                      <span className="text-gray-400">Yağ yakımı için Bölge 2'de antrenman yap</span>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <Zap className="w-3 h-3 text-orange-400 mt-0.5" />
+                      <span className="text-gray-400">Performans için Bölge 4-5 interval</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => setResult(null)} 
+                  className="text-gray-500 hover:text-white uppercase tracking-wider text-xs w-full"
+                  data-testid="button-reset-hr"
+                >
+                  <RotateCcw className="w-3 h-3 mr-2" /> Yeniden Hesapla
+                </Button>
+              </motion.div>
+            ) : (
+              <div className="text-center py-8 opacity-40">
+                <Heart size={48} className="mx-auto text-white mb-3" />
+                <h3 className="text-lg font-heading font-bold uppercase text-white mb-1">Sonuç Bekleniyor</h3>
+                <p className="text-xs text-gray-400">Bilgilerinizi girin ve hesapla butonuna basın</p>
+              </div>
+            )}
+          </div>
+        </div>
 
         <RelatedCalculators currentSlug="kalp-atis-hizi" />
-        <CalculatorFAQ title="Kalp Atış Hızı Hesaplama" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
+        <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
       </div>
     </div>
   );

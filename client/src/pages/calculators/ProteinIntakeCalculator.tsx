@@ -1,119 +1,48 @@
 import { useState, useRef } from "react";
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Beef, Save, Info, Target, Dumbbell, Activity } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import { Beef, RotateCcw, Target, Dumbbell, Scale, Zap, Utensils } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
 import CalculatorFAQ, { proteinIntakeFAQs } from "@/components/CalculatorFAQ";
 
-interface ProteinResult {
-  minimum: number;
-  optimal: number;
-  maximum: number;
-  perMeal: number;
-  meals: number;
-}
+const goals = [
+  { id: "muscle", label: "Kas Yap", icon: Dumbbell, mult: { min: 1.6, opt: 2.0, max: 2.4 } },
+  { id: "fat-loss", label: "Yağ Yak", icon: Target, mult: { min: 1.2, opt: 1.6, max: 2.0 } },
+  { id: "maintenance", label: "Koru", icon: Scale, mult: { min: 0.8, opt: 1.2, max: 1.6 } },
+  { id: "endurance", label: "Dayanıklılık", icon: Zap, mult: { min: 1.2, opt: 1.4, max: 1.8 } },
+];
+
+const activities = [
+  { id: "sedentary", label: "Hareketsiz", mult: 0.9 },
+  { id: "moderate", label: "Orta", mult: 1.0 },
+  { id: "active", label: "Aktif", mult: 1.1 },
+  { id: "very-active", label: "Çok Aktif", mult: 1.2 },
+];
 
 export default function ProteinIntakeCalculator() {
-  const [weight, setWeight] = useState("");
-  const [goal, setGoal] = useState("");
-  const [activity, setActivity] = useState("");
-  const [result, setResult] = useState<ProteinResult | null>(null);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [weight, setWeight] = useState(75);
+  const [goal, setGoal] = useState("muscle");
+  const [activity, setActivity] = useState("moderate");
+  const [result, setResult] = useState<{ min: number; opt: number; max: number; perMeal: number } | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
   const calculate = () => {
-    const weightNum = parseFloat(weight);
-    if (isNaN(weightNum) || weightNum <= 0 || !goal || !activity) return;
+    const goalData = goals.find(g => g.id === goal)!;
+    const activityData = activities.find(a => a.id === activity)!;
 
-    let minMultiplier = 0.8;
-    let optMultiplier = 1.2;
-    let maxMultiplier = 1.6;
+    const min = Math.round(weight * goalData.mult.min * activityData.mult);
+    const opt = Math.round(weight * goalData.mult.opt * activityData.mult);
+    const max = Math.round(weight * goalData.mult.max * activityData.mult);
 
-    if (goal === "muscle") {
-      minMultiplier = 1.6;
-      optMultiplier = 2.0;
-      maxMultiplier = 2.4;
-    } else if (goal === "fat-loss") {
-      minMultiplier = 1.2;
-      optMultiplier = 1.6;
-      maxMultiplier = 2.0;
-    } else if (goal === "maintenance") {
-      minMultiplier = 0.8;
-      optMultiplier = 1.2;
-      maxMultiplier = 1.6;
-    } else if (goal === "endurance") {
-      minMultiplier = 1.2;
-      optMultiplier = 1.4;
-      maxMultiplier = 1.8;
-    }
-
-    if (activity === "sedentary") {
-      minMultiplier *= 0.9;
-      optMultiplier *= 0.9;
-      maxMultiplier *= 0.9;
-    } else if (activity === "moderate") {
-      // Keep as is
-    } else if (activity === "active") {
-      minMultiplier *= 1.1;
-      optMultiplier *= 1.1;
-      maxMultiplier *= 1.1;
-    } else if (activity === "very-active") {
-      minMultiplier *= 1.2;
-      optMultiplier *= 1.2;
-      maxMultiplier *= 1.2;
-    }
-
-    const meals = 4;
-    const optimal = Math.round(weightNum * optMultiplier);
-
-    setResult({
-      minimum: Math.round(weightNum * minMultiplier),
-      optimal,
-      maximum: Math.round(weightNum * maxMultiplier),
-      perMeal: Math.round(optimal / meals),
-      meals
-    });
+    setResult({ min, opt, max, perMeal: Math.round(opt / 4) });
 
     setTimeout(() => {
       resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 100);
-  };
-
-  const saveResult = async () => {
-    if (!result) return;
-    setSaving(true);
-    try {
-      await fetch("/api/calculator/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({
-          calculatorType: "protein",
-          inputData: { weight: parseFloat(weight), goal, activity },
-          resultData: result
-        })
-      });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } catch (error) {
-      console.error("Kaydetme hatası:", error);
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const goalDescriptions: Record<string, string> = {
-    muscle: "Kas yapımı için yüksek protein alımı önerilir",
-    "fat-loss": "Yağ yakımında kas korumak için orta-yüksek protein",
-    maintenance: "Genel sağlık için standart protein alımı",
-    endurance: "Dayanıklılık sporcuları için optimize edilmiş"
   };
 
   return (
@@ -129,199 +58,181 @@ export default function ProteinIntakeCalculator() {
           "url": "https://gokalaf.com/araclar/protein-ihtiyaci",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "TRY"
-          },
-          "author": {
-            "@type": "Organization",
-            "name": "Gokalaf",
-            "url": "https://gokalaf.com"
-          }
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+          "author": { "@type": "Organization", "name": "Gokalaf", "url": "https://gokalaf.com" }
         }}
       />
       <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/araclar">
-          <Button variant="ghost" className="mb-6 text-gray-400 hover:text-white" data-testid="button-back">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Araçlara Dön
-          </Button>
-        </Link>
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <Badge className="mb-3 bg-amber-500/10 text-amber-400 border-amber-500/20 hover:bg-amber-500/20 uppercase tracking-wider px-3 py-1 text-xs">
+            Beslenme
+          </Badge>
+          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white tracking-tight">
+            Protein <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">İhtiyacı</span>
+          </h1>
+          <p className="text-sm text-gray-400 font-light">
+            Hedefinize göre günlük protein ihtiyacınızı hesaplayın
+          </p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/30 rounded-3xl p-8 mb-8"
-        >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-amber-500/30 flex items-center justify-center">
-              <Beef className="w-8 h-8 text-amber-400" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-heading font-bold text-white uppercase">Protein İhtiyacı</h1>
-              <p className="text-gray-400">Hedefinize göre günlük protein ihtiyacınızı hesaplayın</p>
-            </div>
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-2 space-y-4 p-5 bg-black/40 rounded-2xl border border-white/10">
+            <h3 className="text-base font-heading font-bold uppercase flex items-center gap-2 text-white">
+              <Beef className="w-4 h-4 text-amber-400" /> Bilgileriniz
+            </h3>
+            
+            <div className="space-y-3">
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold">Kilo</Label>
+                  <span className="text-amber-400 font-bold" data-testid="text-weight-value">{weight} kg</span>
+                </div>
+                <Slider value={[weight]} onValueChange={(val) => setWeight(val[0])} min={40} max={150} step={1} className="py-1" data-testid="slider-weight" />
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 mb-6"
-        >
-          <div className="space-y-6">
-            <div>
-              <Label className="text-gray-400">Kilo (kg)</Label>
-              <Input
-                type="number"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                placeholder="Örn: 75"
-                className="bg-white/5 border-white/10 mt-1 text-lg h-12"
-                data-testid="input-weight"
-              />
-            </div>
+              <div className="space-y-1.5">
+                <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Hedefiniz</Label>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {goals.map((g) => {
+                    const Icon = g.icon;
+                    return (
+                      <button
+                        key={g.id}
+                        onClick={() => setGoal(g.id)}
+                        className={`p-2 rounded-lg border text-center transition-all ${
+                          goal === g.id 
+                            ? 'bg-amber-500/20 border-amber-500 text-white' 
+                            : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
+                        }`}
+                        data-testid={`button-goal-${g.id}`}
+                      >
+                        <Icon className={`w-4 h-4 mx-auto mb-0.5 ${goal === g.id ? 'text-amber-400' : ''}`} />
+                        <div className="text-[8px] font-semibold uppercase leading-tight">{g.label}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
 
-            <div>
-              <Label className="text-gray-400">Hedefiniz</Label>
-              <Select value={goal} onValueChange={setGoal}>
-                <SelectTrigger className="bg-white/5 border-white/10 mt-1 h-12" data-testid="select-goal">
-                  <SelectValue placeholder="Hedef seçin..." />
-                </SelectTrigger>
-                <SelectContent className="bg-[#111] border-white/10">
-                  <SelectItem value="muscle" className="text-white hover:bg-white/10">
-                    <div className="flex items-center gap-2">
-                      <Dumbbell className="w-4 h-4 text-primary" />
-                      Kas Yapımı
-                    </div>
-                  </SelectItem>
-                  <SelectItem value="fat-loss" className="text-white hover:bg-white/10">
-                    <div className="flex items-center gap-2">
-                      <Target className="w-4 h-4 text-orange-400" />
-                      Yağ Yakımı
-                    </div>
-                  </SelectItem>
-                  <SelectItem value="maintenance" className="text-white hover:bg-white/10">
-                    <div className="flex items-center gap-2">
-                      <Activity className="w-4 h-4 text-blue-400" />
-                      Kilo Koruma
-                    </div>
-                  </SelectItem>
-                  <SelectItem value="endurance" className="text-white hover:bg-white/10">
-                    <div className="flex items-center gap-2">
-                      <Activity className="w-4 h-4 text-green-400" />
-                      Dayanıklılık
-                    </div>
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+              <div className="space-y-1.5">
+                <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Aktivite</Label>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {activities.map((a) => (
+                    <button
+                      key={a.id}
+                      onClick={() => setActivity(a.id)}
+                      className={`p-2 rounded-lg border text-center transition-all ${
+                        activity === a.id 
+                          ? 'bg-orange-500/20 border-orange-500 text-white' 
+                          : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
+                      }`}
+                      data-testid={`button-activity-${a.id}`}
+                    >
+                      <div className="text-[9px] font-semibold uppercase leading-tight">{a.label}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            <div>
-              <Label className="text-gray-400">Aktivite Seviyesi</Label>
-              <Select value={activity} onValueChange={setActivity}>
-                <SelectTrigger className="bg-white/5 border-white/10 mt-1 h-12" data-testid="select-activity">
-                  <SelectValue placeholder="Aktivite seviyesi seçin..." />
-                </SelectTrigger>
-                <SelectContent className="bg-[#111] border-white/10">
-                  <SelectItem value="sedentary" className="text-white hover:bg-white/10">Sedanter (Masa başı iş)</SelectItem>
-                  <SelectItem value="moderate" className="text-white hover:bg-white/10">Orta (Haftada 3-4 antrenman)</SelectItem>
-                  <SelectItem value="active" className="text-white hover:bg-white/10">Aktif (Haftada 5-6 antrenman)</SelectItem>
-                  <SelectItem value="very-active" className="text-white hover:bg-white/10">Çok Aktif (Günlük yoğun antrenman)</SelectItem>
-                </SelectContent>
-              </Select>
+              <Button 
+                onClick={calculate} 
+                className="w-full bg-amber-500 text-black hover:bg-amber-600 font-heading font-bold uppercase h-10 text-sm"
+                data-testid="button-calculate-protein"
+              >
+                Hesapla
+              </Button>
             </div>
           </div>
 
-          <Button
-            onClick={calculate}
-            className="w-full mt-6 bg-amber-500 hover:bg-amber-600 text-black font-bold py-6 text-lg"
-            disabled={!weight || !goal || !activity}
-            data-testid="button-calculate"
-          >
-            Hesapla
-          </Button>
-        </motion.div>
-
-        {result && (
-          <motion.div
-            ref={resultRef}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="space-y-4"
-          >
-            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
-              <div className="text-center mb-6">
-                <p className="text-gray-400 text-sm mb-2">Önerilen Günlük Protein</p>
-                <p className="text-6xl font-bold text-amber-400">{result.optimal}g</p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/5 rounded-xl p-4 text-center">
-                  <p className="text-xs text-gray-500 uppercase">Minimum</p>
-                  <p className="text-2xl font-bold text-white">{result.minimum}g</p>
-                </div>
-                <div className="bg-amber-500/20 border border-amber-500/30 rounded-xl p-4 text-center">
-                  <p className="text-xs text-amber-400 uppercase">Optimal</p>
-                  <p className="text-2xl font-bold text-amber-400">{result.optimal}g</p>
-                </div>
-                <div className="bg-white/5 rounded-xl p-4 text-center">
-                  <p className="text-xs text-gray-500 uppercase">Maksimum</p>
-                  <p className="text-2xl font-bold text-white">{result.maximum}g</p>
-                </div>
-              </div>
-
-              <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mb-4">
-                <div className="flex items-center gap-2 text-primary mb-2">
-                  <Beef className="w-5 h-5" />
-                  <span className="font-bold">Öğün Başına</span>
-                </div>
-                <p className="text-2xl font-bold text-white">
-                  ~{result.perMeal}g <span className="text-sm text-gray-400">({result.meals} öğün)</span>
-                </p>
-              </div>
-
-              {goal && (
-                <div className="flex items-center gap-2 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl text-sm text-blue-300">
-                  <Info className="w-4 h-4 shrink-0" />
-                  <span>{goalDescriptions[goal]}</span>
-                </div>
-              )}
-            </div>
-
-            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
-              <h3 className="font-bold text-white mb-4">Protein Kaynakları</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[
-                  { name: "Tavuk Göğsü", protein: "31g/100g" },
-                  { name: "Yumurta", protein: "13g/100g" },
-                  { name: "Yoğurt", protein: "10g/100g" },
-                  { name: "Ton Balığı", protein: "26g/100g" },
-                  { name: "Mercimek", protein: "9g/100g" },
-                  { name: "Peynir", protein: "25g/100g" },
-                  { name: "Kırmızı Et", protein: "26g/100g" },
-                  { name: "Whey Protein", protein: "80g/100g" }
-                ].map((item) => (
-                  <div key={item.name} className="bg-white/5 rounded-lg p-3 text-center">
-                    <p className="text-sm text-white font-medium">{item.name}</p>
-                    <p className="text-xs text-amber-400">{item.protein}</p>
+          <div ref={resultRef} className="lg:col-span-3 bg-black/40 rounded-2xl border border-white/10 p-5 flex flex-col justify-center">
+            {result ? (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-4"
+              >
+                <div className="text-center">
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Önerilen Günlük Protein</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <Beef className="w-6 h-6 text-amber-400" />
+                    <span className="text-5xl font-bold font-heading text-amber-400" data-testid="text-protein-result">{result.opt}g</span>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            <Button
-              onClick={saveResult}
-              disabled={saving || saved}
-              className="w-full mt-6 bg-primary text-black hover:bg-primary/90 font-bold py-4"
-              data-testid="button-save"
-            >
-              {saved ? "✓ Kaydedildi" : saving ? "Kaydediliyor..." : <><Save className="w-4 h-4 mr-2" /> Sonucu Kaydet</>}
-            </Button>
-          </motion.div>
-        )}
+                <div className="grid grid-cols-3 gap-2">
+                  <motion.div 
+                    className="bg-white/5 rounded-xl p-3 text-center border border-white/5"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <div className="text-[10px] text-gray-500 uppercase">Minimum</div>
+                    <div className="text-xl font-bold text-white" data-testid="text-protein-min">{result.min}g</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-amber-500/20 rounded-xl p-3 text-center border border-amber-500/30"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <div className="text-[10px] text-amber-400 uppercase">Optimal</div>
+                    <div className="text-xl font-bold text-amber-400">{result.opt}g</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white/5 rounded-xl p-3 text-center border border-white/5"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <div className="text-[10px] text-gray-500 uppercase">Maksimum</div>
+                    <div className="text-xl font-bold text-white" data-testid="text-protein-max">{result.max}g</div>
+                  </motion.div>
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Utensils className="w-4 h-4 text-amber-400" />
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider">Öğün Başına (4 Öğün)</div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2">
+                    {["Kahvaltı", "Öğle", "Akşam", "Ara"].map((meal, i) => (
+                      <div key={meal} className="text-center p-2 bg-white/5 rounded-lg">
+                        <div className="text-[9px] text-gray-500">{meal}</div>
+                        <div className="text-lg font-bold text-white">{result.perMeal}g</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl p-3 border border-amber-500/20">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Protein Kaynakları</div>
+                  <div className="grid grid-cols-3 gap-2 text-[10px] text-gray-400">
+                    <div>Tavuk Göğsü (31g/100g)</div>
+                    <div>Yumurta (6g/adet)</div>
+                    <div>Greek Yoğurt (10g/100g)</div>
+                  </div>
+                </div>
+
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => setResult(null)} 
+                  className="text-gray-500 hover:text-white uppercase tracking-wider text-xs w-full"
+                  data-testid="button-reset-protein"
+                >
+                  <RotateCcw className="w-3 h-3 mr-2" /> Yeniden Hesapla
+                </Button>
+              </motion.div>
+            ) : (
+              <div className="text-center py-8 opacity-40">
+                <Beef size={48} className="mx-auto text-white mb-3" />
+                <h3 className="text-lg font-heading font-bold uppercase text-white mb-1">Sonuç Bekleniyor</h3>
+                <p className="text-xs text-gray-400">Bilgilerinizi girin ve hesapla butonuna basın</p>
+              </div>
+            )}
+          </div>
+        </div>
 
         <RelatedCalculators currentSlug="protein-ihtiyaci" />
         <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci" />
