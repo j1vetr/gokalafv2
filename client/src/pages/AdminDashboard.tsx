@@ -151,6 +151,7 @@ export default function AdminDashboard() {
   const [analyticsLoading, setAnalyticsLoading] = useState(false);
   const [selectedAnalyticsUser, setSelectedAnalyticsUser] = useState<string>("");
   const [userAnalyticsDetails, setUserAnalyticsDetails] = useState<any>(null);
+  const [analyticsUserSearch, setAnalyticsUserSearch] = useState("");
 
   const monthOptions = (() => {
     const options: { value: string; label: string }[] = [];
@@ -1614,23 +1615,75 @@ export default function AdminDashboard() {
                         </div>
                       </div>
 
+                      {/* Active Measurement Users */}
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-4 flex items-center gap-2">
+                          <TrendingUp className="w-5 h-5 text-orange-400" /> Vücut Ölçümü Kullananlar
+                        </h3>
+                        {analyticsData.userEngagement?.filter((u: any) => u.measurements > 0).length > 0 ? (
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {analyticsData.userEngagement
+                              .filter((u: any) => u.measurements > 0)
+                              .sort((a: any, b: any) => b.measurements - a.measurements)
+                              .slice(0, 9)
+                              .map((u: any) => (
+                                <div 
+                                  key={u.userId} 
+                                  className="bg-white/5 rounded-xl p-3 cursor-pointer hover:bg-white/10 transition-colors"
+                                  onClick={() => setSelectedAnalyticsUser(u.userId)}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400 font-bold">
+                                      {u.fullName?.charAt(0) || "?"}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <p className="text-white font-medium truncate">{u.fullName}</p>
+                                      <p className="text-xs text-gray-500 truncate">{u.email}</p>
+                                    </div>
+                                    <Badge className="bg-orange-500/20 text-orange-400 shrink-0">{u.measurements} ölçüm</Badge>
+                                  </div>
+                                </div>
+                              ))}
+                          </div>
+                        ) : (
+                          <p className="text-gray-500 text-center py-4">Henüz vücut ölçümü kaydeden kullanıcı yok</p>
+                        )}
+                      </div>
+
                       {/* User Selection */}
                       <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
                         <h3 className="font-heading font-bold text-white uppercase mb-4 flex items-center gap-2">
                           <User className="w-5 h-5 text-primary" /> Kullanıcı Detayları
                         </h3>
-                        <Select value={selectedAnalyticsUser} onValueChange={setSelectedAnalyticsUser}>
-                          <SelectTrigger className="w-full md:w-96 bg-white/5 border-white/10">
-                            <SelectValue placeholder="Kullanıcı seçin..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {users.map(u => (
-                              <SelectItem key={u.id} value={u.id}>
-                                {u.fullName} ({u.email})
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <div className="flex flex-col md:flex-row gap-3 mb-4">
+                          <div className="relative flex-1 md:max-w-xs">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                            <Input
+                              placeholder="Kullanıcı ara..."
+                              value={analyticsUserSearch}
+                              onChange={(e) => setAnalyticsUserSearch(e.target.value)}
+                              className="pl-9 bg-white/5 border-white/10"
+                            />
+                          </div>
+                          <Select value={selectedAnalyticsUser} onValueChange={setSelectedAnalyticsUser}>
+                            <SelectTrigger className="w-full md:w-80 bg-white/5 border-white/10">
+                              <SelectValue placeholder="Kullanıcı seçin..." />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {users
+                                .filter(u => 
+                                  analyticsUserSearch === "" ||
+                                  u.fullName.toLowerCase().includes(analyticsUserSearch.toLowerCase()) ||
+                                  u.email.toLowerCase().includes(analyticsUserSearch.toLowerCase())
+                                )
+                                .map(u => (
+                                  <SelectItem key={u.id} value={u.id}>
+                                    {u.fullName} ({u.email})
+                                  </SelectItem>
+                                ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
 
                         {userAnalyticsDetails && (
                           <div className="mt-6 space-y-4">
