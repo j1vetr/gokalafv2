@@ -23,6 +23,7 @@ const AdminLogin = lazy(() => import("@/pages/AdminLogin"));
 const AdminCoupons = lazy(() => import("@/pages/AdminCoupons"));
 const AdminSystemLogs = lazy(() => import("@/pages/AdminSystemLogs"));
 const AdminBackup = lazy(() => import("@/pages/AdminBackup"));
+const AdminAnalytics = lazy(() => import("@/pages/AdminAnalytics"));
 const BMICalculator = lazy(() => import("@/pages/calculators/BMICalculator"));
 const CalorieCalculator = lazy(() => import("@/pages/calculators/CalorieCalculator"));
 const TDEECalculator = lazy(() => import("@/pages/calculators/TDEECalculator"));
@@ -242,6 +243,7 @@ function AppContent() {
             <Route path="/gokadmin/kuponlar" component={AdminCoupons} />
             <Route path="/gokadmin/loglar" component={AdminSystemLogs} />
             <Route path="/gokadmin/yedekleme" component={AdminBackup} />
+            <Route path="/gokadmin/analytics" component={AdminAnalytics} />
             <Route path="/gizlilik" component={PrivacyPolicy} />
             <Route path="/kvkk" component={KVKK} />
             <Route path="/iptal-iade" component={CancellationPolicy} />

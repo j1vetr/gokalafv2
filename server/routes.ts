@@ -767,6 +767,137 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
     }
   });
 
+  // Comprehensive Analytics Endpoint
+  app.get("/api/admin/analytics", requireAdmin, async (req, res) => {
+    try {
+      const days = parseInt(req.query.days as string) || 30;
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - days);
+
+      const [users, orders, calculatorResults, dailyHabits, bodyMeasurements, dailyNutrition, systemLogs] = await Promise.all([
+        storage.getUsers(),
+        storage.getOrders(),
+        storage.getAllCalculatorResults(),
+        storage.getAllDailyHabits(),
+        storage.getAllBodyMeasurements(),
+        storage.getAllDailyNutrition(),
+        storage.getSystemLogs(1000),
+      ]);
+
+      const filteredUsers = users.filter(u => new Date(u.createdAt) >= startDate);
+      const activeUserIds = new Set([
+        ...calculatorResults.filter(c => new Date(c.createdAt) >= startDate).map(c => c.userId),
+        ...dailyHabits.filter(h => new Date(h.date) >= startDate).map(h => h.userId),
+        ...systemLogs.filter(l => l.action === 'login' && new Date(l.createdAt) >= startDate).map(l => l.userId),
+      ].filter(Boolean));
+
+      const calcStats: Record<string, { count: number; users: Set<string> }> = {};
+      calculatorResults.forEach(c => {
+        if (!calcStats[c.calculatorType]) calcStats[c.calculatorType] = { count: 0, users: new Set() };
+        calcStats[c.calculatorType].count++;
+        if (c.userId) calcStats[c.calculatorType].users.add(c.userId);
+      });
+
+      const trafficSourceCounts: Record<string, number> = {};
+      users.forEach(u => {
+        const src = u.trafficSource || 'Bilinmiyor';
+        trafficSourceCounts[src] = (trafficSourceCounts[src] || 0) + 1;
+      });
+
+      const habitStats = {
+        avgWaterGlasses: dailyHabits.length > 0 ? dailyHabits.reduce((sum, h) => sum + (h.waterGlasses || 0), 0) / dailyHabits.length : 0,
+        workoutDays: dailyHabits.filter(h => h.didWorkout).length,
+        avgSleepHours: dailyHabits.filter(h => h.sleepHours).length > 0 
+          ? dailyHabits.filter(h => h.sleepHours).reduce((sum, h) => sum + parseFloat(h.sleepHours?.toString() || '0'), 0) / dailyHabits.filter(h => h.sleepHours).length 
+          : 0,
+        totalHabitEntries: dailyHabits.length,
+      };
+
+      const loginCount = systemLogs.filter(l => l.action === 'login' && new Date(l.createdAt) >= startDate).length;
+      const weeksInPeriod = Math.max(1, days / 7);
+
+      const userEngagementMap: Record<string, any> = {};
+      users.forEach(u => {
+        userEngagementMap[u.id] = { userId: u.id, email: u.email, fullName: u.fullName, calculations: 0, habits: 0, measurements: 0, lastActive: u.createdAt };
+      });
+      calculatorResults.forEach(c => {
+        if (c.userId && userEngagementMap[c.userId]) {
+          userEngagementMap[c.userId].calculations++;
+          if (new Date(c.createdAt) > new Date(userEngagementMap[c.userId].lastActive)) {
+            userEngagementMap[c.userId].lastActive = c.createdAt;
+          }
+        }
+      });
+      dailyHabits.forEach(h => {
+        if (userEngagementMap[h.userId]) {
+          userEngagementMap[h.userId].habits++;
+          if (new Date(h.date) > new Date(userEngagementMap[h.userId].lastActive)) {
+            userEngagementMap[h.userId].lastActive = h.date;
+          }
+        }
+      });
+      bodyMeasurements.forEach(m => {
+        if (userEngagementMap[m.userId]) userEngagementMap[m.userId].measurements++;
+      });
+
+      const userEngagement = Object.values(userEngagementMap)
+        .sort((a: any, b: any) => (b.calculations + b.habits + b.measurements) - (a.calculations + a.habits + a.measurements))
+        .slice(0, 50);
+
+      const weeklyTrends: { week: string; newUsers: number; calculations: number; habitEntries: number }[] = [];
+      for (let i = 0; i < Math.min(12, Math.ceil(days / 7)); i++) {
+        const weekEnd = new Date();
+        weekEnd.setDate(weekEnd.getDate() - (i * 7));
+        const weekStart = new Date(weekEnd);
+        weekStart.setDate(weekStart.getDate() - 7);
+        weeklyTrends.unshift({
+          week: `H${Math.ceil(days / 7) - i}`,
+          newUsers: users.filter(u => new Date(u.createdAt) >= weekStart && new Date(u.createdAt) < weekEnd).length,
+          calculations: calculatorResults.filter(c => new Date(c.createdAt) >= weekStart && new Date(c.createdAt) < weekEnd).length,
+          habitEntries: dailyHabits.filter(h => new Date(h.date) >= weekStart && new Date(h.date) < weekEnd).length,
+        });
+      }
+
+      const userActivity: { date: string; logins: number; calculations: number; habits: number }[] = [];
+      for (let i = Math.min(14, days); i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        userActivity.push({
+          date: date.toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit' }),
+          logins: systemLogs.filter(l => l.action === 'login' && l.createdAt.toISOString().split('T')[0] === dateStr).length,
+          calculations: calculatorResults.filter(c => c.createdAt.toISOString().split('T')[0] === dateStr).length,
+          habits: dailyHabits.filter(h => h.date.toISOString().split('T')[0] === dateStr).length,
+        });
+      }
+
+      res.json({
+        overview: {
+          totalUsers: users.length,
+          activeUsers: activeUserIds.size,
+          totalCalculations: calculatorResults.length,
+          totalHabitDays: dailyHabits.length,
+          totalMeasurements: bodyMeasurements.length,
+          totalNutritionLogs: dailyNutrition.length,
+          avgLoginFrequency: loginCount / weeksInPeriod,
+        },
+        calculatorUsage: Object.entries(calcStats).map(([type, data]) => ({
+          type,
+          count: data.count,
+          uniqueUsers: data.users.size,
+        })).sort((a, b) => b.count - a.count),
+        userActivity,
+        habitStats,
+        trafficSources: Object.entries(trafficSourceCounts).map(([source, count]) => ({ source, count })).sort((a, b) => b.count - a.count),
+        userEngagement,
+        weeklyTrends,
+      });
+    } catch (error) {
+      console.error("Analytics error:", error);
+      res.status(500).json({ error: "Analytics verileri yüklenemedi" });
+    }
+  });
+
   // Get User with Details
   app.get("/api/admin/users/:id", requireAdmin, async (req, res) => {
     try {

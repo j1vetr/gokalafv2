@@ -119,6 +119,10 @@ export interface IStorage {
   getDashboardStats(): Promise<DashboardStats>;
   getMonthlyRevenue(year?: number): Promise<RevenueData[]>;
   getRecentActivity(limit?: number): Promise<{ type: string; message: string; date: Date; userId?: string }[]>;
+  getAllCalculatorResults(): Promise<CalculatorResult[]>;
+  getAllDailyHabits(): Promise<DailyHabit[]>;
+  getAllBodyMeasurements(): Promise<BodyMeasurement[]>;
+  getAllDailyNutrition(): Promise<DailyNutrition[]>;
 
   // Coupons
   getCoupon(id: string): Promise<Coupon | undefined>;
@@ -543,6 +547,26 @@ export class DatabaseStorage implements IStorage {
     .from(schema.calculatorResults)
     .groupBy(schema.calculatorResults.calculatorType);
     return results;
+  }
+
+  // ANALYTICS: Get all calculator results
+  async getAllCalculatorResults(): Promise<CalculatorResult[]> {
+    return db.select().from(schema.calculatorResults).orderBy(desc(schema.calculatorResults.createdAt));
+  }
+
+  // ANALYTICS: Get all daily habits
+  async getAllDailyHabits(): Promise<DailyHabit[]> {
+    return db.select().from(schema.dailyHabits).orderBy(desc(schema.dailyHabits.date));
+  }
+
+  // ANALYTICS: Get all body measurements
+  async getAllBodyMeasurements(): Promise<BodyMeasurement[]> {
+    return db.select().from(schema.bodyMeasurements).orderBy(desc(schema.bodyMeasurements.createdAt));
+  }
+
+  // ANALYTICS: Get all daily nutrition
+  async getAllDailyNutrition(): Promise<DailyNutrition[]> {
+    return db.select().from(schema.dailyNutrition).orderBy(desc(schema.dailyNutrition.date));
   }
 
   // DASHBOARD STATS
