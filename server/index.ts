@@ -1,5 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
@@ -10,6 +12,53 @@ const app = express();
 
 // Trust proxy for Nginx reverse proxy (required for secure cookies)
 app.set('trust proxy', 1);
+
+// Security headers with Helmet
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "blob:", "https:"],
+      connectSrc: ["'self'", "https://www.google-analytics.com", "https://api.openai.com"],
+      frameSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+  crossOriginResourcePolicy: { policy: "cross-origin" },
+}));
+
+// Rate limiting - General API protection
+const apiLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 60, // 60 requests per minute per IP
+  message: { error: "Çok fazla istek gönderildi. Lütfen bir dakika bekleyin." },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skip: (req) => {
+    // Skip rate limiting for static assets
+    return !req.path.startsWith('/api');
+  },
+});
+
+// Stricter rate limiting for auth endpoints
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // 10 attempts per 15 minutes
+  message: { error: "Çok fazla giriş denemesi. Lütfen 15 dakika bekleyin." },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Apply rate limiters
+app.use('/api', apiLimiter);
+app.use('/api/login', authLimiter);
+app.use('/api/register', authLimiter);
+app.use('/api/admin/login', authLimiter);
 
 app.use(compression({
   level: 6,
