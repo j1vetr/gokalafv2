@@ -775,8 +775,8 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
       startDate.setDate(startDate.getDate() - days);
 
       const [users, orders, calculatorResults, dailyHabits, bodyMeasurements, dailyNutrition, systemLogs] = await Promise.all([
-        storage.getUsers(),
-        storage.getOrders(),
+        storage.getAllUsers(),
+        storage.getAllOrders(),
         storage.getAllCalculatorResults(),
         storage.getAllDailyHabits(),
         storage.getAllBodyMeasurements(),
