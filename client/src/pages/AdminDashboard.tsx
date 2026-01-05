@@ -146,6 +146,12 @@ export default function AdminDashboard() {
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [isTogglingMaintenance, setIsTogglingMaintenance] = useState(false);
 
+  // Analytics state
+  const [analyticsData, setAnalyticsData] = useState<any>(null);
+  const [analyticsLoading, setAnalyticsLoading] = useState(false);
+  const [selectedAnalyticsUser, setSelectedAnalyticsUser] = useState<string>("");
+  const [userAnalyticsDetails, setUserAnalyticsDetails] = useState<any>(null);
+
   const monthOptions = (() => {
     const options: { value: string; label: string }[] = [];
     const now = new Date();
@@ -308,6 +314,47 @@ export default function AdminDashboard() {
       setIsLoading(false);
     }
   };
+
+  const fetchAnalyticsData = async () => {
+    setAnalyticsLoading(true);
+    try {
+      const res = await fetch("/api/admin/analytics?days=30", { credentials: "include" });
+      if (res.ok) {
+        const data = await res.json();
+        setAnalyticsData(data);
+      }
+    } catch (error) {
+      console.error("Analytics yüklenemedi:", error);
+    } finally {
+      setAnalyticsLoading(false);
+    }
+  };
+
+  const fetchUserAnalyticsDetails = async (userId: string) => {
+    try {
+      const res = await fetch(`/api/admin/users/${userId}`, { credentials: "include" });
+      if (res.ok) {
+        const data = await res.json();
+        setUserAnalyticsDetails(data);
+      }
+    } catch (error) {
+      console.error("Kullanıcı detayları yüklenemedi:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === "analytics" && !analyticsData) {
+      fetchAnalyticsData();
+    }
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (selectedAnalyticsUser) {
+      fetchUserAnalyticsDetails(selectedAnalyticsUser);
+    } else {
+      setUserAnalyticsDetails(null);
+    }
+  }, [selectedAnalyticsUser]);
 
   const toggleMaintenanceMode = async () => {
     setIsTogglingMaintenance(true);
@@ -618,6 +665,7 @@ export default function AdminDashboard() {
                 <SidebarItem id="users" icon={Users} label="Kullanıcılar" count={users.length} />
                 <SidebarItem id="packages" icon={Package} label="Paketler" count={packages.length} />
                 <SidebarItem id="reports" icon={BarChart3} label="Raporlar" />
+                <SidebarItem id="analytics" icon={Activity} label="Analytics" />
               </nav>
 
               <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Yönetim</p>
@@ -643,14 +691,7 @@ export default function AdminDashboard() {
                 >
                   <Database size={18} /> Yedekleme
                 </button>
-                <button
-                  onClick={() => setLocation("/gokadmin/analytics")}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
-                  data-testid="nav-analytics"
-                >
-                  <BarChart3 size={18} /> Analytics
-                </button>
-              </nav>
+                </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
                 <div 
@@ -1504,6 +1545,265 @@ export default function AdminDashboard() {
                   </motion.div>
                 );
               })()}
+
+              {activeTab === "analytics" && (
+                <motion.div
+                  key="analytics"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="space-y-6"
+                >
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-heading font-bold uppercase text-white flex items-center gap-3">
+                      <Activity className="text-primary" /> Kullanıcı Analytics
+                    </h2>
+                    <Button 
+                      onClick={fetchAnalyticsData} 
+                      variant="outline" 
+                      size="sm" 
+                      className="border-white/20"
+                      disabled={analyticsLoading}
+                    >
+                      <RefreshCw className={`w-4 h-4 mr-2 ${analyticsLoading ? 'animate-spin' : ''}`} /> Yenile
+                    </Button>
+                  </div>
+
+                  {analyticsLoading ? (
+                    <div className="flex items-center justify-center h-64">
+                      <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+                    </div>
+                  ) : analyticsData ? (
+                    <>
+                      {/* Overview Stats */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+                        <div className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-4 text-center">
+                          <Users className="w-5 h-5 mx-auto mb-1 text-primary" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.totalUsers || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Toplam Kullanıcı</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/30 rounded-xl p-4 text-center">
+                          <Activity className="w-5 h-5 mx-auto mb-1 text-green-400" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.activeUsers || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Aktif Kullanıcı</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/30 rounded-xl p-4 text-center">
+                          <Calculator className="w-5 h-5 mx-auto mb-1 text-blue-400" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.totalCalculations || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Hesaplama</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/30 rounded-xl p-4 text-center">
+                          <Calendar className="w-5 h-5 mx-auto mb-1 text-purple-400" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.totalHabitDays || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Alışkanlık Günü</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-orange-500/20 to-orange-500/5 border border-orange-500/30 rounded-xl p-4 text-center">
+                          <TrendingUp className="w-5 h-5 mx-auto mb-1 text-orange-400" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.totalMeasurements || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Ölçüm</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/30 rounded-xl p-4 text-center">
+                          <Clock className="w-5 h-5 mx-auto mb-1 text-red-400" />
+                          <div className="text-xl font-bold text-white">{analyticsData.overview?.totalNutritionLogs || 0}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Beslenme Kaydı</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/30 rounded-xl p-4 text-center">
+                          <Eye className="w-5 h-5 mx-auto mb-1 text-cyan-400" />
+                          <div className="text-xl font-bold text-white">{(analyticsData.overview?.avgLoginFrequency || 0).toFixed(1)}</div>
+                          <div className="text-[10px] text-gray-400 uppercase">Ort. Giriş/Hafta</div>
+                        </div>
+                      </div>
+
+                      {/* User Selection */}
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-4 flex items-center gap-2">
+                          <User className="w-5 h-5 text-primary" /> Kullanıcı Detayları
+                        </h3>
+                        <Select value={selectedAnalyticsUser} onValueChange={setSelectedAnalyticsUser}>
+                          <SelectTrigger className="w-full md:w-96 bg-white/5 border-white/10">
+                            <SelectValue placeholder="Kullanıcı seçin..." />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {users.map(u => (
+                              <SelectItem key={u.id} value={u.id}>
+                                {u.fullName} ({u.email})
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+
+                        {userAnalyticsDetails && (
+                          <div className="mt-6 space-y-4">
+                            <div className="flex items-start gap-4 p-4 bg-white/5 rounded-xl">
+                              <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary text-xl font-bold">
+                                {userAnalyticsDetails.user?.fullName?.charAt(0) || "?"}
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="text-lg font-bold text-white">{userAnalyticsDetails.user?.fullName}</h4>
+                                <p className="text-gray-400 text-sm">{userAnalyticsDetails.user?.email}</p>
+                                <div className="flex flex-wrap gap-4 mt-2 text-xs text-gray-500">
+                                  <span>Kayıt: {new Date(userAnalyticsDetails.user?.createdAt).toLocaleDateString("tr-TR")}</span>
+                                  {userAnalyticsDetails.user?.phone && <span>Tel: {userAnalyticsDetails.user.phone}</span>}
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <Badge className={userAnalyticsDetails.user?.role === "admin" ? "bg-red-500/20 text-red-400" : "bg-primary/20 text-primary"}>
+                                  {userAnalyticsDetails.user?.role === "admin" ? "Admin" : "Kullanıcı"}
+                                </Badge>
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              <div className="bg-white/5 rounded-xl p-4">
+                                <h5 className="text-xs uppercase text-gray-500 mb-2">Siparişler</h5>
+                                <p className="text-2xl font-bold text-white">{userAnalyticsDetails.orders?.length || 0}</p>
+                              </div>
+                              <div className="bg-white/5 rounded-xl p-4">
+                                <h5 className="text-xs uppercase text-gray-500 mb-2">Vücut Ölçümleri</h5>
+                                <p className="text-2xl font-bold text-white">{userAnalyticsDetails.measurements?.length || 0}</p>
+                              </div>
+                              <div className="bg-white/5 rounded-xl p-4">
+                                <h5 className="text-xs uppercase text-gray-500 mb-2">Günlük Takip</h5>
+                                <p className="text-2xl font-bold text-white">{userAnalyticsDetails.habits?.length || 0}</p>
+                              </div>
+                            </div>
+
+                            {userAnalyticsDetails.measurements?.length > 0 && (
+                              <div className="bg-white/5 rounded-xl p-4">
+                                <h5 className="text-xs uppercase text-gray-500 mb-3">Son Vücut Ölçümleri</h5>
+                                <div className="overflow-x-auto">
+                                  <table className="w-full text-sm">
+                                    <thead>
+                                      <tr className="border-b border-white/10">
+                                        <th className="text-left py-2 px-2 text-gray-400">Tarih</th>
+                                        <th className="text-right py-2 px-2 text-gray-400">Kilo</th>
+                                        <th className="text-right py-2 px-2 text-gray-400">Göğüs</th>
+                                        <th className="text-right py-2 px-2 text-gray-400">Bel</th>
+                                        <th className="text-right py-2 px-2 text-gray-400">Kalça</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {userAnalyticsDetails.measurements.slice(0, 5).map((m: any, idx: number) => (
+                                        <tr key={idx} className="border-b border-white/5">
+                                          <td className="py-2 px-2 text-white">{new Date(m.createdAt).toLocaleDateString("tr-TR")}</td>
+                                          <td className="py-2 px-2 text-right text-primary font-bold">{m.weight ? `${m.weight} kg` : "-"}</td>
+                                          <td className="py-2 px-2 text-right text-gray-400">{m.chest ? `${m.chest} cm` : "-"}</td>
+                                          <td className="py-2 px-2 text-right text-gray-400">{m.waist ? `${m.waist} cm` : "-"}</td>
+                                          <td className="py-2 px-2 text-right text-gray-400">{m.hips ? `${m.hips} cm` : "-"}</td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            )}
+
+                            {userAnalyticsDetails.habits?.length > 0 && (
+                              <div className="bg-white/5 rounded-xl p-4">
+                                <h5 className="text-xs uppercase text-gray-500 mb-3">Son Günlük Takip</h5>
+                                <div className="overflow-x-auto">
+                                  <table className="w-full text-sm">
+                                    <thead>
+                                      <tr className="border-b border-white/10">
+                                        <th className="text-left py-2 px-2 text-gray-400">Tarih</th>
+                                        <th className="text-center py-2 px-2 text-gray-400">Su (bardak)</th>
+                                        <th className="text-center py-2 px-2 text-gray-400">Uyku (saat)</th>
+                                        <th className="text-center py-2 px-2 text-gray-400">Antrenman</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {userAnalyticsDetails.habits.slice(0, 5).map((h: any, idx: number) => (
+                                        <tr key={idx} className="border-b border-white/5">
+                                          <td className="py-2 px-2 text-white">{new Date(h.date).toLocaleDateString("tr-TR")}</td>
+                                          <td className="py-2 px-2 text-center text-blue-400">{h.waterGlasses || 0}</td>
+                                          <td className="py-2 px-2 text-center text-purple-400">{h.sleepHours || "-"}</td>
+                                          <td className="py-2 px-2 text-center">
+                                            {h.didWorkout ? (
+                                              <CheckCircle className="w-4 h-4 text-green-400 mx-auto" />
+                                            ) : (
+                                              <XCircle className="w-4 h-4 text-gray-500 mx-auto" />
+                                            )}
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Top Engaged Users Table */}
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-4 flex items-center gap-2">
+                          <TrendingUp className="w-5 h-5 text-primary" /> En Aktif Kullanıcılar
+                        </h3>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead>
+                              <tr className="border-b border-white/10">
+                                <th className="text-left py-2 px-3 text-gray-400">Kullanıcı</th>
+                                <th className="text-right py-2 px-3 text-gray-400">Hesaplama</th>
+                                <th className="text-right py-2 px-3 text-gray-400">Alışkanlık</th>
+                                <th className="text-right py-2 px-3 text-gray-400">Ölçüm</th>
+                                <th className="text-right py-2 px-3 text-gray-400">Son Aktivite</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {analyticsData.userEngagement?.slice(0, 15).map((u: any, idx: number) => (
+                                <tr 
+                                  key={u.userId} 
+                                  className="border-b border-white/5 hover:bg-white/5 cursor-pointer"
+                                  onClick={() => setSelectedAnalyticsUser(u.userId)}
+                                >
+                                  <td className="py-2 px-3">
+                                    <div className="font-medium text-white">{u.fullName}</div>
+                                    <div className="text-xs text-gray-500">{u.email}</div>
+                                  </td>
+                                  <td className="py-2 px-3 text-right">
+                                    <Badge className={u.calculations > 5 ? "bg-primary/20 text-primary" : "bg-gray-500/20 text-gray-400"}>
+                                      {u.calculations}
+                                    </Badge>
+                                  </td>
+                                  <td className="py-2 px-3 text-right">
+                                    <Badge className={u.habits > 10 ? "bg-green-500/20 text-green-400" : "bg-gray-500/20 text-gray-400"}>
+                                      {u.habits}
+                                    </Badge>
+                                  </td>
+                                  <td className="py-2 px-3 text-right text-gray-400">{u.measurements}</td>
+                                  <td className="py-2 px-3 text-right text-gray-400 text-xs">
+                                    {u.lastActive ? new Date(u.lastActive).toLocaleDateString("tr-TR") : "-"}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      {/* Calculator Usage */}
+                      <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                        <h3 className="font-heading font-bold text-white uppercase mb-4 flex items-center gap-2">
+                          <Calculator className="w-5 h-5 text-primary" /> Hesaplayıcı Kullanımı
+                        </h3>
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          {analyticsData.calculatorUsage?.map((calc: any) => (
+                            <div key={calc.type} className="bg-white/5 rounded-xl p-3 text-center">
+                              <div className="text-lg font-bold text-primary">{calc.count}</div>
+                              <div className="text-xs text-gray-400 uppercase">{calc.type}</div>
+                              <div className="text-[10px] text-gray-500 mt-1">{calc.uniqueUsers} kullanıcı</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="text-center py-12 text-gray-500">Veri yüklenemedi</div>
+                  )}
+                </motion.div>
+              )}
             </AnimatePresence>
           </main>
         </div>
