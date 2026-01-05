@@ -10,6 +10,7 @@ import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
 import { sendWelcomeEmail, sendOrderConfirmationEmail, sendAdminNewUserNotification, sendAdminNewOrderNotification } from "./email/service";
 import { Shopier } from "shopier-api";
+import { sanitizeString } from "./utils/sanitize";
 
 function verifyShopierSignature(postData: any, apiSecret: string): boolean {
   try {
@@ -189,9 +190,9 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
       const user = await storage.createUser({
         email,
         password: hashedPassword,
-        fullName,
-        phone: phone || null,
-        address: address || null,
+        fullName: sanitizeString(fullName) || fullName,
+        phone: sanitizeString(phone) || null,
+        address: sanitizeString(address) || null,
         role: "user",
         trafficSource: trafficSource || null,
       });
@@ -789,13 +790,19 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
   app.patch("/api/admin/users/:id", requireAdmin, async (req, res) => {
     try {
       const updateData = z.object({
-        fullName: z.string().optional(),
+        fullName: z.string().max(100).optional(),
         email: z.string().email().optional(),
-        phone: z.string().optional(),
+        phone: z.string().max(20).optional(),
         role: z.enum(["user", "admin"]).optional(),
       }).parse(req.body);
 
-      const updatedUser = await storage.updateUser(req.params.id, updateData);
+      const sanitizedData = {
+        ...updateData,
+        fullName: updateData.fullName ? (sanitizeString(updateData.fullName) ?? updateData.fullName) : undefined,
+        phone: updateData.phone ? (sanitizeString(updateData.phone) ?? updateData.phone) : undefined,
+      };
+
+      const updatedUser = await storage.updateUser(req.params.id, sanitizedData);
       if (!updatedUser) {
         return res.status(404).json({ error: "Kullanıcı bulunamadı" });
       }
@@ -888,7 +895,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         packageId: z.string(),
         startDate: z.string(),
         endDate: z.string(),
-        notes: z.string().optional(),
+        notes: z.string().max(500).optional(),
       }).parse(req.body);
 
       const user = await storage.getUser(data.userId);
@@ -997,7 +1004,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         waterGlasses: z.number().min(0).max(20).optional(),
         didWorkout: z.boolean().optional(),
         sleepHours: z.number().min(0).max(24).optional(),
-        notes: z.string().optional(),
+        notes: z.string().max(500).optional(),
       }).parse(req.body);
 
       const habit = await storage.upsertDailyHabit({
@@ -1006,7 +1013,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         waterGlasses: data.waterGlasses ?? 0,
         didWorkout: data.didWorkout ?? false,
         sleepHours: data.sleepHours?.toString() ?? null,
-        notes: data.notes ?? null,
+        notes: sanitizeString(data.notes),
       });
 
       const streak = await storage.getHabitStreak(req.session.userId!);
@@ -1051,7 +1058,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         hips: z.number().positive().optional(),
         arms: z.number().positive().optional(),
         thighs: z.number().positive().optional(),
-        notes: z.string().optional(),
+        notes: z.string().max(500).optional(),
       }).parse(req.body);
 
       const measurement = await storage.createBodyMeasurement({
@@ -1064,7 +1071,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         hips: data.hips?.toString() ?? null,
         arms: data.arms?.toString() ?? null,
         thighs: data.thighs?.toString() ?? null,
-        notes: data.notes ?? null,
+        notes: sanitizeString(data.notes),
       });
 
       res.json({ measurement });
@@ -1107,7 +1114,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         carbs: z.number().min(0).optional(),
         fat: z.number().min(0).optional(),
         fiber: z.number().min(0).optional(),
-        notes: z.string().optional(),
+        notes: z.string().max(500).optional(),
       }).parse(req.body);
 
       const nutrition = await storage.upsertDailyNutrition({
@@ -1118,7 +1125,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         carbs: data.carbs?.toString() ?? "0",
         fat: data.fat?.toString() ?? "0",
         fiber: data.fiber?.toString() ?? null,
-        notes: data.notes ?? null,
+        notes: sanitizeString(data.notes),
       });
 
       const summary = await storage.getWeeklyNutritionSummary(req.session.userId!);
