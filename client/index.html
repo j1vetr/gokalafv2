@@ -71,90 +71,220 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://gokalaf.com/#organization",
-      "name": "Gokalaf",
-      "alternateName": "Gokalaf Coaching",
-      "description": "Profesyonel online fitness ve vücut geliştirme koçluğu hizmeti. Kişiselleştirilmiş antrenman programları, beslenme danışmanlığı ve haftalık takip ile hedeflerinize ulaşın.",
-      "url": "https://gokalaf.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://gokalaf.com/favicon.png",
-        "width": 512,
-        "height": 512
-      },
-      "image": "https://gokalaf.com/og-image.png",
-      "telephone": "+905312822402",
-      "email": "alafcoaching@gmail.com",
-      "foundingDate": "2024",
-      "founder": {
-        "@type": "Person",
-        "name": "Gokalaf",
-        "jobTitle": "Fitness Coach",
-        "url": "https://gokalaf.com/hakkimizda"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "TR",
-        "addressLocality": "Türkiye"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Türkiye"
-      },
-      "sameAs": [
-        "https://www.instagram.com/gokalaf",
-        "https://www.youtube.com/@gokalaf",
-        "https://kick.com/gokalaf",
-        "https://twitter.com/gokalaf"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+905312822402",
-        "contactType": "customer service",
-        "availableLanguage": "Turkish",
-        "areaServed": "TR"
-      },
-      "slogan": "Performans • Güç • Disiplin",
-      "knowsAbout": ["Fitness", "Vücut Geliştirme", "Beslenme", "Antrenman Programı", "Online Koçluk"],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Koçluk Paketleri",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "8 Haftalık Koçluk Paketi",
-              "description": "8 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
-            }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://gokalaf.com/#organization",
+          "name": "Gokalaf",
+          "alternateName": ["Gökalaf", "Gokalaf Coaching", "Alaf Coaching", "GOKALAF"],
+          "legalName": "Gokalaf Online Fitness Koçluğu",
+          "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu. Kişiselleştirilmiş antrenman programları, bilimsel beslenme danışmanlığı ve haftalık takip ile hedeflerinize ulaşın. 873+ egzersiz içeren kapsamlı egzersiz akademisi.",
+          "url": "https://gokalaf.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://gokalaf.com/#logo",
+            "url": "https://gokalaf.com/favicon.png",
+            "contentUrl": "https://gokalaf.com/favicon.png",
+            "width": 512,
+            "height": 512,
+            "caption": "Gokalaf Logo"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "12 Haftalık Koçluk Paketi",
-              "description": "12 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
-            }
+          "image": [
+            "https://gokalaf.com/og-image.png",
+            "https://gokalaf.com/favicon.png"
+          ],
+          "telephone": "+905312822402",
+          "email": "alafcoaching@gmail.com",
+          "foundingDate": "2024-01-01",
+          "foundingLocation": {
+            "@type": "Place",
+            "name": "Türkiye"
           },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "16 Haftalık Koçluk Paketi",
-              "description": "16 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
-            }
+          "founder": {
+            "@type": "Person",
+            "@id": "https://gokalaf.com/#founder",
+            "name": "Gokalaf",
+            "alternateName": "Gökalaf",
+            "jobTitle": "Founder & Head Coach",
+            "url": "https://gokalaf.com/hakkimizda",
+            "sameAs": [
+              "https://www.instagram.com/gokalaf",
+              "https://www.youtube.com/@gokalaf",
+              "https://kick.com/gokalaf",
+              "https://twitter.com/gokalaf",
+              "https://www.tiktok.com/@gokalaf"
+            ]
           },
-          {
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "TR",
+            "addressLocality": "Türkiye"
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Turkey",
+              "alternateName": "Türkiye"
+            },
+            {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.9334,
+                "longitude": 32.8597
+              },
+              "geoRadius": "5000000"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/gokalaf",
+            "https://www.youtube.com/@gokalaf",
+            "https://kick.com/gokalaf",
+            "https://twitter.com/gokalaf",
+            "https://www.tiktok.com/@gokalaf",
+            "https://www.facebook.com/gokalaf"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+905312822402",
+              "contactType": "customer service",
+              "availableLanguage": ["Turkish", "tr"],
+              "areaServed": "TR",
+              "contactOption": "TollFree"
+            },
+            {
+              "@type": "ContactPoint",
+              "email": "alafcoaching@gmail.com",
+              "contactType": "customer support",
+              "availableLanguage": ["Turkish", "tr"]
+            }
+          ],
+          "slogan": "Performans • Güç • Disiplin",
+          "knowsAbout": [
+            "Fitness",
+            "Vücut Geliştirme",
+            "Bodybuilding",
+            "Beslenme",
+            "Nutrition",
+            "Antrenman Programı",
+            "Workout Program",
+            "Online Koçluk",
+            "Personal Training",
+            "Kas Yapma",
+            "Kilo Verme",
+            "Supplement",
+            "Egzersiz"
+          ],
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 5
+          },
+          "award": "Türkiye'nin En İyi Online Fitness Platformu",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Gokalaf Koçluk Paketleri",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "8 Haftalık Koçluk Paketi",
+                  "description": "8 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "12 Haftalık Koçluk Paketi",
+                  "description": "12 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "16 Haftalık Koçluk Paketi",
+                  "description": "16 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "24 Haftalık Koçluk Paketi",
+                  "description": "24 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+                }
+              }
+            ]
+          },
+          "makesOffer": {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "24 Haftalık Koçluk Paketi",
-              "description": "24 hafta boyunca kişiselleştirilmiş antrenman ve beslenme programı"
+              "serviceType": "Online Fitness Coaching",
+              "provider": {"@id": "https://gokalaf.com/#organization"}
             }
           }
-        ]
-      }
+        },
+        {
+          "@type": "Brand",
+          "@id": "https://gokalaf.com/#brand",
+          "name": "Gokalaf",
+          "alternateName": ["Gökalaf", "GOKALAF", "Gokalaf Coaching"],
+          "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu markası",
+          "url": "https://gokalaf.com",
+          "logo": "https://gokalaf.com/favicon.png",
+          "slogan": "Performans • Güç • Disiplin",
+          "sameAs": [
+            "https://www.instagram.com/gokalaf",
+            "https://www.youtube.com/@gokalaf",
+            "https://kick.com/gokalaf",
+            "https://twitter.com/gokalaf"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://gokalaf.com/#person",
+          "name": "Gokalaf",
+          "alternateName": ["Gökalaf", "Alaf"],
+          "description": "Profesyonel fitness koçu ve vücut geliştirme uzmanı. Online koçluk hizmetleri, fitness eğitim içerikleri ve beslenme danışmanlığı.",
+          "url": "https://gokalaf.com/hakkimizda",
+          "image": "https://gokalaf.com/og-image.png",
+          "jobTitle": "Fitness Coach & Content Creator",
+          "worksFor": {"@id": "https://gokalaf.com/#organization"},
+          "knowsAbout": [
+            "Fitness",
+            "Vücut Geliştirme",
+            "Beslenme",
+            "Antrenman",
+            "Supplement",
+            "Online Koçluk"
+          ],
+          "sameAs": [
+            "https://www.instagram.com/gokalaf",
+            "https://www.youtube.com/@gokalaf",
+            "https://kick.com/gokalaf",
+            "https://twitter.com/gokalaf",
+            "https://www.tiktok.com/@gokalaf"
+          ],
+          "nationality": {
+            "@type": "Country",
+            "name": "Turkey"
+          }
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://gokalaf.com/#academy",
+          "name": "Gokalaf Egzersiz Akademisi",
+          "alternateName": "Gokalaf Exercise Academy",
+          "description": "873+ egzersiz içeren kapsamlı fitness egzersiz kütüphanesi. İnteraktif vücut haritası ile egzersizleri keşfedin.",
+          "url": "https://gokalaf.com/egzersiz-akademisi",
+          "parentOrganization": {"@id": "https://gokalaf.com/#organization"},
+          "educationalCredentialAwarded": "Fitness Bilgisi"
+        }
+      ]
     }
     </script>
     
