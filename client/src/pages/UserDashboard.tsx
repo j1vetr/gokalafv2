@@ -1775,6 +1775,88 @@ export default function UserDashboard() {
                       </Link>
                     </div>
                   </div>
+
+                  {/* Exercise Academy Section */}
+                  <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                    <div className="flex items-center justify-between mb-6">
+                      <h2 className="text-xl font-heading font-bold text-white">Egzersiz Akademisi</h2>
+                      <Link href="/egzersiz-akademisi">
+                        <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" data-testid="link-exercise-academy-all">
+                          Tümünü Gör
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </Button>
+                      </Link>
+                    </div>
+                    <p className="text-gray-400 text-sm mb-4">
+                      873+ egzersizi keşfet, doğru formu öğren ve antrenmanlarını geliştir.
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <Link href="/egzersiz-akademisi?muscle=chest">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-red-500/10 border border-white/10 hover:border-red-500/30 transition-all cursor-pointer group" data-testid="link-exercise-chest">
+                          <div className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-red-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Göğüs</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=lats">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-blue-500/10 border border-white/10 hover:border-blue-500/30 transition-all cursor-pointer group" data-testid="link-exercise-lats">
+                          <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-blue-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Sırt</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=shoulders">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-yellow-500/10 border border-white/10 hover:border-yellow-500/30 transition-all cursor-pointer group" data-testid="link-exercise-shoulders">
+                          <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-yellow-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Omuz</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=quadriceps">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-green-500/10 border border-white/10 hover:border-green-500/30 transition-all cursor-pointer group" data-testid="link-exercise-quadriceps">
+                          <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-green-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Bacak</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=biceps">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/30 transition-all cursor-pointer group" data-testid="link-exercise-biceps">
+                          <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-orange-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Biceps</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=triceps">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-purple-500/10 border border-white/10 hover:border-purple-500/30 transition-all cursor-pointer group" data-testid="link-exercise-triceps">
+                          <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-purple-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Triceps</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=abdominals">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-pink-500/10 border border-white/10 hover:border-pink-500/30 transition-all cursor-pointer group" data-testid="link-exercise-abdominals">
+                          <div className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-pink-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Karın</span>
+                        </div>
+                      </Link>
+                      <Link href="/egzersiz-akademisi?muscle=glutes">
+                        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/30 transition-all cursor-pointer group" data-testid="link-exercise-glutes">
+                          <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <Dumbbell className="w-4 h-4 text-cyan-400" />
+                          </div>
+                          <span className="text-sm font-medium text-white group-hover:text-primary transition-colors">Kalça</span>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
                 </motion.div>
               )}
 

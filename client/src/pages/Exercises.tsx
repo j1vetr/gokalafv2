@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Search, Dumbbell, X, ChevronRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -103,12 +103,27 @@ const apiMuscleToBodyHighlighter: Record<string, string[]> = {
 type BodyView = "anterior" | "posterior";
 
 export default function Exercises() {
+  const [location] = useLocation();
   const [selectedMuscle, setSelectedMuscle] = useState<string>("");
   const [hoveredMuscle, setHoveredMuscle] = useState<string>("");
   const [bodyView, setBodyView] = useState<BodyView>("anterior");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const limit = 12;
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const muscleParam = urlParams.get("muscle");
+    if (muscleParam && muscleParam !== selectedMuscle) {
+      setSelectedMuscle(muscleParam);
+      setTimeout(() => {
+        const exercisesSection = document.getElementById('exercises-list');
+        if (exercisesSection) {
+          exercisesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300);
+    }
+  }, [location]);
 
   const queryParams = useMemo(() => {
     const params = new URLSearchParams();
