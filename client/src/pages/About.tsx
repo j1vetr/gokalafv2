@@ -88,7 +88,7 @@ export default function About() {
       {/* BIO & STATS SECTION */}
       <section className="py-10 md:py-14 bg-[#050505]">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
             <div className="relative max-w-xs mx-auto lg:mx-0">
               <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-xl group">
                 <img 
@@ -107,12 +107,12 @@ export default function About() {
               <div className="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-primary opacity-50"></div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold uppercase text-white mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold uppercase text-white mb-3">
                   Potansiyelini <span className="text-primary">Keşfet</span>
                 </h2>
-                <div className="space-y-4 text-sm md:text-base text-gray-400 leading-relaxed">
+                <div className="space-y-3 text-sm text-gray-400 leading-relaxed">
                   <p>
                     16 yaşında çelimsiz görüntümü değiştirmek için başladığım bu süreç, her geçen yıl gelişmenin verdiği özgüven ve görünümle hayatımdaki en büyük tutkum oldu. Tutkuya dönüşmesiyle beraber Elektronik Mühendisliği okuduğum yıllarda kendimi güncel, bilime dayalı kaynak ve kanallardan eğittim.
                   </p>
