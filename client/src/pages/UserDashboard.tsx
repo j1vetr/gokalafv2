@@ -699,7 +699,7 @@ export default function UserDashboard() {
         <main className="flex-1 pb-24 lg:pb-8 lg:ml-[304px]">
           <div className="w-full px-4 lg:pl-8 lg:pr-8 py-8 lg:py-10 max-w-[1200px]">
             <AnimatePresence mode="wait">
-              {/* OVERVIEW PAGE */}
+              {/* OVERVIEW PAGE - Clean Category Cards */}
               {activePage === "overview" && (
                 <motion.div
                   key="overview"
@@ -709,267 +709,194 @@ export default function UserDashboard() {
                   className="space-y-6"
                 >
                   {/* Welcome Header */}
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                     <div>
-                      <h1 className="text-3xl md:text-4xl font-heading font-bold text-white" data-testid="text-welcome">
-                        Merhaba, {user?.fullName?.split(" ")[0] || "Sporcu"}! 👋
+                      <h1 className="text-2xl md:text-3xl font-heading font-bold text-white" data-testid="text-welcome">
+                        Merhaba, {user?.fullName?.split(" ")[0] || "Sporcu"}!
                       </h1>
-                      <p className="text-gray-400 mt-1">
+                      <p className="text-sm text-gray-400 mt-1">
                         {new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" })}
                       </p>
                     </div>
-                    {!activePackage && (
-                      <Link href="/paketler">
-                        <Button className="bg-primary text-black hover:bg-primary/90 font-bold" data-testid="button-buy-package">
-                          <Sparkles className="w-4 h-4 mr-2" />
-                          Paket Satın Al
-                        </Button>
-                      </Link>
-                    )}
+                    <div className="flex items-center gap-3">
+                      {streak > 0 && (
+                        <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30">
+                          <Flame className="w-3 h-3 mr-1" />
+                          {streak} Gün Seri
+                        </Badge>
+                      )}
+                      {!activePackage && (
+                        <Link href="/paketler">
+                          <Button size="sm" className="bg-primary text-black hover:bg-primary/90 font-bold" data-testid="button-buy-package">
+                            <Sparkles className="w-3 h-3 mr-1" />
+                            Paket Al
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Active Package Card */}
+                  {/* Active Package Mini Card */}
                   {activeOrder && activePackage && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/30 rounded-3xl p-6 md:p-8 relative overflow-hidden"
+                      className="bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/30 rounded-xl p-4 relative overflow-hidden"
                       data-testid="card-active-package"
                     >
-                      <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
-                      <div className="relative">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                          <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-2xl bg-primary/30 flex items-center justify-center">
-                              <Crown className="w-8 h-8 text-primary" />
-                            </div>
-                            <div>
-                              <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-2">
-                                <CheckCircle className="w-3 h-3 mr-1" /> Aktif Paket
-                              </Badge>
-                              <h2 className="text-2xl font-bold text-white">{activePackage.name}</h2>
-                              <p className="text-gray-400">Hafta {getCurrentWeek()} / {activePackage.weeks}</p>
-                            </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary/30 flex items-center justify-center">
+                            <Crown className="w-5 h-5 text-primary" />
                           </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-black/30 rounded-xl p-4 text-center">
-                              <div className="text-3xl font-bold text-primary">{calculateProgress()}%</div>
-                              <div className="text-xs text-gray-400">Tamamlandı</div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-bold text-white">{activePackage.name}</span>
+                              <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-[10px] py-0">
+                                Aktif
+                              </Badge>
                             </div>
-                            <div className="bg-black/30 rounded-xl p-4 text-center">
-                              <div className="text-3xl font-bold text-white">{getDaysRemaining()}</div>
-                              <div className="text-xs text-gray-400">Gün Kaldı</div>
-                            </div>
+                            <p className="text-xs text-gray-400">Hafta {getCurrentWeek()} / {activePackage.weeks} • {getDaysRemaining()} gün kaldı</p>
                           </div>
                         </div>
-                        <div className="mt-6">
-                          <Progress value={calculateProgress()} className="h-3 bg-black/30" />
+                        <div className="text-right">
+                          <div className="text-xl font-bold text-primary">{calculateProgress()}%</div>
+                          <Progress value={calculateProgress()} className="h-1.5 w-20 bg-black/30" />
                         </div>
                       </div>
                     </motion.div>
                   )}
 
-                  {/* Quick Stats Grid */}
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Category Cards Grid */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                    {/* Daily Tracking Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.05 }}
+                      onClick={() => setActivePage("workouts")}
+                      className="bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all cursor-pointer group"
+                      data-testid="card-daily-tracking"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Activity className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <h3 className="font-bold text-white text-sm mb-1">Günlük Takip</h3>
+                      <p className="text-xs text-gray-500 mb-3">Su, antrenman, uyku</p>
+                      <div className="flex items-center gap-2 text-xs">
+                        <span className="text-blue-400">{waterCount}/8</span>
+                        <span className="text-gray-600">•</span>
+                        <span className={didWorkout ? "text-primary" : "text-gray-500"}>{didWorkout ? "✓" : "○"}</span>
+                        <span className="text-gray-600">•</span>
+                        <span className="text-purple-400">{sleepHours || "-"}h</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Progress Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 }}
-                      className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/20 rounded-2xl p-5"
-                      data-testid="stat-water"
+                      onClick={() => setActivePage("progress")}
+                      className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-xl p-4 hover:border-primary/40 transition-all cursor-pointer group"
+                      data-testid="card-progress"
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/30 flex items-center justify-center">
-                          <Droplets className="w-5 h-5 text-blue-400" />
-                        </div>
-                        <span className="text-sm text-gray-400">Su</span>
+                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <TrendingUp className="w-5 h-5 text-primary" />
                       </div>
-                      <div className="text-3xl font-bold text-white">{waterCount}<span className="text-lg text-gray-400">/8</span></div>
-                      <div className="text-xs text-gray-500 mt-1">bardak bugün</div>
+                      <h3 className="font-bold text-white text-sm mb-1">İlerleme</h3>
+                      <p className="text-xs text-gray-500 mb-3">Grafikler ve istatistikler</p>
+                      <div className="text-xs text-primary">{measurements.length} kayıt</div>
                     </motion.div>
 
+                    {/* Measurements Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15 }}
-                      className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-2xl p-5"
-                      data-testid="stat-workout"
+                      onClick={() => setActivePage("measurements")}
+                      className="bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-xl p-4 hover:border-green-500/40 transition-all cursor-pointer group"
+                      data-testid="card-measurements"
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/30 flex items-center justify-center">
-                          <Dumbbell className="w-5 h-5 text-primary" />
-                        </div>
-                        <span className="text-sm text-gray-400">Antrenman</span>
+                      <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Scale className="w-5 h-5 text-green-400" />
                       </div>
-                      <div className="text-3xl font-bold text-white">{weeklyWorkouts}</div>
-                      <div className="text-xs text-gray-500 mt-1">bu ay</div>
+                      <h3 className="font-bold text-white text-sm mb-1">Vücut Ölçüleri</h3>
+                      <p className="text-xs text-gray-500 mb-3">Kilo ve ölçümler</p>
+                      <div className="text-xs text-green-400">{latestMeasurement?.weight ? `${latestMeasurement.weight} kg` : "Kayıt yok"}</div>
                     </motion.div>
 
+                    {/* Nutrition Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/20 rounded-2xl p-5"
-                      data-testid="stat-sleep"
+                      onClick={() => setActivePage("nutrition")}
+                      className="bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20 rounded-xl p-4 hover:border-orange-500/40 transition-all cursor-pointer group"
+                      data-testid="card-nutrition"
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-purple-500/30 flex items-center justify-center">
-                          <Moon className="w-5 h-5 text-purple-400" />
-                        </div>
-                        <span className="text-sm text-gray-400">Uyku</span>
+                      <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Utensils className="w-5 h-5 text-orange-400" />
                       </div>
-                      <div className="text-3xl font-bold text-white">{avgSleep}<span className="text-lg text-gray-400">h</span></div>
-                      <div className="text-xs text-gray-500 mt-1">ortalama</div>
+                      <h3 className="font-bold text-white text-sm mb-1">Beslenme</h3>
+                      <p className="text-xs text-gray-500 mb-3">Kalori ve makrolar</p>
+                      <div className="text-xs text-orange-400">{todayNutrition ? `${todayNutrition.calories} kcal` : "Bugün: -"}</div>
                     </motion.div>
 
+                    {/* Achievements Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.25 }}
-                      className="bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/20 rounded-2xl p-5"
-                      data-testid="stat-weight"
+                      onClick={() => setActivePage("achievements")}
+                      className="bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-xl p-4 hover:border-yellow-500/40 transition-all cursor-pointer group"
+                      data-testid="card-achievements"
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-green-500/30 flex items-center justify-center">
-                          <Scale className="w-5 h-5 text-green-400" />
-                        </div>
-                        <span className="text-sm text-gray-400">Kilo</span>
+                      <div className="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Trophy className="w-5 h-5 text-yellow-400" />
                       </div>
-                      <div className="flex items-end gap-2">
-                        <div className="text-3xl font-bold text-white">{latestMeasurement?.weight || "-"}</div>
-                        {weightChange && parseFloat(weightChange) !== 0 && (
-                          <div className={`flex items-center text-sm ${parseFloat(weightChange) < 0 ? "text-green-400" : "text-red-400"}`}>
-                            {parseFloat(weightChange) < 0 ? <ArrowDown className="w-3 h-3" /> : <ArrowUp className="w-3 h-3" />}
-                            {Math.abs(parseFloat(weightChange))} kg
-                          </div>
-                        )}
+                      <h3 className="font-bold text-white text-sm mb-1">Başarımlar</h3>
+                      <p className="text-xs text-gray-500 mb-3">Rozetler ve ödüller</p>
+                      <div className="text-xs text-yellow-400">Keşfet →</div>
+                    </motion.div>
+
+                    {/* Calendar Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      onClick={() => setActivePage("calendar")}
+                      className="bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20 rounded-xl p-4 hover:border-purple-500/40 transition-all cursor-pointer group"
+                      data-testid="card-calendar"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <CalendarIcon className="w-5 h-5 text-purple-400" />
                       </div>
-                      <div className="text-xs text-gray-500 mt-1">son ölçüm</div>
+                      <h3 className="font-bold text-white text-sm mb-1">Takvim</h3>
+                      <p className="text-xs text-gray-500 mb-3">Aktivite geçmişi</p>
+                      <div className="text-xs text-purple-400">Görüntüle →</div>
                     </motion.div>
                   </div>
 
-                  {/* Today's Tracking */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6"
-                  >
-                    <div className="flex items-center justify-between mb-6">
-                      <h2 className="text-xl font-heading font-bold text-white uppercase">Bugünün Takibi</h2>
-                      {streak > 0 && (
-                        <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30">
-                          <Flame className="w-4 h-4 mr-1" />
-                          {streak} Gün Seri
-                        </Badge>
-                      )}
-                    </div>
-                    
-                    <div className="grid md:grid-cols-3 gap-6">
-                      {/* Water */}
-                      <div className="bg-white/5 rounded-xl p-5">
-                        <div className="flex items-center gap-3 mb-4">
-                          <Droplets className="w-6 h-6 text-blue-400" />
-                          <span className="font-medium text-white">Su Takibi</span>
-                        </div>
-                        <div className="flex items-center justify-center gap-4">
-                          <Button
-                            onClick={() => handleWaterChange(-1)}
-                            variant="outline"
-                            size="icon"
-                            className="w-10 h-10 rounded-full border-white/20"
-                            data-testid="button-water-minus"
-                          >
-                            <Minus className="w-4 h-4" />
-                          </Button>
-                          <div className="text-center">
-                            <div className="text-4xl font-bold text-blue-400">{waterCount}</div>
-                            <div className="text-xs text-gray-500">/ 8 bardak</div>
-                          </div>
-                          <Button
-                            onClick={() => handleWaterChange(1)}
-                            variant="outline"
-                            size="icon"
-                            className="w-10 h-10 rounded-full border-white/20"
-                            data-testid="button-water-plus"
-                          >
-                            <Plus className="w-4 h-4" />
-                          </Button>
-                        </div>
-                        <Progress value={(waterCount / 8) * 100} className="mt-4 h-2 bg-white/10" />
-                      </div>
-
-                      {/* Workout */}
-                      <div className="bg-white/5 rounded-xl p-5">
-                        <div className="flex items-center gap-3 mb-4">
-                          <Dumbbell className="w-6 h-6 text-primary" />
-                          <span className="font-medium text-white">Antrenman</span>
-                        </div>
-                        <button
-                          onClick={handleWorkoutToggle}
-                          className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
-                            didWorkout 
-                              ? "bg-primary text-black" 
-                              : "bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10"
-                          }`}
-                          data-testid="button-workout-toggle"
-                        >
-                          {didWorkout ? (
-                            <span className="flex items-center justify-center gap-2">
-                              <CheckCircle className="w-5 h-5" />
-                              Tamamlandı!
-                            </span>
-                          ) : (
-                            <span className="flex items-center justify-center gap-2">
-                              <Dumbbell className="w-5 h-5" />
-                              Tamamla
-                            </span>
-                          )}
-                        </button>
-                      </div>
-
-                      {/* Sleep */}
-                      <div className="bg-white/5 rounded-xl p-5">
-                        <div className="flex items-center gap-3 mb-4">
-                          <Moon className="w-6 h-6 text-purple-400" />
-                          <span className="font-medium text-white">Uyku</span>
-                        </div>
-                        <Input
-                          type="number"
-                          min="0"
-                          max="24"
-                          step="0.5"
-                          value={sleepHours}
-                          onChange={(e) => handleSleepChange(e.target.value)}
-                          placeholder="Saat..."
-                          className="bg-white/5 border-white/10 text-center text-xl h-14"
-                          data-testid="input-sleep-hours"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Quick Actions */}
-                  <div className="grid md:grid-cols-2 gap-4">
+                  {/* Quick Actions Row */}
+                  <div className="grid grid-cols-2 gap-3">
                     <Link href="/araclar">
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.35 }}
-                        className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all cursor-pointer group"
+                        className="bg-[#0A0A0A] border border-white/10 rounded-xl p-4 hover:border-primary/30 transition-all cursor-pointer group"
                         data-testid="card-calculators"
                       >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                              <Calculator className="w-6 h-6 text-primary" />
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-white">Hesaplayıcılar</h3>
-                              <p className="text-sm text-gray-400">BMI, Kalori, TDEE ve daha fazlası</p>
-                            </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                            <Calculator className="w-4 h-4 text-primary" />
                           </div>
-                          <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-white text-sm truncate">Hesaplayıcılar</h3>
+                            <p className="text-xs text-gray-500">BMI, Kalori, TDEE</p>
+                          </div>
+                          <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-primary transition-colors" />
                         </div>
                       </motion.div>
                     </Link>
@@ -978,21 +905,19 @@ export default function UserDashboard() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      onClick={() => setActivePage("measurements")}
-                      className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 hover:border-primary/30 transition-all cursor-pointer group"
-                      data-testid="card-add-measurement"
+                      onClick={() => setActivePage("settings")}
+                      className="bg-[#0A0A0A] border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all cursor-pointer group"
+                      data-testid="card-settings"
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
-                            <Scale className="w-6 h-6 text-green-400" />
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-white">Ölçüm Ekle</h3>
-                            <p className="text-sm text-gray-400">Vücut ölçülerini kaydet</p>
-                          </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                          <Settings className="w-4 h-4 text-gray-400" />
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-white text-sm truncate">Ayarlar</h3>
+                          <p className="text-xs text-gray-500">Profil ve tercihler</p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors" />
                       </div>
                     </motion.div>
                   </div>
