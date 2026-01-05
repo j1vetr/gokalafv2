@@ -933,8 +933,15 @@ export default function UserDashboard() {
                   exit={{ opacity: 0, y: -20 }}
                   className="space-y-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-heading font-bold text-white uppercase">İlerleme Takibi</h1>
+                  <div className="flex items-center gap-4">
+                    <button 
+                      onClick={() => setActivePage("overview")}
+                      className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                      data-testid="button-back-overview"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">İlerleme Takibi</h1>
                   </div>
 
                   {/* Charts Section */}
@@ -1100,7 +1107,15 @@ export default function UserDashboard() {
                   className="space-y-6"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Vücut Ölçüleri</h1>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={() => setActivePage("overview")}
+                        className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Vücut Ölçüleri</h1>
+                    </div>
                     <Dialog open={showMeasurementDialog} onOpenChange={setShowMeasurementDialog}>
                       <DialogTrigger asChild>
                         <Button className="bg-primary text-black hover:bg-primary/90 w-full sm:w-auto" data-testid="button-add-measurement">
@@ -1342,7 +1357,15 @@ export default function UserDashboard() {
                   className="space-y-6"
                 >
                   <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-heading font-bold text-white uppercase">Beslenme</h1>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={() => setActivePage("overview")}
+                        className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Beslenme</h1>
+                    </div>
                     <Dialog open={showNutritionDialog} onOpenChange={setShowNutritionDialog}>
                       <DialogTrigger asChild>
                         <Button className="bg-primary text-black hover:bg-primary/90" data-testid="button-add-nutrition">
@@ -1635,8 +1658,14 @@ export default function UserDashboard() {
                   exit={{ opacity: 0, y: -20 }}
                   className="space-y-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-heading font-bold text-white uppercase">Antrenman</h1>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => setActivePage("overview")}
+                      className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Günlük Takip</h1>
                   </div>
 
                   {/* Today's Workout Status */}
@@ -1758,8 +1787,14 @@ export default function UserDashboard() {
                   exit={{ opacity: 0, y: -20 }}
                   className="space-y-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Takvim</h1>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => setActivePage("overview")}
+                      className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Takvim</h1>
                   </div>
 
                   {/* Calendar Header */}
@@ -1934,7 +1969,15 @@ export default function UserDashboard() {
                   className="space-y-6"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <h1 className="text-2xl md:text-3xl font-heading font-bold text-white uppercase">Başarımlar</h1>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={() => setActivePage("overview")}
+                        className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Başarımlar</h1>
+                    </div>
                     <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 self-start md:self-auto">
                       <Trophy className="w-4 h-4 mr-2" />
                       {unlockedCount} / {achievements.length} Rozet
@@ -2068,8 +2111,14 @@ export default function UserDashboard() {
                   exit={{ opacity: 0, y: -20 }}
                   className="space-y-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-heading font-bold text-white uppercase">Ayarlar</h1>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => setActivePage("overview")}
+                      className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <h1 className="text-xl md:text-2xl font-heading font-bold text-white uppercase">Ayarlar</h1>
                   </div>
 
                   {/* Profile Section */}
