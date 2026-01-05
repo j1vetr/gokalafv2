@@ -126,88 +126,88 @@ export default function Packages() {
         <div className="container mx-auto px-4">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-6">
+        <div className="text-center max-w-2xl mx-auto mb-5">
            <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              className="inline-block mb-2"
            >
-             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-[10px]">
+             <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-2.5 py-0.5 text-[9px]">
               Kendine Yatırım Yap
              </Badge>
            </motion.div>
            
-           <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white">
-             Senin Hedefin, <br/> <span className="text-primary text-glow">Senin Planın.</span>
+           <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase mb-2 text-white">
+             Senin Hedefin, <span className="text-primary text-glow">Senin Planın.</span>
            </h1>
-           <p className="text-sm text-gray-400 max-w-xl mx-auto">
+           <p className="text-xs text-gray-400 max-w-md mx-auto">
              Süreyi seç ve değişime başla.
            </p>
         </div>
 
         {/* DURATION SELECTOR */}
-        <div className="max-w-2xl mx-auto mb-6">
-          <div className="bg-white/5 backdrop-blur-md rounded-xl p-1 flex flex-wrap md:flex-nowrap gap-1 border border-white/10">
+        <div className="max-w-md mx-auto mb-5">
+          <div className="bg-white/5 backdrop-blur-md rounded-lg p-0.5 flex flex-wrap md:flex-nowrap gap-0.5 border border-white/10">
             {durations.map((d) => (
               <button
                 key={d.weeks}
                 onClick={() => setSelectedDuration(d.weeks)}
                 data-testid={`button-duration-${d.weeks}`}
-                className={`flex-1 py-2.5 px-2 rounded-lg text-center transition-all duration-300 relative overflow-hidden group ${
+                className={`flex-1 py-2 px-2 rounded-md text-center transition-all duration-300 relative overflow-hidden group ${
                   selectedDuration === d.weeks 
-                    ? "bg-primary text-black shadow-[0_0_20px_rgba(204,255,0,0.3)]" 
+                    ? "bg-primary text-black shadow-[0_0_15px_rgba(204,255,0,0.25)]" 
                     : "hover:bg-white/5 text-gray-400 hover:text-white"
                 }`}
               >
-                <div className="font-heading font-bold text-lg md:text-xl uppercase relative z-10">{d.label}</div>
+                <div className="font-heading font-bold text-sm uppercase relative z-10">{d.label}</div>
               </button>
             ))}
           </div>
         </div>
 
         {/* SINGLE PACKAGE CARD */}
-        <div className="max-w-lg mx-auto mb-12">
+        <div className="max-w-sm mx-auto mb-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedDuration}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              initial={{ opacity: 0, y: 15, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="relative rounded-xl p-1 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_30px_rgba(204,255,0,0.1)] z-10"
+              transition={{ duration: 0.3 }}
+              className="relative rounded-xl p-0.5 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_20px_rgba(204,255,0,0.08)] z-10"
             >
-               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-primary/20 border-4 border-[#050505] z-20">
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-3 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-md shadow-primary/15 border-2 border-[#050505] z-20">
                   Normal Plan
                 </div>
               
-              <div className="bg-[#080808] rounded-[18px] h-full flex flex-col p-5 md:p-6 relative overflow-hidden">
+              <div className="bg-[#080808] rounded-[14px] h-full flex flex-col p-4 relative overflow-hidden">
                 {/* Background Glow */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                <div className="text-center mb-4 relative z-10 border-b border-white/5 pb-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
-                    <Trophy size={24} />
+                <div className="text-center mb-3 relative z-10 border-b border-white/5 pb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-2">
+                    <Trophy size={18} />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-heading font-bold uppercase text-white mb-1">Normal Plan</h3>
-                  <p className="text-xs text-gray-400">Kapsamlı Koçluk Paketi</p>
+                  <h3 className="text-lg font-heading font-bold uppercase text-white mb-0.5">Normal Plan</h3>
+                  <p className="text-[10px] text-gray-400">Kapsamlı Koçluk Paketi</p>
                 </div>
 
-                <div className="text-center mb-4 relative z-10">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-3xl md:text-4xl font-bold tracking-tight text-white" data-testid="text-package-price">
+                <div className="text-center mb-3 relative z-10">
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="text-2xl font-bold tracking-tight text-white" data-testid="text-package-price">
                       ₺{price.toLocaleString('tr-TR')}
                     </span>
                   </div>
-                  <div className="text-primary text-sm mt-1 font-bold flex items-center justify-center gap-1">
-                    <TrendingUp size={14} />
+                  <div className="text-primary text-xs mt-0.5 font-bold flex items-center justify-center gap-1">
+                    <TrendingUp size={12} />
                     {selectedDuration} Haftalık Plan
                   </div>
                 </div>
 
-                <div className="space-y-2 flex-grow mb-6 relative z-10 bg-white/5 p-3 rounded-lg border border-white/5">
+                <div className="space-y-1.5 flex-grow mb-4 relative z-10 bg-white/5 p-2.5 rounded-lg border border-white/5">
                   {features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-gray-300">
-                      <div className="w-4 h-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                        <Check size={10} />
+                    <div key={idx} className="flex items-start gap-1.5 text-[11px] text-gray-300">
+                      <div className="w-3.5 h-3.5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={8} />
                       </div>
                       <span className="leading-relaxed">{feature}</span>
                     </div>
@@ -215,7 +215,7 @@ export default function Packages() {
                 </div>
 
                 <Link href={`/odeme?weeks=${selectedDuration}`}>
-                  <Button className="w-full h-10 text-base font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_15px_rgba(204,255,0,0.2)] hover:shadow-[0_0_25px_rgba(204,255,0,0.3)] transition-all transform hover:-translate-y-1" data-testid="button-buy">
+                  <Button className="w-full h-9 text-sm font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_12px_rgba(204,255,0,0.15)] hover:shadow-[0_0_18px_rgba(204,255,0,0.25)] transition-all transform hover:-translate-y-0.5" data-testid="button-buy">
                     Satın Al
                   </Button>
                 </Link>
@@ -225,21 +225,21 @@ export default function Packages() {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto" id="faq">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold uppercase mb-4 flex items-center justify-center gap-3 text-white">
-              <HelpCircle className="text-primary" /> Sıkça Sorulan Sorular
+        <div className="max-w-2xl mx-auto" id="faq">
+          <div className="text-center mb-8">
+            <h2 className="text-xl font-heading font-bold uppercase mb-2 flex items-center justify-center gap-2 text-white">
+              <HelpCircle className="text-primary w-5 h-5" /> Sıkça Sorulan Sorular
             </h2>
-            <p className="text-gray-400">Aklına takılan diğer sorular için WhatsApp hattımdan yazabilirsin.</p>
+            <p className="text-gray-400 text-sm">Aklına takılan diğer sorular için WhatsApp hattımdan yazabilirsin.</p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion type="single" collapsible className="w-full space-y-3">
             {faqs.map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 rounded-xl bg-white/5 px-6 overflow-hidden">
-                <AccordionTrigger className="text-lg font-medium text-white hover:text-primary hover:no-underline py-6">
+              <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 rounded-lg bg-white/5 px-4 overflow-hidden">
+                <AccordionTrigger className="text-sm font-medium text-white hover:text-primary hover:no-underline py-4">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400 pb-6 leading-relaxed">
+                <AccordionContent className="text-gray-400 text-sm pb-4 leading-relaxed">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
