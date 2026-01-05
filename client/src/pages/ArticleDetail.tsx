@@ -2,7 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Calendar, BookOpen, Share2, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, BookOpen, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator } from "lucide-react";
+import { ShareButtons } from "@/components/ShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Article } from "@shared/schema";
 import MarkdownIt from "markdown-it";
@@ -122,21 +123,7 @@ export default function ArticleDetail() {
     );
   }
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: article.title,
-          text: article.excerpt,
-          url: window.location.href,
-        });
-      } catch (err) {
-        console.log("Share failed:", err);
-      }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-    }
-  };
+  const shareUrl = typeof window !== 'undefined' ? `https://gokalaf.com/yazilar/${article.slug}` : `https://gokalaf.com/yazilar/${article.slug}`;
 
   const categoryLabels: Record<string, string> = {
     'takviye': 'Takviye',
@@ -215,14 +202,11 @@ export default function ArticleDetail() {
                   })}
                 </span>
               )}
-              <button
-                onClick={handleShare}
-                className="flex items-center gap-1 text-gray-400 hover:text-primary transition-colors text-sm"
-                data-testid="button-share"
-              >
-                <Share2 className="w-4 h-4" />
-                Paylaş
-              </button>
+              <ShareButtons 
+                url={shareUrl}
+                title={article.title}
+                description={article.excerpt || ''}
+              />
             </div>
             
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">

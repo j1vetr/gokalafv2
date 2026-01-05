@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ArrowLeft, Dumbbell, Target, Gauge, Zap, ChevronRight, X, ZoomIn, Calculator, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
+import { ShareButtons } from "@/components/ShareButtons";
 import type { Exercise } from "@shared/schema";
 
 const fitnessTools = [
@@ -281,6 +282,8 @@ export default function ExerciseDetail() {
   const instructions = exercise.instructionsTr || exercise.instructionsEn;
   const imageAltStart = `${exercise.name} egzersizi başlangıç pozisyonu - ${exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(', ')} çalıştırma`;
   const imageAltEnd = `${exercise.name} egzersizi bitiş pozisyonu - doğru form ve teknik`;
+  const shareUrl = `https://gokalaf.com/egzersiz-akademisi/${exercise.slug}`;
+  const shareDescription = `${exercise.name} egzersizi. Hedef: ${exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(', ')}.`;
 
   return (
     <div className="min-h-screen bg-[#050505]">
@@ -337,10 +340,17 @@ export default function ExerciseDetail() {
               </span>
             </h1>
 
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4 mb-6">
               {exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(', ')} kaslarını hedefleyen 
               {exercise.equipment ? ` ${equipmentLabels[exercise.equipment] || exercise.equipment} ile yapılan` : ''} etkili bir egzersiz.
             </p>
+            
+            <ShareButtons 
+              url={shareUrl}
+              title={`${exercise.name} - Egzersiz Rehberi`}
+              description={shareDescription}
+              className="justify-center"
+            />
           </motion.div>
         </div>
       </section>
