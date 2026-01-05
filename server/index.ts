@@ -13,20 +13,9 @@ const app = express();
 // Trust proxy for Nginx reverse proxy (required for secure cookies)
 app.set('trust proxy', 1);
 
-// Security headers with Helmet
+// Security headers with Helmet (CSP disabled to preserve fonts and design)
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
-      imgSrc: ["'self'", "data:", "blob:", "https:"],
-      connectSrc: ["'self'", "https://www.google-analytics.com", "https://api.openai.com", "wss:", "ws:"],
-      frameSrc: ["'self'"],
-      objectSrc: ["'none'"],
-    },
-  },
+  contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: false,
   crossOriginResourcePolicy: { policy: "cross-origin" },
 }));
