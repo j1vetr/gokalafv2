@@ -40,17 +40,61 @@ const BASE_URL = "https://gokalaf.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 export function generateHomeMeta(): MetaTags {
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${BASE_URL}/#webpage`,
-    "url": BASE_URL,
-    "name": "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
-    "description": "Gokalaf ile profesyonel online fitness ve vücut geliştirme koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları.",
-    "isPartOf": { "@id": `${BASE_URL}/#website` },
-    "about": { "@id": `${BASE_URL}/#organization` },
-    "inLanguage": "tr-TR"
-  });
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": BASE_URL,
+      "name": "Gokalaf",
+      "description": "Online Fitness & Vücut Geliştirme Koçluğu",
+      "publisher": { "@id": `${BASE_URL}/#organization` },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      "name": "Gokalaf",
+      "url": BASE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/logo.png`,
+        "width": 512,
+        "height": 512
+      },
+      "image": `${BASE_URL}/og-image.png`,
+      "description": "Profesyonel online fitness ve vücut geliştirme koçluğu hizmeti sunan Türkiye merkezli fitness platformu.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressRegion": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["Turkish", "English"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/gokalaf",
+        "https://www.youtube.com/@gokalaf"
+      ],
+      "foundingDate": "2024",
+      "areaServed": "TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/#webpage`,
+      "url": BASE_URL,
+      "name": "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
+      "description": "Gokalaf ile profesyonel online fitness ve vücut geliştirme koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları.",
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "about": { "@id": `${BASE_URL}/#organization` },
+      "inLanguage": "tr-TR"
+    }
+  ]);
 
   return {
     title: "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
