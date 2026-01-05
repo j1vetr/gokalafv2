@@ -5,10 +5,61 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Utensils, RotateCcw } from "lucide-react";
+import { PieChart, RotateCcw, TrendingDown, Target, TrendingUp } from "lucide-react";
 import SEO from "@/components/SEO";
 import RelatedCalculators from "@/components/RelatedCalculators";
 import CalculatorFAQ, { macroFAQs } from "@/components/CalculatorFAQ";
+
+const MacroPieChart = ({ protein, carbs, fats }: { protein: number; carbs: number; fats: number }) => {
+  const total = protein + carbs + fats;
+  const proteinDeg = (protein / total) * 360;
+  const carbsDeg = (carbs / total) * 360;
+  const fatsDeg = (fats / total) * 360;
+  
+  return (
+    <div className="relative w-32 h-32 mx-auto">
+      <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          stroke="#ef4444"
+          strokeWidth="20"
+          strokeDasharray={`${(protein / total) * 251.2} 251.2`}
+          className="drop-shadow-lg"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          stroke="#3b82f6"
+          strokeWidth="20"
+          strokeDasharray={`${(carbs / total) * 251.2} 251.2`}
+          strokeDashoffset={`${-(protein / total) * 251.2}`}
+          className="drop-shadow-lg"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          fill="none"
+          stroke="#eab308"
+          strokeWidth="20"
+          strokeDasharray={`${(fats / total) * 251.2} 251.2`}
+          strokeDashoffset={`${-((protein + carbs) / total) * 251.2}`}
+          className="drop-shadow-lg"
+        />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-[#0a0a0a] flex items-center justify-center">
+          <PieChart className="w-6 h-6 text-primary" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function MacroCalculator() {
   const [age, setAge] = useState(25);
@@ -30,9 +81,9 @@ export default function MacroCalculator() {
   };
 
   const goals = {
-    lose: { label: "Kilo Vermek", deficit: -500 },
-    maintain: { label: "Korumak", deficit: 0 },
-    gain: { label: "Kas Yapmak", deficit: 300 },
+    lose: { label: "Kilo Ver", deficit: -500, icon: TrendingDown },
+    maintain: { label: "Koru", deficit: 0, icon: Target },
+    gain: { label: "Kas Yap", deficit: 300, icon: TrendingUp },
   };
 
   const calculateMacros = () => {
@@ -73,7 +124,7 @@ export default function MacroCalculator() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
       <SEO
         title="Makro Besin Hesaplama | Protein Karbonhidrat Yağ Oranları - Gokalaf"
         description="Makro besin hesaplayıcı ile günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize göre makro dağılımı."
@@ -97,92 +148,94 @@ export default function MacroCalculator() {
           }
         }}
       />
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <Badge className="mb-3 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
             Beslenme Planlama
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold uppercase mb-4 text-white tracking-tighter">
+          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-3 text-white tracking-tight">
             Makro <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-400">Hesaplama</span>
           </h1>
-          <p className="text-base text-gray-400 font-light max-w-xl mx-auto">
-            Protein, karbonhidrat ve yağ miktarlarınızı hesaplayın.
+          <p className="text-sm text-gray-400 font-light">
+            Protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-8 p-8 bg-black/40 rounded-3xl border border-white/10">
-            <h3 className="text-xl font-heading font-bold uppercase mb-4 flex items-center gap-2 text-white">
-              <Utensils className="text-primary" /> Verilerini Gir
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <div className="lg:col-span-2 space-y-4 p-5 bg-black/40 rounded-2xl border border-white/10">
+            <h3 className="text-base font-heading font-bold uppercase flex items-center gap-2 text-white">
+              <PieChart className="w-4 h-4 text-primary" /> Bilgileriniz
             </h3>
             
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Yaş</Label>
-                  <span className="text-primary font-bold text-lg" data-testid="text-age-value">{age}</span>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Yaş</Label>
+                    <span className="text-primary font-bold" data-testid="text-age-value">{age}</span>
+                  </div>
+                  <Slider 
+                    value={[age]} 
+                    onValueChange={(val) => setAge(val[0])} 
+                    min={15} 
+                    max={80} 
+                    step={1} 
+                    className="py-1"
+                    data-testid="slider-age"
+                  />
                 </div>
-                <Slider 
-                  value={[age]} 
-                  onValueChange={(val) => setAge(val[0])} 
-                  min={15} 
-                  max={80} 
-                  step={1} 
-                  className="py-4"
-                  data-testid="slider-age"
-                />
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Boy (cm)</Label>
-                  <span className="text-primary font-bold text-lg" data-testid="text-height-value">{height} cm</span>
+                <div className="space-y-1.5">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Cinsiyet</Label>
+                  <Select value={gender} onValueChange={setGender}>
+                    <SelectTrigger className="bg-white/5 border-white/10 h-8 text-white text-xs" data-testid="select-gender">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="male">Erkek</SelectItem>
+                      <SelectItem value="female">Kadın</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
-                <Slider 
-                  value={[height]} 
-                  onValueChange={(val) => setHeight(val[0])} 
-                  min={140} 
-                  max={220} 
-                  step={1} 
-                  className="py-4"
-                  data-testid="slider-height"
-                />
               </div>
 
-              <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Kilo (kg)</Label>
-                  <span className="text-primary font-bold text-lg" data-testid="text-weight-value">{weight} kg</span>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Boy</Label>
+                    <span className="text-primary font-bold" data-testid="text-height-value">{height} cm</span>
+                  </div>
+                  <Slider 
+                    value={[height]} 
+                    onValueChange={(val) => setHeight(val[0])} 
+                    min={140} 
+                    max={220} 
+                    step={1} 
+                    className="py-1"
+                    data-testid="slider-height"
+                  />
                 </div>
-                <Slider 
-                  value={[weight]} 
-                  onValueChange={(val) => setWeight(val[0])} 
-                  min={40} 
-                  max={150} 
-                  step={0.5} 
-                  className="py-4"
-                  data-testid="slider-weight"
-                />
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <Label className="text-gray-400 uppercase tracking-wider font-semibold">Kilo</Label>
+                    <span className="text-primary font-bold" data-testid="text-weight-value">{weight} kg</span>
+                  </div>
+                  <Slider 
+                    value={[weight]} 
+                    onValueChange={(val) => setWeight(val[0])} 
+                    min={40} 
+                    max={150} 
+                    step={0.5} 
+                    className="py-1"
+                    data-testid="slider-weight"
+                  />
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className="text-gray-400 uppercase tracking-wider font-bold text-sm">Cinsiyet</Label>
-                <Select value={gender} onValueChange={setGender}>
-                  <SelectTrigger className="bg-white/5 border-white/10 h-12 text-white" data-testid="select-gender">
-                    <SelectValue placeholder="Seçiniz" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="male">Erkek</SelectItem>
-                    <SelectItem value="female">Kadın</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label className="text-gray-400 uppercase tracking-wider font-bold text-sm">Aktivite Seviyesi</Label>
+              <div className="space-y-1.5">
+                <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Aktivite</Label>
                 <Select value={activity} onValueChange={setActivity}>
-                  <SelectTrigger className="bg-white/5 border-white/10 h-12 text-white" data-testid="select-activity">
-                    <SelectValue placeholder="Seçiniz" />
+                  <SelectTrigger className="bg-white/5 border-white/10 h-9 text-white text-sm" data-testid="select-activity">
+                    <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.entries(activityLevels).map(([key, val]) => (
@@ -192,24 +245,34 @@ export default function MacroCalculator() {
                 </Select>
               </div>
 
-              <div className="space-y-2">
-                <Label className="text-gray-400 uppercase tracking-wider font-bold text-sm">Hedefiniz</Label>
-                <Select value={goal} onValueChange={setGoal}>
-                  <SelectTrigger className="bg-white/5 border-white/10 h-12 text-white" data-testid="select-goal">
-                    <SelectValue placeholder="Seçiniz" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(goals).map(([key, val]) => (
-                      <SelectItem key={key} value={key}>{val.label}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              <div className="space-y-1.5">
+                <Label className="text-gray-400 uppercase tracking-wider font-semibold text-xs">Hedef</Label>
+                <div className="grid grid-cols-3 gap-2">
+                  {Object.entries(goals).map(([key, val]) => {
+                    const Icon = val.icon;
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setGoal(key)}
+                        className={`p-2 rounded-lg border text-center transition-all ${
+                          goal === key 
+                            ? 'bg-primary/20 border-primary text-white' 
+                            : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
+                        }`}
+                        data-testid={`button-goal-${key}`}
+                      >
+                        <Icon className={`w-4 h-4 mx-auto mb-1 ${goal === key ? 'text-primary' : ''}`} />
+                        <div className="text-[10px] font-semibold uppercase">{val.label}</div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <Label className="text-gray-400 uppercase tracking-wider font-bold">Protein Oranı (%)</Label>
-                  <span className="text-primary font-bold text-lg" data-testid="text-protein-ratio-value">{proteinRatio}%</span>
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs">
+                  <Label className="text-gray-400 uppercase tracking-wider font-semibold">Protein Oranı</Label>
+                  <span className="text-primary font-bold" data-testid="text-protein-ratio-value">{proteinRatio}%</span>
                 </div>
                 <Slider 
                   value={[proteinRatio]} 
@@ -217,16 +280,15 @@ export default function MacroCalculator() {
                   min={20} 
                   max={40} 
                   step={5} 
-                  className="py-4"
+                  className="py-1"
                   data-testid="slider-protein-ratio"
                 />
-                <p className="text-xs text-gray-500">Yağ sabit %25, kalan karbonhidrat olacak</p>
+                <p className="text-[10px] text-gray-500">Yağ %25 sabit, kalan karbonhidrat</p>
               </div>
 
               <Button 
                 onClick={calculateMacros} 
-                size="lg" 
-                className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase mt-4 h-14 text-lg"
+                className="w-full bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase h-10 text-sm mt-1"
                 data-testid="button-calculate-macros"
               >
                 Hesapla
@@ -234,46 +296,99 @@ export default function MacroCalculator() {
             </div>
           </div>
 
-          <div ref={resultRef} className="bg-black/40 rounded-3xl border border-white/10 p-8 flex flex-col justify-center relative overflow-hidden">
+          <div ref={resultRef} className="lg:col-span-3 bg-black/40 rounded-2xl border border-white/10 p-5 flex flex-col justify-center">
             {result ? (
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="space-y-8 w-full relative z-10"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-4"
               >
-                <div className="text-center">
-                  <div className="text-sm text-gray-500 uppercase tracking-[0.2em] font-bold mb-4">Günlük Makro İhtiyacınız</div>
-                  <div className="text-6xl font-bold font-heading text-white mb-2" data-testid="text-total-calories">{result.calories}</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider">kcal / gün</div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Günlük Kalori</div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold font-heading text-white" data-testid="text-total-calories">{result.calories}</span>
+                      <span className="text-xs text-gray-500">kcal</span>
+                    </div>
+                  </div>
+                  <MacroPieChart protein={result.proteinRatio} carbs={result.carbRatio} fats={result.fatRatio} />
                 </div>
 
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-red-500/20 to-red-500/10 p-6 rounded-2xl border border-red-500/30">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="text-sm text-red-400 uppercase tracking-wider font-bold">Protein</div>
-                      <Badge className="bg-red-500 text-white text-xs">{result.proteinRatio}%</Badge>
+                <div className="grid grid-cols-3 gap-2">
+                  <motion.div 
+                    className="bg-gradient-to-br from-red-500/20 to-red-500/5 p-3 rounded-xl border border-red-500/20"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                      <span className="text-[10px] text-red-400 uppercase font-semibold">Protein</span>
                     </div>
-                    <div className="text-4xl font-bold text-white mb-1" data-testid="text-protein-grams">{result.protein}g</div>
-                    <div className="text-xs text-gray-400">4 kcal/gram</div>
-                  </div>
+                    <div className="text-2xl font-bold text-white" data-testid="text-protein-grams">{result.protein}g</div>
+                    <div className="text-[10px] text-gray-500">{result.proteinRatio}% - 4kcal/g</div>
+                  </motion.div>
 
-                  <div className="bg-gradient-to-r from-blue-500/20 to-blue-500/10 p-6 rounded-2xl border border-blue-500/30">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="text-sm text-blue-400 uppercase tracking-wider font-bold">Karbonhidrat</div>
-                      <Badge className="bg-blue-500 text-white text-xs">{result.carbRatio}%</Badge>
+                  <motion.div 
+                    className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 p-3 rounded-xl border border-blue-500/20"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                      <span className="text-[10px] text-blue-400 uppercase font-semibold">Karbonhidrat</span>
                     </div>
-                    <div className="text-4xl font-bold text-white mb-1" data-testid="text-carb-grams">{result.carbs}g</div>
-                    <div className="text-xs text-gray-400">4 kcal/gram</div>
-                  </div>
+                    <div className="text-2xl font-bold text-white" data-testid="text-carb-grams">{result.carbs}g</div>
+                    <div className="text-[10px] text-gray-500">{result.carbRatio}% - 4kcal/g</div>
+                  </motion.div>
 
-                  <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-500/10 p-6 rounded-2xl border border-yellow-500/30">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="text-sm text-yellow-400 uppercase tracking-wider font-bold">Yağ</div>
-                      <Badge className="bg-yellow-500 text-black text-xs">{result.fatRatio}%</Badge>
+                  <motion.div 
+                    className="bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 p-3 rounded-xl border border-yellow-500/20"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                      <span className="text-[10px] text-yellow-400 uppercase font-semibold">Yağ</span>
                     </div>
-                    <div className="text-4xl font-bold text-white mb-1" data-testid="text-fat-grams">{result.fats}g</div>
-                    <div className="text-xs text-gray-400">9 kcal/gram</div>
+                    <div className="text-2xl font-bold text-white" data-testid="text-fat-grams">{result.fats}g</div>
+                    <div className="text-[10px] text-gray-500">{result.fatRatio}% - 9kcal/g</div>
+                  </motion.div>
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Öğün Başına (3 öğün)</div>
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    <div>
+                      <div className="text-lg font-bold text-red-400">{Math.round(result.protein / 3)}g</div>
+                      <div className="text-[9px] text-gray-500">Protein</div>
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-blue-400">{Math.round(result.carbs / 3)}g</div>
+                      <div className="text-[9px] text-gray-500">Karb</div>
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold text-yellow-400">{Math.round(result.fats / 3)}g</div>
+                      <div className="text-[9px] text-gray-500">Yağ</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Besin Kaynakları</div>
+                  <div className="grid grid-cols-3 gap-2 text-[10px]">
+                    <div className="text-gray-400">
+                      <span className="text-red-400 font-semibold">Protein:</span> Tavuk, balık, yumurta, süt ürünleri
+                    </div>
+                    <div className="text-gray-400">
+                      <span className="text-blue-400 font-semibold">Karb:</span> Pirinç, yulaf, patates, meyve
+                    </div>
+                    <div className="text-gray-400">
+                      <span className="text-yellow-400 font-semibold">Yağ:</span> Zeytinyağı, avokado, kuruyemiş
+                    </div>
                   </div>
                 </div>
 
@@ -284,14 +399,14 @@ export default function MacroCalculator() {
                   className="text-gray-500 hover:text-white uppercase tracking-wider text-xs w-full"
                   data-testid="button-reset-macros"
                 >
-                  <RotateCcw className="w-4 h-4 mr-2" /> Yeniden Hesapla
+                  <RotateCcw className="w-3 h-3 mr-2" /> Yeniden Hesapla
                 </Button>
               </motion.div>
             ) : (
-              <div className="text-center space-y-6 opacity-30">
-                 <Utensils size={80} className="mx-auto text-white" />
-                 <h3 className="text-2xl font-heading font-bold uppercase text-white">Sonuç Bekleniyor</h3>
-                 <p className="text-gray-400">Sol taraftaki bilgileri doldurup hesapla butonuna basın.</p>
+              <div className="text-center py-8 opacity-40">
+                <PieChart size={48} className="mx-auto text-white mb-3" />
+                <h3 className="text-lg font-heading font-bold uppercase text-white mb-1">Sonuç Bekleniyor</h3>
+                <p className="text-xs text-gray-400">Bilgilerinizi girin ve hesapla butonuna basın</p>
               </div>
             )}
           </div>
