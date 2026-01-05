@@ -16,25 +16,8 @@ interface CalculatorFAQProps {
 export default function CalculatorFAQ({ title, faqs, schemaUrl }: CalculatorFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
-
   return (
     <div className="mt-16 pt-12 border-t border-white/10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       
       <div className="flex items-center gap-3 mb-8">
         <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
