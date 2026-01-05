@@ -30,12 +30,20 @@ export function Navbar() {
   ];
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent",
-        isScrolled ? "bg-[#050505]/90 backdrop-blur-xl border-white/5 py-2" : "bg-transparent py-6"
-      )}
-    >
+    <>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium"
+      >
+        Ana içeriğe atla
+      </a>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent",
+          isScrolled ? "bg-[#050505]/90 backdrop-blur-xl border-white/5 py-2" : "bg-transparent py-6"
+        )}
+        aria-label="Ana navigasyon"
+      >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50 relative group">
             <img 
@@ -104,8 +112,8 @@ export function Navbar() {
         {/* Mobile Nav */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-white hover:text-primary">
-              <Menu className="h-8 w-8" />
+            <Button variant="ghost" size="icon" className="text-white hover:text-primary" aria-label="Menüyü aç">
+              <Menu className="h-8 w-8" aria-hidden="true" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="bg-[#050505]/95 backdrop-blur-2xl border-l-white/10 w-full sm:w-[350px] p-0 overflow-hidden">
@@ -162,6 +170,7 @@ export function Navbar() {
           </SheetContent>
         </Sheet>
       </div>
-    </nav>
+      </nav>
+    </>
   );
 }

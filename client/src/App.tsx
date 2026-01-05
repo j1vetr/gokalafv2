@@ -210,7 +210,7 @@ function AppContent() {
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-black">
       <ScrollToTop />
       {!isAdminRoute && !isMaintenancePage && <Navbar />}
-      <main>
+      <main id="main-content" role="main">
         <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route path="/" component={Home} />
