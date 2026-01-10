@@ -61,7 +61,7 @@ export default function About() {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0024-scaled-1.jpg" 
-            alt="Gokalaf Training" 
+            alt="Hakkımızda" 
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent"></div>
@@ -76,7 +76,7 @@ export default function About() {
           >
             <h2 className="text-primary font-bold tracking-[0.2em] uppercase mb-2 text-xs md:text-sm">Profesyonel Koçluk</h2>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold uppercase text-white mb-4 tracking-tighter drop-shadow-2xl">
-              Gokalaf
+              Hakkımızda
             </h1>
             <p className="text-sm md:text-base text-gray-300 max-w-xl mx-auto leading-relaxed font-light">
               "Amacım sadece sana bir antrenman programı vermek değil; vücudunu tanımanı, sınırlarını zorlamanı ve disiplini bir yaşam tarzı haline getirmeni sağlamak."
