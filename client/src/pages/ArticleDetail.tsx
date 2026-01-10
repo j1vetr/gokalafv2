@@ -147,16 +147,11 @@ export default function ArticleDetail() {
           "description": article.seoDescription || article.excerpt,
           "image": article.heroImage ? (article.heroImage.startsWith("http") ? article.heroImage : `https://gokalaf.com${article.heroImage}`) : "https://gokalaf.com/og-image.png",
           "author": {
-            "@type": "Person",
-            "name": "Göktuğ Alaf",
+            "@type": "Organization",
+            "name": "Fitness Bilgi",
             "url": "https://gokalaf.com/hakkimizda",
-            "image": "https://gokalaf.com/goktug-alaf.jpg",
-            "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
-            "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi.",
-            "sameAs": [
-              "https://instagram.com/gokalaf",
-              "https://youtube.com/@gokalaf"
-            ]
+            "logo": "https://gokalaf.com/logo.png",
+            "description": "Gokalaf Editör Ekibi - Bilime dayalı fitness ve beslenme içerikleri."
           },
           "publisher": {
             "@type": "Organization",
@@ -202,12 +197,12 @@ export default function ArticleDetail() {
             {/* Author & Date Info */}
             <div className="flex flex-wrap items-center gap-4 mb-6 pb-4 border-b border-white/10">
               <Link href="/hakkimizda" className="flex items-center gap-2 group">
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 group-hover:border-primary transition-colors">
-                  <img src="/goktug-alaf.jpg" alt="Göktuğ Alaf" className="w-full h-full object-cover" />
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 group-hover:border-primary transition-colors bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-bold text-sm">FB</span>
                 </div>
                 <div>
-                  <span className="text-white text-sm font-medium group-hover:text-primary transition-colors">Göktuğ Alaf</span>
-                  <span className="block text-gray-500 text-xs">Online Fitness Koçu</span>
+                  <span className="text-white text-sm font-medium group-hover:text-primary transition-colors">Fitness Bilgi</span>
+                  <span className="block text-gray-500 text-xs">Gokalaf Editör Ekibi</span>
                 </div>
               </Link>
               
