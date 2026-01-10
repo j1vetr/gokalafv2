@@ -1342,52 +1342,53 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
   const muscleLabel = muscleLabels[primaryMuscle] || primaryMuscle;
   const instructions = exercise.instructionsTr || exercise.instructionsEn;
 
+  const steps = instructions.map((step, i) => ({
+    "@type": "HowToStep",
+    "position": i + 1,
+    "name": `Adım ${i + 1}: ${step.substring(0, 50)}${step.length > 50 ? '...' : ''}`,
+    "text": step,
+    "url": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#step-${i + 1}`,
+    "image": {
+      "@type": "ImageObject",
+      "url": allImages[i % allImages.length] || imageUrl,
+      "width": 800,
+      "height": 600
+    }
+  }));
+
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
       "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
-      "name": `${exercise.name} Nasıl Yapılır?`,
-      "description": `${exercise.name} egzersizi için adım adım rehber. Hedef kaslar: ${muscles}${secondaryMuscles ? `. Yardımcı kaslar: ${secondaryMuscles}` : ""}. Seviye: ${level}. Ekipman: ${exercise.equipment || "Ekipmansız"}.`,
-      "image": allImages.length > 0 ? allImages : [imageUrl],
-      "totalTime": "PT5M",
-      "estimatedCost": {
-        "@type": "MonetaryAmount",
-        "currency": "TRY",
-        "value": "0"
+      "name": `${exercise.name} Nasıl Yapılır? - Adım Adım Egzersiz Rehberi`,
+      "description": `${exercise.name} egzersizi için detaylı adım adım rehber. Hedef kaslar: ${muscles}. Seviye: ${level}. Önerilen: 3-4 set, 8-12 tekrar, 60-90 sn dinlenme.`,
+      "image": {
+        "@type": "ImageObject",
+        "url": imageUrl,
+        "width": 800,
+        "height": 600
       },
-      "supply": exercise.equipment ? [{
-        "@type": "HowToSupply",
-        "name": exercise.equipment
-      }] : [],
+      "totalTime": "PT5M",
+      "prepTime": "PT1M",
+      "performTime": "PT4M",
       "tool": exercise.equipment ? [{
         "@type": "HowToTool",
-        "name": exercise.equipment,
-        "description": `${exercise.name} egzersizi için gerekli ekipman`
+        "name": exercise.equipment
       }] : [],
-      "step": instructions.map((step, i) => ({
-        "@type": "HowToStep",
-        "position": i + 1,
-        "name": `Adım ${i + 1}`,
-        "text": step,
-        "image": allImages[i] || imageUrl
-      })),
-      "performTime": "PT3M",
-      "prepTime": "PT2M",
+      "supply": exercise.equipment ? [{
+        "@type": "HowToSupply",
+        "name": exercise.equipment,
+        "requiredQuantity": 1
+      }] : [],
+      "step": steps,
+      "yield": "1 set tamamlandı",
       "inLanguage": "tr-TR",
       "author": {
-        "@type": "Organization",
-        "name": "Gokalaf",
-        "url": BASE_URL
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Gokalaf",
-        "url": BASE_URL,
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${BASE_URL}/logo.png`
-        }
+        "@type": "Person",
+        "name": "Gokalaf Editör",
+        "url": `${BASE_URL}/hakkimizda`,
+        "jobTitle": "Fitness İçerik Editörü"
       }
     },
     {
@@ -1395,40 +1396,56 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
       "@type": "ExerciseAction",
       "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#exercise`,
       "name": exercise.name,
-      "description": `${exercise.name} - ${muscles} için ${level} seviye egzersiz.`,
+      "description": `${exercise.name} - ${muscles} için ${level} seviye egzersiz. Set: 3-4, Tekrar: 8-12, Dinlenme: 60-90 sn.`,
       "image": imageUrl,
       "exerciseType": exercise.category || "StrengthTraining",
       "associatedAnatomy": exercise.primaryMuscles.map(m => ({
         "@type": "AnatomicalStructure",
         "name": muscleLabels[m] || m
       })),
-      "url": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`
+      "url": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
+      "agent": {
+        "@type": "Person",
+        "name": "Gokalaf Editör"
+      }
     },
     {
       "@context": "https://schema.org",
       "@type": "Article",
       "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#article`,
       "headline": `${exercise.name} - Doğru Teknik ve Talimatlar`,
-      "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
-      "image": imageUrl,
+      "description": `${exercise.name} egzersizi nasıl yapılır? ${instructions.length} adımda doğru teknik. Hedef: ${muscles}. Seviye: ${level}. Set/Tekrar: 3-4 set, 8-12 tekrar.`,
+      "image": {
+        "@type": "ImageObject",
+        "url": imageUrl,
+        "width": 1200,
+        "height": 675
+      },
       "author": {
-        "@type": "Organization",
-        "name": "Gokalaf",
-        "url": BASE_URL
+        "@type": "Person",
+        "name": "Gokalaf Editör",
+        "url": `${BASE_URL}/hakkimizda`,
+        "jobTitle": "Fitness İçerik Editörü"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Gokalaf",
+        "url": BASE_URL,
         "logo": {
           "@type": "ImageObject",
-          "url": `${BASE_URL}/logo.png`
+          "url": `${BASE_URL}/logo.png`,
+          "width": 512,
+          "height": 512
         }
       },
+      "datePublished": "2024-01-01T00:00:00+03:00",
+      "dateModified": new Date().toISOString(),
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`
       },
       "articleSection": "Egzersiz Rehberi",
+      "wordCount": instructions.join(" ").split(" ").length + 200,
       "inLanguage": "tr-TR"
     },
     {
