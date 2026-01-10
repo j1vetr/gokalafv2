@@ -389,30 +389,66 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
 }
 
 export function generateAboutMeta(): MetaTags {
-  const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "@id": `${BASE_URL}/hakkimizda#aboutpage`,
-    "name": "Hakkımızda | Gokalaf",
-    "description": "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
-    "url": `${BASE_URL}/hakkimizda`,
-    "mainEntity": { "@id": `${BASE_URL}/#organization` },
-    "inLanguage": "tr-TR"
-  });
+  const schema = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": `${BASE_URL}/hakkimizda#aboutpage`,
+      "name": "Hakkımızda | Gokalaf",
+      "description": "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
+      "url": `${BASE_URL}/hakkimizda`,
+      "mainEntity": { "@id": `${BASE_URL}/hakkimizda#person` },
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": `${BASE_URL}/hakkimizda#person`,
+      "name": "Göktuğ Alaf",
+      "alternateName": "Gokalaf",
+      "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
+      "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi. Profesyonel online fitness ve vücut geliştirme koçu.",
+      "url": `${BASE_URL}/hakkimizda`,
+      "image": `${BASE_URL}/goktug-alaf.jpg`,
+      "worksFor": {
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        "name": "Gokalaf"
+      },
+      "knowsAbout": [
+        "Fitness",
+        "Vücut Geliştirme",
+        "Beslenme",
+        "Antrenman Programı",
+        "Kilo Verme",
+        "Kas Yapma"
+      ],
+      "sameAs": [
+        "https://instagram.com/gokalaf",
+        "https://youtube.com/@gokalaf",
+        "https://kick.com/gokalaf"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      }
+    }
+  ]);
 
   return {
-    title: "Hakkımızda | Gokalaf",
-    description: "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
-    keywords: "gokalaf, fitness koçu, online pt, hakkımızda, vücut geliştirme koçu, beslenme danışmanı",
-    ogTitle: "Hakkımızda | Gokalaf",
-    ogDescription: "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
-    ogImage: DEFAULT_OG_IMAGE,
+    title: "Göktuğ Alaf Kimdir? | Online Fitness Koçu | Gokalaf",
+    description: "Göktuğ Alaf - Profesyonel online fitness ve vücut geliştirme koçu. 6+ yıllık deneyim, 1000+ başarılı dönüşüm hikayesi. Kişiye özel antrenman ve beslenme programları.",
+    keywords: "Göktuğ Alaf, Gokalaf, online fitness koçu, vücut geliştirme koçu, personal trainer, kişisel antrenör, fitness koçluğu, beslenme koçu, online PT, spor koçu",
+    ogTitle: "Göktuğ Alaf - Online Fitness Koçu | Gokalaf",
+    ogDescription: "Göktuğ Alaf - 6+ yıllık deneyim, 1000+ başarılı dönüşüm. Profesyonel online fitness ve vücut geliştirme koçu.",
+    ogImage: `${BASE_URL}/goktug-alaf.jpg`,
     ogUrl: `${BASE_URL}/hakkimizda`,
     ogType: "website",
     twitterCard: "summary_large_image",
-    twitterTitle: "Hakkımızda | Gokalaf",
-    twitterDescription: "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi.",
-    twitterImage: DEFAULT_OG_IMAGE,
+    twitterTitle: "Göktuğ Alaf - Online Fitness Koçu | Gokalaf",
+    twitterDescription: "6+ yıllık deneyim, 1000+ başarılı dönüşüm. Profesyonel online fitness koçu.",
+    twitterImage: `${BASE_URL}/goktug-alaf.jpg`,
     canonical: `${BASE_URL}/hakkimizda`,
     schema,
   };
