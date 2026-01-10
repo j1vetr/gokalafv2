@@ -83,7 +83,7 @@ export default function Articles() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-3xl md:text-4xl font-heading font-black text-white mb-4 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-heading font-black text-white mb-4 mt-6 tracking-tight">
               YAZILAR
             </h1>
             
