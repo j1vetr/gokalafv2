@@ -62,9 +62,9 @@ export default function About() {
           <img 
             src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0024-scaled-1.jpg" 
             alt="Hakkımızda" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-30 object-bottom"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/90 to-[#050505]/70"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]"></div>
         </div>
 
@@ -74,6 +74,10 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <h2 className="text-primary font-bold tracking-[0.2em] uppercase mb-2 text-xs md:text-sm">Profesyonel Koçluk</h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold uppercase text-white mb-4 tracking-tighter drop-shadow-2xl">
+              Gokalaf
+            </h1>
             <p className="text-sm md:text-base text-gray-300 max-w-xl mx-auto leading-relaxed font-light">
               "Amacım sadece sana bir antrenman programı vermek değil; vücudunu tanımanı, sınırlarını zorlamanı ve disiplini bir yaşam tarzı haline getirmeni sağlamak."
             </p>
