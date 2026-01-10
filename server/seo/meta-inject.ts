@@ -324,15 +324,11 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
           "height": 512
         }
       },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/yazilar/${article.slug}`
-      },
+      "mainEntityOfPage": `${BASE_URL}/yazilar/${article.slug}`,
       "articleSection": categoryLabel,
       "inLanguage": "tr-TR",
       "keywords": keywords,
-      "isAccessibleForFree": true,
-      "copyrightHolder": { "@type": "Organization", "name": "Gokalaf" }
+      "isAccessibleForFree": true
     },
     {
       "@context": "https://schema.org",
