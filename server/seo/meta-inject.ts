@@ -289,26 +289,7 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
   
   const wordCount = article.content ? article.content.split(/\s+/).length : 800;
 
-  // Extract H2 headings as HowTo steps from content
-  const h2Regex = /^##\s+(.+)$/gm;
-  const h2Matches: RegExpExecArray[] = [];
-  let h2Match: RegExpExecArray | null;
-  const contentForH2 = article.content || '';
-  while ((h2Match = h2Regex.exec(contentForH2)) !== null) {
-    h2Matches.push(h2Match);
-  }
-  const howToSteps = h2Matches
-    .filter(m => !m[1].includes('Sonuç') && !m[1].includes('Kaynaklar'))
-    .slice(0, 10)
-    .map((match, i) => ({
-      "@type": "HowToStep",
-      "position": i + 1,
-      "name": match[1].replace(/[*#]/g, '').trim(),
-      "text": match[1].replace(/[*#]/g, '').trim(),
-      "url": `${BASE_URL}/yazilar/${article.slug}#step-${i + 1}`
-    }));
-
-  const schemas: any[] = [
+  const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -383,35 +364,7 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
         }
       ]
     }
-  ];
-
-  // Add HowTo schema if article has instructional steps
-  if (howToSteps.length >= 3) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "@id": `${BASE_URL}/yazilar/${article.slug}#howto`,
-      "name": `${title} - Adım Adım Rehber`,
-      "description": description,
-      "image": {
-        "@type": "ImageObject",
-        "url": ogImage,
-        "width": 1200,
-        "height": 675
-      },
-      "totalTime": "PT15M",
-      "step": howToSteps,
-      "inLanguage": "tr-TR",
-      "author": {
-        "@type": "Person",
-        "name": "Gokalaf Editör",
-        "url": `${BASE_URL}/hakkimizda`,
-        "jobTitle": "Fitness İçerik Editörü"
-      }
-    });
-  }
-
-  const schema = JSON.stringify(schemas);
+  ]);
 
   return {
     title: `${title} | Gokalaf`,
