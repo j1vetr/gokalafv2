@@ -1334,25 +1334,101 @@ export function generateExercisesListMeta(total: number): MetaTags {
 
 export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
   const muscles = exercise.primaryMuscles.map(m => muscleLabels[m] || m).join(", ");
+  const secondaryMuscles = exercise.secondaryMuscles?.map(m => muscleLabels[m] || m).join(", ") || "";
   const level = levelLabels[exercise.level] || exercise.level;
   const imageUrl = exercise.images[0] ? `${BASE_URL}${exercise.images[0]}` : DEFAULT_OG_IMAGE;
+  const allImages = exercise.images.map(img => `${BASE_URL}${img}`);
   const primaryMuscle = exercise.primaryMuscles[0];
   const muscleLabel = muscleLabels[primaryMuscle] || primaryMuscle;
+  const instructions = exercise.instructionsTr || exercise.instructionsEn;
 
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
       "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
-      "name": exercise.name,
-      "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
-      "image": imageUrl,
-      "step": (exercise.instructionsTr || exercise.instructionsEn).map((step, i) => ({
+      "name": `${exercise.name} Nasıl Yapılır?`,
+      "description": `${exercise.name} egzersizi için adım adım rehber. Hedef kaslar: ${muscles}${secondaryMuscles ? `. Yardımcı kaslar: ${secondaryMuscles}` : ""}. Seviye: ${level}. Ekipman: ${exercise.equipment || "Ekipmansız"}.`,
+      "image": allImages.length > 0 ? allImages : [imageUrl],
+      "totalTime": "PT5M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "TRY",
+        "value": "0"
+      },
+      "supply": exercise.equipment ? [{
+        "@type": "HowToSupply",
+        "name": exercise.equipment
+      }] : [],
+      "tool": exercise.equipment ? [{
+        "@type": "HowToTool",
+        "name": exercise.equipment,
+        "description": `${exercise.name} egzersizi için gerekli ekipman`
+      }] : [],
+      "step": instructions.map((step, i) => ({
         "@type": "HowToStep",
         "position": i + 1,
-        "text": step
+        "name": `Adım ${i + 1}`,
+        "text": step,
+        "image": allImages[i] || imageUrl
       })),
-      "tool": exercise.equipment ? [{ "@type": "HowToTool", "name": exercise.equipment }] : [],
+      "performTime": "PT3M",
+      "prepTime": "PT2M",
+      "inLanguage": "tr-TR",
+      "author": {
+        "@type": "Organization",
+        "name": "Gokalaf",
+        "url": BASE_URL
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gokalaf",
+        "url": BASE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/logo.png`
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ExerciseAction",
+      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#exercise`,
+      "name": exercise.name,
+      "description": `${exercise.name} - ${muscles} için ${level} seviye egzersiz.`,
+      "image": imageUrl,
+      "exerciseType": exercise.category || "StrengthTraining",
+      "associatedAnatomy": exercise.primaryMuscles.map(m => ({
+        "@type": "AnatomicalStructure",
+        "name": muscleLabels[m] || m
+      })),
+      "url": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#article`,
+      "headline": `${exercise.name} - Doğru Teknik ve Talimatlar`,
+      "description": `${exercise.name} egzersizi nasıl yapılır? Hedef kaslar: ${muscles}. Seviye: ${level}.`,
+      "image": imageUrl,
+      "author": {
+        "@type": "Organization",
+        "name": "Gokalaf",
+        "url": BASE_URL
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gokalaf",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/logo.png`
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`
+      },
+      "articleSection": "Egzersiz Rehberi",
       "inLanguage": "tr-TR"
     },
     {
