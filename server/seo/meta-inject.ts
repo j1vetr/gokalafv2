@@ -479,13 +479,13 @@ export function generateToolsMeta(): MetaTags {
         "@type": "ListItem",
         "position": index + 1,
         "item": {
-          "@type": "SoftwareApplication",
+          "@type": "WebApplication",
           "name": tool.name,
           "description": tool.desc,
           "url": `${BASE_URL}/araclar/${tool.path}`,
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
+          "isAccessibleForFree": true
         }
       }))
     },
@@ -522,14 +522,14 @@ export function generateVkiToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/vki#app`,
       "name": "VKİ Hesaplayıcı - Vücut Kitle İndeksi",
       "description": "Vücut kitle indeksinizi (VKİ/BMI) hesaplayın. Boy ve kilonuza göre sağlıklı kilo aralığınızı öğrenin.",
       "url": `${BASE_URL}/araclar/vki`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -582,14 +582,14 @@ export function generateCalorieToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/kalori#app`,
       "name": "Kalori Hesaplayıcı",
       "description": "Günlük kalori ihtiyacınızı hesaplayın. Kilo vermek, korumak veya almak için gereken kalori miktarını öğrenin.",
       "url": `${BASE_URL}/araclar/kalori`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -642,14 +642,14 @@ export function generateTdeeToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/tdee#app`,
       "name": "TDEE Hesaplayıcı",
       "description": "Toplam Günlük Enerji Harcaması (TDEE) hesaplayıcı. Aktivite seviyenize göre yakmanız gereken kaloriyi öğrenin.",
       "url": `${BASE_URL}/araclar/tdee`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -702,14 +702,14 @@ export function generateMacroToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/makro#app`,
       "name": "Makro Hesaplayıcı",
       "description": "Günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro besin dağılımını öğrenin.",
       "url": `${BASE_URL}/araclar/makro`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -761,14 +761,14 @@ export function generateIdealKiloToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/ideal-kilo#app`,
       "name": "İdeal Kilo Hesaplayıcı",
       "description": "Boyunuza ve cinsiyetinize göre ideal kilonuzu hesaplayın. Devine, Robinson, Miller ve Hamwi formülleriyle sonuç alın.",
       "url": `${BASE_URL}/araclar/ideal-kilo`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -821,14 +821,14 @@ export function generateVucutYagiToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/vucut-yagi#app`,
       "name": "Vücut Yağ Oranı Hesaplayıcı",
       "description": "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
       "url": `${BASE_URL}/araclar/vucut-yagi`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -881,14 +881,14 @@ export function generateOneRepMaxToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/bir-tekrar-max#app`,
       "name": "One Rep Max (1RM) Hesaplayıcı",
       "description": "Kaldırdığınız ağırlık ve tekrar sayısından maksimum kaldırma kapasiteni hesaplayın.",
       "url": `${BASE_URL}/araclar/bir-tekrar-max`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -941,14 +941,14 @@ export function generateSuTuketimiToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/su-tuketimi#app`,
       "name": "Su İhtiyacı Hesaplayıcı",
       "description": "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
       "url": `${BASE_URL}/araclar/su-tuketimi`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -1001,14 +1001,14 @@ export function generateKalpAtisiToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/kalp-atisi#app`,
       "name": "Kalp Hızı Bölgeleri Hesaplayıcı",
       "description": "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın. Yağ yakımı, aerobik ve anaerobik bölgelerini öğrenin.",
       "url": `${BASE_URL}/araclar/kalp-atisi`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -1061,14 +1061,14 @@ export function generateProteinToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/protein#app`,
       "name": "Protein İhtiyacı Hesaplayıcı",
       "description": "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
       "url": `${BASE_URL}/araclar/protein`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
@@ -1121,14 +1121,14 @@ export function generateDinlenmeToolMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "@id": `${BASE_URL}/araclar/dinlenme#app`,
       "name": "Dinlenme Süresi Hesaplayıcı",
       "description": "Antrenman tipinize göre ideal set arası dinlenme sürenizi öğrenin.",
       "url": `${BASE_URL}/araclar/dinlenme`,
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+      "isAccessibleForFree": true,
       "provider": { "@id": `${BASE_URL}/#organization` }
     },
     {
