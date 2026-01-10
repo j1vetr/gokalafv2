@@ -57,15 +57,9 @@ export default function About() {
       <div className="min-h-screen bg-[#050505]">
       
         {/* IMMERSIVE HERO */}
-      <section className="relative h-[45vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://www.gokalaf.com/wp-content/uploads/2023/02/PXL0024-scaled-1.jpg" 
-            alt="Hakkımızda" 
-            className="w-full h-full object-cover opacity-30 object-bottom"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/90 to-[#050505]/70"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]"></div>
+      <section className="relative h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0a0a0a] via-[#050505] to-[#0a0a0a]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center mt-16">
