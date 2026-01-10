@@ -74,10 +74,6 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-primary font-bold tracking-[0.2em] uppercase mb-2 text-xs md:text-sm">Profesyonel Koçluk</h2>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold uppercase text-white mb-4 tracking-tighter drop-shadow-2xl">
-              Hakkımızda
-            </h1>
             <p className="text-sm md:text-base text-gray-300 max-w-xl mx-auto leading-relaxed font-light">
               "Amacım sadece sana bir antrenman programı vermek değil; vücudunu tanımanı, sınırlarını zorlamanı ve disiplini bir yaşam tarzı haline getirmeni sağlamak."
             </p>
