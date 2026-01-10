@@ -1356,59 +1356,10 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
     }
   }));
 
+  // Schema yapısı: Article (ana) + HowTo (destekleyici) + BreadcrumbList
+  // ExerciseAction/AnatomicalStructure kaldırıldı (SERP etkisi yok)
+  // Organization ayrı değil, Article.publisher içinde
   const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
-      "name": `${exercise.name} Nasıl Yapılır? - Adım Adım Egzersiz Rehberi`,
-      "description": `${exercise.name} egzersizi için detaylı adım adım rehber. Hedef kaslar: ${muscles}. Seviye: ${level}. Önerilen: 3-4 set, 8-12 tekrar, 60-90 sn dinlenme.`,
-      "image": {
-        "@type": "ImageObject",
-        "url": imageUrl,
-        "width": 800,
-        "height": 600
-      },
-      "totalTime": "PT5M",
-      "prepTime": "PT1M",
-      "performTime": "PT4M",
-      "tool": exercise.equipment ? [{
-        "@type": "HowToTool",
-        "name": exercise.equipment
-      }] : [],
-      "supply": exercise.equipment ? [{
-        "@type": "HowToSupply",
-        "name": exercise.equipment,
-        "requiredQuantity": 1
-      }] : [],
-      "step": steps,
-      "yield": "1 set tamamlandı",
-      "inLanguage": "tr-TR",
-      "author": {
-        "@type": "Person",
-        "name": "Gokalaf Editör",
-        "url": `${BASE_URL}/hakkimizda`,
-        "jobTitle": "Fitness İçerik Editörü"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ExerciseAction",
-      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#exercise`,
-      "name": exercise.name,
-      "description": `${exercise.name} - ${muscles} için ${level} seviye egzersiz. Set: 3-4, Tekrar: 8-12, Dinlenme: 60-90 sn.`,
-      "image": imageUrl,
-      "exerciseType": exercise.category || "StrengthTraining",
-      "associatedAnatomy": exercise.primaryMuscles.map(m => ({
-        "@type": "AnatomicalStructure",
-        "name": muscleLabels[m] || m
-      })),
-      "url": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
-      "agent": {
-        "@type": "Person",
-        "name": "Gokalaf Editör"
-      }
-    },
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -1440,12 +1391,29 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
       },
       "datePublished": "2024-01-01T00:00:00+03:00",
       "dateModified": new Date().toISOString(),
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`
-      },
+      "mainEntityOfPage": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
       "articleSection": "Egzersiz Rehberi",
       "wordCount": instructions.join(" ").split(" ").length + 200,
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
+      "name": `${exercise.name} Nasıl Yapılır?`,
+      "description": `${exercise.name} egzersizi için adım adım rehber. Hedef kaslar: ${muscles}. Önerilen: 3-4 set, 8-12 tekrar, 60-90 sn dinlenme.`,
+      "image": {
+        "@type": "ImageObject",
+        "url": imageUrl,
+        "width": 800,
+        "height": 600
+      },
+      "totalTime": "PT5M",
+      "tool": exercise.equipment ? [{
+        "@type": "HowToTool",
+        "name": exercise.equipment
+      }] : [],
+      "step": steps,
       "inLanguage": "tr-TR"
     },
     {
