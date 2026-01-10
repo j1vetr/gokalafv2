@@ -43,6 +43,57 @@ export function generateHomeMeta(): MetaTags {
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      "name": "Gokalaf",
+      "url": BASE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/favicon.png`,
+        "width": 512,
+        "height": 512
+      },
+      "image": `${BASE_URL}/og-image.png`,
+      "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
+      "telephone": "+905312822402",
+      "email": "alafcoaching@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TR",
+        "addressLocality": "Türkiye"
+      },
+      "sameAs": [
+        "https://www.instagram.com/gokalaf",
+        "https://www.youtube.com/@gokalaf",
+        "https://kick.com/gokalaf",
+        "https://twitter.com/gokalaf",
+        "https://www.tiktok.com/@gokalaf"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+905312822402",
+        "contactType": "customer service",
+        "availableLanguage": ["Turkish"]
+      },
+      "foundingDate": "2024",
+      "areaServed": "TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "name": "Gokalaf",
+      "url": BASE_URL,
+      "publisher": { "@id": `${BASE_URL}/#organization` },
+      "inLanguage": "tr-TR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${BASE_URL}/araclar?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "WebPage",
       "@id": `${BASE_URL}/#webpage`,
       "url": BASE_URL,
@@ -96,22 +147,25 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
     "priceCurrency": "TRY",
     "availability": "https://schema.org/InStock",
     "url": `${BASE_URL}/paketler`,
-    "seller": { "@id": `${BASE_URL}/#organization` }
+    "itemOffered": {
+      "@type": "Service",
+      "name": `${pkg.name} - Online Fitness Koçluğu`,
+      "description": `${pkg.weeks} haftalık kişiselleştirilmiş antrenman ve beslenme programı`,
+      "provider": { "@id": `${BASE_URL}/#organization` },
+      "serviceType": "Online Fitness Koçluğu"
+    }
   }));
 
   const schema = JSON.stringify([
     {
       "@context": "https://schema.org",
-      "@type": "ItemList",
+      "@type": "OfferCatalog",
+      "@id": `${BASE_URL}/paketler#catalog`,
       "name": "Gokalaf Online Fitness Koçluk Paketleri",
       "description": `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri.`,
       "url": `${BASE_URL}/paketler`,
-      "numberOfItems": activePackages.length,
-      "itemListElement": offers.map((offer, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": offer
-      }))
+      "numberOfOffers": activePackages.length,
+      "itemListElement": offers
     },
     {
       "@context": "https://schema.org",
@@ -422,15 +476,8 @@ export function generateToolsMeta(): MetaTags {
       "itemListElement": tools.map((tool, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "item": {
-          "@type": "WebApplication",
-          "name": tool.name,
-          "description": tool.desc,
-          "url": `${BASE_URL}/araclar/${tool.path}`,
-          "applicationCategory": "HealthApplication",
-          "operatingSystem": "Web",
-          "isAccessibleForFree": true
-        }
+        "name": tool.name,
+        "url": `${BASE_URL}/araclar/${tool.path}`
       }))
     },
     "inLanguage": "tr-TR"
