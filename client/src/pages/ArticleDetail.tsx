@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Calendar, BookOpen, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, BookOpen, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator, User, RefreshCw } from "lucide-react";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import type { Article } from "@shared/schema";
@@ -147,13 +147,21 @@ export default function ArticleDetail() {
           "description": article.seoDescription || article.excerpt,
           "image": article.heroImage ? (article.heroImage.startsWith("http") ? article.heroImage : `https://gokalaf.com${article.heroImage}`) : "https://gokalaf.com/og-image.png",
           "author": {
-            "@type": "Organization",
-            "name": "Gokalaf",
-            "url": "https://gokalaf.com"
+            "@type": "Person",
+            "name": "Göktuğ Alaf",
+            "url": "https://gokalaf.com/hakkimizda",
+            "image": "https://gokalaf.com/goktug-alaf.jpg",
+            "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
+            "description": "IFBB Türkiye 2021 Genç Erkek Klasik Fizik Şampiyonu. 4+ yıllık koçluk deneyimi.",
+            "sameAs": [
+              "https://instagram.com/gokalaf",
+              "https://youtube.com/@gokalaf"
+            ]
           },
           "publisher": {
             "@type": "Organization",
             "name": "Gokalaf",
+            "url": "https://gokalaf.com",
             "logo": {
               "@type": "ImageObject",
               "url": "https://gokalaf.com/logo.png"
@@ -191,22 +199,48 @@ export default function ArticleDetail() {
               Yazılara Dön
             </Link>
             
-            <div className="flex items-center gap-4 mb-4">
-              {article.publishedAt && (
-                <span className="flex items-center gap-1 text-gray-400 text-sm">
-                  <Calendar className="w-4 h-4" />
-                  {new Date(article.publishedAt).toLocaleDateString("tr-TR", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              )}
-              <ShareButtons 
-                url={shareUrl}
-                title={article.title}
-                description={article.excerpt || ''}
-              />
+            {/* Author & Date Info */}
+            <div className="flex flex-wrap items-center gap-4 mb-6 pb-4 border-b border-white/10">
+              <Link href="/hakkimizda" className="flex items-center gap-2 group">
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50 group-hover:border-primary transition-colors">
+                  <img src="/goktug-alaf.jpg" alt="Göktuğ Alaf" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <span className="text-white text-sm font-medium group-hover:text-primary transition-colors">Göktuğ Alaf</span>
+                  <span className="block text-gray-500 text-xs">Online Fitness Koçu</span>
+                </div>
+              </Link>
+              
+              <div className="flex items-center gap-3 text-xs text-gray-400">
+                {article.publishedAt && (
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {new Date(article.publishedAt).toLocaleDateString("tr-TR", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                )}
+                {article.updatedAt && article.updatedAt !== article.publishedAt && (
+                  <span className="flex items-center gap-1 text-primary/70">
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    Güncellendi: {new Date(article.updatedAt).toLocaleDateString("tr-TR", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
+                )}
+              </div>
+              
+              <div className="ml-auto">
+                <ShareButtons 
+                  url={shareUrl}
+                  title={article.title}
+                  description={article.excerpt || ''}
+                />
+              </div>
             </div>
             
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">

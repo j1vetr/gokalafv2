@@ -150,8 +150,57 @@ export default function About() {
         </div>
       </section>
 
-      {/* PHILOSOPHY CARDS - REDESIGNED */}
+      {/* CREDENTIALS & ACHIEVEMENTS */}
       <section className="py-12 md:py-16 bg-[#080808] border-t border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold uppercase text-white mb-2">Deneyim & Başarılar</h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-lg mx-auto">
+              Yılların deneyimi ve kanıtlanmış sonuçlar
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { value: "4+", label: "Yıl Deneyim", desc: "Aktif koçluk" },
+              { value: "200+", label: "Mutlu Danışan", desc: "Başarılı dönüşüm" },
+              { value: "2021", label: "Türkiye Şampiyonu", desc: "Genç Erkek Klasik Fizik" },
+              { value: "7/24", label: "Destek", desc: "WhatsApp iletişim" }
+            ].map((stat, i) => (
+              <div key={i} className="bg-[#050505] border border-white/10 rounded-xl p-4 text-center hover:border-primary/30 transition-colors">
+                <div className="text-2xl md:text-3xl font-heading font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-white text-sm font-medium">{stat.label}</div>
+                <div className="text-gray-500 text-xs">{stat.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-lg font-heading font-bold text-white mb-4 flex items-center gap-2">
+              <Trophy className="w-5 h-5 text-primary" />
+              Sertifikalar & Eğitimler
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                "IFBB Türkiye 2021 Genç Erkek Klasik Fizik Şampiyonu",
+                "Uluslararası Koçlardan Profesyonel Eğitim",
+                "Bilime Dayalı Beslenme ve Antrenman Metodolojisi",
+                "Online Koçluk ve Danışmanlık Deneyimi"
+              ].map((cert, i) => (
+                <div key={i} className="flex items-start gap-2 bg-white/5 border border-white/10 rounded-lg p-3">
+                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  </div>
+                  <span className="text-gray-300 text-sm">{cert}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY CARDS - REDESIGNED */}
+      <section className="py-12 md:py-16 bg-[#050505] border-t border-white/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold uppercase text-white mb-2">Koçluk Felsefem</h2>
