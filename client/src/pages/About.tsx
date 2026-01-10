@@ -162,9 +162,9 @@ export default function About() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {[
-              { value: "4+", label: "Yıl Deneyim", desc: "Aktif koçluk" },
-              { value: "200+", label: "Mutlu Danışan", desc: "Başarılı dönüşüm" },
-              { value: "2021", label: "Türkiye Şampiyonu", desc: "Genç Erkek Klasik Fizik" },
+              { value: "6+", label: "Yıl Deneyim", desc: "Aktif koçluk" },
+              { value: "1000+", label: "Mutlu Danışan", desc: "Başarılı dönüşüm" },
+              { value: "100%", label: "Kişiye Özel", desc: "Bireysel programlar" },
               { value: "7/24", label: "Destek", desc: "WhatsApp iletişim" }
             ].map((stat, i) => (
               <div key={i} className="bg-[#050505] border border-white/10 rounded-xl p-4 text-center hover:border-primary/30 transition-colors">
@@ -182,10 +182,10 @@ export default function About() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
-                "IFBB Türkiye 2021 Genç Erkek Klasik Fizik Şampiyonu",
+                "6+ Yıllık Aktif Koçluk Deneyimi",
                 "Uluslararası Koçlardan Profesyonel Eğitim",
                 "Bilime Dayalı Beslenme ve Antrenman Metodolojisi",
-                "Online Koçluk ve Danışmanlık Deneyimi"
+                "1000+ Başarılı Dönüşüm Hikayesi"
               ].map((cert, i) => (
                 <div key={i} className="flex items-start gap-2 bg-white/5 border border-white/10 rounded-lg p-3">
                   <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">

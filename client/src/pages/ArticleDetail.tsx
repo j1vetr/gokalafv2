@@ -152,7 +152,7 @@ export default function ArticleDetail() {
             "url": "https://gokalaf.com/hakkimizda",
             "image": "https://gokalaf.com/goktug-alaf.jpg",
             "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
-            "description": "IFBB Türkiye 2021 Genç Erkek Klasik Fizik Şampiyonu. 4+ yıllık koçluk deneyimi.",
+            "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi.",
             "sameAs": [
               "https://instagram.com/gokalaf",
               "https://youtube.com/@gokalaf"
