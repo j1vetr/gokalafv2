@@ -257,8 +257,10 @@ export default function ArticleDetail() {
             <div 
               className="article-content prose prose-invert prose-lg md:prose-xl max-w-none
                 prose-headings:font-heading prose-headings:text-white prose-headings:scroll-mt-24 prose-headings:leading-tight
+                prose-h1:text-3xl prose-h1:md:text-4xl prose-h1:mt-16 prose-h1:mb-8 prose-h1:pb-4 prose-h1:border-b prose-h1:border-primary/30
                 prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b prose-h2:border-primary/30
                 prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-primary
+                prose-h4:text-xl prose-h4:md:text-2xl prose-h4:mt-10 prose-h4:mb-4 prose-h4:text-primary
                 prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-white prose-strong:font-semibold

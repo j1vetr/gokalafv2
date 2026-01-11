@@ -18,8 +18,10 @@ const articleStyles = `
     .article-content blockquote p { margin: 0; color: #e5e5e5; }
     .article-content ul, .article-content ol { padding-left: 1.5rem; margin: 1rem 0; }
     .article-content li { margin: 0.5rem 0; color: #e5e5e5; }
+    .article-content h1 { color: #fff; font-size: 1.75rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
     .article-content h2 { color: #fff; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
     .article-content h3 { color: #ccff00; font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .article-content h4 { color: #ccff00; font-size: 1.1rem; margin-top: 1.25rem; margin-bottom: 0.5rem; font-weight: 600; }
     .article-content p { margin: 1rem 0; }
     .article-content a { color: #ccff00; text-decoration: none; }
     .article-content a:hover { text-decoration: underline; }
