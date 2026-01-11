@@ -395,8 +395,23 @@ export function generateAboutMeta(): MetaTags {
       "name": "Hakkımızda | Gokalaf",
       "description": "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
       "url": `${BASE_URL}/hakkimizda`,
-      "mainEntity": { "@id": `${BASE_URL}/hakkimizda#person` },
+      "mainEntity": { "@id": `${BASE_URL}/#organization` },
       "inLanguage": "tr-TR"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      "name": "Gokalaf",
+      "url": BASE_URL,
+      "logo": `${BASE_URL}/favicon.png`,
+      "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
+      "founder": { "@id": `${BASE_URL}/hakkimizda#person` },
+      "sameAs": [
+        "https://www.instagram.com/gokalaf",
+        "https://www.youtube.com/@gokalaf",
+        "https://kick.com/gokalaf"
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -404,7 +419,7 @@ export function generateAboutMeta(): MetaTags {
       "@id": `${BASE_URL}/hakkimizda#person`,
       "name": "Göktuğ Alaf",
       "alternateName": "Gokalaf",
-      "jobTitle": "Online Fitness ve Vücut Geliştirme Koçu",
+      "jobTitle": "Founder & Head Coach",
       "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi. Profesyonel online fitness ve vücut geliştirme koçu.",
       "url": `${BASE_URL}/hakkimizda`,
       "image": `${BASE_URL}/goktug-alaf.jpg`,
@@ -421,12 +436,7 @@ export function generateAboutMeta(): MetaTags {
         "https://instagram.com/gokalaf",
         "https://youtube.com/@gokalaf",
         "https://kick.com/gokalaf"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "İstanbul",
-        "addressCountry": "TR"
-      }
+      ]
     }
   ]);
 
