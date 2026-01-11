@@ -148,7 +148,7 @@ export default function ExerciseDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-28 flex items-center justify-center">
+      <div className="min-h-screen bg-[#050505] pt-36 flex items-center justify-center">
         <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
       </div>
     );
@@ -156,7 +156,7 @@ export default function ExerciseDetail() {
 
   if (error || !exercise) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-28">
+      <div className="min-h-screen bg-[#050505] pt-36">
         <div className="container mx-auto px-4 py-20 text-center">
           <Dumbbell className="w-12 h-12 text-gray-600 mx-auto mb-4" />
           <h1 className="text-xl font-heading font-bold text-white mb-3">Egzersiz Bulunamadı</h1>
@@ -186,7 +186,7 @@ export default function ExerciseDetail() {
       />
 
       {/* Compact Header */}
-      <section className="pt-24 pb-6 relative overflow-hidden">
+      <section className="pt-32 lg:pt-36 pb-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent" />
         
         <div className="container mx-auto px-4 relative">
