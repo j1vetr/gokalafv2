@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { 
@@ -15,16 +15,18 @@ import {
   Flame,
   Activity,
   ArrowRight,
-  Play
+  CheckCircle2,
+  Info,
+  Layers
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { ShareButtons } from "@/components/ShareButtons";
 import type { Exercise } from "@shared/schema";
 
 const levelConfig = {
-  beginner: { label: "Başlangıç", color: "emerald", icon: "🟢" },
-  intermediate: { label: "Orta", color: "amber", icon: "🟡" },
-  expert: { label: "İleri", color: "rose", icon: "🔴" },
+  beginner: { label: "Başlangıç", color: "emerald", dotColor: "bg-emerald-500" },
+  intermediate: { label: "Orta", color: "amber", dotColor: "bg-amber-500" },
+  expert: { label: "İleri", color: "rose", dotColor: "bg-rose-500" },
 };
 
 const muscleLabels: Record<string, string> = {
@@ -83,54 +85,11 @@ const mechanicLabels: Record<string, string> = {
   isolation: "İzolasyon",
 };
 
-function StatCard({ icon: Icon, label, value, accent = false }: { 
-  icon: React.ElementType; 
-  label: string; 
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
-      accent 
-        ? 'bg-primary/10 border-primary/30' 
-        : 'bg-white/[0.03] border-white/[0.08] hover:border-white/20'
-    }`}>
-      <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-        accent ? 'bg-primary/20' : 'bg-white/5'
-      }`}>
-        <Icon className={`w-4 h-4 ${accent ? 'text-primary' : 'text-gray-400'}`} />
-      </div>
-      <div className="min-w-0">
-        <p className="text-[10px] uppercase tracking-wider text-gray-500">{label}</p>
-        <p className={`text-sm font-medium truncate ${accent ? 'text-primary' : 'text-white'}`}>{value}</p>
-      </div>
-    </div>
-  );
-}
-
-function DifficultyBadge({ level }: { level: string }) {
-  const config = levelConfig[level as keyof typeof levelConfig] || levelConfig.beginner;
-  
-  const colorClasses = {
-    emerald: 'from-emerald-500/20 to-emerald-500/5 border-emerald-500/30 text-emerald-400',
-    amber: 'from-amber-500/20 to-amber-500/5 border-amber-500/30 text-amber-400',
-    rose: 'from-rose-500/20 to-rose-500/5 border-rose-500/30 text-rose-400',
-  };
-
-  return (
-    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r border ${colorClasses[config.color as keyof typeof colorClasses]}`}>
-      <span className="text-xs">{config.icon}</span>
-      <span className="text-xs font-semibold uppercase tracking-wider">{config.label}</span>
-    </div>
-  );
-}
-
 export default function ExerciseDetail() {
   const [, params] = useRoute("/egzersiz-akademisi/:slug");
   const slug = params?.slug;
   const [zoomOpen, setZoomOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showVideo, setShowVideo] = useState(false);
 
   const { data: exercise, isLoading, error } = useQuery<Exercise>({
     queryKey: ["/api/exercises", slug],
@@ -142,29 +101,30 @@ export default function ExerciseDetail() {
     enabled: !!slug,
   });
 
-  const relatedExercises = useMemo(() => {
-    return [];
-  }, []);
-
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-36 flex items-center justify-center">
-        <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+      <div className="min-h-screen bg-[#050505] pt-32 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin" />
+          <p className="text-sm text-gray-500">Yükleniyor...</p>
+        </div>
       </div>
     );
   }
 
   if (error || !exercise) {
     return (
-      <div className="min-h-screen bg-[#050505] pt-36">
+      <div className="min-h-screen bg-[#050505] pt-32">
         <div className="container mx-auto px-4 py-20 text-center">
-          <Dumbbell className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-          <h1 className="text-xl font-heading font-bold text-white mb-3">Egzersiz Bulunamadı</h1>
-          <p className="text-gray-400 text-sm mb-6">Aradığınız egzersiz mevcut değil.</p>
+          <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-6">
+            <Dumbbell className="w-10 h-10 text-gray-600" />
+          </div>
+          <h1 className="text-2xl font-heading font-bold text-white mb-3">Egzersiz Bulunamadı</h1>
+          <p className="text-gray-400 mb-8">Aradığınız egzersiz mevcut değil veya kaldırılmış olabilir.</p>
           <Link href="/egzersiz-akademisi">
-            <Button size="sm" className="bg-primary text-black hover:bg-primary/90" data-testid="button-back-exercises">
+            <Button className="bg-primary text-black hover:bg-primary/90" data-testid="button-back-exercises">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Geri Dön
+              Egzersizlere Dön
             </Button>
           </Link>
         </div>
@@ -175,6 +135,7 @@ export default function ExerciseDetail() {
   const instructions = exercise.instructionsTr || exercise.instructionsEn;
   const shareUrl = `https://gokalaf.com/egzersiz-akademisi/${exercise.slug}`;
   const primaryMuscle = exercise.primaryMuscles[0];
+  const levelInfo = levelConfig[exercise.level as keyof typeof levelConfig] || levelConfig.beginner;
 
   return (
     <div className="min-h-screen bg-[#050505]">
@@ -185,254 +146,415 @@ export default function ExerciseDetail() {
         canonical={`/egzersiz-akademisi/${exercise.slug}`}
       />
 
-      {/* Compact Header */}
-      <section className="pt-32 lg:pt-36 pb-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent" />
-        
+      {/* Hero Section */}
+      <section className="relative pt-28 lg:pt-32">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[100px]" />
+        </div>
+
         <div className="container mx-auto px-4 relative">
           {/* Breadcrumb */}
-          <nav className="mb-4">
-            <ol className="flex items-center gap-1.5 text-xs text-gray-500">
-              <li><Link href="/" className="hover:text-white transition-colors">Ana Sayfa</Link></li>
-              <ChevronRight className="w-3 h-3" />
-              <li><Link href="/egzersiz-akademisi" className="hover:text-white transition-colors">Egzersizler</Link></li>
-              <ChevronRight className="w-3 h-3" />
-              <li className="text-primary truncate max-w-[120px]">{exercise.name}</li>
+          <nav className="mb-6" data-testid="nav-breadcrumb">
+            <ol className="flex items-center gap-2 text-sm">
+              <li>
+                <Link href="/" className="text-gray-500 hover:text-white transition-colors">
+                  Ana Sayfa
+                </Link>
+              </li>
+              <ChevronRight className="w-4 h-4 text-gray-600" />
+              <li>
+                <Link href="/egzersiz-akademisi" className="text-gray-500 hover:text-white transition-colors">
+                  Egzersiz Akademisi
+                </Link>
+              </li>
+              <ChevronRight className="w-4 h-4 text-gray-600" />
+              <li className="text-white font-medium truncate max-w-[200px]">{exercise.name}</li>
             </ol>
           </nav>
 
-          {/* Title Row */}
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-2">
-                <DifficultyBadge level={exercise.level} />
-                {exercise.category && (
-                  <span className="text-xs text-gray-400 uppercase tracking-wider">
-                    {categoryLabels[exercise.category] || exercise.category}
-                  </span>
-                )}
-              </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight">
-                {exercise.name}
-              </h1>
-            </div>
-            <ShareButtons 
-              url={shareUrl}
-              title={exercise.name}
-              description={`${exercise.name} egzersizi`}
-              className="flex-shrink-0"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content Grid */}
-      <section className="pb-12">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-5 gap-6">
+          {/* Main Grid */}
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             
-            {/* Left: Media Panel */}
-            <div className="lg:col-span-3">
-              <div className="relative rounded-2xl overflow-hidden bg-black/40 border border-white/[0.08]">
-                {/* Main Image/GIF */}
-                <div className="aspect-[4/3] relative">
-                  {exercise.images[0] && (
+            {/* Left Column - Media */}
+            <div className="lg:col-span-7 xl:col-span-8">
+              {/* Title - Mobile Only */}
+              <div className="lg:hidden mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`w-2.5 h-2.5 rounded-full ${levelInfo.dotColor}`} />
+                  <span className="text-sm text-gray-400">{levelInfo.label}</span>
+                  <span className="text-gray-600">•</span>
+                  <span className="text-sm text-gray-400">
+                    {categoryLabels[exercise.category || ''] || exercise.category}
+                  </span>
+                </div>
+                <h1 className="text-3xl font-heading font-bold text-white">
+                  {exercise.name}
+                </h1>
+              </div>
+
+              {/* Media Container */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative group"
+              >
+                {/* Main Image */}
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-black/60 to-black/40 border border-white/[0.08]">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/[0.02] to-transparent" />
+                  
+                  {exercise.images[currentImageIndex] && (
                     <img
-                      src={showVideo && exercise.images[1] ? exercise.images[1] : exercise.images[0]}
+                      src={exercise.images[currentImageIndex]}
                       alt={exercise.name}
-                      className="w-full h-full object-contain bg-black/60"
+                      className="w-full h-full object-contain relative z-10"
                       loading="eager"
                     />
                   )}
-                  
-                  {/* Zoom Button */}
-                  <button
-                    onClick={() => setZoomOpen(true)}
-                    className="absolute top-3 right-3 p-2 rounded-lg bg-black/60 backdrop-blur-sm border border-white/10 hover:bg-black/80 transition-colors"
-                  >
-                    <ZoomIn className="w-4 h-4 text-white" />
-                  </button>
 
-                  {/* Position Labels */}
-                  <div className="absolute bottom-3 left-3 right-3 flex justify-between">
-                    <span className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-xs text-white/80">
-                      Başlangıç
-                    </span>
-                    {exercise.images[1] && (
-                      <span className="px-2.5 py-1 rounded-md bg-primary/80 backdrop-blur-sm text-xs text-black font-medium">
-                        Bitiş
-                      </span>
-                    )}
+                  {/* Overlay Controls */}
+                  <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      onClick={() => setZoomOpen(true)}
+                      className="absolute top-4 right-4 p-3 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 hover:bg-black/90 hover:border-white/20 transition-all"
+                      data-testid="button-zoom"
+                    >
+                      <ZoomIn className="w-5 h-5 text-white" />
+                    </button>
                   </div>
+
+                  {/* Position Indicator */}
+                  {exercise.images.length > 1 && (
+                    <div className="absolute bottom-4 left-4 z-20">
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-md border border-white/10">
+                        <span className="text-xs text-gray-400">
+                          {currentImageIndex === 0 ? "Başlangıç Pozisyonu" : "Bitiş Pozisyonu"}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Thumbnail Strip */}
                 {exercise.images.length > 1 && (
-                  <div className="flex gap-2 p-3 bg-black/40 border-t border-white/[0.05]">
+                  <div className="flex gap-3 mt-4">
                     {exercise.images.map((img, idx) => (
                       <button
                         key={idx}
-                        onClick={() => {
-                          setShowVideo(idx === 1);
-                          setCurrentImageIndex(idx);
-                        }}
-                        className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                          currentImageIndex === idx ? 'border-primary' : 'border-transparent hover:border-white/30'
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`relative flex-1 max-w-[120px] aspect-video rounded-xl overflow-hidden transition-all duration-300 ${
+                          currentImageIndex === idx 
+                            ? 'ring-2 ring-primary ring-offset-2 ring-offset-[#050505]' 
+                            : 'opacity-60 hover:opacity-100 border border-white/10'
                         }`}
+                        data-testid={`button-thumbnail-${idx}`}
                       >
                         <img src={img} alt="" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                          <span className="text-xs font-medium text-white">
+                            {idx === 0 ? "Başlangıç" : "Bitiş"}
+                          </span>
+                        </div>
                       </button>
                     ))}
                   </div>
                 )}
-              </div>
+              </motion.div>
 
-              {/* Instructions Section */}
-              <div className="mt-6">
-                <h2 className="flex items-center gap-2 text-lg font-heading font-bold text-white mb-4">
-                  <Play className="w-4 h-4 text-primary" />
-                  Nasıl Yapılır?
-                </h2>
-                <div className="space-y-3">
+              {/* Instructions */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-10"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Info className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-heading font-bold text-white">Nasıl Yapılır?</h2>
+                    <p className="text-sm text-gray-500">Adım adım uygulama rehberi</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
                   {instructions.map((step, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="flex gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-colors"
+                      transition={{ delay: 0.3 + index * 0.08 }}
+                      className="group relative flex gap-4"
                     >
-                      <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">{index + 1}</span>
+                      {/* Step Number */}
+                      <div className="flex-shrink-0 relative">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
+                          <span className="text-sm font-bold text-primary">{index + 1}</span>
+                        </div>
+                        {index < instructions.length - 1 && (
+                          <div className="absolute top-10 left-1/2 -translate-x-1/2 w-px h-[calc(100%-8px)] bg-gradient-to-b from-primary/20 to-transparent" />
+                        )}
                       </div>
-                      <p className="text-sm text-gray-300 leading-relaxed pt-0.5">{step}</p>
+
+                      {/* Step Content */}
+                      <div className="flex-1 pb-4">
+                        <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors">
+                          {step}
+                        </p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
-              </div>
-            </div>
+              </motion.div>
 
-            {/* Right: Info Panel */}
-            <div className="lg:col-span-2 space-y-4">
-              {/* Quick Stats */}
-              <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4">
-                <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-3">Egzersiz Bilgileri</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <StatCard 
-                    icon={Target} 
-                    label="Hedef Kas" 
-                    value={muscleLabels[primaryMuscle] || primaryMuscle}
-                    accent
-                  />
-                  <StatCard 
-                    icon={Dumbbell} 
-                    label="Ekipman" 
-                    value={equipmentLabels[exercise.equipment || ''] || exercise.equipment || 'Yok'}
-                  />
-                  {exercise.force && (
-                    <StatCard 
-                      icon={Zap} 
-                      label="Hareket" 
-                      value={forceLabels[exercise.force] || exercise.force}
-                    />
-                  )}
-                  {exercise.mechanic && (
-                    <StatCard 
-                      icon={Activity} 
-                      label="Tip" 
-                      value={mechanicLabels[exercise.mechanic] || exercise.mechanic}
-                    />
-                  )}
-                </div>
-              </div>
-
-              {/* Primary Muscles */}
-              {exercise.primaryMuscles.length > 0 && (
-                <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4">
-                  <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-3">Hedef Kaslar</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {exercise.primaryMuscles.map((muscle) => (
-                      <span
-                        key={muscle}
-                        className="px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-medium"
-                      >
-                        {muscleLabels[muscle] || muscle}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Secondary Muscles */}
-              {exercise.secondaryMuscles.length > 0 && (
-                <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4">
-                  <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-3">Yardımcı Kaslar</h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {exercise.secondaryMuscles.map((muscle) => (
-                      <span
-                        key={muscle}
-                        className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs"
-                      >
-                        {muscleLabels[muscle] || muscle}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* CTA */}
-              <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 p-4 text-center">
-                <Flame className="w-6 h-6 text-primary mx-auto mb-2" />
-                <h3 className="text-sm font-heading font-bold text-white mb-1">Profesyonel Koçluk</h3>
-                <p className="text-xs text-gray-400 mb-3">Kişisel antrenman programı için</p>
-                <Link href="/paketler">
-                  <Button size="sm" className="bg-primary text-black hover:bg-primary/90 w-full" data-testid="button-cta-packages">
-                    Paketleri İncele
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+              {/* Back Link - Desktop */}
+              <div className="hidden lg:block mt-12 pt-8 border-t border-white/[0.06]">
+                <Link href="/egzersiz-akademisi">
+                  <Button variant="ghost" className="text-gray-400 hover:text-white -ml-4" data-testid="button-back">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Tüm Egzersizlere Dön
                   </Button>
                 </Link>
               </div>
             </div>
-          </div>
 
-          {/* Back Button */}
-          <div className="mt-8 pt-6 border-t border-white/[0.05]">
-            <Link href="/egzersiz-akademisi">
-              <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white" data-testid="button-back">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Tüm Egzersizler
-              </Button>
-            </Link>
+            {/* Right Column - Info Panel */}
+            <div className="lg:col-span-5 xl:col-span-4">
+              <div className="lg:sticky lg:top-28 space-y-6">
+                
+                {/* Title - Desktop Only */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="hidden lg:block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className={`w-2.5 h-2.5 rounded-full ${levelInfo.dotColor}`} />
+                    <span className="text-sm text-gray-400">{levelInfo.label} Seviye</span>
+                    <span className="text-gray-600">•</span>
+                    <span className="text-sm text-gray-400">
+                      {categoryLabels[exercise.category || ''] || exercise.category}
+                    </span>
+                  </div>
+                  <h1 className="text-3xl xl:text-4xl font-heading font-bold text-white leading-tight">
+                    {exercise.name}
+                  </h1>
+                </motion.div>
+
+                {/* Share */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  <ShareButtons 
+                    url={shareUrl}
+                    title={exercise.name}
+                    description={`${exercise.name} egzersizi`}
+                  />
+                </motion.div>
+
+                {/* Quick Stats Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  className="rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.08] overflow-hidden"
+                >
+                  <div className="px-5 py-4 border-b border-white/[0.06]">
+                    <h3 className="text-sm font-medium text-white flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-primary" />
+                      Egzersiz Detayları
+                    </h3>
+                  </div>
+                  
+                  <div className="divide-y divide-white/[0.06]">
+                    {/* Target Muscle */}
+                    <div className="px-5 py-4 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Target className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-sm text-gray-400">Hedef Kas</span>
+                      </div>
+                      <span className="text-sm font-medium text-primary">
+                        {muscleLabels[primaryMuscle] || primaryMuscle}
+                      </span>
+                    </div>
+
+                    {/* Equipment */}
+                    <div className="px-5 py-4 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                          <Dumbbell className="w-4 h-4 text-gray-400" />
+                        </div>
+                        <span className="text-sm text-gray-400">Ekipman</span>
+                      </div>
+                      <span className="text-sm font-medium text-white">
+                        {equipmentLabels[exercise.equipment || ''] || exercise.equipment || 'Yok'}
+                      </span>
+                    </div>
+
+                    {/* Force */}
+                    {exercise.force && (
+                      <div className="px-5 py-4 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                            <Zap className="w-4 h-4 text-gray-400" />
+                          </div>
+                          <span className="text-sm text-gray-400">Hareket Tipi</span>
+                        </div>
+                        <span className="text-sm font-medium text-white">
+                          {forceLabels[exercise.force] || exercise.force}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Mechanic */}
+                    {exercise.mechanic && (
+                      <div className="px-5 py-4 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                            <Activity className="w-4 h-4 text-gray-400" />
+                          </div>
+                          <span className="text-sm text-gray-400">Kategori</span>
+                        </div>
+                        <span className="text-sm font-medium text-white">
+                          {mechanicLabels[exercise.mechanic] || exercise.mechanic}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+
+                {/* Muscles Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="rounded-2xl bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/[0.08] overflow-hidden"
+                >
+                  {/* Primary Muscles */}
+                  <div className="px-5 py-4 border-b border-white/[0.06]">
+                    <h3 className="text-sm font-medium text-white flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                      Çalışan Kaslar
+                    </h3>
+                  </div>
+                  
+                  <div className="p-5 space-y-4">
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Ana Kaslar</p>
+                      <div className="flex flex-wrap gap-2">
+                        {exercise.primaryMuscles.map((muscle) => (
+                          <span
+                            key={muscle}
+                            className="px-3 py-1.5 rounded-lg bg-primary/15 border border-primary/25 text-primary text-sm font-medium"
+                          >
+                            {muscleLabels[muscle] || muscle}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {exercise.secondaryMuscles.length > 0 && (
+                      <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Yardımcı Kaslar</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exercise.secondaryMuscles.map((muscle) => (
+                            <span
+                              key={muscle}
+                              className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-gray-400 text-sm"
+                            >
+                              {muscleLabels[muscle] || muscle}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+
+                {/* CTA Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 }}
+                  className="relative rounded-2xl overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent" />
+                  <div className="absolute inset-0 bg-[#0a0a0a]/80" />
+                  
+                  <div className="relative p-6 text-center">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                      <Flame className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-heading font-bold text-white mb-2">
+                      Profesyonel Koçluk
+                    </h3>
+                    <p className="text-sm text-gray-400 mb-5 max-w-[240px] mx-auto">
+                      Kişiselleştirilmiş antrenman programı ile hedeflerine ulaş
+                    </p>
+                    <Link href="/paketler">
+                      <Button className="bg-primary text-black hover:bg-primary/90 w-full font-semibold" data-testid="button-cta-packages">
+                        Paketleri İncele
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Back Link - Mobile */}
+                <div className="lg:hidden pt-4">
+                  <Link href="/egzersiz-akademisi">
+                    <Button variant="outline" className="w-full border-white/10 text-gray-400 hover:text-white hover:border-white/20" data-testid="button-back-mobile">
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Tüm Egzersizlere Dön
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Bottom Spacing */}
+      <div className="h-16 lg:h-24" />
+
       {/* Image Zoom Modal */}
       <Dialog open={zoomOpen} onOpenChange={setZoomOpen}>
-        <DialogContent className="max-w-3xl w-[95vw] p-0 bg-black/95 border-white/10">
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black/95 border-white/10">
           <button
             onClick={() => setZoomOpen(false)}
-            className="absolute top-3 right-3 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            className="absolute top-4 right-4 z-50 p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"
+            data-testid="button-close-zoom"
           >
             <X className="w-5 h-5 text-white" />
           </button>
           
-          <div className="p-4">
+          <div className="p-6">
             <img
               src={exercise.images[currentImageIndex]}
               alt={exercise.name}
-              className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+              className="w-full h-auto max-h-[75vh] object-contain rounded-xl"
             />
             
             {exercise.images.length > 1 && (
-              <div className="flex justify-center gap-3 mt-4">
+              <div className="flex justify-center gap-4 mt-6">
                 {exercise.images.map((img, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                      currentImageIndex === index ? 'border-primary' : 'border-white/20'
+                    className={`w-24 h-16 rounded-xl overflow-hidden transition-all ${
+                      currentImageIndex === index 
+                        ? 'ring-2 ring-primary ring-offset-2 ring-offset-black' 
+                        : 'opacity-50 hover:opacity-100 border border-white/20'
                     }`}
+                    data-testid={`button-modal-thumbnail-${index}`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
                   </button>
