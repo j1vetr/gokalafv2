@@ -151,17 +151,24 @@ export function isBot(userAgent: string | undefined): boolean {
 }
 
 export function shouldServeSSR(req: Request): boolean {
+  // SSR forced via query parameter (for testing)
+  if (req.query._ssr === "true") {
+    return true;
+  }
+  
   // SSR disabled via query parameter (for debugging)
   if (req.query._ssr === "false") {
     return false;
   }
   
-  // SSR enabled by default for all HTML page requests
-  // This ensures correct meta tags and body content for:
-  // - Search engine crawlers (Google, Bing, etc.)
-  // - Social media crawlers (Facebook, Twitter, etc.)
-  // - Normal browser requests (view-source shows correct content)
-  return true;
+  // In production: SSR for ALL requests (CSS is bundled, no flash)
+  // In development: SSR only for bots (Vite HMR needed for CSS)
+  if (process.env.NODE_ENV === "production") {
+    return true;
+  }
+  
+  // Development mode: only serve SSR for bots
+  return isBot(req.headers["user-agent"]);
 }
 
 type RouteHandler = (req: Request, res: Response) => Promise<void>;
