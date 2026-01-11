@@ -39,71 +39,84 @@ export interface MetaTags {
 const BASE_URL = "https://gokalaf.com";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
+const MINIMAL_ORGANIZATION = {
+  "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
+  "name": "Gokalaf",
+  "url": BASE_URL,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${BASE_URL}/favicon.png`,
+    "width": 512,
+    "height": 512
+  }
+};
+
 export function generateHomeMeta(): MetaTags {
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
-      "name": "Gokalaf",
-      "url": BASE_URL,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/favicon.png`,
-        "width": 512,
-        "height": 512
-      },
-      "image": `${BASE_URL}/og-image.png`,
-      "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
-      "telephone": "+905312822402",
-      "email": "alafcoaching@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "TR",
-        "addressLocality": "Türkiye"
-      },
-      "sameAs": [
-        "https://www.instagram.com/gokalaf",
-        "https://www.youtube.com/@gokalaf",
-        "https://kick.com/gokalaf",
-        "https://twitter.com/gokalaf",
-        "https://www.tiktok.com/@gokalaf"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        "name": "Gokalaf",
+        "url": BASE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/favicon.png`,
+          "width": 512,
+          "height": 512
+        },
+        "image": `${BASE_URL}/og-image.png`,
+        "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
         "telephone": "+905312822402",
-        "contactType": "customer service",
-        "availableLanguage": ["Turkish"]
+        "email": "alafcoaching@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TR",
+          "addressLocality": "Türkiye"
+        },
+        "sameAs": [
+          "https://www.instagram.com/gokalaf",
+          "https://www.youtube.com/@gokalaf",
+          "https://kick.com/gokalaf",
+          "https://twitter.com/gokalaf",
+          "https://www.tiktok.com/@gokalaf"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+905312822402",
+          "contactType": "customer service",
+          "availableLanguage": ["Turkish"]
+        },
+        "foundingDate": "2024",
+        "areaServed": "TR"
       },
-      "foundingDate": "2024",
-      "areaServed": "TR"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": `${BASE_URL}/#website`,
-      "name": "Gokalaf",
-      "url": BASE_URL,
-      "publisher": { "@id": `${BASE_URL}/#organization` },
-      "inLanguage": "tr-TR",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": `${BASE_URL}/araclar?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
+      {
+        "@type": "WebSite",
+        "@id": `${BASE_URL}/#website`,
+        "name": "Gokalaf",
+        "url": BASE_URL,
+        "publisher": { "@id": `${BASE_URL}/#organization` },
+        "inLanguage": "tr-TR",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${BASE_URL}/araclar?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${BASE_URL}/#webpage`,
+        "url": BASE_URL,
+        "name": "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
+        "description": "Gokalaf ile profesyonel online fitness ve vücut geliştirme koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları.",
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
+        "about": { "@id": `${BASE_URL}/#organization` },
+        "inLanguage": "tr-TR"
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/#webpage`,
-      "url": BASE_URL,
-      "name": "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
-      "description": "Gokalaf ile profesyonel online fitness ve vücut geliştirme koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları.",
-      "isPartOf": { "@id": `${BASE_URL}/#website` },
-      "about": { "@id": `${BASE_URL}/#organization` },
-      "inLanguage": "tr-TR"
-    }
-  ]);
+    ]
+  });
 
   return {
     title: "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
@@ -156,27 +169,29 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
     }
   }));
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "OfferCatalog",
-      "@id": `${BASE_URL}/paketler#catalog`,
-      "name": "Gokalaf Online Fitness Koçluk Paketleri",
-      "description": `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri.`,
-      "url": `${BASE_URL}/paketler`,
-      "numberOfOffers": activePackages.length,
-      "itemListElement": offers
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "OfferCatalog",
+        "@id": `${BASE_URL}/paketler#catalog`,
+        "name": "Gokalaf Online Fitness Koçluk Paketleri",
+        "description": `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri.`,
+        "url": `${BASE_URL}/paketler`,
+        "numberOfOffers": activePackages.length,
+        "itemListElement": offers
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      }
+    ]
+  });
 
   return {
     title: "Online Fitness Koçluk Paketleri - Fiyatlar ve İçerikler | Gokalaf",
@@ -230,28 +245,30 @@ export function generateArticlesListMeta(articles: Article[]): MetaTags {
     }
   }));
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "@id": `${BASE_URL}/yazilar#blog`,
-      "name": "Gokalaf Blog - Fitness, Beslenme ve Antrenman Rehberi",
-      "description": `${articleCount} uzman makale ile fitness, beslenme ve sağlık hakkında kapsamlı bilgiler.`,
-      "url": `${BASE_URL}/yazilar`,
-      "publisher": { "@id": `${BASE_URL}/#organization` },
-      "blogPost": blogPosts,
-      "inLanguage": "tr-TR"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "Blog",
+        "@id": `${BASE_URL}/yazilar#blog`,
+        "name": "Gokalaf Blog - Fitness, Beslenme ve Antrenman Rehberi",
+        "description": `${articleCount} uzman makale ile fitness, beslenme ve sağlık hakkında kapsamlı bilgiler.`,
+        "url": `${BASE_URL}/yazilar`,
+        "publisher": { "@id": `${BASE_URL}/#organization` },
+        "blogPost": blogPosts,
+        "inLanguage": "tr-TR"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      }
+    ]
+  });
 
   return {
     title: "Fitness ve Beslenme Yazıları - Uzman Makaleler | Gokalaf Blog",
@@ -301,68 +318,70 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
   
   const wordCount = article.content ? article.content.split(/\s+/).length : 800;
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "@id": `${BASE_URL}/yazilar/${article.slug}#article`,
-      "headline": title,
-      "description": description,
-      "image": {
-        "@type": "ImageObject",
-        "url": ogImage,
-        "width": 1200,
-        "height": 675,
-        "caption": `${title} - ${categoryLabel} rehberi görseli`
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "Article",
+        "@id": `${BASE_URL}/yazilar/${article.slug}#article`,
+        "headline": title,
+        "description": description,
+        "image": {
+          "@type": "ImageObject",
+          "url": ogImage,
+          "width": 1200,
+          "height": 675,
+          "caption": `${title} - ${categoryLabel} rehberi görseli`
+        },
+        "url": `${BASE_URL}/yazilar/${article.slug}`,
+        "datePublished": publishedDate,
+        "dateModified": modifiedDate,
+        "wordCount": wordCount,
+        "author": {
+          "@type": "Person",
+          "name": "Gokalaf Editör",
+          "url": `${BASE_URL}/hakkimizda`,
+          "jobTitle": "Fitness İçerik Editörü"
+        },
+        "publisher": { "@id": `${BASE_URL}/#organization` },
+        "mainEntityOfPage": `${BASE_URL}/yazilar/${article.slug}`,
+        "articleSection": categoryLabel,
+        "inLanguage": "tr-TR",
+        "keywords": keywords,
+        "isAccessibleForFree": true
       },
-      "url": `${BASE_URL}/yazilar/${article.slug}`,
-      "datePublished": publishedDate,
-      "dateModified": modifiedDate,
-      "wordCount": wordCount,
-      "author": {
-        "@type": "Person",
-        "name": "Gokalaf Editör",
-        "url": `${BASE_URL}/hakkimizda`,
-        "jobTitle": "Fitness İçerik Editörü"
-      },
-      "publisher": { "@id": `${BASE_URL}/#organization` },
-      "mainEntityOfPage": `${BASE_URL}/yazilar/${article.slug}`,
-      "articleSection": categoryLabel,
-      "inLanguage": "tr-TR",
-      "keywords": keywords,
-      "isAccessibleForFree": true
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Ana Sayfa",
-          "item": BASE_URL
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Yazılar",
-          "item": `${BASE_URL}/yazilar`
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": categoryLabel,
-          "item": `${BASE_URL}/yazilar?kategori=${article.categoryId || 'fitness'}`
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": title,
-          "item": `${BASE_URL}/yazilar/${article.slug}`
-        }
-      ]
-    }
-  ]);
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Ana Sayfa",
+            "item": BASE_URL
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Yazılar",
+            "item": `${BASE_URL}/yazilar`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": categoryLabel,
+            "item": `${BASE_URL}/yazilar?kategori=${article.categoryId || 'fitness'}`
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": title,
+            "item": `${BASE_URL}/yazilar/${article.slug}`
+          }
+        ]
+      }
+    ]
+  });
 
   return {
     title: `${title} | Gokalaf`,
@@ -387,58 +406,63 @@ export function generateArticleDetailMeta(article: Article): MetaTags {
 }
 
 export function generateAboutMeta(): MetaTags {
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "@id": `${BASE_URL}/hakkimizda#aboutpage`,
-      "name": "Hakkımızda | Gokalaf",
-      "description": "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
-      "url": `${BASE_URL}/hakkimizda`,
-      "mainEntity": { "@id": `${BASE_URL}/#organization` },
-      "inLanguage": "tr-TR"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
-      "name": "Gokalaf",
-      "url": BASE_URL,
-      "logo": `${BASE_URL}/favicon.png`,
-      "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
-      "founder": { "@id": `${BASE_URL}/hakkimizda#person` },
-      "sameAs": [
-        "https://www.instagram.com/gokalaf",
-        "https://www.youtube.com/@gokalaf",
-        "https://kick.com/gokalaf"
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": `${BASE_URL}/hakkimizda#person`,
-      "name": "Göktuğ Alaf",
-      "alternateName": "Gokalaf",
-      "jobTitle": "Founder & Head Coach",
-      "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi. Profesyonel online fitness ve vücut geliştirme koçu.",
-      "url": `${BASE_URL}/hakkimizda`,
-      "image": `${BASE_URL}/goktug-alaf.jpg`,
-      "worksFor": { "@id": `${BASE_URL}/#organization` },
-      "knowsAbout": [
-        "Fitness",
-        "Vücut Geliştirme",
-        "Beslenme",
-        "Antrenman Programı",
-        "Kilo Verme",
-        "Kas Yapma"
-      ],
-      "sameAs": [
-        "https://instagram.com/gokalaf",
-        "https://youtube.com/@gokalaf",
-        "https://kick.com/gokalaf"
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${BASE_URL}/hakkimizda#aboutpage`,
+        "name": "Hakkımızda | Gokalaf",
+        "description": "Gokalaf'ın hikayesi, vizyonu ve fitness felsefesi. Profesyonel online koçluk hizmeti sunan ekibimizi tanıyın.",
+        "url": `${BASE_URL}/hakkimizda`,
+        "mainEntity": { "@id": `${BASE_URL}/#organization` },
+        "inLanguage": "tr-TR"
+      },
+      {
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        "name": "Gokalaf",
+        "url": BASE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/favicon.png`,
+          "width": 512,
+          "height": 512
+        },
+        "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
+        "founder": { "@id": `${BASE_URL}/hakkimizda#person` },
+        "sameAs": [
+          "https://www.instagram.com/gokalaf",
+          "https://www.youtube.com/@gokalaf",
+          "https://kick.com/gokalaf"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": `${BASE_URL}/hakkimizda#person`,
+        "name": "Göktuğ Alaf",
+        "alternateName": "Gokalaf",
+        "jobTitle": "Founder & Head Coach",
+        "description": "6+ yıllık koçluk deneyimi, 1000+ başarılı dönüşüm hikayesi. Profesyonel online fitness ve vücut geliştirme koçu.",
+        "url": `${BASE_URL}/hakkimizda`,
+        "image": `${BASE_URL}/goktug-alaf.jpg`,
+        "worksFor": { "@id": `${BASE_URL}/#organization` },
+        "knowsAbout": [
+          "Fitness",
+          "Vücut Geliştirme",
+          "Beslenme",
+          "Antrenman Programı",
+          "Kilo Verme",
+          "Kas Yapma"
+        ],
+        "sameAs": [
+          "https://instagram.com/gokalaf",
+          "https://youtube.com/@gokalaf",
+          "https://kick.com/gokalaf"
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Göktuğ Alaf Kimdir? | Online Fitness Koçu | Gokalaf",
@@ -520,38 +544,39 @@ export function generateVkiToolMeta(): MetaTags {
     { question: "Çocuklar için VKİ nasıl değerlendirilir?", answer: "Çocuk ve ergenlerde VKİ yaşa ve cinsiyete göre persentil grafikleri kullanılarak değerlendirilir. Yetişkin kategorileri çocuklar için geçerli değildir." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/vki#app`,
-      "name": "VKİ Hesaplayıcı - Vücut Kitle İndeksi",
-      "description": "Vücut kitle indeksinizi (VKİ/BMI) hesaplayın. Boy ve kilonuza göre sağlıklı kilo aralığınızı öğrenin.",
-      "url": `${BASE_URL}/araclar/vki`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "VKİ Hesaplayıcı", "item": `${BASE_URL}/araclar/vki` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/vki#app`,
+        "name": "VKİ Hesaplayıcı - Vücut Kitle İndeksi",
+        "description": "Vücut kitle indeksinizi (VKİ/BMI) hesaplayın. Boy ve kilonuza göre sağlıklı kilo aralığınızı öğrenin.",
+        "url": `${BASE_URL}/araclar/vki`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "VKİ Hesaplayıcı", "item": `${BASE_URL}/araclar/vki` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "VKİ Hesaplayıcı - Vücut Kitle İndeksi (BMI) Hesaplama | Gokalaf",
@@ -580,38 +605,39 @@ export function generateCalorieToolMeta(): MetaTags {
     { question: "Kas yapmak için kaç kalori almalıyım?", answer: "Kas yapmak için günlük kalori ihtiyacınızın 200-300 kalori üzerinde beslenmeli ve yeterli protein almalısınız. Bu kalori fazlası kas yapım sürecini destekler." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/kalori#app`,
-      "name": "Kalori Hesaplayıcı",
-      "description": "Günlük kalori ihtiyacınızı hesaplayın. Kilo vermek, korumak veya almak için gereken kalori miktarını öğrenin.",
-      "url": `${BASE_URL}/araclar/kalori`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplayıcı", "item": `${BASE_URL}/araclar/kalori` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/kalori#app`,
+        "name": "Kalori Hesaplayıcı",
+        "description": "Günlük kalori ihtiyacınızı hesaplayın. Kilo vermek, korumak veya almak için gereken kalori miktarını öğrenin.",
+        "url": `${BASE_URL}/araclar/kalori`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplayıcı", "item": `${BASE_URL}/araclar/kalori` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Kalori Hesaplayıcı - Günlük Kalori İhtiyacı Hesaplama | Gokalaf",
@@ -640,38 +666,39 @@ export function generateTdeeToolMeta(): MetaTags {
     { question: "Aktivite seviyemi nasıl belirlerim?", answer: "Hareketsiz: Masa başı iş, egzersiz yok. Hafif aktif: Haftada 1-3 gün hafif egzersiz. Orta aktif: Haftada 3-5 gün orta yoğunlukta egzersiz. Çok aktif: Haftada 6-7 gün yoğun egzersiz. Aşırı aktif: Günde 2 antrenman veya fiziksel iş." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/tdee#app`,
-      "name": "TDEE Hesaplayıcı",
-      "description": "Toplam Günlük Enerji Harcaması (TDEE) hesaplayıcı. Aktivite seviyenize göre yakmanız gereken kaloriyi öğrenin.",
-      "url": `${BASE_URL}/araclar/tdee`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplayıcı", "item": `${BASE_URL}/araclar/tdee` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/tdee#app`,
+        "name": "TDEE Hesaplayıcı",
+        "description": "Toplam Günlük Enerji Harcaması (TDEE) hesaplayıcı. Aktivite seviyenize göre yakmanız gereken kaloriyi öğrenin.",
+        "url": `${BASE_URL}/araclar/tdee`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplayıcı", "item": `${BASE_URL}/araclar/tdee` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "TDEE Hesaplayıcı - Toplam Günlük Enerji Harcaması | Gokalaf",
@@ -700,38 +727,39 @@ export function generateMacroToolMeta(): MetaTags {
     { question: "Makro hesaplarken nelere dikkat etmeliyim?", answer: "Önce günlük kalori ihtiyacınızı belirleyin. Ardından hedefinize göre makro yüzdeleri seçin. Protein ve yağ ihtiyacınızı sabitleyip kalan kaloriyi karbonhidrata ayırabilirsiniz." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/makro#app`,
-      "name": "Makro Hesaplayıcı",
-      "description": "Günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro besin dağılımını öğrenin.",
-      "url": `${BASE_URL}/araclar/makro`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Makro Hesaplayıcı", "item": `${BASE_URL}/araclar/makro` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/makro#app`,
+        "name": "Makro Hesaplayıcı",
+        "description": "Günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro besin dağılımını öğrenin.",
+        "url": `${BASE_URL}/araclar/makro`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Makro Hesaplayıcı", "item": `${BASE_URL}/araclar/makro` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Makro Hesaplayıcı - Protein, Karbonhidrat, Yağ Hesaplama | Gokalaf",
@@ -759,38 +787,39 @@ export function generateIdealKiloToolMeta(): MetaTags {
     { question: "İdeal kilomdan uzaksam ne yapmalıyım?", answer: "Öncelikle sağlıklı ve sürdürülebilir bir plan oluşturun. Haftada 0.5-1 kg kayıp veya artış hedefleyin. Beslenme ve egzersiz dengesi kurarak kademeli değişiklikler yapın." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/ideal-kilo#app`,
-      "name": "İdeal Kilo Hesaplayıcı",
-      "description": "Boyunuza ve cinsiyetinize göre ideal kilonuzu hesaplayın. Devine, Robinson, Miller ve Hamwi formülleriyle sonuç alın.",
-      "url": `${BASE_URL}/araclar/ideal-kilo`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "İdeal Kilo Hesaplayıcı", "item": `${BASE_URL}/araclar/ideal-kilo` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/ideal-kilo#app`,
+        "name": "İdeal Kilo Hesaplayıcı",
+        "description": "Boyunuza ve cinsiyetinize göre ideal kilonuzu hesaplayın. Devine, Robinson, Miller ve Hamwi formülleriyle sonuç alın.",
+        "url": `${BASE_URL}/araclar/ideal-kilo`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "İdeal Kilo Hesaplayıcı", "item": `${BASE_URL}/araclar/ideal-kilo` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "İdeal Kilo Hesaplayıcı - Boy ve Cinsiyete Göre | Gokalaf",
@@ -819,38 +848,39 @@ export function generateVucutYagiToolMeta(): MetaTags {
     { question: "Vücut yağ oranını düşürmek için ne yapmalıyım?", answer: "Kalori açığı oluşturun, yeterli protein alın, direnç antrenmanı yapın ve yeterli uyuyun. Haftada %0.5-1 yağ kaybı sağlıklı bir hedeftir." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/vucut-yagi#app`,
-      "name": "Vücut Yağ Oranı Hesaplayıcı",
-      "description": "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
-      "url": `${BASE_URL}/araclar/vucut-yagi`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Vücut Yağ Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/vucut-yagi` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/vucut-yagi#app`,
+        "name": "Vücut Yağ Oranı Hesaplayıcı",
+        "description": "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
+        "url": `${BASE_URL}/araclar/vucut-yagi`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Vücut Yağ Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/vucut-yagi` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Vücut Yağ Oranı Hesaplayıcı - US Navy Formülü | Gokalaf",
@@ -879,38 +909,39 @@ export function generateOneRepMaxToolMeta(): MetaTags {
     { question: "1RM hesaplamak için ideal tekrar sayısı nedir?", answer: "3-5 tekrar en doğru sonucu verir. 10 tekrarın üzerindeki setlerde hata payı artar. Mümkünse ağır bir setle test edin." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/bir-tekrar-max#app`,
-      "name": "One Rep Max (1RM) Hesaplayıcı",
-      "description": "Kaldırdığınız ağırlık ve tekrar sayısından maksimum kaldırma kapasiteni hesaplayın.",
-      "url": `${BASE_URL}/araclar/bir-tekrar-max`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "1RM Hesaplayıcı", "item": `${BASE_URL}/araclar/bir-tekrar-max` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/bir-tekrar-max#app`,
+        "name": "One Rep Max (1RM) Hesaplayıcı",
+        "description": "Kaldırdığınız ağırlık ve tekrar sayısından maksimum kaldırma kapasiteni hesaplayın.",
+        "url": `${BASE_URL}/araclar/bir-tekrar-max`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "1RM Hesaplayıcı", "item": `${BASE_URL}/araclar/bir-tekrar-max` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "One Rep Max (1RM) Hesaplayıcı - Maksimum Güç | Gokalaf",
@@ -939,38 +970,39 @@ export function generateSuTuketimiToolMeta(): MetaTags {
     { question: "Kahve ve çay su yerine geçer mi?", answer: "Kafeinli içecekler hafif diüretik etkiye sahiptir ancak günlük sıvı alımına katkıda bulunur. Yine de saf su içmek en iyisidir." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/su-tuketimi#app`,
-      "name": "Su İhtiyacı Hesaplayıcı",
-      "description": "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
-      "url": `${BASE_URL}/araclar/su-tuketimi`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/su-tuketimi#app`,
+        "name": "Su İhtiyacı Hesaplayıcı",
+        "description": "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
+        "url": `${BASE_URL}/araclar/su-tuketimi`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Su İhtiyacı Hesaplayıcı - Günlük Su Tüketimi | Gokalaf",
@@ -999,38 +1031,39 @@ export function generateKalpAtisiToolMeta(): MetaTags {
     { question: "Kalp atış hızı nasıl ölçülür?", answer: "Bileğinizden veya boynunuzdan nabzınızı sayın. 15 saniye sayıp 4 ile çarpın. Akıllı saatler ve göğüs bantları daha doğru sürekli ölçüm sağlar." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/kalp-atisi#app`,
-      "name": "Kalp Hızı Bölgeleri Hesaplayıcı",
-      "description": "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın. Yağ yakımı, aerobik ve anaerobik bölgelerini öğrenin.",
-      "url": `${BASE_URL}/araclar/kalp-atisi`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Kalp Hızı Bölgeleri", "item": `${BASE_URL}/araclar/kalp-atisi` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/kalp-atisi#app`,
+        "name": "Kalp Hızı Bölgeleri Hesaplayıcı",
+        "description": "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın. Yağ yakımı, aerobik ve anaerobik bölgelerini öğrenin.",
+        "url": `${BASE_URL}/araclar/kalp-atisi`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Kalp Hızı Bölgeleri", "item": `${BASE_URL}/araclar/kalp-atisi` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Kalp Hızı Bölgeleri Hesaplayıcı - Antrenman Bölgeleri | Gokalaf",
@@ -1059,38 +1092,39 @@ export function generateProteinToolMeta(): MetaTags {
     { question: "Protein eksikliği belirtileri nelerdir?", answer: "Kas kaybı, yorgunluk, saç dökülmesi, yavaş yara iyileşmesi, zayıf bağışıklık, sürekli açlık hissi protein eksikliği belirtileri olabilir." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/protein#app`,
-      "name": "Protein İhtiyacı Hesaplayıcı",
-      "description": "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
-      "url": `${BASE_URL}/araclar/protein`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/protein#app`,
+        "name": "Protein İhtiyacı Hesaplayıcı",
+        "description": "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
+        "url": `${BASE_URL}/araclar/protein`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Protein İhtiyacı Hesaplayıcı - Günlük Protein | Gokalaf",
@@ -1119,38 +1153,39 @@ export function generateDinlenmeToolMeta(): MetaTags {
     { question: "Aktif dinlenme nedir?", answer: "Aktif dinlenme, setler arasında tamamen durgunluk yerine hafif hareket yapmaktır. Kan dolaşımını artırır ve toparlanmayı hızlandırabilir." }
   ];
 
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": `${BASE_URL}/araclar/dinlenme#app`,
-      "name": "Dinlenme Süresi Hesaplayıcı",
-      "description": "Antrenman tipinize göre ideal set arası dinlenme sürenizi öğrenin.",
-      "url": `${BASE_URL}/araclar/dinlenme`,
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "provider": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqItems.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-      }))
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-        { "@type": "ListItem", "position": 3, "name": "Dinlenme Süresi Hesaplayıcı", "item": `${BASE_URL}/araclar/dinlenme` }
-      ]
-    }
-  ]);
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/dinlenme#app`,
+        "name": "Dinlenme Süresi Hesaplayıcı",
+        "description": "Antrenman tipinize göre ideal set arası dinlenme sürenizi öğrenin.",
+        "url": `${BASE_URL}/araclar/dinlenme`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Dinlenme Süresi Hesaplayıcı", "item": `${BASE_URL}/araclar/dinlenme` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: "Dinlenme Süresi Hesaplayıcı - Set Arası Dinlenme | Gokalaf",
@@ -1353,67 +1388,66 @@ export function generateExerciseDetailMeta(exercise: Exercise): MetaTags {
     }
   }));
 
-  // Schema yapısı: Article (ana) + HowTo (destekleyici) + BreadcrumbList
-  // ExerciseAction/AnatomicalStructure kaldırıldı (SERP etkisi yok)
-  // Organization ayrı değil, Article.publisher içinde
-  const schema = JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#article`,
-      "headline": `${exercise.name} - Doğru Teknik ve Talimatlar`,
-      "description": `${exercise.name} egzersizi nasıl yapılır? ${instructions.length} adımda doğru teknik. Hedef: ${muscles}. Seviye: ${level}. Set/Tekrar: 3-4 set, 8-12 tekrar.`,
-      "image": {
-        "@type": "ImageObject",
-        "url": imageUrl,
-        "width": 1200,
-        "height": 675
+  // Schema yapısı: @graph wrapper + Organization + Article + HowTo + BreadcrumbList
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "Article",
+        "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#article`,
+        "headline": `${exercise.name} - Doğru Teknik ve Talimatlar`,
+        "description": `${exercise.name} egzersizi nasıl yapılır? ${instructions.length} adımda doğru teknik. Hedef: ${muscles}. Seviye: ${level}. Set/Tekrar: 3-4 set, 8-12 tekrar.`,
+        "image": {
+          "@type": "ImageObject",
+          "url": imageUrl,
+          "width": 1200,
+          "height": 675
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Gokalaf Editör",
+          "url": `${BASE_URL}/hakkimizda`,
+          "jobTitle": "Fitness İçerik Editörü"
+        },
+        "publisher": { "@id": `${BASE_URL}/#organization` },
+        "datePublished": "2024-01-01T00:00:00+03:00",
+        "dateModified": new Date().toISOString(),
+        "mainEntityOfPage": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
+        "articleSection": "Egzersiz Rehberi",
+        "wordCount": instructions.join(" ").split(" ").length + 200,
+        "inLanguage": "tr-TR"
       },
-      "author": {
-        "@type": "Person",
-        "name": "Gokalaf Editör",
-        "url": `${BASE_URL}/hakkimizda`,
-        "jobTitle": "Fitness İçerik Editörü"
+      {
+        "@type": "HowTo",
+        "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
+        "name": `${exercise.name} Nasıl Yapılır?`,
+        "description": `${exercise.name} egzersizi için adım adım rehber. Hedef kaslar: ${muscles}. Önerilen: 3-4 set, 8-12 tekrar, 60-90 sn dinlenme.`,
+        "image": {
+          "@type": "ImageObject",
+          "url": imageUrl,
+          "width": 800,
+          "height": 600
+        },
+        "totalTime": "PT5M",
+        "tool": exercise.equipment ? [{
+          "@type": "HowToTool",
+          "name": exercise.equipment
+        }] : [],
+        "step": steps,
+        "inLanguage": "tr-TR"
       },
-      "publisher": { "@id": `${BASE_URL}/#organization` },
-      "datePublished": "2024-01-01T00:00:00+03:00",
-      "dateModified": new Date().toISOString(),
-      "mainEntityOfPage": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}`,
-      "articleSection": "Egzersiz Rehberi",
-      "wordCount": instructions.join(" ").split(" ").length + 200,
-      "inLanguage": "tr-TR"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "@id": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}#howto`,
-      "name": `${exercise.name} Nasıl Yapılır?`,
-      "description": `${exercise.name} egzersizi için adım adım rehber. Hedef kaslar: ${muscles}. Önerilen: 3-4 set, 8-12 tekrar, 60-90 sn dinlenme.`,
-      "image": {
-        "@type": "ImageObject",
-        "url": imageUrl,
-        "width": 800,
-        "height": 600
-      },
-      "totalTime": "PT5M",
-      "tool": exercise.equipment ? [{
-        "@type": "HowToTool",
-        "name": exercise.equipment
-      }] : [],
-      "step": steps,
-      "inLanguage": "tr-TR"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Egzersiz Akademisi", "item": `${BASE_URL}/egzersiz-akademisi` },
-        { "@type": "ListItem", "position": 3, "name": muscleLabel, "item": `${BASE_URL}/egzersiz-akademisi?muscle=${primaryMuscle}` },
-        { "@type": "ListItem", "position": 4, "name": exercise.name, "item": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}` }
-      ]
-    }
-  ]);
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Egzersiz Akademisi", "item": `${BASE_URL}/egzersiz-akademisi` },
+          { "@type": "ListItem", "position": 3, "name": muscleLabel, "item": `${BASE_URL}/egzersiz-akademisi?muscle=${primaryMuscle}` },
+          { "@type": "ListItem", "position": 4, "name": exercise.name, "item": `${BASE_URL}/egzersiz-akademisi/${exercise.slug}` }
+        ]
+      }
+    ]
+  });
 
   return {
     title: `${exercise.name} - Egzersiz Rehberi | Gokalaf`,
