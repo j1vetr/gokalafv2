@@ -123,37 +123,22 @@ export default function BoyKiloEndeksiCalculator() {
         canonical="/araclar/boy-kilo-endeksi"
         schema={{
           "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebApplication",
-              "name": "Boy Kilo Endeksi Hesaplayıcı",
-              "url": "https://gokalaf.com/araclar/boy-kilo-endeksi",
-              "applicationCategory": "HealthApplication",
-              "operatingSystem": "Web",
-              "description": "Boyunuza göre ideal kilonuzu hesaplayın ve sağlık durumunuzu değerlendirin.",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "TRY"
-              },
-              "author": {
-                "@type": "Organization",
-                "name": "Gokalaf",
-                "url": "https://gokalaf.com"
-              }
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": boyKiloEndeksiFAQs.map(faq => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": faq.answer
-                }
-              }))
-            }
-          ]
+          "@type": "WebApplication",
+          "name": "Boy Kilo Endeksi Hesaplayıcı",
+          "url": "https://gokalaf.com/araclar/boy-kilo-endeksi",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "description": "Boyunuza göre ideal kilonuzu hesaplayın ve sağlık durumunuzu değerlendirin.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Gokalaf",
+            "url": "https://gokalaf.com"
+          }
         }}
       />
       
