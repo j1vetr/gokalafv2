@@ -726,6 +726,47 @@ export function renderDinlenmeTool(): string {
   `;
 }
 
+export function renderBoyKiloEndeksiTool(): string {
+  const faqItems = [
+    { q: "Boy kilo endeksi nedir?", a: "Boy kilo endeksi, vücut ağırlığınızın boyunuzla olan ilişkisini gösteren bir sağlık göstergesidir. Kilonuzun boyunuzun karesine bölünmesiyle hesaplanır." },
+    { q: "Boy kilo endeksi nasıl yorumlanır?", a: "18.5 altı düşük kilolu, 18.5-24.9 arası sağlıklı, 25-29.9 arası kilolu, 30 ve üzeri ise obez kategorisindedir." },
+    { q: "Boy kilo endeksim düşük çıktı, ne anlama gelir?", a: "Yetersiz beslenme veya düşük vücut kütlesi anlamına gelebilir. Dengeli beslenme ile sağlıklı kilo alımı hedeflenebilir." },
+    { q: "Boy kilo endeksi yüksek olanlar ne yapmalı?", a: "Günlük 300-500 kalori açığı oluşturun, haftada en az 150 dakika egzersiz yapın, işlenmiş gıdalardan kaçının." },
+    { q: "Kaslı bireyler için boy kilo endeksi doğru mu?", a: "Hayır, kas kütlesi ile yağ kütlesini ayırt edemez. Sporcular için vücut yağ oranı ölçümü daha doğru sonuç verir." }
+  ];
+
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <a href="/" style="color: #a3a3a3; text-decoration: none;">Ana Sayfa</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <a href="/araclar" style="color: #a3a3a3; text-decoration: none;">Araçlar</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <span style="color: #ccff00;">Boy Kilo Endeksi</span>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Boy Kilo Endeksi Hesaplama</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Boyunuza göre ideal kilonuzda olup olmadığınızı öğrenin. Boy kilo endeksi hesaplayıcımız ile 
+          sağlık durumunuzu değerlendirin ve hedeflerinize ulaşmak için doğru adımları atın.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1.5rem;">Sıkça Sorulan Sorular</h2>
+          ${faqItems.map(faq => `
+            <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 0.75rem;">
+              <h3 style="color: #ccff00; font-size: 1.1rem; margin-bottom: 0.75rem;">${escapeHtml(faq.q)}</h3>
+              <p style="color: #a3a3a3; line-height: 1.7;">${escapeHtml(faq.a)}</p>
+            </div>
+          `).join('')}
+        </section>
+      </main>
+    </div>
+  `;
+}
+
 export function render404(): string {
   return `
     <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center;">

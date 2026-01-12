@@ -35,6 +35,7 @@ const WaterIntakeCalculator = lazy(() => import("@/pages/calculators/WaterIntake
 const HeartRateZonesCalculator = lazy(() => import("@/pages/calculators/HeartRateZonesCalculator"));
 const ProteinIntakeCalculator = lazy(() => import("@/pages/calculators/ProteinIntakeCalculator"));
 const RestTimerCalculator = lazy(() => import("@/pages/calculators/RestTimerCalculator"));
+const BoyKiloEndeksiCalculator = lazy(() => import("@/pages/calculators/BoyKiloEndeksiCalculator"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const KVKK = lazy(() => import("@/pages/legal/KVKK"));
 const CancellationPolicy = lazy(() => import("@/pages/legal/CancellationPolicy"));
@@ -228,6 +229,7 @@ function AppContent() {
             <Route path="/araclar/kalp-atisi" component={HeartRateZonesCalculator} />
             <Route path="/araclar/protein" component={ProteinIntakeCalculator} />
             <Route path="/araclar/dinlenme" component={RestTimerCalculator} />
+            <Route path="/araclar/boy-kilo-endeksi" component={BoyKiloEndeksiCalculator} />
             <Route path="/paketler" component={Packages} />
             <Route path="/yazilar" component={Articles} />
             <Route path="/yazilar/:slug" component={ArticleDetail} />

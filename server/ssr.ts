@@ -20,6 +20,7 @@ import {
   generateKalpAtisiToolMeta,
   generateProteinToolMeta,
   generateDinlenmeToolMeta,
+  generateBoyKiloEndeksiToolMeta,
   generateExercisesListMeta,
   generateExerciseDetailMeta,
   injectMeta,
@@ -43,6 +44,7 @@ import {
   renderKalpAtisiTool,
   renderProteinTool,
   renderDinlenmeTool,
+  renderBoyKiloEndeksiTool,
   renderExercisesList,
   renderExerciseDetail,
   render404,
@@ -243,6 +245,10 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleDinlenmeTool,
   },
   {
+    pattern: /^\/araclar\/boy-kilo-endeksi\/?$/,
+    handler: handleBoyKiloEndeksiTool,
+  },
+  {
     pattern: /^\/egzersiz-akademisi\/?$/,
     handler: handleExercisesList,
   },
@@ -389,6 +395,12 @@ async function handleProteinTool(req: Request, res: Response): Promise<void> {
 async function handleDinlenmeTool(req: Request, res: Response): Promise<void> {
   const meta = generateDinlenmeToolMeta();
   const body = renderDinlenmeTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleBoyKiloEndeksiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateBoyKiloEndeksiToolMeta();
+  const body = renderBoyKiloEndeksiTool();
   sendSSRResponse(res, meta, body);
 }
 

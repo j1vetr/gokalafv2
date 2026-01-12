@@ -484,6 +484,7 @@ export function generateAboutMeta(): MetaTags {
 
 export function generateToolsMeta(): MetaTags {
   const tools = [
+    { name: "Boy Kilo Endeksi", desc: "Boyunuza göre ideal kilonuzda mısınız", path: "boy-kilo-endeksi" },
     { name: "VKİ Hesaplayıcı", desc: "Vücut kitle indeksinizi hesaplayın", path: "vki" },
     { name: "Kalori Hesaplayıcı", desc: "Günlük kalori ihtiyacınızı hesaplayın", path: "kalori" },
     { name: "TDEE Hesaplayıcı", desc: "Toplam günlük enerji harcamanızı hesaplayın", path: "tdee" },
@@ -1201,6 +1202,67 @@ export function generateDinlenmeToolMeta(): MetaTags {
     twitterDescription: "Antrenman tipinize göre ideal dinlenme sürenizi öğrenin.",
     twitterImage: DEFAULT_OG_IMAGE,
     canonical: `${BASE_URL}/araclar/dinlenme`,
+    schema,
+  };
+}
+
+export function generateBoyKiloEndeksiToolMeta(): MetaTags {
+  const faqItems = [
+    { question: "Boy kilo endeksi nedir?", answer: "Boy kilo endeksi, vücut ağırlığınızın boyunuzla olan ilişkisini gösteren bir sağlık göstergesidir. Kilonuzun (kg) boyunuzun metre cinsinden karesine bölünmesiyle hesaplanır." },
+    { question: "Boy kilo endeksi nasıl yorumlanır?", answer: "18.5 altı düşük kilolu, 18.5-24.9 arası sağlıklı, 25-29.9 arası kilolu, 30 ve üzeri ise obez kategorisindedir." },
+    { question: "Boy kilo endeksim düşük çıktı, ne anlama gelir?", answer: "18.5'in altındaki değer yetersiz beslenme veya düşük vücut kütlesi anlamına gelebilir. Bağışıklık zayıflığı, kemik erimesi riski gibi sorunlara yol açabilir." },
+    { question: "Boy kilo endeksi yüksek olanlar ne yapmalı?", answer: "Günlük 300-500 kalori açığı oluşturun, haftada en az 150 dakika egzersiz yapın. Kademeli kilo kaybı (haftada 0.5-1 kg) en sürdürülebilir yöntemdir." },
+    { question: "Kaslı bireyler için boy kilo endeksi doğru mu?", answer: "Hayır, boy kilo endeksi kas kütlesi ile yağ kütlesini ayırt edemez. Sporcular için vücut yağ oranı ölçümü daha doğru sonuç verir." }
+  ];
+
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/boy-kilo-endeksi#app`,
+        "name": "Boy Kilo Endeksi Hesaplayıcı",
+        "description": "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın ve sağlık durumunuzu değerlendirin.",
+        "url": `${BASE_URL}/araclar/boy-kilo-endeksi`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Boy Kilo Endeksi Hesaplayıcı", "item": `${BASE_URL}/araclar/boy-kilo-endeksi` }
+        ]
+      }
+    ]
+  });
+
+  return {
+    title: "Boy Kilo Endeksi Hesaplama | Ücretsiz BKE Hesaplayıcı - Gokalaf",
+    description: "Ücretsiz boy kilo endeksi hesaplama aracı ile boyunuza göre ideal kilonuzda olup olmadığınızı öğrenin. Online BKE hesaplayıcı ile sağlık durumunuzu değerlendirin.",
+    keywords: "boy kilo endeksi, boy kilo endeksi hesaplama, bke hesaplama, boy kilo oranı, boyuma göre kilom, ideal kilo hesaplama, sağlıklı kilo",
+    ogTitle: "Boy Kilo Endeksi Hesaplama | Gokalaf",
+    ogDescription: "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın.",
+    ogImage: DEFAULT_OG_IMAGE,
+    ogUrl: `${BASE_URL}/araclar/boy-kilo-endeksi`,
+    ogType: "website",
+    twitterCard: "summary_large_image",
+    twitterTitle: "Boy Kilo Endeksi Hesaplayıcı | Gokalaf",
+    twitterDescription: "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın.",
+    twitterImage: DEFAULT_OG_IMAGE,
+    canonical: `${BASE_URL}/araclar/boy-kilo-endeksi`,
     schema,
   };
 }

@@ -8,6 +8,7 @@ interface CalculatorItem {
 }
 
 const allCalculators: CalculatorItem[] = [
+  { slug: "boy-kilo-endeksi", name: "Boy Kilo Endeksi", description: "Boyunuza göre ideal kilonuzda mısınız?" },
   { slug: "vki", name: "Vücut Kitle İndeksi (BMI)", description: "Boy-kilo oranınızı hesaplayın" },
   { slug: "kalori", name: "Kalori Hesaplama", description: "Günlük kalori ihtiyacınızı öğrenin" },
   { slug: "tdee", name: "TDEE Hesaplama", description: "Toplam günlük enerji harcamanız" },
