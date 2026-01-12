@@ -93,42 +93,43 @@ export async function registerRoutes(
     const baseUrl = "https://gokalaf.com";
     const staticPages = [
       { loc: "/", priority: "1.0", changefreq: "weekly" },
-      { loc: "/hakkimizda", priority: "0.8", changefreq: "monthly" },
-      { loc: "/paketler", priority: "0.9", changefreq: "weekly" },
-      { loc: "/yazilar", priority: "0.8", changefreq: "weekly" },
-      { loc: "/egzersiz-akademisi", priority: "0.9", changefreq: "weekly" },
-      { loc: "/araclar", priority: "0.8", changefreq: "monthly" },
-      { loc: "/araclar/vki", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/kalori", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/tdee", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/makro", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/ideal-kilo", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/vucut-yagi", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/bir-tekrar-max", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/su-tuketimi", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/kalp-atisi", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/protein", priority: "0.7", changefreq: "monthly" },
-      { loc: "/araclar/dinlenme", priority: "0.7", changefreq: "monthly" },
-      { loc: "/giris", priority: "0.6", changefreq: "monthly" },
-      { loc: "/kayit", priority: "0.6", changefreq: "monthly" },
-      { loc: "/gizlilik", priority: "0.3", changefreq: "yearly" },
+      { loc: "/paketler", priority: "0.95", changefreq: "weekly" },
+      { loc: "/hakkimizda", priority: "0.9", changefreq: "monthly" },
+      { loc: "/yazilar", priority: "0.9", changefreq: "daily" },
+      { loc: "/araclar", priority: "0.9", changefreq: "weekly" },
+      { loc: "/araclar/boy-kilo-endeksi", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/vki", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/kalori", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/tdee", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/makro", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/ideal-kilo", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/vucut-yagi", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/bir-tekrar-max", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/su-tuketimi", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/kalp-atisi", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/protein", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/dinlenme", priority: "0.95", changefreq: "monthly" },
+      { loc: "/egzersiz-akademisi", priority: "0.8", changefreq: "weekly" },
+      { loc: "/giris", priority: "0.5", changefreq: "monthly" },
+      { loc: "/kayit", priority: "0.5", changefreq: "monthly" },
+      { loc: "/gizlilik-politikasi", priority: "0.3", changefreq: "yearly" },
       { loc: "/kvkk", priority: "0.3", changefreq: "yearly" },
       { loc: "/iptal-iade", priority: "0.3", changefreq: "yearly" },
-      { loc: "/mesafeli-satis", priority: "0.3", changefreq: "yearly" },
+      { loc: "/mesafeli-satis-sozlesmesi", priority: "0.3", changefreq: "yearly" },
     ];
 
     try {
       const articles = await storage.getPublishedArticles();
       const articlePages = articles.map(a => ({
           loc: `/yazilar/${a.slug}`,
-          priority: "0.7",
+          priority: "0.95",
           changefreq: "monthly",
         }));
 
       const exercises = await storage.getAllExerciseSlugs();
       const exercisePages = exercises.map(slug => ({
         loc: `/egzersiz-akademisi/${slug}`,
-        priority: "0.6",
+        priority: "0.7",
         changefreq: "monthly",
       }));
 
