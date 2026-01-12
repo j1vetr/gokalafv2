@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Activity, Utensils, Zap, Scale, ArrowRight, Target, Percent, Dumbbell, Droplets, Heart, Timer, Beef } from "lucide-react";
+import { Activity, Utensils, Zap, Scale, ArrowRight, Target, Percent, Dumbbell, Droplets, Heart, Timer, Beef, Ruler } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
@@ -13,23 +13,33 @@ export default function Tools() {
     "url": "https://gokalaf.com/araclar",
     "mainEntity": {
       "@type": "ItemList",
-      "numberOfItems": 11,
+      "numberOfItems": 12,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "BMI Hesaplama", "url": "https://gokalaf.com/araclar/vucut-kitle-indeksi" },
-        { "@type": "ListItem", "position": 2, "name": "Kalori Hesaplama", "url": "https://gokalaf.com/araclar/kalori-hesaplama" },
-        { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplama", "url": "https://gokalaf.com/araclar/tdee-hesaplama" },
-        { "@type": "ListItem", "position": 4, "name": "Makro Hesaplama", "url": "https://gokalaf.com/araclar/makro-hesaplama" },
-        { "@type": "ListItem", "position": 5, "name": "İdeal Kilo", "url": "https://gokalaf.com/araclar/ideal-kilo" },
-        { "@type": "ListItem", "position": 6, "name": "Vücut Yağ Oranı", "url": "https://gokalaf.com/araclar/vucut-yag-orani" },
-        { "@type": "ListItem", "position": 7, "name": "1RM Hesaplama", "url": "https://gokalaf.com/araclar/one-rep-max" },
-        { "@type": "ListItem", "position": 8, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi" },
-        { "@type": "ListItem", "position": 9, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atis-hizi" },
-        { "@type": "ListItem", "position": 10, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein-ihtiyaci" },
-        { "@type": "ListItem", "position": 11, "name": "Bel-Kalça Oranı", "url": "https://gokalaf.com/araclar/bel-kalca-orani" }
+        { "@type": "ListItem", "position": 1, "name": "Boy Kilo Endeksi", "url": "https://gokalaf.com/araclar/boy-kilo-endeksi" },
+        { "@type": "ListItem", "position": 2, "name": "BMI Hesaplama", "url": "https://gokalaf.com/araclar/vki" },
+        { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplama", "url": "https://gokalaf.com/araclar/kalori" },
+        { "@type": "ListItem", "position": 4, "name": "TDEE Hesaplama", "url": "https://gokalaf.com/araclar/tdee" },
+        { "@type": "ListItem", "position": 5, "name": "Makro Hesaplama", "url": "https://gokalaf.com/araclar/makro" },
+        { "@type": "ListItem", "position": 6, "name": "İdeal Kilo", "url": "https://gokalaf.com/araclar/ideal-kilo" },
+        { "@type": "ListItem", "position": 7, "name": "Vücut Yağ Oranı", "url": "https://gokalaf.com/araclar/vucut-yagi" },
+        { "@type": "ListItem", "position": 8, "name": "1RM Hesaplama", "url": "https://gokalaf.com/araclar/bir-tekrar-max" },
+        { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi" },
+        { "@type": "ListItem", "position": 10, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atisi" },
+        { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein" },
+        { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme" }
       ]
     }
   };
   const tools = [
+    {
+      id: "boy-kilo-endeksi",
+      title: "Boy Kilo Endeksi",
+      desc: "Boyunuza göre ideal kilonuzda olup olmadığınızı öğrenin.",
+      icon: <Ruler className="w-8 h-8" />,
+      category: "Sağlık",
+      path: "/araclar/boy-kilo-endeksi",
+      color: "emerald"
+    },
     {
       id: "bmi",
       title: "Vücut Kitle İndeksi",
@@ -165,7 +175,7 @@ export default function Tools() {
         title="Ücretsiz Fitness Hesaplayıcıları | BMI, Kalori, TDEE, Makro | Gokalaf"
         description="11 farklı ücretsiz fitness hesaplayıcısı: BMI, kalori ihtiyacı, TDEE, makro besin değerleri, ideal kilo, vücut yağ oranı, 1RM, su tüketimi, kalp atış hızı bölgeleri, protein ihtiyacı hesaplama araçları. Bilimsel formüllerle anında sonuç alın."
         keywords="fitness hesaplayıcı, BMI hesaplama, kalori hesaplama, TDEE hesaplama, makro hesaplama, ideal kilo hesaplama, vücut yağ oranı, 1RM hesaplama, su ihtiyacı, kalp atış hızı, protein ihtiyacı, ücretsiz fitness araçları, online hesaplayıcı"
-        canonicalUrl="https://gokalaf.com/araclar"
+        canonical="/araclar"
         schema={toolsSchema}
       />
       <div className="min-h-screen pt-32 pb-12 bg-[#050505]">
