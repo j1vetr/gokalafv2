@@ -10,7 +10,7 @@ interface FAQItem {
 interface CalculatorFAQProps {
   title: string;
   faqs: FAQItem[];
-  schemaUrl: string;
+  schemaUrl?: string;
 }
 
 export default function CalculatorFAQ({ title, faqs, schemaUrl }: CalculatorFAQProps) {

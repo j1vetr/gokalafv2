@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Activity, Utensils, Zap, Scale, ArrowRight, Target, Percent, Dumbbell, Droplets, Heart, Timer, Beef, Ruler } from "lucide-react";
+import { Activity, Utensils, Zap, Scale, ArrowRight, Target, Percent, Dumbbell, Droplets, Heart, Timer, Beef, Ruler, User, CircleDot } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
@@ -13,7 +13,7 @@ export default function Tools() {
     "url": "https://gokalaf.com/araclar",
     "mainEntity": {
       "@type": "ItemList",
-      "numberOfItems": 12,
+      "numberOfItems": 14,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Boy Kilo Endeksi", "url": "https://gokalaf.com/araclar/boy-kilo-endeksi" },
         { "@type": "ListItem", "position": 2, "name": "BMI Hesaplama", "url": "https://gokalaf.com/araclar/vki" },
@@ -26,7 +26,9 @@ export default function Tools() {
         { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi" },
         { "@type": "ListItem", "position": 10, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atisi" },
         { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein" },
-        { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme" }
+        { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme" },
+        { "@type": "ListItem", "position": 13, "name": "Bel Kalça Oranı", "url": "https://gokalaf.com/araclar/bel-kalca-orani" },
+        { "@type": "ListItem", "position": 14, "name": "Vücut Tipi Belirleme", "url": "https://gokalaf.com/araclar/vucut-tipi" }
       ]
     }
   };
@@ -138,6 +140,24 @@ export default function Tools() {
       category: "Antrenman",
       path: "/araclar/dinlenme",
       color: "teal"
+    },
+    {
+      id: "bel-kalca-orani",
+      title: "Bel Kalça Oranı",
+      desc: "Karın yağlanmanızı ölçün ve sağlık riskinizi değerlendirin.",
+      icon: <CircleDot className="w-8 h-8" />,
+      category: "Sağlık",
+      path: "/araclar/bel-kalca-orani",
+      color: "rose"
+    },
+    {
+      id: "vucut-tipi",
+      title: "Vücut Tipi Belirleme",
+      desc: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
+      icon: <User className="w-8 h-8" />,
+      category: "Genetik",
+      path: "/araclar/vucut-tipi",
+      color: "amber"
     }
   ];
 

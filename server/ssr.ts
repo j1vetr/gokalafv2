@@ -21,6 +21,8 @@ import {
   generateProteinToolMeta,
   generateDinlenmeToolMeta,
   generateBoyKiloEndeksiToolMeta,
+  generateBelKalcaOraniToolMeta,
+  generateVucutTipiToolMeta,
   generateExercisesListMeta,
   generateExerciseDetailMeta,
   injectMeta,
@@ -45,6 +47,8 @@ import {
   renderProteinTool,
   renderDinlenmeTool,
   renderBoyKiloEndeksiTool,
+  renderBelKalcaOraniTool,
+  renderVucutTipiTool,
   renderExercisesList,
   renderExerciseDetail,
   render404,
@@ -249,6 +253,14 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleBoyKiloEndeksiTool,
   },
   {
+    pattern: /^\/araclar\/bel-kalca-orani\/?$/,
+    handler: handleBelKalcaOraniTool,
+  },
+  {
+    pattern: /^\/araclar\/vucut-tipi\/?$/,
+    handler: handleVucutTipiTool,
+  },
+  {
     pattern: /^\/egzersiz-akademisi\/?$/,
     handler: handleExercisesList,
   },
@@ -401,6 +413,18 @@ async function handleDinlenmeTool(req: Request, res: Response): Promise<void> {
 async function handleBoyKiloEndeksiTool(req: Request, res: Response): Promise<void> {
   const meta = generateBoyKiloEndeksiToolMeta();
   const body = renderBoyKiloEndeksiTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleBelKalcaOraniTool(req: Request, res: Response): Promise<void> {
+  const meta = generateBelKalcaOraniToolMeta();
+  const body = renderBelKalcaOraniTool();
+  sendSSRResponse(res, meta, body);
+}
+
+async function handleVucutTipiTool(req: Request, res: Response): Promise<void> {
+  const meta = generateVucutTipiToolMeta();
+  const body = renderVucutTipiTool();
   sendSSRResponse(res, meta, body);
 }
 

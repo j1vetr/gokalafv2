@@ -109,6 +109,8 @@ export async function registerRoutes(
       { loc: "/araclar/kalp-atisi", priority: "0.95", changefreq: "monthly" },
       { loc: "/araclar/protein", priority: "0.95", changefreq: "monthly" },
       { loc: "/araclar/dinlenme", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/bel-kalca-orani", priority: "0.95", changefreq: "monthly" },
+      { loc: "/araclar/vucut-tipi", priority: "0.95", changefreq: "monthly" },
       { loc: "/egzersiz-akademisi", priority: "0.8", changefreq: "weekly" },
       { loc: "/giris", priority: "0.5", changefreq: "monthly" },
       { loc: "/kayit", priority: "0.5", changefreq: "monthly" },

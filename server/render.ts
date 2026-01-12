@@ -767,6 +767,88 @@ export function renderBoyKiloEndeksiTool(): string {
   `;
 }
 
+export function renderBelKalcaOraniTool(): string {
+  const faqItems = [
+    { q: "Bel kalça oranı nedir?", a: "Bel kalça oranı, bel çevrenizin kalça çevrenize bölünmesiyle hesaplanan bir sağlık göstergesidir. Karın bölgesindeki yağlanmayı ölçer." },
+    { q: "Bel kalça oranı nasıl ölçülür?", a: "Bel çevresi göbek hizasından, kalça çevresi kalçaların en geniş noktasından ölçülür. Her iki ölçüm de ayakta yapılmalıdır." },
+    { q: "İdeal bel kalça oranı kaç olmalı?", a: "Erkeklerde 0.90'ın altında, kadınlarda 0.85'in altında olmalıdır. Bu değerlerin üzerinde sağlık riski artar." },
+    { q: "Bel kalça oranı neden önemli?", a: "Karın bölgesindeki yağ kalp hastalığı ve diyabet riskini artırır. Bu oran BMI'dan daha güvenilir bir sağlık göstergesidir." },
+    { q: "Elma ve armut vücut tipi ne demek?", a: "Elma tipi: Yağ karında toplanır, risk yüksektir. Armut tipi: Yağ kalça ve bacaklarda toplanır, daha sağlıklıdır." }
+  ];
+
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <a href="/" style="color: #a3a3a3; text-decoration: none;">Ana Sayfa</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <a href="/araclar" style="color: #a3a3a3; text-decoration: none;">Araçlar</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <span style="color: #ccff00;">Bel Kalça Oranı</span>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Bel Kalça Oranı Hesaplama</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Karın bölgesindeki yağlanmanızı ölçün ve sağlık riskinizi değerlendirin. 
+          Bel kalça oranı hesaplayıcımız ile elma veya armut vücut tipinizi öğrenin.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1.5rem;">Sıkça Sorulan Sorular</h2>
+          ${faqItems.map(faq => `
+            <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 0.75rem;">
+              <h3 style="color: #ccff00; font-size: 1.1rem; margin-bottom: 0.75rem;">${escapeHtml(faq.q)}</h3>
+              <p style="color: #a3a3a3; line-height: 1.7;">${escapeHtml(faq.a)}</p>
+            </div>
+          `).join('')}
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+export function renderVucutTipiTool(): string {
+  const faqItems = [
+    { q: "Vücut tipi nedir?", a: "Vücut tipi (somatotip), insanları üç kategoriye ayıran bir sistem: Ektomorf (ince), Mezomorf (atletik), Endomorf (geniş yapılı)." },
+    { q: "Ektomorf vücut tipi özellikleri?", a: "İnce ve uzun yapılı, hızlı metabolizma, kilo almakta zorlanır, dar omuzlar. Ağır bileşik hareketler önerilir." },
+    { q: "Mezomorf vücut tipi özellikleri?", a: "Atletik yapı, geniş omuz dar bel, kolay kas yapar, güçlü kemik yapısı. Dengeli program idealdir." },
+    { q: "Endomorf vücut tipi özellikleri?", a: "Geniş yapı, yavaş metabolizma, kolay kilo alır. Düzenli kardiyo ve kalori kontrolü önerilir." },
+    { q: "Vücut tipimi değiştirebilir miyim?", a: "Genetik yapınız değişmez ama vücut kompozisyonunuzu değiştirebilirsiniz. Doğru beslenme ve antrenmanla şekil alabilirsiniz." }
+  ];
+
+  return `
+    <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh;">
+      <main style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <nav style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <a href="/" style="color: #a3a3a3; text-decoration: none;">Ana Sayfa</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <a href="/araclar" style="color: #a3a3a3; text-decoration: none;">Araçlar</a>
+          <span style="color: #666; margin: 0 0.5rem;">›</span>
+          <span style="color: #ccff00;">Vücut Tipi Belirleme</span>
+        </nav>
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Vücut Tipi Belirleme</h1>
+        <p style="color: #a3a3a3; margin-bottom: 2rem; line-height: 1.8;">
+          Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin. 
+          Genetik vücut tipinize göre kişiselleştirilmiş antrenman ve beslenme önerileri alın.
+        </p>
+        <div style="background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 1rem; padding: 2rem;">
+          <p style="color: #666; text-align: center;">Hesaplayıcıyı kullanmak için JavaScript'i etkinleştirin.</p>
+        </div>
+        <section style="margin-top: 3rem;">
+          <h2 style="font-size: 1.75rem; color: #fff; margin-bottom: 1.5rem;">Sıkça Sorulan Sorular</h2>
+          ${faqItems.map(faq => `
+            <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 0.75rem;">
+              <h3 style="color: #ccff00; font-size: 1.1rem; margin-bottom: 0.75rem;">${escapeHtml(faq.q)}</h3>
+              <p style="color: #a3a3a3; line-height: 1.7;">${escapeHtml(faq.a)}</p>
+            </div>
+          `).join('')}
+        </section>
+      </main>
+    </div>
+  `;
+}
+
 export function render404(): string {
   return `
     <div class="ssr-content" style="background-color: #050505; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center;">

@@ -20,6 +20,8 @@ const allCalculators: CalculatorItem[] = [
   { slug: "bir-tekrar-max", name: "1RM Hesaplama", description: "Maksimum kaldırabileceğiniz ağırlık" },
   { slug: "kalp-atisi", name: "Kalp Atış Hızı", description: "Antrenman kalp hızı bölgeleriniz" },
   { slug: "dinlenme", name: "Dinlenme Süresi", description: "Set arası dinlenme zamanlayıcı" },
+  { slug: "bel-kalca-orani", name: "Bel Kalça Oranı", description: "Karın yağlanması ve sağlık riski" },
+  { slug: "vucut-tipi", name: "Vücut Tipi", description: "Ektomorf, mezomorf, endomorf testi" },
 ];
 
 interface RelatedCalculatorsProps {

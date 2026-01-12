@@ -1267,6 +1267,128 @@ export function generateBoyKiloEndeksiToolMeta(): MetaTags {
   };
 }
 
+export function generateBelKalcaOraniToolMeta(): MetaTags {
+  const faqItems = [
+    { question: "Bel kalça oranı nedir?", answer: "Bel kalça oranı (BKO), bel çevrenizin kalça çevrenize bölünmesiyle hesaplanan bir sağlık göstergesidir. Vücuttaki yağ dağılımını ve karın bölgesindeki yağlanmayı ölçer." },
+    { question: "Bel kalça oranı nasıl ölçülür?", answer: "Bel çevresi göbek hizasından, kalça çevresi kalçaların en geniş noktasından ölçülür. Her iki ölçüm de ayakta, rahat nefes alırken mezura ile yapılmalıdır." },
+    { question: "İdeal bel kalça oranı kaç olmalı?", answer: "Dünya Sağlık Örgütü'ne göre erkeklerde 0.90'ın altında, kadınlarda 0.85'in altında olmalıdır. Bu değerlerin üzerinde sağlık riski artar." },
+    { question: "Bel kalça oranı neden BMI'dan daha önemli?", answer: "BMI sadece boy-kilo ilişkisini ölçerken, bel kalça oranı yağın vücutta nerede toplandığını gösterir. Karın yağı kalp hastalığı ve diyabet riskini artırır." },
+    { question: "Elma ve armut vücut tipi ne demek?", answer: "Elma tipi: Yağ karın bölgesinde toplanır, sağlık riski fazladır. Armut tipi: Yağ kalça ve bacaklarda toplanır, daha sağlıklıdır." }
+  ];
+
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/bel-kalca-orani#app`,
+        "name": "Bel Kalça Oranı Hesaplayıcı",
+        "description": "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
+        "url": `${BASE_URL}/araclar/bel-kalca-orani`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Bel Kalça Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/bel-kalca-orani` }
+        ]
+      }
+    ]
+  });
+
+  return {
+    title: "Bel Kalça Oranı Hesaplama | Sağlık Risk Değerlendirmesi - Gokalaf",
+    description: "Ücretsiz bel kalça oranı hesaplayıcı ile karın yağlanmanızı ölçün ve sağlık riskinizi değerlendirin. Online BKO hesaplama aracı.",
+    keywords: "bel kalça oranı, bel kalça oranı hesaplama, BKO hesaplama, karın yağı, sağlık riski, elma tipi vücut, armut tipi vücut, waist hip ratio",
+    ogTitle: "Bel Kalça Oranı Hesaplama | Gokalaf",
+    ogDescription: "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
+    ogImage: DEFAULT_OG_IMAGE,
+    ogUrl: `${BASE_URL}/araclar/bel-kalca-orani`,
+    ogType: "website",
+    twitterCard: "summary_large_image",
+    twitterTitle: "Bel Kalça Oranı Hesaplayıcı | Gokalaf",
+    twitterDescription: "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
+    twitterImage: DEFAULT_OG_IMAGE,
+    canonical: `${BASE_URL}/araclar/bel-kalca-orani`,
+    schema,
+  };
+}
+
+export function generateVucutTipiToolMeta(): MetaTags {
+  const faqItems = [
+    { question: "Vücut tipi (somatotip) nedir?", answer: "Vücut tipi, insanları üç temel kategoriye ayıran bir sınıflandırma sistemidir: Ektomorf (ince yapılı), Mezomorf (atletik yapılı) ve Endomorf (geniş yapılı)." },
+    { question: "Ektomorf vücut tipi özellikleri nelerdir?", answer: "Ektomorflar ince ve uzun yapılı, hızlı metabolizmaya sahip, kilo almakta zorlanan, dar omuzlu bireylerdir. Ağır bileşik hareketler ve yüksek kalori alımı önerilir." },
+    { question: "Mezomorf vücut tipi özellikleri nelerdir?", answer: "Mezomorflar atletik ve kaslı yapılı, geniş omuz dar belli, kolay kas yapabilen, güçlü kemik yapısına sahip bireylerdir." },
+    { question: "Endomorf vücut tipi özellikleri nelerdir?", answer: "Endomorflar geniş yapılı, yavaş metabolizmalı, kolay kilo alan, güçlü bacak kaslarına sahip bireylerdir. Düzenli kardiyo ve kalori kontrolü önerilir." },
+    { question: "Vücut tipimi değiştirebilir miyim?", answer: "Genetik yapınız değişmez ancak vücut kompozisyonunuzu değiştirebilirsiniz. Doğru beslenme ve antrenman ile yağ yakabilir veya kas yapabilirsiniz." }
+  ];
+
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      MINIMAL_ORGANIZATION,
+      {
+        "@type": "WebApplication",
+        "@id": `${BASE_URL}/araclar/vucut-tipi#app`,
+        "name": "Vücut Tipi Belirleme Aracı",
+        "description": "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin ve kişiselleştirilmiş antrenman önerileri alın.",
+        "url": `${BASE_URL}/araclar/vucut-tipi`,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "isAccessibleForFree": true,
+        "provider": { "@id": `${BASE_URL}/#organization` }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
+          { "@type": "ListItem", "position": 3, "name": "Vücut Tipi Belirleme", "item": `${BASE_URL}/araclar/vucut-tipi` }
+        ]
+      }
+    ]
+  });
+
+  return {
+    title: "Vücut Tipi Belirleme | Ektomorf Mezomorf Endomorf Testi - Gokalaf",
+    description: "Ücretsiz vücut tipi testi ile ektomorf, mezomorf veya endomorf olduğunuzu öğrenin. Genetik yapınıza uygun antrenman ve beslenme önerileri alın.",
+    keywords: "vücut tipi, vücut tipi testi, ektomorf, mezomorf, endomorf, somatotip, genetik yapı, vücut tipi hesaplama, vücut tipi belirleme",
+    ogTitle: "Vücut Tipi Belirleme Testi | Gokalaf",
+    ogDescription: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
+    ogImage: DEFAULT_OG_IMAGE,
+    ogUrl: `${BASE_URL}/araclar/vucut-tipi`,
+    ogType: "website",
+    twitterCard: "summary_large_image",
+    twitterTitle: "Vücut Tipi Belirleme | Gokalaf",
+    twitterDescription: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
+    twitterImage: DEFAULT_OG_IMAGE,
+    canonical: `${BASE_URL}/araclar/vucut-tipi`,
+    schema,
+  };
+}
+
 export function injectMeta(html: string, meta: MetaTags): string {
   let result = html;
 
