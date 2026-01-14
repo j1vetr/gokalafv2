@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Check, HelpCircle, Trophy, TrendingUp, Loader2 } from "lucide-react";
+import { Check, HelpCircle, Trophy, TrendingUp, Loader2, AlertTriangle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
@@ -100,7 +100,7 @@ export default function Packages() {
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "TRY",
-      "availability": "https://schema.org/InStock",
+      "availability": "https://schema.org/OutOfStock",
       "offerCount": 4
     }
   };
@@ -124,6 +124,27 @@ export default function Packages() {
       />
       <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
         <div className="container mx-auto px-4">
+
+        {/* TEMPORARY SALES CLOSED BANNER */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-2xl mx-auto mb-8"
+        >
+          <div className="bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border border-amber-500/30 rounded-xl p-6 text-center backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                <AlertTriangle className="w-6 h-6 text-amber-500" />
+              </div>
+            </div>
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-amber-500 uppercase mb-2">
+              Geçici Olarak Satış Kapalıdır
+            </h2>
+            <p className="text-gray-400 text-sm max-w-md mx-auto">
+              Yoğun talep nedeniyle şu anda yeni üye kabul etmiyoruz. En kısa sürede tekrar açılacaktır. Anlayışınız için teşekkür ederiz.
+            </p>
+          </div>
+        </motion.div>
         
         {/* HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-5">
@@ -214,11 +235,13 @@ export default function Packages() {
                   ))}
                 </div>
 
-                <Link href={`/odeme?weeks=${selectedDuration}`}>
-                  <Button className="w-full h-9 text-sm font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_12px_rgba(204,255,0,0.15)] hover:shadow-[0_0_18px_rgba(204,255,0,0.25)] transition-all transform hover:-translate-y-0.5" data-testid="button-buy">
-                    Satın Al
-                  </Button>
-                </Link>
+                <Button 
+                  disabled
+                  className="w-full h-9 text-sm font-bold uppercase tracking-wide relative z-10 bg-gray-600 text-gray-400 cursor-not-allowed opacity-60" 
+                  data-testid="button-buy"
+                >
+                  Satış Kapalı
+                </Button>
               </div>
             </motion.div>
           </AnimatePresence>
