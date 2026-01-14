@@ -137,12 +137,9 @@ export default function Packages() {
                 <AlertTriangle className="w-6 h-6 text-amber-500" />
               </div>
             </div>
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-amber-500 uppercase mb-2">
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-amber-500 uppercase">
               Geçici Olarak Satış Kapalıdır
             </h2>
-            <p className="text-gray-400 text-sm max-w-md mx-auto">
-              Yoğun talep nedeniyle şu anda yeni üye kabul etmiyoruz. En kısa sürede tekrar açılacaktır. Anlayışınız için teşekkür ederiz.
-            </p>
           </div>
         </motion.div>
         
