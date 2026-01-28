@@ -694,6 +694,17 @@ export default function AdminDashboard() {
                 </button>
                 </nav>
 
+              <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Pazarlama</p>
+              <nav className="space-y-2">
+                <button
+                  onClick={() => setLocation("/gokadmin/email-pazarlama")}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
+                  data-testid="nav-email-marketing"
+                >
+                  <Mail size={18} /> E-mail Pazarlama
+                </button>
+              </nav>
+
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
                 <div 
                   className={`flex items-center justify-between p-3 rounded-lg border transition-all ${maintenanceMode ? "bg-orange-500/20 border-orange-500/30" : "bg-white/5 border-white/10"}`}
