@@ -1036,6 +1036,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         price: z.string().optional(),
         features: z.array(z.string()).optional(),
         isActive: z.boolean().optional(),
+        isPopular: z.boolean().optional(),
       }).parse(req.body);
 
       const updatedPackage = await storage.updatePackage(req.params.id, updateData);
