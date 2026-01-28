@@ -31,6 +31,8 @@ import type {
   InsertArticle,
   Exercise,
   InsertExercise,
+  EmailCampaign,
+  InsertEmailCampaign,
 } from "@shared/schema";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
@@ -164,6 +166,13 @@ export interface IStorage {
   createArticle(article: InsertArticle): Promise<Article>;
   updateArticle(id: string, updates: Partial<InsertArticle>): Promise<Article | undefined>;
   deleteArticle(id: string): Promise<boolean>;
+
+  // Email Campaigns
+  getEmailCampaigns(): Promise<EmailCampaign[]>;
+  getEmailCampaign(id: string): Promise<EmailCampaign | undefined>;
+  createEmailCampaign(campaign: InsertEmailCampaign): Promise<EmailCampaign>;
+  updateEmailCampaign(id: string, updates: Partial<EmailCampaign>): Promise<EmailCampaign | undefined>;
+  getUsersByFilter(filter: string): Promise<{ id: string; email: string; fullName: string }[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -935,6 +944,69 @@ export class DatabaseStorage implements IStorage {
       .where(eq(schema.exercises.id, id))
       .returning();
     return result;
+  }
+
+  // EMAIL CAMPAIGNS
+  async getEmailCampaigns(): Promise<schema.EmailCampaign[]> {
+    return db.select().from(schema.emailCampaigns).orderBy(desc(schema.emailCampaigns.createdAt));
+  }
+
+  async getEmailCampaign(id: string): Promise<schema.EmailCampaign | undefined> {
+    const [campaign] = await db.select().from(schema.emailCampaigns).where(eq(schema.emailCampaigns.id, id)).limit(1);
+    return campaign;
+  }
+
+  async createEmailCampaign(campaign: schema.InsertEmailCampaign): Promise<schema.EmailCampaign> {
+    const [result] = await db.insert(schema.emailCampaigns).values(campaign).returning();
+    return result;
+  }
+
+  async updateEmailCampaign(id: string, updates: Partial<schema.EmailCampaign>): Promise<schema.EmailCampaign | undefined> {
+    const [result] = await db.update(schema.emailCampaigns)
+      .set(updates)
+      .where(eq(schema.emailCampaigns.id, id))
+      .returning();
+    return result;
+  }
+
+  async getUsersByFilter(filter: string): Promise<{ id: string; email: string; fullName: string }[]> {
+    if (filter === "has_package") {
+      const usersWithOrders = await db.selectDistinct({ 
+        id: schema.users.id, 
+        email: schema.users.email, 
+        fullName: schema.users.fullName 
+      })
+        .from(schema.users)
+        .innerJoin(schema.orders, eq(schema.users.id, schema.orders.userId))
+        .where(and(
+          eq(schema.users.role, "user"),
+          sql`${schema.orders.status} IN ('paid', 'active', 'completed')`
+        ));
+      return usersWithOrders;
+    } else if (filter === "no_package") {
+      const allUsers = await db.select({ 
+        id: schema.users.id, 
+        email: schema.users.email, 
+        fullName: schema.users.fullName 
+      })
+        .from(schema.users)
+        .where(eq(schema.users.role, "user"));
+      
+      const userIdsWithOrders = await db.selectDistinct({ userId: schema.orders.userId })
+        .from(schema.orders)
+        .where(sql`${schema.orders.status} IN ('paid', 'active', 'completed')`);
+      
+      const idsWithOrders = new Set(userIdsWithOrders.map(u => u.userId));
+      return allUsers.filter(u => !idsWithOrders.has(u.id));
+    } else {
+      return db.select({ 
+        id: schema.users.id, 
+        email: schema.users.email, 
+        fullName: schema.users.fullName 
+      })
+        .from(schema.users)
+        .where(eq(schema.users.role, "user"));
+    }
   }
 }
 
