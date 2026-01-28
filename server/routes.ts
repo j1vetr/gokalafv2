@@ -1945,7 +1945,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
           await storage.updateEmailCampaign(campaign.id, { sentCount, failedCount });
 
           if (i < users.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 10000));
+            await new Promise(resolve => setTimeout(resolve, 60000));
           }
         }
 
