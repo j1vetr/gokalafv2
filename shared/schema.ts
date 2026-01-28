@@ -319,6 +319,35 @@ export const insertArticleSchema = createInsertSchema(articles).omit({
 export type InsertArticle = z.infer<typeof insertArticleSchema>;
 export type Article = typeof articles.$inferSelect;
 
+// EMAIL CAMPAIGNS TABLE (toplu email kampanyaları)
+export const emailCampaigns = pgTable("email_campaigns", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  subject: text("subject").notNull(),
+  content: text("content").notNull(), // HTML content
+  filter: text("filter").notNull().default("all"), // all, has_package, no_package
+  status: text("status").notNull().default("draft"), // draft, sending, completed, failed
+  totalRecipients: integer("total_recipients").default(0).notNull(),
+  sentCount: integer("sent_count").default(0).notNull(),
+  failedCount: integer("failed_count").default(0).notNull(),
+  createdBy: varchar("created_by").references(() => users.id),
+  startedAt: timestamp("started_at"),
+  completedAt: timestamp("completed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertEmailCampaignSchema = createInsertSchema(emailCampaigns).omit({
+  id: true,
+  sentCount: true,
+  failedCount: true,
+  startedAt: true,
+  completedAt: true,
+  createdAt: true,
+});
+
+export type InsertEmailCampaign = z.infer<typeof insertEmailCampaignSchema>;
+export type EmailCampaign = typeof emailCampaigns.$inferSelect;
+
 // EXERCISES TABLE (egzersiz akademisi)
 export const exercises = pgTable("exercises", {
   id: varchar("id").primaryKey(), // from the JSON (e.g., "Barbell_Curl")
