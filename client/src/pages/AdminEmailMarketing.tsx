@@ -135,8 +135,16 @@ export default function AdminEmailMarketing() {
   }
 
   if (!isAdmin) {
-    setLocation("/gokadmin");
-    return null;
+    return (
+      <div className="min-h-screen pt-32 pb-12 bg-[#050505] flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-400 mb-4">Bu sayfaya erişim yetkiniz yok</p>
+          <Button onClick={() => setLocation("/gokadmin")} className="bg-primary text-black">
+            Admin Girişi
+          </Button>
+        </div>
+      </div>
+    );
   }
 
   const users: EmailUser[] = usersData?.users || [];
