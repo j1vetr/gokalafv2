@@ -21,6 +21,7 @@ export default function Checkout() {
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [acceptedPolicy, setAcceptedPolicy] = useState(false);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -173,10 +174,26 @@ export default function Checkout() {
                     </div>
                   </div>
 
+                  <label className="flex items-start gap-3 mb-6 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={acceptedPolicy}
+                      onChange={(e) => setAcceptedPolicy(e.target.checked)}
+                      className="mt-1 w-5 h-5 rounded border-white/20 bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer"
+                      data-testid="checkbox-policy"
+                    />
+                    <span className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                      Kişiye özel hazırlanan koçluk hizmeti kapsamında cayma hakkımın bulunmadığını ve hizmete hemen başlanacağını kabul ediyorum. 
+                      <Link href="/iptal-iade" className="text-primary hover:underline ml-1" target="_blank">
+                        İade Politikası
+                      </Link>
+                    </span>
+                  </label>
+
                   <Button 
                     onClick={handleCheckout}
-                    disabled={isProcessing}
-                    className="w-full h-14 bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase text-lg mb-4"
+                    disabled={isProcessing || !acceptedPolicy}
+                    className="w-full h-14 bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase text-lg mb-4 disabled:opacity-50 disabled:cursor-not-allowed"
                     data-testid="button-checkout"
                   >
                     {isProcessing ? (
