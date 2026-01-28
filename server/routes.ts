@@ -1821,5 +1821,162 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
     }
   });
 
+  // ===== ADMIN EMAIL MARKETING API =====
+  app.get("/api/admin/email/users", requireAdmin, async (req, res) => {
+    try {
+      const filter = (req.query.filter as string) || "all";
+      const users = await storage.getUsersByFilter(filter);
+      res.json({ users });
+    } catch (error) {
+      console.error("Email users fetch error:", error);
+      res.status(500).json({ error: "Kullanıcılar yüklenemedi" });
+    }
+  });
+
+  app.get("/api/admin/email/campaigns", requireAdmin, async (req, res) => {
+    try {
+      const campaigns = await storage.getEmailCampaigns();
+      res.json({ campaigns });
+    } catch (error) {
+      console.error("Campaigns fetch error:", error);
+      res.status(500).json({ error: "Kampanyalar yüklenemedi" });
+    }
+  });
+
+  app.post("/api/admin/email/send-single", requireAdmin, async (req, res) => {
+    try {
+      const { userId, email, subject, content } = req.body;
+      
+      if (!email || !subject || !content) {
+        return res.status(400).json({ error: "Email, konu ve içerik gerekli" });
+      }
+
+      const nodemailer = await import("nodemailer");
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST || "mail.toov.com.tr",
+        port: 465,
+        secure: true,
+        auth: {
+          user: process.env.SMTP_USER || "no-reply@toov.com.tr",
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: '"Gokalaf Coaching" <no-reply@toov.com.tr>',
+        to: email,
+        subject: subject,
+        html: content,
+      });
+
+      res.json({ success: true, message: "Email gönderildi" });
+    } catch (error: any) {
+      console.error("Single email send error:", error);
+      res.status(500).json({ error: "Email gönderilemedi: " + error.message });
+    }
+  });
+
+  app.post("/api/admin/email/send-bulk", requireAdmin, async (req, res) => {
+    try {
+      const { filter, subject, content, campaignName } = req.body;
+      
+      if (!subject || !content) {
+        return res.status(400).json({ error: "Konu ve içerik gerekli" });
+      }
+
+      const users = await storage.getUsersByFilter(filter || "all");
+      
+      if (users.length === 0) {
+        return res.status(400).json({ error: "Gönderilecek kullanıcı bulunamadı" });
+      }
+
+      const campaign = await storage.createEmailCampaign({
+        name: campaignName || `Kampanya - ${new Date().toLocaleDateString('tr-TR')}`,
+        subject,
+        content,
+        filter: filter || "all",
+        totalRecipients: users.length,
+        createdBy: req.session?.userId,
+      });
+
+      await storage.updateEmailCampaign(campaign.id, { 
+        status: "sending",
+        startedAt: new Date()
+      });
+
+      const nodemailer = await import("nodemailer");
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST || "mail.toov.com.tr",
+        port: 465,
+        secure: true,
+        auth: {
+          user: process.env.SMTP_USER || "no-reply@toov.com.tr",
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      res.json({ 
+        success: true, 
+        message: `${users.length} kişiye email gönderimi başlatıldı`,
+        campaignId: campaign.id,
+        totalRecipients: users.length
+      });
+
+      (async () => {
+        let sentCount = 0;
+        let failedCount = 0;
+
+        for (let i = 0; i < users.length; i++) {
+          const user = users[i];
+          try {
+            await transporter.sendMail({
+              from: '"Gokalaf Coaching" <no-reply@toov.com.tr>',
+              to: user.email,
+              subject: subject,
+              html: content.replace(/\{\{fullName\}\}/g, user.fullName),
+            });
+            sentCount++;
+            console.log(`✉️ Bulk email sent: ${user.email} (${sentCount}/${users.length})`);
+          } catch (error: any) {
+            failedCount++;
+            console.error(`❌ Bulk email failed: ${user.email}`, error.message);
+          }
+
+          await storage.updateEmailCampaign(campaign.id, { sentCount, failedCount });
+
+          if (i < users.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 10000));
+          }
+        }
+
+        await storage.updateEmailCampaign(campaign.id, { 
+          status: failedCount === users.length ? "failed" : "completed",
+          completedAt: new Date(),
+          sentCount,
+          failedCount
+        });
+
+        console.log(`📧 Campaign completed: ${sentCount} sent, ${failedCount} failed`);
+      })();
+
+    } catch (error: any) {
+      console.error("Bulk email error:", error);
+      res.status(500).json({ error: "Toplu email gönderilemedi: " + error.message });
+    }
+  });
+
+  app.get("/api/admin/email/campaigns/:id", requireAdmin, async (req, res) => {
+    try {
+      const campaign = await storage.getEmailCampaign(req.params.id);
+      if (!campaign) {
+        return res.status(404).json({ error: "Kampanya bulunamadı" });
+      }
+      res.json(campaign);
+    } catch (error) {
+      console.error("Campaign fetch error:", error);
+      res.status(500).json({ error: "Kampanya yüklenemedi" });
+    }
+  });
+
   return httpServer;
 }
