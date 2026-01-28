@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Check, HelpCircle, Trophy, TrendingUp, Loader2, ChevronDown, ChevronUp, Star } from "lucide-react";
+import { Check, HelpCircle, Trophy, TrendingUp, Loader2 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
@@ -15,12 +15,10 @@ interface Package {
   price: string;
   features: string[];
   isActive: boolean;
-  isPopular: boolean;
 }
 
 export default function Packages() {
   const [selectedDuration, setSelectedDuration] = useState<number>(12);
-  const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const { data: packages = [], isLoading } = useQuery<Package[]>({
     queryKey: ["/api/packages"],
@@ -43,9 +41,9 @@ export default function Packages() {
 
   const durations = activePackages.length > 0
     ? activePackages
-        .map(p => ({ weeks: p.weeks, label: `${p.weeks} Hafta`, isPopular: p.isPopular || false }))
+        .map(p => ({ weeks: p.weeks, label: `${p.weeks} Hafta` }))
         .sort((a, b) => a.weeks - b.weeks)
-    : defaultDurations.map(d => ({ ...d, isPopular: false }));
+    : defaultDurations;
 
   useEffect(() => {
     if (durations.length > 0 && !durations.find(d => d.weeks === selectedDuration)) {
@@ -153,10 +151,7 @@ export default function Packages() {
             {durations.map((d) => (
               <button
                 key={d.weeks}
-                onClick={() => {
-                  setSelectedDuration(d.weeks);
-                  setShowAllFeatures(false);
-                }}
+                onClick={() => setSelectedDuration(d.weeks)}
                 data-testid={`button-duration-${d.weeks}`}
                 className={`flex-1 py-2 px-2 rounded-md text-center transition-all duration-300 relative overflow-hidden group ${
                   selectedDuration === d.weeks 
@@ -164,11 +159,6 @@ export default function Packages() {
                     : "hover:bg-white/5 text-gray-400 hover:text-white"
                 }`}
               >
-                {d.isPopular && (
-                  <div className="absolute -top-0.5 -right-0.5 z-20">
-                    <Star size={10} className="text-yellow-400 fill-yellow-400" />
-                  </div>
-                )}
                 <div className="font-heading font-bold text-sm uppercase relative z-10">{d.label}</div>
               </button>
             ))}
@@ -185,16 +175,9 @@ export default function Packages() {
               transition={{ duration: 0.3 }}
               className="relative rounded-xl p-0.5 bg-gradient-to-b from-primary via-primary/20 to-transparent shadow-[0_0_20px_rgba(204,255,0,0.08)] z-10"
             >
-               {selectedPackage?.isPopular ? (
-                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-yellow-500 to-amber-500 text-black px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-yellow-500/30 border-2 border-[#050505] z-20 flex items-center gap-1.5">
-                    <Star size={12} className="fill-black" />
-                    En Popüler
-                  </div>
-                ) : (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-3 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-md shadow-primary/15 border-2 border-[#050505] z-20">
-                    Normal Plan
-                  </div>
-                )}
+               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-3 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-md shadow-primary/15 border-2 border-[#050505] z-20">
+                  Normal Plan
+                </div>
               
               <div className="bg-[#080808] rounded-[14px] h-full flex flex-col p-4 relative overflow-hidden">
                 {/* Background Glow */}

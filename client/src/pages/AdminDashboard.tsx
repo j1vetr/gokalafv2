@@ -67,7 +67,6 @@ interface PackageInfo {
   price: string;
   features: string[];
   isActive: boolean;
-  isPopular: boolean;
 }
 
 interface DashboardStats {
@@ -136,7 +135,7 @@ export default function AdminDashboard() {
   
   const [editUserForm, setEditUserForm] = useState({ fullName: "", email: "", phone: "", role: "user" });
   const [editOrderForm, setEditOrderForm] = useState({ status: "", startDate: "", endDate: "" });
-  const [editPackageForm, setEditPackageForm] = useState({ name: "", price: "", isActive: true, isPopular: false });
+  const [editPackageForm, setEditPackageForm] = useState({ name: "", price: "", isActive: true });
   
   const [showAssignModal, setShowAssignModal] = useState(false);
   const [assignUserId, setAssignUserId] = useState("");
@@ -605,7 +604,6 @@ export default function AdminDashboard() {
           name: editPackageForm.name || undefined,
           price: editPackageForm.price || undefined,
           isActive: editPackageForm.isActive,
-          isPopular: editPackageForm.isPopular,
         }),
       });
       if (res.ok) {
@@ -1309,7 +1307,6 @@ export default function AdminDashboard() {
                                 name: pkg.name,
                                 price: pkg.price,
                                 isActive: pkg.isActive,
-                                isPopular: pkg.isPopular || false,
                               });
                               setShowPackageModal(true);
                             }}
@@ -2564,17 +2561,6 @@ export default function AdminDashboard() {
                   checked={editPackageForm.isActive}
                   onCheckedChange={(v) => setEditPackageForm({ ...editPackageForm, isActive: v })}
                   data-testid="switch-package-active"
-                />
-              </div>
-              <div className="flex items-center justify-between p-4 bg-primary/5 rounded-xl border border-primary/20">
-                <div>
-                  <Label className="text-primary font-bold">En Popüler</Label>
-                  <p className="text-gray-500 text-xs">Paketler sayfasında öne çıksın mı?</p>
-                </div>
-                <Switch 
-                  checked={editPackageForm.isPopular}
-                  onCheckedChange={(v) => setEditPackageForm({ ...editPackageForm, isPopular: v })}
-                  data-testid="switch-package-popular"
                 />
               </div>
             </div>
