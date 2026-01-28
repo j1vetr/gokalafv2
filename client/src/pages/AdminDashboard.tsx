@@ -16,8 +16,11 @@ import {
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
   ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
-  Ticket, FileText, Database, Wrench
+  Ticket, FileText, Database, Wrench, Send, Filter, Loader2
 } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
 import {
   AreaChart,
   Area,
@@ -152,6 +155,21 @@ export default function AdminDashboard() {
   const [selectedAnalyticsUser, setSelectedAnalyticsUser] = useState<string>("");
   const [userAnalyticsDetails, setUserAnalyticsDetails] = useState<any>(null);
   const [analyticsUserSearch, setAnalyticsUserSearch] = useState("");
+
+  // Email Marketing state
+  const { toast } = useToast();
+  const [emailFilter, setEmailFilter] = useState<string>("all");
+  const [emailSearchQuery, setEmailSearchQuery] = useState("");
+  const [emailUsers, setEmailUsers] = useState<{ id: string; email: string; fullName: string }[]>([]);
+  const [emailCampaigns, setEmailCampaigns] = useState<any[]>([]);
+  const [emailUsersLoading, setEmailUsersLoading] = useState(false);
+  const [showComposeDialog, setShowComposeDialog] = useState(false);
+  const [showSingleEmailDialog, setShowSingleEmailDialog] = useState(false);
+  const [selectedEmailUser, setSelectedEmailUser] = useState<{ id: string; email: string; fullName: string } | null>(null);
+  const [campaignName, setCampaignName] = useState("");
+  const [emailSubject, setEmailSubject] = useState("");
+  const [emailContent, setEmailContent] = useState("");
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
 
   const monthOptions = (() => {
     const options: { value: string; label: string }[] = [];
@@ -348,6 +366,117 @@ export default function AdminDashboard() {
       fetchAnalyticsData();
     }
   }, [activeTab]);
+
+  // Fetch email users when tab or filter changes
+  useEffect(() => {
+    if (activeTab === "email-marketing") {
+      fetchEmailData();
+    }
+  }, [activeTab, emailFilter]);
+
+  const fetchEmailData = async () => {
+    setEmailUsersLoading(true);
+    try {
+      const [usersRes, campaignsRes] = await Promise.all([
+        fetch(`/api/admin/email/users?filter=${emailFilter}`),
+        fetch("/api/admin/email/campaigns")
+      ]);
+      
+      if (usersRes.ok) {
+        const data = await usersRes.json();
+        setEmailUsers(data.users || []);
+      }
+      if (campaignsRes.ok) {
+        const data = await campaignsRes.json();
+        setEmailCampaigns(data.campaigns || []);
+      }
+    } catch (error) {
+      console.error("Email data fetch error:", error);
+    } finally {
+      setEmailUsersLoading(false);
+    }
+  };
+
+  const handleSendBulkEmail = async () => {
+    if (!emailSubject.trim() || !emailContent.trim()) {
+      toast({ title: "Hata", description: "Konu ve içerik gerekli", variant: "destructive" });
+      return;
+    }
+    setIsSendingEmail(true);
+    try {
+      const res = await fetch("/api/admin/email/send-bulk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          filter: emailFilter,
+          subject: emailSubject,
+          content: emailContent,
+          campaignName: campaignName || `Kampanya - ${new Date().toLocaleDateString('tr-TR')}`,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast({ title: "Başarılı", description: data.message });
+        setShowComposeDialog(false);
+        setCampaignName("");
+        setEmailSubject("");
+        setEmailContent("");
+        fetchEmailData();
+      } else {
+        toast({ title: "Hata", description: data.error, variant: "destructive" });
+      }
+    } catch (error: any) {
+      toast({ title: "Hata", description: error.message, variant: "destructive" });
+    } finally {
+      setIsSendingEmail(false);
+    }
+  };
+
+  const handleSendSingleEmail = async () => {
+    if (!selectedEmailUser || !emailSubject.trim() || !emailContent.trim()) {
+      toast({ title: "Hata", description: "Tüm alanlar gerekli", variant: "destructive" });
+      return;
+    }
+    setIsSendingEmail(true);
+    try {
+      const res = await fetch("/api/admin/email/send-single", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: selectedEmailUser.email,
+          subject: emailSubject,
+          content: emailContent,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast({ title: "Başarılı", description: "Email gönderildi" });
+        setShowSingleEmailDialog(false);
+        setSelectedEmailUser(null);
+        setEmailSubject("");
+        setEmailContent("");
+      } else {
+        toast({ title: "Hata", description: data.error, variant: "destructive" });
+      }
+    } catch (error: any) {
+      toast({ title: "Hata", description: error.message, variant: "destructive" });
+    } finally {
+      setIsSendingEmail(false);
+    }
+  };
+
+  const getEmailFilterLabel = (f: string) => {
+    switch (f) {
+      case "has_package": return "Paket Alanlar";
+      case "no_package": return "Paket Almayanlar";
+      default: return "Tüm Kullanıcılar";
+    }
+  };
+
+  const filteredEmailUsers = emailUsers.filter(u => 
+    u.fullName.toLowerCase().includes(emailSearchQuery.toLowerCase()) ||
+    u.email.toLowerCase().includes(emailSearchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     if (selectedAnalyticsUser) {
@@ -696,13 +825,7 @@ export default function AdminDashboard() {
 
               <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Pazarlama</p>
               <nav className="space-y-2">
-                <button
-                  onClick={() => setLocation("/gokadmin/email-pazarlama")}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
-                  data-testid="nav-email-marketing"
-                >
-                  <Mail size={18} /> E-mail Pazarlama
-                </button>
+                <SidebarItem id="email-marketing" icon={Mail} label="E-mail Pazarlama" />
               </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
@@ -1868,10 +1991,343 @@ export default function AdminDashboard() {
                   )}
                 </motion.div>
               )}
+
+              {activeTab === "email-marketing" && (
+                <motion.div
+                  key="email-marketing"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="space-y-6"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div>
+                      <h1 className="text-2xl font-heading font-bold text-white uppercase">E-mail Pazarlama</h1>
+                      <p className="text-gray-500 text-sm mt-1">Kullanıcılara toplu veya tekli email gönderin</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                          <Users size={20} className="text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-gray-500 text-xs uppercase">Toplam Kullanıcı</p>
+                          <p className="text-2xl font-bold text-white">{emailUsers.length}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                          <Filter size={20} className="text-green-400" />
+                        </div>
+                        <div>
+                          <p className="text-gray-500 text-xs uppercase">Filtrelenen</p>
+                          <p className="text-2xl font-bold text-white">{filteredEmailUsers.length}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                          <Mail size={20} className="text-blue-400" />
+                        </div>
+                        <div>
+                          <p className="text-gray-500 text-xs uppercase">Kampanyalar</p>
+                          <p className="text-2xl font-bold text-white">{emailCampaigns.length}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-6">
+                    <div className="flex flex-col md:flex-row gap-4 mb-6">
+                      <div className="flex-1">
+                        <div className="relative">
+                          <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                          <Input
+                            placeholder="İsim veya email ara..."
+                            value={emailSearchQuery}
+                            onChange={(e) => setEmailSearchQuery(e.target.value)}
+                            className="pl-10 bg-black/40 border-white/10"
+                            data-testid="input-email-search"
+                          />
+                        </div>
+                      </div>
+                      
+                      <Select value={emailFilter} onValueChange={setEmailFilter}>
+                        <SelectTrigger className="w-full md:w-[200px] bg-black/40 border-white/10" data-testid="select-email-filter">
+                          <Filter size={16} className="mr-2" />
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">Tüm Kullanıcılar</SelectItem>
+                          <SelectItem value="has_package">Paket Alanlar</SelectItem>
+                          <SelectItem value="no_package">Paket Almayanlar</SelectItem>
+                        </SelectContent>
+                      </Select>
+
+                      <Button
+                        onClick={() => setShowComposeDialog(true)}
+                        className="bg-primary text-black hover:bg-primary/90"
+                        disabled={filteredEmailUsers.length === 0}
+                        data-testid="button-compose-bulk"
+                      >
+                        <Send size={16} className="mr-2" /> Toplu Email Gönder
+                      </Button>
+                    </div>
+
+                    {emailUsersLoading ? (
+                      <div className="flex items-center justify-center py-12">
+                        <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                      </div>
+                    ) : filteredEmailUsers.length === 0 ? (
+                      <div className="text-center py-12 text-gray-500">
+                        <AlertCircle size={40} className="mx-auto mb-3 opacity-50" />
+                        <p>Kullanıcı bulunamadı</p>
+                      </div>
+                    ) : (
+                      <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="border-white/10">
+                              <TableHead className="text-gray-400">Kullanıcı</TableHead>
+                              <TableHead className="text-gray-400">Email</TableHead>
+                              <TableHead className="text-gray-400 text-right">İşlem</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {filteredEmailUsers.map((u) => (
+                              <TableRow key={u.id} className="border-white/10 hover:bg-white/5">
+                                <TableCell>
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                                      <User size={14} className="text-primary" />
+                                    </div>
+                                    <span className="text-white font-medium">{u.fullName}</span>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="text-gray-400">{u.email}</TableCell>
+                                <TableCell className="text-right">
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    onClick={() => {
+                                      setSelectedEmailUser(u);
+                                      setEmailSubject("");
+                                      setEmailContent("");
+                                      setShowSingleEmailDialog(true);
+                                    }}
+                                    className="text-gray-400 hover:text-primary"
+                                    data-testid={`button-send-single-${u.id}`}
+                                  >
+                                    <Mail size={14} className="mr-1" /> Gönder
+                                  </Button>
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-6">
+                    <h2 className="text-lg font-bold text-white mb-4">Kampanya Geçmişi</h2>
+                    
+                    {emailCampaigns.length === 0 ? (
+                      <div className="text-center py-8 text-gray-500">
+                        <Mail size={40} className="mx-auto mb-3 opacity-50" />
+                        <p>Henüz kampanya yok</p>
+                      </div>
+                    ) : (
+                      <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="border-white/10">
+                              <TableHead className="text-gray-400">Kampanya</TableHead>
+                              <TableHead className="text-gray-400">Filtre</TableHead>
+                              <TableHead className="text-gray-400">Durum</TableHead>
+                              <TableHead className="text-gray-400">İlerleme</TableHead>
+                              <TableHead className="text-gray-400">Tarih</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {emailCampaigns.map((c) => (
+                              <TableRow key={c.id} className="border-white/10">
+                                <TableCell>
+                                  <div>
+                                    <p className="text-white font-medium">{c.name}</p>
+                                    <p className="text-gray-500 text-xs">{c.subject}</p>
+                                  </div>
+                                </TableCell>
+                                <TableCell>
+                                  <Badge variant="outline" className="border-white/20 text-gray-400">
+                                    {getEmailFilterLabel(c.filter)}
+                                  </Badge>
+                                </TableCell>
+                                <TableCell>
+                                  {c.status === "completed" ? (
+                                    <Badge className="bg-green-500/20 text-green-400 border-green-500/30"><CheckCircle size={12} className="mr-1" />Tamamlandı</Badge>
+                                  ) : c.status === "sending" ? (
+                                    <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30"><Loader2 size={12} className="mr-1 animate-spin" />Gönderiliyor</Badge>
+                                  ) : c.status === "failed" ? (
+                                    <Badge className="bg-red-500/20 text-red-400 border-red-500/30"><XCircle size={12} className="mr-1" />Başarısız</Badge>
+                                  ) : (
+                                    <Badge className="bg-gray-500/20 text-gray-400 border-gray-500/30"><Clock size={12} className="mr-1" />Bekliyor</Badge>
+                                  )}
+                                </TableCell>
+                                <TableCell>
+                                  <div className="flex items-center gap-2">
+                                    <div className="w-24 h-2 bg-white/10 rounded-full overflow-hidden">
+                                      <div 
+                                        className="h-full bg-primary rounded-full transition-all"
+                                        style={{ width: `${c.totalRecipients > 0 ? (c.sentCount / c.totalRecipients) * 100 : 0}%` }}
+                                      />
+                                    </div>
+                                    <span className="text-gray-400 text-xs">{c.sentCount}/{c.totalRecipients}</span>
+                                  </div>
+                                </TableCell>
+                                <TableCell className="text-gray-400 text-sm">
+                                  {new Date(c.createdAt).toLocaleDateString('tr-TR')}
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </main>
         </div>
       </div>
+
+      {/* Email Marketing Dialogs */}
+      <Dialog open={showComposeDialog} onOpenChange={setShowComposeDialog}>
+        <DialogContent className="bg-[#0A0A0A] border-white/10 max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-white">Toplu Email Gönder</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 text-sm">
+              <p className="text-primary font-medium">
+                {getEmailFilterLabel(emailFilter)} - {filteredEmailUsers.length} kişiye gönderilecek
+              </p>
+              <p className="text-gray-400 text-xs mt-1">
+                Emailler 10 saniye arayla tek tek gönderilecek
+              </p>
+            </div>
+            
+            <div>
+              <Label className="text-gray-400">Kampanya Adı (opsiyonel)</Label>
+              <Input
+                value={campaignName}
+                onChange={(e) => setCampaignName(e.target.value)}
+                placeholder="Örn: Yeni Yıl Kampanyası"
+                className="bg-black/40 border-white/10 mt-1"
+                data-testid="input-campaign-name"
+              />
+            </div>
+            
+            <div>
+              <Label className="text-gray-400">Konu *</Label>
+              <Input
+                value={emailSubject}
+                onChange={(e) => setEmailSubject(e.target.value)}
+                placeholder="Email konusu"
+                className="bg-black/40 border-white/10 mt-1"
+                data-testid="input-email-subject"
+              />
+            </div>
+            
+            <div>
+              <Label className="text-gray-400">İçerik * (HTML desteklenir)</Label>
+              <Textarea
+                value={emailContent}
+                onChange={(e) => setEmailContent(e.target.value)}
+                placeholder="Email içeriği... {{fullName}} ile kişinin adını ekleyebilirsiniz"
+                className="bg-black/40 border-white/10 mt-1 min-h-[200px] font-mono text-sm"
+                data-testid="textarea-email-content"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setShowComposeDialog(false)}>İptal</Button>
+            <Button
+              onClick={handleSendBulkEmail}
+              disabled={isSendingEmail || !emailSubject.trim() || !emailContent.trim()}
+              className="bg-primary text-black hover:bg-primary/90"
+              data-testid="button-send-bulk-confirm"
+            >
+              {isSendingEmail ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send size={16} className="mr-2" />}
+              Gönder
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showSingleEmailDialog} onOpenChange={setShowSingleEmailDialog}>
+        <DialogContent className="bg-[#0A0A0A] border-white/10 max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-white">Email Gönder</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            {selectedEmailUser && (
+              <div className="bg-white/5 border border-white/10 rounded-lg p-3 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <User size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-white font-medium">{selectedEmailUser.fullName}</p>
+                  <p className="text-gray-400 text-sm">{selectedEmailUser.email}</p>
+                </div>
+              </div>
+            )}
+            
+            <div>
+              <Label className="text-gray-400">Konu *</Label>
+              <Input
+                value={emailSubject}
+                onChange={(e) => setEmailSubject(e.target.value)}
+                placeholder="Email konusu"
+                className="bg-black/40 border-white/10 mt-1"
+                data-testid="input-single-email-subject"
+              />
+            </div>
+            
+            <div>
+              <Label className="text-gray-400">İçerik * (HTML desteklenir)</Label>
+              <Textarea
+                value={emailContent}
+                onChange={(e) => setEmailContent(e.target.value)}
+                placeholder="Email içeriği..."
+                className="bg-black/40 border-white/10 mt-1 min-h-[200px] font-mono text-sm"
+                data-testid="textarea-single-email-content"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setShowSingleEmailDialog(false)}>İptal</Button>
+            <Button
+              onClick={handleSendSingleEmail}
+              disabled={isSendingEmail || !emailSubject.trim() || !emailContent.trim()}
+              className="bg-primary text-black hover:bg-primary/90"
+              data-testid="button-send-single-confirm"
+            >
+              {isSendingEmail ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send size={16} className="mr-2" />}
+              Gönder
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={showUserModal} onOpenChange={setShowUserModal}>
         <DialogContent className="bg-[#0A0A0A] border-white/10 text-white max-w-2xl max-h-[90vh] overflow-y-auto" data-testid="modal-user-details">
