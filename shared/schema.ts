@@ -33,6 +33,7 @@ export const packages = pgTable("packages", {
   price: decimal("price", { precision: 10, scale: 2 }).notNull(),
   features: text("features").array().notNull(),
   isActive: boolean("is_active").default(true).notNull(),
+  isPopular: boolean("is_popular").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
