@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
 import { UserPlus, Mail, Lock, User, Phone, MapPin, AlertCircle, ShoppingCart } from "lucide-react";
 import generatedVideo from '@assets/generated_videos/professional_gym_rack_with_dumbbells_close_up.mp4';
+import { trackCompleteRegistration } from "@/lib/facebook-pixel";
 
 function detectTrafficSource(): string {
   const params = new URLSearchParams(window.location.search);
@@ -90,6 +91,7 @@ export default function Register() {
     });
 
     if (result.success) {
+      trackCompleteRegistration('registered');
       setLocation("/hosgeldin");
     } else {
       setError(result.error || "Kayıt başarısız");

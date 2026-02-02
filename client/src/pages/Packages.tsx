@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Check, HelpCircle, Trophy, TrendingUp, Loader2 } from "lucide-react";
@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "@/components/SEO";
+import { trackViewContent, trackAddToCart } from "@/lib/facebook-pixel";
 
 interface Package {
   id: string;
@@ -50,6 +51,24 @@ export default function Packages() {
       setSelectedDuration(durations[0]?.weeks || 12);
     }
   }, [durations, selectedDuration]);
+
+  const viewContentTracked = useRef(false);
+  useEffect(() => {
+    if (!viewContentTracked.current && !isLoading) {
+      trackViewContent('Koçluk Paketleri', 'Fitness Koçluk');
+      viewContentTracked.current = true;
+    }
+  }, [isLoading]);
+
+  const handleBuyClick = () => {
+    if (selectedPackage) {
+      trackAddToCart(
+        `${selectedPackage.weeks} Haftalık Koçluk`,
+        selectedPackage.id,
+        parseFloat(selectedPackage.price)
+      );
+    }
+  };
 
   const selectedPackage = activePackages.find(p => p.weeks === selectedDuration);
   const price = selectedPackage ? parseFloat(selectedPackage.price) : 0;
@@ -214,7 +233,7 @@ export default function Packages() {
                   ))}
                 </div>
 
-                <Link href={`/odeme?weeks=${selectedDuration}`}>
+                <Link href={`/odeme?weeks=${selectedDuration}`} onClick={handleBuyClick}>
                   <Button className="w-full h-9 text-sm font-bold uppercase tracking-wide relative z-10 bg-primary text-black hover:bg-primary/90 shadow-[0_0_12px_rgba(204,255,0,0.15)] hover:shadow-[0_0_18px_rgba(204,255,0,0.25)] transition-all transform hover:-translate-y-0.5" data-testid="button-buy">
                     Satın Al
                   </Button>

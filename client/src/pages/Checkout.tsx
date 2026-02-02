@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
 import { ShoppingCart, CreditCard, Shield, Check, ArrowLeft, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
+import { trackInitiateCheckout } from "@/lib/facebook-pixel";
 
 interface Package {
   id: string;
@@ -53,6 +54,12 @@ export default function Checkout() {
 
   const handleCheckout = async () => {
     if (!selectedPackage) return;
+    
+    trackInitiateCheckout(
+      [selectedPackage.id],
+      parseFloat(selectedPackage.price),
+      1
+    );
     
     setIsProcessing(true);
     try {

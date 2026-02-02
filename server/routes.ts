@@ -676,6 +676,48 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
 
           await storage.setSiteSetting(`payment_token_${order.id}`, successToken);
 
+          // Send Facebook CAPI Purchase event (server-side)
+          const fbCapiToken = process.env.FACEBOOK_CAPI_TOKEN;
+          if (fbCapiToken && pkg) {
+            const eventId = `purchase_${order.id}_${Date.now()}`;
+            try {
+              const fbPayload = {
+                data: [{
+                  event_name: 'Purchase',
+                  event_time: Math.floor(Date.now() / 1000),
+                  event_id: eventId,
+                  event_source_url: `https://gokalaf.com/odeme-basarili?order=${order.id}`,
+                  action_source: 'website',
+                  user_data: {
+                    client_ip_address: req.ip || req.headers['x-forwarded-for']?.toString().split(',')[0],
+                    em: user?.email ? crypto.createHash('sha256').update(user.email.toLowerCase()).digest('hex') : undefined,
+                  },
+                  custom_data: {
+                    value: parseFloat(order.totalPrice),
+                    currency: 'TRY',
+                    content_name: pkg.name,
+                    content_ids: [pkg.id],
+                    content_type: 'product',
+                    order_id: order.id,
+                  },
+                }],
+                access_token: fbCapiToken,
+              };
+              
+              fetch(`https://graph.facebook.com/v18.0/33582373151376249/events`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(fbPayload),
+              }).then(r => r.json()).then(result => {
+                console.log('Facebook CAPI Purchase event sent:', result);
+              }).catch(err => {
+                console.error('Facebook CAPI error:', err);
+              });
+            } catch (fbError) {
+              console.error('Facebook CAPI preparation error:', fbError);
+            }
+          }
+
           console.log(`✅ Order ${order.referenceId || order.id} marked as paid`);
           return res.redirect(`/odeme-basarili?order=${order.id}&token=${successToken}`);
         } else {
@@ -1975,6 +2017,86 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
     } catch (error) {
       console.error("Campaign fetch error:", error);
       res.status(500).json({ error: "Kampanya yüklenemedi" });
+    }
+  });
+
+  // ===== FACEBOOK CONVERSIONS API =====
+  
+  const FB_PIXEL_ID = '33582373151376249';
+  const FB_CAPI_TOKEN = process.env.FACEBOOK_CAPI_TOKEN;
+  const FB_API_VERSION = 'v18.0';
+
+  async function sendFacebookEvent(eventData: {
+    eventName: string;
+    eventId: string;
+    eventTime: number;
+    eventSourceUrl: string;
+    userData: Record<string, unknown>;
+    customData?: Record<string, unknown>;
+    userIp?: string;
+  }) {
+    if (!FB_CAPI_TOKEN) {
+      console.log('Facebook CAPI token not configured, skipping event');
+      return;
+    }
+
+    try {
+      const payload = {
+        data: [{
+          event_name: eventData.eventName,
+          event_time: eventData.eventTime,
+          event_id: eventData.eventId,
+          event_source_url: eventData.eventSourceUrl,
+          action_source: 'website',
+          user_data: {
+            client_ip_address: eventData.userIp,
+            client_user_agent: eventData.userData.client_user_agent,
+            ...eventData.userData,
+          },
+          custom_data: eventData.customData || {},
+        }],
+        access_token: FB_CAPI_TOKEN,
+      };
+
+      const response = await fetch(
+        `https://graph.facebook.com/${FB_API_VERSION}/${FB_PIXEL_ID}/events`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+      console.log('Facebook CAPI response:', result);
+      return result;
+    } catch (error) {
+      console.error('Facebook CAPI error:', error);
+    }
+  }
+
+  app.post("/api/facebook/event", async (req, res) => {
+    try {
+      const { eventName, eventId, eventSourceUrl, userData, customData } = req.body;
+      
+      if (!eventName || !eventId) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      await sendFacebookEvent({
+        eventName,
+        eventId,
+        eventTime: Math.floor(Date.now() / 1000),
+        eventSourceUrl: eventSourceUrl || 'https://gokalaf.com',
+        userData: userData || {},
+        customData: customData || {},
+        userIp: req.ip || req.headers['x-forwarded-for']?.toString().split(',')[0],
+      });
+
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Facebook event error:", error);
+      res.status(500).json({ error: "Event could not be sent" });
     }
   });
 
