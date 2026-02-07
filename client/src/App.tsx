@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { useTabNotification } from "@/hooks/useTabNotification";
 import AIChatAssistant from "@/components/AIChatAssistant";
+import FeaturePopup from "@/components/FeaturePopup";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
@@ -171,6 +172,9 @@ function AppContent() {
           </svg>
         </a>
       )}
+
+      {/* Feature Popup - 10sn sonra ortada açılır */}
+      {!isAdminRoute && !isMaintenancePage && <FeaturePopup />}
 
       {/* AI Chat Assistant */}
       {!isAdminRoute && !isMaintenancePage && <AIChatAssistant />}
