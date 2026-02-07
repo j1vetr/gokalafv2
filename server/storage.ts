@@ -1,7 +1,6 @@
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
 import { eq, and, desc, sql, lte } from "drizzle-orm";
 import * as schema from "@shared/schema";
+import { db } from "./db";
 import type {
   User,
   InsertUser,
@@ -34,9 +33,6 @@ import type {
   EmailCampaign,
   InsertEmailCampaign,
 } from "@shared/schema";
-
-const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
-const db = drizzle({ client: pool, schema });
 
 export interface RevenueData {
   month: string;

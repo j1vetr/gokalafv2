@@ -114,6 +114,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  const { registerChatRoutes } = await import("./replit_integrations/chat");
+  registerChatRoutes(app);
+  
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

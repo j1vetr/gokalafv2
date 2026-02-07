@@ -7,8 +7,31 @@ const openai = new OpenAI({
   baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
 });
 
+const SYSTEM_PROMPT = `Sen Gokalaf'ın yapay zeka fitness asistanısın. Adın "Gokalaf Asistan". Türkçe konuşuyorsun.
+
+Görevlerin:
+1. Fitness, beslenme, antrenman, supplement, kilo verme, kas yapma gibi konularda kullanıcılara bilgi vermek
+2. Kullanıcıları Gokalaf'ın online koçluk hizmetine yönlendirmek
+3. Motivasyon sağlamak
+
+Kurallar:
+- Her zaman Türkçe cevap ver
+- Kısa ve net cevaplar ver, gereksiz uzatma
+- Tıbbi tavsiye verme, doktora yönlendir
+- Kullanıcı detaylı program veya kişisel plan istediğinde Gokalaf'ın koçluk paketlerine yönlendir: "Kişisel programınız için gokalaf.com/paketler sayfasından koçluk paketlerimize göz atabilirsiniz."
+- Genel bilgi sorularını cevapla (kalori hesaplama, egzersiz formları, besin değerleri vs.)
+- Samimi ama profesyonel ol, "sen" diye hitap et
+- Emoji kullanabilirsin ama abartma
+- Cevaplarını markdown formatında yaz
+
+Gokalaf Hakkında:
+- Online fitness ve vücut geliştirme koçluk platformu
+- 8, 12, 16 ve 24 haftalık koçluk paketleri var
+- Kişisel antrenman programı, beslenme planı, haftalık takip, 7/24 WhatsApp iletişim
+- Koç: Sefa Göktuğ Alaf
+- Site: gokalaf.com`;
+
 export function registerChatRoutes(app: Express): void {
-  // Get all conversations
   app.get("/api/conversations", async (req: Request, res: Response) => {
     try {
       const conversations = await chatStorage.getAllConversations();
@@ -19,7 +42,6 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
-  // Get single conversation with messages
   app.get("/api/conversations/:id", async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
@@ -35,11 +57,10 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
-  // Create new conversation
   app.post("/api/conversations", async (req: Request, res: Response) => {
     try {
       const { title } = req.body;
-      const conversation = await chatStorage.createConversation(title || "New Chat");
+      const conversation = await chatStorage.createConversation(title || "Yeni Sohbet");
       res.status(201).json(conversation);
     } catch (error) {
       console.error("Error creating conversation:", error);
@@ -47,7 +68,6 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
-  // Delete conversation
   app.delete("/api/conversations/:id", async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
@@ -59,33 +79,31 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
-  // Send message and get AI response (streaming)
   app.post("/api/conversations/:id/messages", async (req: Request, res: Response) => {
     try {
       const conversationId = parseInt(req.params.id);
       const { content } = req.body;
 
-      // Save user message
       await chatStorage.createMessage(conversationId, "user", content);
 
-      // Get conversation history for context
       const messages = await chatStorage.getMessagesByConversation(conversationId);
-      const chatMessages = messages.map((m) => ({
-        role: m.role as "user" | "assistant",
-        content: m.content,
-      }));
+      const chatMessages: { role: "system" | "user" | "assistant"; content: string }[] = [
+        { role: "system", content: SYSTEM_PROMPT },
+        ...messages.map((m) => ({
+          role: m.role as "user" | "assistant",
+          content: m.content,
+        })),
+      ];
 
-      // Set up SSE
       res.setHeader("Content-Type", "text/event-stream");
       res.setHeader("Cache-Control", "no-cache");
       res.setHeader("Connection", "keep-alive");
 
-      // Stream response from OpenAI
       const stream = await openai.chat.completions.create({
-        model: "gpt-5.1",
+        model: "gpt-4o-mini",
         messages: chatMessages,
         stream: true,
-        max_completion_tokens: 2048,
+        max_completion_tokens: 1024,
       });
 
       let fullResponse = "";
@@ -98,21 +116,18 @@ export function registerChatRoutes(app: Express): void {
         }
       }
 
-      // Save assistant message
       await chatStorage.createMessage(conversationId, "assistant", fullResponse);
 
       res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
       res.end();
     } catch (error) {
       console.error("Error sending message:", error);
-      // Check if headers already sent (SSE streaming started)
       if (res.headersSent) {
-        res.write(`data: ${JSON.stringify({ error: "Failed to send message" })}\n\n`);
+        res.write(`data: ${JSON.stringify({ error: "Mesaj gönderilemedi" })}\n\n`);
         res.end();
       } else {
-        res.status(500).json({ error: "Failed to send message" });
+        res.status(500).json({ error: "Mesaj gönderilemedi" });
       }
     }
   });
 }
-

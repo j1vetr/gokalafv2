@@ -372,3 +372,5 @@ export const insertExerciseSchema = createInsertSchema(exercises).omit({
 
 export type InsertExercise = z.infer<typeof insertExerciseSchema>;
 export type Exercise = typeof exercises.$inferSelect;
+
+export * from "./models/chat";
