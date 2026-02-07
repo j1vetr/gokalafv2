@@ -354,67 +354,16 @@ export default function AIChatAssistant() {
                   <p className="text-gray-500 text-[10px]">AI Fitness Danışmanı</p>
                 </div>
               </div>
-              <div className="flex items-center gap-1">
-                <button
-                  data-testid="button-chat-history"
-                  onClick={() => {
-                    setShowHistory(!showHistory);
-                    if (!showHistory) loadConversations();
-                  }}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                  title="Sohbet Geçmişi"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                </button>
-                <button
-                  data-testid="button-new-chat"
-                  onClick={startNewConversation}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#39ff14] hover:bg-[#39ff14]/10 transition-colors"
-                  title="Yeni Sohbet"
-                >
-                  <Plus className="w-4 h-4" />
-                </button>
-                <button
-                  data-testid="button-close-chat"
-                  onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
+              <button
+                data-testid="button-close-chat"
+                onClick={() => setIsOpen(false)}
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            {showHistory ? (
-              <div className="flex-1 overflow-y-auto p-3 space-y-2">
-                <p className="text-xs text-gray-500 px-2 mb-2">Sohbet Geçmişi</p>
-                {conversations.length === 0 ? (
-                  <p className="text-gray-500 text-xs text-center py-8">Henüz sohbet yok</p>
-                ) : (
-                  conversations.map((conv) => (
-                    <button
-                      key={conv.id}
-                      data-testid={`button-conversation-${conv.id}`}
-                      onClick={() => loadConversation(conv.id)}
-                      className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-colors ${
-                        conversationId === conv.id
-                          ? "bg-[#39ff14]/10 border border-[#39ff14]/20"
-                          : "bg-white/5 hover:bg-white/10 border border-transparent"
-                      }`}
-                    >
-                      <span className="text-sm text-white truncate flex-1">{conv.title}</span>
-                      <button
-                        data-testid={`button-delete-conversation-${conv.id}`}
-                        onClick={(e) => deleteConversation(conv.id, e)}
-                        className="ml-2 text-gray-500 hover:text-red-400 transition-colors"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
-                    </button>
-                  ))
-                )}
-              </div>
-            ) : (
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.length === 0 && (
                   <div className="flex flex-col items-center justify-center h-full text-center px-4">
                     <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4 overflow-hidden">
@@ -482,7 +431,6 @@ export default function AIChatAssistant() {
                 ))}
                 <div ref={messagesEndRef} />
               </div>
-            )}
 
             <div className="p-3 border-t border-white/10 bg-[#0A0A0A]">
               <div className="flex items-end gap-2">
