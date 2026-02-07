@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Trash2, Plus, Bot, User, Loader2 } from "lucide-react";
+import { X, Send, Trash2, Plus, Bot, User, Loader2, MessageCircle } from "lucide-react";
 
 interface Message {
   id: number;
@@ -21,6 +21,8 @@ export default function AIChatAssistant() {
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
+  const [bubbleDismissed, setBubbleDismissed] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -37,6 +39,19 @@ export default function AIChatAssistant() {
       inputRef.current.focus();
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (bubbleDismissed || isOpen) return;
+    const timer = setTimeout(() => setShowBubble(true), 5000);
+    return () => clearTimeout(timer);
+  }, [bubbleDismissed, isOpen]);
+
+  useEffect(() => {
+    if (showBubble) {
+      const hide = setTimeout(() => setShowBubble(false), 8000);
+      return () => clearTimeout(hide);
+    }
+  }, [showBubble]);
 
   const loadConversations = async () => {
     try {
@@ -232,19 +247,70 @@ export default function AIChatAssistant() {
     <>
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
-            data-testid="button-open-chat"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handleOpen}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#39ff14] text-black flex items-center justify-center shadow-lg shadow-[#39ff14]/30 hover:shadow-[#39ff14]/50 transition-shadow"
-            aria-label="AI Asistan"
-          >
-            <Bot className="w-6 h-6" />
-          </motion.button>
+          <div className="fixed bottom-6 right-6 z-50">
+            <AnimatePresence>
+              {showBubble && !isOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                  className="absolute bottom-[72px] right-0 w-64 bg-[#0A0A0A] border border-[#39ff14]/30 rounded-2xl rounded-br-md p-4 shadow-xl shadow-[#39ff14]/10 cursor-pointer"
+                  onClick={() => {
+                    setBubbleDismissed(true);
+                    setShowBubble(false);
+                    handleOpen();
+                  }}
+                >
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setBubbleDismissed(true);
+                      setShowBubble(false);
+                    }}
+                    className="absolute top-2 right-2 text-gray-500 hover:text-white transition-colors"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                  <p className="text-white text-sm font-medium mb-1">Merhaba! 👋</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Fitness ve beslenme hakkında sorularınız mı var? Size yardımcı olmak için buradayım!
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.button
+              data-testid="button-open-chat"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => {
+                setBubbleDismissed(true);
+                setShowBubble(false);
+                handleOpen();
+              }}
+              className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center"
+              aria-label="AI Asistan"
+            >
+              <div className="absolute inset-0 rounded-full animate-[spin_3s_linear_infinite]">
+                <svg className="w-full h-full" viewBox="0 0 60 60">
+                  <circle
+                    cx="30" cy="30" r="28"
+                    fill="none"
+                    stroke="#39ff14"
+                    strokeWidth="2"
+                    strokeDasharray="60 116"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
+              <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center shadow-lg shadow-[#39ff14]/20 overflow-hidden">
+                <img src="/logo.png" alt="Gokalaf" className="w-9 h-9 object-contain" />
+              </div>
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
 
