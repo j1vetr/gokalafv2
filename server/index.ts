@@ -114,10 +114,10 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  await registerRoutes(httpServer, app);
+
   const { registerChatRoutes } = await import("./replit_integrations/chat");
   registerChatRoutes(app);
-  
-  await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
