@@ -13,18 +13,33 @@ interface Conversation {
   title: string;
 }
 
+function getSessionState<T>(key: string, fallback: T): T {
+  try {
+    const v = sessionStorage.getItem(`chat_${key}`);
+    return v ? JSON.parse(v) : fallback;
+  } catch { return fallback; }
+}
+
 export default function AIChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(() => getSessionState("messages", []));
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [conversationId, setConversationId] = useState<number | null>(null);
+  const [conversationId, setConversationId] = useState<number | null>(() => getSessionState("convId", null));
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [showHistory, setShowHistory] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleDismissed, setBubbleDismissed] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    try { sessionStorage.setItem("chat_messages", JSON.stringify(messages)); } catch {}
+  }, [messages]);
+
+  useEffect(() => {
+    try { sessionStorage.setItem("chat_convId", JSON.stringify(conversationId)); } catch {}
+  }, [conversationId]);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -239,6 +254,14 @@ export default function AIChatAssistant() {
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.*?)\*/g, "<em>$1</em>")
       .replace(/`(.*?)`/g, '<code class="bg-white/10 px-1 py-0.5 rounded text-[#39ff14] text-xs">$1</code>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[#39ff14] underline hover:text-[#39ff14]/80 transition-colors">$1</a>')
+      .replace(/((?:https?:\/\/)?gokalaf\.com(?:\/\S*)?)/g, (match) => {
+        const url = match.startsWith('http') ? match : `https://${match}`;
+        const path = match.replace(/https?:\/\//, '');
+        const label = path.includes('/paketler') ? '💪 Koçluk Paketlerini İncele' : path.includes('/araclar') ? '🧮 Araçları Keşfet' : path.includes('/hakkimizda') ? '👤 Hakkımızda' : `➜ ${path}`;
+        return `<a href="${url}" class="inline-flex items-center gap-1 px-3 py-1.5 mt-1 mb-1 rounded-lg bg-[#39ff14]/10 border border-[#39ff14]/30 text-[#39ff14] text-xs font-semibold hover:bg-[#39ff14]/20 transition-all no-underline cursor-pointer" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      })
+      .replace(/((?:https?:\/\/)?proteinocean\.com(?:\/\S*)?)/g, '<a href="https://proteinocean.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 mt-1 mb-1 rounded-lg bg-[#39ff14]/10 border border-[#39ff14]/30 text-[#39ff14] text-xs font-semibold hover:bg-[#39ff14]/20 transition-all no-underline cursor-pointer">🛒 proteinocean.com</a>')
       .replace(/\n/g, "<br />");
     return <span dangerouslySetInnerHTML={{ __html: html }} />;
   };
@@ -397,15 +420,15 @@ export default function AIChatAssistant() {
                     <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4 overflow-hidden">
                       <img src="/images/logo.webp" alt="Alaf Coaching" className="w-10 h-10 object-contain" />
                     </div>
-                    <h4 className="text-white font-semibold mb-2">Merhaba!</h4>
+                    <h4 className="text-white font-semibold mb-2">Merhaba! 👋</h4>
                     <p className="text-gray-400 text-sm mb-6">
-                      Fitness, beslenme ve antrenman hakkında her şeyi sorabilirsin.
+                      Koçluk, antrenman ve beslenme hakkında sana yardımcı olabilirim.
                     </p>
                     <div className="grid grid-cols-1 gap-2 w-full">
                       {[
-                        "Kas yapmak için ne yemeliyim?",
-                        "Yağ yakımı için en iyi antrenman?",
-                        "Günde kaç kalori almalıyım?",
+                        "Koçluk paketleri hakkında bilgi alabilir miyim?",
+                        "Hedeflerime uygun program nasıl oluşturulur?",
+                        "Supplement önerisi var mı?",
                       ].map((q) => (
                         <button
                           key={q}
