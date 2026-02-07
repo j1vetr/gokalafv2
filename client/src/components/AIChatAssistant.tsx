@@ -307,7 +307,7 @@ export default function AIChatAssistant() {
                 </svg>
               </div>
               <div className="w-[52px] h-[52px] rounded-full bg-black flex items-center justify-center shadow-lg shadow-[#39ff14]/20 overflow-hidden">
-                <img src="/logo.png" alt="Gokalaf" className="w-9 h-9 object-contain" />
+                <img src="/images/logo.webp" alt="Gokalaf" className="w-9 h-9 object-contain" />
               </div>
             </motion.button>
           </div>
