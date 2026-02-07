@@ -6,7 +6,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const SYSTEM_PROMPT = `Sen Gokalaf'ın yapay zeka fitness asistanısın. Adın "Gokalaf Asistan". Türkçe konuşuyorsun.
+const SYSTEM_PROMPT = `Sen Alaf Coaching'in yapay zeka fitness asistanısın. Adın "Alaf Coaching Asistan". Türkçe konuşuyorsun.
 
 Görevlerin:
 1. Fitness, beslenme, antrenman, supplement, kilo verme, kas yapma gibi konularda kullanıcılara bilgi vermek

@@ -323,11 +323,11 @@ export default function AIChatAssistant() {
           >
             <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#0A0A0A]">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#39ff14]/20 flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-[#39ff14]" />
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center overflow-hidden">
+                  <img src="/images/logo.webp" alt="Alaf Coaching" className="w-6 h-6 object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-white text-sm font-semibold font-['Oswald']">GOKALAF ASISTAN</h3>
+                  <h3 className="text-white text-sm font-semibold font-['Oswald']">ALAF COACHING ASISTAN</h3>
                   <p className="text-gray-500 text-[10px]">AI Fitness Danışmanı</p>
                 </div>
               </div>
@@ -394,8 +394,8 @@ export default function AIChatAssistant() {
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.length === 0 && (
                   <div className="flex flex-col items-center justify-center h-full text-center px-4">
-                    <div className="w-16 h-16 rounded-full bg-[#39ff14]/10 flex items-center justify-center mb-4">
-                      <Bot className="w-8 h-8 text-[#39ff14]" />
+                    <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4 overflow-hidden">
+                      <img src="/images/logo.webp" alt="Alaf Coaching" className="w-10 h-10 object-contain" />
                     </div>
                     <h4 className="text-white font-semibold mb-2">Merhaba!</h4>
                     <p className="text-gray-400 text-sm mb-6">
@@ -426,16 +426,16 @@ export default function AIChatAssistant() {
                     className={`flex gap-2.5 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
                   >
                     <div
-                      className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center ${
+                      className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden ${
                         msg.role === "user"
                           ? "bg-white/10"
-                          : "bg-[#39ff14]/20"
+                          : "bg-black"
                       }`}
                     >
                       {msg.role === "user" ? (
                         <User className="w-3.5 h-3.5 text-gray-300" />
                       ) : (
-                        <Bot className="w-3.5 h-3.5 text-[#39ff14]" />
+                        <img src="/images/logo.webp" alt="Alaf Coaching" className="w-5 h-5 object-contain" />
                       )}
                     </div>
                     <div
