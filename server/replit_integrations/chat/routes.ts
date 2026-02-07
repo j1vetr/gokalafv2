@@ -65,6 +65,20 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
+  app.delete("/api/admin/ai-conversations", async (req: Request, res: Response) => {
+    try {
+      const session = req.session as any;
+      if (!session?.userId || session?.userRole !== "admin") {
+        return res.status(403).json({ error: "Unauthorized" });
+      }
+      await chatStorage.deleteAllConversations();
+      res.json({ success: true, message: "Tüm sohbet geçmişi silindi" });
+    } catch (error) {
+      console.error("Error deleting all conversations:", error);
+      res.status(500).json({ error: "Failed to delete conversations" });
+    }
+  });
+
   app.get("/api/conversations", async (req: Request, res: Response) => {
     try {
       const conversations = await chatStorage.getAllConversations();

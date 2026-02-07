@@ -158,9 +158,29 @@ function AIChatsTab() {
           <h1 className="text-2xl font-heading font-bold text-white uppercase">AI Sohbetler</h1>
           <p className="text-gray-500 text-sm mt-1">Kullanıcıların AI asistanla yaptığı sohbetleri inceleyin</p>
         </div>
-        <Button onClick={fetchConversations} variant="outline" size="sm" className="border-white/10 text-gray-400">
-          <RefreshCw size={14} className="mr-2" /> Yenile
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={async () => {
+              if (!confirm("Tüm AI sohbet geçmişini silmek istediğinize emin misiniz? Bu işlem geri alınamaz.")) return;
+              try {
+                const res = await fetch("/api/admin/ai-conversations", { method: "DELETE" });
+                if (res.ok) {
+                  setConversations([]);
+                }
+              } catch (error) {
+                console.error("Error:", error);
+              }
+            }}
+            variant="outline"
+            size="sm"
+            className="border-red-500/30 text-red-400 hover:bg-red-500/10 hover:text-red-300"
+          >
+            <Trash2 size={14} className="mr-2" /> Tüm Geçmişi Temizle
+          </Button>
+          <Button onClick={fetchConversations} variant="outline" size="sm" className="border-white/10 text-gray-400">
+            <RefreshCw size={14} className="mr-2" /> Yenile
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
