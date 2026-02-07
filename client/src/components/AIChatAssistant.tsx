@@ -294,18 +294,16 @@ export default function AIChatAssistant() {
               className="relative w-[60px] h-[60px] rounded-full flex items-center justify-center"
               aria-label="AI Asistan"
             >
-              <div className="absolute inset-0 rounded-full animate-[spin_3s_linear_infinite]">
-                <svg className="w-full h-full" viewBox="0 0 60 60">
-                  <circle
-                    cx="30" cy="30" r="28"
-                    fill="none"
-                    stroke="#39ff14"
-                    strokeWidth="2"
-                    strokeDasharray="60 116"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
+              <span className="absolute inset-0 rounded-full border-2 border-[#39ff14]" style={{ animation: 'pulse-ring 2s ease-out infinite' }} />
+              <span className="absolute inset-0 rounded-full border-2 border-[#39ff14]" style={{ animation: 'pulse-ring 2s ease-out infinite 0.6s' }} />
+              <span className="absolute inset-0 rounded-full border border-[#39ff14]" style={{ animation: 'pulse-ring 2s ease-out infinite 1.2s' }} />
+              <style>{`
+                @keyframes pulse-ring {
+                  0% { transform: scale(1); opacity: 0.6; }
+                  70% { transform: scale(1.4); opacity: 0; }
+                  100% { transform: scale(1.4); opacity: 0; }
+                }
+              `}</style>
               <div className="w-[52px] h-[52px] rounded-full bg-black flex items-center justify-center shadow-lg shadow-[#39ff14]/20 overflow-hidden">
                 <img src="/images/logo.webp" alt="Gokalaf" className="w-9 h-9 object-contain" />
               </div>
