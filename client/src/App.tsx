@@ -8,8 +8,7 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { useTabNotification } from "@/hooks/useTabNotification";
-import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, X, Scale, Flame, Droplets, Utensils, Trophy, Calendar, TrendingUp } from "lucide-react";
+import AIChatAssistant from "@/components/AIChatAssistant";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
@@ -61,118 +60,6 @@ function PageLoader() {
         <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
         <span className="text-gray-400 text-sm">Yükleniyor...</span>
       </div>
-    </div>
-  );
-}
-
-function FeatureTooltip() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const hasSeenTooltip = localStorage.getItem("gokalaf_feature_tooltip_seen");
-    if (!hasSeenTooltip) {
-      const showTimer = setTimeout(() => {
-        setIsVisible(true);
-        setIsOpen(true);
-        localStorage.setItem("gokalaf_feature_tooltip_seen", "true");
-      }, 2000);
-
-      return () => clearTimeout(showTimer);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      const hideTimer = setTimeout(() => {
-        setIsOpen(false);
-        setTimeout(() => setIsVisible(false), 500);
-      }, 20000);
-
-      return () => clearTimeout(hideTimer);
-    }
-  }, [isOpen]);
-
-  if (!isVisible) return null;
-
-  const features = [
-    { icon: Scale, text: "Kilo & Vücut Yağ Takibi", color: "text-green-400" },
-    { icon: TrendingUp, text: "İlerleme Grafikleri", color: "text-blue-400" },
-    { icon: Utensils, text: "Günlük Beslenme Kaydı", color: "text-orange-400" },
-    { icon: Droplets, text: "Su Tüketimi Takibi", color: "text-cyan-400" },
-    { icon: Flame, text: "Antrenman Serisi", color: "text-red-400" },
-    { icon: Trophy, text: "Başarım Rozetleri", color: "text-yellow-400" },
-    { icon: Calendar, text: "Aktivite Takvimi", color: "text-purple-400" },
-  ];
-
-  return (
-    <div className="fixed bottom-6 right-6 z-[100]">
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="absolute bottom-16 right-0 w-72 md:w-80 bg-[#0A0A0A] border border-primary/30 rounded-2xl shadow-2xl shadow-primary/10 overflow-hidden"
-          >
-            <div className="bg-gradient-to-r from-primary/20 to-primary/5 px-4 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-primary" />
-                <h3 className="font-heading font-bold text-white">Bunları Biliyor Musun?</h3>
-              </div>
-              <button 
-                onClick={() => {
-                  setIsOpen(false);
-                  setTimeout(() => setIsVisible(false), 500);
-                }}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="p-4">
-              <p className="text-gray-400 text-sm mb-3">
-                Kayıt olarak bu özellikleri kullanabilirsin:
-              </p>
-              <div className="space-y-2">
-                {features.map((feature, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                  >
-                    <feature.icon className={`w-4 h-4 ${feature.color}`} />
-                    <span className="text-sm text-gray-300">{feature.text}</span>
-                  </motion.div>
-                ))}
-              </div>
-              <a 
-                href="/kayit" 
-                className="mt-4 block w-full py-2.5 bg-primary text-black font-bold text-center rounded-xl hover:bg-primary/90 transition-colors text-sm"
-              >
-                Hemen Kayıt Ol
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
-          isOpen 
-            ? "bg-primary text-black" 
-            : "bg-[#0A0A0A] border border-primary/50 text-primary hover:bg-primary/10"
-        }`}
-      >
-        <HelpCircle className="w-7 h-7" />
-      </motion.button>
     </div>
   );
 }
@@ -275,7 +162,7 @@ function AppContent() {
           href="https://wa.me/905312822402"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
+          className="fixed bottom-24 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)]"
           aria-label="WhatsApp ile iletişime geç"
           data-testid="button-whatsapp"
         >
@@ -285,8 +172,8 @@ function AppContent() {
         </a>
       )}
 
-      {/* Feature Tooltip - Shows on first visit */}
-      {!isAdminRoute && !isMaintenancePage && <FeatureTooltip />}
+      {/* AI Chat Assistant */}
+      {!isAdminRoute && !isMaintenancePage && <AIChatAssistant />}
     </div>
   );
 }

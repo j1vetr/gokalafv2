@@ -3,8 +3,7 @@ import OpenAI from "openai";
 import { chatStorage } from "./storage";
 
 const openai = new OpenAI({
-  apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
-  baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const SYSTEM_PROMPT = `Sen Gokalaf'ın yapay zeka fitness asistanısın. Adın "Gokalaf Asistan". Türkçe konuşuyorsun.
@@ -99,6 +98,11 @@ export function registerChatRoutes(app: Express): void {
       res.setHeader("Cache-Control", "no-cache");
       res.setHeader("Connection", "keep-alive");
 
+      let clientDisconnected = false;
+      req.on("close", () => {
+        clientDisconnected = true;
+      });
+
       const stream = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: chatMessages,
@@ -109,6 +113,7 @@ export function registerChatRoutes(app: Express): void {
       let fullResponse = "";
 
       for await (const chunk of stream) {
+        if (clientDisconnected) break;
         const content = chunk.choices[0]?.delta?.content || "";
         if (content) {
           fullResponse += content;
@@ -116,10 +121,14 @@ export function registerChatRoutes(app: Express): void {
         }
       }
 
-      await chatStorage.createMessage(conversationId, "assistant", fullResponse);
+      if (fullResponse) {
+        await chatStorage.createMessage(conversationId, "assistant", fullResponse);
+      }
 
-      res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-      res.end();
+      if (!clientDisconnected) {
+        res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+        res.end();
+      }
     } catch (error) {
       console.error("Error sending message:", error);
       if (res.headersSent) {
