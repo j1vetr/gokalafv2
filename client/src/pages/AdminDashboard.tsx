@@ -16,7 +16,7 @@ import {
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
   ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
-  Ticket, FileText, Database, Wrench, Send, Filter, Loader2
+  Ticket, FileText, Database, Wrench, Send, Filter, Loader2, MessageSquare, Bot, ChevronDown, ChevronUp
 } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -104,6 +104,222 @@ interface UserDetails {
   orders: Order[];
   measurements: any[];
   habits: any[];
+}
+
+function AIChatsTab() {
+  const [conversations, setConversations] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    fetchConversations();
+  }, []);
+
+  const fetchConversations = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/admin/ai-conversations");
+      if (res.ok) {
+        const data = await res.json();
+        setConversations(data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filteredConversations = conversations.filter((conv) => {
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      conv.title?.toLowerCase().includes(q) ||
+      conv.messages?.some((m: any) => m.content.toLowerCase().includes(q))
+    );
+  });
+
+  const totalMessages = conversations.reduce((sum: number, c: any) => sum + (c.messageCount || 0), 0);
+  const totalUserMessages = conversations.reduce((sum: number, c: any) => sum + (c.userMessageCount || 0), 0);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-8 h-8 text-primary animate-spin" />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex items-center justify-between mb-2">
+        <div>
+          <h1 className="text-2xl font-heading font-bold text-white uppercase">AI Sohbetler</h1>
+          <p className="text-gray-500 text-sm mt-1">Kullanıcıların AI asistanla yaptığı sohbetleri inceleyin</p>
+        </div>
+        <Button onClick={fetchConversations} variant="outline" size="sm" className="border-white/10 text-gray-400">
+          <RefreshCw size={14} className="mr-2" /> Yenile
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+              <MessageSquare size={20} className="text-primary" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-white">{conversations.length}</p>
+              <p className="text-gray-500 text-xs">Toplam Sohbet</p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+              <Send size={20} className="text-blue-400" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-white">{totalMessages}</p>
+              <p className="text-gray-500 text-xs">Toplam Mesaj</p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-5">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center">
+              <User size={20} className="text-orange-400" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-white">{totalUserMessages}</p>
+              <p className="text-gray-500 text-xs">Kullanıcı Mesajları</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative">
+        <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+        <Input
+          data-testid="input-search-ai-chats"
+          placeholder="Sohbetlerde ara..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pl-10 bg-[#0A0A0A] border-white/10 text-white"
+        />
+      </div>
+
+      {filteredConversations.length === 0 ? (
+        <div className="text-center py-16">
+          <Bot size={48} className="mx-auto text-gray-600 mb-4" />
+          <p className="text-gray-500">{searchQuery ? "Arama sonucu bulunamadı" : "Henüz sohbet yok"}</p>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {filteredConversations.map((conv: any) => (
+            <div
+              key={conv.id}
+              className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors"
+            >
+              <button
+                data-testid={`button-expand-chat-${conv.id}`}
+                onClick={() => setExpandedId(expandedId === conv.id ? null : conv.id)}
+                className="w-full flex items-center justify-between p-5 text-left"
+              >
+                <div className="flex items-center gap-4 min-w-0 flex-1">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Bot size={18} className="text-primary" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="text-white font-medium truncate">{conv.title || "Adsız Sohbet"}</p>
+                      <Badge variant="secondary" className="text-[10px] bg-white/10 text-gray-400 shrink-0">
+                        {conv.messageCount} mesaj
+                      </Badge>
+                    </div>
+                    {conv.firstUserMessage && (
+                      <p className="text-gray-500 text-sm truncate mt-0.5">
+                        {conv.firstUserMessage.slice(0, 80)}{conv.firstUserMessage.length > 80 ? "..." : ""}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 flex-shrink-0 ml-4">
+                  <span className="text-gray-600 text-xs">
+                    {new Date(conv.createdAt).toLocaleDateString("tr-TR", {
+                      day: "numeric",
+                      month: "short",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </span>
+                  {expandedId === conv.id ? (
+                    <ChevronUp size={16} className="text-gray-500" />
+                  ) : (
+                    <ChevronDown size={16} className="text-gray-500" />
+                  )}
+                </div>
+              </button>
+
+              <AnimatePresence>
+                {expandedId === conv.id && conv.messages && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-5 pb-5 border-t border-white/5">
+                      <div className="mt-4 space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                        {conv.messages.map((msg: any) => (
+                          <div
+                            key={msg.id}
+                            className={`flex gap-3 ${msg.role === "user" ? "" : ""}`}
+                          >
+                            <div
+                              className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5 ${
+                                msg.role === "user" ? "bg-blue-500/20" : "bg-primary/20"
+                              }`}
+                            >
+                              {msg.role === "user" ? (
+                                <User size={14} className="text-blue-400" />
+                              ) : (
+                                <Bot size={14} className="text-primary" />
+                              )}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className={`text-xs font-medium ${msg.role === "user" ? "text-blue-400" : "text-primary"}`}>
+                                  {msg.role === "user" ? "Kullanıcı" : "AI Asistan"}
+                                </span>
+                                <span className="text-gray-600 text-[10px]">
+                                  {new Date(msg.createdAt).toLocaleTimeString("tr-TR", {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                  })}
+                                </span>
+                              </div>
+                              <p className={`text-sm whitespace-pre-wrap break-words ${
+                                msg.role === "user" ? "text-gray-300" : "text-gray-400"
+                              }`}>
+                                {msg.content}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  );
 }
 
 export default function AdminDashboard() {
@@ -826,6 +1042,7 @@ export default function AdminDashboard() {
               <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Pazarlama</p>
               <nav className="space-y-2">
                 <SidebarItem id="email-marketing" icon={Mail} label="E-mail Pazarlama" />
+                <SidebarItem id="ai-chats" icon={MessageSquare} label="AI Sohbetler" />
               </nav>
 
               <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
@@ -2203,6 +2420,18 @@ export default function AdminDashboard() {
                       </div>
                     )}
                   </div>
+                </motion.div>
+              )}
+
+              {activeTab === "ai-chats" && (
+                <motion.div
+                  key="ai-chats"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="space-y-6"
+                >
+                  <AIChatsTab />
                 </motion.div>
               )}
             </AnimatePresence>

@@ -31,6 +31,20 @@ Gokalaf Hakkında:
 - Site: gokalaf.com`;
 
 export function registerChatRoutes(app: Express): void {
+  app.get("/api/admin/ai-conversations", async (req: Request, res: Response) => {
+    try {
+      const session = req.session as any;
+      if (!session?.userId || session?.userRole !== "admin") {
+        return res.status(403).json({ error: "Unauthorized" });
+      }
+      const data = await chatStorage.getAllConversationsWithStats();
+      res.json(data);
+    } catch (error) {
+      console.error("Error fetching admin conversations:", error);
+      res.status(500).json({ error: "Failed to fetch conversations" });
+    }
+  });
+
   app.get("/api/conversations", async (req: Request, res: Response) => {
     try {
       const conversations = await chatStorage.getAllConversations();
