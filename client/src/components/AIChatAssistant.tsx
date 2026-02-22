@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Trash2, Plus, Bot, User, Loader2, MessageCircle } from "lucide-react";
 
@@ -117,6 +117,38 @@ export default function AIChatAssistant() {
       }
     } catch {}
   };
+
+  const allQuestions = [
+    "Kas yapmak için günde kaç gram protein almalıyım?",
+    "Yağ yakmak için en etkili antrenman türü nedir?",
+    "Kreatin kullanmalı mıyım? Faydaları neler?",
+    "Antrenman öncesi ne yemeliyim?",
+    "Kilo vermek için kalori açığı nasıl hesaplanır?",
+    "Haftada kaç gün antrenman yapmalıyım?",
+    "Karın kası antrenmanı yapmadan six-pack olur mu?",
+    "Whey protein ne zaman içilmeli?",
+    "Bulk ve cut dönemleri nasıl planlanır?",
+    "Kadınlar ağırlık kaldırınca kaslı mı olur?",
+    "Uyku kas gelişimini nasıl etkiler?",
+    "Squat yaparken dizlerim ağrıyor, ne yapmalıyım?",
+    "Metabolizmamı nasıl hızlandırabilirim?",
+    "Aralıklı oruç (intermittent fasting) işe yarar mı?",
+    "Deadlift yaparken belimi korumak için ne yapmalıyım?",
+    "Antrenman sonrası kas ağrısı normal mi?",
+    "Supplement almadan kas yapılabilir mi?",
+    "TDEE nedir ve nasıl hesaplanır?",
+    "Evde ekipmansız antrenman programı önerir misin?",
+    "Koçluk paketleriniz hakkında bilgi alabilir miyim?",
+    "Hedeflerime uygun program nasıl oluşturulur?",
+    "Karbonhidrat yemeden kas yapmak mümkün mü?",
+    "Sabah mı akşam mı antrenman yapmalıyım?",
+    "Bench press'te gelişmek için ne yapmalıyım?",
+  ];
+
+  const suggestedQuestions = useMemo(() => {
+    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
+  }, [isOpen]);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -374,14 +406,10 @@ export default function AIChatAssistant() {
                       Koçluk, antrenman ve beslenme hakkında sana yardımcı olabilirim.
                     </p>
                     <div className="grid grid-cols-1 gap-2 w-full">
-                      {[
-                        "Koçluk paketleri hakkında bilgi alabilir miyim?",
-                        "Hedeflerime uygun program nasıl oluşturulur?",
-                        "Supplement önerisi var mı?",
-                      ].map((q) => (
+                      {suggestedQuestions.map((q) => (
                         <button
                           key={q}
-                          data-testid={`button-quick-question`}
+                          data-testid="button-quick-question"
                           onClick={() => sendDirectMessage(q)}
                           className="text-left text-xs px-3 py-2.5 rounded-xl bg-white/5 text-gray-300 hover:bg-[#39ff14]/10 hover:text-[#39ff14] border border-white/5 hover:border-[#39ff14]/20 transition-all"
                         >
