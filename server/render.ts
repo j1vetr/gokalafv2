@@ -1,5 +1,6 @@
 import MarkdownIt from "markdown-it";
-import type { Article, Package, Exercise } from "@shared/schema";
+import type { Package, Exercise } from "@shared/schema";
+type Article = any;
 
 const md = new MarkdownIt({
   html: true,

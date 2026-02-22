@@ -1,4 +1,5 @@
-import type { Article, Package, Exercise } from "@shared/schema";
+import type { Package, Exercise } from "@shared/schema";
+type Article = any;
 
 function formatDateISO(date: Date | string | null | undefined): string | undefined {
   if (!date) return undefined;
