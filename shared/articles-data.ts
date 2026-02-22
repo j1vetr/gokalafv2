@@ -6152,6 +6152,1648 @@ Yağda çözünen vitaminleri (A, D, E, K) yağlı yemekle alın. Kreatin bol su
     ctaText: "TDEE hesapla",
     ctaLink: "/araclar/tdee",
   },
+  {
+    slug: "online-pt-avantajlari",
+    title: "Online PT (Personal Trainer) Avantajları - Neden Online Koçluk?",
+    category: "antrenman",
+    excerpt: "Online personal trainer ile antrenman yapmak, esneklik, kişiselleştirme ve maliyet avantajı sunar. Geleneksel PT ile karşılaştırması ve online koçluktan ne beklemeniz gerektiğini öğrenin.",
+    heroImage: "/articles/online-pt-avantajlari.png",
+    content: `## Online PT Nedir ve Neden Tercih Edilmeli?
+
+Fitness dünyası hızla dijitalleşiyor ve **online personal training (PT)** bu dönüşümün en önemli parçalarından biri haline geldi. Artık profesyonel bir koçtan rehberlik almak için belirli saatlerde spor salonuna gitmek zorunda değilsiniz. Online PT, size özel hazırlanan antrenman ve beslenme programlarını dijital ortamda almanızı, koçunuzla sürekli iletişimde kalmanızı ve kendi temponuzda ilerlemenizi sağlayan modern bir fitness çözümüdür.
+
+> 💡 **Araştırmalara göre**, online koçluk alan bireylerin %78'i hedeflerine ulaşmada daha tutarlı olduklarını bildirmektedir. Bunun en büyük nedeni esneklik ve sürekli hesap verebilirliktir.
+
+## Online PT'nin Geleneksel PT'ye Göre Avantajları
+
+Online koçluğun sunduğu avantajları geleneksel yüz yüze eğitimle karşılaştıralım:
+
+| Kriter | Online PT | Geleneksel PT |
+|--------|-----------|---------------|
+| Maliyet | Aylık 500-2.000 ₺ | Seans başı 500-1.500 ₺ |
+| Esneklik | 7/24 erişim | Randevu saatine bağlı |
+| Konum | Her yerden erişim | Salona gitme zorunluluğu |
+| Program güncelleme | Anlık güncelleme | Sonraki seansta |
+| İletişim | Sürekli mesajlaşma | Sadece seans sırasında |
+| Beslenme desteği | Genellikle dahil | Ekstra ücret |
+| Video analiz | Form videosu gönderme | Sadece yüz yüze |
+| İlerleme takibi | Dijital dashboard | Manuel kayıt |
+
+### 1. Maliyet Etkinliği
+
+Online PT'nin en belirgin avantajlarından biri **maliyet etkinliği**dir. Geleneksel bir personal trainer ile ayda 8-12 seans yapmanın maliyeti 4.000-18.000 ₺ arasında değişirken, online koçluk paketleri aylık 500-2.000 ₺ arasında kapsamlı hizmet sunar.
+
+| Hizmet Türü | Aylık Maliyet | Dahil Olan |
+|-------------|---------------|------------|
+| Geleneksel PT (8 seans) | 4.000-12.000 ₺ | Sadece antrenman |
+| Geleneksel PT (12 seans) | 6.000-18.000 ₺ | Sadece antrenman |
+| Online PT (Temel) | 500-1.000 ₺ | Antrenman + beslenme |
+| Online PT (Premium) | 1.000-2.000 ₺ | Antrenman + beslenme + sürekli destek |
+
+> ✅ Online koçluk ile aynı bütçeyle çok daha kapsamlı ve uzun süreli destek alabilirsiniz.
+
+### 2. Zaman ve Mekan Esnekliği
+
+Online PT ile antrenmanlarınızı **istediğiniz zaman ve yerde** yapabilirsiniz. Sabahçıysanız sabah 6'da, gece kuşuysanız gece 11'de antrenman yapabilirsiniz. Bu esneklik, tutarlılığı büyük ölçüde artırır.
+
+- İş seyahatlerinde bile programınıza devam edebilirsiniz
+- Spor salonunun yoğun saatlerinden kaçınabilirsiniz
+- Ev, salon veya açık hava antrenmanlarına uyum sağlanır
+- Tatilde bile programınız devam eder
+
+### 3. Kişiselleştirilmiş Programlar
+
+İyi bir online koç, programınızı tamamen **sizin hedeflerinize, deneyim seviyenize ve yaşam tarzınıza** göre tasarlar.
+
+| Kişiselleştirme Alanı | Nasıl Uygulanır |
+|------------------------|-----------------|
+| Antrenman programı | Hedefe, seviyeye ve ekipmana göre |
+| Beslenme planı | Kalori ihtiyacına ve tercihlere göre |
+| Supplement önerisi | Bütçe ve hedefe göre |
+| Cardio planlaması | Yaşam tarzına göre |
+| Deload haftaları | Biyolojik geri bildirime göre |
+
+### 4. Sürekli İletişim ve Hesap Verebilirlik
+
+Geleneksel PT'de koçunuzla sadece seans süresince iletişim kurarsınız. Online koçlukta ise **WhatsApp, uygulama veya e-posta** üzerinden sürekli iletişim halinde olursunuz.
+
+> 💡 Hesap verebilirlik, fitness hedeflerine ulaşmada en güçlü motivasyon araçlarından biridir. Koçunuza haftalık check-in yapmak, tutarlılığınızı %60 oranında artırabilir.
+
+### 5. Veri Odaklı İlerleme Takibi
+
+Online koçluk sistemleri genellikle **dijital ilerleme takibi** sunar:
+
+- Haftalık kilo ve ölçü değişimleri
+- Antrenman performans grafikleri
+- İlerleme fotoğrafları karşılaştırması
+- Beslenme uyum yüzdeleri
+- Uyku ve stres takibi
+
+## Online PT'den Ne Beklemelisiniz?
+
+Kaliteli bir online koçluk hizmeti şunları içermelidir:
+
+| Hizmet | Açıklama | Sıklık |
+|--------|----------|--------|
+| Antrenman programı | Hedefe özel, periyodize edilmiş | Aylık güncelleme |
+| Beslenme planı | Kalori ve makro hesaplı | Aylık güncelleme |
+| Form kontrolü | Video analizi ile geri bildirim | Haftalık |
+| Check-in | İlerleme değerlendirmesi | Haftalık |
+| Mesajlaşma | Soru-cevap desteği | Sürekli |
+| Program revizyonu | Geri bildirime göre ayarlama | İhtiyaç halinde |
+
+> ⚠️ **Dikkat:** Sadece hazır program gönderip iletişim kurmayan koçlardan kaçının. Gerçek online koçluk, aktif iletişim ve sürekli adaptasyon gerektirir.
+
+## Online Koçluk Kimlere Uygundur?
+
+Online PT, birçok farklı profildeki kişi için idealdir:
+
+- **Yoğun çalışanlar**: Esnek zamanlama sayesinde programı hayata geçirebilirler
+- **Uzak şehirlerde yaşayanlar**: Kaliteli koça erişim sorunu ortadan kalkar
+- **Bütçe bilincindekiler**: Daha uygun maliyetle profesyonel destek
+- **Deneyimli sporcular**: Kendi başlarına antrenman yapabilen ancak program desteği isteyenler
+- **Utangaç başlangıç yapanlar**: Spor salonunda koçla çalışmaktan çekinenler
+
+## Gokalaf ile Online Koçluk
+
+Gokalaf olarak, online koçluk hizmetimizde size özel hazırlanan antrenman ve beslenme programları sunuyoruz. 8-24 haftalık paketlerimizle hedeflerinize profesyonel rehberlik altında ulaşabilirsiniz. WhatsApp üzerinden sürekli iletişim, haftalık check-in ve program güncelleme hizmetimiz mevcuttur.
+
+| Gokalaf Farkı | Detay |
+|---------------|-------|
+| Kişisel program | Hedefe ve seviyeye özel |
+| Beslenme planı | Makro hesaplı, tercihlere uygun |
+| WhatsApp desteği | Sürekli iletişim |
+| Form kontrolü | Video analizi |
+| Haftalık check-in | İlerleme takibi |
+| Program güncelleme | Geri bildirime göre revizyon |
+
+> ✅ **Profesyonel koçlukla hedeflerinize daha hızlı ve güvenli ulaşın.** Gokalaf paketlerini inceleyerek size en uygun programı seçebilirsiniz.
+
+## Sıkça Sorulan Sorular
+
+### Online PT gerçekten etkili mi?
+Evet, araştırmalar online koçluğun yüz yüze koçluk kadar etkili olduğunu göstermektedir. Önemli olan koçun kalitesi, programın kişiselleştirilmesi ve düzenli iletişimdir. Özellikle tutarlılık ve hesap verebilirlik açısından online koçluk büyük avantaj sağlar.
+
+### Online PT ile form kontrolü nasıl yapılır?
+Egzersiz videolarınızı koçunuza göndererek form analizi alabilirsiniz. İyi bir online koç, videolarınızı detaylıca inceleyerek düzeltme önerileri sunar. Bu yöntem, yüz yüze koçlukta gözden kaçabilecek detayları bile yakalamanızı sağlar çünkü video tekrar tekrar izlenebilir.
+
+### Yeni başlayan biri online PT ile çalışabilir mi?
+Kesinlikle evet. Online koçlar, yeni başlayanlara uygun programlar hazırlar, egzersiz videolarıyla doğru formları öğretir ve başlangıç aşamasında daha sık iletişim kurarak güvenli bir başlangıç sağlar.
+
+### Online PT ile ne kadar sürede sonuç alırım?
+Hedeflerinize ve tutarlılığınıza bağlı olarak genellikle 4-8 hafta içinde ilk sonuçları görmeye başlarsınız. Belirgin vücut kompozisyonu değişiklikleri için 12-16 hafta idealdir. Koçunuzla düzenli iletişim ve programa uyum süreci hızlandırır.
+
+### Online PT maliyeti ne kadar?
+Online koçluk maliyetleri, hizmet kapsamına göre aylık 500-2.000 ₺ arasında değişir. Bu maliyet, genellikle antrenman programı, beslenme planı ve sürekli iletişim desteğini içerir. Geleneksel PT ile karşılaştırıldığında çok daha ekonomiktir.`,
+    seoTitle: "Online PT (Personal Trainer) Avantajları - Neden Online Koçluk? | Gokalaf",
+    seoDescription: "Online personal trainer avantajları nelerdir? Geleneksel PT ile karşılaştırma, maliyet analizi, esneklik ve kişiselleştirme. Online koçluktan ne beklemelisiniz?",
+    publishedAt: "2025-06-15",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "protein-ihtiyaci-rehberi",
+    title: "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
+    category: "beslenme",
+    excerpt: "Günlük protein ihtiyacınızı doğru hesaplamak, kas gelişimi ve sağlık için kritik öneme sahiptir. Hedeflerinize göre ne kadar protein almanız gerektiğini, en iyi kaynakları ve zamanlama stratejilerini öğrenin.",
+    heroImage: "/articles/protein-ihtiyaci-rehberi.png",
+    content: `## Protein Neden Bu Kadar Önemli?
+
+Protein, vücudumuzun en temel yapı taşlarından biridir. Kasların onarımı ve büyümesi, enzimlerin ve hormonların üretimi, bağışıklık sisteminin güçlendirilmesi ve doku yenilenmesi gibi hayati fonksiyonlarda görev alır. Fitness hedefleriniz ne olursa olsun — kas yapmak, yağ yakmak veya sağlıklı kalmak — **protein alımınız başarınızın temelini oluşturur**.
+
+> 💡 **Önemli:** Protein, karbonhidrat ve yağdan farklı olarak vücutta depolanamaz. Bu nedenle her gün yeterli miktarda protein almak gereklidir.
+
+## Günlük Protein İhtiyacı Ne Kadar?
+
+Protein ihtiyacı; yaş, cinsiyet, aktivite düzeyi, vücut ağırlığı ve hedefe göre değişir. Aşağıdaki tablo farklı hedeflere göre önerilen protein miktarlarını göstermektedir:
+
+| Hedef | Protein (g/kg vücut ağırlığı) | 70 kg İçin Günlük | 80 kg İçin Günlük |
+|-------|-------------------------------|--------------------|--------------------|
+| Sedanter yaşam | 0.8 - 1.0 g/kg | 56 - 70 g | 64 - 80 g |
+| Genel sağlık | 1.0 - 1.2 g/kg | 70 - 84 g | 80 - 96 g |
+| Kas koruma (diyet) | 1.6 - 2.0 g/kg | 112 - 140 g | 128 - 160 g |
+| Kas geliştirme | 1.6 - 2.2 g/kg | 112 - 154 g | 128 - 176 g |
+| İleri düzey sporcu | 2.0 - 2.4 g/kg | 140 - 168 g | 160 - 192 g |
+| Yağ yakımı (agresif diyet) | 2.2 - 2.6 g/kg | 154 - 182 g | 176 - 208 g |
+
+> ✅ **Pratik kural:** Kas geliştirmek veya korumak istiyorsanız, vücut ağırlığınızın kilogramı başına **1.6-2.2 gram** protein hedefleyin.
+
+### Yaşa Göre Protein İhtiyacı
+
+| Yaş Grubu | Önerilen Miktar | Neden |
+|-----------|-----------------|-------|
+| 18-30 yaş | 1.6-2.2 g/kg | Kas büyümesi optimum dönem |
+| 30-50 yaş | 1.6-2.0 g/kg | Kas kaybını önleme |
+| 50-65 yaş | 1.2-1.6 g/kg | Sarkopeni riski artar |
+| 65+ yaş | 1.2-1.5 g/kg | Kas koruması kritik |
+
+> ⚠️ **Dikkat:** 50 yaş üstünde kas kaybı (sarkopeni) hızlanır. Bu yaş grubunda yeterli protein alımı ve direnç antrenmanı birlikte uygulanmalıdır.
+
+## En İyi Protein Kaynakları
+
+### Hayvansal Protein Kaynakları
+
+| Kaynak | Protein (100g başına) | Biyolojik Değer | Ekstra Fayda |
+|--------|----------------------|-----------------|--------------|
+| Tavuk göğsü | 31 g | Çok yüksek | Düşük yağ |
+| Hindi göğsü | 29 g | Çok yüksek | Düşük yağ |
+| Yumurta (bütün) | 13 g | En yüksek | Tam aminoasit |
+| Somon | 25 g | Yüksek | Omega-3 |
+| Yağsız dana kıyma | 26 g | Yüksek | Demir, B12 |
+| Süzme peynir | 11 g | Yüksek | Kalsiyum |
+| Yoğurt (Yunan tipi) | 10 g | Yüksek | Probiyotik |
+| Ton balığı (konserve) | 26 g | Yüksek | Pratik kaynak |
+
+### Bitkisel Protein Kaynakları
+
+| Kaynak | Protein (100g başına) | Aminoasit Profili | Ekstra Fayda |
+|--------|----------------------|-------------------|--------------|
+| Kırmızı mercimek | 24 g (kuru) | Orta | Lif, demir |
+| Nohut | 19 g (kuru) | Orta | Lif, folat |
+| Tofu | 8 g | Tam | İzoflavonlar |
+| Tempeh | 19 g | Tam | Probiyotik |
+| Kinoa | 14 g (kuru) | Tam | B vitaminleri |
+| Bezelye proteini | 80 g (toz) | İyi | Hipoalerjenik |
+| Chia tohumu | 17 g | Orta | Omega-3 |
+| Edamame | 11 g | Tam | Lif |
+
+> 💡 **Vejetaryenler için ipucu:** Tahıllar ve baklagilleri birlikte tüketerek tam aminoasit profiline ulaşabilirsiniz. Örneğin: pilav + mercimek, ekmek + humus.
+
+## Protein Zamanlama Stratejileri
+
+Toplam günlük protein miktarı en önemli faktör olmakla birlikte, protein dağılımı da sonuçları etkileyebilir:
+
+| Öğün | Zamanlama | Önerilen Protein | Örnek |
+|------|-----------|------------------|-------|
+| Kahvaltı | Uyanınca 1 saat içinde | 25-40 g | Yumurta + yulaf |
+| Ara öğün | Öğle öncesi | 15-25 g | Yoğurt + kuruyemiş |
+| Öğle yemeği | 12:00-14:00 | 30-45 g | Tavuk + pilav + salata |
+| Antrenman öncesi | 1-2 saat önce | 20-30 g | Sandviç veya shake |
+| Antrenman sonrası | 30-60 dk içinde | 25-40 g | Whey protein + meyve |
+| Akşam yemeği | 19:00-21:00 | 30-45 g | Balık + sebze |
+| Gece (isteğe bağlı) | Yatmadan 1 saat önce | 20-30 g | Kazein veya süzme peynir |
+
+> 💡 **Anabolik pencere miti:** Antrenman sonrası 30 dakika içinde protein almak zorunlu değildir. Önemli olan günlük toplam protein alımıdır. Ancak antrenman sonrası 1-2 saat içinde protein almak pratik bir alışkanlıktır.
+
+## Protein Tozu Rehberi
+
+| Protein Türü | Emilim Hızı | En İyi Kullanım | Laktoz İçerir mi? |
+|--------------|-------------|------------------|--------------------|
+| Whey Concentrate | Hızlı | Antrenman sonrası | Evet (az) |
+| Whey Isolate | Çok hızlı | Antrenman sonrası | Çok az/yok |
+| Kazein | Yavaş | Gece | Evet |
+| Bitkisel (bezelye+pirinç) | Orta | Her zaman | Hayır |
+| Yumurta beyazı proteini | Orta-hızlı | Her zaman | Hayır |
+
+### Protein Tozu Ne Zaman Gerekli?
+
+Protein tozu bir **takviye**dir, besin yerine geçmez. Ancak şu durumlarda faydalı olabilir:
+- Günlük protein hedefini doğal gıdalarla karşılayamıyorsanız
+- Antrenman sonrası pratik bir çözüm istiyorsanız
+- Seyahatte veya yoğun günlerde protein alımını korumak istiyorsanız
+
+## Yaygın Protein Mitleri
+
+| Mit | Gerçek |
+|-----|--------|
+| "Fazla protein böbrekleri bozar" | Sağlıklı böbreklerde kanıtlanmamış. Böbrek hastalarında dikkatli olunmalı |
+| "Bitkisel protein yetmez" | Doğru kombinasyonlarla yeterli olabilir |
+| "Bir öğünde 30g'dan fazlası emilmez" | Yanlış. Vücut daha fazlasını kullanabilir, ancak dağılım önemli |
+| "Protein tozu zararlıdır" | Kaliteli ürünler güvenlidir, besin yerine geçmez |
+| "Kadınlar daha az protein almalı" | Vücut ağırlığına göre ihtiyaç benzerdir |
+
+> ⚠️ **Uyarı:** Böbrek hastalığı olan bireyler, protein alımını doktora danışarak belirlemelidir. Sağlıklı bireylerde yüksek protein alımının böbreklere zarar verdiğine dair güçlü kanıt yoktur.
+
+## Pratik Protein Artırma Stratejileri
+
+Günlük protein hedefinize ulaşmak için şu pratik stratejileri uygulayabilirsiniz:
+
+- Her öğüne bir protein kaynağı ekleyin
+- Atıştırmalıklarda yoğurt, peynir veya kuruyemiş tercih edin
+- Yumurtayı kahvaltı dışında da tüketin
+- Salatalara tavuk, ton balığı veya nohut ekleyin
+- Smoothie'lere protein tozu veya yoğurt ekleyin
+- Yulaf lapasını süt ile hazırlayıp protein tozu ekleyin
+
+## Sıkça Sorulan Sorular
+
+### Günde ne kadar protein almalıyım?
+Hedefinize göre değişir. Kas geliştirmek istiyorsanız vücut ağırlığınızın kilogramı başına 1.6-2.2 gram protein hedefleyin. 70 kg bir birey için bu günde 112-154 gram protein anlamına gelir. Sedanter bir yaşam sürüyorsanız 0.8-1.0 g/kg yeterli olabilir.
+
+### Çok fazla protein almak zararlı mı?
+Sağlıklı böbreklere sahip bireylerde günde 2.5-3 g/kg'a kadar protein alımının zararlı olduğuna dair güçlü kanıt yoktur. Ancak ihtiyacın çok üzerinde protein almak gereksizdir ve ekstra kalori anlamına gelir. Dengeli bir yaklaşım en iyisidir.
+
+### Vejetaryen olarak yeterli protein alabilir miyim?
+Evet, bitkisel kaynaklardan yeterli protein almak mümkündür. Baklagiller, soya ürünleri, kinoa, kuruyemişler ve tohumlar iyi protein kaynaklarıdır. Farklı bitkisel kaynakları birleştirerek tam aminoasit profili elde edebilirsiniz. Bitkisel protein tozu da destekleyici olabilir.
+
+### Protein zamanlaması gerçekten önemli mi?
+Toplam günlük protein alımı, zamanlama kadar önemlidir — hatta daha önemlidir. Ancak proteini gün boyunca 3-5 öğüne dağıtmak, kas protein sentezini optimize edebilir. Antrenman sonrası 1-2 saat içinde protein almak faydalı olsa da, "anabolik pencere" sanıldığı kadar dar değildir.
+
+### En kaliteli protein kaynağı hangisidir?
+Biyolojik değer açısından yumurta en üst sırada yer alır. Ancak "en iyi" kaynak, çeşitlilik sağlayan kaynaktır. Tavuk, balık, yumurta, süt ürünleri ve baklagilleri diyet programınıza dahil ederek geniş bir aminoasit yelpazesi elde edebilirsiniz.`,
+    seoTitle: "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi | Gokalaf",
+    seoDescription: "Günlük protein ihtiyacınızı doğru hesaplayın. Hedefe göre protein miktarı, en iyi kaynaklar, zamanlama stratejileri, bitkisel alternatifler ve protein mitleri.",
+    publishedAt: "2025-06-10",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "bench-press-rehberi",
+    title: "Bench Press Nasıl Yapılır? Teknik, Hata ve Program Rehberi",
+    category: "antrenman",
+    excerpt: "Bench press, üst vücut gücünün en temel göstergelerinden biridir. Doğru form, sık yapılan hatalar, varyasyonlar ve başlangıçtan ileri seviyeye program rehberi.",
+    heroImage: "/articles/bench-press-rehberi.png",
+    content: `## Bench Press Nedir?
+
+Bench press, **göğüs kaslarını (pectoralis major), ön omuzları (anterior deltoid) ve tricepsleri** hedef alan temel bir bileşik egzersizdir. Güç antrenmanının "üç büyük" hareketinden biri olan bench press, üst vücut gücünün en önemli göstergelerinden kabul edilir.
+
+> 💡 **Biliyor muydunuz?** Bench press sadece göğüs geliştirme hareketi değildir. Doğru teknikle yapıldığında tüm üst vücudu, hatta bacakları ve core kaslarını bile aktive eden bir tam vücut hareketidir.
+
+## Doğru Bench Press Formu
+
+Bench press'te doğru form hem güvenlik hem de verimlilik için kritiktir. İşte adım adım teknik:
+
+### Hazırlık Pozisyonu
+
+| Adım | Uygulama | Neden Önemli |
+|------|----------|--------------|
+| Sırt pozisyonu | Skapulalar birleştirilip bench'e bastırılır | Omuz stabilitesi sağlar |
+| Doğal sırt kemeri | Alt sırtta hafif kavis | Güç transferi artırır |
+| Ayak pozisyonu | Tabanlar yere düz basmalı | Stabilite ve leg drive sağlar |
+| Göz hizası | Gözler barın hemen altında | Güvenli rack/unrack |
+| Tutuş genişliği | Omuz genişliğinin 1.5 katı | Göğüs aktivasyonu optimize eder |
+
+### Hareket Mekaniği
+
+**İndirme (Eksentrik) Fazı:**
+- Barı kontrollü şekilde alt göğüse doğru indirin
+- Dirsekler gövdeyle 45-75° açı yapmalı (90° değil!)
+- Bar, göğüse hafifçe dokunmalı (bounce yapmadan)
+- İndirme süresi: 2-3 saniye
+
+**Kaldırma (Konsantrik) Fazı:**
+- Göğüsten patlayıcı şekilde itin
+- Bar hafif bir "J" eğrisi çizerek yukarı gider
+- Kilitleme pozisyonunda kollar tam uzatılır
+- Kaldırma süresi: 1-2 saniye
+
+## Tutuş Genişlikleri ve Etkileri
+
+| Tutuş Genişliği | Hedef Kas | Kim İçin | Dikkat |
+|-----------------|-----------|----------|--------|
+| Dar tutuş (omuz genişliği) | Triceps ağırlıklı | Triceps geliştirmek isteyenler | Bilek yükü az |
+| Orta tutuş (1.5x omuz) | Göğüs + triceps dengeli | Genel güç ve hipertrofi | En yaygın tutuş |
+| Geniş tutuş (2x omuz) | Göğüs ağırlıklı | Powerlifting yarışmacıları | Omuz riski fazla |
+
+> ⚠️ **Dikkat:** Çok geniş tutuş omuz eklemine aşırı yük bindirir. Başlangıçta orta tutuş ile çalışın ve vücudunuzun tepkisine göre ayarlayın.
+
+## Bench Press Varyasyonları
+
+| Varyasyon | Hedef Alan | Zorluk | Ekipman |
+|-----------|------------|--------|---------|
+| Flat Bench Press | Orta göğüs | Orta | Barbell + bench |
+| Incline Bench Press (30-45°) | Üst göğüs | Orta-Zor | Ayarlanabilir bench |
+| Decline Bench Press | Alt göğüs | Orta | Decline bench |
+| Dumbbell Bench Press | Göğüs + stabilizatörler | Orta | Dumbbell + bench |
+| Close-Grip Bench | Triceps + iç göğüs | Orta | Barbell + bench |
+| Floor Press | Üst yarı ROM | Orta | Barbell + zemin |
+| Paused Bench Press | Göğüsten güç | Zor | Barbell + bench |
+| Spoto Press | Alt yarı güç | Zor | Barbell + bench |
+
+### Incline Bench Press
+
+Üst göğüs gelişimi için en etkili varyasyondur. Bank açısı 30-45° arasında olmalıdır.
+
+- 30° açı: Göğüs ağırlıklı, omuz katkısı az
+- 45° açı: Göğüs-omuz dengeli
+- 60°+ açı: Omuz ağırlıklı (önerilmez göğüs için)
+
+### Dumbbell Bench Press
+
+Barbell'e göre avantajları:
+- Daha geniş hareket açıklığı (ROM)
+- Kas dengesizliklerini düzeltir
+- Stabilizatör kasları güçlendirir
+- Omuz dostu hareket yolu
+
+## Sık Yapılan Hatalar
+
+| Hata | Risk | Düzeltme |
+|------|------|----------|
+| Dirsekleri 90° açma (T şekli) | Omuz yaralanması | Dirsekleri 45-75°'de tutun |
+| Barı göğüsten sekme | Yaralanma + kas aktivasyonu kaybı | Kontrollü indirin, hafifçe dokunun |
+| Kalçayı bench'ten kaldırma | Bel yaralanması | Ayakları yere bastırın, core'u sıkın |
+| Skapulaları birleştirmemek | Omuz impingement | Kürek kemiklerini birleştirip kilitleyin |
+| Eksik ROM | Gelişim yavaşlar | Göğüse kadar indirin |
+| Bilek kırılması | Bilek ağrısı | Bilek düz, ön kol bara dik |
+| Nefes tutma | Baş dönmesi | İndirirken nefes al, kaldırırken ver |
+
+> 💡 **Güvenlik ipucu:** Tek başınıza ağır bench press yaparken mutlaka spotter (yardımcı) kullanın veya Smith machine / güvenlik çubukları olan bir rack tercih edin.
+
+## Progressive Overload Stratejileri
+
+Bench press'te sürekli gelişmek için progressive overload (kademeli yük artırma) uygulamalısınız:
+
+| Strateji | Uygulama | Ne Zaman |
+|----------|----------|----------|
+| Ağırlık artırma | Her 1-2 haftada 1.25-2.5 kg | Set/tekrar hedefine ulaşınca |
+| Tekrar artırma | Aynı ağırlıkla daha fazla tekrar | Ağırlık artırmadan önce |
+| Set artırma | Haftalık toplam set sayısını artırma | Platoda |
+| Tempo değiştirme | Yavaş eksentrik (3-4 sn) | Kas hipertrofisi için |
+| Paused rep | Göğüste 1-2 sn bekleme | Göğüsten güç geliştirme |
+| Deload | Her 4-6 haftada bir %40-60 yük azaltma | Toparlanma için |
+
+## Seviyeye Göre Bench Press Programı
+
+### Başlangıç (0-6 ay)
+
+| Gün | Egzersiz | Set x Tekrar | Dinlenme |
+|-----|----------|--------------|----------|
+| Pazartesi | Flat Bench Press | 3 x 8-10 | 2-3 dk |
+| Pazartesi | Dumbbell Incline Press | 3 x 10-12 | 90 sn |
+| Perşembe | Flat Bench Press | 3 x 8-10 | 2-3 dk |
+| Perşembe | Dumbbell Flye | 3 x 12-15 | 60 sn |
+
+### Orta Seviye (6-18 ay)
+
+| Gün | Egzersiz | Set x Tekrar | Dinlenme |
+|-----|----------|--------------|----------|
+| Pazartesi | Flat Bench Press (ağır) | 4 x 5-6 | 3-4 dk |
+| Pazartesi | Incline Dumbbell Press | 3 x 8-10 | 2 dk |
+| Pazartesi | Cable Flye | 3 x 12-15 | 60 sn |
+| Perşembe | Paused Bench Press | 3 x 6-8 | 3 dk |
+| Perşembe | Close-Grip Bench | 3 x 8-10 | 2 dk |
+| Perşembe | Dumbbell Flye | 3 x 12-15 | 60 sn |
+
+### İleri Seviye (18+ ay)
+
+| Gün | Egzersiz | Set x Tekrar | Yoğunluk |
+|-----|----------|--------------|----------|
+| Pazartesi | Comp. Bench Press | 5 x 3-5 | %85-90 1RM |
+| Pazartesi | Spoto Press | 3 x 5-6 | %75-80 1RM |
+| Çarşamba | Incline Bench | 4 x 6-8 | %70-75 1RM |
+| Çarşamba | Dumbbell Bench | 3 x 8-10 | RPE 7-8 |
+| Cuma | Close-Grip Bench | 4 x 6-8 | %70-75 1RM |
+| Cuma | Floor Press | 3 x 5-6 | RPE 8-9 |
+
+> ✅ **İlerleme hedefleri:** Başlangıçta haftada 2.5-5 kg artış hedefleyebilirsiniz. Orta seviyede bu ayda 2.5 kg'a düşer. İleri seviyede aylık 1-2.5 kg ilerleme normaldir.
+
+## Sıkça Sorulan Sorular
+
+### Bench press'te kaç kilo kaldırmalıyım?
+Bu tamamen deneyim seviyenize, vücut ağırlığınıza ve genetiğinize bağlıdır. Genel referans olarak: Başlangıç seviyesinde vücut ağırlığınızın %50-60'ı, orta seviyede %75-100'ü, ileri seviyede %100-150'si hedeflenebilir. Önemli olan ağırlık değil, doğru teknikle kademeli ilerlemedir.
+
+### Bench press omzumu ağrıtıyor, ne yapmalıyım?
+Omuz ağrısının en yaygın nedeni yanlış tutuş genişliği veya dirsek açısıdır. Dirseklerinizi gövdeye yaklaştırın (45° açı), tutuş genişliğinizi daraltın ve skapulalarınızı iyice birleştirdiğinizden emin olun. Ağrı devam ederse bir fizyoterapiste başvurun.
+
+### Haftada kaç kez bench press yapmalıyım?
+Çoğu kişi için haftada 2 kez bench press yeterlidir. İleri düzey sporcular haftada 3-4 kez farklı varyasyonlarla çalışabilir. Önemli olan toplam haftalık hacim ve yeterli toparlanma süresini sağlamaktır.
+
+### Bench press'te plato nasıl kırılır?
+Plato kırmak için şu stratejileri deneyin: Paused rep ekleyin, tamamlayıcı egzersizlerle zayıf noktaları güçlendirin (triceps veya omuz), deload haftası uygulayın, beslenmve ve uykunuzu kontrol edin. Bazen en etkili çözüm 1 hafta tamamen dinlenmektir.
+
+### Dumbbell bench press mi barbell mi daha iyi?
+İkisi de farklı avantajlar sunar ve idealinde her ikisini de programınıza dahil etmelisiniz. Barbell daha fazla ağırlık kaldırmanıza olanak tanır, dumbbell ise daha geniş hareket açıklığı ve dengesizlik düzeltimi sağlar. Ana hareketiniz barbell, tamamlayıcınız dumbbell olabilir.`,
+    seoTitle: "Bench Press Nasıl Yapılır? Teknik, Hata ve Program Rehberi | Gokalaf",
+    seoDescription: "Bench press doğru teknik, sık yapılan hatalar, varyasyonlar ve seviyeye göre program rehberi. Başlangıçtan ileri seviyeye bench press geliştirme stratejileri.",
+    publishedAt: "2025-06-05",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "intermittent-fasting-rehberi",
+    title: "Intermittent Fasting (Aralıklı Oruç) Rehberi - Yeni Başlayanlar İçin",
+    category: "beslenme",
+    excerpt: "Intermittent fasting (aralıklı oruç) nedir, nasıl uygulanır? 16:8, 20:4, 5:2 yöntemleri, faydaları, kimlerin kaçınması gerektiği ve kas geliştirirken oruç tutma stratejileri.",
+    heroImage: "/articles/intermittent-fasting-rehberi.png",
+    content: `## Intermittent Fasting (IF) Nedir?
+
+Intermittent fasting (IF), Türkçe'de **aralıklı oruç** olarak bilinen, belirli zaman dilimlerinde yeme ve oruç tutma döngülerini içeren bir beslenme stratejisidir. IF, **ne yediğinizle değil, ne zaman yediğinizle** ilgilenir. Bir diyet değil, bir yeme düzenidir.
+
+> 💡 **Önemli ayrım:** IF bir diyet değildir. Hangi besinleri yemeniz gerektiğini söylemez, sadece ne zaman yemeniz ve ne zaman yememeniz gerektiğini belirler. Kalori ve makro besin dengesi IF ile birlikte ayrıca planlanmalıdır.
+
+## IF Yöntemleri Karşılaştırması
+
+Farklı IF protokolleri farklı yaşam tarzlarına uyum sağlar. İşte en popüler yöntemler:
+
+| Yöntem | Oruç Süresi | Yeme Penceresi | Zorluk | Kime Uygun |
+|--------|-------------|----------------|--------|------------|
+| 16:8 | 16 saat | 8 saat | Kolay | Yeni başlayanlar |
+| 18:6 | 18 saat | 6 saat | Orta | Orta seviye |
+| 20:4 (Warrior) | 20 saat | 4 saat | Zor | Deneyimliler |
+| 5:2 | Haftada 2 gün kısıtlama | 5 gün normal | Orta | Esnek isteyenler |
+| Eat-Stop-Eat | 24 saat (haftada 1-2) | Diğer günler normal | Zor | Deneyimliler |
+| OMAD | 23 saat | 1 öğün | Çok zor | Sadece deneyimliler |
+
+### 16:8 Yöntemi (En Popüler)
+
+16:8 yöntemi, günde 16 saat oruç tutup 8 saatlik bir pencerede yemek yemeyi içerir. En yaygın ve sürdürülebilir IF protokolüdür.
+
+| Örnek Program | Saat | Aktivite |
+|---------------|------|----------|
+| Oruç başlangıcı | 20:00 | Son öğün bitiş |
+| Uyku | 23:00 - 07:00 | 8 saat uyku |
+| Oruç devam | 07:00 - 12:00 | Su, çay, kahve (şekersiz) |
+| İlk öğün | 12:00 | Oruç bozulur |
+| Ara öğün | 15:00 - 16:00 | İsteğe bağlı |
+| Son öğün | 19:30 - 20:00 | Yeme penceresi kapanır |
+
+> ✅ **Başlangıç ipucu:** 16:8 ile başlayın. Uyum sağladıktan sonra isterseniz 18:6 veya 20:4'e geçebilirsiniz. Birçok kişi için 16:8 uzun vadede en sürdürülebilir yöntemdir.
+
+### 20:4 (Warrior Diet)
+
+Bu yöntemde gün boyunca çok az veya hiç yemek yenmez, akşam 4 saatlik bir pencerede ana öğün ve atıştırmalıklar tüketilir.
+
+### 5:2 Yöntemi
+
+Haftanın 5 günü normal beslenilir, 2 gün ise kalori alımı 500-600 kcal ile sınırlandırılır.
+
+| Gün | Kalori | Öğün Sayısı |
+|-----|--------|-------------|
+| Normal günler (5 gün) | Standart TDEE | 3-4 öğün |
+| Kısıtlama günleri (2 gün) | 500-600 kcal | 1-2 küçük öğün |
+
+## IF'in Bilimsel Olarak Kanıtlanmış Faydaları
+
+| Fayda | Mekanizma | Bilimsel Destek |
+|-------|-----------|-----------------|
+| Yağ yakımı | İnsülin düşer, yağ oksidasyonu artar | Güçlü |
+| İnsülin duyarlılığı | İnsülin seviyeleri normalleşir | Güçlü |
+| Otofaji (hücre temizliği) | 16-24 saat oruçta aktive olur | Orta-Güçlü |
+| Beyin sağlığı | BDNF üretimi artar | Orta |
+| İnflamasyon azalması | İnflamatuar belirteçler düşer | Orta |
+| Kalp sağlığı | Trigliserit ve LDL kolesterol düşer | Orta |
+| Basitlik | Öğün planlama kolaylaşır | Pratik |
+
+### Otofaji Nedir?
+
+Otofaji, hücrelerin hasarlı veya işlevsiz bileşenlerini temizleme ve geri dönüştürme sürecidir. IF sırasında özellikle 16-24 saat oruçtan sonra otofaji aktive olur.
+
+> 💡 **Not:** 2016 Nobel Tıp Ödülü, otofaji mekanizmalarının keşfi için Yoshinori Ohsuma'ya verilmiştir. Bu, otofajinin bilimsel önemini göstermektedir.
+
+## IF Sırasında Neler Tüketilebilir?
+
+| İçecek/Gıda | Oruç Sırasında | Kalori | Not |
+|-------------|----------------|--------|-----|
+| Su | ✅ Evet | 0 | Bol miktarda |
+| Siyah kahve | ✅ Evet | ~2-5 | Şekersiz, sütsüz |
+| Yeşil çay | ✅ Evet | 0 | Metabolizmayı destekler |
+| Bitkisel çay | ✅ Evet | 0 | Tatlandırıcısız |
+| Soda (şekersiz) | ⚠️ Tartışmalı | 0 | Yapay tatlandırıcı içerir |
+| Kemik suyu | ⚠️ Tartışmalı | ~40-50 | Teknik olarak orucu bozar |
+| Süt veya krema | ❌ Hayır | ~20-50 | Orucu bozar |
+| Meyve suyu | ❌ Hayır | 50-120 | Orucu bozar |
+
+## Kas Geliştirirken IF Uygulaması
+
+IF ile kas geliştirmek mümkündür ancak dikkat gerektiren bazı noktalar vardır:
+
+| Konu | Strateji | Açıklama |
+|------|----------|----------|
+| Kalori fazlası | Yeme penceresinde yeterli kalori | Kas için kalori fazlası gerekli |
+| Protein dağılımı | Her öğünde 30-50g protein | Yeme penceresinde 3-4 öğüne böl |
+| Antrenman zamanlaması | Yeme penceresine yakın | İdeal: orucu bozduktan 1-2 saat sonra |
+| Toplam protein | 1.6-2.2 g/kg | IF'de protein önceliği daha da önemli |
+| Kreatin | Yeme penceresinde al | Oruç sırasında alınmasına gerek yok |
+
+> ⚠️ **Uyarı:** Eğer öncelikli hedefiniz kas geliştirmek ise, IF zorunlu değildir. IF, yağ yakımı ve genel sağlık için daha avantajlıdır. Kas geliştirme döneminde (bulk) IF uygulamak, yeterli kalori almayı zorlaştırabilir.
+
+### Antrenman Zamanlaması Önerileri
+
+| Senaryo | Zamanlama | Avantaj | Dezavantaj |
+|---------|-----------|---------|------------|
+| Yeme penceresinde antrenman | Öğle yemeğinden 1-2 saat sonra | Performans yüksek | Sabit program gerekir |
+| Oruçlu antrenman (sabah) | Sabah 08:00, ilk öğün 12:00 | Yağ yakımı artabilir | Performans düşebilir |
+| Son öğün öncesi antrenman | Akşam 17:00-18:00 | Antrenman sonrası beslenme | Akşam yoğunluğu |
+
+## Kimler IF Uygulamamalı?
+
+Aşağıdaki gruplardaki bireyler IF uygulamadan önce mutlaka doktora danışmalı veya IF'den kaçınmalıdır:
+
+- **Hamile ve emziren kadınlar**: Besin ihtiyacı artmıştır
+- **18 yaş altı bireyler**: Büyüme döneminde düzenli beslenme gerekli
+- **Yeme bozukluğu geçmişi olanlar**: IF tetikleyici olabilir
+- **Diyabet hastaları (özellikle Tip 1)**: Kan şekeri kontrolü zorlaşabilir
+- **Düşük tansiyon**: Oruç tansiyonu daha da düşürebilir
+- **Ağır ilaç kullananlar**: İlaç-yemek etkileşimi olabilir
+
+> ⚠️ **Önemli:** Herhangi bir kronik hastalığınız varsa IF uygulamadan önce doktorunuza danışın.
+
+## IF Başlangıç Rehberi
+
+Adım adım IF'e başlama planı:
+
+| Hafta | Uygulama | Hedef |
+|-------|----------|-------|
+| 1. hafta | 12:12 (12 saat oruç) | Alışma |
+| 2. hafta | 14:10 | Oruç süresini uzatma |
+| 3. hafta | 16:8 | Standart IF |
+| 4. hafta+ | 16:8 sabit | Sürdürülebilirlik |
+
+**Pratik başlangıç ipuçları:**
+- Kahvaltıyı 1-2 saat geç yemeye başlayın
+- Akşam yemeğini biraz erkene alın
+- Bol su ve şekersiz çay/kahve tüketin
+- Açlık hissini ilk 3-5 gün yoğun olabilir, sonra azalır
+- Sosyal hayatınıza uygun bir yeme penceresi seçin
+
+## Sıkça Sorulan Sorular
+
+### IF ile ne kadar kilo verilebilir?
+IF tek başına kilo verme garantisi vermez. Kilo kaybı, kalori açığına bağlıdır. IF, kalori açığı oluşturmayı kolaylaştırır çünkü yeme penceresi dar olduğunda doğal olarak daha az kalori alırsınız. Uygun kalori açığı ile haftada 0.5-1 kg kilo kaybı hedeflenebilir.
+
+### Oruç sırasında kahve içebilir miyim?
+Evet, siyah kahve (şekersiz ve sütsüz) orucu bozmaz. Kahve metabolizmayı hafifçe hızlandırabilir ve açlık hissini bastırabilir. Ancak aşırı kahve tüketiminden kaçının (günde 3-4 fincanı geçmeyin) ve midesi hassas olanlar aç karnına kahveye dikkat etmelidir.
+
+### IF kas kaybına neden olur mu?
+Yeterli protein alımı (1.6-2.2 g/kg) ve direnç antrenmanı ile IF sırasında kas kaybı önlenebilir. Araştırmalar, IF'in sürekli kalori kısıtlamasından daha fazla kas kaybına neden olmadığını göstermektedir. Önemli olan yeme penceresinde yeterli protein ve kalori almaktır.
+
+### IF her gün uygulanmalı mı?
+Hayır, IF'i her gün uygulamak zorunda değilsiniz. Hafta içi uygulayıp hafta sonu esnek olmak da bir seçenektir. Sürdürülebilirlik, tutarlılıktan daha önemlidir. Sosyal etkinlikler veya özel günlerde esnek davranabilirsiniz.
+
+### IF kadınlar için güvenli mi?
+Çoğu kadın için IF güvenlidir, ancak bazı kadınlarda hormonal düzensizliklere yol açabilir. Kadınlar genellikle daha kısa oruç süreleriyle (14:10 veya 16:8) başlamalı ve vücutlarının tepkisini izlemelidir. Adet düzensizliği yaşanırsa IF durdurulmalı ve doktora danışılmalıdır.`,
+    seoTitle: "Intermittent Fasting (Aralıklı Oruç) Rehberi - Yeni Başlayanlar İçin | Gokalaf",
+    seoDescription: "Intermittent fasting (aralıklı oruç) nedir? 16:8, 20:4, 5:2 yöntemleri, bilimsel faydaları, kas geliştirme stratejileri ve pratik başlangıç rehberi.",
+    publishedAt: "2025-05-28",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "yeni-baslayan-antrenman-programi",
+    title: "Yeni Başlayanlar İçin Antrenman Programı - İlk 12 Hafta",
+    category: "antrenman",
+    excerpt: "Spor salonuna yeni başlıyorsanız bu rehber tam size göre. İlk 12 haftalık antrenman programı, egzersiz seçimi, set/tekrar düzeni, dinlenme süreleri ve sık yapılan hatalar.",
+    heroImage: "/articles/yeni-baslayan-antrenman.png",
+    content: `## Neden Yapılandırılmış Bir Program Önemli?
+
+Spor salonuna yeni adım atan birçok kişi, ne yapacağını bilmeden rastgele makinelerde egzersiz yapmaya başlar. Bu yaklaşım hem verimsizdir hem de yaralanma riskini artırır. **Yapılandırılmış bir antrenman programı** ile başlamak, ilerlemenizi hızlandırır, güvenli bir başlangıç sağlar ve motivasyonunuzu korur.
+
+> 💡 **Araştırmalara göre**, yapılandırılmış program takip eden yeni başlayanlar, programsız çalışanlara kıyasla ilk 12 haftada **%40-60 daha fazla güç kazanımı** elde etmektedir.
+
+## Full Body mi, Split mi?
+
+Yeni başlayanlar için en çok tartışılan konulardan biri program türüdür. İşte karşılaştırma:
+
+| Kriter | Full Body | Upper/Lower Split | Push/Pull/Legs |
+|--------|-----------|-------------------|----------------|
+| Frekans | Haftada 3 gün | Haftada 4 gün | Haftada 6 gün |
+| Her kas grubu sıklığı | Haftada 3 kez | Haftada 2 kez | Haftada 2 kez |
+| Yeni başlayan uygunluğu | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Toparlanma | Kolay | Orta | Zor |
+| Zaman yatırımı | Düşük | Orta | Yüksek |
+| Önerilen deneyim | 0-6 ay | 3-12 ay | 12+ ay |
+
+> ✅ **Tavsiye:** Yeni başlayanlar için **Full Body program haftada 3 gün** en verimli yaklaşımdır. Her kas grubu haftada 3 kez çalışılır ve toparlanma için yeterli süre vardır.
+
+## İlk 12 Hafta Antrenman Planı
+
+### Faz 1: Temel Oluşturma (1-4. Hafta)
+
+Bu fazda amaç egzersiz tekniklerini öğrenmek, nöromüsküler adaptasyon sağlamak ve vücudu antrenmana hazırlamaktır.
+
+**Program: Full Body A/B (Haftada 3 Gün)**
+
+#### Antrenman A (Pazartesi / Cuma)
+
+| Egzersiz | Set x Tekrar | Dinlenme | Hedef Kas |
+|----------|--------------|----------|-----------|
+| Goblet Squat | 3 x 10-12 | 90 sn | Bacak (quad, glute) |
+| Dumbbell Bench Press | 3 x 10-12 | 90 sn | Göğüs, triceps |
+| Cable Row | 3 x 10-12 | 90 sn | Sırt, biceps |
+| Dumbbell Shoulder Press | 2 x 10-12 | 60 sn | Omuz |
+| Plank | 3 x 30 sn | 60 sn | Core |
+
+#### Antrenman B (Çarşamba)
+
+| Egzersiz | Set x Tekrar | Dinlenme | Hedef Kas |
+|----------|--------------|----------|-----------|
+| Romanian Deadlift (dumbbell) | 3 x 10-12 | 90 sn | Hamstring, glute |
+| Lat Pulldown | 3 x 10-12 | 90 sn | Sırt, biceps |
+| Dumbbell Incline Press | 3 x 10-12 | 90 sn | Üst göğüs |
+| Leg Press | 3 x 12-15 | 90 sn | Bacak |
+| Face Pull | 2 x 15 | 60 sn | Arka omuz |
+
+> 💡 **İlerleme:** Her antrenmanda önceki seansın tekrar sayısını geçmeye çalışın. 12 tekrarı kolayca tamamlayabildiğinizde ağırlığı artırın.
+
+### Faz 2: Güç Temeli (5-8. Hafta)
+
+Bu fazda bileşik hareketlere geçiş yapılır ve ağırlıklar kademeli olarak artırılır.
+
+**Program: Full Body A/B/C (Haftada 3 Gün)**
+
+#### Antrenman A
+
+| Egzersiz | Set x Tekrar | Dinlenme | Not |
+|----------|--------------|----------|-----|
+| Barbell Squat | 3 x 8-10 | 2 dk | Form öncelikli |
+| Barbell Bench Press | 3 x 8-10 | 2 dk | Orta tutuş |
+| Barbell Row | 3 x 8-10 | 2 dk | Sırt düz |
+| Dumbbell Lateral Raise | 2 x 12-15 | 60 sn | Kontrollü hareket |
+| Cable Crunch | 3 x 12-15 | 60 sn | Core güçlendirme |
+
+#### Antrenman B
+
+| Egzersiz | Set x Tekrar | Dinlenme | Not |
+|----------|--------------|----------|-----|
+| Barbell Deadlift | 3 x 6-8 | 2-3 dk | Teknik çok önemli |
+| Overhead Press | 3 x 8-10 | 2 dk | Ayakta veya oturarak |
+| Pull-Up / Lat Pulldown | 3 x 8-10 | 2 dk | Pull-up yapamıyorsanız lat pulldown |
+| Leg Curl | 3 x 10-12 | 90 sn | Hamstring |
+| Dumbbell Curl | 2 x 10-12 | 60 sn | Biceps |
+
+#### Antrenman C
+
+| Egzersiz | Set x Tekrar | Dinlenme | Not |
+|----------|--------------|----------|-----|
+| Front Squat / Goblet Squat | 3 x 8-10 | 2 dk | Quad odaklı |
+| Incline Bench Press | 3 x 8-10 | 2 dk | Üst göğüs |
+| Seated Cable Row | 3 x 10-12 | 90 sn | Sırt kalınlığı |
+| Romanian Deadlift | 3 x 10-12 | 90 sn | Hamstring |
+| Tricep Pushdown | 2 x 10-12 | 60 sn | Triceps |
+
+### Faz 3: Hipertrofi Başlangıcı (9-12. Hafta)
+
+Bu fazda hacim artırılır ve kas gelişimi hedeflenir. Upper/Lower split'e geçiş yapılabilir.
+
+**Program: Upper/Lower Split (Haftada 4 Gün)**
+
+#### Üst Vücut A (Pazartesi)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|--------------|----------|
+| Barbell Bench Press | 4 x 6-8 | 2-3 dk |
+| Barbell Row | 4 x 6-8 | 2-3 dk |
+| Overhead Press | 3 x 8-10 | 2 dk |
+| Lat Pulldown | 3 x 10-12 | 90 sn |
+| Dumbbell Lateral Raise | 3 x 12-15 | 60 sn |
+| Dumbbell Curl | 2 x 10-12 | 60 sn |
+| Tricep Pushdown | 2 x 10-12 | 60 sn |
+
+#### Alt Vücut A (Salı)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|--------------|----------|
+| Barbell Squat | 4 x 6-8 | 2-3 dk |
+| Romanian Deadlift | 3 x 8-10 | 2 dk |
+| Leg Press | 3 x 10-12 | 90 sn |
+| Leg Curl | 3 x 10-12 | 90 sn |
+| Calf Raise | 4 x 12-15 | 60 sn |
+| Plank | 3 x 45 sn | 60 sn |
+
+> 💡 **Perşembe: Üst Vücut B, Cuma: Alt Vücut B** — benzer yapıda ancak farklı egzersiz varyasyonlarıyla tekrar edilir.
+
+## Set, Tekrar ve Dinlenme Rehberi
+
+| Parametre | Başlangıç (1-4 hafta) | Orta (5-8 hafta) | İlerlemiş (9-12 hafta) |
+|-----------|----------------------|------------------|------------------------|
+| Bileşik hareket setleri | 3 set | 3-4 set | 4 set |
+| Bileşik hareket tekrarı | 10-12 | 8-10 | 6-8 |
+| İzolasyon hareket setleri | 2 set | 2-3 set | 3 set |
+| İzolasyon hareket tekrarı | 12-15 | 10-12 | 10-12 |
+| Bileşik dinlenme | 90 sn | 2 dk | 2-3 dk |
+| İzolasyon dinlenme | 60 sn | 60-90 sn | 60-90 sn |
+| Antrenman süresi | 40-50 dk | 50-60 dk | 60-75 dk |
+
+## Progressive Overload (Kademeli Yük Artırma)
+
+Progressive overload, ilerlemenin temelidir. Yeni başlayanlar için en etkili yöntemler:
+
+| Yöntem | Uygulama | Örnek |
+|--------|----------|-------|
+| Tekrar artırma | Aynı ağırlıkla daha fazla tekrar | 40kg x 8 → 40kg x 10 |
+| Ağırlık artırma | Hedef tekrara ulaşınca ağırlık ekle | 40kg x 12 → 42.5kg x 8 |
+| Set artırma | Toplam set sayısını artır | 3 set → 4 set |
+| RPE izleme | Zorluk derecesini takip et | RPE 7'den RPE 8'e |
+
+> ✅ **Altın kural:** Yeni başlayan olarak haftada 2.5-5 kg ağırlık artışı normaldir. Bu oran zamanla yavaşlar ama ilk 3-6 ayda hızlı ilerleme (newbie gains) yaşamanız beklenir.
+
+## Sık Yapılan Başlangıç Hataları
+
+| Hata | Neden Yanlış | Doğrusu |
+|------|-------------|---------|
+| Sadece üst vücut çalışmak | Kas dengesizliği, yaralanma riski | Tüm vücudu dengeli çalışın |
+| Her gün antrenman | Toparlanma eksikliği, overtraining | Haftada 3-4 gün yeterli |
+| Ağır başlamak | Yaralanma riski | Hafif başlayıp kademeli artırın |
+| Kardiyo çok, ağırlık az | Kas gelişimi yavaşlar | Önce ağırlık, sonra kardiyo |
+| Form ihmal etmek | Yaralanma, verimsiz çalışma | Ayna önünde teknik çalışın |
+| Beslenmeyi ihmal | İlerleme yavaşlar | Protein ve kalori takibi yapın |
+| Programa sadık kalmamak | Sonuç alınamaz | Aynı programı 4-8 hafta uygulayın |
+| Başkalarıyla karşılaştırma | Motivasyon kaybı | Kendinizle yarışın |
+
+> ⚠️ **En kritik hata:** Programı çok sık değiştirmek. Bir programa en az 4-8 hafta sadık kalın. Vücudunuzun adaptasyon için zamana ihtiyacı var.
+
+## Isınma Protokolü
+
+Her antrenmandan önce 5-10 dakika ısınma yapın:
+
+| Aşama | Süre | Örnek |
+|-------|------|-------|
+| Genel ısınma | 5 dk | Hafif tempo yürüyüş/bisiklet |
+| Dinamik germe | 3-5 dk | Kol çevirme, bacak salınımı |
+| Spesifik ısınma | 2-3 set | Ana hareketin hafif versiyonu |
+
+## Beslenme Temelleri
+
+Antrenman tek başına yetmez. Temel beslenme ilkeleri:
+
+| Hedef | Kalori | Protein | Not |
+|-------|--------|---------|-----|
+| Kas geliştirme | TDEE + 200-400 kcal | 1.6-2.2 g/kg | Kalori fazlası gerekli |
+| Yağ yakımı | TDEE - 300-500 kcal | 2.0-2.4 g/kg | Kas korumak için protein yüksek |
+| Recomp (her ikisi) | TDEE civarı | 1.6-2.0 g/kg | Yeni başlayanlar için mümkün |
+
+> 💡 **Yeni başlayan avantajı:** İlk 6-12 ayda "newbie gains" sayesinde aynı anda hem kas yapıp hem yağ yakmanız mümkündür. Bu dönem çok değerlidir, iyi değerlendirin!
+
+## Sıkça Sorulan Sorular
+
+### Haftada kaç gün antrenman yapmalıyım?
+Yeni başlayanlar için haftada 3 gün full body program idealdir. Bu, her kas grubunun haftada 3 kez çalışılmasını sağlar ve araya yeterli dinlenme koyar. 4-6 ay sonra haftada 4 güne (upper/lower split) geçebilirsiniz.
+
+### Antrenman ne kadar sürmeli?
+Isınma dahil 45-75 dakika yeterlidir. 2 saatten uzun antrenmanlar genellikle verimsizdir ve toparlanmayı zorlaştırır. Setler arasında telefonla vakit harcamak yerine, dinlenme sürelerine sadık kalın.
+
+### Ne zaman ağırlık artırmalıyım?
+Hedef tekrar aralığının üst sınırına ulaştığınızda (örneğin 3x12 yapabildiğinizde) ağırlığı 2.5-5 kg artırın. Yeni ağırlıkla tekrarlar düşecektir (örneğin 3x8), hedef tekrara ulaşana kadar aynı ağırlıkla çalışın.
+
+### Kardiyo da yapmalı mıyım?
+Genel sağlık için haftada 2-3 gün, 20-30 dakika hafif-orta yoğunluklu kardiyo yapabilirsiniz. Ancak kas geliştirme hedefiniz varsa, kardiyoyu aşırıya kaçırmayın. Ağırlık antrenmanı her zaman öncelikli olmalıdır.
+
+### Kas ağrısı normal mi?
+Evet, özellikle ilk 1-2 haftada DOMS (gecikmiş kas ağrısı) normaldir. Genellikle 24-72 saat sürer. Hafif aktivite ve yeterli protein alımı toparlanmayı hızlandırır. Ancak eklem ağrısı veya keskin ağrı normal değildir ve doktora danışılmalıdır.`,
+    seoTitle: "Yeni Başlayanlar İçin Antrenman Programı - İlk 12 Hafta | Gokalaf",
+    seoDescription: "Yeni başlayanlar için 12 haftalık antrenman programı. Full body program, egzersiz seçimi, set/tekrar düzeni, progressive overload ve sık yapılan başlangıç hataları.",
+    publishedAt: "2025-05-20",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "bulk-cut-rehberi",
+    title: "Bulk ve Cut Nedir? Kas Yapma ve Yağ Yakma Rehberi",
+    category: "beslenme",
+    excerpt: "Bulk ve cut dönemleri, kas kütlesi kazanmak ve yağ oranını düşürmek için uygulanan beslenme stratejileridir. Bu rehberde clean bulk, dirty bulk, kalori fazlası/açığı ve makro dağılımlarını öğrenin.",
+    heroImage: "/articles/bulk-cut-rehberi.png",
+    content: `## Bulk ve Cut Nedir?
+
+Fitness dünyasında hedeflerinize ulaşmanın en etkili yollarından biri, beslenmenizi belirli dönemlere ayırmaktır. **Bulk** (hacim dönemi) kas kütlesi kazanmak için kalori fazlasıyla beslenmeyi, **cut** (kesim dönemi) ise kazanılan kasları koruyarak yağ oranını düşürmeyi ifade eder. Bu iki dönemin doğru planlanması, fiziksel dönüşümünüzde büyük fark yaratır.
+
+> 💡 Bulk ve cut dönemleri birbirini tamamlayan süreçlerdir. Birini yapmadan diğerinden maksimum verim almak zordur.
+
+## Clean Bulk vs Dirty Bulk
+
+Bulk dönemi iki farklı yaklaşımla uygulanabilir. Her birinin avantaj ve dezavantajları vardır:
+
+| Özellik | Clean Bulk | Dirty Bulk |
+|---------|-----------|------------|
+| Kalori fazlası | +200 ile +400 kcal | +500 ile +1000+ kcal |
+| Besin kalitesi | Yüksek kaliteli, işlenmemiş gıdalar | Kısıtlama yok, fast food dahil |
+| Yağ kazanımı | Minimal | Yüksek |
+| Kas kazanımı | Yavaş ama kaliteli | Hızlı ama yağla karışık |
+| Cut süresi | Kısa (4-8 hafta) | Uzun (12-16+ hafta) |
+| Sağlık etkisi | Olumlu | Olumsuz olabilir |
+| Kime uygun? | Orta-ileri seviye | Çok zayıf bireyler (hardgainer) |
+
+> ⚠️ Dirty bulk, kısa vadede hızlı kilo almanızı sağlasa da uzun vadede fazla yağ birikimi ve sağlık sorunlarına yol açabilir. Clean bulk her zaman tercih edilmelidir.
+
+### Clean Bulk Nasıl Yapılır?
+
+Clean bulk döneminde besin kalitesine önem verilir. Temel kurallar şunlardır:
+
+- **Kalori fazlası**: Günlük bakım kalorinizin 200-400 kcal üzerinde beslenin
+- **Protein**: Vücut ağırlığınızın kg başına 1.8-2.2 gram
+- **Karbonhidrat**: Toplam kalorinin %45-55'i
+- **Yağ**: Toplam kalorinin %20-30'u
+- **Besin kaynakları**: Tavuk, balık, yumurta, pirinç, yulaf, patates, zeytinyağı, avokado
+
+## Kalori Hesaplama ve Makro Dağılımı
+
+### Bulk Dönemi Makro Hesaplama
+
+80 kg bir erkek sporcu için örnek bulk hesaplaması:
+
+| Makro | Gram/kg | Toplam | Kalori |
+|-------|---------|--------|--------|
+| Protein | 2.0 g/kg | 160 g | 640 kcal |
+| Karbonhidrat | 4.5 g/kg | 360 g | 1440 kcal |
+| Yağ | 1.0 g/kg | 80 g | 720 kcal |
+| **Toplam** | - | - | **2800 kcal** |
+
+### Cut Dönemi Makro Hesaplama
+
+Aynı sporcu için cut dönemi hesaplaması:
+
+| Makro | Gram/kg | Toplam | Kalori |
+|-------|---------|--------|--------|
+| Protein | 2.2 g/kg | 176 g | 704 kcal |
+| Karbonhidrat | 2.5 g/kg | 200 g | 800 kcal |
+| Yağ | 0.8 g/kg | 64 g | 576 kcal |
+| **Toplam** | - | - | **2080 kcal** |
+
+> 💡 Cut döneminde protein miktarını artırmak, kas kaybını önlemenin en etkili yoludur.
+
+## Ne Zaman Bulk, Ne Zaman Cut Yapmalı?
+
+Hangi döneme başlayacağınıza karar vermek için mevcut yağ oranınızı değerlendirin:
+
+| Yağ Oranı (Erkek) | Yağ Oranı (Kadın) | Önerilen Dönem | Açıklama |
+|--------------------|--------------------|----------------|----------|
+| %15 ve altı | %22 ve altı | Bulk | Kas kazanımı için ideal başlangıç |
+| %15-20 | %22-28 | Tercihe bağlı | Mini cut veya recomp düşünülebilir |
+| %20 ve üzeri | %28 ve üzeri | Cut | Önce yağ oranını düşürün |
+
+### Bulk'tan Cut'a Geçiş
+
+- Bulk dönemini en az **12-16 hafta** sürdürün
+- Yağ oranı erkeklerde %18-20, kadınlarda %28-30 seviyesine ulaştığında cut'a geçin
+- Geçişte kalori değişikliğini **kademeli** yapın (haftada 200-300 kcal azaltın)
+- İlk 1-2 hafta su kaybı nedeniyle hızlı kilo düşüşü normaldir
+
+### Cut'tan Bulk'a Geçiş
+
+- Cut döneminde hedef yağ oranına ulaştığınızda (erkek %10-12, kadın %18-22)
+- **Reverse diet** uygulayın: Kalorileri haftada 100-200 kcal artırarak bakım seviyesine çıkın
+- 2-4 hafta bakım kalorisinde kalın, sonra bulk'a başlayın
+
+> ✅ Kademeli geçişler, hormonal dengeyi korur ve ani yağ birikimini önler.
+
+## Cut Döneminde Kas Koruma Stratejileri
+
+Cut döneminin en büyük korkusu kas kaybıdır. Aşağıdaki stratejilerle bunu minimize edebilirsiniz:
+
+| Strateji | Uygulama | Önemi |
+|----------|----------|-------|
+| Yüksek protein | 2.0-2.4 g/kg | Kritik |
+| Ağırlık antrenmanı | Ağırlıkları düşürmeyin | Kritik |
+| Yavaş kilo kaybı | Haftada 0.5-0.7 kg | Çok önemli |
+| Yeterli uyku | 7-9 saat | Önemli |
+| Kreatin kullanımı | 5 g/gün | Destekleyici |
+| Stres yönetimi | Kortizolü düşük tutma | Önemli |
+
+- **Antrenman hacmini azaltabilirsiniz** ama ağırlıkları kesinlikle düşürmeyin
+- **Kalori açığını agresif tutmayın**: Haftada vücut ağırlığınızın %0.5-1'i kadar kayıp ideal
+- **Refeed günleri** ekleyin: Haftada 1 gün karbonhidratı artırarak metabolizmayı destekleyin
+
+## Body Recomposition (Recomp) Seçeneği
+
+Bulk ve cut dönemleri yerine aynı anda kas kazanıp yağ yakma mümkün müdür?
+
+| Durum | Recomp Uygun mu? | Açıklama |
+|-------|-------------------|----------|
+| Yeni başlayan | ✅ Evet | "Newbie gains" sayesinde etkili |
+| Antrenmana dönen | ✅ Evet | Kas hafızası avantajı |
+| Yüksek yağ oranı | ✅ Evet | Vücut mevcut yağı enerji olarak kullanır |
+| İleri seviye, düşük yağ | ❌ Hayır | Bulk/cut dönemleri daha verimli |
+
+> 💡 Recomp için bakım kalorisinde beslenin, protein yüksek tutun (2.0-2.2 g/kg) ve ağırlık antrenmanına odaklanın.
+
+## Örnek Haftalık Bulk Beslenme Planı
+
+| Öğün | Besinler | Kalori |
+|------|----------|--------|
+| Kahvaltı | 3 yumurta, 80g yulaf, 1 muz, bal | ~550 kcal |
+| Ara öğün | 200g Yunan yoğurdu, 30g granola, meyve | ~350 kcal |
+| Öğle | 200g tavuk, 150g pirinç, salata, zeytinyağı | ~650 kcal |
+| Antrenman öncesi | 1 muz, 30g fıstık ezmesi | ~250 kcal |
+| Antrenman sonrası | Protein shake, 50g yulaf | ~350 kcal |
+| Akşam | 200g somon, 200g patates, brokoli | ~650 kcal |
+| **Toplam** | | **~2800 kcal** |
+
+## Sıkça Sorulan Sorular
+
+### Bulk döneminde ne kadar kilo almalıyım?
+Ayda 0.5-1 kg kilo almak idealdir. Bu hızda kas/yağ oranı en verimli şekilde korunur. Ayda 2 kg'dan fazla alıyorsanız, kazancın büyük kısmı yağdır ve kalori fazlasını azaltmalısınız.
+
+### Cut döneminde kardiyo zorunlu mu?
+Hayır, cut için tek gerekli olan kalori açığıdır. Kardiyo, kalori açığı yaratmanın bir aracıdır ama beslenme ile de sağlanabilir. Haftada 2-3 gün 20-30 dakika yürüyüş veya hafif kardiyo yeterlidir.
+
+### Bulk ve cut dönemleri ne kadar sürmeli?
+Bulk dönemi en az 12-16 hafta, cut dönemi 8-12 hafta sürmesi önerilir. Çok kısa dönemler yeterli sonuç vermez. Bulk ve cut arasında 2-4 hafta bakım dönemi geçirmek faydalıdır.
+
+### İlk defa başlıyorsam bulk mı cut mı yapmalıyım?
+Yağ oranınız erkeklerde %15, kadınlarda %22'nin altındaysa bulk ile başlayın. Üzerindeyse önce cut yapın. Genel kural: Aynada karın kaslarınızı hafif görebiliyorsanız bulk, göremiyorsanız cut.
+
+### Bulk döneminde yağlanmadan kas yapmak mümkün mü?
+Tamamen yağlanmadan kas yapmak mümkün değildir, ancak clean bulk ile yağ kazanımını minimize edebilirsiniz. Kalori fazlasını 200-300 kcal'de tutmak ve protein yüksek tutmak yağlanmayı en aza indirir.`,
+    seoTitle: "Bulk ve Cut Nedir? Kas Yapma ve Yağ Yakma Rehberi | Gokalaf",
+    seoDescription: "Bulk ve cut dönemleri nedir, nasıl uygulanır? Clean bulk vs dirty bulk, kalori hesaplama, makro dağılımı, geçiş stratejileri ve kas koruma teknikleri.",
+    publishedAt: "2025-05-15",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "uyku-kas-gelisimi",
+    title: "Uyku ve Kas Gelişimi - Kasların Gerçek Büyüme Zamanı",
+    category: "antrenman",
+    excerpt: "Uyku, kas gelişimi ve toparlanma için en kritik faktörlerden biridir. Büyüme hormonu salınımı, protein sentezi ve performans üzerindeki etkileri ile uykunun fitness'taki rolünü keşfedin.",
+    heroImage: "/articles/uyku-kas-gelisimi.png",
+    content: `## Uyku Neden Kas Gelişimi İçin Kritik?
+
+Antrenman sırasında kaslarınızı yıpratırsınız, beslenme ile yapı taşlarını sağlarsınız, ancak gerçek büyüme ve onarım **uyku sırasında** gerçekleşir. Uyku, fitness üçgeninin en az önemsenen ama belki de en önemli kenarıdır. Yeterli ve kaliteli uyku olmadan, en mükemmel antrenman programı ve beslenme planı bile istenen sonuçları vermez.
+
+> 💡 Araştırmalar, uyku kısıtlamasının kas protein sentezini %18-20 oranında azaltabileceğini göstermektedir.
+
+## Uyku Sırasında Neler Olur?
+
+### Büyüme Hormonu (GH) Salınımı
+
+Büyüme hormonu, kas onarımı ve gelişimi için kritik bir hormondur. Günlük GH salınımının **%70-80'i** derin uyku (NREM Evre 3) sırasında gerçekleşir.
+
+| Uyku Evresi | Süre | GH Salınımı | Kas Gelişimi Etkisi |
+|-------------|------|-------------|---------------------|
+| NREM Evre 1 | 5-10 dk | Minimal | Düşük |
+| NREM Evre 2 | 20-25 dk | Düşük | Orta |
+| NREM Evre 3 (Derin) | 20-40 dk | **Çok yüksek** | **Kritik** |
+| REM Uykusu | 10-60 dk | Düşük | Zihinsel toparlanma |
+
+> ⚠️ Derin uyku süresinin azalması, büyüme hormonu salınımını doğrudan düşürür ve kas gelişimini yavaşlatır.
+
+### Protein Sentezi ve Kas Onarımı
+
+Uyku sırasında vücut anabolik (yapıcı) bir duruma geçer:
+
+- **Kas protein sentezi** hızlanır
+- **Kortizol** (stres hormonu) seviyeleri düşer
+- **Testosteron** üretimi artar (erkeklerde uyku sırasında pik yapar)
+- **İnflamasyon** azalır, mikro yırtıklar onarılır
+- **Glikojen depoları** yenilenir
+
+| Hormon | Uyku Sırasındaki Değişim | Kas Gelişimine Etkisi |
+|--------|--------------------------|----------------------|
+| Büyüme Hormonu | ↑↑↑ Çok artar | Kas onarımı ve büyümesi |
+| Testosteron | ↑↑ Artar | Protein sentezi artışı |
+| Kortizol | ↓↓ Azalır | Kas yıkımı engellenir |
+| İnsülin | ↓ Düşer | Yağ yakımı desteklenir |
+| Melatonin | ↑↑↑ Çok artar | Antioksidan koruma |
+
+## Optimum Uyku Süresi
+
+### Yaşa Göre Önerilen Uyku Süreleri
+
+| Yaş Grubu | Minimum | İdeal | Maksimum |
+|-----------|---------|-------|----------|
+| 14-17 yaş | 8 saat | 8-10 saat | 11 saat |
+| 18-25 yaş | 7 saat | 7-9 saat | 10 saat |
+| 26-64 yaş | 7 saat | 7-9 saat | 9 saat |
+| 65+ yaş | 7 saat | 7-8 saat | 8 saat |
+
+### Sporcularda Uyku İhtiyacı
+
+Yoğun antrenman yapan bireyler için uyku ihtiyacı artar:
+
+| Antrenman Yoğunluğu | Önerilen Uyku | Açıklama |
+|----------------------|---------------|----------|
+| Hafif (haftada 2-3 gün) | 7-8 saat | Normal yetişkin ihtiyacı |
+| Orta (haftada 4-5 gün) | 8-9 saat | Toparlanma süresi artar |
+| Yoğun (haftada 5-6 gün) | 9-10 saat | Elit sporcuların tercihi |
+
+> ✅ NBA oyuncuları ve olimpik sporcuların çoğu 9-10 saat uyuyor. LeBron James günde 10-12 saat uyuduğunu açıklamıştır.
+
+## Uyku Yoksunluğunun Performansa Etkileri
+
+Yetersiz uykunun fitness performansı üzerindeki olumsuz etkileri bilimsel olarak kanıtlanmıştır:
+
+| Etki Alanı | 1 Gece Yetersiz Uyku | Kronik Uyku Eksikliği |
+|------------|----------------------|----------------------|
+| Kas gücü | %5-10 azalma | %15-25 azalma |
+| Dayanıklılık | %10-15 azalma | %20-30 azalma |
+| Reaksiyon süresi | %10-20 yavaşlama | %30+ yavaşlama |
+| Yaralanma riski | %30 artış | %60-70 artış |
+| Kas protein sentezi | %10-15 azalma | %18-20 azalma |
+| Testosteron | %10-15 düşüş | %15-20 düşüş |
+| Kortizol | %20-30 artış | %40-50 artış |
+| İştah kontrolü | Bozulma | Ciddi bozulma |
+
+> ⚠️ Bir hafta boyunca gecelik 5 saat uyumak, testosteron seviyelerini 10-15 yıl yaşlandırmaya eşdeğer düşürebilir.
+
+## Uyku Hijyeni: Kaliteli Uyku İçin 10 Altın Kural
+
+### Ortam Düzenlemesi
+
+| Faktör | İdeal Değer | Açıklama |
+|--------|-------------|----------|
+| Oda sıcaklığı | 16-19°C | Vücut sıcaklığı düşünce uyku gelir |
+| Karanlık seviyesi | Tam karanlık | Melatonin üretimi için gerekli |
+| Ses seviyesi | <30 dB | Beyaz gürültü makinesi yardımcı olabilir |
+| Yatak kalitesi | Orta sertlik | Omurga desteği önemli |
+
+### Davranışsal Düzenlemeler
+
+1. **Düzenli uyku saati**: Her gün aynı saatte yatın ve kalkın (hafta sonu dahil)
+2. **Mavi ışık kontrolü**: Yatmadan 1-2 saat önce ekranları kapatın veya mavi ışık filtresi kullanın
+3. **Kafein sınırı**: Öğleden sonra 14:00'ten sonra kafein almayın (yarı ömrü 5-6 saattir)
+4. **Alkol**: Yatmadan en az 3-4 saat önce alkol almayı bırakın (REM uykusu bozar)
+5. **Egzersiz zamanlaması**: Ağır antrenmanı yatmadan en az 3 saat önce tamamlayın
+6. **Yatmadan önce ritüel**: Sıcak duş, kitap okuma veya meditasyon gibi rahatlatıcı aktiviteler
+
+> 💡 Yatmadan 1-2 saat önce sıcak bir duş almak, vücut sıcaklığını düşürerek uykuya dalmayı 36% hızlandırabilir.
+
+## Uyku Destekleyici Takviyeler
+
+| Takviye | Doz | Etki | Kanıt Düzeyi |
+|---------|-----|------|--------------|
+| Magnezyum (glisinat) | 200-400 mg | Kas gevşemesi, uyku kalitesi | Güçlü |
+| Melatonin | 0.5-3 mg | Uyku zamanlaması | Güçlü |
+| L-Teanin | 200-400 mg | Sakinleştirici, kaygı azaltıcı | Orta |
+| Çinko | 15-30 mg | Uyku kalitesi | Orta |
+| Ashwagandha | 300-600 mg | Kortizol düşürme, uyku | Orta |
+| ZMA (Çinko+Magnezyum+B6) | 1 servis | Toparlanma ve uyku | Orta |
+| Pasiflora çayı | 1-2 fincan | Hafif sakinleştirici | Hafif |
+
+> ⚠️ Takviyeler, iyi uyku hijyeninin yerini tutmaz. Önce uyku ortamınızı ve alışkanlıklarınızı düzenleyin, takviyeler destekleyici olarak kullanılmalıdır.
+
+## Uyku ve Antrenman Zamanlaması
+
+| Antrenman Saati | Uyku Etkisi | Öneriler |
+|-----------------|-------------|----------|
+| Sabah (06-09) | Olumlu | Sirkadiyen ritmi destekler |
+| Öğle (11-14) | Nötr | Vücut sıcaklığı ideal |
+| Öğleden sonra (15-17) | En iyi performans | Uyku etkisi minimal |
+| Akşam (18-20) | Dikkatli olun | Uyku öncesi 3+ saat bırakın |
+| Gece (21+) | Olumsuz | Uykuya dalmayı zorlaştırır |
+
+## Kısa Uyku (Nap) ve Toparlanma
+
+Gece uykusu yetersiz kaldığında öğle sonrası kısa uykular toparlanmayı destekleyebilir:
+
+| Nap Süresi | Etki | Uygun Zaman |
+|-----------|------|-------------|
+| 10-20 dk | Enerji artışı, dikkat | 13:00-15:00 |
+| 30 dk | Uyku ataleti riski | Önerilmez |
+| 60 dk | Derin uyku, hafıza | 13:00-15:00 |
+| 90 dk | Tam uyku döngüsü, toparlanma | 12:00-14:00 |
+
+> 💡 20 dakikalık "power nap" en güvenli ve etkili seçenektir. 15:00'ten sonra uyumak gece uykusunu bozabilir.
+
+## Sıkça Sorulan Sorular
+
+### Gece geç yatıp geç kalksam da 8 saat uyusam yeterli mi?
+Süre önemli olmakla birlikte, uyku zamanlaması da kritiktir. Vücudun sirkadiyen ritmi gece 22:00-02:00 arası en derin uyku dönemine girer ve büyüme hormonu pik yapar. Gece 03:00'te yatıp 11:00'de kalkmak, 23:00'te yatıp 07:00'de kalkmakla aynı kaliteyi vermez.
+
+### Az uyuyup daha fazla antrenman yapmak mı, çok uyuyup daha az antrenman mı?
+Kesinlikle ikincisi. Uykuyu feda ederek ek antrenman yapmak ters etki yapar: kas onarımı yetersiz kalır, yaralanma riski artar ve hormonal denge bozulur. Haftada 4 gün antrenman + 8 saat uyku, haftada 6 gün antrenman + 5 saat uykudan çok daha verimlidir.
+
+### Uyku bölünürse (örneğin gece tuvalet) kas gelişimi etkilenir mi?
+Kısa bölünmeler (1-2 dakika) genellikle sorun yaratmaz. Ancak 30 dakikadan uzun uyanık kalma süreleri derin uyku döngülerini bozar. Gece sık uyanıyorsanız yatmadan 2 saat önce sıvı alımını azaltın ve oda karanlığını kontrol edin.
+
+### Antrenman günlerinde daha fazla uyumalı mıyım?
+İdeal olan, ağır antrenman günlerinde 1 saat daha fazla uyumaktır. Özellikle bacak veya sırt gibi büyük kas gruplarını çalıştırdığınız günlerde toparlanma ihtiyacı artar. Gece uykusu uzatılamıyorsa öğle sonrası 20 dakikalık bir kısa uyku faydalıdır.
+
+### Uyku apnesi kas gelişimini etkiler mi?
+Evet, uyku apnesi büyüme hormonu salınımını ciddi şekilde azaltır, oksijen satürasyonunu düşürür ve uykuyu sürekli böler. Horlama, gündüz aşırı uykululuk veya sabah baş ağrısı varsa mutlaka bir uyku testi (polisomnografi) yaptırmanız önerilir.`,
+    seoTitle: "Uyku ve Kas Gelişimi - Kaslarin Gerçek Büyüme Zamanı | Gokalaf",
+    seoDescription: "Uyku ve kas gelişimi arasındaki bilimsel bağlantı. Büyüme hormonu, uyku evreleri, optimum uyku süresi, uyku hijyeni ve performansa etkileri hakkında detaylı rehber.",
+    publishedAt: "2025-05-10",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "saglikli-beslenme-temelleri",
+    title: "Sağlıklı Beslenme Temelleri - Başlangıç Rehberi",
+    category: "beslenme",
+    excerpt: "Sağlıklı beslenmenin temellerini öğrenin: makro ve mikro besinler, dengeli tabak modeli, öğün zamanlaması, hidrasyon, etiket okuma ve market alışverişi ipuçları.",
+    heroImage: "/articles/saglikli-beslenme-temelleri.png",
+    content: `## Sağlıklı Beslenme Neden Önemli?
+
+Sağlıklı beslenme, sadece kilo vermek veya almak için değil, vücudun tüm sistemlerinin optimum çalışması için gereklidir. Doğru beslenme alışkanlıkları enerji seviyenizi artırır, hastalık riskinizi azaltır ve fiziksel performansınızı yükseltir. İster spor yapın ister yapmayın, besinlerin temelleri herkes için aynıdır.
+
+> 💡 Dünya Sağlık Örgütü'ne göre kronik hastalıkların %80'i sağlıksız beslenme ve yaşam tarzıyla ilişkilidir.
+
+## Makro Besinler (Makrolar)
+
+Makro besinler, vücudun enerji ve yapı taşı olarak kullandığı üç temel besin grubudur:
+
+| Makro Besin | Kalori/gram | Ana İşlevi | Günlük Oran |
+|-------------|-------------|------------|-------------|
+| Protein | 4 kcal | Kas onarımı, enzimler, hormonlar | %25-35 |
+| Karbonhidrat | 4 kcal | Enerji kaynağı, beyin yakıtı | %35-50 |
+| Yağ | 9 kcal | Hormon üretimi, vitamin emilimi | %20-35 |
+
+### Protein Kaynakları
+
+| Kaynak | Protein (100g) | Biyoyararlanım | Ek Bilgi |
+|--------|----------------|----------------|----------|
+| Tavuk göğsü | 31 g | Çok yüksek | Düşük yağ |
+| Yumurta | 13 g | En yüksek | Tam amino asit profili |
+| Somon | 20 g | Yüksek | Omega-3 içerir |
+| Yoğurt (Yunan) | 10 g | Yüksek | Probiyotik içerir |
+| Mercimek | 9 g | Orta | Lif kaynağı |
+| Tofu | 8 g | Orta | Bitkisel alternatif |
+
+> 💡 Günlük protein ihtiyacınız: Sedanter bireyler için 0.8 g/kg, aktif bireyler için 1.4-1.6 g/kg, sporcular için 1.6-2.2 g/kg vücut ağırlığı.
+
+### Karbonhidrat Türleri
+
+| Tür | Glisemik İndeks | Örnekler | Tercih |
+|-----|-----------------|----------|--------|
+| Kompleks (yavaş) | Düşük-Orta | Yulaf, bulgur, tam tahıl, patates | ✅ Tercih edin |
+| Basit (hızlı) | Yüksek | Beyaz ekmek, şeker, meyve suyu | ⚠️ Sınırlayın |
+| Lif | - | Sebzeler, baklagiller, tam tahıllar | ✅ Günde 25-35g |
+
+### Sağlıklı Yağ Kaynakları
+
+- **Tekli doymamış**: Zeytinyağı, avokado, fındık, badem
+- **Çoklu doymamış**: Balık yağı, ceviz, keten tohumu
+- **Doymuş**: Kırmızı et, tereyağı (ölçülü tüketin)
+- **Trans yağ**: Margarin, işlenmiş gıdalar (❌ kesinlikle kaçının)
+
+## Mikro Besinler
+
+Vitamin ve mineraller, az miktarda ihtiyaç duyulsalar da yaşamsal işlevler için gereklidir:
+
+| Mikro Besin | İşlevi | Kaynakları | Eksiklik Belirtileri |
+|-------------|--------|------------|---------------------|
+| D Vitamini | Kemik sağlığı, bağışıklık | Güneş, balık, yumurta | Yorgunluk, kas zayıflığı |
+| B12 Vitamini | Enerji, sinir sistemi | Et, süt, yumurta | Halsizlik, uyuşma |
+| Demir | Oksijen taşınması | Kırmızı et, ıspanak | Anemi, solgunluk |
+| Çinko | Bağışıklık, hormonlar | Et, kabak çekirdeği | Yara iyileşmesinde gecikme |
+| Magnezyum | Kas fonksiyonu, uyku | Yeşil yapraklar, fındık | Kramplar, uykusuzluk |
+| Kalsiyum | Kemik yoğunluğu | Süt ürünleri, brokoli | Kemik erimesi |
+
+> ⚠️ Takviye kullanmadan önce kan testi yaptırarak eksikliklerinizi belirleyin. Gereksiz takviye kullanımı fayda yerine zarar verebilir.
+
+## Dengeli Tabak Modeli
+
+Her öğünde tabağınızı şu şekilde bölümlendirin:
+
+| Tabağın Bölümü | Oran | İçerik | Örnek |
+|----------------|------|--------|-------|
+| Protein | %25 | Hayvansal veya bitkisel protein | Tavuk, balık, tofu |
+| Kompleks karbonhidrat | %25 | Tam tahıl veya nişastalı sebze | Pirinç, patates, bulgur |
+| Sebze | %50 | Çeşitli renkli sebzeler | Brokoli, havuç, domates |
+| Sağlıklı yağ | 1-2 yemek kaşığı | Ekstra ekleme | Zeytinyağı, avokado |
+
+> ✅ Tabak modelini uygulamak, kalori saymaktan daha pratik ve sürdürülebilir bir yöntemdir.
+
+## Öğün Zamanlaması
+
+| Konu | Öneri | Açıklama |
+|------|-------|----------|
+| Öğün sayısı | 3-5 öğün | Kişisel tercihe bağlı |
+| Kahvaltı | Uyanınca 1-2 saat içinde | Metabolizmayı harekete geçirir |
+| Antrenman öncesi | 1.5-2 saat önce | Karbonhidrat ağırlıklı |
+| Antrenman sonrası | 30-60 dakika içinde | Protein + karbonhidrat |
+| Son öğün | Yatmadan 2-3 saat önce | Sindirimi kolaylaştırır |
+
+> 💡 Öğün zamanlamasından çok, günlük toplam kalori ve makro dengeniz önemlidir. Aralıklı oruç veya 6 öğün gibi yaklaşımlar kişisel tercihtir.
+
+## Hidrasyon
+
+Yeterli su tüketimi, beslenmenin temel taşlarından biridir:
+
+| Faktör | Günlük Su İhtiyacı | Açıklama |
+|--------|---------------------|----------|
+| Sedanter birey | 30 ml/kg | 70 kg = 2.1 litre |
+| Aktif birey | 35-40 ml/kg | 70 kg = 2.5-2.8 litre |
+| Yoğun antrenman | 40-50 ml/kg | 70 kg = 2.8-3.5 litre |
+| Sıcak hava | +500 ml-1 litre | Terleme ile artan kayıp |
+
+**Su içme ipuçları:**
+- Uyanır uyanmaz 1-2 bardak su için
+- Yanınızda her zaman su şişesi taşıyın
+- İdrar renginize bakın: açık sarı idealdir
+- Kahve ve çay da sıvı alımına katkıda bulunur
+
+## Besin Etiketi Okuma
+
+Market alışverişlerinde etiket okumak bilinçli seçimler yapmanızı sağlar:
+
+| Kontrol Edin | Dikkat Edin | İdeal Değer |
+|--------------|-------------|-------------|
+| Porsiyon boyutu | Etiket bir porsiyon için mi? | Gerçekçi porsiyon |
+| Kalori | 100g başına kalori | Hedefinize uygun |
+| Protein | Yüksek olması tercih | >10g/100g iyi |
+| Şeker | Eklenmiş şeker miktarı | <5g/100g ideal |
+| Lif | Yüksek olması tercih | >3g/100g iyi |
+| Sodyum | Düşük tutun | <400mg/100g |
+| İçerik listesi | İlk 3 madde en fazla olan | Tam gıdalar tercih |
+
+> ⚠️ "Light", "diyet", "doğal" gibi ifadeler yanıltıcı olabilir. Her zaman etiketin arkasını çevirin ve makro değerleri kontrol edin.
+
+## Yaygın Beslenme Hataları
+
+| Hata | Neden Zararlı? | Doğrusu |
+|------|----------------|---------|
+| Öğün atlamak | Metabolizma yavaşlar, aşırı yeme riski | Düzenli öğünler |
+| Yağlardan kaçınmak | Hormon üretimi bozulur | Sağlıklı yağlar tüketin |
+| Sadece kalori saymak | Besin kalitesi göz ardı edilir | Makro ve mikro dengesine bakın |
+| Detoks diyetleri | Bilimsel dayanağı yok | Dengeli beslenme yeterli |
+| Karbonhidratı kesmek | Enerji ve performans düşer | Kompleks karbonhidrat tercih edin |
+| Aşırı protein tüketimi | Böbrek yükü artabilir | İhtiyacınız kadar tüketin |
+| İşlenmiş "sağlıklı" gıdalar | Şeker ve katkı maddesi yüksek | Tam gıdalar tercih edin |
+
+## Pratik Market Alışverişi İpuçları
+
+### Mutlaka Alın ✅
+
+- **Protein**: Tavuk göğsü, yumurta, Yunan yoğurdu, mercimek, ton balığı
+- **Karbonhidrat**: Yulaf, bulgur, tam buğday makarna, pirinç, patates
+- **Sebze**: Brokoli, ıspanak, domates, biber, havuç, soğan
+- **Meyve**: Muz, elma, çilek, portakal (mevsiminde)
+- **Yağ**: Zeytinyağı, avokado, ceviz, badem, keten tohumu
+- **Diğer**: Bal, peynir, süt, yulaf ezmesi
+
+### Kaçının ❌
+
+- Gazlı içecekler ve meyve suları
+- Hazır soslar ve ketçap
+- İşlenmiş et ürünleri (sosis, salam)
+- Paketli atıştırmalıklar
+- Beyaz un ürünleri (beyaz ekmek, pasta)
+
+> 💡 Market alışverişine tok karnına gidin ve bir liste hazırlayın. Araştırmalar, aç karnına alışveriş yapanların %30 daha fazla abur cubur satın aldığını göstermektedir.
+
+## Sıkça Sorulan Sorular
+
+### Kalori saymak zorunlu mu?
+Hayır, kalori saymak herkes için gerekli değildir. Dengeli tabak modelini uygulayarak, porsiyon kontrolü yaparak ve vücut sinyallerini (açlık/tokluk) dinleyerek de sağlıklı beslenebilirsiniz. Ancak belirli fitness hedefleri (kas yapma, yağ yakma) varsa en azından birkaç hafta kalori ve makro takibi yapmak faydalıdır.
+
+### Akşam karbonhidrat yemek kilo aldırır mı?
+Hayır, bu bir mittir. Kilo aldıran şey toplam günlük kalori fazlasıdır, karbonhidratın yendiği saat değil. Akşam yemeğinde karbonhidrat yemekten kaçınmanız gerekmez, ancak yatmadan 2-3 saat önce ağır yemek yemekten kaçının.
+
+### Günde kaç öğün yemeliyim?
+3 ile 5 öğün arasında, kişisel yaşam tarzınıza en uygun olanı seçin. Araştırmalar, toplam kalori ve makro dengesi aynı olduğu sürece öğün sayısının metabolizma üzerinde anlamlı bir fark yaratmadığını göstermektedir. Önemli olan düzenli ve tutarlı olmaktır.
+
+### Organik gıdalar daha mı sağlıklı?
+Organik gıdalar daha az pestisit kalıntısı içerebilir, ancak makro ve mikro besin değerleri konvansiyonel ürünlerle benzerdir. Bütçeniz kısıtlıysa, organik yerine çeşitli sebze ve meyve tüketmeye öncelik verin. "Dirty dozen" listesindeki ürünleri (çilek, ıspanak, elma) organik tercih edebilirsiniz.
+
+### Su yerine çay veya kahve içsem olur mu?
+Çay ve kahve sıvı alımına katkıda bulunur, ancak tamamen su yerine geçmez. Kafein hafif diüretik etki gösterebilir. Günde 2-3 fincan çay/kahve tüketebilirsiniz, ancak günlük sıvı alımınızın en az yarısını saf su oluşturmalıdır.`,
+    seoTitle: "Sağlıklı Beslenme Temelleri - Başlangıç Rehberi | Gokalaf",
+    seoDescription: "Sağlıklı beslenmenin temelleri: makro ve mikro besinler, dengeli tabak modeli, öğün zamanlaması, hidrasyon, etiket okuma ve market alışverişi ipuçları.",
+    publishedAt: "2025-05-05",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "lat-pulldown-teknigi",
+    title: "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar",
+    category: "antrenman",
+    excerpt: "Lat pulldown, sırt kaslarını geliştirmek için en etkili egzersizlerden biridir. Doğru teknik, tutuş varyasyonları, çalışan kaslar ve sık yapılan hatalar hakkında detaylı rehber.",
+    heroImage: "/articles/lat-pulldown-teknigi.png",
+    content: `## Lat Pulldown Nedir?
+
+Lat pulldown (lat çekişi), kablo makinesinde oturarak üstten aşağıya doğru çekme hareketi ile sırt kaslarını çalıştıran temel bir egzersizdir. İsmini **latissimus dorsi** (geniş sırt kası) kasından alır ve sırt genişliği kazanmak için en etkili hareketlerden biridir. Barfiks yapamayan bireyler için mükemmel bir alternatif olmasının yanı sıra, ileri seviye sporcular için de vazgeçilmez bir egzersizdir.
+
+> 💡 Lat pulldown, barfiks ile aynı kas gruplarını çalıştırır ancak ağırlık ayarı yapılabilir olması nedeniyle her seviyeye uygundur.
+
+## Çalışan Kaslar
+
+| Kas Grubu | Çalışma Oranı | Rol |
+|-----------|---------------|-----|
+| Latissimus dorsi (sırt) | ⭐⭐⭐⭐⭐ | Primer (ana kas) |
+| Biceps brachii | ⭐⭐⭐ | Sinerjist (yardımcı) |
+| Teres major | ⭐⭐⭐⭐ | Sinerjist |
+| Rhomboidler | ⭐⭐⭐ | Sinerjist |
+| Posterior deltoid (arka omuz) | ⭐⭐⭐ | Sinerjist |
+| Trapezius (alt) | ⭐⭐ | Stabilizatör |
+| Brachialis | ⭐⭐ | Sinerjist |
+| Core kasları | ⭐⭐ | Stabilizatör |
+
+## Doğru Lat Pulldown Tekniği
+
+### Adım Adım Uygulama
+
+1. **Başlangıç pozisyonu**: Makineye oturun, dizlerinizi pedlerin altına sabitleyin. Kalçanız tam oturmuş olmalı.
+2. **Tutuş**: Barı omuz genişliğinden biraz geniş, üstten (pronated) kavrayın.
+3. **Hazırlık**: Göğsünüzü hafifçe yukarı kaldırın, omurganızı nötr pozisyonda tutun. Hafif bir arkaya yatış (10-15°) yapın.
+4. **Çekme fazı**: Barı göğsün üst kısmına doğru çekin. Dirseklerinizi aşağı ve arkaya doğru yönlendirin.
+5. **Kasılma**: En altta 1-2 saniye sırt kaslarınızı sıkın. Kürek kemiklerini birbirine yaklaştırın.
+6. **Bırakma fazı**: Kontrollü şekilde barı yukarı bırakın. Kollar tam uzanabilir ama omuz eklemini aşırı germekten kaçının.
+
+### Nefes Tekniği
+
+| Faz | Nefes | Açıklama |
+|-----|-------|----------|
+| Çekme (konsantrik) | Nefes verin | Efor sırasında nefes verme |
+| Bırakma (eksantrik) | Nefes alın | Kontrollü geri dönüş |
+
+> ✅ Her tekrarda tam hareket açıklığı kullanın: Kollar yukarıda hafif gerilim hissedin, aşağıda kürek kemiklerini sıkın.
+
+## Tutuş Varyasyonları
+
+| Varyasyon | Tutuş Genişliği | Avuç Yönü | Hedef Bölge | Zorluk |
+|-----------|-----------------|-----------|-------------|--------|
+| Geniş tutuş | Omuz genişliği +15-20cm | Üstten (pronated) | Üst sırt genişliği | Orta |
+| Dar tutuş | Omuz genişliği veya daha dar | Üstten | İç sırt kalınlığı | Orta |
+| Ters tutuş (Supinated) | Omuz genişliği | Alttan (supinated) | Alt lat + biceps | Kolay |
+| V-bar tutuş | Dar, nötr | Avuçlar birbirine bakacak | Orta sırt + biceps | Kolay |
+| Tek kol | Tek kol | Nötr veya supinated | Unilateral çalışma | Zor |
+| Geniş bar (enseye) | Çok geniş | Üstten | ❌ Önerilmez | - |
+
+> ⚠️ Enseye çekme varyasyonu omuz eklemine aşırı stres bindirir ve yaralanma riskini artırır. Bu varyasyondan kaçının, barı her zaman göğse çekin.
+
+### Tutuşa Göre Kas Aktivasyonu
+
+| Kas | Geniş Tutuş | Dar Tutuş | Ters Tutuş |
+|-----|-------------|-----------|------------|
+| Üst latissimus | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| Alt latissimus | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Biceps | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Teres major | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| Rhomboidler | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+
+## Sık Yapılan Hatalar ve Düzeltmeleri
+
+| Hata | Neden Zararlı? | Düzeltme |
+|------|----------------|----------|
+| Fazla ağırlık kullanmak | Form bozulur, hedef kas çalışmaz | Kontrollü yapabileceğiniz ağırlıkla başlayın |
+| Gövdeyi aşırı geriye yatırmak | Hareket row'a dönüşür, lat aktivasyonu azalır | Maksimum 15-20° arkaya eğilme |
+| Barı karına çekmek | Lat yerine kol ve trap çalışır | Göğsün üst kısmına çekin |
+| Kollarla çekmek | Biceps dominant olur | Dirsekleri aşağı itmeye odaklanın |
+| Momentum kullanmak | Kas aktivasyonu düşer | Her tekrarı 2-1-2 tempoyla yapın |
+| Omuzları kulak hizasına çekmek | Üst trapez dominant olur | Omuzları aşağıda tutun, kürek kemiklerini sıkın |
+| Yarım hareket açıklığı | Kas gelişimi sınırlanır | Tam açılma ve tam kapanma |
+
+## Zihin-Kas Bağlantısı (Mind-Muscle Connection)
+
+Lat pulldown'da zihin-kas bağlantısını güçlendirmek için:
+
+1. **Dirsek odağı**: Barı kollarınızla değil, dirseklerinizi aşağıya iterek çekin
+2. **Sırt sıkması**: Her tekrarda en alt noktada kürek kemiklerini birbirine yaklaştırın
+3. **Yavaş eksantrik**: Barı 3-4 saniyede yukarı bırakarak gerilimi hissedin
+4. **Hafif ağırlık ile pratik**: Zihin-kas bağlantısını geliştirmek için ilk set olarak hafif ağırlıkla 15-20 tekrar yapın
+5. **Gözlerinizi kapatın**: İleri seviye bir teknik; kasın çalışmasına odaklanmanızı sağlar
+
+> 💡 Araştırmalar, zihin-kas bağlantısının kas aktivasyonunu %20-30 artırabileceğini göstermektedir. Özellikle sırt antrenmanında bu fark çok belirgindir.
+
+## İlerleme (Progresyon) Stratejileri
+
+| Strateji | Uygulama | Ne Zaman |
+|----------|----------|----------|
+| Ağırlık artırma | 2.5-5 kg artış | Hedef tekrara ulaşınca |
+| Tekrar artırma | 8→10→12 tekrar | Aynı ağırlıkla |
+| Set artırma | 3→4 set | Hacim artışı gerektiğinde |
+| Tempo değişikliği | 3-1-3 (yavaş eksantrik) | Plato döneminde |
+| Varyasyon ekleme | Farklı tutuşlar | Her 4-6 haftada |
+| Drop set | Set sonunda ağırlık düşürüp devam | İleri seviye teknik |
+| Pause rep | Alt noktada 2-3 sn bekle | Kasılma kalitesini artırmak için |
+
+### Örnek Progresyon Tablosu
+
+| Hafta | Ağırlık | Set x Tekrar | Toplam Hacim |
+|-------|---------|-------------|-------------|
+| 1-2 | 40 kg | 3x10 | 1200 kg |
+| 3-4 | 42.5 kg | 3x10 | 1275 kg |
+| 5-6 | 45 kg | 3x10 | 1350 kg |
+| 7-8 | 45 kg | 4x10 | 1800 kg |
+| 9-10 | 47.5 kg | 3x10 | 1425 kg |
+
+## Lat Pulldown Alternatifleri
+
+| Egzersiz | Zorluk | Ekipman | Avantaj |
+|----------|--------|---------|---------|
+| Barfiks (Pull-up) | Zor | Bar | Fonksiyonel güç |
+| Assisted pull-up | Orta | Makine | Barfiks hazırlığı |
+| Dirençli bant pulldown | Kolay | Bant | Evde yapılabilir |
+| Dumbbell pullover | Orta | Dumbbell | İzolasyon |
+| Straight-arm pulldown | Orta | Kablo | Lat izolasyonu |
+| Single-arm cable pulldown | Orta | Kablo | Unilateral çalışma |
+
+## Sıkça Sorulan Sorular
+
+### Lat pulldown mı barfiks mi daha etkili?
+Her ikisi de latissimus dorsi'yi etkili şekilde çalıştırır. Barfiks, fonksiyonel güç ve stabilizasyon açısından üstündür. Lat pulldown ise ağırlık ayarı yapılabilmesi ve izolasyon sağlaması açısından avantajlıdır. İdeal olan her ikisini de programa dahil etmektir.
+
+### Enseye çekme mi göğse çekme mi yapmalıyım?
+Kesinlikle göğse çekme yapın. EMG çalışmaları, göğse çekmenin lat aktivasyonunda enseye çekmeyle eşit veya daha etkili olduğunu göstermiştir. Ayrıca enseye çekme omuz rotator cuff'a aşırı stres bindirir ve yaralanma riski taşır.
+
+### Kaç set ve kaç tekrar yapmalıyım?
+Kas gelişimi için 3-4 set, 8-12 tekrar idealdir. Güç geliştirmek için 4-5 set, 5-8 tekrar yapabilirsiniz. Dayanıklılık için 2-3 set, 15-20 tekrar uygulanabilir. Haftada toplam 10-20 set sırt çalışması önerilir.
+
+### Ellerim barı tutarken yoruluyor, ne yapmalıyım?
+Bu yaygın bir sorundur. Strap (bilek kayışı) kullanarak kavrama yorgunluğunu azaltabilirsiniz. Uzun vadede ön kol ve kavrama güçlendirme egzersizleri (farmer's walk, dead hang) ekleyin. Ayrıca ters tutuş (supinated grip) kavramayı kolaylaştırabilir.
+
+### Antrenman programımda lat pulldown'a ne zaman yer vermeliyim?
+Sırt antrenmanının başında, en taze olduğunuz zamanda yapın. Compound (çok eklemli) bir hareket olduğu için izolasyon hareketlerinden önce gelmelidir. Push/Pull/Legs programında Pull gününe, Upper/Lower'da Upper gününe ekleyin.`,
+    seoTitle: "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar | Gokalaf",
+    seoDescription: "Lat pulldown doğru teknik rehberi. Geniş, dar ve ters tutuş varyasyonları, çalışan kaslar, sık yapılan hatalar, zihin-kas bağlantısı ve ilerleme stratejileri.",
+    publishedAt: "2025-04-28",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "evde-antrenman-rehberi",
+    title: "Evde Antrenman Rehberi - Ekipmansız ve Ekipmanla Program",
+    category: "antrenman",
+    excerpt: "Evde etkili antrenman yapmak mümkün! Vücut ağırlığı egzersizleri, minimal ekipman önerileri, haftalık program ve evde progresif aşırı yükleme stratejileri.",
+    heroImage: "/articles/evde-antrenman-rehberi.png",
+    content: `## Evde Antrenman Neden Tercih Edilir?
+
+Spor salonu üyeliği, ulaşım ve zaman kısıtlamaları herkes için uygun olmayabilir. Evde antrenman, doğru planlandığında salon antrenmanıyla karşılaştırılabilir sonuçlar verebilir. Özellikle yeni başlayanlar ve orta seviye sporcular için evde antrenman güçlü bir alternatiftir.
+
+> 💡 Araştırmalar, vücut ağırlığı egzersizlerinin kas gücü ve dayanıklılık geliştirmede ağırlık antrenmanıyla benzer sonuçlar verebileceğini göstermektedir.
+
+### Evde Antrenmanın Avantajları
+
+| Avantaj | Açıklama |
+|---------|----------|
+| Zaman tasarrufu | Ulaşım süresi sıfır |
+| Maliyet | Üyelik ücreti yok |
+| Esneklik | İstediğiniz saatte antrenman |
+| Gizlilik | Başlangıç utangaçlığı yok |
+| Hijyen | Kendi ortamınız |
+| Sürdürülebilirlik | Hava koşullarından bağımsız |
+
+## Vücut Ağırlığı Egzersizleri
+
+### Üst Vücut
+
+| Egzersiz | Çalışan Kaslar | Zorluk | Tekrar |
+|----------|----------------|--------|--------|
+| Şınav (Push-up) | Göğüs, triceps, omuz | Orta | 10-20 |
+| Dar tutuş şınav | Triceps, göğüs iç | Orta-Zor | 8-15 |
+| Decline şınav (ayaklar yüksekte) | Üst göğüs, omuz | Zor | 8-12 |
+| Diamond şınav | Triceps | Zor | 6-12 |
+| Pike push-up | Omuz | Zor | 6-10 |
+| Dips (sandalyeler arası) | Triceps, göğüs | Orta | 8-15 |
+| Superman | Sırt, alt sırt | Kolay | 12-15 |
+
+### Alt Vücut
+
+| Egzersiz | Çalışan Kaslar | Zorluk | Tekrar |
+|----------|----------------|--------|--------|
+| Squat | Quadriceps, glute | Kolay | 15-25 |
+| Bulgarian split squat | Quadriceps, glute | Zor | 10-15 (her bacak) |
+| Lunge (ileri adımlama) | Quadriceps, glute, hamstring | Orta | 12-15 (her bacak) |
+| Glute bridge | Glute, hamstring | Kolay | 15-25 |
+| Single-leg glute bridge | Glute | Orta | 10-15 (her bacak) |
+| Step-up (sandalyeye) | Quadriceps, glute | Orta | 12-15 (her bacak) |
+| Wall sit | Quadriceps | Orta | 30-60 sn |
+| Calf raise (tek bacak) | Baldır | Kolay | 15-25 |
+
+### Core (Karın ve Bel)
+
+| Egzersiz | Çalışan Kaslar | Zorluk | Tekrar/Süre |
+|----------|----------------|--------|-------------|
+| Plank | Tüm core | Orta | 30-60 sn |
+| Side plank | Oblikler | Orta | 20-40 sn (her taraf) |
+| Dead bug | Core stabilizasyon | Kolay | 10-15 (her taraf) |
+| Mountain climber | Core, kardiyo | Orta | 20-30 sn |
+| Bicycle crunch | Oblikler, rectus abdominis | Orta | 15-20 (her taraf) |
+| Leg raise | Alt karın | Zor | 10-15 |
+| Russian twist | Oblikler | Orta | 15-20 (her taraf) |
+
+## Minimal Ekipman Önerileri
+
+Az bir yatırımla evde antrenman kalitenizi büyük ölçüde artırabilirsiniz:
+
+| Ekipman | Fiyat Aralığı | Öncelik | Kazandırdığı |
+|---------|---------------|---------|---------------|
+| Direnç bandı seti | 200-500 TL | ⭐⭐⭐⭐⭐ | Tüm kas grupları, progresyon |
+| Ayarlanabilir dumbbell seti | 1000-3000 TL | ⭐⭐⭐⭐⭐ | Ağırlık antrenmanı |
+| Barfiks demiri (kapıya takılan) | 200-500 TL | ⭐⭐⭐⭐ | Sırt ve biceps |
+| Yoga matı | 100-300 TL | ⭐⭐⭐⭐ | Zemin egzersizleri |
+| Ab wheel | 100-200 TL | ⭐⭐⭐ | Core güçlendirme |
+| Kettlebell | 300-800 TL | ⭐⭐⭐ | Fonksiyonel antrenman |
+| TRX / Askı sistemi | 500-1500 TL | ⭐⭐⭐ | Tüm vücut |
+
+> 💡 İlk yatırım olarak direnç bandı seti ve kapıya takılan barfiks demiri alın. Bu iki ekipmanla neredeyse tüm kas gruplarını etkili şekilde çalıştırabilirsiniz.
+
+### Direnç Bandı ile Egzersizler
+
+| Egzersiz | Çalışan Kas | Bant Direnci |
+|----------|-------------|-------------|
+| Band pull-apart | Arka omuz, sırt | Hafif-Orta |
+| Banded push-up | Göğüs (ek direnç) | Orta-Ağır |
+| Banded squat | Bacak, glute | Orta-Ağır |
+| Band row | Sırt, biceps | Orta |
+| Band overhead press | Omuz | Orta |
+| Band bicep curl | Biceps | Hafif-Orta |
+| Band tricep extension | Triceps | Hafif-Orta |
+| Band lateral raise | Yan omuz | Hafif |
+
+## Haftalık Evde Antrenman Programı
+
+### Ekipmansız Program (Yeni Başlayan)
+
+| Gün | Odak | Egzersizler | Set x Tekrar |
+|-----|------|-------------|-------------|
+| Pazartesi | Üst Vücut | Şınav, Pike push-up, Dips, Superman | 3x10-15 |
+| Salı | Alt Vücut | Squat, Lunge, Glute bridge, Calf raise | 3x15-20 |
+| Çarşamba | Dinlenme | Hafif yürüyüş veya esneme | - |
+| Perşembe | Full Body | Şınav, Squat, Plank, Mountain climber | 3x12-15 |
+| Cuma | Dinlenme | Aktif dinlenme | - |
+| Cumartesi | Full Body | Decline şınav, Bulgarian split squat, Dead bug, Leg raise | 3x10-12 |
+| Pazar | Dinlenme | Tam dinlenme | - |
+
+### Ekipmanla Program (Orta Seviye)
+
+| Gün | Odak | Egzersizler | Set x Tekrar |
+|-----|------|-------------|-------------|
+| Pazartesi | Push | Dumbbell bench press, Pike push-up, Dumbbell shoulder press, Tricep dips, Band lateral raise | 4x10-12 |
+| Salı | Pull | Barfiks, Dumbbell row, Band face pull, Dumbbell curl, Band pull-apart | 4x10-12 |
+| Çarşamba | Bacak | Dumbbell squat, Bulgarian split squat, Romanian deadlift, Glute bridge (ağırlıklı), Calf raise | 4x12-15 |
+| Perşembe | Dinlenme | Aktif dinlenme veya esneme | - |
+| Cuma | Upper Body | Şınav (bant ile), Dumbbell row, Dumbbell press, Band curl, Overhead tricep ext. | 4x10-12 |
+| Cumartesi | Lower + Core | Lunge (ağırlıklı), Step-up, Single-leg bridge, Plank, Russian twist | 4x12-15 |
+| Pazar | Dinlenme | Tam dinlenme | - |
+
+> ✅ Her antrenman öncesi 5-10 dakika ısınma (jumping jack, yüksek diz, arm circles) yapın. Sonrasında 5 dakika esneme uygulayın.
+
+## Evde Progresif Aşırı Yükleme
+
+Spor salonunda ağırlık artırmak kolaydır, peki evde nasıl ilerleme kaydedersiniz?
+
+| Strateji | Uygulama | Örnek |
+|----------|----------|-------|
+| Tekrar artırma | Aynı egzersizde daha fazla tekrar | 10→12→15→20 |
+| Set artırma | Toplam set sayısını artırma | 3 set→4 set |
+| Tempo değiştirme | Yavaş eksantrik (3-4 sn) | Şınavda 4 sn iniş |
+| Pause rep | Hareketin en zor noktasında bekleme | Squat altında 2 sn |
+| Hareket açıklığı | Daha geniş ROM kullanma | Deficit push-up |
+| Tek taraflı çalışma | İki bacak→tek bacak | Squat→Pistol squat |
+| Direnç ekleme | Bant veya ağırlık ekleme | Banded push-up |
+| Süre artırma | İzometrik süreyi uzatma | 30sn→45sn→60sn plank |
+
+> 💡 İlerleme kaydetmenin en kolay yolu bir antrenman defteri tutmaktır. Her antrenmanda yaptığınız tekrar ve setleri yazın, bir sonrakinde geçmeye çalışın.
+
+## Dar Alan Çözümleri
+
+Küçük bir odada bile etkili antrenman yapabilirsiniz:
+
+| Alan | Uygun Egzersizler | Ekipman |
+|------|-------------------|---------|
+| 1x1 metre | Squat, calf raise, shoulder press, bicep curl | Dumbbell, bant |
+| 1x2 metre | Şınav, plank, glute bridge, lunges | Mat |
+| 2x2 metre | Burpee, mountain climber, jump squat | Mat |
+| Kapı eşiği | Barfiks, TRX egzersizleri | Barfiks demiri |
+
+## Motivasyonu Koruma İpuçları
+
+| İpucu | Açıklama |
+|-------|----------|
+| Sabit saat belirleyin | Her gün aynı saatte antrenman yapın |
+| Antrenman kıyafetini giyin | Zihinsel hazırlık sağlar |
+| Müzik listesi hazırlayın | Enerji artırıcı playlist |
+| İlerlemenizi kaydedin | Fotoğraf, ölçüm, antrenman defteri |
+| Kısa tutun | 30-45 dk yeterli, mükemmellik değil tutarlılık |
+| Partner bulun | Online veya yüz yüze hesap verebilirlik |
+| Programı değiştirin | Her 4-6 haftada varyasyon ekleyin |
+
+> ⚠️ En iyi antrenman programı, uygulayabildiğiniz programdır. Haftada 3 gün tutarlı ev antrenmanı, düzensiz 5 gün salon antrenmanından daha etkilidir.
+
+## Sıkça Sorulan Sorular
+
+### Evde antrenmanla kas yapılabilir mi?
+Evet, özellikle yeni başlayanlar ve orta seviye sporcular evde antrenmanla önemli kas gelişimi sağlayabilir. Vücut ağırlığı egzersizleri ve direnç bantları ile yeterli kas uyarımı oluşturulabilir. İleri seviyede ağırlık ekipmanı (dumbbell, kettlebell) eklenmesi faydalıdır.
+
+### Ekipmansız antrenman ne kadar etkili?
+Vücut ağırlığı egzersizleri, özellikle doğru progresyon uygulandığında oldukça etkilidir. Şınav, squat, lunge, plank gibi hareketler tüm büyük kas gruplarını çalıştırır. Ancak sırt kasları için barfiks demiri veya direnç bandı gibi minimal ekipman büyük fark yaratır.
+
+### Evde ne kadar süre antrenman yapmalıyım?
+Isınma dahil 30-45 dakika yeterlidir. Kaliteli ve yoğun bir 30 dakikalık antrenman, dağınık ve uzun bir saatten daha etkilidir. Haftada 3-5 gün düzenli antrenman yapmanız en önemli faktördür.
+
+### Evde kardiyo nasıl yapabilirim?
+Jumping jack, burpee, mountain climber, high knees, jump squat gibi egzersizleri 30 saniye iş / 15 saniye dinlenme formatında uygulayarak HIIT kardiyo yapabilirsiniz. 15-20 dakikalık bir HIIT seansı, 40 dakika koşuya eşdeğer kalori yakımı sağlayabilir.
+
+### Evde protein ihtiyacımı nasıl karşılarım?
+Evde antrenman yapan bireylerin protein ihtiyacı salon antrenmanı yapanlarla aynıdır (1.6-2.0 g/kg). Yumurta, tavuk, yoğurt, peynir, mercimek, ton balığı gibi besinlerle karşılayabilirsiniz. Gerekirse protein tozu takviyesi de kullanılabilir.`,
+    seoTitle: "Evde Antrenman Rehberi - Ekipmansız ve Ekipmanla Program | Gokalaf",
+    seoDescription: "Evde antrenman rehberi: vücut ağırlığı egzersizleri, minimal ekipman önerileri, haftalık program, progresif aşırı yükleme ve motivasyon ipuçları.",
+    publishedAt: "2025-04-20",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {

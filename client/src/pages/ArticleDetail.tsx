@@ -61,11 +61,13 @@ function parseFAQs(content: string): { mainContent: string; faqs: FAQ[] } {
 }
 
 function parseInfoBoxes(html: string): string {
-  return html
+  let result = html
     .replace(/<p>💡 (.+?)<\/p>/g, '<div class="info-box tip"><span class="icon">💡</span><span>$1</span></div>')
     .replace(/<p>⚠️ (.+?)<\/p>/g, '<div class="info-box warning"><span class="icon">⚠️</span><span>$1</span></div>')
     .replace(/<p>✅ (.+?)<\/p>/g, '<div class="info-box success"><span class="icon">✅</span><span>$1</span></div>')
     .replace(/<p>📌 (.+?)<\/p>/g, '<div class="info-box note"><span class="icon">📌</span><span>$1</span></div>');
+  result = result.replace(/<table>/g, '<div class="table-wrapper"><table>').replace(/<\/table>/g, '</table></div>');
+  return result;
 }
 
 export default function ArticleDetail() {
@@ -363,6 +365,13 @@ export default function ArticleDetail() {
           margin: 32px 0;
           font-size: 1.1rem;
         }
+        @media (max-width: 640px) {
+          .article-content .info-box {
+            padding: 14px 16px;
+            gap: 10px;
+            font-size: 0.95rem;
+          }
+        }
         .article-content .info-box .icon {
           font-size: 24px;
           flex-shrink: 0;
@@ -383,16 +392,25 @@ export default function ArticleDetail() {
           background: rgba(59, 130, 246, 0.1);
           border: 1px solid rgba(59, 130, 246, 0.3);
         }
+
+        .article-content .table-wrapper {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          margin: 40px 0;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
         
         .article-content table {
           width: 100% !important;
-          max-width: 100% !important;
+          min-width: 400px !important;
           border-collapse: separate !important;
           border-spacing: 0 !important;
-          margin: 40px 0 !important;
-          border-radius: 16px !important;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          margin: 0 !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
           display: table !important;
           table-layout: auto !important;
         }
@@ -408,13 +426,13 @@ export default function ArticleDetail() {
         }
         .article-content th {
           display: table-cell !important;
-          padding: 16px 20px !important;
+          padding: 14px 16px !important;
           text-align: left !important;
           font-weight: 700 !important;
           color: #fff !important;
           font-family: 'Oswald', sans-serif !important;
           text-transform: uppercase !important;
-          font-size: 0.9rem !important;
+          font-size: 0.8rem !important;
           letter-spacing: 0.05em !important;
           border-bottom: 2px solid rgba(204, 255, 0, 0.3) !important;
           white-space: nowrap !important;
@@ -422,10 +440,10 @@ export default function ArticleDetail() {
         }
         .article-content td {
           display: table-cell !important;
-          padding: 16px 20px !important;
+          padding: 14px 16px !important;
           color: #d1d5db !important;
           border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-          font-size: 1rem !important;
+          font-size: 0.9rem !important;
           background: transparent !important;
         }
         .article-content tbody tr {
@@ -440,6 +458,44 @@ export default function ArticleDetail() {
         }
         .article-content tbody tr:last-child td {
           border-bottom: none !important;
+        }
+
+        .article-content blockquote {
+          border-left: 4px solid rgba(204, 255, 0, 0.5) !important;
+          background: rgba(204, 255, 0, 0.05) !important;
+          padding: 16px 20px !important;
+          border-radius: 0 12px 12px 0 !important;
+          margin: 24px 0 !important;
+        }
+        .article-content blockquote p {
+          margin: 0 !important;
+        }
+
+        .article-content img {
+          border-radius: 16px !important;
+          margin: 32px 0 !important;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+        }
+
+        .article-content hr {
+          border-color: rgba(204, 255, 0, 0.2) !important;
+          margin: 48px 0 !important;
+        }
+
+        .article-content ul {
+          list-style: none !important;
+          padding-left: 0 !important;
+        }
+        .article-content ul li {
+          position: relative;
+          padding-left: 24px !important;
+        }
+        .article-content ul li::before {
+          content: '▸';
+          position: absolute;
+          left: 0;
+          color: #ccff00;
+          font-weight: bold;
         }
       `}</style>
     </div>
