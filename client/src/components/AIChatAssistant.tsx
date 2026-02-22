@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Trash2, Plus, Bot, User, Loader2, MessageCircle } from "lucide-react";
 
@@ -90,6 +90,7 @@ export default function AIChatAssistant() {
         setConversationId(conv.id);
         setMessages([]);
         setShowHistory(false);
+        fetchGreeting(conv.id);
       }
     } catch {}
   };
@@ -118,37 +119,44 @@ export default function AIChatAssistant() {
     } catch {}
   };
 
-  const allQuestions = [
-    "Kas yapmak için günde kaç gram protein almalıyım?",
-    "Yağ yakmak için en etkili antrenman türü nedir?",
-    "Kreatin kullanmalı mıyım? Faydaları neler?",
-    "Antrenman öncesi ne yemeliyim?",
-    "Kilo vermek için kalori açığı nasıl hesaplanır?",
-    "Haftada kaç gün antrenman yapmalıyım?",
-    "Karın kası antrenmanı yapmadan six-pack olur mu?",
-    "Whey protein ne zaman içilmeli?",
-    "Bulk ve cut dönemleri nasıl planlanır?",
-    "Kadınlar ağırlık kaldırınca kaslı mı olur?",
-    "Uyku kas gelişimini nasıl etkiler?",
-    "Squat yaparken dizlerim ağrıyor, ne yapmalıyım?",
-    "Metabolizmamı nasıl hızlandırabilirim?",
-    "Aralıklı oruç (intermittent fasting) işe yarar mı?",
-    "Deadlift yaparken belimi korumak için ne yapmalıyım?",
-    "Antrenman sonrası kas ağrısı normal mi?",
-    "Supplement almadan kas yapılabilir mi?",
-    "TDEE nedir ve nasıl hesaplanır?",
-    "Evde ekipmansız antrenman programı önerir misin?",
-    "Koçluk paketleriniz hakkında bilgi alabilir miyim?",
-    "Hedeflerime uygun program nasıl oluşturulur?",
-    "Karbonhidrat yemeden kas yapmak mümkün mü?",
-    "Sabah mı akşam mı antrenman yapmalıyım?",
-    "Bench press'te gelişmek için ne yapmalıyım?",
-  ];
+  const fetchGreeting = useCallback(async (convId: number) => {
+    const greetingMsg: Message = { id: Date.now(), role: "assistant", content: "" };
+    setMessages([greetingMsg]);
+    setIsLoading(true);
 
-  const suggestedQuestions = useMemo(() => {
-    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 3);
-  }, [isOpen]);
+    try {
+      const res = await fetch(`/api/conversations/${convId}/greeting`, { method: "POST" });
+      if (!res.ok) throw new Error("Failed");
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      if (reader) {
+        let fullText = "";
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value);
+          const lines = chunk.split("\n");
+          for (const line of lines) {
+            if (line.startsWith("data: ")) {
+              try {
+                const data = JSON.parse(line.slice(6));
+                if (data.done) break;
+                if (data.content) {
+                  fullText += data.content;
+                  setMessages([{ ...greetingMsg, content: fullText }]);
+                }
+              } catch {}
+            }
+          }
+        }
+      }
+    } catch {
+      setMessages([{ ...greetingMsg, content: "Merhaba! 👋 Fitness ve beslenme hakkında sorularını bekliyorum." }]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -401,21 +409,10 @@ export default function AIChatAssistant() {
                     <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4 overflow-hidden">
                       <img src="/images/logo.webp" alt="Alaf Coaching" className="w-10 h-10 object-contain" />
                     </div>
-                    <h4 className="text-white font-semibold mb-2">Merhaba! 👋</h4>
-                    <p className="text-gray-400 text-sm mb-6">
-                      Koçluk, antrenman ve beslenme hakkında sana yardımcı olabilirim.
-                    </p>
-                    <div className="grid grid-cols-1 gap-2 w-full">
-                      {suggestedQuestions.map((q) => (
-                        <button
-                          key={q}
-                          data-testid="button-quick-question"
-                          onClick={() => sendDirectMessage(q)}
-                          className="text-left text-xs px-3 py-2.5 rounded-xl bg-white/5 text-gray-300 hover:bg-[#39ff14]/10 hover:text-[#39ff14] border border-white/5 hover:border-[#39ff14]/20 transition-all"
-                        >
-                          {q}
-                        </button>
-                      ))}
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 )}

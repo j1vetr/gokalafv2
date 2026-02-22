@@ -126,6 +126,56 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 
+  app.post("/api/conversations/:id/greeting", async (req: Request, res: Response) => {
+    try {
+      const conversationId = parseInt(req.params.id);
+
+      res.setHeader("Content-Type", "text/event-stream");
+      res.setHeader("Cache-Control", "no-cache");
+      res.setHeader("Connection", "keep-alive");
+
+      let clientDisconnected = false;
+      req.on("close", () => { clientDisconnected = true; });
+
+      const stream = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "system", content: `Kullanıcı sohbeti yeni açtı. Kısa ve samimi bir karşılama mesajı yaz (1-2 cümle). Sonunda kullanıcıya fitness/beslenme/antrenman ile ilgili ilgi çekici, merak uyandırıcı bir soru sor. Her seferinde farklı bir soru sor. Soruyu kalın yazıyla yaz. Toplam 2-3 cümleyi geçme.` },
+        ],
+        stream: true,
+        max_completion_tokens: 150,
+      });
+
+      let fullResponse = "";
+      for await (const chunk of stream) {
+        if (clientDisconnected) break;
+        const content = chunk.choices[0]?.delta?.content || "";
+        if (content) {
+          fullResponse += content;
+          res.write(`data: ${JSON.stringify({ content })}\n\n`);
+        }
+      }
+
+      if (fullResponse) {
+        await chatStorage.createMessage(conversationId, "assistant", fullResponse);
+      }
+
+      if (!clientDisconnected) {
+        res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+        res.end();
+      }
+    } catch (error) {
+      console.error("Error generating greeting:", error);
+      if (res.headersSent) {
+        res.write(`data: ${JSON.stringify({ error: "Karşılama mesajı oluşturulamadı" })}\n\n`);
+        res.end();
+      } else {
+        res.status(500).json({ error: "Karşılama mesajı oluşturulamadı" });
+      }
+    }
+  });
+
   app.post("/api/conversations/:id/messages", async (req: Request, res: Response) => {
     try {
       const conversationId = parseInt(req.params.id);
