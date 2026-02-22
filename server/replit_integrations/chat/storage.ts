@@ -29,13 +29,14 @@ export const chatStorage: IChatStorage = {
     for (const conv of allConvs) {
       const msgs = await db.select().from(messages).where(eq(messages.conversationId, conv.id)).orderBy(messages.createdAt);
       const userMessages = msgs.filter(m => m.role === "user");
+      if (userMessages.length === 0) continue;
       const lastMessage = msgs.length > 0 ? msgs[msgs.length - 1] : null;
       result.push({
         ...conv,
         messageCount: msgs.length,
         userMessageCount: userMessages.length,
         lastMessageAt: lastMessage?.createdAt || conv.createdAt,
-        firstUserMessage: userMessages.length > 0 ? userMessages[0].content : null,
+        firstUserMessage: userMessages[0].content,
         messages: msgs,
       });
     }
