@@ -98,7 +98,7 @@ export default function Checkout() {
           discountType: data.coupon.discountType,
           discountValue: data.coupon.discountValue,
           discountAmount: data.discountAmount,
-          finalPrice: data.finalPrice,
+          finalPrice: data.finalAmount,
         });
         setCouponError("");
       }
