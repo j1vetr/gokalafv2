@@ -110,8 +110,47 @@ export function renderArticlesList(articles: Article[]): string {
   `;
 }
 
+function ssrSlugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\sğüşıöçĞÜŞİÖÇ-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+function addHeadingIds(html: string): { html: string; headings: { id: string; text: string; level: number }[] } {
+  const headings: { id: string; text: string; level: number }[] = [];
+  const usedIds = new Set<string>();
+  const result = html.replace(/<h([2-3])>(.*?)<\/h[2-3]>/g, (_match, level, text) => {
+    const cleanText = text.replace(/<[^>]*>/g, '').trim();
+    let id = ssrSlugify(cleanText);
+    if (usedIds.has(id)) {
+      let c = 2;
+      while (usedIds.has(`${id}-${c}`)) c++;
+      id = `${id}-${c}`;
+    }
+    usedIds.add(id);
+    headings.push({ id, text: cleanText, level: parseInt(level) });
+    return `<h${level} id="${id}">${text}</h${level}>`;
+  });
+  return { html: result, headings };
+}
+
+function ssrParseFAQs(content: string): { mainContent: string; hasFaqs: boolean } {
+  const faqMatch = content.match(/## Sıkça Sorulan Sorular([\s\S]*?)(?=## |$)/i);
+  if (!faqMatch) return { mainContent: content, hasFaqs: false };
+  const mainContent = content.replace(/## Sıkça Sorulan Sorular[\s\S]*?(?=## |$)/i, '');
+  return { mainContent, hasFaqs: true };
+}
+
 export function renderArticleDetail(article: Article): string {
-  const contentHtml = article.content ? md.render(article.content) : '';
+  const { mainContent: parsedContent, hasFaqs } = ssrParseFAQs(article.content || '');
+  const rawHtml = md.render(parsedContent);
+  const { html: contentHtml, headings } = addHeadingIds(rawHtml);
+  if (hasFaqs) {
+    headings.push({ id: 'sikca-sorulan-sorular', text: 'Sıkça Sorulan Sorular', level: 2 });
+  }
   
   const categoryLabels: Record<string, string> = {
     'takviye': 'Takviye',
@@ -181,6 +220,22 @@ export function renderArticleDetail(article: Article): string {
                 ${escapeHtml(article.title)} - Görsel
               </figcaption>
             </figure>
+          ` : ''}
+
+          ${headings.length > 2 ? `
+            <nav aria-label="İçindekiler" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; margin-bottom: 2rem;">
+              <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0 0 1rem 0;">İçindekiler</h2>
+              <ol style="list-style: none; padding: 0; margin: 0;">
+                ${headings.map((h, i) => {
+                  const num = h.level === 2 ? `${headings.filter((t, j) => t.level === 2 && j <= i).length}.` : '—';
+                  return `<li style="margin: 0.25rem 0; ${h.level === 3 ? 'padding-left: 1.5rem;' : ''}">
+                    <a href="#${h.id}" style="color: ${h.level === 2 ? '#ccff00' : '#a3a3a3'}; text-decoration: none; font-size: 0.9rem;">
+                      <span style="color: #666; margin-right: 0.5rem;">${num}</span>${escapeHtml(h.text)}
+                    </a>
+                  </li>`;
+                }).join('')}
+              </ol>
+            </nav>
           ` : ''}
           
           <div itemprop="articleBody" class="article-content" style="color: #e5e5e5; line-height: 1.8; font-size: 1.125rem;">

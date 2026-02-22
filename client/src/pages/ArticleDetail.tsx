@@ -6,7 +6,7 @@ import { ShareButtons } from "@/components/ShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getArticleBySlug, categories } from "@shared/articles-data";
 import MarkdownIt from "markdown-it";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useCallback } from "react";
 import SEO from "@/components/SEO";
 
 const fitnessTools = [
@@ -60,6 +60,41 @@ function parseFAQs(content: string): { mainContent: string; faqs: FAQ[] } {
   return { mainContent, faqs };
 }
 
+interface TocItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\sğüşıöçĞÜŞİÖÇ-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+function extractTocAndAddIds(html: string): { html: string; toc: TocItem[] } {
+  const toc: TocItem[] = [];
+  const usedIds = new Set<string>();
+
+  const result = html.replace(/<h([2-3])>(.*?)<\/h[2-3]>/g, (match, level, text) => {
+    const cleanText = text.replace(/<[^>]*>/g, '').trim();
+    let id = slugify(cleanText);
+    if (usedIds.has(id)) {
+      let counter = 2;
+      while (usedIds.has(`${id}-${counter}`)) counter++;
+      id = `${id}-${counter}`;
+    }
+    usedIds.add(id);
+    toc.push({ id, text: cleanText, level: parseInt(level) });
+    return `<h${level} id="${id}">${text}</h${level}>`;
+  });
+
+  return { html: result, toc };
+}
+
 function parseInfoBoxes(html: string): string {
   let result = html
     .replace(/<p>💡 (.+?)<\/p>/g, '<div class="info-box tip"><span class="icon">💡</span><span>$1</span></div>')
@@ -76,15 +111,41 @@ export default function ArticleDetail() {
 
   const article = slug ? getArticleBySlug(slug) : undefined;
 
-  const { mainContent, faqs, renderedHtml } = useMemo(() => {
-    if (!article) return { mainContent: '', faqs: [], renderedHtml: '' };
+  const { mainContent, faqs, renderedHtml, toc } = useMemo(() => {
+    if (!article) return { mainContent: '', faqs: [], renderedHtml: '', toc: [] };
     
     const { mainContent, faqs } = parseFAQs(article.content);
     let html = md.render(mainContent);
     html = parseInfoBoxes(html);
+    const { html: htmlWithIds, toc } = extractTocAndAddIds(html);
     
-    return { mainContent, faqs, renderedHtml: html };
+    if (faqs.length > 0) {
+      toc.push({ id: 'sikca-sorulan-sorular', text: 'Sıkça Sorulan Sorular', level: 2 });
+    }
+    
+    return { mainContent, faqs, renderedHtml: htmlWithIds, toc };
   }, [article]);
+
+  const [activeId, setActiveId] = useState<string>('');
+  const [tocOpen, setTocOpen] = useState(true);
+
+  useEffect(() => {
+    if (toc.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0.1 }
+    );
+    toc.forEach(item => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [toc]);
 
   if (!article) {
     return (
@@ -222,6 +283,69 @@ export default function ArticleDetail() {
         </div>
       </section>
 
+      {/* Table of Contents */}
+      {toc.length > 2 && (
+        <section className="pb-4">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <nav aria-label="İçindekiler" className="toc-nav bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setTocOpen(!tocOpen)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors"
+                  data-testid="button-toc-toggle"
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="w-5 h-5 text-primary" />
+                    <span className="font-heading font-bold text-white text-lg">İçindekiler</span>
+                    <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded-full">{toc.length} bölüm</span>
+                  </div>
+                  <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${tocOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ height: tocOpen ? 'auto' : 0, opacity: tocOpen ? 1 : 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <ol className="px-6 pb-5 space-y-1 list-none" data-testid="toc-list">
+                    {toc.map((item, index) => (
+                      <li key={item.id}>
+                        <a
+                          href={`#${item.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById(item.id);
+                            if (el) {
+                              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              window.history.replaceState(null, '', `#${item.id}`);
+                            }
+                          }}
+                          className={`group flex items-start gap-3 py-2 px-3 rounded-lg transition-all duration-200 ${
+                            activeId === item.id
+                              ? 'bg-primary/10 text-primary'
+                              : 'text-gray-400 hover:text-white hover:bg-white/5'
+                          } ${item.level === 3 ? 'ml-6' : ''}`}
+                          data-testid={`toc-link-${item.id}`}
+                        >
+                          <span className={`text-xs font-mono mt-1 flex-shrink-0 ${
+                            activeId === item.id ? 'text-primary' : 'text-gray-600'
+                          }`}>
+                            {item.level === 2 ? `${toc.filter((t, i) => t.level === 2 && i <= index).length}.` : '—'}
+                          </span>
+                          <span className={`text-sm leading-snug ${item.level === 2 ? 'font-medium' : 'font-normal'}`}>
+                            {item.text}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </motion.div>
+              </nav>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Content */}
       <section className="py-12">
         <div className="container mx-auto px-4">
@@ -245,7 +369,7 @@ export default function ArticleDetail() {
             {/* FAQ Section */}
             {faqs.length > 0 && (
               <div className="mt-20">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-10 pb-4 border-b border-primary/30">
+                <h2 id="sikca-sorulan-sorular" className="text-3xl md:text-4xl font-heading font-bold text-white mb-10 pb-4 border-b border-primary/30">
                   Sıkça Sorulan Sorular
                 </h2>
                 <Accordion type="single" collapsible className="space-y-4">
