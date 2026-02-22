@@ -16,7 +16,7 @@ import {
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
   ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
-  Ticket, FileText, Database, Wrench, Send, Filter, Loader2, MessageSquare, Bot, ChevronDown, ChevronUp
+  Ticket, FileText, Database, Wrench, Send, Filter, Loader2, MessageSquare, Bot, ChevronDown, ChevronUp, ExternalLink
 } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -1118,10 +1118,22 @@ export default function AdminDashboard() {
                       <h1 className="text-2xl font-heading font-bold text-white uppercase">Yönetim Paneli</h1>
                       <p className="text-gray-500 text-sm mt-1">Hoş geldin, {user?.fullName?.split(" ")[0]}</p>
                     </div>
-                    <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
-                      <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
-                      Çevrimiçi
-                    </Badge>
+                    <div className="flex items-center gap-3">
+                      <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
+                        <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
+                        Çevrimiçi
+                      </Badge>
+                      <a
+                        href="https://gokalaf.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg text-sm transition-all"
+                        data-testid="link-view-site"
+                      >
+                        <ExternalLink size={14} />
+                        Siteyi Görüntüle
+                      </a>
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
