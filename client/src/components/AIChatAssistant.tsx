@@ -158,11 +158,24 @@ export default function AIChatAssistant() {
     }
   }, []);
 
-  const handleOpen = () => {
+  const handleOpen = async () => {
     setIsOpen(true);
     loadConversations();
     if (!conversationId) {
-      startNewConversation();
+      await startNewConversation();
+    } else {
+      try {
+        const res = await fetch(`/api/conversations/${conversationId}`);
+        if (res.ok) {
+          const data = await res.json();
+          const msgs = data.messages || [];
+          if (msgs.length === 0) {
+            fetchGreeting(conversationId);
+          } else {
+            setMessages(msgs);
+          }
+        }
+      } catch {}
     }
   };
 
