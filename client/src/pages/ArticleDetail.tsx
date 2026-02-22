@@ -127,7 +127,7 @@ export default function ArticleDetail() {
   }, [article]);
 
   const [activeId, setActiveId] = useState<string>('');
-  const [tocOpen, setTocOpen] = useState(true);
+  const [tocOpen, setTocOpen] = useState(false);
 
   useEffect(() => {
     if (toc.length === 0) return;
