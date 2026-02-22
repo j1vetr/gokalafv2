@@ -51,6 +51,9 @@ export const orders = pgTable("orders", {
   userId: varchar("user_id").notNull().references(() => users.id),
   packageId: varchar("package_id").notNull().references(() => packages.id),
   totalPrice: decimal("total_price", { precision: 10, scale: 2 }).notNull(),
+  couponId: varchar("coupon_id"),
+  discountAmount: decimal("discount_amount", { precision: 10, scale: 2 }),
+  originalPrice: decimal("original_price", { precision: 10, scale: 2 }),
   status: text("status").notNull().default("pending"), // pending, paid, active, completed, cancelled
   paymentMethod: text("payment_method"), // shopier
   paymentId: text("payment_id"), // shopier transaction ID
