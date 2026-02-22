@@ -8599,6 +8599,924 @@ Bezelye + pirinç proteini kombinasyonu aminoasit profili açısından wheye yak
     ctaText: "Paketleri İncele",
     ctaLink: "/paketler",
   },
+  {
+    slug: "karbonhidrat-rehberi",
+    title: "Karbonhidrat Nedir? Kilo Aldırır mı? Doğrular ve Yanlışlar",
+    category: "beslenme",
+    excerpt: "Karbonhidratlar gerçekten düşman mı? Basit ve kompleks karbonhidrat farkını, glisemik indeksi, sporcu beslenmesinde karbonhidratın rolünü ve yaygın mitleri bilimsel verilerle açıklıyoruz.",
+    heroImage: "/articles/karbonhidrat-rehberi.webp",
+    content: `## Karbonhidrat Nedir?
+
+Karbonhidratlar, vücudumuzun en temel enerji kaynağıdır. Karbon, hidrojen ve oksijen atomlarından oluşan bu makro besin, beynimizin, kaslarımızın ve organlarımızın düzgün çalışması için vazgeçilmezdir. Günlük kalori ihtiyacımızın **%45-65'ini** karbonhidratlardan karşılamamız önerilir.
+
+Karbonhidratlar sindirim sürecinde glikoza (kan şekerine) dönüştürülür. Glikoz, hücrelerimizin yakıtıdır. Özellikle beyin, günlük yaklaşık **120-130 gram** glikoz tüketir ve bu enerjiyi büyük ölçüde karbonhidratlardan sağlar. Yeterli karbonhidrat alınmadığında vücut alternatif yollarla enerji üretmeye çalışır, ancak bu süreç her zaman optimal değildir.
+
+> 💡 Karbonhidratlar tek başına kilo aldırmaz. Kilo almak veya vermek, toplam kalori dengesiyle ilgilidir. Fazla kalori alımı — hangi makro besinden gelirse gelsin — kilo artışına neden olur.
+
+## Karbonhidrat Türleri: Basit ve Kompleks
+
+Karbonhidratlar kimyasal yapılarına göre iki ana gruba ayrılır. Bu ayrımı anlamak, sağlıklı beslenme kararları vermek için kritik öneme sahiptir.
+
+| Özellik | Basit Karbonhidratlar | Kompleks Karbonhidratlar |
+|---------|----------------------|--------------------------|
+| Yapı | Mono ve disakkaritler | Polisakkaritler |
+| Sindirim hızı | Hızlı | Yavaş |
+| Kan şekeri etkisi | Hızlı yükselme | Kademeli yükselme |
+| Lif içeriği | Düşük/yok | Yüksek |
+| Tokluk süresi | Kısa | Uzun |
+| Örnekler | Şeker, beyaz ekmek, meyve suyu | Yulaf, bulgur, tam tahıllar |
+
+### Basit Karbonhidratlar
+
+Basit karbonhidratlar hızla sindirilerek kan şekerini ani yükseltir. Bu durum insülin tepkisini tetikler ve ardından kan şekerinde hızlı bir düşüş yaşanır. Bu "dalgalanma", açlık hissini ve aşırı yeme eğilimini artırabilir.
+
+**Basit karbonhidrat kaynakları:**
+- Şeker ve şekerli içecekler
+- Beyaz ekmek, beyaz pirinç
+- Hazır meyve suları
+- Şekerleme ve tatlılar
+- İşlenmiş tahıl ürünleri
+
+### Kompleks Karbonhidratlar
+
+Kompleks karbonhidratlar, yapılarındaki uzun molekül zincirleri sayesinde yavaş sindirilir. Bu, kan şekerinin daha stabil kalmasını sağlar ve uzun süreli enerji verir.
+
+**Kompleks karbonhidrat kaynakları:**
+- Yulaf, bulgur, kinoa
+- Tam buğday ürünleri
+- Baklagiller (mercimek, nohut)
+- Tatlı patates ve patates
+- Sebzeler
+
+> ✅ Günlük karbonhidrat alımınızın en az %80'ini kompleks karbonhidratlardan sağlamaya çalışın. Bu hem enerji stabilitesi hem de lif alımı açısından büyük fark yaratır.
+
+## Glisemik İndeks (Gİ) ve Glisemik Yük (GY)
+
+Glisemik indeks, bir besinin kan şekerini ne kadar hızlı yükselttiğini gösteren bir ölçüttür. Saf glikoz 100 olarak kabul edilir ve diğer besinler buna göre sıralanır.
+
+| Gİ Kategorisi | Gİ Değeri | Örnekler | Ne Zaman Tercih Edilmeli |
+|---------------|-----------|----------|--------------------------|
+| Düşük Gİ | 0-55 | Yulaf, mercimek, elma | Genel beslenme, diyet |
+| Orta Gİ | 56-69 | Tam buğday ekmek, muz | Antrenman öncesi |
+| Yüksek Gİ | 70-100 | Beyaz ekmek, pirinç, karpuz | Antrenman sonrası toparlanma |
+
+### Glisemik Yük
+
+Glisemik yük, hem glisemik indeksi hem de porsiyon büyüklüğünü dikkate alır. Bu nedenle pratikte Gİ'den daha anlamlı bir göstergedir.
+
+| Glisemik Yük | Değer | Yorum |
+|--------------|-------|-------|
+| Düşük | 0-10 | Kan şekerini minimal etkiler |
+| Orta | 11-19 | Orta düzey etki |
+| Yüksek | 20+ | Kan şekerini belirgin yükseltir |
+
+> 💡 Karpuz yüksek Gİ'ye sahiptir (72) ancak glisemik yükü düşüktür (4) çünkü porsiyon başına karbonhidrat miktarı azdır. Bu yüzden sadece Gİ'ye bakmak yanıltıcı olabilir.
+
+## Karbonhidratların Egzersiz Performansındaki Rolü
+
+Karbonhidratlar, özellikle yüksek yoğunluklu egzersizlerde birincil enerji kaynağıdır. Kaslarda ve karaciğerde glikojen olarak depolanır.
+
+| Depo | Kapasite | İşlev |
+|------|----------|-------|
+| Kas glikojeni | 300-500g | Egzersiz sırasında yakıt |
+| Karaciğer glikojeni | 80-100g | Kan şekeri regülasyonu |
+| Kan glikozu | 15-20g | Anlık enerji |
+
+### Egzersiz Türüne Göre Karbonhidrat İhtiyacı
+
+| Aktivite Düzeyi | Günlük İhtiyaç (g/kg) | Örnek (70 kg birey) |
+|-----------------|----------------------|---------------------|
+| Hafif aktivite | 3-5 g/kg | 210-350g |
+| Orta yoğunluk (1 saat/gün) | 5-7 g/kg | 350-490g |
+| Yüksek yoğunluk (1-3 saat/gün) | 6-10 g/kg | 420-700g |
+| Ultra dayanıklılık (4+ saat/gün) | 8-12 g/kg | 560-840g |
+
+> ⚠️ Düşük karbonhidrat diyetleri yüksek yoğunluklu antrenman performansını ciddi şekilde düşürebilir. Ağırlık antrenmanı yapıyorsanız yeterli karbonhidrat almak kas gelişimi için kritiktir.
+
+## Karbonhidrat Döngüsü (Carb Cycling)
+
+Karbonhidrat döngüsü, antrenman günlerine ve yoğunluğuna göre karbonhidrat alımını değiştirme stratejisidir.
+
+| Gün Türü | Karbonhidrat | Kalori | Ne Zaman |
+|----------|-------------|--------|----------|
+| Yüksek karb günü | 5-7 g/kg | Fazla/dengede | Yoğun antrenman günleri |
+| Orta karb günü | 3-4 g/kg | Dengede | Hafif antrenman günleri |
+| Düşük karb günü | 1-2 g/kg | Açık | Dinlenme günleri |
+
+**Karbonhidrat döngüsünün faydaları:**
+- İnsülin duyarlılığını korur
+- Antrenman performansını destekler
+- Vücut yağ oranını kontrol etmeye yardımcı olur
+- Metabolik adaptasyonu geciktirir
+
+## Lif: Unutulan Karbonhidrat
+
+Diyet lifi, sindirilemeyen bir karbonhidrat türüdür ancak sağlık üzerindeki etkileri muazzamdır.
+
+| Lif Türü | Kaynak | Faydası |
+|----------|--------|---------|
+| Çözünür lif | Yulaf, baklagiller, elma | Kolesterol düşürme, kan şekeri kontrolü |
+| Çözünmez lif | Tam tahıllar, sebzeler | Sindirim düzenleme, tokluk |
+
+**Günlük lif hedefi:** Kadınlar için 25g, erkekler için 38g.
+
+> ✅ Lif alımını artırmak için beyaz pirinç yerine bulgur, beyaz ekmek yerine tam buğday ekmeği, meyve suyu yerine taze meyve tercih edin.
+
+## Sporcular İçin En İyi Karbonhidrat Kaynakları
+
+| Kaynak | 100g'da Karb | Gİ | Lif | İdeal Zamanlama |
+|--------|-------------|----|----|-----------------|
+| Yulaf | 66g | 55 | 10g | Kahvaltı, antrenman öncesi |
+| Tatlı patates | 20g | 54 | 3g | Ana öğün |
+| Bulgur | 76g | 48 | 18g | Ana öğün |
+| Muz | 23g | 62 | 2.6g | Antrenman öncesi/sonrası |
+| Beyaz pirinç | 28g | 73 | 0.4g | Antrenman sonrası |
+| Kinoa | 64g | 53 | 7g | Ana öğün |
+| Tam buğday makarna | 75g | 42 | 8g | Antrenman öncesi |
+
+## Antrenman Çevresinde Karbonhidrat Zamanlaması
+
+| Zamanlama | Ne Zaman | Ne Kadar | Ne Tüketmeli |
+|-----------|----------|----------|---------------|
+| Antrenman öncesi | 2-3 saat önce | 1-2 g/kg | Kompleks karb + protein |
+| Antrenman öncesi (yakın) | 30-60 dk önce | 0.5 g/kg | Orta-yüksek Gİ karb |
+| Antrenman sırası | 60+ dk antrenman | 30-60g/saat | Basit karb (muz, spor içeceği) |
+| Antrenman sonrası | 0-2 saat içinde | 1-1.5 g/kg | Yüksek Gİ karb + protein |
+
+## Karbonhidrat Mitleri: Doğrular ve Yanlışlar
+
+| Mit | Gerçek |
+|-----|--------|
+| "Karbonhidrat kilo aldırır" | Kalori fazlası kilo aldırır, karbonhidrat değil |
+| "Akşam karb yenmemeli" | Toplam kalori önemlidir, zamanlama değil |
+| "Ekmek zararlıdır" | Tam tahıllı ekmek sağlıklı bir karbonhidrat kaynağıdır |
+| "Meyve zararlı, çok şeker var" | Meyve lif, vitamin ve mineral açısından zengindir |
+| "Ketojenik diyet herkese uyar" | Bireysel farklılıklar büyük rol oynar |
+| "Düşük karb = hızlı yağ yakımı" | İlk kayıp genellikle su kaybıdır |
+
+> 💡 Karbonhidratları tamamen kesmek yerine, doğru türlerini doğru zamanlarda tüketmek hem sağlık hem performans için en ideal yaklaşımdır.
+
+## Düşük Karbonhidrat ve Dengeli Yaklaşım Karşılaştırması
+
+| Parametre | Düşük Karb (<100g/gün) | Dengeli Yaklaşım (200-350g/gün) |
+|-----------|------------------------|--------------------------------|
+| Yağ yakımı | İlk haftalarda hızlı (su kaybı) | İstikrarlı ve sürdürülebilir |
+| Antrenman performansı | Düşebilir | Optimal kalır |
+| Kas gelişimi | Sınırlı olabilir | Desteklenir |
+| Sürdürülebilirlik | Uzun vadede zor | Daha kolay |
+| Ruh hali | Olumsuz etkilenebilir | Stabil |
+| Hormonal denge | Tiroid ve kortizol etkilenebilir | Korunur |
+
+## Sıkça Sorulan Sorular
+
+### Karbonhidratlar gerçekten kilo aldırır mı?
+Karbonhidratlar tek başına kilo aldırmaz. Kilo almak, toplam kalori alımının harcanan kaloriden fazla olmasıyla gerçekleşir. Karbonhidrat tüketimini tamamen kesmek yerine, doğru türlerini (kompleks karbonhidratlar) ve doğru miktarları tüketmek önemlidir. Araştırmalar, düşük karbonhidrat ve düşük yağ diyetlerinin uzun vadede benzer kilo kaybı sonuçları verdiğini göstermektedir.
+
+### Akşam karbonhidrat yemek zararlı mı?
+Hayır. Vücudun "gece yağ depolama" modu diye bir şey yoktur. Önemli olan günlük toplam kalori ve makro besin dengenizdir. Akşam karbonhidrat tüketmek uyku kalitesini bile iyileştirebilir çünkü karbonhidratlar serotonin ve melatonin üretimini destekler.
+
+### Spor yapanlar günde kaç gram karbonhidrat almalı?
+Bu, antrenman türüne ve yoğunluğuna göre değişir. Genel olarak düzenli ağırlık antrenmanı yapanlar için 4-6 g/kg, dayanıklılık sporcuları için 6-10 g/kg önerilir. Örneğin 70 kg bir birey, ağırlık antrenmanı günlerinde 280-420 gram karbonhidrat alabilir.
+
+### Glisemik indeksi düşük besinler her zaman daha mı sağlıklı?
+Her zaman değil. Glisemik indeks tek başına bir besinin sağlık değerini belirlemeye yetmez. Besinlerin lif, vitamin, mineral içerikleri ve porsiyon büyüklükleri de önemlidir. Glisemik yük, pratikte daha faydalı bir göstergedir.
+
+### Karbonhidrat döngüsü kimlere uygun?
+Karbonhidrat döngüsü, özellikle vücut rekomposizyonu hedefleyen (aynı anda yağ yakıp kas kazanma) bireyler, yarışmaya hazırlanan sporcular ve platoda kalan kişiler için faydalı olabilir. Ancak beslenme konusunda temel bilgi sahibi olmak ve makro takibi yapabilmek gereklidir. Başlangıç seviyesindekiler önce basit ve tutarlı bir beslenme planına odaklanmalıdır.`,
+    seoTitle: "Karbonhidrat Nedir? Kilo Aldırır mı? Bilimsel Gerçekler | Gokalaf",
+    seoDescription: "Karbonhidratlar gerçekten kilo aldırır mı? Basit ve kompleks karbonhidrat farkı, glisemik indeks, sporcu beslenmesi ve karbonhidrat zamanlaması.",
+    publishedAt: "2025-03-15",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "deadlift-rehberi",
+    title: "Deadlift (Ölü Çekiş) Rehberi: Teknik, Varyasyonlar ve Program",
+    category: "antrenman",
+    excerpt: "Deadlift, tüm vücudu çalıştıran en etkili bileşik egzersizlerden biridir. Doğru teknik, varyasyonlar, tutuş çeşitleri ve örnek programlarla deadlift rehberi.",
+    heroImage: "/articles/deadlift-rehberi.webp",
+    content: `## Deadlift (Ölü Çekiş) Nedir?
+
+Deadlift, yerden ağırlık kaldırma hareketi olup vücuttaki en fazla kas grubunu aynı anda çalıştıran bileşik egzersizlerden biridir. "Ölü çekiş" adını, ağırlığın hareketsiz (ölü) bir konumdan kaldırılmasından alır. Powerlifting'in üç temel hareketinden biri olan deadlift, sadece güç sporcuları için değil, genel fitness hedefleyen herkes için vazgeçilmez bir egzersizdir.
+
+Deadlift, doğru teknikle yapıldığında sırt sağlığını güçlendirir, postürü iyileştirir ve günlük yaşamda fonksiyonel güç kazandırır. Ancak yanlış teknikle yapıldığında ciddi yaralanmalara yol açabilir. Bu rehberde, deadlift'in tüm yönlerini detaylı şekilde inceleyeceğiz.
+
+> 💡 Deadlift, vücuttaki en fazla kas kütlesini aynı anda aktive eden egzersizdir. Tek bir harekette hamstring, gluteus, sırt, core, önkol ve trapez kaslarını çalıştırır.
+
+## Deadlift'te Çalışan Kaslar
+
+| Kas Grubu | Rolü | Etki Derecesi |
+|-----------|------|---------------|
+| Gluteus maximus | Ana hareket ettirici | ⭐⭐⭐⭐⭐ |
+| Hamstringler | Ana hareket ettirici | ⭐⭐⭐⭐⭐ |
+| Erector spinae (sırt dikleştiricileri) | Stabilizatör | ⭐⭐⭐⭐⭐ |
+| Quadriceps | Alt bacak itişi | ⭐⭐⭐ |
+| Trapezius | Omuz stabilizasyonu | ⭐⭐⭐⭐ |
+| Latissimus dorsi | Bar kontrolü | ⭐⭐⭐ |
+| Core kasları | Gövde stabilizasyonu | ⭐⭐⭐⭐ |
+| Önkol kasları | Tutuş gücü | ⭐⭐⭐⭐ |
+
+## Konvansiyonel Deadlift Tekniği
+
+### Başlangıç Pozisyonu (Setup)
+
+1. **Ayak pozisyonu:** Ayaklar omuz genişliğinde, barın altında (bar ayağın ortasında)
+2. **Tutuş:** Kollar dizlerin hemen dışında, omuz genişliğinde
+3. **Kalça pozisyonu:** Kalçalar dizlerden yüksek, omuzlardan düşük
+4. **Sırt:** Nötral omurga — ne yuvarlak ne de aşırı lordotik
+5. **Baş:** Nötral veya hafif yukarı bakış
+6. **Göğüs:** Açık ve yukarı yönlü
+
+### Kaldırma Fazı
+
+- Nefes alın ve karın basıncını oluşturun (**Valsalva manevrası**)
+- Ayaklarınızla yeri iterek hareketi başlatın
+- Bar, bacaklarınıza temas ederek yükselmelidir
+- Kalça ve diz aynı anda açılmalıdır
+- Tam dikey pozisyonda kalçaları sıkın (lockout)
+
+### İndirme Fazı
+
+- Kalçaları geriye iterek başlayın
+- Bar dizleri geçtikten sonra dizleri bükün
+- Barı kontrollü şekilde yere bırakın
+
+> ⚠️ Sırtınızı asla yuvarlaklaştırmayın. Yuvarlak sırtla ağır kaldırmak disk hernisi ve ciddi bel yaralanmalarına yol açabilir. Ağırlığı kaldıramıyorsanız, daha hafif yükle çalışın.
+
+## Deadlift Varyasyonları
+
+| Varyasyon | Duruş | Hedef Kaslar | Kime Uygun |
+|-----------|-------|-------------|------------|
+| Konvansiyonel | Omuz genişliği | Sırt, hamstring ağırlıklı | Genel güç gelişimi |
+| Sumo | Geniş duruş | Quadriceps, kalça ağırlıklı | Uzun gövdeli bireyler |
+| Romanya (RDL) | Omuz genişliği, diz sabit | Hamstring odaklı | Hamstring gelişimi |
+| Trap bar | Altıgen bar içinde | Dengeli dağılım | Başlangıç seviyesi |
+| Deficit | Yükseltilmiş platform | Alt sırt, hamstring | İleri seviye |
+| Rack pull | Yarım hareket açıklığı | Üst sırt, trapez | Lockout güçlendirme |
+
+### Konvansiyonel vs. Sumo Deadlift
+
+| Parametre | Konvansiyonel | Sumo |
+|-----------|---------------|------|
+| Ayak açısı | Omuz genişliği | Geniş (45-80°) |
+| Gövde açısı | Daha yatık | Daha dik |
+| Hareket mesafesi | Daha uzun | Daha kısa |
+| Bel yükü | Daha yüksek | Daha düşük |
+| Quadriceps katılımı | Daha az | Daha fazla |
+| Hamstring katılımı | Daha fazla | Daha az |
+| Kalça esnekliği gereksinimi | Daha az | Daha fazla |
+
+> 💡 Hangi varyasyonun size uygun olduğunu belirlemek için her ikisini de deneyin. Genel kural: kısa kollu ve uzun gövdeli bireyler sumo'dan, uzun kollu bireyler konvansiyonelden fayda görür.
+
+### Romanya Deadlift (RDL)
+
+Romanya deadlift, hamstringleri izole etmek için en etkili varyasyondur. Konvansiyonel deadlift'ten farklı olarak, bar yerden kaldırılmaz ve dizler hafif bükük sabit kalır.
+
+**Teknik ipuçları:**
+- Bar üst pozisyondan başlar (rack'ten alınır)
+- Dizler 15-20° bükük ve sabit
+- Kalçaları geriye iterek barı indirin
+- Hamstringlerde gerginlik hissedilince durun
+- Kontrollü şekilde başlangıç pozisyonuna dönün
+
+### Trap Bar Deadlift
+
+Trap bar (altıgen bar) deadlift, özellikle başlangıç seviyesi için mükemmeldir:
+
+- Daha dik gövde pozisyonu sağlar
+- Bel üzerindeki yükü azaltır
+- Öğrenmesi daha kolaydır
+- Quadricepsleri daha fazla aktive eder
+
+## Tutuş (Grip) Varyasyonları
+
+| Tutuş Türü | Açıklama | Avantajı | Dezavantajı |
+|------------|----------|----------|-------------|
+| Çift overhand (pronated) | İki el üstten | En güvenli, dengeli | Tutuş gücü sınırlı |
+| Karışık (mixed) | Bir el üst, bir el alt | Daha güçlü tutuş | Bicep yırtığı riski |
+| Hook grip | Başparmak barın altında | Çok güçlü tutuş | Başlangıçta ağrılı |
+| Straps (kayış) | Bileklik yardımı | Tutuş sınırlamasını kaldırır | Tutuş gücü gelişmez |
+
+> ✅ Isınma setlerinde her zaman çift overhand grip kullanın. Kayışları yalnızca çok ağır çalışma setlerinde tercih edin — tutuş gücünüzün gelişmesine izin verin.
+
+## Nefes Alma ve Bracing (Gövde Stabilizasyonu)
+
+Doğru nefes tekniği, deadlift güvenliğinin temel taşıdır.
+
+**Valsalva Manevrası:**
+1. Derin bir nefes alın (diyaframa)
+2. Karın kaslarını sıkın — sanki biri karnınıza yumruk atacakmış gibi
+3. Gövdeyi 360° çevreleyen bir "basınç kemeri" oluşturun
+4. Kaldırma sırasında nefesi tutun
+5. Lockoutta nefesi kontrollü bırakın
+
+| Bileşen | Doğru | Yanlış |
+|---------|-------|--------|
+| Nefes | Diyaframa (karına) | Göğüse |
+| Karın | Sıkı ve basınçlı | Gevşek |
+| Sırt | Nötral | Yuvarlak veya aşırı lordotik |
+| Omuzlar | Barın üzerinde veya hafif önünde | Barın çok gerisinde |
+
+## Yaygın Deadlift Hataları
+
+| Hata | Risk | Çözüm |
+|------|------|-------|
+| Yuvarlak sırt | Disk hernisi | Core güçlendirme, hafif yük |
+| Bar vücuttan uzak | Bel yükü artar | Barı bacaklara temas ettirin |
+| Kalçaların erken kalkması | Sırt dominant hareket | "Yeri it" ipucu kullanın |
+| Aşırı geriye yaslanma | Bel hiperextension | Kalçaları sıkıp durun |
+| Başı aşırı yukarı kaldırma | Boyun stresi | Nötral baş pozisyonu |
+| Bouncing (sektirme) | Kontrol kaybı | Her tekrarı sıfırlayın |
+
+## Progresif Yüklenme ve Program
+
+### Başlangıç Seviyesi (0-6 ay)
+
+| Hafta | Set x Tekrar | Yoğunluk | Dinlenme |
+|-------|-------------|----------|----------|
+| 1-2 | 3x8 | %60 1RM | 2-3 dk |
+| 3-4 | 3x6 | %65-70 1RM | 2-3 dk |
+| 5-6 | 4x5 | %70-75 1RM | 3 dk |
+| 7-8 | 4x5 | %75-80 1RM | 3-4 dk |
+
+### Orta Seviye Haftalık Program
+
+| Gün | Egzersiz | Set x Tekrar | Notlar |
+|-----|----------|-------------|--------|
+| Pazartesi | Konvansiyonel DL | 4x5 @ %75-80 | Ana hareket |
+| Pazartesi | RDL | 3x8-10 | Yardımcı hareket |
+| Perşembe | Sumo DL (hafif) | 3x6 @ %65-70 | Teknik çalışma |
+| Perşembe | Deficit DL | 3x6 | Hareket açıklığı |
+
+> 💡 Haftada 2-3 kez deadlift çalışmak optimal gelişim sağlar. Ancak en az bir gün ağır (ana hareket), diğer günler hafif veya varyasyonlarla çalışın.
+
+## Sıkça Sorulan Sorular
+
+### Deadlift bel ağrısına neden olur mu?
+Doğru teknikle yapılan deadlift bel ağrısı yapmaz, aksine sırt kaslarını güçlendirerek bel ağrılarını önler. Ağrı hissediyorsanız teknik muhtemelen hatalıdır. Yükü azaltın, videoyla tekniğinizi kontrol edin veya bir uzmandan yardım alın.
+
+### Konvansiyonel mi sumo mu yapmalıyım?
+Bu, vücut yapınıza ve hedefinize bağlıdır. Uzun kollu ve kısa gövdeli bireyler genellikle konvansiyonelde, kısa kollu ve uzun bacaklı bireyler ise sumoda avantaj sağlar. İkisini de deneyip hangisinde daha güçlü ve rahat hissettiğinizi belirleyin.
+
+### Deadlift'te kemer kullanmalı mıyım?
+Kemer, intra-abdominal basıncı artırarak core stabilizasyonunu destekler. Başlangıçta kemersiz çalışarak core gücünüzü geliştirin. %80+ 1RM'de çalışırken kemer kullanmak faydalıdır. Ancak kemer, kötü tekniği telafi etmek için kullanılmamalıdır.
+
+### Haftada kaç kez deadlift yapmalıyım?
+Başlangıç seviyesi için haftada 1-2 kez, orta ve ileri seviye için haftada 2-3 kez önerilir. Ancak yoğunluk ve hacim dengelenmelidir. Her seans maksimum ağırlıkla çalışmak yerine, periodizasyon uygulamak daha sağlıklı ve verimlidir.
+
+### Deadlift'te kayış (straps) kullanmak yanlış mı?
+Kayışlar tutuş gücü sınırlamasını ortadan kaldırır ve hedef kaslara daha fazla odaklanmanızı sağlar. Isınma ve orta ağırlıklı setlerde kayış kullanmayın, sadece en ağır çalışma setlerinde tercih edin. Ayrıca ayrı olarak tutuş gücü çalışmalarını programa ekleyin.`,
+    seoTitle: "Deadlift (Ölü Çekiş) Nasıl Yapılır? Teknik ve Varyasyonlar | Gokalaf",
+    seoDescription: "Deadlift egzersizini doğru teknikle yapmayı öğrenin. Konvansiyonel, sumo, Romanya deadlift varyasyonları ve program önerileri.",
+    publishedAt: "2025-03-10",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kadinlar-icin-fitness",
+    title: "Kadınlar İçin Fitness Rehberi: Ağırlık Kaldırmak Kas Yapar mı?",
+    category: "antrenman",
+    excerpt: "Kadınlar ağırlık kaldırınca kaslı mı olur? Kadın fizyolojisi, güç antrenmanının faydaları, başlangıç programı ve menstrüel döngüye uygun antrenman stratejileri.",
+    heroImage: "/articles/kadinlar-icin-fitness.webp",
+    content: `## Kadınlar ve Ağırlık Antrenmanı: Mitleri Yıkıyoruz
+
+Kadınların ağırlık kaldırma konusundaki en büyük korkusu "çok kaslı olmak"tır. Ancak bu korku, kadın fizyolojisinin nasıl çalıştığını anlamadıktan kaynaklanan büyük bir yanılgıdır. Kadınlar, hormonal yapıları gereği erkekler gibi büyük kas kütlesi geliştiremez. Ağırlık antrenmanı, kadınlar için sıkı ve şekilli bir vücut, güçlü kemikler ve yüksek metabolizma demektir.
+
+Bu rehberde, kadınların ağırlık antrenmanıyla ilgili yaygın mitlerini bilimsel verilerle çürütecek, güç antrenmanının kadınlara özel faydalarını inceleyecek ve başlangıç için pratik bir program sunacağız.
+
+> 💡 Kadınlardaki testosteron seviyesi erkeklerin yaklaşık 1/15-1/20'sidir. Bu nedenle kadınların "bodybuilder gibi kaslı" olması, özel ilaç kullanımı olmadan fizyolojik olarak mümkün değildir.
+
+## Kadın ve Erkek Fizyolojisi: Temel Farklar
+
+| Parametre | Kadın | Erkek | Etki |
+|-----------|-------|-------|------|
+| Testosteron | 15-70 ng/dL | 300-1000 ng/dL | Kas gelişimi sınırlı |
+| Östrojen | Yüksek | Düşük | Yağ dağılımı farklı |
+| Kas lifi dağılımı | Daha fazla Tip I | Daha fazla Tip II | Dayanıklılıkta avantaj |
+| Vücut yağ oranı | %18-25 (fit) | %10-15 (fit) | Daha yüksek minimum yağ |
+| Kas gelişim hızı | 0.25-0.5 kg/ay | 0.5-1 kg/ay | Daha yavaş gelişim |
+| Toparlanma | Genellikle daha hızlı | Daha yavaş | Daha fazla hacim tolere edebilir |
+
+### Testosteron ve Kas Gelişimi
+
+Testosteron, kas gelişiminin birincil hormonal sürücüsüdür. Kadınlardaki düşük testosteron seviyesi, ağırlık antrenmanıyla elde edilen sonuçların "sıkı, şekilli ve tonlu" bir vücut olacağı anlamına gelir — dev kaslar değil.
+
+> ⚠️ Sosyal medyada gördüğünüz aşırı kaslı kadın vücutcular, genellikle yıllarca süren yoğun antrenman, özel beslenme ve çoğu zaman performans artırıcı ilaçlar kullanır. Bu sonuçlar normal antrenmanla elde edilemez.
+
+## Kadınlar İçin Güç Antrenmanının Faydaları
+
+| Fayda | Açıklama | Bilimsel Destek |
+|-------|----------|-----------------|
+| Kemik yoğunluğu artışı | Osteoporoz riskini %40-50 azaltır | Güçlü |
+| Metabolizma hızlanması | Her 1 kg kas, günde ~50 kcal daha yakar | Güçlü |
+| Vücut şekillenmesi | Sıkı ve tonlu görünüm | Güçlü |
+| Hormonal denge | İnsülin duyarlılığı iyileşir | Güçlü |
+| Mental sağlık | Özgüven artışı, stres azalması | Orta-Güçlü |
+| Fonksiyonel güç | Günlük aktiviteler kolaylaşır | Güçlü |
+| Postür iyileşmesi | Sırt ve core güçlenir | Güçlü |
+| Yaralanma önleme | Eklem stabilitesi artar | Güçlü |
+
+### Vücut Rekomposizyonu
+
+Kadınlar için en etkili yaklaşım genellikle "vücut rekomposizyonu"dur: aynı anda yağ yakıp kas kazanmak. Bu, özellikle başlangıç seviyesinde ve normal kiloda olan kadınlarda çok etkilidir.
+
+| Strateji | Nasıl |
+|----------|-------|
+| Hafif kalori açığı | Günlük 200-300 kcal açık |
+| Yüksek protein | 1.6-2.2 g/kg vücut ağırlığı |
+| Güç antrenmanı | Haftada 3-4 gün |
+| Yeterli uyku | 7-9 saat |
+
+> ✅ Kiloya değil, aynaya ve ölçüm bantına bakın. Kas yağdan daha ağırdır, bu nedenle vücut rekomposizyonunda tartı değişmeyebilir ama vücudunuz tamamen şekillenebilir.
+
+## Kadınlar İçin Başlangıç Programı (8 Hafta)
+
+### Program Yapısı
+
+| Gün | Antrenman | Odak |
+|-----|-----------|------|
+| Pazartesi | Alt Vücut A | Squat ağırlıklı |
+| Salı | Üst Vücut A | İtme ağırlıklı |
+| Çarşamba | Dinlenme veya hafif kardiyo | Aktif toparlanma |
+| Perşembe | Alt Vücut B | Kalça ağırlıklı |
+| Cuma | Üst Vücut B | Çekme ağırlıklı |
+| Cumartesi-Pazar | Dinlenme | Toparlanma |
+
+### Alt Vücut A (Squat Odaklı)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|-------------|----------|
+| Barbell Squat | 4x8-10 | 2-3 dk |
+| Romanya Deadlift | 3x10-12 | 90 sn |
+| Bulgarian Split Squat | 3x10 (her bacak) | 90 sn |
+| Leg Curl | 3x12-15 | 60 sn |
+| Hip Thrust (vücut ağırlığı) | 3x15-20 | 60 sn |
+
+### Alt Vücut B (Kalça Odaklı)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|-------------|----------|
+| Hip Thrust (barbell) | 4x8-12 | 2-3 dk |
+| Sumo Deadlift | 3x8-10 | 2 dk |
+| Walking Lunges | 3x12 (her bacak) | 90 sn |
+| Leg Extension | 3x12-15 | 60 sn |
+| Cable Kickback | 3x15 (her bacak) | 60 sn |
+
+### Üst Vücut A (İtme Odaklı)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|-------------|----------|
+| Dumbbell Bench Press | 4x8-10 | 2 dk |
+| Overhead Press | 3x8-10 | 90 sn |
+| Incline Dumbbell Flye | 3x12-15 | 60 sn |
+| Lateral Raise | 3x15 | 60 sn |
+| Tricep Pushdown | 3x12-15 | 60 sn |
+
+### Üst Vücut B (Çekme Odaklı)
+
+| Egzersiz | Set x Tekrar | Dinlenme |
+|----------|-------------|----------|
+| Lat Pulldown | 4x8-10 | 2 dk |
+| Cable Row | 3x10-12 | 90 sn |
+| Face Pull | 3x15 | 60 sn |
+| Dumbbell Curl | 3x12-15 | 60 sn |
+| Plank | 3x30-60 sn | 60 sn |
+
+## Tekrar Aralıkları ve Yoğunluk
+
+| Hedef | Tekrar Aralığı | Ağırlık | Set Sayısı |
+|-------|----------------|---------|------------|
+| Güç | 3-6 | Ağır (%80-90 1RM) | 3-5 |
+| Hipertrofi (kas gelişimi) | 8-12 | Orta (%65-80 1RM) | 3-4 |
+| Dayanıklılık/tonus | 12-20 | Hafif (%50-65 1RM) | 2-3 |
+
+> 💡 Kadınlar genellikle daha yüksek tekrar aralıklarında çalışmayı tercih eder, ancak güç aralığında (3-6 tekrar) çalışmak kemik yoğunluğu ve nöromüsküler gelişim için çok önemlidir. Programınıza her iki aralığı da dahil edin.
+
+## Kardiyo vs. Ağırlık Tartışması
+
+| Parametre | Sadece Kardiyo | Sadece Ağırlık | Kardiyo + Ağırlık |
+|-----------|----------------|----------------|-------------------|
+| Yağ yakımı | Orta | İyi | Çok iyi |
+| Kas gelişimi | Yok | Çok iyi | İyi |
+| Metabolizma etkisi | Geçici | Kalıcı | Kalıcı |
+| Kemik sağlığı | Düşük | Yüksek | Yüksek |
+| Vücut şekillenmesi | Zayıf | Çok iyi | Çok iyi |
+| Kalp sağlığı | Çok iyi | İyi | Çok iyi |
+
+> ✅ En etkili yaklaşım: haftada 3-4 gün ağırlık antrenmanı + 2-3 gün 20-30 dakika orta yoğunluklu kardiyo (yürüyüş, bisiklet, yüzme).
+
+## Menstrüel Döngü ve Antrenman
+
+Menstrüel döngü, kadınların antrenman performansını ve toparlanmasını etkiler. Döngüye uygun antrenman planlaması, sonuçları optimize edebilir.
+
+| Faz | Gün | Hormonlar | Antrenman Önerisi |
+|-----|-----|-----------|-------------------|
+| Menstrüasyon | 1-5 | Düşük östrojen, düşük progesteron | Hafif-orta yoğunluk, esneklik çalışmaları |
+| Foliküler faz | 6-14 | Artan östrojen | Yoğun ağırlık, güç antrenmanı, PR denemeleri |
+| Ovülasyon | 14-16 | Pik östrojen | Dikkatli antrenman (bağ yaralanma riski artar) |
+| Luteal faz (erken) | 17-22 | Yükselen progesteron | Orta yoğunluk, hacim antrenmanı |
+| Luteal faz (geç) | 23-28 | Düşen hormonlar, PMS | Hafif yoğunluk, toparlanma, yoga |
+
+> ⚠️ Menstrüasyon döneminde antrenman yapmak zararlı değildir. Aksine, egzersiz menstrüel krampları azaltabilir. Ancak kendinizi zorlamak yerine vücudunuzu dinleyin.
+
+## Sıkça Sorulan Sorular
+
+### Ağırlık kaldırmak kadınları kaslı yapar mı?
+Hayır, normal koşullarda kadınlar erkekler gibi büyük kas kütlesi geliştiremez. Kadınlardaki düşük testosteron seviyesi (erkeklerin 1/15-1/20'si) bunu fizyolojik olarak engeller. Ağırlık antrenmanı kadınlara sıkı, şekilli ve tonlu bir vücut kazandırır.
+
+### Kadınlar kaç kilo kaldırmalı?
+Sabit bir ağırlık yerine, her egzersizde son 2-3 tekrarda zorlanacağınız bir ağırlık seçin. Bu, zamanla kademeli olarak artar. Başlangıçta 2-5 kg dumbbell ile başlayıp, haftalar içinde artırabilirsiniz. Önemli olan tekniğin doğru olması ve kademeli ilerleme prensibidir.
+
+### Kardiyo mu ağırlık mı yapmalıyım?
+İkisini de yapmalısınız, ancak öncelik hedefinize bağlıdır. Şekillenme ve tonus için ağırlık antrenmanı, kalp sağlığı için kardiyo yapın. Haftada 3-4 gün ağırlık + 2-3 gün kardiyo ideal bir dağılımdır. Sadece kardiyo yapmak şekillenme için yetersiz kalır.
+
+### Menstrüel dönemde antrenman yapılır mı?
+Evet, menstrüel dönemde antrenman yapmak güvenlidir ve hatta krampları azaltabilir. Ancak kendinizi zorlamamanız önerilir. Yoğunluğu biraz azaltabilir veya hafif kardiyo ve esneklik çalışmalarına yönelebilirsiniz. Her kadın farklıdır; vücudunuzu dinleyin.
+
+### Kadınlar protein tozu kullanmalı mı?
+Günlük protein ihtiyacınızı gerçek gıdalardan karşılayamıyorsanız, protein tozu güvenli ve pratik bir takviyedir. Kadınlar için günlük 1.6-2.2 g/kg protein hedeflenmelidir. Protein tozu "erkeklere özel" değildir ve kadınları kaslı yapmaz — sadece protein ihtiyacınızı karşılamanıza yardımcı olur.`,
+    seoTitle: "Kadınlar İçin Fitness: Ağırlık Kaldırmak Hakkında Bilmeniz Gerekenler | Gokalaf",
+    seoDescription: "Kadınlar ağırlık kaldırınca kaslı mı olur? Kadın fizyolojisi, güç antrenmanının faydaları, başlangıç programı ve menstrüel döngü uyumu.",
+    publishedAt: "2025-03-05",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "antrenman-beslenme-rehberi",
+    title: "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+    category: "beslenme",
+    excerpt: "Antrenman öncesi ve sonrası ne yemeli? Doğru zamanlama, makro dağılımı, örnek öğünler ve performans artırıcı beslenme stratejileri bu kapsamlı rehberde.",
+    heroImage: "/articles/antrenman-beslenme-rehberi.webp",
+    content: `## Antrenman Çevresinde Beslenmenin Önemi
+
+Antrenman öncesi ve sonrası beslenme, performansınızı, toparlanmanızı ve uzun vadeli gelişiminizi doğrudan etkiler. Doğru zamanlamayla alınan doğru besinler, aynı antrenman programından çok daha iyi sonuçlar almanızı sağlar. Ancak bu konuda birçok mit ve yanlış bilgi dolaşmaktadır.
+
+Bu rehberde, antrenman öncesi, sırası ve sonrası beslenmeyi bilimsel verilere dayanarak detaylı şekilde ele alacağız. Farklı hedeflere (yağ yakımı, kas kazanımı) uygun örnek öğünler ve pratik ipuçları paylaşacağız.
+
+> 💡 Antrenman çevresinde beslenme önemlidir, ancak günlük toplam kalori ve makro besin dengeniz her zaman birincil öncelik olmalıdır. Zamanlama, detayların optimizasyonudur.
+
+## Antrenman Öncesi Beslenme
+
+### Neden Önemli?
+
+Antrenman öncesi beslenme, egzersiz sırasında kullanılacak enerjiyi sağlar, kas yıkımını azaltır ve performansı artırır. Aç karnına antrenman yapıldığında performans düşer, kas yıkımı artar ve antrenman kalitesi azalır.
+
+### Zamanlama ve Makro Dağılımı
+
+| Zamanlama | Karbonhidrat | Protein | Yağ | Lif | Porsiyon |
+|-----------|-------------|---------|-----|-----|----------|
+| 3-4 saat önce | 1-2 g/kg | 0.3-0.5 g/kg | Orta | Orta | Büyük öğün |
+| 2-3 saat önce | 0.5-1 g/kg | 0.3 g/kg | Düşük | Düşük | Orta öğün |
+| 1 saat önce | 0.5 g/kg | 0.2 g/kg | Çok düşük | Çok düşük | Hafif atıştırma |
+| 30 dk önce | 0.25-0.5 g/kg | - | - | - | Hızlı enerji |
+
+> ⚠️ Antrenman öncesi yüksek yağ ve lif içeren öğünlerden kaçının. Bunlar sindirimi yavaşlatır, şişkinlik ve rahatsızlık hissine neden olabilir.
+
+### Antrenman Öncesi Örnek Öğünler
+
+| Zamanlama | Yağ Yakımı Hedefi | Kas Kazanımı Hedefi |
+|-----------|-------------------|---------------------|
+| 3 saat önce | 100g pirinç + 150g tavuk + salata | 150g pirinç + 200g tavuk + zeytinyağı |
+| 2 saat önce | 1 dilim tam buğday ekmek + 2 yumurta | Yulaf + muz + whey protein + bal |
+| 1 saat önce | 1 muz + 10 adet badem | Pirinç patlağı + bal + whey shake |
+| 30 dk önce | Yarım muz | 1 muz + 1 yemek kaşığı bal |
+
+## Antrenman Sırası (Intra-Workout) Beslenme
+
+Antrenman sırası beslenme, çoğu kişi için gerekli değildir. Ancak belirli durumlarda faydalı olabilir.
+
+### Ne Zaman Gerekli?
+
+| Durum | Gereklilik | Ne Tüketmeli |
+|-------|-----------|---------------|
+| 60 dk'dan kısa antrenman | Gerekli değil | Sadece su |
+| 60-90 dk yoğun antrenman | Opsiyonel | Su + elektrolit |
+| 90+ dk yoğun antrenman | Önerilir | 30-60g karb/saat + elektrolit |
+| Sabah aç antrenman | Faydalı olabilir | BCAA veya EAA + su |
+| Çift antrenman günü | Önerilir | Karb + protein içeceği |
+
+> 💡 Çoğu kişi için antrenman sırasında sadece su yeterlidir. İntra-workout supplementleri gelişmiş sporcular ve uzun süren antrenmanlar için faydalıdır.
+
+## Antrenman Sonrası Beslenme
+
+### "Anabolik Pencere" Miti
+
+Uzun yıllar boyunca antrenman sonrası 30 dakika içinde protein alınmazsa kasların "eriyeceği" inancı hakimdi. Modern araştırmalar bu "anabolik pencere" kavramını büyük ölçüde çürütmüştür.
+
+| Mit | Gerçek |
+|-----|--------|
+| "30 dakika içinde protein almalısın" | 2-3 saat içinde yeterli |
+| "Anabolik pencere kapanırsa kas kaybersin" | Günlük toplam protein daha önemli |
+| "Sadece whey protein işe yarar" | Herhangi bir kaliteli protein kaynağı yeterli |
+| "Antrenman sonrası yağ yenilmemeli" | Yağ, protein emilimini anlamlı şekilde yavaşlatmaz |
+
+> ✅ Antrenman sonrası 2-3 saat içinde protein ve karbonhidrat içeren bir öğün yeterlidir. Antrenman öncesi yeterli beslenme yaptıysanız acele etmenize gerek yoktur.
+
+### Antrenman Sonrası Makro Hedefleri
+
+| Makro Besin | Miktar | İşlev | Kaynak Önerileri |
+|-------------|--------|-------|------------------|
+| Protein | 0.3-0.5 g/kg (20-40g) | Kas protein sentezini başlatma | Tavuk, yumurta, whey, yoğurt |
+| Karbonhidrat | 0.5-1.5 g/kg | Glikojen yenileme | Pirinç, patates, muz, yulaf |
+| Yağ | Orta miktarda | Hormon üretimi | Zeytinyağı, avokado, kuruyemiş |
+
+### Glikojen Yenileme
+
+Antrenman sırasında tüketilen kas glikojeni, karbonhidrat alımıyla yenilenir. Glikojen yenileme hızı ilk 2 saatte en yüksektir.
+
+| Antrenman Türü | Glikojen Tüketimi | Yenileme İhtiyacı |
+|----------------|-------------------|-------------------|
+| Ağırlık (60 dk) | %25-40 | Orta öncelik |
+| HIIT (30-45 dk) | %30-50 | Yüksek öncelik |
+| Uzun kardiyo (90+ dk) | %50-80 | Çok yüksek öncelik |
+| Hafif antrenman | %10-20 | Düşük öncelik |
+
+## Antrenman Sonrası Örnek Öğünler
+
+| Öğün | İçerik | Kalori | Protein | Karb |
+|------|--------|--------|---------|------|
+| Hızlı shake | Whey + muz + yulaf + süt | ~450 | 35g | 55g |
+| Tavuk pirinç | 200g tavuk + 150g pirinç + sebze | ~550 | 45g | 50g |
+| Yumurta tost | 3 yumurta + 2 dilim ekmek + peynir | ~450 | 30g | 35g |
+| Yoğurt kasesi | Yoğurt + granola + meyve + bal | ~400 | 25g | 50g |
+| Ton balıklı makarna | Ton balığı + tam buğday makarna | ~500 | 35g | 55g |
+
+## Hidrasyon
+
+Su, performans ve toparlanma için kritik öneme sahiptir. %2 dehidrasyon bile performansı %10-20 düşürebilir.
+
+| Zamanlama | Miktar | Açıklama |
+|-----------|--------|----------|
+| Antrenman öncesi (2-3 saat) | 500-600 ml | Bazal hidrasyon |
+| Antrenman öncesi (15-30 dk) | 200-300 ml | Son hazırlık |
+| Antrenman sırası | 150-250 ml / 15-20 dk | Düzenli yudum |
+| Antrenman sonrası | Kaybedilen her 1 kg için 1.5L | Tam toparlanma |
+
+> 💡 İdrar renginiz açık sarı ise yeterli hidrasyon seviyesindesiniz. Koyu sarı veya amber rengi dehidrasyona işaret eder.
+
+## Hedeflere Göre Günlük Beslenme Planı
+
+### Yağ Yakımı Hedefi (70 kg birey)
+
+| Öğün | Zamanlama | İçerik | Kalori |
+|------|-----------|--------|--------|
+| Kahvaltı | 08:00 | Yulaf + yumurta beyazı + meyve | 350 |
+| Antrenman öncesi | 11:00 | Pirinç patlağı + muz | 200 |
+| Antrenman | 12:00 | Su | - |
+| Antrenman sonrası | 13:00 | Whey + muz | 250 |
+| Öğle | 14:00 | Tavuk + sebze + bulgur | 450 |
+| Akşam | 19:00 | Balık + salata + zeytinyağı | 400 |
+| **Toplam** | | | **~1650** |
+
+### Kas Kazanımı Hedefi (70 kg birey)
+
+| Öğün | Zamanlama | İçerik | Kalori |
+|------|-----------|--------|--------|
+| Kahvaltı | 08:00 | Yulaf + tam yumurta + fıstık ezmesi + muz | 600 |
+| Ara öğün | 10:30 | Yoğurt + granola + bal | 350 |
+| Antrenman öncesi | 12:00 | Pirinç + tavuk | 450 |
+| Antrenman | 13:30 | Su | - |
+| Antrenman sonrası | 14:30 | Whey + muz + yulaf | 400 |
+| Akşam | 19:00 | Kıyma + makarna + peynir | 600 |
+| Gece atıştırma | 21:00 | Kazein protein + badem | 300 |
+| **Toplam** | | | **~2700** |
+
+## Antrenman Çevresinde Takviyeler
+
+| Takviye | Ne Zaman | Doz | Faydası | Gereklilik |
+|---------|----------|-----|---------|------------|
+| Kafein | 30-60 dk önce | 3-6 mg/kg | Performans artışı | Opsiyonel |
+| Kreatin | Her gün (zamanlama önemsiz) | 3-5g | Güç ve kas gelişimi | Önerilir |
+| Whey protein | Antrenman sonrası | 20-40g | Kas protein sentezi | Gerekirse |
+| BCAA/EAA | Aç antrenman sırasında | 5-10g | Kas koruması | Duruma göre |
+| Beta-alanin | Her gün | 3-6g | Dayanıklılık | Opsiyonel |
+| Elektrolit | Uzun antrenman sırası | İhtiyaca göre | Hidrasyon | Duruma göre |
+
+> ⚠️ Takviyeler, sağlam bir beslenme temelinin yerine geçmez. Önce beslenmenizi optimize edin, ardından gerekirse takviyeleri ekleyin.
+
+## Sıkça Sorulan Sorular
+
+### Aç karnına antrenman yapmak yağ yakımını artırır mı?
+Aç karnına antrenman sırasında daha fazla yağ yakılabilir, ancak günlük toplam yağ yakımı açısından anlamlı bir fark yoktur. Önemli olan günlük kalori dengenizdir. Aç antrenman performansınızı düşürüyorsa, hafif bir atıştırma yapmak daha iyi sonuçlar verebilir.
+
+### Antrenman sonrası ne kadar süre içinde yemek yemeliyim?
+Antrenman sonrası 2-3 saat içinde protein ve karbonhidrat içeren bir öğün yeterlidir. "Anabolik pencere" miti büyük ölçüde abartılmıştır. Ancak antrenman öncesi uzun süre aç kaldıysanız, sonrasında daha erken yemek yemeniz faydalıdır.
+
+### Antrenman sonrası sadece protein shake yeterli mi?
+Protein shake tek başına yeterli olmayabilir. Glikojen yenileme için karbonhidrat da gereklidir. İdeal olan, protein shake'e muz veya yulaf eklemek ya da shake sonrası 1-2 saat içinde tam bir öğün yemektir.
+
+### Kreatin ne zaman alınmalı?
+Kreatinin zamanlaması düşünüldüğü kadar önemli değildir. Günde 3-5g kreatin, herhangi bir zamanda alınabilir. Bazı çalışmalar antrenman sonrası alımın marjinal olarak daha etkili olabileceğini gösterse de, asıl önemli olan günlük düzenli alımdır.
+
+### Diyet yaparken antrenman öncesi karbonhidrat almalı mıyım?
+Evet, kalori açığında bile antrenman öncesi karbonhidrat almak performansınızı korur. Kalori bütçenizden bir miktar karbonhidratı antrenman çevresine ayırın. Günlük toplam karbonhidratınızın %40-50'sini antrenman öncesi ve sonrası öğünlere dağıtabilirsiniz.`,
+    seoTitle: "Antrenman Öncesi ve Sonrası Ne Yemeli? Beslenme Rehberi | Gokalaf",
+    seoDescription: "Antrenman öncesi ve sonrası beslenme rehberi. Doğru zamanlama, makro dağılımı, örnek öğünler ve performans artırıcı beslenme stratejileri.",
+    publishedAt: "2025-02-28",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "metabolizma-hizlandirma",
+    title: "Metabolizma Nasıl Hızlandırılır? Bilimsel Yöntemler",
+    category: "beslenme",
+    excerpt: "Metabolizma hızlandırmanın bilimsel yolları. BMR, NEAT, TEF kavramları, kas kütlesi, uyku, beslenme ve antrenman stratejileri ile metabolizmanızı artırın.",
+    heroImage: "/articles/metabolizma-hizlandirma.webp",
+    content: `## Metabolizma Nedir?
+
+Metabolizma, vücudunuzun besinleri enerjiye dönüştürmek için gerçekleştirdiği tüm kimyasal süreçlerin toplamıdır. "Metabolizma hızı" dediğimizde, vücudun belirli bir zaman diliminde ne kadar kalori yaktığını kastediyoruz. Metabolizma hızı kişiden kişiye farklılık gösterir ve birçok faktörden etkilenir.
+
+Metabolizmayı anlamak, kilo yönetimi ve genel sağlık için kritiktir. "Yavaş metabolizma" şikayeti çok yaygındır, ancak gerçekte metabolizmayı etkileyen faktörleri ve bunları nasıl optimize edebileceğinizi bilmek önemlidir.
+
+> 💡 Metabolizmanız düşündüğünüz kadar yavaş olmayabilir. Araştırmalar, obez bireylerin aslında ince bireylerden daha yüksek metabolizmaya sahip olduğunu göstermektedir — çünkü daha büyük bir vücudu çalıştırmak daha fazla enerji gerektirir.
+
+## Günlük Toplam Enerji Harcaması (TDEE) Bileşenleri
+
+Günlük enerji harcamanız dört ana bileşenden oluşur:
+
+| Bileşen | Kısaltma | Toplam Harcamadaki Pay | Açıklama |
+|---------|----------|----------------------|----------|
+| Bazal Metabolizma Hızı | BMR | %60-70 | Hayati fonksiyonlar (nefes, kalp atışı, beyin) |
+| Egzersiz Dışı Aktivite Termogenezi | NEAT | %15-30 | Günlük hareketler (yürüme, merdiven, fidgeting) |
+| Besinlerin Termik Etkisi | TEF | %8-15 | Yiyecekleri sindirmek için harcanan enerji |
+| Egzersiz Aktivite Termogenezi | EAT | %5-10 | Planlı egzersiz |
+
+### BMR (Bazal Metabolizma Hızı)
+
+BMR, tamamen dinlenme halindeyken vücudun temel yaşamsal fonksiyonları sürdürmek için harcadığı enerjidir. Bu, toplam enerji harcamanızın en büyük bölümünü oluşturur.
+
+| Faktör | BMR Üzerindeki Etkisi |
+|--------|----------------------|
+| Yaş | Her 10 yılda %2-3 düşüş |
+| Cinsiyet | Erkekler %5-10 daha yüksek |
+| Kas kütlesi | Her 1 kg kas ~13-15 kcal/gün |
+| Vücut boyutu | Büyük vücut = Yüksek BMR |
+| Genetik | %5-10 bireysel farklılık |
+| Tiroid fonksiyonu | Belirgin etki |
+| Vücut sıcaklığı | Her 1°C artış = %13 BMR artışı |
+
+### NEAT (Egzersiz Dışı Aktivite Termogenezi)
+
+NEAT, metabolizma hızlandırmada en çok gözden kaçan ama en büyük potansiyele sahip bileşendir. Günlük küçük aktiviteler toplamda büyük fark yaratır.
+
+| Aktivite | Yaklaşık Kalori/Saat | Günlük Potansiyel |
+|----------|---------------------|-------------------|
+| Ayakta durma (oturmaya karşı) | +50 kcal | +200-400 kcal |
+| Yürüme (günde 10.000 adım) | ~300-400 kcal | +300-400 kcal |
+| Merdiven çıkma | +200 kcal | +50-100 kcal |
+| Ev işleri | +150-300 kcal | +100-200 kcal |
+| Fidgeting (kıpırdanma) | +100-800 kcal | Bireysel |
+
+> ✅ Masa başı çalışanlar günde 300-800 kcal NEAT kaybedebilir. Her 30 dakikada kalkıp yürümek, ayakta masa kullanmak veya öğle yemeğinde yürüyüş yapmak NEAT'i önemli ölçüde artırır.
+
+### TEF (Besinlerin Termik Etkisi)
+
+Farklı makro besinler, sindirim için farklı miktarlarda enerji harcar:
+
+| Makro Besin | Termik Etki | Örnek: 100 kcal alımı → Net enerji |
+|-------------|------------|-------------------------------------|
+| Protein | %20-30 | 70-80 kcal net |
+| Karbonhidrat | %5-10 | 90-95 kcal net |
+| Yağ | %0-3 | 97-100 kcal net |
+| Alkol | %10-30 | 70-90 kcal net |
+
+> 💡 Yüksek proteinli diyetler, TEF etkisi sayesinde günde 80-100 kcal daha fazla enerji harcanmasını sağlayabilir. Bu, protein tüketiminin metabolizmayı "hızlandırdığı" söyleminin bilimsel temelidir.
+
+## Metabolizmayı Hızlandırmanın Bilimsel Yolları
+
+### 1. Kas Kütlesini Artırma
+
+Kas dokusu, yağ dokusundan metabolik olarak çok daha aktiftir. Her 1 kg kas, dinlenme halinde günde yaklaşık 13-15 kcal yakar (yağın 3 katı).
+
+| Strateji | Uygulama | Beklenen Etki |
+|----------|----------|---------------|
+| Ağırlık antrenmanı | Haftada 3-4 gün | 5-10 kg kas = günde +65-150 kcal |
+| Progresif yüklenme | Her hafta %2-5 artış | Sürekli kas adaptasyonu |
+| Yeterli protein | 1.6-2.2 g/kg/gün | Kas sentezi desteği |
+| Bileşik hareketler | Squat, deadlift, bench | Maksimum kas aktivasyonu |
+
+### 2. NEAT'i Artırma
+
+| Değişiklik | Günlük Ek Kalori Yakımı | Yıllık Potansiyel |
+|-----------|------------------------|-------------------|
+| 10.000 adım yürümek | +300-400 kcal | ~3-4 kg yağ |
+| Ayakta masa kullanma (4 saat) | +200 kcal | ~2 kg yağ |
+| Araç yerine yürüme/bisiklet | +150-300 kcal | ~2-3 kg yağ |
+| Asansör yerine merdiven | +50-100 kcal | ~0.5-1 kg yağ |
+| Ev işleri yapma | +100-200 kcal | ~1-2 kg yağ |
+
+### 3. Protein Alımını Artırma
+
+Yüksek protein tüketimi metabolizmayı üç şekilde destekler:
+
+- **TEF etkisi:** Proteinin sindirilmesi daha fazla enerji harcar
+- **Kas koruması/gelişimi:** Kas kütlesi BMR'yi artırır
+- **Tokluk:** Daha uzun süre tok tutar, aşırı yemeyi önler
+
+| Hedef | Protein İhtiyacı | Örnek (70 kg) |
+|-------|------------------|---------------|
+| Genel sağlık | 0.8-1.2 g/kg | 56-84g |
+| Aktif yaşam | 1.2-1.6 g/kg | 84-112g |
+| Kas gelişimi | 1.6-2.2 g/kg | 112-154g |
+| Diyet dönemi | 2.0-2.4 g/kg | 140-168g |
+
+### 4. Uyku Kalitesini Optimize Etme
+
+Uyku, metabolizmanın düzenleyicisidir. Yetersiz uyku metabolizmayı ciddi şekilde bozar.
+
+| Uyku Süresi | Metabolik Etki |
+|-------------|----------------|
+| <5 saat | BMR %5-10 düşer, insülin direnci artar |
+| 5-6 saat | Leptin düşer, ghrelin artar (açlık artar) |
+| 7-9 saat | Optimal metabolik fonksiyon |
+| >9 saat | Genellikle sorun değil, ancak gereksiz |
+
+> ⚠️ Sadece 4 gece yetersiz uyku, insülin duyarlılığını %30 azaltabilir. Bu, vücudun besinleri depolamaya daha yatkın hale gelmesi demektir. Uyku, metabolizma optimizasyonunun en hafife alınan bileşenidir.
+
+### 5. HIIT (Yüksek Yoğunluklu İnterval Antrenman)
+
+HIIT, "EPOC" (Excess Post-exercise Oxygen Consumption) etkisi sayesinde antrenman sonrası saatlerce yüksek kalori yakımı sağlar.
+
+| Parametre | HIIT | Düşük Yoğunluklu Kardiyo |
+|-----------|------|--------------------------|
+| Süre | 15-30 dk | 45-60 dk |
+| EPOC etkisi | 6-24 saat | 1-2 saat |
+| Ek kalori yakımı (sonrası) | 50-200 kcal | 10-30 kcal |
+| Kas koruma | İyi | Orta |
+| Metabolik adaptasyon | Daha az | Daha fazla |
+
+## Metabolik Adaptasyon ve Reverse Dieting
+
+### Metabolik Adaptasyon Nedir?
+
+Uzun süreli kalori kısıtlamasında vücut enerji harcamasını azaltarak adapte olur. Bu "metabolik adaptasyon" veya "uyarlanabilir termogenez" olarak bilinir.
+
+| Adaptasyon | Mekanizma | Etki |
+|-----------|-----------|------|
+| BMR düşüşü | Tiroid hormonları azalır | %10-15 düşüş |
+| NEAT azalması | Bilinçsiz hareketler azalır | %20-30 düşüş |
+| TEF düşüşü | Daha az yiyecek = daha az sindirme | Orantılı düşüş |
+| Hormonal değişiklikler | Leptin düşer, kortizol artar | Açlık ve stres artar |
+
+### Reverse Dieting (Ters Diyet)
+
+Reverse dieting, uzun süreli diyetten sonra kalorileri yavaş yavaş artırarak metabolizmayı toparlamaktır.
+
+| Hafta | Kalori Artışı | Karb Artışı | Yağ Artışı |
+|-------|---------------|-------------|------------|
+| 1-2 | +100 kcal/gün | +15-20g | +5g |
+| 3-4 | +100 kcal/gün | +15-20g | +5g |
+| 5-6 | +100 kcal/gün | +15-20g | +5g |
+| 7-8 | +50-100 kcal/gün | +10-15g | +3g |
+| 9+ | İhtiyaca göre | Bireysel | Bireysel |
+
+> 💡 Reverse dieting süreci sabır gerektirir. Ani kalori artışları yağ kazanımına neden olabilir. Haftada 100-150 kcal artış ideal bir tempodur.
+
+## Tiroid ve Metabolizma
+
+Tiroid bezi, metabolizma hızının ana düzenleyicisidir. Tiroid hormonları (T3 ve T4) neredeyse tüm metabolik süreçleri etkiler.
+
+| Durum | Etki | Belirtiler |
+|-------|------|------------|
+| Hipotiroid (düşük) | Metabolizma yavaşlar | Kilo alımı, yorgunluk, üşüme |
+| Ötiroid (normal) | Normal metabolizma | Sağlıklı enerji dengesi |
+| Hipertiroid (yüksek) | Metabolizma hızlanır | Kilo kaybı, huzursuzluk, terleme |
+
+> ⚠️ Kilo verememe sorununuz varsa ve yukarıdaki yöntemlere rağmen ilerleme kaydedemiyorsanız, tiroid fonksiyon testleri (TSH, serbest T3, serbest T4) yaptırmanız önerilir.
+
+## Metabolizma Mitleri
+
+| Mit | Gerçek |
+|-----|--------|
+| "Sık yemek metabolizmayı hızlandırır" | Öğün sıklığı toplam TEF'i değiştirmez |
+| "Yeşil çay metabolizmayı hızlandırır" | Etkisi çok küçüktür (günde 30-50 kcal) |
+| "Acı biber metabolizmayı hızlandırır" | Kısa süreli ve minimal etki |
+| "Soğuk duş metabolizmayı artırır" | Pratik anlamda ihmal edilebilir |
+| "Yavaş metabolizmam var, kilo veremiyorum" | Çoğu insan kalorilerini olduğundan az tahmin eder |
+| "Yaşlandıkça metabolizma çöker" | 60 yaşına kadar düşüş %7-10; kas kaybı ana etken |
+
+## Sıkça Sorulan Sorular
+
+### Metabolizmam gerçekten yavaş mı?
+Muhtemelen düşündüğünüz kadar yavaş değil. Araştırmalar, "yavaş metabolizma" şikayeti olan bireylerin çoğunun aslında yediklerini olduğundan az, harcadıklarını olduğundan fazla tahmin ettiğini göstermektedir. Gerçek metabolik hız farklılıkları genellikle bireyler arasında %200-300 kcal'lik bir aralıktadır.
+
+### Kas yapmak metabolizmayı ne kadar artırır?
+Her 1 kg kas, dinlenme halinde günde yaklaşık 13-15 kcal yakar. 5 kg kas kazanmak, günde ~65-75 kcal daha fazla yakmanız anlamına gelir. Bu küçük görünebilir ancak yıllık bazda ~2.5-3 kg yağa eşdeğerdir. Ayrıca kas kütlesi, antrenman sırasındaki kalori yakımını da artırır.
+
+### Diyetten sonra metabolizmam yavaşladı, ne yapmalıyım?
+Uzun süreli kalori kısıtlamasından sonra metabolik adaptasyon normaldir. Reverse dieting uygulayın: kalorileri haftada 100-150 kcal artırarak yavaşça bakım kalorisine çıkın. Ağırlık antrenmanına devam edin, uyku kalitenizi iyileştirin ve stres yönetimine dikkat edin. Bu süreç 8-16 hafta sürebilir.
+
+### Öğün sıklığı metabolizmayı etkiler mi?
+Hayır, günde 2 öğün mü yoksa 6 öğün mü yediğiniz toplam metabolik hızınızı değiştirmez. Önemli olan günlük toplam kalori ve makro besin alımınızdır. Öğün sıklığını, yaşam tarzınıza ve tokluk yönetiminize göre belirleyin.
+
+### Metabolizmayı hızlandıran yiyecekler var mı?
+Yeşil çay, acı biber ve kafein gibi besinler metabolizmayı çok küçük ölçüde artırabilir (günde 30-80 kcal), ancak bu etkiler kilo yönetimi açısından pratikte anlamsızdır. Asıl metabolizma artırıcılar: kas kütlesi, yüksek protein alımı, NEAT artışı, yeterli uyku ve düzenli egzersizdir.`,
+    seoTitle: "Metabolizma Nasıl Hızlandırılır? Bilimsel Kanıtlı Yöntemler | Gokalaf",
+    seoDescription: "Metabolizma hızlandırmanın bilimsel yolları. BMR, NEAT, TEF kavramları, kas kütlesi, uyku, beslenme ve antrenman stratejileri ile metabolizmanızı artırın.",
+    publishedAt: "2025-02-20",
+    ctaText: "Paketleri İncele",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
