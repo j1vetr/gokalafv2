@@ -90,7 +90,6 @@ export default function AIChatAssistant() {
         setConversationId(conv.id);
         setMessages([]);
         setShowHistory(false);
-        fetchGreeting(conv.id);
       }
     } catch {}
   };
@@ -119,69 +118,12 @@ export default function AIChatAssistant() {
     } catch {}
   };
 
-  const fetchGreeting = useCallback(async (convId: number) => {
-    const greetingMsg: Message = { id: Date.now(), role: "assistant", content: "" };
-    setMessages([greetingMsg]);
-    setIsLoading(true);
-
-    try {
-      const res = await fetch(`/api/conversations/${convId}/greeting`, { method: "POST" });
-      if (!res.ok) throw new Error("Failed");
-
-      const reader = res.body?.getReader();
-      const decoder = new TextDecoder();
-      if (reader) {
-        let fullText = "";
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value);
-          const lines = chunk.split("\n");
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              try {
-                const data = JSON.parse(line.slice(6));
-                if (data.done) break;
-                if (data.content) {
-                  fullText += data.content;
-                  setMessages([{ ...greetingMsg, content: fullText }]);
-                }
-              } catch {}
-            }
-          }
-        }
-      }
-    } catch {
-      setMessages([{ ...greetingMsg, content: "Merhaba! 👋 Fitness ve beslenme hakkında sorularını bekliyorum." }]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  const handleOpen = async () => {
+  const handleOpen = () => {
     setIsOpen(true);
     loadConversations();
     if (!conversationId) {
-      await startNewConversation();
-    } else {
-      try {
-        const res = await fetch(`/api/conversations/${conversationId}`);
-        if (res.ok) {
-          const data = await res.json();
-          const msgs = data.messages || [];
-          if (msgs.length === 0) {
-            fetchGreeting(conversationId);
-          } else {
-            setMessages(msgs);
-          }
-        }
-      } catch {}
+      startNewConversation();
     }
-  };
-
-  const sendDirectMessage = async (text: string) => {
-    setInput("");
-    await sendMessageWithContent(text);
   };
 
   const sendMessage = async () => {
@@ -418,15 +360,29 @@ export default function AIChatAssistant() {
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.length === 0 && (
-                  <div className="flex flex-col items-center justify-center h-full text-center px-4">
-                    <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-4 overflow-hidden">
-                      <img src="/images/logo.webp" alt="Alaf Coaching" className="w-10 h-10 object-contain" />
+                  <div className="flex flex-col items-center justify-center h-full text-center px-6">
+                    <div className="w-20 h-20 rounded-full bg-black border-2 border-[#39ff14]/30 flex items-center justify-center mb-5 overflow-hidden shadow-lg shadow-[#39ff14]/10">
+                      <img src="/images/logo.webp" alt="Alaf Coaching" className="w-12 h-12 object-contain" />
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <div className="w-1.5 h-1.5 bg-[#39ff14] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <h4 className="text-white font-semibold text-base mb-1.5">Alaf Coaching Asistan</h4>
+                    <p className="text-gray-500 text-xs mb-6 leading-relaxed max-w-[260px]">
+                      Antrenman, beslenme, supplement ve koçluk hakkında aklına ne gelirse sor.
+                    </p>
+                    <div className="w-full space-y-2.5 text-left">
+                      <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
+                        <span className="text-[#39ff14] text-sm">💪</span>
+                        <span className="text-gray-400 text-[11px]">Antrenman programı ve egzersiz teknikleri</span>
+                      </div>
+                      <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
+                        <span className="text-[#39ff14] text-sm">🥗</span>
+                        <span className="text-gray-400 text-[11px]">Beslenme, diyet ve kalori hesaplama</span>
+                      </div>
+                      <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5">
+                        <span className="text-[#39ff14] text-sm">💊</span>
+                        <span className="text-gray-400 text-[11px]">Supplement ve takviye önerileri</span>
+                      </div>
                     </div>
+                    <p className="text-gray-600 text-[10px] mt-5">Aşağıya sorunuzu yazarak başlayın</p>
                   </div>
                 )}
 
