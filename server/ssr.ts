@@ -286,7 +286,19 @@ async function handlePackages(req: Request, res: Response): Promise<void> {
 async function handleArticlesList(req: Request, res: Response): Promise<void> {
   console.log(`[SSR] Articles list request`);
   try {
-    const articles = await storage.getPublishedArticles();
+    const { articles: staticArticles } = await import("../shared/articles-data.js");
+    const articles = staticArticles.map((a: any) => ({
+      id: a.slug,
+      ...a,
+      heroImage: a.heroImage,
+      categoryId: a.category,
+      seoTitle: a.seoTitle,
+      seoDescription: a.seoDescription,
+      publishedAt: a.publishedAt,
+      status: 'published',
+      createdAt: new Date(a.publishedAt || Date.now()),
+      updatedAt: new Date(a.publishedAt || Date.now()),
+    }));
     console.log(`[SSR] Found ${articles.length} published articles`);
     const meta = generateArticlesListMeta(articles);
     console.log(`[SSR] Generated meta title: ${meta.title}`);
@@ -312,13 +324,27 @@ async function handleArticleDetail(req: Request, res: Response): Promise<void> {
   }
   
   try {
-    const article = await storage.getArticleBySlug(slug);
+    const { getArticleBySlug } = await import("../shared/articles-data.js");
+    const staticArticle = getArticleBySlug(slug);
     
-    if (!article || article.status !== 'published') {
-      console.log(`[SSR] Article not found or not published: ${slug}`);
+    if (!staticArticle) {
+      console.log(`[SSR] Article not found: ${slug}`);
       send404Response(res);
       return;
     }
+
+    const article = {
+      id: staticArticle.slug,
+      ...staticArticle,
+      heroImage: staticArticle.heroImage,
+      categoryId: staticArticle.category,
+      seoTitle: staticArticle.seoTitle,
+      seoDescription: staticArticle.seoDescription,
+      publishedAt: staticArticle.publishedAt,
+      status: 'published',
+      createdAt: new Date(staticArticle.publishedAt || Date.now()),
+      updatedAt: new Date(staticArticle.publishedAt || Date.now()),
+    } as any;
     
     console.log(`[SSR] Found article: ${article.title}`);
     const meta = generateArticleDetailMeta(article);

@@ -1,23 +1,22 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Calendar, ChevronRight, Sparkles, Dumbbell, Utensils, Pill, Search } from "lucide-react";
-import type { Article, ArticleCategory } from "@shared/schema";
+import { articles, categories } from "@shared/articles-data";
 import SEO from "@/components/SEO";
 
 const categoryIcons: Record<string, any> = {
   "antrenman": Dumbbell,
   "beslenme": Utensils,
-  "takviye": Pill,
+  "takviyeler": Pill,
   "default": BookOpen,
 };
 
 const categoryColors: Record<string, string> = {
   "antrenman": "from-blue-500/20 to-blue-600/10 border-blue-500/30",
   "beslenme": "from-green-500/20 to-green-600/10 border-green-500/30",
-  "takviye": "from-purple-500/20 to-purple-600/10 border-purple-500/30",
+  "takviyeler": "from-purple-500/20 to-purple-600/10 border-purple-500/30",
   "default": "from-primary/20 to-primary/10 border-primary/30",
 };
 
@@ -25,31 +24,20 @@ export default function Articles() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { data: categories = [] } = useQuery<ArticleCategory[]>({
-    queryKey: ["/api/articles/categories"],
-    queryFn: async () => {
-      const res = await fetch("/api/articles/categories");
-      if (!res.ok) throw new Error("Failed to fetch categories");
-      return res.json();
-    },
-  });
-
-  const { data: articles = [], isLoading } = useQuery<Article[]>({
-    queryKey: ["/api/articles", selectedCategory],
-    queryFn: async () => {
-      const url = selectedCategory 
-        ? `/api/articles?category=${selectedCategory}` 
-        : "/api/articles";
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Failed to fetch articles");
-      return res.json();
-    },
-  });
-
-  const filteredArticles = articles.filter(article => 
-    article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    article.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = useMemo(() => {
+    let result = [...articles];
+    if (selectedCategory) {
+      result = result.filter(a => a.category === selectedCategory);
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(a => 
+        a.title.toLowerCase().includes(q) ||
+        a.excerpt.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-[#050505] pt-28">
@@ -124,17 +112,17 @@ export default function Articles() {
               Tüm Yazılar
             </button>
             {categories.map((category) => {
-              const Icon = categoryIcons[category.slug] || categoryIcons.default;
+              const Icon = categoryIcons[category.id] || categoryIcons.default;
               return (
                 <button
                   key={category.id}
-                  onClick={() => setSelectedCategory(category.slug)}
+                  onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 ${
-                    selectedCategory === category.slug
+                    selectedCategory === category.id
                       ? "bg-primary text-black shadow-md shadow-primary/25"
                       : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
                   }`}
-                  data-testid={`filter-${category.slug}`}
+                  data-testid={`filter-${category.id}`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {category.name}
@@ -176,15 +164,7 @@ export default function Articles() {
       {/* Articles Grid */}
       <section className="py-8">
         <div className="container mx-auto px-4">
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="animate-pulse">
-                  <div className="bg-white/5 rounded-2xl h-64"></div>
-                </div>
-              ))}
-            </div>
-          ) : filteredArticles.length === 0 ? (
+          {filteredArticles.length === 0 ? (
             <div className="text-center py-16" data-testid="articles-empty-state">
               <BookOpen className="w-14 h-14 text-gray-700 mx-auto mb-4" />
               <h3 className="text-xl font-heading font-bold text-white mb-2">
@@ -206,18 +186,18 @@ export default function Articles() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filteredArticles.map((article, index) => {
-                const category = categories.find(c => c.id === article.categoryId || c.slug === article.categoryId);
-                const colorClass = categoryColors[category?.slug || "default"] || categoryColors.default;
-                const Icon = categoryIcons[category?.slug || "default"] || categoryIcons.default;
+                const category = categories.find(c => c.id === article.category);
+                const colorClass = categoryColors[article.category] || categoryColors.default;
+                const Icon = categoryIcons[article.category] || categoryIcons.default;
                 
                 return (
-                  <Link key={article.id} href={`/yazilar/${article.slug}`}>
+                  <Link key={article.slug} href={`/yazilar/${article.slug}`}>
                     <motion.article
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.03 }}
                       className="group h-full bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 rounded-xl overflow-hidden hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-pointer"
-                      data-testid={`article-card-${article.id}`}
+                      data-testid={`article-card-${article.slug}`}
                     >
                       {/* Image */}
                       <div className="relative h-36 overflow-hidden">

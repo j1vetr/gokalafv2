@@ -1,11 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Calendar, BookOpen, ChevronDown, Lightbulb, AlertCircle, CheckCircle, Calculator, User, RefreshCw } from "lucide-react";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import type { Article } from "@shared/schema";
+import { getArticleBySlug, categories } from "@shared/articles-data";
 import MarkdownIt from "markdown-it";
 import { useMemo, useState } from "react";
 import SEO from "@/components/SEO";
@@ -73,15 +72,7 @@ export default function ArticleDetail() {
   const [, params] = useRoute("/yazilar/:slug");
   const slug = params?.slug;
 
-  const { data: article, isLoading, error } = useQuery<Article>({
-    queryKey: ["/api/articles", slug],
-    queryFn: async () => {
-      const res = await fetch(`/api/articles/${slug}`);
-      if (!res.ok) throw new Error("Article not found");
-      return res.json();
-    },
-    enabled: !!slug,
-  });
+  const article = slug ? getArticleBySlug(slug) : undefined;
 
   const { mainContent, faqs, renderedHtml } = useMemo(() => {
     if (!article) return { mainContent: '', faqs: [], renderedHtml: '' };
@@ -93,15 +84,7 @@ export default function ArticleDetail() {
     return { mainContent, faqs, renderedHtml: html };
   }, [article]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#050505] pt-28 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
-  if (error || !article) {
+  if (!article) {
     return (
       <div className="min-h-screen bg-[#050505] pt-28">
         <div className="container mx-auto px-4 py-20 text-center">
@@ -123,15 +106,14 @@ export default function ArticleDetail() {
     );
   }
 
-  const shareUrl = typeof window !== 'undefined' ? `https://gokalaf.com/yazilar/${article.slug}` : `https://gokalaf.com/yazilar/${article.slug}`;
+  const shareUrl = `https://gokalaf.com/yazilar/${article.slug}`;
 
   const categoryLabels: Record<string, string> = {
-    'takviye': 'Takviye',
+    'takviyeler': 'Takviye',
     'beslenme': 'Beslenme',
     'antrenman': 'Antrenman',
-    'saglik': 'Sağlık',
   };
-  const categoryLabel = categoryLabels[article.categoryId || ''] || 'Fitness';
+  const categoryLabel = categoryLabels[article.category] || 'Fitness';
 
   return (
     <div className="min-h-screen bg-[#050505] pt-28">
@@ -163,7 +145,6 @@ export default function ArticleDetail() {
             }
           },
           "datePublished": article.publishedAt,
-          "dateModified": article.updatedAt || article.publishedAt,
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": `https://gokalaf.com/yazilar/${article.slug}`
@@ -213,16 +194,6 @@ export default function ArticleDetail() {
                     {new Date(article.publishedAt).toLocaleDateString("tr-TR", {
                       year: "numeric",
                       month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
-                )}
-                {article.updatedAt && article.updatedAt !== article.publishedAt && (
-                  <span className="flex items-center gap-1 text-primary/70">
-                    <RefreshCw className="w-3.5 h-3.5" />
-                    Güncellendi: {new Date(article.updatedAt).toLocaleDateString("tr-TR", {
-                      year: "numeric",
-                      month: "short",
                       day: "numeric",
                     })}
                   </span>
