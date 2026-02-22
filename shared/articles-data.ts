@@ -6157,7 +6157,7 @@ Yağda çözünen vitaminleri (A, D, E, K) yağlı yemekle alın. Kreatin bol su
     title: "Online PT (Personal Trainer) Avantajları - Neden Online Koçluk?",
     category: "antrenman",
     excerpt: "Online personal trainer ile antrenman yapmak, esneklik, kişiselleştirme ve maliyet avantajı sunar. Geleneksel PT ile karşılaştırması ve online koçluktan ne beklemeniz gerektiğini öğrenin.",
-    heroImage: "/articles/online-pt-avantajlari.png",
+    heroImage: "/articles/online-pt-avantajlari.webp",
     content: `## Online PT Nedir ve Neden Tercih Edilmeli?
 
 Fitness dünyası hızla dijitalleşiyor ve **online personal training (PT)** bu dönüşümün en önemli parçalarından biri haline geldi. Artık profesyonel bir koçtan rehberlik almak için belirli saatlerde spor salonuna gitmek zorunda değilsiniz. Online PT, size özel hazırlanan antrenman ve beslenme programlarını dijital ortamda almanızı, koçunuzla sürekli iletişimde kalmanızı ve kendi temponuzda ilerlemenizi sağlayan modern bir fitness çözümüdür.
@@ -6296,7 +6296,7 @@ Online koçluk maliyetleri, hizmet kapsamına göre aylık 500-2.000 ₺ arasın
     title: "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
     category: "beslenme",
     excerpt: "Günlük protein ihtiyacınızı doğru hesaplamak, kas gelişimi ve sağlık için kritik öneme sahiptir. Hedeflerinize göre ne kadar protein almanız gerektiğini, en iyi kaynakları ve zamanlama stratejilerini öğrenin.",
-    heroImage: "/articles/protein-ihtiyaci-rehberi.png",
+    heroImage: "/articles/protein-ihtiyaci-rehberi.webp",
     content: `## Protein Neden Bu Kadar Önemli?
 
 Protein, vücudumuzun en temel yapı taşlarından biridir. Kasların onarımı ve büyümesi, enzimlerin ve hormonların üretimi, bağışıklık sisteminin güçlendirilmesi ve doku yenilenmesi gibi hayati fonksiyonlarda görev alır. Fitness hedefleriniz ne olursa olsun — kas yapmak, yağ yakmak veya sağlıklı kalmak — **protein alımınız başarınızın temelini oluşturur**.
@@ -6442,7 +6442,7 @@ Biyolojik değer açısından yumurta en üst sırada yer alır. Ancak "en iyi" 
     title: "Bench Press Nasıl Yapılır? Teknik, Hata ve Program Rehberi",
     category: "antrenman",
     excerpt: "Bench press, üst vücut gücünün en temel göstergelerinden biridir. Doğru form, sık yapılan hatalar, varyasyonlar ve başlangıçtan ileri seviyeye program rehberi.",
-    heroImage: "/articles/bench-press-rehberi.png",
+    heroImage: "/articles/bench-press-rehberi.webp",
     content: `## Bench Press Nedir?
 
 Bench press, **göğüs kaslarını (pectoralis major), ön omuzları (anterior deltoid) ve tricepsleri** hedef alan temel bir bileşik egzersizdir. Güç antrenmanının "üç büyük" hareketinden biri olan bench press, üst vücut gücünün en önemli göstergelerinden kabul edilir.
@@ -6605,7 +6605,7 @@ Plato kırmak için şu stratejileri deneyin: Paused rep ekleyin, tamamlayıcı 
     title: "Intermittent Fasting (Aralıklı Oruç) Rehberi - Yeni Başlayanlar İçin",
     category: "beslenme",
     excerpt: "Intermittent fasting (aralıklı oruç) nedir, nasıl uygulanır? 16:8, 20:4, 5:2 yöntemleri, faydaları, kimlerin kaçınması gerektiği ve kas geliştirirken oruç tutma stratejileri.",
-    heroImage: "/articles/intermittent-fasting-rehberi.png",
+    heroImage: "/articles/intermittent-fasting-rehberi.webp",
     content: `## Intermittent Fasting (IF) Nedir?
 
 Intermittent fasting (IF), Türkçe'de **aralıklı oruç** olarak bilinen, belirli zaman dilimlerinde yeme ve oruç tutma döngülerini içeren bir beslenme stratejisidir. IF, **ne yediğinizle değil, ne zaman yediğinizle** ilgilenir. Bir diyet değil, bir yeme düzenidir.
@@ -6764,7 +6764,7 @@ Hayır, IF'i her gün uygulamak zorunda değilsiniz. Hafta içi uygulayıp hafta
     title: "Yeni Başlayanlar İçin Antrenman Programı - İlk 12 Hafta",
     category: "antrenman",
     excerpt: "Spor salonuna yeni başlıyorsanız bu rehber tam size göre. İlk 12 haftalık antrenman programı, egzersiz seçimi, set/tekrar düzeni, dinlenme süreleri ve sık yapılan hatalar.",
-    heroImage: "/articles/yeni-baslayan-antrenman.png",
+    heroImage: "/articles/yeni-baslayan-antrenman.webp",
     content: `## Neden Yapılandırılmış Bir Program Önemli?
 
 Spor salonuna yeni adım atan birçok kişi, ne yapacağını bilmeden rastgele makinelerde egzersiz yapmaya başlar. Bu yaklaşım hem verimsizdir hem de yaralanma riskini artırır. **Yapılandırılmış bir antrenman programı** ile başlamak, ilerlemenizi hızlandırır, güvenli bir başlangıç sağlar ve motivasyonunuzu korur.
@@ -6972,7 +6972,7 @@ Evet, özellikle ilk 1-2 haftada DOMS (gecikmiş kas ağrısı) normaldir. Genel
     title: "Bulk ve Cut Nedir? Kas Yapma ve Yağ Yakma Rehberi",
     category: "beslenme",
     excerpt: "Bulk ve cut dönemleri, kas kütlesi kazanmak ve yağ oranını düşürmek için uygulanan beslenme stratejileridir. Bu rehberde clean bulk, dirty bulk, kalori fazlası/açığı ve makro dağılımlarını öğrenin.",
-    heroImage: "/articles/bulk-cut-rehberi.png",
+    heroImage: "/articles/bulk-cut-rehberi.webp",
     content: `## Bulk ve Cut Nedir?
 
 Fitness dünyasında hedeflerinize ulaşmanın en etkili yollarından biri, beslenmenizi belirli dönemlere ayırmaktır. **Bulk** (hacim dönemi) kas kütlesi kazanmak için kalori fazlasıyla beslenmeyi, **cut** (kesim dönemi) ise kazanılan kasları koruyarak yağ oranını düşürmeyi ifade eder. Bu iki dönemin doğru planlanması, fiziksel dönüşümünüzde büyük fark yaratır.
@@ -7125,7 +7125,7 @@ Tamamen yağlanmadan kas yapmak mümkün değildir, ancak clean bulk ile yağ ka
     title: "Uyku ve Kas Gelişimi - Kasların Gerçek Büyüme Zamanı",
     category: "antrenman",
     excerpt: "Uyku, kas gelişimi ve toparlanma için en kritik faktörlerden biridir. Büyüme hormonu salınımı, protein sentezi ve performans üzerindeki etkileri ile uykunun fitness'taki rolünü keşfedin.",
-    heroImage: "/articles/uyku-kas-gelisimi.png",
+    heroImage: "/articles/uyku-kas-gelisimi.webp",
     content: `## Uyku Neden Kas Gelişimi İçin Kritik?
 
 Antrenman sırasında kaslarınızı yıpratırsınız, beslenme ile yapı taşlarını sağlarsınız, ancak gerçek büyüme ve onarım **uyku sırasında** gerçekleşir. Uyku, fitness üçgeninin en az önemsenen ama belki de en önemli kenarıdır. Yeterli ve kaliteli uyku olmadan, en mükemmel antrenman programı ve beslenme planı bile istenen sonuçları vermez.
@@ -7291,7 +7291,7 @@ Evet, uyku apnesi büyüme hormonu salınımını ciddi şekilde azaltır, oksij
     title: "Sağlıklı Beslenme Temelleri - Başlangıç Rehberi",
     category: "beslenme",
     excerpt: "Sağlıklı beslenmenin temellerini öğrenin: makro ve mikro besinler, dengeli tabak modeli, öğün zamanlaması, hidrasyon, etiket okuma ve market alışverişi ipuçları.",
-    heroImage: "/articles/saglikli-beslenme-temelleri.png",
+    heroImage: "/articles/saglikli-beslenme-temelleri.webp",
     content: `## Sağlıklı Beslenme Neden Önemli?
 
 Sağlıklı beslenme, sadece kilo vermek veya almak için değil, vücudun tüm sistemlerinin optimum çalışması için gereklidir. Doğru beslenme alışkanlıkları enerji seviyenizi artırır, hastalık riskinizi azaltır ve fiziksel performansınızı yükseltir. İster spor yapın ister yapmayın, besinlerin temelleri herkes için aynıdır.
@@ -7469,7 +7469,7 @@ Organik gıdalar daha az pestisit kalıntısı içerebilir, ancak makro ve mikro
     title: "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar",
     category: "antrenman",
     excerpt: "Lat pulldown, sırt kaslarını geliştirmek için en etkili egzersizlerden biridir. Doğru teknik, tutuş varyasyonları, çalışan kaslar ve sık yapılan hatalar hakkında detaylı rehber.",
-    heroImage: "/articles/lat-pulldown-teknigi.png",
+    heroImage: "/articles/lat-pulldown-teknigi.webp",
     content: `## Lat Pulldown Nedir?
 
 Lat pulldown (lat çekişi), kablo makinesinde oturarak üstten aşağıya doğru çekme hareketi ile sırt kaslarını çalıştıran temel bir egzersizdir. İsmini **latissimus dorsi** (geniş sırt kası) kasından alır ve sırt genişliği kazanmak için en etkili hareketlerden biridir. Barfiks yapamayan bireyler için mükemmel bir alternatif olmasının yanı sıra, ileri seviye sporcular için de vazgeçilmez bir egzersizdir.
@@ -7616,7 +7616,7 @@ Sırt antrenmanının başında, en taze olduğunuz zamanda yapın. Compound (ç
     title: "Evde Antrenman Rehberi - Ekipmansız ve Ekipmanla Program",
     category: "antrenman",
     excerpt: "Evde etkili antrenman yapmak mümkün! Vücut ağırlığı egzersizleri, minimal ekipman önerileri, haftalık program ve evde progresif aşırı yükleme stratejileri.",
-    heroImage: "/articles/evde-antrenman-rehberi.png",
+    heroImage: "/articles/evde-antrenman-rehberi.webp",
     content: `## Evde Antrenman Neden Tercih Edilir?
 
 Spor salonu üyeliği, ulaşım ve zaman kısıtlamaları herkes için uygun olmayabilir. Evde antrenman, doğru planlandığında salon antrenmanıyla karşılaştırılabilir sonuçlar verebilir. Özellikle yeni başlayanlar ve orta seviye sporcular için evde antrenman güçlü bir alternatiftir.
