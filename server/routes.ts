@@ -413,8 +413,9 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
   // Create order (sepete ekle)
   app.post("/api/orders", requireAuth, async (req, res) => {
     try {
-      const { packageId } = z.object({
+      const { packageId, couponCode } = z.object({
         packageId: z.string(),
+        couponCode: z.string().optional(),
       }).parse(req.body);
 
       const pkg = await storage.getPackage(packageId);
@@ -422,10 +423,52 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         return res.status(404).json({ error: "Paket bulunamadı" });
       }
 
+      let finalPrice = parseFloat(pkg.price);
+      const originalPrice = finalPrice;
+      let couponId: string | null = null;
+      let discountAmount: number = 0;
+
+      if (couponCode) {
+        const coupon = await storage.getCouponByCode(couponCode);
+        if (!coupon) {
+          return res.status(400).json({ error: "Kupon bulunamadı" });
+        }
+        if (!coupon.isActive) {
+          return res.status(400).json({ error: "Bu kupon aktif değil" });
+        }
+        const now = new Date();
+        if (new Date(coupon.validFrom) > now) {
+          return res.status(400).json({ error: "Kupon henüz geçerli değil" });
+        }
+        if (new Date(coupon.validUntil) < now) {
+          return res.status(400).json({ error: "Kuponun süresi dolmuş" });
+        }
+        if (coupon.maxUsageCount && coupon.usedCount >= coupon.maxUsageCount) {
+          return res.status(400).json({ error: "Kupon kullanım limiti dolmuş" });
+        }
+        if (coupon.minOrderAmount && finalPrice < parseFloat(coupon.minOrderAmount)) {
+          return res.status(400).json({ 
+            error: `Minimum sipariş tutarı ₺${parseFloat(coupon.minOrderAmount).toLocaleString("tr-TR")} olmalıdır` 
+          });
+        }
+
+        if (coupon.discountType === "percentage") {
+          discountAmount = finalPrice * (parseFloat(coupon.discountValue) / 100);
+        } else {
+          discountAmount = parseFloat(coupon.discountValue);
+        }
+        discountAmount = Math.min(discountAmount, finalPrice);
+        finalPrice = finalPrice - discountAmount;
+        couponId = coupon.id;
+      }
+
       const order = await storage.createOrder({
         userId: req.session.userId!,
         packageId: pkg.id,
-        totalPrice: pkg.price,
+        totalPrice: finalPrice.toFixed(2),
+        originalPrice: couponId ? originalPrice.toFixed(2) : null,
+        couponId,
+        discountAmount: couponId ? discountAmount.toFixed(2) : null,
         status: "pending",
         paymentMethod: null,
         paymentId: null,
@@ -659,12 +702,26 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
             }
           }
 
+          if (order.couponId) {
+            try {
+              await storage.incrementCouponUsage(order.couponId);
+              await storage.createCouponUsage({
+                couponId: order.couponId,
+                userId: order.userId,
+                orderId: order.id,
+                discountAmount: order.discountAmount || "0",
+              });
+            } catch (couponError) {
+              console.error("Coupon usage tracking failed:", couponError);
+            }
+          }
+
           await storage.createSystemLog({
             userId: order.userId,
             action: "payment_success",
             entityType: "order",
             entityId: order.id,
-            details: JSON.stringify({ paymentId: payment_id, installment, amount: order.totalPrice }),
+            details: JSON.stringify({ paymentId: payment_id, installment, amount: order.totalPrice, couponId: order.couponId, discountAmount: order.discountAmount }),
             ipAddress: req.ip,
             userAgent: req.headers["user-agent"],
           });

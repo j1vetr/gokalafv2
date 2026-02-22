@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
-import { ShoppingCart, CreditCard, Shield, Check, ArrowLeft, ExternalLink } from "lucide-react";
+import { ShoppingCart, CreditCard, Shield, Check, ArrowLeft, ExternalLink, Tag, X, Loader2, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { trackInitiateCheckout } from "@/lib/facebook-pixel";
 
@@ -15,6 +15,15 @@ interface Package {
   features: string[];
 }
 
+interface AppliedCoupon {
+  id: string;
+  code: string;
+  discountType: string;
+  discountValue: string;
+  discountAmount: number;
+  finalPrice: number;
+}
+
 export default function Checkout() {
   const { user, isAuthenticated, isLoading: authLoading } = useAuth();
   const [, setLocation] = useLocation();
@@ -23,6 +32,10 @@ export default function Checkout() {
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+  const [couponCode, setCouponCode] = useState("");
+  const [couponError, setCouponError] = useState("");
+  const [couponLoading, setCouponLoading] = useState(false);
+  const [appliedCoupon, setAppliedCoupon] = useState<AppliedCoupon | null>(null);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -52,12 +65,68 @@ export default function Checkout() {
     fetchPackages();
   }, []);
 
+  useEffect(() => {
+    if (appliedCoupon) {
+      setAppliedCoupon(null);
+      setCouponCode("");
+      setCouponError("");
+    }
+  }, [selectedPackage?.id]);
+
+  const handleApplyCoupon = async () => {
+    if (!couponCode.trim() || !selectedPackage) return;
+    setCouponError("");
+    setCouponLoading(true);
+    try {
+      const res = await fetch("/api/coupons/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ 
+          code: couponCode.trim().toUpperCase(), 
+          orderAmount: parseFloat(selectedPackage.price) 
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setCouponError(data.error || "Kupon doğrulanamadı");
+        setAppliedCoupon(null);
+      } else {
+        setAppliedCoupon({
+          id: data.coupon.id,
+          code: data.coupon.code,
+          discountType: data.coupon.discountType,
+          discountValue: data.coupon.discountValue,
+          discountAmount: data.discountAmount,
+          finalPrice: data.finalPrice,
+        });
+        setCouponError("");
+      }
+    } catch {
+      setCouponError("Kupon doğrulanamadı");
+    } finally {
+      setCouponLoading(false);
+    }
+  };
+
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponCode("");
+    setCouponError("");
+  };
+
+  const getDisplayPrice = () => {
+    if (!selectedPackage) return 0;
+    return appliedCoupon ? appliedCoupon.finalPrice : parseFloat(selectedPackage.price);
+  };
+
   const handleCheckout = async () => {
     if (!selectedPackage) return;
     
+    const finalPrice = getDisplayPrice();
     trackInitiateCheckout(
       [selectedPackage.id],
-      parseFloat(selectedPackage.price),
+      finalPrice,
       1
     );
     
@@ -67,7 +136,10 @@ export default function Checkout() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({ packageId: selectedPackage.id }),
+        body: JSON.stringify({ 
+          packageId: selectedPackage.id,
+          couponCode: appliedCoupon ? appliedCoupon.code : undefined,
+        }),
       });
       
       if (orderRes.ok) {
@@ -175,10 +247,80 @@ export default function Checkout() {
                       <span className="text-gray-400">Kullanıcı</span>
                       <span className="text-white font-medium">{user?.fullName}</span>
                     </div>
+
+                    <div className="flex justify-between items-center pb-4 border-b border-white/10">
+                      <span className="text-gray-400">Paket Ücreti</span>
+                      <span className={`text-white font-medium ${appliedCoupon ? "line-through text-gray-500" : ""}`}>
+                        ₺{parseFloat(selectedPackage.price).toLocaleString("tr-TR")}
+                      </span>
+                    </div>
+
+                    {appliedCoupon && (
+                      <div className="flex justify-between items-center pb-4 border-b border-white/10">
+                        <span className="text-green-400 flex items-center gap-1.5">
+                          <Tag size={14} />
+                          İndirim ({appliedCoupon.code})
+                        </span>
+                        <span className="text-green-400 font-medium">
+                          -₺{appliedCoupon.discountAmount.toLocaleString("tr-TR")}
+                        </span>
+                      </div>
+                    )}
+
                     <div className="flex justify-between items-center">
                       <span className="text-gray-400 text-lg">Toplam</span>
-                      <span className="text-3xl font-bold text-primary">₺{parseFloat(selectedPackage.price).toLocaleString("tr-TR")}</span>
+                      <span className="text-3xl font-bold text-primary">₺{getDisplayPrice().toLocaleString("tr-TR")}</span>
                     </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <label className="text-sm text-gray-400 mb-2 block">İndirim Kodu</label>
+                    {appliedCoupon ? (
+                      <div className="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-green-400" />
+                          <span className="text-green-400 font-medium">{appliedCoupon.code}</span>
+                          <span className="text-green-400/70 text-sm">
+                            ({appliedCoupon.discountType === "percentage" 
+                              ? `%${parseFloat(appliedCoupon.discountValue)} indirim` 
+                              : `₺${parseFloat(appliedCoupon.discountValue).toLocaleString("tr-TR")} indirim`})
+                          </span>
+                        </div>
+                        <button 
+                          onClick={removeCoupon} 
+                          className="text-gray-400 hover:text-white transition-colors"
+                          data-testid="button-remove-coupon"
+                        >
+                          <X size={16} />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex gap-2">
+                        <div className="relative flex-1">
+                          <Tag size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                          <input
+                            type="text"
+                            value={couponCode}
+                            onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
+                            onKeyDown={(e) => e.key === "Enter" && handleApplyCoupon()}
+                            placeholder="Kupon kodunu gir"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder:text-gray-600 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all uppercase tracking-wider text-sm"
+                            data-testid="input-coupon-code"
+                          />
+                        </div>
+                        <Button
+                          onClick={handleApplyCoupon}
+                          disabled={!couponCode.trim() || couponLoading}
+                          className="bg-white/10 border border-white/10 text-white hover:bg-white/20 px-5 rounded-xl disabled:opacity-40"
+                          data-testid="button-apply-coupon"
+                        >
+                          {couponLoading ? <Loader2 size={16} className="animate-spin" /> : "Uygula"}
+                        </Button>
+                      </div>
+                    )}
+                    {couponError && (
+                      <p className="text-red-400 text-sm mt-2" data-testid="text-coupon-error">{couponError}</p>
+                    )}
                   </div>
 
                   <label className="flex items-start gap-3 mb-6 cursor-pointer group">
