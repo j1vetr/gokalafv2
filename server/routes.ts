@@ -8,7 +8,7 @@ import crypto from "crypto";
 import { z } from "zod";
 import { insertUserSchema, insertOrderSchema } from "@shared/schema";
 import "./types"; // Session type augmentation
-import { sendWelcomeEmail, sendOrderConfirmationEmail, sendAdminNewUserNotification, sendAdminNewOrderNotification } from "./email/service";
+import { sendWelcomeEmail, sendOrderConfirmationEmail, sendAdminNewUserNotification, sendAdminNewOrderNotification, sendPasswordResetEmail } from "./email/service";
 import { Shopier } from "shopier-api";
 import { sanitizeString } from "./utils/sanitize";
 
@@ -293,6 +293,38 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         return res.status(400).json({ error: "Geçersiz veri" });
       }
       res.status(500).json({ error: "Giriş işlemi başarısız" });
+    }
+  });
+
+  // Forgot Password
+  app.post("/api/auth/forgot-password", async (req, res) => {
+    try {
+      const { email } = z.object({
+        email: z.string().email(),
+      }).parse(req.body);
+
+      const user = await storage.getUserByEmail(email);
+      if (!user) {
+        return res.json({ success: true });
+      }
+
+      const newPassword = crypto.randomBytes(4).toString("hex");
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+      await storage.updateUser(user.id, { password: hashedPassword });
+
+      await sendPasswordResetEmail(
+        { id: user.id, email: user.email, fullName: user.fullName },
+        newPassword
+      );
+
+      res.json({ success: true });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Geçerli bir e-posta adresi girin" });
+      }
+      console.error("Forgot password error:", error);
+      res.status(500).json({ error: "İşlem sırasında bir hata oluştu" });
     }
   });
 

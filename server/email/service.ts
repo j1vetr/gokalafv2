@@ -389,6 +389,44 @@ export async function checkAndSendDailyReminders() {
   }
 }
 
+export async function sendPasswordResetEmail(
+  user: { id: string; email: string; fullName: string },
+  newPassword: string
+): Promise<boolean> {
+  const template = {
+    subject: "Yeni Şifreniz - Gokalaf Coaching",
+    html: `
+      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #050505; color: #ffffff; border-radius: 16px; overflow: hidden;">
+        <div style="background: linear-gradient(135deg, #0a0a0a, #111111); padding: 40px 30px; text-align: center; border-bottom: 2px solid #39ff14;">
+          <h1 style="color: #39ff14; font-size: 28px; margin: 0; letter-spacing: 2px;">GOKALAF</h1>
+          <p style="color: #888; font-size: 13px; margin-top: 6px;">COACHING</p>
+        </div>
+        <div style="padding: 40px 30px;">
+          <h2 style="color: #ffffff; font-size: 22px; margin: 0 0 20px;">Merhaba ${user.fullName},</h2>
+          <p style="color: #aaa; font-size: 15px; line-height: 1.7; margin-bottom: 25px;">
+            Şifre sıfırlama talebiniz alındı. Yeni şifreniz aşağıdadır:
+          </p>
+          <div style="background: #111; border: 1px solid #39ff14; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 25px;">
+            <p style="color: #888; font-size: 12px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px;">Yeni Şifreniz</p>
+            <p style="color: #39ff14; font-size: 24px; font-weight: bold; margin: 0; letter-spacing: 3px; font-family: monospace;">${newPassword}</p>
+          </div>
+          <p style="color: #aaa; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">
+            Giriş yaptıktan sonra güvenliğiniz için şifrenizi değiştirmenizi öneririz.
+          </p>
+          <div style="text-align: center;">
+            <a href="https://gokalaf.com/giris" style="display: inline-block; background: #39ff14; color: #000; text-decoration: none; padding: 14px 40px; border-radius: 8px; font-weight: bold; font-size: 15px; letter-spacing: 1px;">GİRİŞ YAP</a>
+          </div>
+        </div>
+        <div style="padding: 20px 30px; text-align: center; border-top: 1px solid #222;">
+          <p style="color: #555; font-size: 12px; margin: 0;">Bu işlemi siz yapmadıysanız lütfen dikkate almayın.</p>
+        </div>
+      </div>
+    `,
+  };
+
+  return sendEmail(user.email, template, "password_reset", user.id);
+}
+
 export async function verifySmtpConnection(): Promise<boolean> {
   try {
     await transporter.verify();
