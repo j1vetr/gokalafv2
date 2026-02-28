@@ -328,6 +328,36 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
     }
   });
 
+  // Change Password
+  app.post("/api/auth/change-password", requireAuth, async (req, res) => {
+    try {
+      const { currentPassword, newPassword } = z.object({
+        currentPassword: z.string(),
+        newPassword: z.string().min(6, "Yeni şifre en az 6 karakter olmalı"),
+      }).parse(req.body);
+
+      const user = await storage.getUser(req.session.userId!);
+      if (!user) {
+        return res.status(404).json({ error: "Kullanıcı bulunamadı" });
+      }
+
+      const isValid = await bcrypt.compare(currentPassword, user.password);
+      if (!isValid) {
+        return res.status(400).json({ error: "Mevcut şifre hatalı" });
+      }
+
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      await storage.updateUser(user.id, { password: hashedPassword });
+
+      res.json({ success: true });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: error.errors[0].message });
+      }
+      res.status(500).json({ error: "Şifre değiştirme işlemi başarısız" });
+    }
+  });
+
   // Logout
   app.post("/api/auth/logout", (req, res) => {
     req.session.destroy((err) => {

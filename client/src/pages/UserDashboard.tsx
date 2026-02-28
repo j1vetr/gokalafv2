@@ -14,7 +14,7 @@ import {
   ShoppingBag, Phone, Mail, Zap, Home, LineChart as LineChartIcon,
   Utensils, Settings, ArrowRight, ArrowUp, ArrowDown,
   Heart, Play, Pause, Timer, Crown, Star, Sparkles, Trophy,
-  Medal, ChevronLeft, Salad
+  Medal, ChevronLeft, Salad, Lock, Eye, EyeOff, AlertCircle
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -142,6 +142,15 @@ export default function UserDashboard() {
     fullName: "",
     phone: ""
   });
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+  const [showCurrentPw, setShowCurrentPw] = useState(false);
+  const [showNewPw, setShowNewPw] = useState(false);
+  const [pwLoading, setPwLoading] = useState(false);
+  const [pwMessage, setPwMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -374,6 +383,44 @@ export default function UserDashboard() {
   const handleLogout = async () => {
     await logout();
     setLocation("/");
+  };
+
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPwMessage(null);
+
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setPwMessage({ type: "error", text: "Yeni şifreler eşleşmiyor" });
+      return;
+    }
+    if (passwordForm.newPassword.length < 6) {
+      setPwMessage({ type: "error", text: "Yeni şifre en az 6 karakter olmalı" });
+      return;
+    }
+
+    setPwLoading(true);
+    try {
+      const res = await fetch("/api/auth/change-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          currentPassword: passwordForm.currentPassword,
+          newPassword: passwordForm.newPassword,
+        }),
+      });
+
+      if (res.ok) {
+        setPwMessage({ type: "success", text: "Şifreniz başarıyla değiştirildi" });
+        setPasswordForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
+      } else {
+        const data = await res.json();
+        setPwMessage({ type: "error", text: data.error || "Şifre değiştirilemedi" });
+      }
+    } catch {
+      setPwMessage({ type: "error", text: "Bağlantı hatası" });
+    }
+    setPwLoading(false);
   };
 
   const weightChartData = measurements.length > 0 
@@ -2235,6 +2282,104 @@ export default function UserDashboard() {
                         />
                       </div>
                     </div>
+                  </div>
+
+                  {/* Password Change */}
+                  <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
+                    <h2 className="text-xl font-heading font-bold text-white mb-6 flex items-center gap-2">
+                      <Lock className="w-5 h-5 text-primary" />
+                      Şifre Değiştir
+                    </h2>
+                    <form onSubmit={handleChangePassword} className="space-y-4">
+                      {pwMessage && (
+                        <div className={`rounded-lg p-3 flex items-center gap-2 text-sm ${
+                          pwMessage.type === "success" 
+                            ? "bg-green-500/10 border border-green-500/20 text-green-400" 
+                            : "bg-red-500/10 border border-red-500/20 text-red-400"
+                        }`}>
+                          {pwMessage.type === "success" ? <CheckCircle className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
+                          {pwMessage.text}
+                        </div>
+                      )}
+                      <div>
+                        <Label className="text-gray-400">Mevcut Şifre</Label>
+                        <div className="relative mt-1">
+                          <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
+                          <Input
+                            type={showCurrentPw ? "text" : "password"}
+                            value={passwordForm.currentPassword}
+                            onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
+                            placeholder="••••••••"
+                            required
+                            className="pl-10 pr-10 bg-white/5 border-white/10"
+                            data-testid="input-current-password"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowCurrentPw(!showCurrentPw)}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
+                          >
+                            {showCurrentPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                          </button>
+                        </div>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label className="text-gray-400">Yeni Şifre</Label>
+                          <div className="relative mt-1">
+                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
+                            <Input
+                              type={showNewPw ? "text" : "password"}
+                              value={passwordForm.newPassword}
+                              onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                              placeholder="En az 6 karakter"
+                              required
+                              minLength={6}
+                              className="pl-10 pr-10 bg-white/5 border-white/10"
+                              data-testid="input-new-password"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setShowNewPw(!showNewPw)}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
+                            >
+                              {showNewPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <Label className="text-gray-400">Yeni Şifre (Tekrar)</Label>
+                          <div className="relative mt-1">
+                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
+                            <Input
+                              type={showNewPw ? "text" : "password"}
+                              value={passwordForm.confirmPassword}
+                              onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                              placeholder="Şifreyi tekrar girin"
+                              required
+                              minLength={6}
+                              className="pl-10 bg-white/5 border-white/10"
+                              data-testid="input-confirm-password"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <Button
+                        type="submit"
+                        disabled={pwLoading}
+                        className="bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase"
+                        data-testid="button-change-password"
+                      >
+                        {pwLoading ? (
+                          <span className="flex items-center gap-2">
+                            <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                            Değiştiriliyor...
+                          </span>
+                        ) : (
+                          "Şifreyi Değiştir"
+                        )}
+                      </Button>
+                    </form>
                   </div>
 
                   {/* Package Info */}
