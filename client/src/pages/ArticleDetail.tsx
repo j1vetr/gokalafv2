@@ -440,17 +440,17 @@ export default function ArticleDetail() {
                     İlgili Makaleler
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
                   {related.map((r) => (
-                    <Link key={r.slug} href={`/blog/${r.slug}`}>
-                      <div className="group bg-white/5 border border-white/10 rounded-xl p-5 hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer">
-                        <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 ${catColors[r.category] || "text-gray-400 bg-white/10"}`}>
+                    <Link key={r.slug} href={`/blog/${r.slug}`} className="flex">
+                      <div className="group flex flex-col w-full bg-white/5 border border-white/10 rounded-xl p-5 hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer">
+                        <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 w-fit ${catColors[r.category] || "text-gray-400 bg-white/10"}`}>
                           {catNames[r.category] || r.category}
                         </span>
-                        <h4 className="text-white font-medium text-sm md:text-base leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        <h4 className="text-white font-medium text-sm md:text-base leading-snug group-hover:text-primary transition-colors flex-1">
                           {r.title}
                         </h4>
-                        <div className="flex items-center gap-1 mt-3 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex items-center gap-1 mt-4 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                           Okumaya Devam Et <ArrowRight className="w-3 h-3" />
                         </div>
                       </div>
