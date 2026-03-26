@@ -94,19 +94,19 @@
       "category": "beslenme"
     },
     {
+      "slug": "refeed-gunu-nedir",
+      "title": "Refeed Günü Nedir? Diyette Metabolizma Nasıl Korunur?",
+      "category": "beslenme"
+    },
+    {
       "slug": "karbonhidrat-nedir",
       "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
       "category": "beslenme"
     },
     {
-      "slug": "keratin-nedir",
-      "title": "Keratin Nedir? Ne İşe Yarar ve Nerelerde Kullanılır",
-      "category": "beslenme"
-    },
-    {
-      "slug": "deadlift-nedir",
-      "title": "Deadlift Nedir? Doğru Deadlift Tekniği ve Faydaları",
-      "category": "antrenman"
+      "slug": "mass-gainer-nedir",
+      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
+      "category": "takviyeler"
     }
   ],
   "probiyotik-nedir": [
@@ -138,13 +138,13 @@
       "category": "takviyeler"
     },
     {
-      "slug": "glukozamin-nedir",
-      "title": "Glukozamin Nedir? Eklem Sağlığına Etkisi",
+      "slug": "mass-gainer-nedir",
+      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
       "category": "takviyeler"
     },
     {
-      "slug": "katarin-nedir",
-      "title": "Katarin Nedir? Ne İçin Kullanılır, Yan Etkileri",
+      "slug": "glukozamin-nedir",
+      "title": "Glukozamin Nedir? Eklem Sağlığına Etkisi",
       "category": "takviyeler"
     },
     {
@@ -243,6 +243,11 @@
   ],
   "boy-uzatma-egzersizleri": [
     {
+      "slug": "gogus-egzersizleri",
+      "title": "Göğüs Egzersizleri: En Etkili 10 Hareket ve Doğru Teknik",
+      "category": "antrenman"
+    },
+    {
       "slug": "deadlift-nedir",
       "title": "Deadlift Nedir? Doğru Deadlift Tekniği ve Faydaları",
       "category": "antrenman"
@@ -250,11 +255,6 @@
     {
       "slug": "squat-nedir",
       "title": "Squat Nedir? Squat Nasıl Yapılır ve Faydaları",
-      "category": "antrenman"
-    },
-    {
-      "slug": "biceps-egzersizleri",
-      "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
       "category": "antrenman"
     },
     {
@@ -473,8 +473,8 @@
       "category": "beslenme"
     },
     {
-      "slug": "protein-ihtiyaci-rehberi",
-      "title": "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
+      "slug": "protein-kaynaklari",
+      "title": "En İyi Protein Kaynakları: Hayvansal ve Bitkisel Tam Rehber",
       "category": "beslenme"
     },
     {
@@ -573,6 +573,11 @@
   ],
   "kardiyo-nedir": [
     {
+      "slug": "hiit-nedir",
+      "title": "HIIT Nedir? Yüksek Yoğunluklu İnterval Antrenman Rehberi",
+      "category": "antrenman"
+    },
+    {
       "slug": "romanian-deadlift-nedir",
       "title": "Romanian Deadlift Nedir? RDL Nasıl Yapılır",
       "category": "antrenman"
@@ -580,11 +585,6 @@
     {
       "slug": "overhead-press-nedir",
       "title": "Overhead Press Nedir? Omuz Gücünü Artıran Hareket",
-      "category": "antrenman"
-    },
-    {
-      "slug": "leg-extension-nedir",
-      "title": "Leg Extension Nedir? Ön Bacak Geliştirme Rehberi",
       "category": "antrenman"
     },
     {
@@ -639,18 +639,18 @@
   ],
   "biceps-egzersizleri": [
     {
+      "slug": "gogus-egzersizleri",
+      "title": "Göğüs Egzersizleri: En Etkili 10 Hareket ve Doğru Teknik",
+      "category": "antrenman"
+    },
+    {
       "slug": "lat-pulldown-teknigi",
       "title": "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar",
       "category": "antrenman"
     },
     {
-      "slug": "romanian-deadlift-nedir",
-      "title": "Romanian Deadlift Nedir? RDL Nasıl Yapılır",
-      "category": "antrenman"
-    },
-    {
-      "slug": "leg-extension-nedir",
-      "title": "Leg Extension Nedir? Ön Bacak Geliştirme Rehberi",
+      "slug": "triceps-egzersizleri",
+      "title": "Triceps Egzersizleri: Kol Hacminin %65'i Bu Kasta",
       "category": "antrenman"
     },
     {
@@ -732,6 +732,11 @@
       "category": "beslenme"
     },
     {
+      "slug": "protein-kaynaklari",
+      "title": "En İyi Protein Kaynakları: Hayvansal ve Bitkisel Tam Rehber",
+      "category": "beslenme"
+    },
+    {
       "slug": "kalori-acigi-rehberi",
       "title": "Kilo Vermek İçin Ne Kadar Kalori Açığı Gerekir?",
       "category": "beslenme"
@@ -740,11 +745,6 @@
       "slug": "protein-tozu-rehberi",
       "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
       "category": "takviyeler"
-    },
-    {
-      "slug": "bulk-cut-rehberi",
-      "title": "Bulk ve Cut Nedir? Kas Yapma ve Yağ Yakma Rehberi",
-      "category": "beslenme"
     }
   ],
   "bench-press-rehberi": [
@@ -798,13 +798,13 @@
       "category": "antrenman"
     },
     {
-      "slug": "evde-antrenman-rehberi",
-      "title": "Evde Antrenman Rehberi - Ekipmansız ve Ekipmanla Program",
+      "slug": "gogus-egzersizleri",
+      "title": "Göğüs Egzersizleri: En Etkili 10 Hareket ve Doğru Teknik",
       "category": "antrenman"
     },
     {
-      "slug": "leg-press-nedir",
-      "title": "Leg Press Nedir? Doğru Form ve Yapılan Hatalar",
+      "slug": "evde-antrenman-rehberi",
+      "title": "Evde Antrenman Rehberi - Ekipmansız ve Ekipmanla Program",
       "category": "antrenman"
     },
     {
@@ -837,6 +837,11 @@
   ],
   "uyku-kas-gelisimi": [
     {
+      "slug": "plato-kirma-stratejileri",
+      "title": "Fitness Platosu Nedir? Plato Kırmanın 8 Kanıtlanmış Yolu",
+      "category": "antrenman"
+    },
+    {
       "slug": "dambil-nedir",
       "title": "Dambıl Nedir? Dambıl ile Yapılabilecek Hareketler",
       "category": "antrenman"
@@ -844,11 +849,6 @@
     {
       "slug": "kas-agrisi-doms-rehberi",
       "title": "Kas Ağrısı Neden Olur? DOMS ve Toparlanma Rehberi",
-      "category": "antrenman"
-    },
-    {
-      "slug": "deadlift-nedir",
-      "title": "Deadlift Nedir? Doğru Deadlift Tekniği ve Faydaları",
       "category": "antrenman"
     },
     {
@@ -891,8 +891,8 @@
       "category": "antrenman"
     },
     {
-      "slug": "deadlift-rehberi",
-      "title": "Deadlift (Ölü Çekiş) Rehberi: Teknik, Varyasyonlar ve Program",
+      "slug": "pull-up-nasil-yapilir",
+      "title": "Pull-up Nasıl Yapılır? Sıfırdan İlk Tekrara Tam Rehber",
       "category": "antrenman"
     },
     {
@@ -1138,8 +1138,8 @@
       "category": "beslenme"
     },
     {
-      "slug": "biceps-egzersizleri",
-      "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
+      "slug": "plato-kirma-stratejileri",
+      "title": "Fitness Platosu Nedir? Plato Kırmanın 8 Kanıtlanmış Yolu",
       "category": "antrenman"
     }
   ],
@@ -1163,6 +1163,204 @@
       "slug": "pre-workout-nedir",
       "title": "Pre Workout Nedir? Ne İşe Yarar ve Nasıl Kullanılır",
       "category": "takviyeler"
+    }
+  ],
+  "gogus-egzersizleri": [
+    {
+      "slug": "biceps-egzersizleri",
+      "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
+      "category": "antrenman"
+    },
+    {
+      "slug": "triceps-egzersizleri",
+      "title": "Triceps Egzersizleri: Kol Hacminin %65'i Bu Kasta",
+      "category": "antrenman"
+    },
+    {
+      "slug": "lat-pulldown-teknigi",
+      "title": "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar",
+      "category": "antrenman"
+    },
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    }
+  ],
+  "triceps-egzersizleri": [
+    {
+      "slug": "gogus-egzersizleri",
+      "title": "Göğüs Egzersizleri: En Etkili 10 Hareket ve Doğru Teknik",
+      "category": "antrenman"
+    },
+    {
+      "slug": "biceps-egzersizleri",
+      "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
+      "category": "antrenman"
+    },
+    {
+      "slug": "deadlift-rehberi",
+      "title": "Deadlift (Ölü Çekiş) Rehberi: Teknik, Varyasyonlar ve Program",
+      "category": "antrenman"
+    },
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    }
+  ],
+  "protein-kaynaklari": [
+    {
+      "slug": "protein-ihtiyaci-rehberi",
+      "title": "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "karbonhidrat-nedir",
+      "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "keratin-nedir",
+      "title": "Keratin Nedir? Ne İşe Yarar ve Nerelerde Kullanılır",
+      "category": "beslenme"
+    },
+    {
+      "slug": "protein-tozu-rehberi",
+      "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
+      "category": "takviyeler"
+    }
+  ],
+  "hiit-nedir": [
+    {
+      "slug": "kardiyo-nedir",
+      "title": "Kardiyo Nedir? Türleri, Faydaları ve Antrenman Rehberi",
+      "category": "antrenman"
+    },
+    {
+      "slug": "leg-press-nedir",
+      "title": "Leg Press Nedir? Doğru Form ve Yapılan Hatalar",
+      "category": "antrenman"
+    },
+    {
+      "slug": "romanian-deadlift-nedir",
+      "title": "Romanian Deadlift Nedir? RDL Nasıl Yapılır",
+      "category": "antrenman"
+    },
+    {
+      "slug": "mass-gainer-nedir",
+      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
+      "category": "takviyeler"
+    }
+  ],
+  "vitamin-d-ve-spor": [
+    {
+      "slug": "cla-nedir",
+      "title": "CLA Nedir? Yağ Yakımına Etkisi ve Kullanımı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "kreatin-rehberi",
+      "title": "Kreatin Nedir? Faydaları, Kullanımı ve Dozajı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "protein-tozu-rehberi",
+      "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    }
+  ],
+  "mass-gainer-nedir": [
+    {
+      "slug": "balik-yagi-faydalari",
+      "title": "Balık Yağı Faydaları Nelerdir? Kimler Kullanmalı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "kolajen-nedir",
+      "title": "Kolajen Nedir? Ne İşe Yarar ve Kimler Kullanmalı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "kreatin-rehberi",
+      "title": "Kreatin Nedir? Faydaları, Kullanımı ve Dozajı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "romanian-deadlift-nedir",
+      "title": "Romanian Deadlift Nedir? RDL Nasıl Yapılır",
+      "category": "antrenman"
+    }
+  ],
+  "refeed-gunu-nedir": [
+    {
+      "slug": "ketojenik-diyet-nedir",
+      "title": "Ketojenik Diyet Nedir? Nasıl Yapılır, Zararları Var mı",
+      "category": "beslenme"
+    },
+    {
+      "slug": "karbonhidrat-nedir",
+      "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "keratin-nedir",
+      "title": "Keratin Nedir? Ne İşe Yarar ve Nerelerde Kullanılır",
+      "category": "beslenme"
+    },
+    {
+      "slug": "mass-gainer-nedir",
+      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
+      "category": "takviyeler"
+    }
+  ],
+  "pull-up-nasil-yapilir": [
+    {
+      "slug": "lat-pulldown-teknigi",
+      "title": "Lat Pulldown Nasıl Yapılır? Doğru Teknik ve Varyasyonlar",
+      "category": "antrenman"
+    },
+    {
+      "slug": "squat-nedir",
+      "title": "Squat Nedir? Squat Nasıl Yapılır ve Faydaları",
+      "category": "antrenman"
+    },
+    {
+      "slug": "bench-press-rehberi",
+      "title": "Bench Press Nasıl Yapılır? Teknik, Hata ve Program Rehberi",
+      "category": "antrenman"
+    },
+    {
+      "slug": "balik-yagi-faydalari",
+      "title": "Balık Yağı Faydaları Nelerdir? Kimler Kullanmalı",
+      "category": "takviyeler"
+    }
+  ],
+  "plato-kirma-stratejileri": [
+    {
+      "slug": "kadinlar-icin-fitness",
+      "title": "Kadınlar İçin Fitness Rehberi: Ağırlık Kaldırmak Kas Yapar mı?",
+      "category": "antrenman"
+    },
+    {
+      "slug": "uyku-kas-gelisimi",
+      "title": "Uyku ve Kas Gelişimi - Kasların Gerçek Büyüme Zamanı",
+      "category": "antrenman"
+    },
+    {
+      "slug": "dambil-nedir",
+      "title": "Dambıl Nedir? Dambıl ile Yapılabilecek Hareketler",
+      "category": "antrenman"
+    },
+    {
+      "slug": "metabolizma-hizlandirma",
+      "title": "Metabolizma Nasıl Hızlandırılır? Bilimsel Yöntemler",
+      "category": "beslenme"
     }
   ]
 }
