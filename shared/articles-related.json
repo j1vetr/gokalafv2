@@ -1142,5 +1142,27 @@
       "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
       "category": "antrenman"
     }
+  ],
+  "progressive-overload-nedir": [
+    {
+      "slug": "dambil-nedir",
+      "title": "Dambıl Nedir? Dambıl ile Yapılabilecek Hareketler",
+      "category": "antrenman"
+    },
+    {
+      "slug": "deadlift-nedir",
+      "title": "Deadlift Nedir? Doğru Deadlift Tekniği ve Faydaları",
+      "category": "antrenman"
+    },
+    {
+      "slug": "squat-nedir",
+      "title": "Squat Nedir? Squat Nasıl Yapılır ve Faydaları",
+      "category": "antrenman"
+    },
+    {
+      "slug": "pre-workout-nedir",
+      "title": "Pre Workout Nedir? Ne İşe Yarar ve Nasıl Kullanılır",
+      "category": "takviyeler"
+    }
   ]
 }

@@ -9517,6 +9517,178 @@ Yeşil çay, acı biber ve kafein gibi besinler metabolizmayı çok küçük öl
     ctaText: "Paketleri İncele",
     ctaLink: "/paketler",
   },
+  {
+    slug: "progressive-overload-nedir",
+    title: "Progressive Overload Nedir? Kas Gelişiminin Temel Prensibi",
+    category: "antrenman",
+    excerpt: "Progressive overload (aşamalı aşırı yüklenme), kas gelişiminin ve güç artışının temel prensibidir. Bu ilkeyi uygulamadan ne kadar antrenman yaparsanız yapın, ilerleme durur. İşte her sporcunun bilmesi gereken bu kritik kavram.",
+    heroImage: "/articles/progressive-overload-kas-gelisimi.webp",
+    content: `# Progressive Overload Nedir? Kas Gelişiminin #1 Prensibi
+
+Spor salonunda aylar geçirdin, düzenli antrenman yaptın ama gelişim durdu mu? Aynı ağırlıklarla aynı egzersizleri yapmaya devam ediyor musun? O zaman **progressive overload (aşamalı aşırı yüklenme)** prensibini yeterince uygulamıyorsun demektir.
+
+Bu tek prensip, kas gelişiminin ve güç artışının biyolojik temelidir. Anlamadan ne kadar antrenman yapsan, ne kadar protein tüketsen — vücudun değişmez.
+
+> 💡 **Temel Kural:** Vücudun bir strese adaptasyon göstermesi için o stresi zamanla artırman gerekir. Aynı yük = aynı vücut.
+
+## Progressive Overload Nedir?
+
+**Progressive overload**, kaslarınıza uygulanan antrenman stresini zamanla sistematik olarak artırma prensibini ifade eder. Bu kavramı ilk kez 1940'larda Dr. Thomas DeLorme, rehabilitasyon hastalarını tedavi ederken ortaya koymuştur.
+
+Temel mantık şudur: Kaslar bir yüke adapte olduğunda, büyüme ve güçlenme durur. Vücudu tekrar adaptasyona zorlamak için stresi artırmak şarttır.
+
+| Kavram | Açıklama |
+|---|---|
+| **Progressive (Aşamalı)** | Kademeli, kontrolü artış |
+| **Overload (Aşırı Yükleme)** | Mevcut kapasiteni zorlayan bir uyarı |
+| **Adaptasyon** | Vücudun bu strese yanıtı: daha büyük, daha güçlü kaslar |
+
+## Kas Büyümesi Neden Progressive Overload Gerektirir?
+
+Kas büyümesi (hipertrofi) bir **hayatta kalma mekanizmasıdır.** Vücudun kasları büyütmesi için gerçek bir neden görmesi gerekir — ve bu neden, mevcut kapasitesini zorlayan bir yük artışıdır.
+
+Aynı 60 kg ile aynı squat setlerini haftalarca yaptığında vücudun şunu düşünür: *"Bu ağırlık artık benim için zor değil, ekstra kas tutmama gerek yok."*
+
+> ⚠️ **Önemli:** Progressive overload olmadan antrenman yapmak, kaslarına *"büyüme"* sinyali değil sadece *"dayanıklılık"* sinyali gönderir.
+
+Bilimsel araştırmalar net: Kas protein sentezi (büyüme), mekanik gerilim ve metabolik stres ile tetiklenir. Bu ikisi de progressive overload ile doğrudan ilişkilidir.
+
+## Progressive Overload'ın 6 Yöntemi
+
+Çoğu kişi progressive overload'ı sadece **ağırlık artırma** olarak düşünür. Oysa 6 farklı yöntemi vardır:
+
+### 1. Ağırlık Artırma (En Klasik Yöntem)
+Aynı set ve tekrar sayısıyla daha fazla ağırlık kaldırmak.
+
+- Squatta 80 kg ile 3x8 yapıyordun → 82.5 kg ile 3x8
+- Her 1-2 haftada küçük artışlar (2.5 kg) hedefle
+- **Üst vücut:** 1-2.5 kg artış | **Alt vücut:** 2.5-5 kg artış
+
+### 2. Tekrar Sayısını Artırma
+Aynı ağırlıkla daha fazla tekrar yapmak.
+
+\`\`\`
+Hafta 1: 80 kg — 3x6
+Hafta 2: 80 kg — 3x7
+Hafta 3: 80 kg — 3x8 ✅ → Artık ağırlığı artır
+\`\`\`
+
+### 3. Set Sayısını Artırma
+Toplam antrenman hacmini artırmak.
+
+- 3 setten 4 sete çıkmak
+- Dikkat: Hacim artışı dikkatli yapılmalı, sakatlanma riski artar
+
+### 4. Dinlenme Süresini Kısaltma
+Aynı iş yükünü daha kısa sürede tamamlamak, kardiyovasküler ve metabolik stresi artırır.
+
+- 3 dakika dinlenme → 2.5 dakika → 2 dakika
+
+### 5. Tempo Değiştirme
+Egzersizin inişini yavaşlatmak (eccentric phase) mekanik gerilimi artırır.
+
+| Tempo | Açıklama |
+|---|---|
+| 3-1-1 | 3 sn iniş, 1 sn alt, 1 sn kalkış |
+| 4-0-1 | 4 sn yavaş iniş, patlayıcı kalkış |
+
+### 6. Antrenman Sıklığını Artırma
+Bir kas grubunu haftada daha sık çalıştırmak.
+
+- Haftada 1 bacak günü → Haftada 2 bacak günü
+- Dikkat: Toparlanmaya izin ver
+
+> 💡 **Pro İpucu:** Bu 6 yöntemi sırayla uygula. Önce tekrarları artır, hedef aralığa ulaşınca ağırlığı artır. Buna "double progression" denir ve en etkili yaklaşımlardan biridir.
+
+## Double Progression: En Etkili Yöntem
+
+Double progression, iki değişkeni (tekrar + ağırlık) sistematik olarak yönetir:
+
+**Adım 1:** Hedef tekrar aralığının altından başla (örn: 6-12 tekrar için 6'dan başla)
+**Adım 2:** Her haftada mümkünse bir tekrar ekle
+**Adım 3:** Hedef aralığın üstüne çıktığında (12) ağırlığı artır ve tekrar 6'dan başla
+
+\`\`\`
+Hafta 1:  70 kg × 3×6  ← başlangıç
+Hafta 2:  70 kg × 3×8
+Hafta 3:  70 kg × 3×10
+Hafta 4:  70 kg × 3×12 ← hedef üst sınır
+Hafta 5:  72.5 kg × 3×6 ← ağırlık arttı, sıfırla
+Hafta 6:  72.5 kg × 3×8
+...
+\`\`\`
+
+## Progressive Overload'da En Sık Yapılan 5 Hata
+
+### ❌ 1. Çok Hızlı İlerleme
+"Eğer biraz iyi ise, çok daha iyi olmalı" mantığı sakatlanmaya davet çıkarır. Haftalık %5-10'dan fazla ağırlık artışı yapmayın.
+
+### ❌ 2. Teknik Bozmak
+80 kg ile kötü form > 75 kg ile iyi form değildir. **Teknik bozulduğunda ağırlık artırmak ilerleme değil, sakatlanmaya davet etmektir.**
+
+### ❌ 3. Kayıt Tutmamak
+Kaç kilo kaldırdığını ve kaç tekrar yaptığını hatırlamadan nasıl ilerlediğini takip edeceksin? Antrenman günlüğü — telefon notu, defter, uygulama — şart.
+
+### ❌ 4. Her Antrenman İlerleme Beklemek
+Haftalık ilerleme makul, günlük değil. Uyku kötüyse, stres yüksekse, beslenme yetersizse o gün aynı performansı gösterememek normaldir.
+
+### ❌ 5. Sadece Ağırlığa Odaklanmak
+Yukarıdaki 6 yöntemi unutma. Platonuzda stuck kaldıysanız ağırlık dışında bir değişkeni manipüle edin.
+
+## Başlangıç İçin Pratik Plan
+
+Eğer şu an nasıl başlayacağını bilmiyorsan, işte basit bir çerçeve:
+
+**Hedef Aralığı Belirle:**
+- Güç için: 3-6 tekrar
+- Hipertrofi (kas büyümesi) için: 6-15 tekrar
+- Dayanıklılık için: 15-20+ tekrar
+
+**Başlangıç Ağırlığı Bul:**
+Hedef aralığın alt sınırında 2 tekrar yedekte bırakacak ağırlık. Yani 3x8 için 10 tekrar kaldırabildiğin ağırlıkla başla.
+
+**Kayıt Tut:**
+Her antrenmanda ne kaldırdığını not et. Bir sonraki antrenmanda bunu geç.
+
+| Hafta | Egzersiz | Ağırlık | Set×Tekrar | Not |
+|---|---|---|---|---|
+| 1 | Squat | 70 kg | 3×8 | Kolay hissettirdi |
+| 2 | Squat | 70 kg | 3×10 | Güçleniyorum |
+| 3 | Squat | 70 kg | 3×12 | Üst sınıra ulaştım |
+| 4 | Squat | 72.5 kg | 3×8 | Ağırlığı artırdım |
+
+## Progressive Overload ve Beslenme İlişkisi
+
+Progressive overload tek başına yeterli değildir. Kasların büyümesi için **inşaat malzemesi** de gerekir:
+
+- **Protein:** Günde vücut ağırlığının kg başına 1.6-2.2 gram
+- **Kalori fazlası (bulk):** Kas inşası için hafif fazla enerji
+- **Uyku:** Büyüme hormonu uyku sırasında salınır
+
+> 📌 **Özet:** Progressive overload → antrenman uyarısı, protein → yapı taşı, uyku → büyüme zamanı. Üçü olmadan diğerleri çalışmaz.
+
+## Sıkça Sorulan Sorular
+
+### Progressive overload ne kadar sürede sonuç verir?
+İlk 8-12 haftada nöromüsküler adaptasyon (teknik iyileşmesi ve sinir sistemi verimliliği) gerçekleşir. Görünür kas büyümesi için 3-6 ay düzenli uygulama gerekir.
+
+### Kadınlar için progressive overload aynı mı çalışır?
+Evet, tamamen aynı prensipler geçerlidir. Kadınlarda testosteron düzeyi daha düşük olduğu için kas büyüme hızı daha yavaştır ancak güç artışı benzer oranlarda gerçekleşir.
+
+### Her antrenman ağırlık artırmalı mıyım?
+Hayır. Özellikle orta-ileri seviyede bu mümkün değildir. Haftalık hatta aylık ilerleme makuldür. Önemli olan uzun vadeli trendin yukarı yönlü olmasıdır.
+
+### Plato kırmak için ne yapmalıyım?
+Önce kayıtlarını incele: gerçekten stagnant mısın yoksa algın mı yanılıyor? Gerçek platoyu kırmak için: deload haftası uygula, farklı bir progressive overload yöntemi dene veya programı değiştir.
+
+### Progressive overload sakatlanmaya neden olur mu?
+Aşırı hızlı ilerleme ve kötü teknik ile evet. Kontrollü, kademeli artış ve doğru form ile hayır. Bu yüzden teknik her zaman önce gelir.`,
+    seoTitle: "Progressive Overload Nedir? Kas Gelişiminin Temel Prensibi | Gokalaf",
+    seoDescription: "Progressive overload (aşamalı aşırı yüklenme) kas gelişiminin #1 prensibidir. 6 farklı yöntem, double progression tekniği, yaygın hatalar ve başlangıç planı bu rehberde.",
+    publishedAt: "2025-03-01",
+    ctaText: "Kişisel Koçluk Al",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
