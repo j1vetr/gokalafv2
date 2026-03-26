@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Calendar, BookOpen, ChevronDown, Lightbulb, Aler
 import { ShareButtons } from "@/components/ShareButtons";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getArticleBySlug, categories } from "@shared/articles-data";
+import articlesRelated from "@shared/articles-related.json";
 import MarkdownIt from "markdown-it";
 import { useMemo, useState, useEffect, useCallback } from "react";
 import SEO from "@/components/SEO";
@@ -414,6 +415,53 @@ export default function ArticleDetail() {
           </div>
         </div>
       </section>
+
+      {/* Related Articles */}
+      {(() => {
+        const related = (articlesRelated as Record<string, { slug: string; title: string; category: string }[]>)[article.slug];
+        if (!related || related.length === 0) return null;
+        const catColors: Record<string, string> = {
+          antrenman: "text-blue-400 bg-blue-400/10",
+          beslenme: "text-green-400 bg-green-400/10",
+          takviyeler: "text-purple-400 bg-purple-400/10",
+        };
+        const catNames: Record<string, string> = {
+          antrenman: "Antrenman",
+          beslenme: "Beslenme",
+          takviyeler: "Takviyeler",
+        };
+        return (
+          <section className="py-12 border-t border-white/5">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl mx-auto">
+                <div className="flex items-center gap-3 mb-6">
+                  <BookOpen className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl md:text-2xl font-heading font-bold text-white">
+                    İlgili Makaleler
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {related.map((r) => (
+                    <Link key={r.slug} href={`/blog/${r.slug}`}>
+                      <div className="group bg-white/5 border border-white/10 rounded-xl p-5 hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer">
+                        <span className={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 ${catColors[r.category] || "text-gray-400 bg-white/10"}`}>
+                          {catNames[r.category] || r.category}
+                        </span>
+                        <h4 className="text-white font-medium text-sm md:text-base leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                          {r.title}
+                        </h4>
+                        <div className="flex items-center gap-1 mt-3 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                          Okumaya Devam Et <ArrowRight className="w-3 h-3" />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Fitness Tools Section */}
       <section className="py-12 border-t border-white/5">
