@@ -11,8 +11,8 @@
       "category": "antrenman"
     },
     {
-      "slug": "kadinlar-icin-fitness",
-      "title": "Kadınlar İçin Fitness Rehberi: Ağırlık Kaldırmak Kas Yapar mı?",
+      "slug": "deload-haftasi-nedir",
+      "title": "Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır?",
       "category": "antrenman"
     },
     {
@@ -94,13 +94,13 @@
       "category": "beslenme"
     },
     {
-      "slug": "refeed-gunu-nedir",
-      "title": "Refeed Günü Nedir? Diyette Metabolizma Nasıl Korunur?",
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
       "category": "beslenme"
     },
     {
-      "slug": "karbonhidrat-nedir",
-      "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
+      "slug": "refeed-gunu-nedir",
+      "title": "Refeed Günü Nedir? Diyette Metabolizma Nasıl Korunur?",
       "category": "beslenme"
     },
     {
@@ -302,9 +302,9 @@
       "category": "antrenman"
     },
     {
-      "slug": "kreatin-nedir",
-      "title": "Kreatin Nedir? Nasıl Kullanılır ve Faydaları",
-      "category": "takviyeler"
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
+      "category": "beslenme"
     }
   ],
   "squat-nedir": [
@@ -390,8 +390,8 @@
       "category": "antrenman"
     },
     {
-      "slug": "antrenman-beslenme-rehberi",
-      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
       "category": "beslenme"
     }
   ],
@@ -473,8 +473,8 @@
       "category": "beslenme"
     },
     {
-      "slug": "protein-kaynaklari",
-      "title": "En İyi Protein Kaynakları: Hayvansal ve Bitkisel Tam Rehber",
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
       "category": "beslenme"
     },
     {
@@ -495,13 +495,13 @@
       "category": "takviyeler"
     },
     {
-      "slug": "ketojenik-diyet-nedir",
-      "title": "Ketojenik Diyet Nedir? Nasıl Yapılır, Zararları Var mı",
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
       "category": "beslenme"
     },
     {
-      "slug": "zayiflamak-nedir",
-      "title": "Zayıflamak Nedir? Sağlıklı ve Kalıcı Zayıflama Yolları",
+      "slug": "ketojenik-diyet-nedir",
+      "title": "Ketojenik Diyet Nedir? Nasıl Yapılır, Zararları Var mı",
       "category": "beslenme"
     }
   ],
@@ -808,8 +808,8 @@
       "category": "antrenman"
     },
     {
-      "slug": "antrenman-beslenme-rehberi",
-      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "slug": "hidrasyon-ve-performans",
+      "title": "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?",
       "category": "beslenme"
     }
   ],
@@ -852,9 +852,9 @@
       "category": "antrenman"
     },
     {
-      "slug": "protein-ihtiyaci-rehberi",
-      "title": "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
-      "category": "beslenme"
+      "slug": "omega-3-sporcular",
+      "title": "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
+      "category": "takviyeler"
     }
   ],
   "saglikli-beslenme-temelleri": [
@@ -1018,13 +1018,13 @@
       "category": "takviyeler"
     },
     {
-      "slug": "supplement-rehberi",
-      "title": "Supplement Rehberi: Takviye Edici Gıdalar Hakkında Her Şey",
+      "slug": "kazein-protein-nedir",
+      "title": "Kazein Protein Nedir? Yatmadan Önce Neden Alınır?",
       "category": "takviyeler"
     },
     {
-      "slug": "cla-nedir",
-      "title": "CLA Nedir? Yağ Yakımına Etkisi ve Kullanımı",
+      "slug": "supplement-rehberi",
+      "title": "Supplement Rehberi: Takviye Edici Gıdalar Hakkında Her Şey",
       "category": "takviyeler"
     },
     {
@@ -1111,8 +1111,8 @@
       "category": "beslenme"
     },
     {
-      "slug": "intermittent-fasting-rehberi",
-      "title": "Intermittent Fasting (Aralıklı Oruç) Rehberi - Yeni Başlayanlar İçin",
+      "slug": "hidrasyon-ve-performans",
+      "title": "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?",
       "category": "beslenme"
     },
     {
@@ -1160,9 +1160,9 @@
       "category": "antrenman"
     },
     {
-      "slug": "pre-workout-nedir",
-      "title": "Pre Workout Nedir? Ne İşe Yarar ve Nasıl Kullanılır",
-      "category": "takviyeler"
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
+      "category": "beslenme"
     }
   ],
   "gogus-egzersizleri": [
@@ -1216,18 +1216,18 @@
       "category": "beslenme"
     },
     {
+      "slug": "vegan-sporcu-beslenmesi",
+      "title": "Vegan Sporcu Beslenmesi: Eksiksiz Protein ve Besin Rehberi",
+      "category": "beslenme"
+    },
+    {
       "slug": "karbonhidrat-nedir",
       "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
       "category": "beslenme"
     },
     {
-      "slug": "keratin-nedir",
-      "title": "Keratin Nedir? Ne İşe Yarar ve Nerelerde Kullanılır",
-      "category": "beslenme"
-    },
-    {
-      "slug": "protein-tozu-rehberi",
-      "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
+      "slug": "kazein-protein-nedir",
+      "title": "Kazein Protein Nedir? Yatmadan Önce Neden Alınır?",
       "category": "takviyeler"
     }
   ],
@@ -1248,25 +1248,25 @@
       "category": "antrenman"
     },
     {
-      "slug": "mass-gainer-nedir",
-      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
-      "category": "takviyeler"
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
+      "category": "beslenme"
     }
   ],
   "vitamin-d-ve-spor": [
+    {
+      "slug": "ashwagandha-ve-spor",
+      "title": "Ashwagandha ve Spor: Kortizolü Düşürür mü, Performansı Artırır mı?",
+      "category": "takviyeler"
+    },
     {
       "slug": "cla-nedir",
       "title": "CLA Nedir? Yağ Yakımına Etkisi ve Kullanımı",
       "category": "takviyeler"
     },
     {
-      "slug": "kreatin-rehberi",
-      "title": "Kreatin Nedir? Faydaları, Kullanımı ve Dozajı",
-      "category": "takviyeler"
-    },
-    {
-      "slug": "protein-tozu-rehberi",
-      "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
+      "slug": "omega-3-sporcular",
+      "title": "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
       "category": "takviyeler"
     },
     {
@@ -1287,8 +1287,8 @@
       "category": "takviyeler"
     },
     {
-      "slug": "kreatin-rehberi",
-      "title": "Kreatin Nedir? Faydaları, Kullanımı ve Dozajı",
+      "slug": "kazein-protein-nedir",
+      "title": "Kazein Protein Nedir? Yatmadan Önce Neden Alınır?",
       "category": "takviyeler"
     },
     {
@@ -1314,9 +1314,9 @@
       "category": "beslenme"
     },
     {
-      "slug": "mass-gainer-nedir",
-      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
-      "category": "takviyeler"
+      "slug": "deload-haftasi-nedir",
+      "title": "Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır?",
+      "category": "antrenman"
     }
   ],
   "pull-up-nasil-yapilir": [
@@ -1360,6 +1360,226 @@
     {
       "slug": "metabolizma-hizlandirma",
       "title": "Metabolizma Nasıl Hızlandırılır? Bilimsel Yöntemler",
+      "category": "beslenme"
+    }
+  ],
+  "deload-haftasi-nedir": [
+    {
+      "slug": "squat-nedir",
+      "title": "Squat Nedir? Squat Nasıl Yapılır ve Faydaları",
+      "category": "antrenman"
+    },
+    {
+      "slug": "deadlift-nedir",
+      "title": "Deadlift Nedir? Doğru Deadlift Tekniği ve Faydaları",
+      "category": "antrenman"
+    },
+    {
+      "slug": "romanian-deadlift-nedir",
+      "title": "Romanian Deadlift Nedir? RDL Nasıl Yapılır",
+      "category": "antrenman"
+    },
+    {
+      "slug": "kazein-protein-nedir",
+      "title": "Kazein Protein Nedir? Yatmadan Önce Neden Alınır?",
+      "category": "takviyeler"
+    }
+  ],
+  "carb-cycling-nedir": [
+    {
+      "slug": "karbonhidrat-nedir",
+      "title": "Karbonhidrat Nedir? Türleri ve Sporcular İçin Önemi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "ketojenik-diyet-nedir",
+      "title": "Ketojenik Diyet Nedir? Nasıl Yapılır, Zararları Var mı",
+      "category": "beslenme"
+    },
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "dumbbell-front-raise-nedir",
+      "title": "Dumbbell Front Raise Nedir? Ön Omuz Hareketi Rehberi",
+      "category": "antrenman"
+    }
+  ],
+  "zma-nedir": [
+    {
+      "slug": "ashwagandha-ve-spor",
+      "title": "Ashwagandha ve Spor: Kortizolü Düşürür mü, Performansı Artırır mı?",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "kreatin-nedir",
+      "title": "Kreatin Nedir? Nasıl Kullanılır ve Faydaları",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "glukozamin-nedir",
+      "title": "Glukozamin Nedir? Eklem Sağlığına Etkisi",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "overhead-press-nedir",
+      "title": "Overhead Press Nedir? Omuz Gücünü Artıran Hareket",
+      "category": "antrenman"
+    }
+  ],
+  "ashwagandha-ve-spor": [
+    {
+      "slug": "vitamin-d-ve-spor",
+      "title": "Vitamin D ve Spor: Kas Gücüne Etkisi ve Doğru Kullanım",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "cla-nedir",
+      "title": "CLA Nedir? Yağ Yakımına Etkisi ve Kullanımı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "omega-3-sporcular",
+      "title": "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "hidrasyon-ve-performans",
+      "title": "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?",
+      "category": "beslenme"
+    }
+  ],
+  "multivitamin-sporcular": [
+    {
+      "slug": "omega-3-sporcular",
+      "title": "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "supplement-rehberi",
+      "title": "Supplement Rehberi: Takviye Edici Gıdalar Hakkında Her Şey",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "mass-gainer-nedir",
+      "title": "Mass Gainer Nedir? Kimler Kullanmalı, Doğru Seçim Nasıl Yapılır?",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "hidrasyon-ve-performans",
+      "title": "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?",
+      "category": "beslenme"
+    }
+  ],
+  "kazein-protein-nedir": [
+    {
+      "slug": "protein-tozu-rehberi",
+      "title": "Protein Tozu Rehberi: Çeşitleri, Faydaları ve Doğru Kullanım",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "katarin-nedir",
+      "title": "Katarin Nedir? Ne İçin Kullanılır, Yan Etkileri",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "whey-protein-rehberi",
+      "title": "Whey Protein Rehberi: Hangisini Seçmeli?",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "deload-haftasi-nedir",
+      "title": "Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır?",
+      "category": "antrenman"
+    }
+  ],
+  "hidrasyon-ve-performans": [
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "carb-cycling-nedir",
+      "title": "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
+      "category": "beslenme"
+    },
+    {
+      "slug": "metabolizma-hizlandirma",
+      "title": "Metabolizma Nasıl Hızlandırılır? Bilimsel Yöntemler",
+      "category": "beslenme"
+    },
+    {
+      "slug": "pre-workout-nedir",
+      "title": "Pre Workout Nedir? Ne İşe Yarar ve Nasıl Kullanılır",
+      "category": "takviyeler"
+    }
+  ],
+  "vegan-sporcu-beslenmesi": [
+    {
+      "slug": "protein-kaynaklari",
+      "title": "En İyi Protein Kaynakları: Hayvansal ve Bitkisel Tam Rehber",
+      "category": "beslenme"
+    },
+    {
+      "slug": "protein-ihtiyaci-rehberi",
+      "title": "Günlük Protein İhtiyacı Ne Kadar? Kapsamlı Protein Rehberi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "antrenman-beslenme-rehberi",
+      "title": "Antrenman Öncesi ve Sonrası Beslenme Rehberi",
+      "category": "beslenme"
+    },
+    {
+      "slug": "omega-3-sporcular",
+      "title": "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
+      "category": "takviyeler"
+    }
+  ],
+  "foam-rolling-faydalar": [
+    {
+      "slug": "overhead-press-nedir",
+      "title": "Overhead Press Nedir? Omuz Gücünü Artıran Hareket",
+      "category": "antrenman"
+    },
+    {
+      "slug": "gogus-egzersizleri",
+      "title": "Göğüs Egzersizleri: En Etkili 10 Hareket ve Doğru Teknik",
+      "category": "antrenman"
+    },
+    {
+      "slug": "biceps-egzersizleri",
+      "title": "Biceps Egzersizleri: En Etkili Hareketler ve Antrenman Rehberi",
+      "category": "antrenman"
+    },
+    {
+      "slug": "zma-nedir",
+      "title": "ZMA Nedir? Testosteron, Uyku ve Toparlanmaya Etkisi",
+      "category": "takviyeler"
+    }
+  ],
+  "omega-3-sporcular": [
+    {
+      "slug": "ashwagandha-ve-spor",
+      "title": "Ashwagandha ve Spor: Kortizolü Düşürür mü, Performansı Artırır mı?",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "vitamin-d-ve-spor",
+      "title": "Vitamin D ve Spor: Kas Gücüne Etkisi ve Doğru Kullanım",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "balik-yagi-faydalari",
+      "title": "Balık Yağı Faydaları Nelerdir? Kimler Kullanmalı",
+      "category": "takviyeler"
+    },
+    {
+      "slug": "vegan-sporcu-beslenmesi",
+      "title": "Vegan Sporcu Beslenmesi: Eksiksiz Protein ve Besin Rehberi",
       "category": "beslenme"
     }
   ]

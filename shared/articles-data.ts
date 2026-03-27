@@ -11067,6 +11067,1233 @@ Doğru müdahaleyle 2-4 hafta içinde kırılabilir. Müdahale yapılmazsa aylar
     ctaText: "Koçluk Desteği Al",
     ctaLink: "/paketler",
   },
+  {
+    slug: "deload-haftasi-nedir",
+    title: "Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır?",
+    category: "antrenman",
+    excerpt: "Deload haftası, birikmiş yorgunluğu atmak ve uzun vadeli ilerlemeyi korumak için kasıtlı olarak antrenman yükünü düşürdüğün haftadır. Ne zaman gerekli, nasıl uygulanır, tam rehber.",
+    heroImage: "/articles/deload-haftasi-antrenman.webp",
+    content: `# Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır?
+
+"Daha az yapmak daha fazla kazandırır" — bu cümle fitness dünyasında sık söylense de pek az kişi gerçekten uygular. **Deload**, bu felsefeyi pratiğe döken en önemli antrenman araçlarından biridir.
+
+> 💡 **Deload Nedir?** Birikmiş fiziksel ve nöral yorgunluğu atmak, toparlanmayı tamamlamak ve uzun vadeli ilerlemeyi korumak amacıyla antrenman hacmini ve/veya yoğunluğunu kasıtlı olarak %40-60 oranında düşürdüğün planlı bir haftadır.
+
+## Neden Deload Gerekli?
+
+Antrenman bir yıkım-yapım döngüsüdür. Her ağır setin ardından:
+1. Kas lifleri mikro hasar görür
+2. Glikojen depoları boşalır
+3. Merkezi sinir sistemi (CNS) yorulur
+4. Hormon dengesi (kortizol↑, testosteron↓) bozulur
+
+Kısa vadede bu süreç gelişimi tetikler. Ama **birikmiş yorgunluk** zamanla adaptasyonu engeller — bu noktaya "overreaching" denir ve uzarsa "overtraining sendromu"na dönüşür.
+
+### Süperansateli Anlama
+Antrenman yükü kaldırıldığında vücut önceki seviyenin **üstüne** toparlanır (supercompensation). Deload bu pencereyi kasıtlı olarak açar.
+
+\`\`\`
+Yük → Yorgunluk → Deload → Süperansatelasyon → Yeni PR
+\`\`\`
+
+## Deload Gereği Belirtileri
+
+### Fiziksel Uyarılar
+- Antrenman performansında belirgin düşüş (önceki ağırlıklar artık zor)
+- Kas ağrısının normalden uzun sürmesi (72+ saat)
+- Sürekli yorgunluk, antrenman motivasyonu sıfır
+- Uyku kalitesinde bozulma
+- Eklem ve tendon rahatsızlıkları
+
+### Zihinsel Uyarılar
+- "Spor salonuna gitmek istemiyorum" hissi (haftalar boyu)
+- Konsantrasyon güçlüğü
+- Sinirlilik, ruh hali dalgalanmaları
+
+> ⚠️ **Önemli Fark:** Bir günlük isteksizlik normal; haftalarca süren performans kaybı + motivasyon düşüşü deload sinyalidir.
+
+## Deload Ne Zaman Yapılmalı?
+
+### Planlanmış Deload
+Sabit bir takvimle programlanır. Deneyim seviyesine göre:
+
+| Seviye | Deload Sıklığı |
+|---|---|
+| Yeni başlayan | Her 8-12 haftada 1 |
+| Orta seviye | Her 6-8 haftada 1 |
+| İleri seviye | Her 4-6 haftada 1 |
+| Yarışma sezonu | Her 3-4 haftada 1 |
+
+### Otomatik (Duyguya Göre) Deload
+Performans düştüğünde veya yorgunluk biriktiğinde uygula. Daha esnek ama disiplin gerektirir.
+
+## Deload Nasıl Yapılır? 3 Yöntem
+
+### Yöntem 1: Hacim Düşürme (En Yaygın)
+Ağırlıkları aynı tut, set sayısını %40-50 düşür.
+
+\`\`\`
+Normal hafta:   Squat 4×8 @ 100 kg
+Deload:         Squat 2×8 @ 100 kg
+\`\`\`
+
+✅ Sinir sistemi yükünü korur, CNS'i dinlendirir
+✅ Kas hafızasını pekiştirir
+
+### Yöntem 2: Yoğunluk Düşürme
+Setleri aynı tut, ağırlığı %40-50 düşür.
+
+\`\`\`
+Normal hafta:   Bench Press 4×8 @ 80 kg
+Deload:         Bench Press 4×8 @ 45-50 kg
+\`\`\`
+
+✅ Hareket kalıbını korur, teknik çalışmaya odaklanır
+
+### Yöntem 3: Tam Dinlenme (Pasif Deload)
+Hiç ağırlık çalışması yok. Sadece hafif kardiyovasküler aktivite (yürüyüş, yüzme).
+
+🎯 **Ne zaman?** Sakatlanma sonrası, hastalık sonrası veya aşırı yorgunlukta
+
+## Deload Haftası Program Örneği
+
+### Aktif Deload (Hacim Düşürme)
+**Pazartesi — Üst Vücut:**
+\`\`\`
+Bench Press:    3×5 @ %50 ağırlık
+Pull-up:        2×5
+Omuz Press:     2×8 @ hafif
+\`\`\`
+
+**Çarşamba — Alt Vücut:**
+\`\`\`
+Squat:          3×5 @ %50 ağırlık
+Romanian DL:    2×8 @ hafif
+\`\`\`
+
+**Cuma — Tam Vücut (hafif):**
+\`\`\`
+Her büyük hareket:  1×5-8 @ %40-50
+\`\`\`
+
+## Deload Sırasında Beslenme
+
+Antrenman hacmi düştüğü için kalori ihtiyacı azalır. Ama **proteini düşürme:**
+
+| Makro | Öneri |
+|---|---|
+| Protein | Aynı tut (2g/kg) |
+| Karbonhidrat | %10-15 azalt |
+| Yağ | Aynı tut |
+| Toplam kalori | Bakım kalorisi hedefle |
+
+## Deload Sonrası Ne Beklemeli?
+
+İyi bir deload haftasından sonra:
+- **Ağırlık artışı mümkün** — su ve glikojen değişimleri
+- **Antrenman enerjisi zirve** — CNS tam dinlenmiş
+- **Kişisel rekorlar** — süperansatelasyon penceresi
+
+> 📌 **Gerçek:** En büyük PR'ların çoğu deload sonrası haftada gelir. Bunu planlayan sporcular kazanır.
+
+## Sıkça Sorulan Sorular
+
+### Deload'da kas kaybeder miyim?
+Hayır. 1 haftalık yük azalması kas kaybına yol açmaz. Aksine toparlanmayı tamamlar.
+
+### Her zaman kendimi yorgun hissetmiyorum, yine de deload yapmalı mıyım?
+Planlanmış deload için evet. Özellikle ileri seviyede performans tavanına gelmeden önce deload yapmak daha akıllıca.
+
+### Deload'da kardiyo yapılabilir mi?
+Evet, hafif-orta yoğunlukta kardiyovasküler aktivite aktif toparlanmayı destekler. HIIT veya yoğun interval değil.`,
+    seoTitle: "Deload Haftası Nedir? Ne Zaman ve Nasıl Yapılır? | Gokalaf",
+    seoDescription: "Deload haftası nedir, ne zaman gerekli ve nasıl uygulanır? 3 deload yöntemi, örnek program ve PR sonrası deload stratejisi.",
+    publishedAt: "2025-03-21",
+    ctaText: "Programını Optimize Et",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "carb-cycling-nedir",
+    title: "Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans",
+    category: "beslenme",
+    excerpt: "Carb cycling (karbonhidrat döngüsü), antrenman yoğunluğuna göre karbonhidrat alımını değiştirerek hem yağ yakmayı hem kas performansını optimize eden ileri beslenme stratejisidir.",
+    heroImage: "/articles/carb-cycling-beslenme.webp",
+    content: `# Carb Cycling Nedir? Karbonhidrat Döngüsü ile Yağ Yakma ve Performans
+
+Hem yağ yakmak hem kas kütleni korumak mı istiyorsun? Standart sabit kalori diyeti bir noktada yetersiz kalır. **Carb cycling**, vücudunun enerji ihtiyacını antrenman yoğunluğuna göre dinamik olarak karşılayan zekice bir stratejidir.
+
+> 💡 **Carb Cycling Nedir?** Antrenman günlerinde yüksek, dinlenme günlerinde düşük karbonhidrat tüketimi yaparak hem insülin yönetimini optimize eden hem de kas glikojeni dolduran bir beslenme döngüsüdür.
+
+## Carb Cycling Neden Çalışır?
+
+### Fizyolojik Temel
+Karbonhidrat, vücudun tercih ettiği yakıt kaynağıdır. Ama:
+- **Yüksek karb günleri:** İnsülin artar → kas protein sentezi artar, glikojen dolar → performans yüksek
+- **Düşük karb günleri:** İnsülin düşük → yağ yakım ön plana geçer, insülin duyarlılığı artar
+
+Bu dönüşümlü döngü, vücudu hem yakıt hem yağ yakıcı olarak programlar.
+
+### Leptin ve Metabolik Avantaj
+Carb cycling, refeed günleri sayesinde leptini periyodik olarak yükselterek **metabolik adaptasyonu yavaşlatır.** Sabit düşük kalori diyetine üstünlüğü buradadır.
+
+## Carb Cycling vs Diğer Diyetler
+
+| Yaklaşım | Karbonhidrat | Esneklik | Karmaşıklık | Kim İçin |
+|---|---|---|---|---|
+| Sabit kalori diyeti | Sabit | Orta | Düşük | Herkes |
+| Keto diyeti | Çok düşük (her gün) | Düşük | Orta | Yağ adaptasyonu |
+| Carb cycling | Değişken | Yüksek | Yüksek | Orta-ileri seviye |
+| Intermittent fasting | Değişken | Orta | Orta | Her seviye |
+
+## Carb Cycling Gün Tipleri
+
+### Yüksek Karbonhidrat Günü
+**Ne zaman:** Ağır antrenman günleri (bacak, sırt, göğüs)
+- Karbonhidrat: 4-6 g/kg vücut ağırlığı
+- Protein: 1.8-2 g/kg
+- Yağ: Düşük (40-60g)
+- Kalori: Bakım veya hafif fazla
+
+### Orta Karbonhidrat Günü
+**Ne zaman:** Orta şiddetli antrenman (omuz, kol, HIIT)
+- Karbonhidrat: 2-3 g/kg
+- Protein: 2-2.2 g/kg
+- Yağ: Orta (60-80g)
+- Kalori: Bakım
+
+### Düşük Karbonhidrat Günü
+**Ne zaman:** Dinlenme günleri veya hafif kardiyovasküler
+- Karbonhidrat: 0.5-1 g/kg
+- Protein: 2.2-2.5 g/kg (yüksek tut)
+- Yağ: Yüksek (80-120g)
+- Kalori: Açık
+
+## 80 kg Sporcu İçin Örnek Hafta
+
+| Gün | Antrenman | Karb | Protein | Yağ | Kcal |
+|---|---|---|---|---|---|
+| Pazartesi | Bacak (ağır) | 400g | 160g | 50g | 2650 |
+| Salı | Dinlenme | 60g | 190g | 100g | 1860 |
+| Çarşamba | Göğüs/Sırt | 300g | 160g | 60g | 2360 |
+| Perşembe | Hafif kardiyo | 100g | 180g | 90g | 1910 |
+| Cuma | Omuz/Kol | 200g | 165g | 70g | 2090 |
+| Cumartesi | Bacak (ağır) | 380g | 160g | 50g | 2590 |
+| Pazar | Tam dinlenme | 50g | 190g | 110g | 1870 |
+
+## Hangi Karbonhidrat Kaynakları Seçilmeli?
+
+### Yüksek Karb Günlerinde
+✅ Pirinç, patates, tatlı patates
+✅ Yulaf, tam buğday makarna
+✅ Muz, diğer meyveler
+✅ Ekmek (tam tahıl)
+
+### Düşük Karb Günlerinde
+✅ Sebzeler (nişastasız: brokoli, ıspanak, kabak)
+✅ Az miktarda baklagil
+❌ Şeker, rafine karbonhidrat (hiçbir gün kaçın)
+
+## Adım Adım Başlama Rehberi
+
+**Adım 1:** TDEE'ni hesapla (bakım kalorini bul)
+**Adım 2:** Antrenman programına göre gün tiplerini belirle
+**Adım 3:** Makrolarını hesapla (yukarıdaki oran)
+**Adım 4:** 4 hafta uygula, haftalık ortalama ağırlığı takip et
+**Adım 5:** Hedefe göre yüksek/düşük günlerin frekansını ayarla
+
+## Kimler İçin Uygun Değil?
+
+❌ Yeni başlayanlar (önce sabit kalori diyetini öğren)
+❌ Obsesif takip eğilimi olanlar (makro hesabı stres yaratabilir)
+❌ Bütün gün hareketsiz kalan ofis çalışanları (fark minimal)
+
+## Sıkça Sorulan Sorular
+
+### Carb cycling kas yapar mı?
+Kilo artışı olmadan evet — özellikle yeni başlayanlar ve "recomp" (yağ erirken kas kazanma) sürecindekiler için etkilidir.
+
+### Her spor türüne uygun mu?
+Dayanıklılık sporları için özellikle değerli. Güç sporlarında da etkili ama ağır antrenman günlerinin belirlenmesi önemli.
+
+### Carb cycling zor mu?
+Makro takibi gerektirir. MyFitnessPal gibi bir uygulama ile ilk 2 hafta sonra alışkanlık haline gelir.`,
+    seoTitle: "Carb Cycling Nedir? Karbonhidrat Döngüsü Rehberi | Gokalaf",
+    seoDescription: "Carb cycling (karbonhidrat döngüsü) nedir, nasıl uygulanır? Yüksek, orta ve düşük karbonhidrat günleri, örnek haftalık plan ve kilo verme stratejisi.",
+    publishedAt: "2025-03-22",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "zma-nedir",
+    title: "ZMA Nedir? Testosteron, Uyku ve Toparlanmaya Etkisi",
+    category: "takviyeler",
+    excerpt: "ZMA (Çinko-Magnezyum-B6 kombinasyonu), testosteronu destekleyen, uyku kalitesini artıran ve toparlanmayı hızlandıran bir takviyedir. Sporcular için ne kadar etkili? Bilimsel değerlendirme.",
+    heroImage: "/articles/zma-nedir-takviye.webp",
+    content: `# ZMA Nedir? Testosteron, Uyku ve Toparlanmaya Etkisi
+
+Spor salonu konuşmalarında sık geçen ama az anlaşılan takviyelerden biri ZMA'dır. "Testosteron artırıyor" diyen var, "uyumanı düzeltiyor" diyen var. Gerçek nerede?
+
+> 💡 **ZMA Nedir?** Çinko (Zinc), Magnezyum Aspartat ve B6 Vitamini (Piridoksin) kombinasyonundan oluşan bir takviyedir. Orijinal formülasyon sporcular için toparlanmayı artırmak amacıyla geliştirilmiştir.
+
+## ZMA İçeriği ve Rolü
+
+| Bileşen | Miktar (tipik doz) | Rolü |
+|---|---|---|
+| Çinko | 30 mg | Testosteron sentezi, bağışıklık, protein metabolizması |
+| Magnezyum | 450 mg | Kas gevşemesi, enerji üretimi, sinir sistemi |
+| B6 Vitamini | 10-11 mg | Çinko emilimini artırır, nörotransmitter sentezi |
+
+## Sporcular Neden Eksik Olur?
+
+Araştırmalar sporcuların büyük bölümünün çinko ve magnezyum eksik olduğunu göstermektedir:
+
+- **Terleme:** Her iki mineral ter yoluyla kaybolur
+- **Yüksek kalori harcaması:** Mineral ihtiyacı artar
+- **Rafine beslenme:** İşlenmiş gıdalar mineral içeriği düşük
+- **Yoğun antrenman:** Mineral tüketimini artırır
+
+> ⚠️ **Kritik Nokta:** ZMA'nın faydası büyük ölçüde **eksikliği gidermesinden** kaynaklanır. Yeterli çinko ve magnezyum seviyesi olan kişilerde etki minimal olabilir.
+
+## ZMA'nın 4 Temel Faydası
+
+### 1. Testosteron Desteği
+Çinko, testosteron sentezinde doğrudan rol alır. Çinko eksikliği olan erkeklerde testosteron %25-30 düşebilir. Takviye bu kaybı telafi eder.
+
+**Gerçekçi beklenti:** Eksiklik varsa normalizasyon ✅ | Zaten yeterli seviyedeysen ek artış ❌
+
+### 2. Uyku Kalitesini Artırma
+Magnezyum GABA reseptörlerini aktive eder — bu beynin "dinlenme moduna" geçmesini sağlayan nörotransmitterdir.
+
+Araştırmalar ZMA takviyesinin:
+- Uykuya dalma süresini kısalttığını
+- REM uykusunu uzattığını
+- Sabah yorgunluğunu azalttığını göstermektedir
+
+### 3. Toparlanma Hızı
+Magnezyum eksikliği kas kramplarını ve antrenman sonrası uzun DOMS'u tetikler. Yeterli magnezyum:
+- Kas gevşemesini kolaylaştırır
+- Enerji üretimini (ATP) destekler
+- Oksitatif strese karşı antioksidan rol oynar
+
+### 4. Bağışıklık Güçlendirme
+Çinko, bağışıklık hücrelerinin üretiminde kritik. Yoğun antrenman dönemlerinde bağışıklık baskılanmasını önlemeye yardımcı olur.
+
+## Ne Zaman ve Nasıl Kullanılır?
+
+### Zamanlama
+**Yatmadan 30-60 dakika önce**, aç karna veya hafif bir şeyler yedikten 2 saat sonra.
+
+> ⚠️ **Önemli:** Kalsiyumla birlikte alma — kalsiyum çinko emilimini engeller. Bu yüzden süt veya süt ürünleriyle birlikte alma.
+
+### Döngü
+ZMA yıl boyu kullanılabilir. Bazı uzmanlar 3 ay kullanım, 1 ay ara stratejisini önerir.
+
+## ZMA vs Ayrı Alım
+
+| Yaklaşım | Avantaj | Dezavantaj |
+|---|---|---|
+| ZMA (kombine) | Pratik, optimize oran | Doz esnekliği az |
+| Ayrı çinko + magnezyum | Dozaj kontrolü | Daha fazla hap |
+| Sadece magnezyum | Uyku için yeterli | Çinko faydası yok |
+
+## Piyasadaki ZMA Ürünlerini Değerlendirme
+
+**Form önemli:**
+- **Çinko:** Monometiyonin veya glukonat formları daha iyi emilir (oksit daha az etkili)
+- **Magnezyum:** Bisglikinatlı veya sitratlı form tercih et (oksit bağırsak sorununa yol açabilir)
+
+## Sıkça Sorulan Sorular
+
+### ZMA gerçekten testosteron artırır mı?
+Eksiklik varsa normalleştirir. Testosteronu "aşırı" artırdığına dair güçlü kanıt yok. Ama uyku ve toparlanma faydaları belgelenmiş.
+
+### Kadınlar kullanabilir mi?
+Evet. Çinko ve magnezyum kadınlar için de önemli. Doz kadınlar için biraz daha düşük olabilir.
+
+### Ne zaman sonuç görülür?
+Uyku iyileşmesi genellikle 1-2 haftada hissedilir. Toparlanma faydaları 3-4 haftada belirginleşir.
+
+### Kafeinden önce mi sonra mı alınmalı?
+Kafein magnezyum emilimini azaltabilir. ZMA'yı geç akşam, kafein tüketiminden uzak al.`,
+    seoTitle: "ZMA Nedir? Testosteron, Uyku ve Toparlanmaya Etkisi | Gokalaf",
+    seoDescription: "ZMA takviyesi nedir, testosteron ve uyku kalitesine etkisi nedir? Çinko-magnezyum-B6 kombinasyonu, doğru kullanım ve bilimsel değerlendirme.",
+    publishedAt: "2025-03-23",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "ashwagandha-ve-spor",
+    title: "Ashwagandha ve Spor: Kortizolü Düşürür mü, Performansı Artırır mı?",
+    category: "takviyeler",
+    excerpt: "Ashwagandha (hint ginsengi), kortizolü düşüren, testosteronu destekleyen ve VO2 max'ı artıran adaptojenik bir bitkidir. Sporcular için bilimsel kanıtlar, dozaj ve kullanım rehberi.",
+    heroImage: "/articles/ashwagandha-ve-spor-takviye.webp",
+    content: `# Ashwagandha ve Spor: Kortizolü Düşürür mü, Performansı Artırır mı?
+
+Son yıllarda fitness dünyasının en popüler "doğal takviyeleri" arasına giren ashwagandha, Ayurveda tıbbında 3000 yılı aşkın süredir kullanılmaktadır. Ama gerçekten çalışıyor mu? Sporcular için ne işe yarar?
+
+> 💡 **Ashwagandha Nedir?** Withania somnifera bitkisinin kökünden elde edilen adaptojenik bir bitkidir. "Adaptojenik" = vücudun strese adaptasyonunu destekleyen.
+
+## Sporcular İçin Kanıtlanmış Faydaları
+
+### 1. Kortizol Düşürme
+Ashwagandha'nın en güçlü kanıtı kortizol (stres hormonu) yönetiminde.
+
+2012 yılında yayınlanan çift kör, plasebo kontrollü bir çalışmada (n=64), 60 gün ashwagandha alımı:
+- Kortizolü **%27.9** düşürdü
+- Stres skorlarını %44 iyileştirdi
+- Uyku kalitesini artırdı
+
+**Neden önemli?** Kronik yüksek kortizol:
+- Kas yıkımını artırır
+- Yağ depolanmasını tetikler
+- Testosteronu baskılar
+- Toparlanmayı yavaşlatır
+
+### 2. Testosteron ve Üreme Hormonu Desteği
+Bir çalışmada 8 hafta ashwagandha alan dirençli antrenman yapan erkeklerde:
+- Testosteron seviyesi kontrol grubuna kıyasla **%18 daha fazla** arttı
+- Kas gücü artışı istatistiksel olarak anlamlıydı
+
+### 3. Güç ve Kas Kütlesi Artışı
+57 erkek üzerinde yapılan randomize kontrollü çalışmada (8 hafta):
+- Bench press gücü: +46 kg (ashwagandha) vs +26.4 kg (plasebo)
+- Bacak press gücü: +14.5 kg fark
+- Kas kütlesi anlamlı artış
+
+### 4. VO2 Max ve Dayanıklılık
+Aerobik kapasiteyi artırdığına dair kanıtlar güçlenmektedir:
+- VO2 max (maksimal oksijen tüketimi) artışı belgelenmiş
+- Dayanıklılık egzersizlerinde yorulmayı geciktirir
+
+### 5. Toparlanma
+Anti-inflamatuar özellikleri sayesinde antrenman sonrası kas hasarını ve DOMS'u azaltır.
+
+## Kimler Kullanmalı?
+
+### ✅ Uygun Profiller
+- Yoğun antrenman dönemlerinde kortizol baskısı yaşayanlar
+- Stres kaynaklı uyku problemi olan sporcular
+- Testosteron desteği arayanlar (doğal yollarla)
+- Dayanıklılık sporuyla ilgilenenler
+
+### ❌ Dikkat Gereken Durumlar
+- Hamile veya emziren kadınlar (kaçın)
+- Tiroid rahatsızlıkları olanlar (doktorla konuş)
+- Otoimmün hastalıklar (bağışıklık uyarıcı etkisi olabilir)
+- Sedasyon ilaçları kullananlar (etkileşim)
+
+## Dozaj Rehberi
+
+| Hedef | Doz | Form |
+|---|---|---|
+| Stres/Kortizol | 300-600 mg/gün | KSM-66 veya Sensoril |
+| Performans | 600 mg/gün | KSM-66 |
+| Uyku | 300-600 mg (gece) | Herhangi form |
+
+### Hangi Form?
+**KSM-66:** Kök ekstraktı, %5 withanolide. En çok araştırılan ve en etkili form.
+**Sensoril:** Yaprak+kök karışımı, yüksek withanolide konsantrasyonu.
+**Standart toz:** Daha ucuz ama etkinlik değişken.
+
+## Ne Zaman Alınır?
+
+- **Kortizol/stres için:** Sabah aç karna veya öğleyin
+- **Uyku için:** Yatmadan 30-60 dakika önce
+- **Performans için:** Antrenman öncesi 1-2 saat
+
+## Sonuç Görme Süresi
+
+| Fayda | Süre |
+|---|---|
+| Stres azalması | 2-4 hafta |
+| Uyku iyileşmesi | 1-2 hafta |
+| Güç artışı | 6-8 hafta |
+| Kas kütlesi | 8-12 hafta |
+
+## Sıkça Sorulan Sorular
+
+### Ashwagandha hormon mu?
+Hayır. Hormon içermez, sadece vücudun kendi hormonal dengesini optimize etmesine yardımcı olur.
+
+### Sürekli kullanılabilir mi?
+Genellikle güvenli kabul edilir. 12 haftadan uzun kullanımda periyodik aralar (4-6 haftalık) önerilebilir.
+
+### Etkileri ne zaman hissedilir?
+Stres azalması 1-2 hafta içinde başlar. Performans faydaları 6-8 hafta düzenli kullanım gerektirir.
+
+### Kreatin veya protein tozu ile birlikte kullanılabilir mi?
+Evet, herhangi bir etkileşim bildirilmemiştir.`,
+    seoTitle: "Ashwagandha ve Spor: Kortizol, Testosteron ve Performans Etkisi | Gokalaf",
+    seoDescription: "Ashwagandha sporcular için ne işe yarar? Kortizol düşürme, testosteron desteği, güç artışı ve VO2 max etkileri bilimsel kanıtlarla.",
+    publishedAt: "2025-03-24",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "multivitamin-sporcular",
+    title: "Sporcular için Multivitamin: Gerçekten Gerekli mi?",
+    category: "takviyeler",
+    excerpt: "Sporcular multivitamin kullanmalı mı? Hangisi daha iyi, nasıl seçilir? Spor yapanların en sık eksik kaldığı vitaminler ve mineraller, gereksiz olanlar ve akıllı takviye stratejisi.",
+    heroImage: "/articles/multivitamin-sporcular-takviye.webp",
+    content: `# Sporcular için Multivitamin: Gerçekten Gerekli mi?
+
+"Multivitamin al, her şeye iyi gelir" mi, yoksa "dengeli besleniyorsan gerek yok" mu? Gerçek her ikisinin de ortasında. Sporcular için mikrobesin ihtiyacı sedanter insanlardan farklıdır ve bu farkı anlamak doğru takviye kararı vermenizi sağlar.
+
+> 💡 **Temel Gerçek:** Yoğun antrenman, vitamin ve mineral tüketimini artırır. Birçok sporcu, normal kabul edilen beslenmeyle bile çeşitli mikrobesin eksiklikleri yaşar.
+
+## Sporcuların En Sık Eksik Kaldığı Mikrobesinler
+
+| Mikrobesin | Eksiklik Oranı | Antrenman Etkisi |
+|---|---|---|
+| **Vitamin D** | %70-80 | Kas gücü, testosteron, bağışıklık |
+| **Magnezyum** | %60-70 | Toparlanma, uyku, enerji |
+| **Çinko** | %50-60 | Testosteron, bağışıklık |
+| **B12** | Vejetaryenler %high | Enerji, sinir sistemi |
+| **Demir** | Özellikle kadınlar | Oksijen taşıma, dayanıklılık |
+| **Folat/B9** | Yetersiz sebze tüketenler | Hücre yenilenmesi |
+| **İyot** | Deniz ürünü tüketmeyenler | Tiroid, metabolizma |
+
+## Multivitamin Gerçekten İşe Yarıyor mu?
+
+### Araştırmaların Söylediği
+Karışık sonuçlar var. Genel sağlıklı popülasyonda multivitaminin dramatik faydaları belgelenmiş değil. **Ama sporcular farklı:**
+
+- Yoğun antrenman serbest radikal üretimini artırır → antioksidan ihtiyacı yükselir
+- Ter ile mineral kaybı olur
+- Kısıtlı diyetler (bulk/cut) mikro besin açıklarına yol açar
+
+**Sonuç:** Eksikliği gidermek için evet, sihirli çözüm olarak değil.
+
+## Multivitamin Seçerken 5 Kriter
+
+### 1. Biyoyararlanım (Emilim Formu)
+Kaliteli form = daha iyi emilim:
+
+| Mineral | Kötü Form | İyi Form |
+|---|---|---|
+| Magnezyum | Oksit | Bisglikinatlı, sitratlı |
+| Çinko | Oksit | Monometiyonin, glukonat |
+| Demir | Demir sülfat | Bisglisinat |
+| B12 | Siyanokobalamin | Metilkobalamin |
+
+### 2. Doz Miktarı
+- **Yeterli doz:** RDA (Günlük Önerilen Alım) veya biraz üstü yeterli
+- **Mega doz kaçın:** 10× RDA üstü dozlar gereksiz ve bazı vitaminlerde zararlı
+
+### 3. D vitamini Yeterli mi?
+Çoğu multivitamin 400-1000 IU D vitamini içerir. Bu sporcular için yetersiz — ayrı takviye gerekebilir.
+
+### 4. Demir İçeriği
+Erkekler için demir içermeyen veya düşük demirli multivitamin yeterli. Kadınlar için demir önemli ama kan testi olmadan yüksek doz alma.
+
+### 5. Sertifikasyon
+NSF Certified for Sport, Informed Sport veya USP sertifikasyonu olan ürünler tercih et — doping maddesi riski düşük.
+
+## Multivitamin vs Hedefli Takviye
+
+| Yaklaşım | Avantaj | Dezavantaj |
+|---|---|---|
+| Multivitamin | Pratik, ekonomik, genel kapsam | Her mineral optimal dozda olmayabilir |
+| Hedefli (D3+K2, Mg, Zn) | Eksik olan alınır, doz kontrolü | Daha fazla hap, maliyetli |
+
+> 📌 **Öneri:** Kan testi yaptır → eksikliği belirle → önce hedefli takviye. Ardından genel kapsam için multivitamin ekleyebilirsin.
+
+## Sporcular için Akıllı Takviye Piramidi
+
+\`\`\`
+Katman 1 (Temel): Gerçek gıda — mikro besin temeli
+Katman 2 (Eksiklik): Vitamin D3+K2, Magnezyum, Çinko
+Katman 3 (Performans): Kreatin, Protein tozu, Beta-alanin
+Katman 4 (Opsiyonel): Multivitamin, Balık yağı, Ashwagandha
+\`\`\`
+
+## Zaman ve Kullanım
+
+| Multivitamin Türü | Ne Zaman |
+|---|---|
+| Yağda çözünen (A, D, E, K) | Yağlı öğünle birlikte |
+| Suda çözünen (B, C) | Herhangi bir zamanda |
+| Demir içerenler | Aç karna (ama mide hassasiyeti varsa yemekle) |
+
+## Sıkça Sorulan Sorular
+
+### Her gün multivitamin almak zararlı mı?
+Güvenilir markaların ürünleri, önerilen dozda düzenli kullanımda güvenli kabul edilir. Yağda çözünen vitaminler birikeceği için mega dozlardan kaçın.
+
+### En iyi multivitamin hangisi?
+Önce kan testi yaptır. Ama genel olarak: yüksek biyoyararlanımlı form, spor sertifikasyonu ve gerçekçi dozaj.
+
+### Multivitamin performansı artırır mı?
+Doğrudan değil. Eksikliği olan kişilerde eksikliği gidererek performans düşüşünü önler.
+
+### Gençler multivitamin kullanabilir mi?
+18 yaş üstü için genellikle güvenli. Büyüme çağındaki gençler için doktor onayı önerilir.`,
+    seoTitle: "Sporcular için Multivitamin: Gerçekten Gerekli mi? | Gokalaf",
+    seoDescription: "Sporcuların multivitamin kullanması gerekir mi? Eksik kalan mikrobesinler, doğru seçim kriterleri ve akıllı takviye stratejisi.",
+    publishedAt: "2025-03-25",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kazein-protein-nedir",
+    title: "Kazein Protein Nedir? Yatmadan Önce Neden Alınır?",
+    category: "takviyeler",
+    excerpt: "Kazein, sütte bulunan yavaş sindirilir protein türüdür. Gece boyu kas yıkımını önler, açlığı baskılar ve uzun süreli amino asit akışı sağlar. Whey ile farkı, ne zaman kullanılır, tam rehber.",
+    heroImage: "/articles/kazein-protein-nedir-takviye.webp",
+    content: `# Kazein Protein Nedir? Yatmadan Önce Neden Alınır?
+
+Protein tozu denince akla ilk gelen whey'dir. Ama yatmadan önce alınan o gecelik protein bölümü için **kazein** çok daha akıllıca bir seçimdir. Neden? Çünkü vücudun gece boyunca ihtiyaç duyduğu sürekli amino asit akışını sadece kazein sağlayabilir.
+
+> 💡 **Kazein Nedir?** Süt proteininin yaklaşık %80'ini oluşturan, midede jel oluşturarak yavaş sindirilir ve 5-7 saat boyunca kan dolaşımına amino asit salan protein türü.
+
+## Whey vs Kazein: Temel Fark
+
+| Özellik | Whey | Kazein |
+|---|---|---|
+| Sindirim hızı | Hızlı (1-2 saat) | Yavaş (5-7 saat) |
+| Amino asit salınımı | Ani yüksek pik | Uzun süre düşük ama sabit |
+| Leucine içeriği | Daha yüksek | Orta |
+| Protein sentezi uyarısı | Güçlü, kısa | Orta, uzun |
+| Anti-katabolik etki | Kısa | Uzun (gece için ideal) |
+| En iyi zaman | Antrenman sonrası | Yatmadan önce |
+| Fiyat | Daha ucuz | Biraz daha pahalı |
+
+### Hangi Proteini Ne Zaman Almalısın?
+\`\`\`
+Antrenman sonrası:  Whey → hızlı emilim, protein sentezi
+Yatmadan önce:     Kazein → yavaş emilim, anti-katabolik
+Sabah:             Her ikisi veya yumurta proteini
+Öğünler arası:     Tercihe göre
+\`\`\`
+
+## Gece Neden Kazein?
+
+Uyku sırasında 7-9 saat boyunca yemek yenmez. Bu oruç döneminde:
+- Kan aminoasit seviyeleri düşer
+- Kortizol yükselir
+- Kas yıkımı riski artar
+
+**Kazein tam burada devreye girer:** Midede pıhtı oluşturarak sindirimini yavaşlatır ve gece boyunca düzenli amino asit akışı sağlar.
+
+2012 yılında yayınlanan bir araştırmada (Res ve ark.), yatmadan önce 40g kazein protein alımının:
+- Gece boyunca protein sentezini %22 artırdığı
+- Sabah ölçülen kas sentezinin daha yüksek olduğu
+gösterilmiştir.
+
+## Kazein Türleri
+
+### Miseller Kazein (En İyi Form)
+- Sütten en minimal işlemle elde edilir
+- En yavaş sindirim (7 saat+)
+- En anti-katabolik
+- Pıhtı oluşturma kapasitesi en güçlü
+
+### Kazein Hidrolizat
+- Kısmen sindirilmiş, daha hızlı emilir
+- Kazein'in "yavaş" avantajını kaybeder
+- Genellikle gereksiz
+
+### Kazein Miçeli Konsantre
+- Fiyat/performans dengesi iyi
+- Orta hızda sindirim
+
+> 📌 **Tavsiye:** "Miseller kazein" veya "micellar casein" yazan ürün seç.
+
+## Dozaj ve Kullanım
+
+### Ne Kadar?
+- **Standart:** 30-40g protein (1-1.5 scoop)
+- **Büyük vücut ağırlığı (90 kg+):** 40-50g
+
+### Ne Zaman?
+Yatmadan 30-60 dakika önce. Tok bir mideyle yatmak rahat değilse 1-2 saat önce al.
+
+### Nasıl Hazırlanır?
+Kazein, whey'e göre çok daha kalın bir kıvama gelir. **Az su veya sütle** hazırla:
+\`\`\`
+1 scoop + 150-200 ml su = pudding kıvamında
+1 scoop + 300 ml su = shake kıvamında
+1 scoop + 200 ml süt = maksimum protein + yavaş sindirim
+\`\`\`
+
+**Kazein muhallebisi tarifi:**
+1 scoop kazein + 150 ml su + 1 tatlı kaşığı fıstık ezmesi → karıştır, buzdolabında 30 dakika beklet → yüksek proteinli, doyurucu tatlı
+
+## Kazein Gerçekten Kas Yapar mı?
+
+Kısa cevap: Evet, ama yanlış beklentiyle gelme.
+
+Kazein tek başına "kas yapıcı" değil, **kas yıkımını önleyici** olarak daha etkilidir. Antrenman, beslenme ve uyku kombinasyonunun parçası olarak değerlendirildiğinde:
+- Gece kas yıkımını minimize eder
+- Sabah aminoasit açığını önler
+- Uzun vadede net kas kazanımını artırır
+
+## Kazein ve Laktoz İntoleransı
+
+Whey'e kıyasla kazein daha az laktoz içerir. Hafif laktoz intoleransı olanlar genellikle tolere edebilir. Ağır intoleransta vegan alternatiflere bak:
+- **Bezelye proteini** (yavaş emilim profili)
+- **Soya proteini** (tam protein, yavaş emilim)
+
+## Sıkça Sorulan Sorular
+
+### Kazein yoksa yatmadan önce ne alınır?
+Süzme yoğurt veya Yunan yoğurdu (yüksek kazein içerir, neredeyse aynı etki). 200-300g süzme yoğurt = 1 scoop kazein.
+
+### Kazein yağlanmaya neden olur mu?
+Hayır. Gece alınan protein kalorisi gündüz alınan kadar işlenir. Toplam kalori dengesi önemlidir.
+
+### Kazein sabah alınabilir mi?
+Evet ama whey'den daha az optimal. Sabah hızlı amino asit ihtiyacı için whey daha iyi.
+
+### Kazein ve whey birlikte kullanılabilir mi?
+Evet, hatta faydalı. Whey antrenman sonrası, kazein yatmadan önce — ideal kombinasyon.`,
+    seoTitle: "Kazein Protein Nedir? Yatmadan Önce Neden Alınır? | Gokalaf",
+    seoDescription: "Kazein protein nedir, whey'den farkı nedir? Yatmadan önce neden kazein alınmalı, miseller kazein formu ve gece kas yıkımını önleme.",
+    publishedAt: "2025-03-26",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "hidrasyon-ve-performans",
+    title: "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?",
+    category: "beslenme",
+    excerpt: "Sadece %2 dehidrasyon antrenman performansını %10-20 düşürebilir. Sporcular için doğru hidrasyon miktarı, elektrolit dengesi, egzersiz öncesi/sırası/sonrası su tüketimi ve pratik stratejiler.",
+    heroImage: "/articles/hidrasyon-ve-performans-beslenme.webp",
+    content: `# Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli?
+
+En iyi programı, en iyi diyeti, en iyi takviyeleri kullansanız bile yeterince su içmiyorsanız potansiyelinizin altında performans gösteriyorsunuzdur. Bu abartı değil — **bilimsel bir gerçek.**
+
+> 💡 **Kritik Veri:** Vücut ağırlığının sadece %2'si kadar su kaybı (70 kg sporcu için 1.4 litre) anaerobik güç kapasitesini %10-20, aerobik dayanıklılığı %20-30 oranında düşürür.
+
+## Su Vücutta Ne İşe Yarar?
+
+| İşlev | Açıklama |
+|---|---|
+| Termoregülasyon | Vücut ısısını kontrol eder — terleme mekanizması |
+| Besin taşıma | Amino asit, glikoz ve oksijen hücrelerine taşır |
+| Atık uzaklaştırma | Metabolik atıkları böbrek yoluyla atar |
+| Eklem yağlaması | Sinovyal sıvının ana bileşeni |
+| Kan hacmi | Düşük hidrasyon = düşük kalp debisi = düşük performans |
+| Bilişsel işlev | Dehidrasyon odak, reaksiyon süresini bozar |
+
+## Dehidrasyon Belirtileri
+
+| Kayıp % | Belirti |
+|---|---|
+| %1 | Susama hissi başlar |
+| %2 | Performans düşer, yorgunluk artar |
+| %3-4 | Kas krampları, baş ağrısı, konsantrasyon bozulur |
+| %5-6 | Ciddi yorgunluk, güçsüzlük |
+| %8+ | Sersemlik, bilinç bozukluğu (tıbbi acil) |
+
+## Sporcular Ne Kadar Su İçmeli?
+
+### Genel Formül
+\`\`\`
+Günlük minimum: Vücut ağırlığı (kg) × 35 ml
+Aktif sporcu: Vücut ağırlığı (kg) × 40-45 ml
+
+Örnek (80 kg): 80 × 40 = 3.2 litre (antrenman dışı)
+\`\`\`
+
+### Antrenman Eklemesi
+Her 30 dakika orta-yoğun egzersiz için **400-600 ml ek su.**
+
+### Nem ve Sıcaklık Etkisi
+Yaz aylarında veya sıcak ortamlarda bu miktarlar %20-30 artabilir.
+
+## Antrenman Öncesi/Sırası/Sonrası Hidrasyon
+
+### Antrenman Öncesi (2-3 saat önce)
+- 500-600 ml su iç
+- Hedef: Egzersiz başlarken tam hidrate olmak
+- **Test:** İdrar rengi açık sarı = iyi hidrasyon
+
+### Antrenman Sırası
+\`\`\`
+İlk 30 dakika: 150-250 ml (yaklaşık 1 büyük yudum)
+Her 15-20 dakikada bir: 150-200 ml
+1 saati aşan antrenmanlarda: Elektrolit ekle
+\`\`\`
+
+### Antrenman Sonrası
+Her kaybedilen 1 kg için 1.2-1.5 litre su içilmesi önerilir.
+
+**Pratik yöntem:** Antrenman öncesi ve sonrası tartıl, fark × 1.5 = içmen gereken su miktarı.
+
+## Elektrolit Yönetimi
+
+1 saatten uzun antrenman, özellikle yoğun terleme sırasında sadece su yetmez. **Elektrolitler** gereklidir.
+
+### Temel Elektrolitler
+
+| Elektrolit | Rolü | Kaynak |
+|---|---|---|
+| Sodyum | Su dengesini düzenler, kas kasılması | Tuz, spor içecekleri |
+| Potasyum | Kas kasılması, sinir iletimi | Muz, patates, portakal |
+| Magnezyum | Kas gevşemesi, 300+ enzim | Yeşil yapraklı sebzeler, kuruyemiş |
+| Klorür | Sıvı dengesi | Tuzlu gıdalar |
+
+### Spor İçeceği Ne Zaman Gerekli?
+- 1 saatten uzun antrenman: evet
+- Yoğun terleme (sıcak hava): evet
+- 45 dakikalık normal antrenman: su yeterli
+
+### Ev Yapımı Sporcu İçeceği
+\`\`\`
+500 ml su
+1 tutam tuz (sodyum)
+1 tatlı kaşığı bal veya 2-3 tarih (enerji)
+Yarım limon suyu (potasyum, lezzet)
+= Ticari spor içeceklerine ucuz alternatif
+\`\`\`
+
+## Kafein ve Su Kaybı Miti
+
+"Kahve dehidrate eder" — yaygın ama yanlış bir inanış. Araştırmalar, ılımlı kafein tüketiminin (200-300 mg/gün) belirgin dehidrasyona yol açmadığını göstermektedir. Kahve veya çay, günlük sıvı alımına sayılabilir.
+
+## Pratik Hidrasyon Stratejileri
+
+### İdrar Rengi Testi (En Kolay Yöntem)
+\`\`\`
+Renksiz/Çok açık sarı  → Aşırı hidrasyon
+Açık sarı              → İdeal ✅
+Orta sarı              → Kabul edilebilir
+Koyu sarı/Amber        → Yetersiz, su iç
+Çay rengi              → Ciddi dehidrasyon, hemen su iç
+\`\`\`
+
+### Günlük Rutine Entegrasyon
+- Sabah kalkar kalkmaz 1-2 bardak su
+- Her öğünden önce 1 bardak su
+- Telefona hatırlatıcı kur (her 90 dakika)
+- Masanda her zaman dolu su şişesi bulundur
+
+## Aşırı Hidrasyon (Hiponatremi) Riski
+
+Su çok fazla içilebilir mi? Evet, ve tehlikelidir. Özellikle ultra maratoncular:
+- Aşırı su tüketimi sodyumu seyreltir
+- Hyponatremi (düşük kan sodyumu): baş ağrısı, bulantı, konfüzyon
+- **Çözüm:** Su ile birlikte sodyum da al (tuzlu atıştırmalık, elektrolit)
+
+## Sıkça Sorulan Sorular
+
+### Buz gibi soğuk su içmek metabolizmayı hızlandırır mı?
+Minimally. Soğuk suyu ısıtmak birkaç kalori yakar ama anlamlı bir etki değil. Ancak soğuk su egzersiz sırasında vücut sıcaklığını düşürmeye yardımcı olabilir.
+
+### Antrenman sırasında su içmek mide bulantısı yapar mı?
+Büyük miktarlar midede çalkalanmaya yol açabilir. Küçük yudumlar halinde içmek bunu önler.
+
+### Protein tozu suyu mu yoksa sutsuz mu daha iyi emilir?
+Emilim farkı çok minimal. Tercihe göre seç.`,
+    seoTitle: "Hidrasyon ve Spor Performansı: Su Ne Kadar Önemli? | Gokalaf",
+    seoDescription: "%2 dehidrasyon performansı %10-20 düşürür. Sporcular için doğru su tüketimi, elektrolit yönetimi ve pratik hidrasyon stratejisi.",
+    publishedAt: "2025-03-27",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "vegan-sporcu-beslenmesi",
+    title: "Vegan Sporcu Beslenmesi: Eksiksiz Protein ve Besin Rehberi",
+    category: "beslenme",
+    excerpt: "Vegan bir sporcu olarak kas geliştirebilir, yeterli protein alabilir ve yüksek performans gösterebilirsin. Tam protein kombinasyonları, kritik takviyeler ve pratik vegan beslenme planı.",
+    heroImage: "/articles/vegan-sporcu-beslenmesi.webp",
+    content: `# Vegan Sporcu Beslenmesi: Eksiksiz Protein ve Besin Rehberi
+
+"Vegan olarak kas yapılamaz" — bu mit 2020'lerin fitness dünyasında artık tamamen çürütülmüştür. Doğru planlama ile vegan bir sporcu, omnivore sporcuyla aynı düzeyde performans gösterebilir ve kas geliştirebilir.
+
+> 💡 **Önemli Gerçek:** Dünyaca ünlü vegan atletler var: Patrick Baboumian (güçlü adam yarışmacısı), Nimai Delgado (IFBB Pro bodybuilder), Kendrick Farris (olimpik halterci). Doğru planlama her şeyi değiştirir.
+
+## Vegan Beslenmede Ana Zorluklar
+
+| Zorluk | Çözüm |
+|---|---|
+| Eksik protein (tek kaynak) | Protein kaynaklarını kombine et |
+| B12 eksikliği | Takviye şart |
+| Demir biyoyararlanımı düşük | C vitamini ile birlikte al |
+| Kalsiyum (süt yok) | Zenginleştirilmiş bitkisel süt, brokoli, tofu |
+| Omega-3 (balık yok) | Alg bazlı DHA/EPA, keten tohumu |
+| Kreatin (et yok) | Takviye al (vegan creatine mevcut) |
+| Karnitin (et yok) | Vücup sentezler ama takviye eklenebilir |
+
+## Vegan Protein Kaynakları ve Tam Protein Kombinasyonları
+
+### Tek Başına Yeterli Protein Kaynakları (Tam Protein)
+Bu kaynaklar tüm esansiyel aminoasitleri içerir:
+
+| Kaynak | Protein (100g) | Not |
+|---|---|---|
+| **Soya (Edamame)** | 11g | Tam protein, yüksek leucine |
+| **Tempeh** | 19g | Fermente soya, en iyi vegan protein |
+| **Tofu** | 8-17g | Hazırlama şekline göre değişir |
+| **Kinoa** | 4.4g (pişmiş) | Tek tahıl tam protein |
+| **Spirulina** | 57g (toz) | Güçlü takviye, lezzeti zorlu |
+
+### Tamamlayıcı Protein Kombinasyonları
+Tek başına eksik olan bitkisel proteinler birleştirildiğinde tam protein oluşur:
+
+\`\`\`
+Pirinç + Fasulye/Mercimek ✅
+Tam Buğday + Fıstık Ezmesi ✅
+Mısır Tortilla + Fasulye ✅
+Bulgur + Nohut ✅
+\`\`\`
+
+> 📌 **Not:** Aynı öğünde yeme zorunluluğu yok — gün içinde çeşitli kombinasyonlar yeterli.
+
+## Günlük Protein Hedefi
+
+Vegan sporcular için protein hedefi omnivore'lardan biraz yüksek tutulmalıdır. Sebep: bitkisel proteinlerin PDCAAS (biyoyararlanım) skoru genellikle daha düşüktür.
+
+| Hedef | Gram/kg/gün |
+|---|---|
+| Genel sağlık | 1.2-1.4 g/kg |
+| Kas gelişimi (kuvvet antrenmanı) | **2.0-2.2 g/kg** |
+| Yağ yakma dönemi | 2.2-2.5 g/kg |
+
+80 kg vegan sporcu → **160-176 g protein/gün** (omnivore'a kıyasla biraz daha yüksek)
+
+## Vegan Protein Tozu Seçenekleri
+
+| Tür | PDCAAS | Not |
+|---|---|---|
+| **Soya izolat** | 1.0 | En iyi vegan protein skoru |
+| **Bezelye proteini** | 0.89 | Hızlı emilim, whey benzeri |
+| **Pirinç + bezelye karışımı** | ~0.98 | Tamamlayıcı kombinasyon |
+| **Kenevir** | 0.46 | Düşük protein, yüksek omega-3 |
+
+> 📌 **Tavsiye:** Pirinç + bezelye karışımı (50:50) amino asit profili açısından whey'e en yakın vegan seçenektir.
+
+## Kritik Takviyeler — Vegan İçin Zorunlu
+
+### 1. B12 — Zorunlu, İstisna Yok
+B12 sadece hayvansal ürünlerde bulunur. Tüm veganlar mutlaka almalı:
+- **Doz:** 250-500 mcg/gün veya 1000-2000 mcg/haftalık
+- **Form:** Metilkobalamin veya adenozilkobalamin
+
+### 2. Vitamin D3 (Vegan Form)
+Vegan D3, likenlerden (lichen) elde edilir. Normal D3 lanolinden (koyun yünü) gelir.
+- **Doz:** 2000-4000 IU/gün
+- **Etiket:** "Vegan D3" veya "lichen-derived D3"
+
+### 3. Omega-3 DHA/EPA — Alg Bazlı
+Keten, chia ve ceviz ALA içerir ama DHA/EPA'ya dönüşümü düşüktür (%5-10).
+- **Gerçek çözüm:** Alg bazlı DHA/EPA takviyesi (balık buradan alır zaten)
+- **Doz:** 250-500 mg DHA+EPA/gün
+
+### 4. Demir
+Bitkisel demir (non-hem demir), hayvansal demire göre 2-3× daha az emilir:
+- **C vitaminiyle birlikte al:** Emilimi 3-4 kat artırır
+- **Kafein/çaydan uzak:** Demir emilimini engeller
+- **Kan testi önce:** Fazla demir zararlı
+
+### 5. Kreatin — Vegan için Özellikle Değerli
+Kreatin doğal olarak sadece hayvansal ürünlerde bulunur → veganların vücut kreatin depoları daha düşük. Takviye etkisi veganlarda daha belirgin görülmüştür.
+- **Doz:** 5g/gün (vegan fermente kreatin mevcuttur)
+
+### 6. Çinko
+Bitkisel çinkonun emilimini fitat asidi engeller. Tahılları ıslatmak veya fermente etmek emilimi artırır.
+- **Takviye:** 15-25 mg/gün
+
+## 7 Günlük Örnek Vegan Sporcu Menüsü (2500 kcal / 160g protein)
+
+**Pazartesi:**
+- Sabah: Yulaf + soya sütü + chia + fıstık ezmesi
+- Öğle: Mercimek çorbası + pirinç + salata
+- Ara: 1 scoop bezelye+pirinç protein + muz
+- Akşam: Tempeh stir-fry + kinoa + sebze
+
+**Salı:**
+- Sabah: Tofu scramble + tam buğday ekmek + domates
+- Öğle: Nohut köfte + bulgur pilav + cacık (soya yoğurtlu)
+- Ara: Edamame + bir avuç badem
+- Akşam: Fasulye stew + pirinç + yeşil sebze
+
+## Sıkça Sorulan Sorular
+
+### Vegan olarak kas yapılabilir mi?
+Kesinlikle. Protein, kalori ve antrenman yönetimi düzgün kurulursa vegan sporcular omnivore seviyesinde kas geliştirir.
+
+### Soya erkeklerde östrojen yapar mı?
+Hayır. Soya içindeki fitoöstrojenlerin insan hormon sistemine anlamlı etkisi olmadığı araştırmalarla gösterilmiştir. Güvenle tüketilebilir.
+
+### Vegan beslenmede en zor olan ne?
+Kalori yeterliğini sağlamak. Bitkisel gıdalar hacimli ve düşük kalorili olabilir. Yağ ve protein yoğun gıdalara dikkat et (fıstık ezmesi, tempeh, tofu, kuruyemiş).`,
+    seoTitle: "Vegan Sporcu Beslenmesi: Eksiksiz Protein ve Besin Rehberi | Gokalaf",
+    seoDescription: "Vegan sporcular için tam protein kaynakları, zorunlu takviyeler, B12/D3/omega-3 rehberi ve 7 günlük vegan beslenme planı.",
+    publishedAt: "2025-03-28",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "foam-rolling-faydalar",
+    title: "Foam Rolling Nedir? Toparlanmayı Hızlandıran 7 Teknik",
+    category: "antrenman",
+    excerpt: "Foam rolling (köpük rulo masajı), myofasyal gevşeme sağlayan, kas ağrısını azaltan ve hareket açıklığını artıran toparlanma aracıdır. Doğru teknik, hangi bölgelere, ne zaman uygulanır.",
+    heroImage: "/articles/foam-rolling-toparlanma.webp",
+    content: `# Foam Rolling Nedir? Toparlanmayı Hızlandıran 7 Teknik
+
+Antrenman sonrası kas ağrısı ile mücadele etmenin, esnekliği artırmanın ve sakatlanma riskini azaltmanın en erişilebilir yollarından biri masaj değil mi? Evet, ama pahalı bir masaj terapisti değil — elinizin altındaki **foam roller (köpük rulo)** yeterli.
+
+> 💡 **Foam Rolling Nedir?** Myofasyal gevşeme (Self-Myofascial Release / SMR) tekniğidir. Köpük rulo üzerinde vücut ağırlığını kullanarak kaslara ve fasyaya baskı uygulanır.
+
+## Fasya Nedir ve Neden Önemli?
+
+Fasya, kasları, organları ve diğer yapıları saran bağ dokusu ağıdır. Hareketsizlik, antrenman stresi veya dehidrasyon sonucu fasya:
+- Sıkılaşır ve yapışır
+- Hareket kısıtlaması oluşturur
+- "Trigger point" (tetikleyici nokta) geliştirir
+
+Foam rolling bu yapışıklıkları çözer ve fasyanın sağlıklı hareketliliğini restore eder.
+
+## Foam Rolling'in Kanıtlanmış Faydaları
+
+| Fayda | Kanıt Düzeyi |
+|---|---|
+| DOMS azaltma (gecikmiş kas ağrısı) | ✅ Güçlü |
+| Hareket açıklığı artışı | ✅ Güçlü |
+| Toparlanma hızı | ✅ Orta |
+| Performans öncesi aktivasyon | ✅ Orta |
+| Yaralanma önleme | ⚠️ Zayıf kanıt |
+
+**Araştırma özeti:** 2015 yılında Journal of Athletic Training'de yayınlanan meta-analiz, foam rolling'in statik esnemeye kıyasla hareket kısıtlaması olmadan esnekliği artırdığını gösterdi.
+
+## 7 Temel Foam Rolling Tekniği
+
+### 1. Quadriceps (Ön Uyluk)
+**Pozisyon:** Yüzüstün, her iki bacak veya tek bacak ruloyu altında
+**Uygulama:** Kalça kemiğinden dize kadar yavaşça yuvarla
+**Süre:** Her bacak 60-90 saniye
+
+> 💡 **İpucu:** Hassas nokta bulduğunda (ağrılı) orada 20-30 saniye dur, nefes al.
+
+### 2. IT Bandı (Dış Uyluk)
+Koşucular ve bisikletçiler için kritik. IT band sendromunu önler.
+**Pozisyon:** Yan yatar, kalçadan dize kadar
+**Not:** Gerçek IT bandı kas değil bağ dokusu — agresif baskı yerine hafif-orta baskı
+
+### 3. Hamstring (Arka Uyluk)
+**Pozisyon:** Oturur pozisyonda, rulo gluteus altında
+**Uygulama:** Kalçadan dize, tek bacak daha etkili
+
+### 4. Sırt (Torakal Bölge)
+Masa başı çalışanlar ve ağır pressing yapanlar için kritik.
+**Pozisyon:** Sırt üstü, rulo kürek kemikleri arası
+**Uygulama:** Yavaşça yukarı-aşağı yuvarla, kollar karşılıklı ya da arkada
+
+> ⚠️ **Dikkat:** Bel bölgesinde (lomber) foam rolling önerilmez — bel ağrısını artırabilir.
+
+### 5. Baldır (Gastrocnemius / Soleus)
+**Pozisyon:** Oturur, tek bacak ruloyu altında, diğer bacak üste
+**Uygulama:** Aşil'den diz altına
+**Özellikle:** Koşu sonrası, HIIT sonrası
+
+### 6. Gluteus (Kalça)
+Siyatik sinir ağrısı ve kalça gerginliği için.
+**Pozisyon:** Rulo bir kalça altında, hafif yan yatar
+**Uygulama:** Küçük daireler çiz, hassas noktalarda dur
+
+### 7. Latissimus Dorsi (Sırt Kası)
+Pull günleri sonrasında değerli.
+**Pozisyon:** Yan yatar, kol yukarıda uzanmış
+**Uygulama:** Koltukaltından bel üstüne
+
+## Ne Zaman Yapılır?
+
+### Antrenman Öncesi (Dinamik Kullanım)
+- Süre: 30-60 saniye/bölge
+- Amaç: Kan akışını artır, hareket açıklığını hazırla
+- Hafif-orta baskı
+- Statik esnemeyi foam rolling ile birleştir
+
+### Antrenman Sonrası (Toparlanma)
+- Süre: 60-120 saniye/bölge
+- Amaç: DOMS azalt, laktik asidi dağıt
+- Daha yavaş, daha sabit baskı
+- Nefese odaklan
+
+### Dinlenme Günleri
+Aktif toparlanma rutini olarak mükemmel. Herhangi bir süre/yoğunlukta.
+
+## Foam Roller Seçimi
+
+| Tür | Sertlik | Kim İçin |
+|---|---|---|
+| Yumuşak/orta (EVA köpük) | Düşük | Başlangıç, hassas alanlar |
+| Sert (yoğun köpük) | Yüksek | Orta-ileri, derin doku |
+| Texturlu (dişli yüzey) | Değişken | Trigger point çalışması |
+| Vibrasyon rollerı | — | Premium, ek etki tartışmalı |
+
+## Yaygın Hatalar
+
+### ❌ Çok Hızlı Yuvarlamak
+Saniyede 2-3 cm optimal. "Hızlı geç" değil, "yavaş kal."
+
+### ❌ Belde Doğrudan Uygulama
+Lomber bölge vertebra koruyucu kasları zayıflatabilir. Torakal bölge (orta-üst sırt) güvenli.
+
+### ❌ Eklemler Üzerinde Uygulama
+Dizlerin üstünde, omuzların üstünde doğrudan uygulama yapma. Sadece kas kütlesine uygula.
+
+### ❌ Ağrıyı "Daha İyi Olur" Diye İtmek
+Hafif rahatsızlık normal. Keskin, batıcı ağrı → dur. Sakatlanma veya sinir bölgesi işareti olabilir.
+
+## 15 Dakikalık Tam Vücut Foam Rolling Rutini
+
+\`\`\`
+Baldır sağ + sol     2 dk
+Hamstring sağ + sol  2 dk
+IT bandı sağ + sol   2 dk
+Quadriceps sağ + sol 2 dk
+Gluteus sağ + sol    2 dk
+Sırt (torakal)       2 dk
+Lat sağ + sol        1 dk
+─────────────────────────
+Toplam: 15 dakika
+\`\`\`
+
+## Sıkça Sorulan Sorular
+
+### Foam rolling her gün yapılabilir mi?
+Evet, özellikle toparlanma ve dinlenme günlerinde faydalıdır.
+
+### Foam rolling ile masaj aynı mı?
+Benzer mekanizma ama masajist profesyonel kas-iskelet değerlendirmesi yapabilir. Foam rolling self-bakım aracı.
+
+### Foam rolling esnekliği gerçekten artırır mı?
+Kısa vadede evet, ama kalıcı esneklik için statik ve dinamik esneme gerekli. Foam rolling kapıyı açar.`,
+    seoTitle: "Foam Rolling Nedir? Toparlanmayı Hızlandıran 7 Teknik | Gokalaf",
+    seoDescription: "Foam rolling myofasyal gevşeme tekniği nedir? DOMS azaltma, esneklik artırma, 7 temel teknik ve antrenman öncesi/sonrası kullanım rehberi.",
+    publishedAt: "2025-03-29",
+    ctaText: "Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "omega-3-sporcular",
+    title: "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Üzerine Etkisi",
+    category: "takviyeler",
+    excerpt: "Omega-3 yağ asitleri (EPA ve DHA), kas protein sentezini artıran, iltihabı azaltan ve kardiyovasküler performansı destekleyen en kanıtlı takviyelerden biridir. Dozaj, form ve seçim rehberi.",
+    heroImage: "/articles/omega-3-sporcular-takviye.webp",
+    content: `# Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans
+
+Kreatin ve protein tozu kadar konuşulmasa da **Omega-3**, bilimsel kanıt açısından en güçlü takviyelerden biridir. Sadece kalp sağlığı için değil — kas gelişimi, toparlanma, beyin fonksiyonu ve performans için de.
+
+> 💡 **Omega-3 Nedir?** Vücudun üretemediği, diyetten alınması gereken esansiyel çoklu doymamış yağ asitleridir. Spor açısından önemli olanlar: **EPA** (eikosapentaenoik asit) ve **DHA** (dokosaheksaenoik asit).
+
+## Omega-3'ün Sporcular İçin 6 Kanıtlanmış Faydası
+
+### 1. Kas Protein Sentezini Artırma
+Bu, pek çok kişinin bilmediği omega-3 faydası. EPA ve DHA:
+- mTOR yolağını aktive eder (kas yapımında ana anahtar)
+- Leucine'in kas protein sentezine yanıtını güçlendirir
+- Özellikle yaşlı yetişkinlerde ve kısıtlı diyetlerde kas kaybına karşı koruyucudur
+
+### 2. İltihap Azaltma ve Toparlanma
+Antrenman, kas dokusunda akut inflamasyon yaratır. Bu gereklidir ama kronik inflamasyon iyileşmeyi engeller.
+
+Omega-3:
+- Pro-inflamatuar eikosanoidleri (AA'dan) baskılar
+- Resolvin ve protektin gibi anti-inflamatuar moleküller üretir
+- DOMS şiddetini ve süresini azaltır
+
+### 3. Kardiyovasküler Performans
+- Kalp atım hızını optimize eder
+- Kan viskozitesini azaltır → oksijen taşıma kapasitesi artar
+- VO2 max desteği (özellikle dayanıklılık sporcularında)
+
+### 4. Eklem Sağlığı
+Sinovyal sıvının omega-3 içeriği eklem yağlamasını etkiler. Yeterli omega-3:
+- Eklem ağrısını azaltır
+- Kıkırdak sağlığını destekler
+- Uzun vadeli eklem korunması
+
+### 5. Beyin Fonksiyonu ve Odak
+DHA, beyin dokusunun temel yapı taşıdır. Yeterli DHA:
+- Reaksiyon süresini kısaltır
+- Konsantrasyonu artırır
+- Egzersiz sırasındaki bilişsel performansı destekler
+
+### 6. Vücut Kompozisyonu
+Bazı araştırmalar omega-3'ün insülin duyarlılığını artırarak yağ yakımını ve kas korumayı desteklediğini göstermektedir.
+
+## Omega-3 Türleri Farkı
+
+| Tür | Kaynak | Dönüşüm | Verimlilik |
+|---|---|---|---|
+| **ALA** | Keten, chia, ceviz | → EPA/DHA (%5-10) | Düşük |
+| **EPA** | Yağlı balık, algler | Direkt kullanım | Yüksek |
+| **DHA** | Yağlı balık, algler | Direkt kullanım | Yüksek |
+
+> ⚠️ **Kritik Bilgi:** Keten tohumu ve ceviz yeterli omega-3 kaynağı değildir. ALA'nın EPA/DHA'ya dönüşümü çok düşük — balık yağı veya alg yağı şart.
+
+## Hangi Besinler İçerir?
+
+| Besin | Porsiyon | EPA+DHA |
+|---|---|---|
+| Somon (yabani) | 100g | 2300 mg |
+| Hamsi | 100g | 2100 mg |
+| Uskumru | 100g | 1900 mg |
+| Ringa balığı | 100g | 1700 mg |
+| Ton balığı (konserve) | 100g | 300 mg |
+| Sardalye | 100g | 1500 mg |
+
+**Haftada 2-3 porsiyon yağlı balık** yeterli miktarı sağlayabilir. Ama çoğu sporcu bu kadar balık yemez → takviye gerekli.
+
+## Dozaj Rehberi
+
+| Hedef | Günlük EPA+DHA |
+|---|---|
+| Genel sağlık | 500-1000 mg |
+| **Spor performansı ve toparlanma** | **2000-3000 mg** |
+| Eklem ağrısı / inflamasyon | 3000-4000 mg |
+| Maksimum etki | 4000 mg (doktor gözetimi) |
+
+> 📌 **Pratik:** Çoğu balık yağı kapsülü 300-500 mg EPA+DHA içerir. 2000 mg için 4-6 kapsül veya yüksek potansiyelli ürün seç.
+
+## Kaliteli Omega-3 Nasıl Seçilir?
+
+### ✅ İyi Ürün İşaretleri
+- **EPA+DHA miktarı etikette açık** (toplam omega-3 değil)
+- IFOS (International Fish Oil Standards) sertifikası
+- TOTOX değeri düşük (tazelik ölçüsü)
+- Trigliserit formu > etil ester formu (daha iyi emilim)
+
+### ❌ Kaçın
+- "Balık yağı 1000 mg" yazıp içinde 180 mg EPA+DHA olanlar
+- Balık aroması çok güçlü olanlar (oksidasyon işareti)
+- Ucuz rafine edilmemiş ürünler
+
+### Vegan Alternatif: Alg Yağı
+Balık omega-3'ü nereden alır? Algleri yiyerek. Direkt kaynağı alabilirsin:
+- Balık aroması yok
+- Sürdürülebilir kaynak
+- EPA+DHA içeriği yeterli
+
+## Ne Zaman Alınır?
+
+Omega-3 yağda çözünür:
+✅ **Yağlı bir öğünle birlikte** alın — emilimi %50 artırır
+⚠️ Aç karna alım balık geğirmesini artırır
+
+## Sıkça Sorulan Sorular
+
+### Omega-3 kan sulandırır mı?
+Yüksek dozlarda (4g+/gün) hafif antikoagülan etki gösterebilir. Kan sulandırıcı ilaç kullananlar doktora danışmalı.
+
+### Ne zaman sonuç görülür?
+Anti-inflamatuar etkiler 4-6 haftada, bilişsel ve performans faydaları 8-12 haftada ortaya çıkar.
+
+### Omega-3 kilo aldırır mı?
+Hayır. Günlük 3g omega-3 = 27 kalori — anlamlı bir etki yok.
+
+### Omega-3 ve Vitamin E birlikte alınabilir mi?
+Evet, E vitamini omega-3'ü oksidasyondan korur. Bazı kaliteli ürünler zaten ekler.`,
+    seoTitle: "Omega-3 ve Spor: Kas Gelişimi, İltihap ve Performans Etkisi | Gokalaf",
+    seoDescription: "Omega-3 sporcular için ne işe yarar? EPA ve DHA'nın kas protein sentezi, toparlanma ve performans üzerine etkileri, dozaj ve seçim rehberi.",
+    publishedAt: "2025-03-30",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
