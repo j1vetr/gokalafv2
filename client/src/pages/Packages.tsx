@@ -263,16 +263,16 @@ export default function Packages() {
               <div className="relative h-full bg-[#0a0a0a] border border-white/[0.08] rounded-2xl overflow-hidden flex flex-col">
                 <div className="h-px bg-gradient-to-r from-transparent via-[#ccff00]/40 to-transparent" />
 
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-5 flex flex-col flex-1">
                   {/* Title block */}
-                  <div className="mb-6">
-                    <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Natural Paket</h2>
-                    <p className="text-gray-500 text-[12px] mt-0.5">Kapsamlı temel koçluk programı</p>
+                  <div className="mb-4">
+                    <h2 className="text-lg font-heading font-bold uppercase text-white tracking-tight">Natural Paket</h2>
+                    <p className="text-gray-500 text-[11px] mt-0.5">Kapsamlı temel koçluk programı</p>
                   </div>
 
                   {/* Duration */}
-                  <div className="mb-5">
-                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-2">Program süresi</p>
+                  <div className="mb-3">
+                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
                     <DurationSelector
                       options={naturalDurations}
                       selected={naturalWeeks}
@@ -282,7 +282,7 @@ export default function Packages() {
                   </div>
 
                   {/* Price */}
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={naturalWeeks}
@@ -291,23 +291,23 @@ export default function Packages() {
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <p className="text-[38px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-package-price">
+                        <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-package-price">
                           ₺{naturalPkg ? parseFloat(naturalPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[12px] mt-1">{naturalWeeks} haftalık program</p>
+                        <p className="text-gray-600 text-[11px] mt-0.5">{naturalWeeks} haftalık program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
 
                   {/* Features */}
-                  <div className="flex-1 mb-6">
-                    <div className="space-y-2">
+                  <div className="flex-1 mb-4">
+                    <div className="space-y-1.5">
                       {NATURAL_FEATURES.map((f, i) => (
-                        <div key={i} className="flex items-start gap-2.5">
-                          <div className="w-4 h-4 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/25 flex items-center justify-center shrink-0 mt-0.5">
-                            <Check size={9} className="text-[#ccff00]" />
+                        <div key={i} className="flex items-start gap-2">
+                          <div className="w-3.5 h-3.5 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/25 flex items-center justify-center shrink-0 mt-0.5">
+                            <Check size={8} className="text-[#ccff00]" />
                           </div>
-                          <span className="text-gray-400 text-[13px] leading-relaxed">{f}</span>
+                          <span className="text-gray-400 text-[12px] leading-snug">{f}</span>
                         </div>
                       ))}
                     </div>
@@ -319,7 +319,7 @@ export default function Packages() {
                       onClick={() => naturalPkg && trackAddToCart(`${naturalWeeks} Haftalık Natural Paket`, naturalPkg.id, parseFloat(naturalPkg.price))}
                       disabled={!naturalPkg}
                       data-testid="button-buy-natural"
-                      className="w-full h-11 rounded-xl bg-[#ccff00] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#ccff00]/90 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.25)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-full h-10 rounded-xl bg-[#ccff00] text-black font-bold text-[12px] uppercase tracking-wider hover:bg-[#ccff00]/90 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.25)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       Satın al
                     </button>
@@ -352,16 +352,16 @@ export default function Packages() {
                 {/* Warm inner glow */}
                 <div className="absolute top-0 right-0 w-60 h-60 bg-[#d4a017]/[0.06] rounded-full blur-[70px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
-                <div className="p-6 flex flex-col flex-1 relative z-10">
+                <div className="p-5 flex flex-col flex-1 relative z-10">
                   {/* Title block */}
-                  <div className="mb-6">
-                    <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
-                    <p className="text-gray-500 text-[12px] mt-0.5">İleri seviye performans koçluğu</p>
+                  <div className="mb-4">
+                    <h2 className="text-lg font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
+                    <p className="text-gray-500 text-[11px] mt-0.5">İleri seviye performans koçluğu</p>
                   </div>
 
                   {/* Duration */}
-                  <div className="mb-5">
-                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-2">Program süresi</p>
+                  <div className="mb-3">
+                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
                     <DurationSelector
                       options={teamDurations}
                       selected={teamWeeks}
@@ -371,7 +371,7 @@ export default function Packages() {
                   </div>
 
                   {/* Price */}
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={teamWeeks}
@@ -380,31 +380,31 @@ export default function Packages() {
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <p className="text-[38px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
+                        <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[12px] mt-1">{teamWeeks} haftalık program</p>
+                        <p className="text-gray-600 text-[11px] mt-0.5">{teamWeeks} haftalık program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
 
                   {/* Features */}
-                  <div className="flex-1 mb-6 space-y-5">
+                  <div className="flex-1 mb-4 space-y-3">
 
                     {/* Natural base — muted/secondary */}
                     <div>
-                      <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-2">
                         <div className="h-px flex-1 bg-white/[0.07]" />
                         <span className="text-[10px] text-gray-600 uppercase tracking-[0.15em] whitespace-nowrap">Natural paket'teki her şey</span>
                         <div className="h-px flex-1 bg-white/[0.07]" />
                       </div>
-                      <div className="space-y-1.5">
+                      <div className="space-y-1">
                         {NATURAL_FEATURES.map((f, i) => (
-                          <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-gray-500" />
+                          <div key={i} className="flex items-start gap-2">
+                            <div className="w-3.5 h-3.5 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={8} className="text-gray-500" />
                             </div>
-                            <span className="text-gray-500 text-[11px] leading-relaxed">{f}</span>
+                            <span className="text-gray-500 text-[11px] leading-snug">{f}</span>
                           </div>
                         ))}
                       </div>
@@ -412,18 +412,18 @@ export default function Packages() {
 
                     {/* Team Alaf Extras — fully bright */}
                     <div>
-                      <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-2">
                         <div className="h-px flex-1 bg-[#d4a017]/30" />
                         <span className="text-[10px] text-[#d4a017] uppercase tracking-[0.15em] whitespace-nowrap font-bold">+ Team Alaf Extras</span>
                         <div className="h-px flex-1 bg-[#d4a017]/30" />
                       </div>
-                      <div className="space-y-2.5">
+                      <div className="space-y-1.5">
                         {TEAM_ALAF_EXTRAS.map((f, i) => (
-                          <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-[#d4a017]/20 border border-[#d4a017]/50 flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-[#d4a017]" />
+                          <div key={i} className="flex items-start gap-2">
+                            <div className="w-3.5 h-3.5 rounded-full bg-[#d4a017]/20 border border-[#d4a017]/50 flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={8} className="text-[#d4a017]" />
                             </div>
-                            <span className="text-white text-[13px] leading-relaxed font-medium">{f}</span>
+                            <span className="text-white text-[12px] leading-snug font-medium">{f}</span>
                           </div>
                         ))}
                       </div>
@@ -437,7 +437,7 @@ export default function Packages() {
                       onClick={() => teamPkg && trackAddToCart(`${teamWeeks} Haftalık Team Alaf Paketi`, teamPkg.id, parseFloat(teamPkg.price))}
                       disabled={!teamPkg}
                       data-testid="button-buy-team-alaf"
-                      className="w-full h-11 rounded-xl bg-[#d4a017] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#d4a017]/90 transition-all hover:shadow-[0_0_24px_rgba(212,160,23,0.4)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-full h-10 rounded-xl bg-[#d4a017] text-black font-bold text-[12px] uppercase tracking-wider hover:bg-[#d4a017]/90 transition-all hover:shadow-[0_0_24px_rgba(212,160,23,0.4)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       Satın al
                     </button>
