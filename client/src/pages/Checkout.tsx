@@ -379,8 +379,8 @@ export default function Checkout() {
                         label="Telefon"
                         type="tel"
                         value={phone}
-                        onChange={setPhone}
-                        placeholder="0532 000 00 00"
+                        onChange={(v) => setPhone(v.replace(/[^0-9+]/g, ""))}
+                        placeholder="05320000000"
                         required
                         testId="input-phone"
                         error={fieldErrors.phone}
@@ -424,7 +424,7 @@ export default function Checkout() {
                         </div>
                         <span className="text-gray-400 text-[13px] leading-snug group-hover:text-gray-300 transition-colors">
                           Üyelik oluşturmak istiyorum{" "}
-                          <span className="text-gray-600 text-[11px]">(opsiyonel)</span>
+                          <span className="text-gray-600 text-[11px]">(opsiyonel).</span>
                         </span>
                       </label>
                       <AnimatePresence>
