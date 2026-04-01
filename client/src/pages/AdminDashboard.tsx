@@ -1037,12 +1037,12 @@ export default function AdminDashboard() {
               {/* Brand header */}
               <div className="px-5 py-5 border-b border-white/[0.06]">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center text-[#ccff00] font-bold text-sm">
+                  <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center text-[#ccff00] font-bold text-sm shrink-0">
                     G
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-white text-sm font-semibold leading-none mb-0.5">Gokalaf</p>
-                    <p className="text-[11px] text-gray-600 truncate">{user?.email}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white text-sm font-semibold leading-none mb-1.5">Gokalaf</p>
+                    <span className="font-black text-white/60 text-[15px] tracking-[0.22em] uppercase leading-none">TOOV</span>
                   </div>
                 </div>
               </div>
@@ -1147,10 +1147,6 @@ export default function AdminDashboard() {
                   {/* ── Header strip ── */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="flex items-center gap-2.5 mb-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse" />
-                        <span className="text-[11px] text-[#ccff00]/70 uppercase tracking-[0.18em] font-medium">Canlı</span>
-                      </div>
                       <h1 className="text-2xl font-bold text-white tracking-tight">Yönetim Paneli</h1>
                       <p className="text-gray-600 text-[13px] mt-0.5">Hoş geldin, {user?.fullName?.split(" ")[0]} — {new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" })}</p>
                     </div>
