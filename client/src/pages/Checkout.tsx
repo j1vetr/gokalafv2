@@ -555,42 +555,72 @@ export default function Checkout() {
                   Sipariş özeti
                 </h2>
 
-                {/* Package selector */}
-                <div className="space-y-2 mb-5">
-                  {packages.map((pkg) => (
-                    <button
-                      key={pkg.id}
-                      onClick={() => setSelectedPackage(pkg)}
-                      data-testid={`package-option-${pkg.id}`}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border text-left transition-all ${
-                        selectedPackage?.id === pkg.id
-                          ? pkg.name.includes("Team Alaf")
-                            ? "border-[#d4a017]/40 bg-[#d4a017]/[0.06]"
-                            : "border-[#ccff00]/30 bg-[#ccff00]/[0.06]"
-                          : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]"
-                      }`}
-                    >
-                      <div>
-                        <p className="text-white text-[12px] font-semibold">
-                          {pkg.name.includes("Team Alaf") ? "Team Alaf" : "Natural"} — {pkg.weeks} Hafta
+                {/* Package selector — grouped */}
+                {(() => {
+                  const naturalPkgs = packages.filter((p) => !p.name.includes("Team Alaf")).sort((a, b) => a.weeks - b.weeks);
+                  const teamAlafPkgs = packages.filter((p) => p.name.includes("Team Alaf")).sort((a, b) => a.weeks - b.weeks);
+
+                  const PackageRow = ({ pkg }: { pkg: Package }) => {
+                    const isTA = pkg.name.includes("Team Alaf");
+                    const isSelected = selectedPackage?.id === pkg.id;
+                    return (
+                      <button
+                        key={pkg.id}
+                        onClick={() => setSelectedPackage(pkg)}
+                        data-testid={`package-option-${pkg.id}`}
+                        className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-left transition-all ${
+                          isSelected
+                            ? isTA
+                              ? "border-[#d4a017]/40 bg-[#d4a017]/[0.07]"
+                              : "border-[#ccff00]/30 bg-[#ccff00]/[0.06]"
+                            : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]"
+                        }`}
+                      >
+                        <p className={`text-[13px] font-semibold ${isSelected ? "text-white" : "text-gray-300"}`}>
+                          {pkg.weeks} haftalık program
                         </p>
-                        <p className="text-gray-600 text-[11px] mt-0.5">
-                          {pkg.name.includes("Team Alaf") ? "Üst seviye" : "Başlangıç"}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-2.5 shrink-0">
-                        <span className={`text-[13px] font-bold ${pkg.name.includes("Team Alaf") ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
-                          ₺{parseFloat(pkg.price).toLocaleString("tr-TR")}
-                        </span>
-                        {selectedPackage?.id === pkg.id && (
-                          <div className={`w-4 h-4 rounded-full flex items-center justify-center ${pkg.name.includes("Team Alaf") ? "bg-[#d4a017]" : "bg-[#ccff00]"}`}>
-                            <Check size={9} className="text-black" />
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className={`text-[13px] font-bold ${isTA ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
+                            ₺{parseFloat(pkg.price).toLocaleString("tr-TR")}
+                          </span>
+                          <div className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
+                            isSelected
+                              ? isTA ? "bg-[#d4a017] border-[#d4a017]" : "bg-[#ccff00] border-[#ccff00]"
+                              : "border-white/20 bg-transparent"
+                          }`}>
+                            {isSelected && <Check size={9} className="text-black" />}
                           </div>
-                        )}
+                        </div>
+                      </button>
+                    );
+                  };
+
+                  return (
+                    <div className="space-y-4 mb-5">
+                      {/* Natural Paket grubu */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#ccff00]/70">Natural Paket</span>
+                          <div className="flex-1 h-px bg-[#ccff00]/10" />
+                        </div>
+                        <div className="space-y-1.5">
+                          {naturalPkgs.map((pkg) => <PackageRow key={pkg.id} pkg={pkg} />)}
+                        </div>
                       </div>
-                    </button>
-                  ))}
-                </div>
+
+                      {/* Team Alaf Paketi grubu */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d4a017]/70">Team Alaf Paketi</span>
+                          <div className="flex-1 h-px bg-[#d4a017]/10" />
+                        </div>
+                        <div className="space-y-1.5">
+                          {teamAlafPkgs.map((pkg) => <PackageRow key={pkg.id} pkg={pkg} />)}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {fieldErrors.package && (
                   <p className="text-red-400 text-[11px] mb-3">{fieldErrors.package}</p>
