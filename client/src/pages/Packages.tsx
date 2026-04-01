@@ -193,7 +193,7 @@ export default function Packages() {
         schema={packagesSchema}
       />
 
-      <div className="min-h-screen bg-[#050505] pt-24 pb-20">
+      <div className="min-h-screen bg-[#050505] pt-36 pb-20">
         {/* Background texture */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ccff00]/[0.02] rounded-full blur-[120px]" />
@@ -209,10 +209,6 @@ export default function Packages() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-xl mx-auto mb-14"
           >
-            <div className="inline-flex items-center gap-2 bg-[#ccff00]/[0.07] border border-[#ccff00]/20 rounded-full px-4 py-1.5 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00]" />
-              <span className="text-[#ccff00] text-[11px] font-semibold uppercase tracking-[0.2em]">Koçluk Paketleri</span>
-            </div>
             <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase text-white leading-tight mb-3">
               Hedefine uygun <br />
               <span className="text-[#ccff00]">paketi seç</span>
