@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/useAuth";
-import { ShoppingCart, CreditCard, Shield, Check, ArrowLeft, ExternalLink, Tag, X, Loader2, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft, CreditCard, Shield, Check, Tag, X, Loader2,
+  CheckCircle, User, Mail, Phone, MapPin, Lock, Eye, EyeOff,
+  ChevronRight, Zap,
+} from "lucide-react";
 import { Link } from "wouter";
+import { motion, AnimatePresence } from "framer-motion";
 import { trackInitiateCheckout } from "@/lib/facebook-pixel";
 import { getTrafficSource } from "@/hooks/useTrafficSource";
 
@@ -25,62 +28,140 @@ interface AppliedCoupon {
   finalPrice: number;
 }
 
+function InputField({
+  icon: Icon,
+  label,
+  type = "text",
+  value,
+  onChange,
+  placeholder,
+  required,
+  testId,
+  rightElement,
+  error,
+}: {
+  icon: React.ElementType;
+  label: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+  required?: boolean;
+  testId?: string;
+  rightElement?: React.ReactNode;
+  error?: string;
+}) {
+  return (
+    <div>
+      <label className="block text-[11px] text-gray-500 uppercase tracking-[0.15em] mb-1.5 font-medium">
+        {label}{required && <span className="text-[#ccff00] ml-0.5">*</span>}
+      </label>
+      <div className="relative">
+        <Icon size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
+        <input
+          type={type}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          data-testid={testId}
+          className={`w-full bg-white/[0.03] border rounded-xl pl-10 pr-4 py-3 text-white placeholder:text-gray-700 text-[13px] focus:outline-none transition-all ${
+            error
+              ? "border-red-500/50 focus:border-red-400"
+              : "border-white/[0.08] focus:border-[#ccff00]/40 focus:bg-white/[0.05] focus:ring-1 focus:ring-[#ccff00]/10"
+          } ${rightElement ? "pr-12" : ""}`}
+        />
+        {rightElement && (
+          <div className="absolute right-3.5 top-1/2 -translate-y-1/2">{rightElement}</div>
+        )}
+      </div>
+      {error && <p className="text-red-400 text-[11px] mt-1">{error}</p>}
+    </div>
+  );
+}
+
 export default function Checkout() {
   const { user, isAuthenticated, isLoading: authLoading } = useAuth();
   const [, setLocation] = useLocation();
+
+  // Package state
   const [packages, setPackages] = useState<Package[]>([]);
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+  const [isLoadingPkg, setIsLoadingPkg] = useState(true);
+
+  // Coupon state
   const [couponCode, setCouponCode] = useState("");
   const [couponError, setCouponError] = useState("");
   const [couponLoading, setCouponLoading] = useState(false);
   const [appliedCoupon, setAppliedCoupon] = useState<AppliedCoupon | null>(null);
 
-  useEffect(() => {
-    if (!authLoading && !isAuthenticated) {
-      setLocation("/kayit?redirect=checkout");
-    }
-  }, [authLoading, isAuthenticated, setLocation]);
+  // Form state
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [createAccount, setCreateAccount] = useState(false);
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
+  // Processing state
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [formError, setFormError] = useState("");
+
+  // Pre-fill form if user is logged in
+  useEffect(() => {
+    if (user) {
+      setFullName(user.fullName || "");
+      setEmail(user.email || "");
+      setPhone(user.phone || "");
+      setAddress(user.address || "");
+    }
+  }, [user]);
+
+  // Load packages
   useEffect(() => {
     const fetchPackages = async () => {
       try {
         const res = await fetch("/api/packages");
         const data = await res.json();
-        setPackages(data.packages || []);
-        
+        const pkgList = data.packages || [];
+        setPackages(pkgList);
+
         const urlParams = new URLSearchParams(window.location.search);
         const packageId = urlParams.get("packageId");
         const weeks = urlParams.get("weeks");
-        if (data.packages) {
-          let pkg: Package | undefined;
-          if (packageId) {
-            pkg = data.packages.find((p: Package) => p.id === packageId);
-          }
-          if (!pkg && weeks) {
-            // For Natural packages: match by weeks excluding Team Alaf
-            pkg = data.packages.find((p: Package) => p.weeks === parseInt(weeks) && !p.name.includes("Team Alaf"));
-          }
-          if (pkg) setSelectedPackage(pkg);
+        let pkg: Package | undefined;
+        if (packageId) {
+          pkg = pkgList.find((p: Package) => p.id === packageId);
         }
-      } catch (error) {
-        console.error("Paketler yüklenemedi:", error);
+        if (!pkg && weeks) {
+          pkg = pkgList.find((p: Package) => p.weeks === parseInt(weeks) && !p.name.includes("Team Alaf"));
+        }
+        if (pkg) setSelectedPackage(pkg);
+      } catch {
+        /* silent */
       } finally {
-        setIsLoading(false);
+        setIsLoadingPkg(false);
       }
     };
     fetchPackages();
   }, []);
 
+  // Reset coupon when package changes
   useEffect(() => {
-    if (appliedCoupon) {
-      setAppliedCoupon(null);
-      setCouponCode("");
-      setCouponError("");
-    }
+    setAppliedCoupon(null);
+    setCouponCode("");
+    setCouponError("");
   }, [selectedPackage?.id]);
+
+  const isTeamAlaf = selectedPackage?.name.includes("Team Alaf");
+  const accentColor = isTeamAlaf ? "#d4a017" : "#ccff00";
+
+  const getDisplayPrice = () => {
+    if (!selectedPackage) return 0;
+    return appliedCoupon ? appliedCoupon.finalPrice : parseFloat(selectedPackage.price);
+  };
 
   const handleApplyCoupon = async () => {
     if (!couponCode.trim() || !selectedPackage) return;
@@ -90,10 +171,9 @@ export default function Checkout() {
       const res = await fetch("/api/coupons/validate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ 
-          code: couponCode.trim().toUpperCase(), 
-          orderAmount: parseFloat(selectedPackage.price) 
+        body: JSON.stringify({
+          code: couponCode.trim().toUpperCase(),
+          orderAmount: parseFloat(selectedPackage.price),
         }),
       });
       const data = await res.json();
@@ -109,7 +189,6 @@ export default function Checkout() {
           discountAmount: data.discountAmount,
           finalPrice: data.finalAmount,
         });
-        setCouponError("");
       }
     } catch {
       setCouponError("Kupon doğrulanamadı");
@@ -118,268 +197,495 @@ export default function Checkout() {
     }
   };
 
-  const removeCoupon = () => {
-    setAppliedCoupon(null);
-    setCouponCode("");
-    setCouponError("");
-  };
-
-  const getDisplayPrice = () => {
-    if (!selectedPackage) return 0;
-    return appliedCoupon ? appliedCoupon.finalPrice : parseFloat(selectedPackage.price);
+  const validate = () => {
+    const errors: Record<string, string> = {};
+    if (!isAuthenticated) {
+      if (!fullName.trim() || fullName.trim().length < 2) errors.fullName = "Ad soyad en az 2 karakter olmalı";
+      if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) errors.email = "Geçerli bir e-posta girin";
+      if (!phone.trim() || phone.trim().length < 7) errors.phone = "Geçerli bir telefon numarası girin";
+      if (createAccount && password.length < 6) errors.password = "Şifre en az 6 karakter olmalı";
+    }
+    if (!selectedPackage) errors.package = "Lütfen bir paket seçin";
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleCheckout = async () => {
-    if (!selectedPackage) return;
-    
+    if (!validate() || !acceptedPolicy || !selectedPackage) return;
+
     const finalPrice = getDisplayPrice();
-    trackInitiateCheckout(
-      [selectedPackage.id],
-      finalPrice,
-      1
-    );
-    
+    trackInitiateCheckout([selectedPackage.id], finalPrice, 1);
+
     setIsProcessing(true);
+    setFormError("");
+
     try {
-      const orderRes = await fetch("/api/orders", {
+      // Step 1: Create order (guest or authenticated)
+      const endpoint = isAuthenticated ? "/api/orders" : "/api/orders/guest";
+      const body = isAuthenticated
+        ? {
+            packageId: selectedPackage.id,
+            couponCode: appliedCoupon?.code,
+            orderSource: getTrafficSource(),
+          }
+        : {
+            fullName: fullName.trim(),
+            email: email.trim().toLowerCase(),
+            phone: phone.trim(),
+            address: address.trim() || undefined,
+            packageId: selectedPackage.id,
+            couponCode: appliedCoupon?.code,
+            orderSource: getTrafficSource(),
+            createAccount,
+            password: createAccount ? password : undefined,
+          };
+
+      const orderRes = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({ 
-          packageId: selectedPackage.id,
-          couponCode: appliedCoupon ? appliedCoupon.code : undefined,
-          orderSource: getTrafficSource(),
-        }),
+        body: JSON.stringify(body),
       });
-      
-      if (orderRes.ok) {
-        const orderData = await orderRes.json();
-        const orderId = orderData.order.id;
-        
-        const paymentRes = await fetch("/api/shopier/initiate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-          body: JSON.stringify({ orderId }),
-        });
-        
-        if (paymentRes.ok) {
-          const paymentHTML = await paymentRes.text();
-          document.open();
-          document.write(paymentHTML);
-          document.close();
-        } else {
-          console.error("Ödeme başlatılamadı");
-        }
+
+      if (!orderRes.ok) {
+        const err = await orderRes.json();
+        setFormError(err.error || "Sipariş oluşturulamadı");
+        return;
       }
-    } catch (error) {
-      console.error("Sipariş oluşturulamadı:", error);
+
+      const { order } = await orderRes.json();
+
+      // Step 2: Initiate Shopier payment
+      const paymentRes = await fetch("/api/shopier/initiate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ orderId: order.id }),
+      });
+
+      if (paymentRes.ok) {
+        const paymentHTML = await paymentRes.text();
+        document.open();
+        document.write(paymentHTML);
+        document.close();
+      } else {
+        setFormError("Ödeme başlatılamadı. Lütfen tekrar deneyin.");
+      }
+    } catch {
+      setFormError("Bir hata oluştu. Lütfen tekrar deneyin.");
     } finally {
       setIsProcessing(false);
     }
   };
 
-  if (authLoading || isLoading) {
+  if (authLoading || isLoadingPkg) {
     return (
-      <div className="min-h-screen pt-32 pb-12 bg-[#050505] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <Loader2 className="w-7 h-7 animate-spin text-[#ccff00]" />
       </div>
     );
   }
 
+  const displayPrice = getDisplayPrice();
+  const originalPrice = selectedPackage ? parseFloat(selectedPackage.price) : 0;
+
   return (
-    <div className="min-h-screen pt-28 pb-12 bg-[#050505]">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/paketler" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
-          <ArrowLeft size={16} /> Paketlere Dön
+    <div className="min-h-screen bg-[#050505] pt-24 pb-16">
+      {/* Ambient glow */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#ccff00]/[0.015] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 max-w-5xl relative z-10">
+
+        {/* Back link */}
+        <Link href="/paketler" className="inline-flex items-center gap-1.5 text-gray-600 hover:text-white text-[13px] transition-colors mb-8">
+          <ArrowLeft size={14} />
+          Paketlere dön
         </Link>
 
-        <div className="text-center mb-8">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 uppercase tracking-wider px-3 py-1 text-xs">
-            <ShoppingCart size={12} className="mr-1" /> Ödeme
-          </Badge>
-          <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase mb-2 text-white">
-            Siparişini <span className="text-primary">Tamamla</span>
+        {/* Step header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="mb-10"
+        >
+          <div className="flex items-center gap-3 mb-1">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-[#ccff00] flex items-center justify-center">
+                <span className="text-black text-[10px] font-bold">1</span>
+              </div>
+              <span className="text-[#ccff00] text-[12px] font-semibold uppercase tracking-wider">Bilgiler</span>
+            </div>
+            <div className="flex-1 max-w-[60px] h-px bg-white/[0.08]" />
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-white/[0.06] border border-white/[0.1] flex items-center justify-center">
+                <span className="text-gray-600 text-[10px] font-bold">2</span>
+              </div>
+              <span className="text-gray-600 text-[12px] font-medium uppercase tracking-wider">Ödeme</span>
+            </div>
+          </div>
+          <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white mt-3">
+            Siparişini <span className="text-[#ccff00]">tamamla</span>
           </h1>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Package Selection */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-heading font-bold uppercase text-white mb-4">Paket Seç</h2>
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                onClick={() => setSelectedPackage(pkg)}
-                className={`p-5 rounded-xl border cursor-pointer transition-all ${
-                  selectedPackage?.id === pkg.id
-                    ? "border-primary bg-primary/10"
-                    : "border-white/10 bg-white/5 hover:border-white/20"
-                }`}
-                data-testid={`package-option-${pkg.weeks}`}
-              >
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="font-heading font-bold text-white uppercase">{pkg.weeks} Hafta</h3>
-                    <p className="text-gray-400 text-sm">Normal Plan</p>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-6">
+
+          {/* ── Right panel (shown first on mobile): Contact form ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="order-2 lg:order-1"
+          >
+            <div className="bg-[#0a0a0a] border border-white/[0.07] rounded-2xl overflow-hidden">
+              <div className="h-px bg-gradient-to-r from-transparent via-[#ccff00]/30 to-transparent" />
+              <div className="p-6">
+                <h2 className="text-[13px] font-bold uppercase tracking-[0.15em] text-white mb-5">
+                  Sipariş bilgileri
+                </h2>
+
+                {isAuthenticated && user ? (
+                  /* Logged-in user card */
+                  <div className="flex items-center gap-3 bg-[#ccff00]/[0.05] border border-[#ccff00]/15 rounded-xl p-4 mb-6">
+                    <div className="w-10 h-10 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center shrink-0">
+                      <User size={16} className="text-[#ccff00]" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-white text-[13px] font-semibold truncate">{user.fullName}</p>
+                      <p className="text-gray-500 text-[12px] truncate">{user.email}</p>
+                    </div>
+                    <CheckCircle size={16} className="text-[#ccff00] shrink-0 ml-auto" />
                   </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-white">₺{parseFloat(pkg.price).toLocaleString("tr-TR")}</div>
-                  </div>
-                </div>
-                {selectedPackage?.id === pkg.id && (
-                  <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
-                    {pkg.features.map((f, i) => (
-                      <div key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                        <Check size={14} className="text-primary mt-0.5 shrink-0" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
+                ) : (
+                  /* Guest form */
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <InputField
+                        icon={User}
+                        label="Ad soyad"
+                        value={fullName}
+                        onChange={setFullName}
+                        placeholder="Ahmet Yılmaz"
+                        required
+                        testId="input-fullname"
+                        error={fieldErrors.fullName}
+                      />
+                      <InputField
+                        icon={Phone}
+                        label="Telefon"
+                        type="tel"
+                        value={phone}
+                        onChange={setPhone}
+                        placeholder="0532 000 00 00"
+                        required
+                        testId="input-phone"
+                        error={fieldErrors.phone}
+                      />
+                    </div>
+                    <InputField
+                      icon={Mail}
+                      label="E-posta"
+                      type="email"
+                      value={email}
+                      onChange={setEmail}
+                      placeholder="ornek@mail.com"
+                      required
+                      testId="input-email"
+                      error={fieldErrors.email}
+                    />
+                    <InputField
+                      icon={MapPin}
+                      label="Şehir / Adres (opsiyonel)"
+                      value={address}
+                      onChange={setAddress}
+                      placeholder="İstanbul"
+                      testId="input-address"
+                    />
+
+                    {/* Optional account creation */}
+                    <div className="pt-1">
+                      <label
+                        className="flex items-center gap-3 cursor-pointer group"
+                        data-testid="checkbox-create-account"
+                      >
+                        <div
+                          onClick={() => setCreateAccount(!createAccount)}
+                          className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all ${
+                            createAccount
+                              ? "bg-[#ccff00] border-[#ccff00]"
+                              : "bg-white/[0.04] border-white/[0.12] group-hover:border-white/25"
+                          }`}
+                        >
+                          {createAccount && <Check size={11} className="text-black" />}
+                        </div>
+                        <span className="text-gray-400 text-[13px] leading-snug group-hover:text-gray-300 transition-colors">
+                          Üyelik oluşturmak istiyorum{" "}
+                          <span className="text-gray-600 text-[11px]">(opsiyonel)</span>
+                        </span>
+                      </label>
+                      <AnimatePresence>
+                        {createAccount && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="overflow-hidden mt-3"
+                          >
+                            <InputField
+                              icon={Lock}
+                              label="Şifre"
+                              type={showPassword ? "text" : "password"}
+                              value={password}
+                              onChange={setPassword}
+                              placeholder="En az 6 karakter"
+                              required
+                              testId="input-password"
+                              error={fieldErrors.password}
+                              rightElement={
+                                <button
+                                  type="button"
+                                  onClick={() => setShowPassword(!showPassword)}
+                                  className="text-gray-600 hover:text-gray-400 transition-colors"
+                                >
+                                  {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
+                                </button>
+                              }
+                            />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   </div>
                 )}
+
+                {/* Policy */}
+                <div className="mt-5 pt-5 border-t border-white/[0.06]">
+                  <label className="flex items-start gap-3 cursor-pointer group" data-testid="checkbox-policy">
+                    <div
+                      onClick={() => setAcceptedPolicy(!acceptedPolicy)}
+                      className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 mt-0.5 transition-all ${
+                        acceptedPolicy
+                          ? "bg-[#ccff00] border-[#ccff00]"
+                          : "bg-white/[0.04] border-white/[0.12] group-hover:border-white/25"
+                      }`}
+                    >
+                      {acceptedPolicy && <Check size={11} className="text-black" />}
+                    </div>
+                    <span className="text-gray-500 text-[12px] leading-relaxed group-hover:text-gray-400 transition-colors">
+                      Kişiye özel koçluk hizmeti kapsamında cayma hakkımın bulunmadığını kabul ediyorum.{" "}
+                      <Link href="/iptal-iade" className="text-[#ccff00]/60 hover:text-[#ccff00] underline transition-colors" target="_blank">
+                        İade politikası
+                      </Link>
+                    </span>
+                  </label>
+                </div>
+
+                {/* Error */}
+                <AnimatePresence>
+                  {formError && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="mt-4 bg-red-500/10 border border-red-500/25 rounded-xl px-4 py-3 flex items-start gap-2.5"
+                    >
+                      <X size={14} className="text-red-400 mt-0.5 shrink-0" />
+                      <p className="text-red-400 text-[12px]">{formError}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* CTA */}
+                <button
+                  onClick={handleCheckout}
+                  disabled={isProcessing || !acceptedPolicy || !selectedPackage}
+                  data-testid="button-checkout"
+                  className="mt-5 w-full h-13 py-3.5 rounded-xl bg-[#ccff00] text-black font-bold text-[14px] uppercase tracking-wider flex items-center justify-center gap-2.5 hover:bg-[#ccff00]/90 hover:shadow-[0_0_24px_rgba(204,255,0,0.25)] transition-all active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
+                >
+                  {isProcessing ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" />
+                      İşleniyor...
+                    </>
+                  ) : (
+                    <>
+                      <CreditCard size={16} />
+                      Shopier ile öde
+                      <ChevronRight size={16} />
+                    </>
+                  )}
+                </button>
+
+                {/* Trust badges */}
+                <div className="mt-4 flex items-center justify-center gap-4 text-gray-700 text-[11px]">
+                  <span className="flex items-center gap-1">
+                    <Shield size={12} />
+                    SSL korumalı
+                  </span>
+                  <span className="w-px h-3 bg-white/[0.07]" />
+                  <span className="flex items-center gap-1">
+                    <Zap size={12} />
+                    Shopier güvencesi
+                  </span>
+                  <span className="w-px h-3 bg-white/[0.07]" />
+                  <span className="flex items-center gap-1">
+                    <Lock size={12} />
+                    256-bit şifreli
+                  </span>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
 
-          {/* Order Summary */}
-          <div>
-            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 sticky top-28">
-              <h2 className="text-xl font-heading font-bold uppercase text-white mb-6">Sipariş Özeti</h2>
-              
-              {selectedPackage ? (
-                <>
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                      <span className="text-gray-400">Paket</span>
-                      <span className="text-white font-medium">Normal Plan - {selectedPackage.weeks} Hafta</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                      <span className="text-gray-400">Kullanıcı</span>
-                      <span className="text-white font-medium">{user?.fullName}</span>
-                    </div>
+          {/* ── Left panel: Package summary ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="order-1 lg:order-2"
+          >
+            <div className="bg-[#0a0a0a] border border-white/[0.07] rounded-2xl overflow-hidden sticky top-24">
+              <div className={`h-px bg-gradient-to-r from-transparent ${isTeamAlaf ? "via-[#d4a017]/50" : "via-[#ccff00]/40"} to-transparent`} />
+              <div className="p-5">
+                <h2 className="text-[13px] font-bold uppercase tracking-[0.15em] text-white mb-4">
+                  Sipariş özeti
+                </h2>
 
-                    <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                      <span className="text-gray-400">Paket Ücreti</span>
-                      <span className={`text-white font-medium ${appliedCoupon ? "line-through text-gray-500" : ""}`}>
-                        ₺{parseFloat(selectedPackage.price).toLocaleString("tr-TR")}
-                      </span>
-                    </div>
-
-                    {appliedCoupon && (
-                      <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                        <span className="text-green-400 flex items-center gap-1.5">
-                          <Tag size={14} />
-                          İndirim ({appliedCoupon.code})
+                {/* Package selector */}
+                <div className="space-y-2 mb-5">
+                  {packages.map((pkg) => (
+                    <button
+                      key={pkg.id}
+                      onClick={() => setSelectedPackage(pkg)}
+                      data-testid={`package-option-${pkg.id}`}
+                      className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border text-left transition-all ${
+                        selectedPackage?.id === pkg.id
+                          ? pkg.name.includes("Team Alaf")
+                            ? "border-[#d4a017]/40 bg-[#d4a017]/[0.06]"
+                            : "border-[#ccff00]/30 bg-[#ccff00]/[0.06]"
+                          : "border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]"
+                      }`}
+                    >
+                      <div>
+                        <p className="text-white text-[12px] font-semibold">
+                          {pkg.name.includes("Team Alaf") ? "Team Alaf" : "Natural"} — {pkg.weeks} Hafta
+                        </p>
+                        <p className="text-gray-600 text-[11px] mt-0.5">
+                          {pkg.name.includes("Team Alaf") ? "Üst seviye" : "Başlangıç"}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2.5 shrink-0">
+                        <span className={`text-[13px] font-bold ${pkg.name.includes("Team Alaf") ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
+                          ₺{parseFloat(pkg.price).toLocaleString("tr-TR")}
                         </span>
-                        <span className="text-green-400 font-medium">
-                          -₺{appliedCoupon.discountAmount.toLocaleString("tr-TR")}
+                        {selectedPackage?.id === pkg.id && (
+                          <div className={`w-4 h-4 rounded-full flex items-center justify-center ${pkg.name.includes("Team Alaf") ? "bg-[#d4a017]" : "bg-[#ccff00]"}`}>
+                            <Check size={9} className="text-black" />
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {fieldErrors.package && (
+                  <p className="text-red-400 text-[11px] mb-3">{fieldErrors.package}</p>
+                )}
+
+                {/* Coupon */}
+                <div className="mb-5">
+                  <label className="block text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1.5">
+                    İndirim kodu
+                  </label>
+                  {appliedCoupon ? (
+                    <div className="flex items-center justify-between bg-[#ccff00]/[0.08] border border-[#ccff00]/20 rounded-xl px-3.5 py-2.5">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle size={14} className="text-[#ccff00]" />
+                        <span className="text-[#ccff00] font-semibold text-[12px]">{appliedCoupon.code}</span>
+                        <span className="text-[#ccff00]/60 text-[11px]">
+                          {appliedCoupon.discountType === "percentage"
+                            ? `%${parseFloat(appliedCoupon.discountValue)} indirim`
+                            : `₺${parseFloat(appliedCoupon.discountValue).toLocaleString("tr-TR")} indirim`}
                         </span>
                       </div>
-                    )}
-
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400 text-lg">Toplam</span>
-                      <span className="text-3xl font-bold text-primary">₺{getDisplayPrice().toLocaleString("tr-TR")}</span>
+                      <button onClick={() => { setAppliedCoupon(null); setCouponCode(""); }} className="text-gray-600 hover:text-white transition-colors" data-testid="button-remove-coupon">
+                        <X size={14} />
+                      </button>
                     </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <label className="text-sm text-gray-400 mb-2 block">İndirim Kodu</label>
-                    {appliedCoupon ? (
-                      <div className="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <CheckCircle size={16} className="text-green-400" />
-                          <span className="text-green-400 font-medium">{appliedCoupon.code}</span>
-                          <span className="text-green-400/70 text-sm">
-                            ({appliedCoupon.discountType === "percentage" 
-                              ? `%${parseFloat(appliedCoupon.discountValue)} indirim` 
-                              : `₺${parseFloat(appliedCoupon.discountValue).toLocaleString("tr-TR")} indirim`})
-                          </span>
-                        </div>
-                        <button 
-                          onClick={removeCoupon} 
-                          className="text-gray-400 hover:text-white transition-colors"
-                          data-testid="button-remove-coupon"
-                        >
-                          <X size={16} />
-                        </button>
-                      </div>
-                    ) : (
+                  ) : (
+                    <>
                       <div className="flex gap-2">
                         <div className="relative flex-1">
-                          <Tag size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                          <Tag size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
                           <input
                             type="text"
                             value={couponCode}
                             onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
                             onKeyDown={(e) => e.key === "Enter" && handleApplyCoupon()}
-                            placeholder="Kupon kodunu gir"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder:text-gray-600 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all uppercase tracking-wider text-sm"
+                            placeholder="Kupon kodun varsa gir"
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl pl-9 pr-3 py-2.5 text-white placeholder:text-gray-700 text-[12px] focus:outline-none focus:border-white/20 transition-all uppercase tracking-wider"
                             data-testid="input-coupon-code"
                           />
                         </div>
-                        <Button
+                        <button
                           onClick={handleApplyCoupon}
                           disabled={!couponCode.trim() || couponLoading}
-                          className="bg-white/10 border border-white/10 text-white hover:bg-white/20 px-5 rounded-xl disabled:opacity-40"
+                          className="px-4 py-2.5 bg-white/[0.06] border border-white/[0.08] text-white text-[12px] font-medium rounded-xl hover:bg-white/10 transition-all disabled:opacity-40"
                           data-testid="button-apply-coupon"
                         >
-                          {couponLoading ? <Loader2 size={16} className="animate-spin" /> : "Uygula"}
-                        </Button>
+                          {couponLoading ? <Loader2 size={13} className="animate-spin" /> : "Uygula"}
+                        </button>
                       </div>
-                    )}
-                    {couponError && (
-                      <p className="text-red-400 text-sm mt-2" data-testid="text-coupon-error">{couponError}</p>
-                    )}
-                  </div>
-
-                  <label className="flex items-start gap-3 mb-6 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      checked={acceptedPolicy}
-                      onChange={(e) => setAcceptedPolicy(e.target.checked)}
-                      className="mt-1 w-5 h-5 rounded border-white/20 bg-white/5 text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer"
-                      data-testid="checkbox-policy"
-                    />
-                    <span className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-                      Kişiye özel hazırlanan koçluk hizmeti kapsamında cayma hakkımın bulunmadığını ve hizmete hemen başlanacağını kabul ediyorum. 
-                      <Link href="/iptal-iade" className="text-primary hover:underline ml-1" target="_blank">
-                        İade Politikası
-                      </Link>
-                    </span>
-                  </label>
-
-                  <Button 
-                    onClick={handleCheckout}
-                    disabled={isProcessing || !acceptedPolicy}
-                    className="w-full h-14 bg-primary text-black hover:bg-primary/90 font-heading font-bold uppercase text-lg mb-4 disabled:opacity-50 disabled:cursor-not-allowed"
-                    data-testid="button-checkout"
-                  >
-                    {isProcessing ? (
-                      <span className="flex items-center gap-2">
-                        <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                        İşleniyor...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <CreditCard size={20} /> Shopier ile Öde
-                        <ExternalLink size={16} />
-                      </span>
-                    )}
-                  </Button>
-
-                  <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
-                    <Shield size={14} />
-                    <span>Shopier güvencesiyle güvenli ödeme</span>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-8 text-gray-500">
-                  Lütfen bir paket seçin
+                      {couponError && (
+                        <p className="text-red-400 text-[11px] mt-1.5" data-testid="text-coupon-error">{couponError}</p>
+                      )}
+                    </>
+                  )}
                 </div>
-              )}
+
+                {/* Price breakdown */}
+                {selectedPackage && (
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedPackage.id + (appliedCoupon?.code || "")}
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="border-t border-white/[0.06] pt-4 space-y-2"
+                    >
+                      <div className="flex justify-between text-[12px]">
+                        <span className="text-gray-500">Paket ücreti</span>
+                        <span className={`${appliedCoupon ? "line-through text-gray-600" : "text-white"}`}>
+                          ₺{originalPrice.toLocaleString("tr-TR")}
+                        </span>
+                      </div>
+                      {appliedCoupon && (
+                        <div className="flex justify-between text-[12px]">
+                          <span className="text-[#ccff00]/70 flex items-center gap-1">
+                            <Tag size={11} />
+                            İndirim
+                          </span>
+                          <span className="text-[#ccff00]/80">-₺{appliedCoupon.discountAmount.toLocaleString("tr-TR")}</span>
+                        </div>
+                      )}
+                      <div className="flex justify-between items-baseline pt-2 border-t border-white/[0.06]">
+                        <span className="text-gray-400 text-[13px] font-medium">Toplam</span>
+                        <span className={`text-[28px] font-bold tracking-tight ${isTeamAlaf ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
+                          ₺{displayPrice.toLocaleString("tr-TR")}
+                        </span>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                )}
+              </div>
             </div>
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </div>

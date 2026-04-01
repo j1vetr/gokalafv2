@@ -471,7 +471,106 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
   });
 
   // ===== ORDER ROUTES =====
-  
+
+  // Guest / logged-in checkout — üye olmadan sipariş
+  app.post("/api/orders/guest", async (req, res) => {
+    try {
+      const body = z.object({
+        fullName: z.string().min(2),
+        email: z.string().email(),
+        phone: z.string().min(7),
+        address: z.string().optional(),
+        packageId: z.string(),
+        couponCode: z.string().optional(),
+        orderSource: z.string().optional(),
+        createAccount: z.boolean().optional(),
+        password: z.string().min(6).optional(),
+      }).parse(req.body);
+
+      const pkg = await storage.getPackage(body.packageId);
+      if (!pkg) return res.status(404).json({ error: "Paket bulunamadı" });
+
+      // Find or create user
+      let user = await storage.getUserByEmail(body.email);
+      if (!user) {
+        const guestPassword = body.createAccount && body.password
+          ? await bcrypt.hash(body.password, 10)
+          : await bcrypt.hash(`GUEST_${Date.now()}_${Math.random()}`, 4);
+
+        user = await storage.createUser({
+          email: body.email,
+          password: guestPassword,
+          fullName: body.fullName,
+          phone: body.phone,
+          address: body.address || null,
+          role: body.createAccount ? "user" : "guest",
+          fitnessGoal: null,
+          trafficSource: body.orderSource || null,
+        });
+      } else if (body.phone && !user.phone) {
+        // Update phone if missing
+        await storage.updateUser(user.id, { phone: body.phone });
+      }
+
+      // Set session so shopier/initiate can use requireAuth
+      req.session.userId = user.id;
+      req.session.userRole = user.role;
+      await new Promise<void>((resolve, reject) => {
+        req.session.save((err) => (err ? reject(err) : resolve()));
+      });
+
+      // Coupon logic
+      let finalPrice = parseFloat(pkg.price);
+      const originalPrice = finalPrice;
+      let couponId: string | null = null;
+      let discountAmount = 0;
+
+      if (body.couponCode) {
+        const coupon = await storage.getCouponByCode(body.couponCode);
+        if (coupon && coupon.isActive) {
+          const now = new Date();
+          if (new Date(coupon.validFrom) <= now && new Date(coupon.validUntil) >= now) {
+            if (!coupon.maxUsageCount || coupon.usedCount < coupon.maxUsageCount) {
+              if (!coupon.minOrderAmount || finalPrice >= parseFloat(coupon.minOrderAmount)) {
+                if (coupon.discountType === "percentage") {
+                  discountAmount = finalPrice * (parseFloat(coupon.discountValue) / 100);
+                } else {
+                  discountAmount = parseFloat(coupon.discountValue);
+                }
+                discountAmount = Math.min(discountAmount, finalPrice);
+                finalPrice -= discountAmount;
+                couponId = coupon.id;
+              }
+            }
+          }
+        }
+      }
+
+      const order = await storage.createOrder({
+        userId: user.id,
+        packageId: pkg.id,
+        totalPrice: finalPrice.toFixed(2),
+        originalPrice: couponId ? originalPrice.toFixed(2) : null,
+        couponId,
+        discountAmount: couponId ? discountAmount.toFixed(2) : null,
+        status: "pending",
+        paymentMethod: null,
+        paymentId: null,
+        startDate: null,
+        endDate: null,
+        orderSource: body.orderSource || "direkt",
+      });
+
+      res.json({ order });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: "Lütfen tüm zorunlu alanları doldurun", details: error.errors });
+      }
+      console.error("Guest order error:", error);
+      res.status(500).json({ error: "Sipariş oluşturulamadı" });
+    }
+  });
+
   // Create order (sepete ekle)
   app.post("/api/orders", requireAuth, async (req, res) => {
     try {
