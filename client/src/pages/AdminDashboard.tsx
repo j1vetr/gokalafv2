@@ -1269,10 +1269,10 @@ export default function AdminDashboard() {
                                 <div className="w-7 h-7 rounded-lg bg-white/[0.05] border border-white/[0.07] flex items-center justify-center">
                                   <ShoppingCart size={14} className="text-blue-400" />
                                 </div>
-                                <span className="text-[11px] text-gray-600 font-medium">Bu Ay Sipariş</span>
+                                <span className="text-[11px] text-gray-600 font-medium">Bu Ayki Başarılı Sipariş</span>
                               </div>
-                              <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{thisMonthOrders.length}</p>
-                              <p className="text-[11px] text-gray-700 mt-1.5">{thisMonthPaid.length} Ödeme Tamamlandı</p>
+                              <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{thisMonthPaid.length}</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">{thisMonthOrders.length} toplam sipariş</p>
                             </motion.div>
 
                             <motion.div
