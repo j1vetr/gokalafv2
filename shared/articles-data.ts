@@ -14588,6 +14588,1299 @@ Glutamin, kas yapmak için sihirli bir çözüm değildir — bu konuda whey pro
     ctaText: "Supplement Danışmanlığı Al",
     ctaLink: "/paketler",
   },
+  {
+    slug: "bench-press-teknigi",
+    title: "Bench Press Formu ve En Sık Yapılan Hatalar",
+    category: "antrenman",
+    excerpt: "Bench press, göğüs gelişiminin temel taşıdır. Ama yanlış form hem gelişimi engeller hem de omuz ve bilek yaralanmalarına zemin hazırlar. Doğru teknik, sık yapılan hatalar ve program önerileri.",
+    heroImage: "/articles/bench-press-teknigi-form.webp",
+    content: `# Bench Press Formu ve En Sık Yapılan Hatalar
+
+Bench press, spor salonunun en ikonik hareketi olmakla birlikte en çok hatalı yapılan hareketlerden de biridir. Yanlış form hem gelişimi yavaşlatır hem de omuz rotator cuff, bilek ve dirsek yaralanmalarına kapı aralar.
+
+Bu rehberde doğru bench press tekniğini, anatomisini, program stratejisini ve yapılan en yaygın hataları ele alacağız.
+
+> 💡 **Bench press yalnızca göğüs hareketi değildir. Omuz, triseps, sırt ve hatta bacak kaslarını aktive eden bütünleşik bir bileşik harekettir.**
+
+## Bench Press Hangi Kasları Çalıştırır?
+
+| Kas | Rol |
+|-----|-----|
+| Pectoralis major (göğüs) | Birincil çalışan kas |
+| Anterior deltoid (ön omuz) | Yardımcı |
+| Triceps brachii (triseps) | Kilitleme (lockout) aşaması |
+| Serratus anterior | Skapula stabilizasyonu |
+| Latissimus dorsi | Yatay stabilizasyon |
+| Ayaklar / bacaklar | Zemine bağlantı, güç transferi |
+
+## Doğru Bench Press Formu — Adım Adım
+
+### 1. Sırt Pozisyonu
+
+Üst sırtın bankın yüzeyine değmesi gerekir. Orta-alt sırt doğal kavisiyle hafif kalkık olabilir.
+
+| Pozisyon | Açıklama |
+|---------|---------|
+| Üst sırt | Banka tam temas |
+| Alt sırt | Hafif doğal kemer — zemin ile aradaki boşluk bir avuç kadar |
+| Omuzlar | Aşağı ve geriye çekilmiş (depressed & retracted) |
+
+### 2. Omuzlar Aşağı ve Geriye
+
+Omuz kaslarını aşağı ve arkaya doğru sıkıştırın. Bu pozisyon:
+- Rotator cuff'u korur
+- Göğüs kasını daha iyi izole eder
+- Köprü stabilitesini artırır
+
+### 3. Bar Tutuşu
+
+| Parametre | Öneri |
+|-----------|-------|
+| Genişlik | Omuz genişliğinden ~15cm fazla (bilek-dirsek hizası dik olmalı) |
+| Thumb around grip | Baş parmak barın etrafında (güvenlik) |
+| Bilek | Düz, eğilmemiş |
+| Sıkma | Maksimum kavrama kuvveti |
+
+> ⚠️ Thumb over grip (suicide grip), bar kayması durumunda hayati tehlike yaratır. Her zaman baş parmak barın altına alın.
+
+### 4. Ayak Pozisyonu
+
+| Seçenek | Kullanım |
+|---------|---------|
+| Ayaklar yerde düz | Güvenli, genel antrenman |
+| Ayaklar geri çekilmiş | Daha fazla kemer, powerlifting |
+
+Ayaklarınızı zemine bastırarak güç transferini sağlayın. Ayaklar havada olursa stabilite kaybolur.
+
+### 5. İniş ve Kalkış
+
+| Aşama | Uygulama |
+|-------|---------|
+| İniş | Kontrollü, 2-3 saniye, alt göğüs ile meme başı hizasına |
+| Alt nokta | Bar göğüse temas eder veya 1-2 cm kalır |
+| Kalkış | Patlayıcı güçle, bar göğüs üzerinde hafif yay çizer |
+| Lockout | Dirsekler tam uzamadan önce dur (joint koruma) |
+
+## En Sık Yapılan Hatalar
+
+| Hata | Riski | Düzeltme |
+|------|-------|---------|
+| Omuzları yukarı çekmek | Rotator cuff zorlanması | Omuzları aşağı-geriye sıkıştır |
+| Bileği bükmek | Bilek tendiniti | Bilek düz, kavrama sıkı |
+| Ayakları banktan kaldırmak | Stabilite kaybı | Ayaklar zemine basılı |
+| Bar çok yukarı indirmek | Omuz impingement | Alt göğüs / meme başı hizası |
+| Chest touch yok | Hareket açıklığı azalır | Kontrollü tam ROM |
+| Ayna seti (çok hafif) | Gelişim durur | Progressive overload uygula |
+| Baş kaldırmak | Boyun gerilmesi | Kafa bankla temas halinde |
+
+## Bench Press Varyantları
+
+| Varyant | Fark | Hedef |
+|---------|------|-------|
+| Flat bench press | Standart | Genel göğüs |
+| İncline bench (%30-45) | Bar üst göğüse | Üst göğüs, ön omuz |
+| Decline bench | Bar alt göğüse | Alt-dış göğüs |
+| Dumbbell bench | Unilateral | Stabilizasyon, hareket açıklığı |
+| Close grip bench | Dar tutuş | Triseps ağırlıklı |
+| Paused bench | Alt noktada bekleme | Patlayıcı güç |
+
+## Ağırlık İlerlemesi
+
+| Seviye | Bench 1RM Hedefi (erkek) |
+|--------|--------------------------|
+| Başlangıç | Vücut ağırlığının %60-80'i |
+| Orta | Vücut ağırlığı |
+| İleri | Vücut ağırlığının 1.2-1.5x |
+| Elite | Vücut ağırlığının 1.5-2x |
+
+## Örnek Bench Press Program
+
+### Hypertrofi Odaklı (Haftalık)
+
+| Set | Hareket | Set x Tekrar | % 1RM |
+|-----|---------|-------------|-------|
+| 1 | Flat barbell bench | 4x8 | %75 |
+| 2 | Incline dumbbell | 3x10 | %65 |
+| 3 | Cable fly | 3x12 | %55 |
+| 4 | Close grip bench | 3x10 | %65 |
+
+## Sonuç
+
+Bench press, doğru formla yapıldığında en verimli üst vücut hareketlerinden biridir. Ağırlığa değil kaliteye odaklanın. Formdan ödün vermeye başladığınız anda seti bitirin.
+
+> 💡 Bench press gelişimi duraksadıysa incline ve dumbbell varyantları eklemek, göğüs kasını farklı açılardan uyararak platoya son verebilir.`,
+    seoTitle: "Bench Press Nasıl Yapılır, Doğru Teknik ve Hatalar | Gokalaf",
+    seoDescription: "Bench press formu nasıl olmalı? En sık yapılan hatalar, omuz pozisyonu, bar tutuşu, varyantlar ve hypertrofi program önerileri.",
+    publishedAt: "2026-04-01",
+    ctaText: "Kişisel Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "barfiks-nasil-cekilir",
+    title: "Sıfırdan Barfiks Çekmek İçin Adım Adım Rehber",
+    category: "antrenman",
+    excerpt: "Barfiks, üst vücudun en fonksiyonel ve en zorlu egzersizlerinden biridir. Hiç çekemeyenlerden çok fazla çekebilmek isteyenlere kadar herkes için kademeli ilerleme yöntemleri bu rehberde.",
+    heroImage: "/articles/barfiks-pull-up-rehber.webp",
+    content: `# Sıfırdan Barfiks Çekmek İçin Adım Adım Rehber
+
+Barfiks (pull-up), kendi vücut ağırlığınızı kaldırdığınız, sırt, biceps ve core kaslarını birlikte çalıştıran en verimli üst vücut egzersizlerinden biridir. Gym'deki en basit alet, en zorlu egzersizleri sunar.
+
+Sıfırdan başlayıp düzinelerce barfiks çekebilmek için sistematik bir yol haritası gerekmektedir.
+
+> 💡 **Araştırmalar, 8 haftalık kademeli barfiks programının ortalama çekim sayısını %40-80 artırdığını gösteriyor.**
+
+## Barfiks Hangi Kasları Çalıştırır?
+
+| Kas | Rol |
+|-----|-----|
+| Latissimus dorsi (kanat kası) | Birincil — kolu aşağı çeker |
+| Biceps brachii | Kol büküşü |
+| Rhomboids & trapezius | Skapula geri çekişi |
+| Posterior deltoid | Yardımcı |
+| Core | Stabilizasyon |
+| Teres major | Yardımcı çekiş |
+
+## Barfiks Varyantları ve Zorluk Sırası
+
+| Varyant | Tutuş | Zorluk | Hedef |
+|---------|-------|--------|-------|
+| Chin-up | Supinated (avuç içe) | Kolay | Biceps ağırlıklı |
+| Pull-up | Pronated (avuç dışa) | Orta | Lat ağırlıklı |
+| Neutral grip | Avuç karşılıklı | Orta | Dengeli |
+| Wide grip pull-up | Geniş | Zor | Kanat genişliği |
+| Archer pull-up | Tek taraflı ağırlık | Çok zor | Güç |
+
+## Sıfırdan Başlıyorum, Hiç Çekemiyorum
+
+### Yöntem 1: Negatif Barfiks
+
+Bar hizasından başlayıp kontrollü 5-8 saniyede inin.
+
+| Hafta | Set x Tekrar | İniş Süresi |
+|-------|-------------|-------------|
+| 1-2 | 3x3 negatif | 5 sn |
+| 3-4 | 3x4 negatif | 6 sn |
+| 5-6 | 3x5 negatif | 7-8 sn |
+
+### Yöntem 2: Band Destekli Barfiks
+
+Direnç bandı dizlerin altına alınarak vücut ağırlığı azaltılır.
+
+| Bant Direnci | Uygun Kişi |
+|-------------|-----------|
+| Çok ağır (siyah/kırmızı) | Sıfır barfiks |
+| Orta (yeşil/mavi) | 1-3 barfiks |
+| Hafif (sarı) | 4-7 barfiks |
+
+### Yöntem 3: Lat Pulldown
+
+Barfiks için güç tabanı oluşturur.
+
+| Hedef | Lat Pulldown Ağırlığı |
+|-------|---------------------|
+| Barfiks hazırlığı | Vücut ağırlığının %70-80'i |
+
+## Kademeli İlerleme Programı (8 Hafta)
+
+| Hafta | Yöntem | Set x Tekrar |
+|-------|--------|-------------|
+| 1-2 | Negatif barfiks | 3x3 (5sn iniş) |
+| 3-4 | Band + negatif | 4x4-5 |
+| 5-6 | Bant (hafif) + tam | 3x3-5 |
+| 7-8 | Tam barfiks | 3x maksimum |
+
+## Doğru Barfiks Formu
+
+### Başlangıç Pozisyonu
+
+| Parametre | Uygulama |
+|-----------|---------|
+| Tutuş genişliği | Omuz genişliğinde veya biraz geniş |
+| Kol pozisyonu | Tam uzanmış (dead hang) |
+| Omuzlar | Aktif — kulak hizasından uzak |
+| Core | Sıkılmış, hafif ön pelvik tilt |
+
+### Çekiş Aşaması
+
+1. Dirsekleri aşağı-geriye doğru çekin (kürek kemiği birbirine yaklaşır)
+2. Göğüs barı geçene kadar devam edin
+3. Zirve pozisyonda 1 saniye tutun
+4. Kontrollü inin
+
+> ⚠️ Kipping pull-up (sallantılı barfiks) CrossFit'e özgüdür. Güç ve kas gelişimi için tam kontrollü barfiks yapın.
+
+## En Sık Yapılan Hatalar
+
+| Hata | Neden Sorun | Düzeltme |
+|------|------------|---------|
+| Omuzları kulağa yaklaştırmak | Trap dominant, lat çalışmaz | Omuzları aktif tutun |
+| Tam açılmadan çekmek | Hareket açıklığı kısalır | Dead hang başlangıç |
+| Sallantılı hareket | Momentum kullanımı | Kontrollü, izole |
+| Çene barda | Yarım tekrar | Göğsün bar üstüne gelmesi hedef |
+| Core sarkması | Bel zorlanması | Core sıkılı tutun |
+
+## Barfiks Sayısını Artırmanın 3 Yolu
+
+### 1. Grease the Groove (GTG)
+
+Gün içinde sık sık, maksimum kapasitенin yarısını çekin.
+
+| Barfiks Maksimum | GTG Seti | Sıklık |
+|----------------|---------|--------|
+| 5 | 2-3 tekrar | Her 2 saatte bir |
+| 10 | 4-5 tekrar | Her 2 saatte bir |
+
+### 2. Ağırlıklı Barfiks
+
+Maksimum 5 tekrar çekebiliyorsanız dips kemeri veya sırt çantasıyla ağırlık ekleyin.
+
+### 3. Volume Blok
+
+| Hafta | Set | Tekrar | Dinlenme |
+|-------|-----|--------|---------|
+| 1 | 5 | Maks-2 | 2 dk |
+| 2 | 6 | Maks-2 | 2 dk |
+| 3 | 7 | Maks-2 | 2 dk |
+| 4 | Deload | 3 | 2 dk |
+
+## Sonuç
+
+Barfiks, zaman ve sistematik ilerleme gerektiren bir egzersizdir. Negatiflerle başlayın, negatifleri güçlendirin ve tam tekrarlara geçin.
+
+> 💡 Haftada 3 gün düzenli barfiks çalışması, 8-12 haftada 0 tekrardan 10+ tekrara çıkmanızı sağlayabilir.`,
+    seoTitle: "Barfiks Nasıl Çekilir, Sıfırdan Başlayanlar İçin Rehber | Gokalaf",
+    seoDescription: "Barfiks çekemeyen için negatif barfiks, band destekli barfiks ve 8 haftalık ilerleme programı. Pull-up formu ve sık yapılan hatalar.",
+    publishedAt: "2026-04-01",
+    ctaText: "Kişisel Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "core-antrenman",
+    title: "Güçlü Core İçin En Etkili Egzersizler ve Program",
+    category: "antrenman",
+    excerpt: "Core sadece görsel altı paket değildir. Omurga stabilitesi, postür ve tüm bileşik hareketlerdeki performans doğrudan core gücüne bağlıdır. En etkili egzersizler ve yapılandırılmış program.",
+    heroImage: "/articles/core-karin-antrenman.webp",
+    content: `# Güçlü Core İçin En Etkili Egzersizler ve Program
+
+"Core" deyince pek çok kişinin aklına sadece altı paket kaslar gelir. Oysa core, bel omurları çevresindeki tüm kas gruplarını kapsar ve vücudun güç merkezidir.
+
+Güçlü bir core olmadan squat, deadlift, overhead press gibi bileşik hareketler hem verimsiz hem de tehlikeli olur.
+
+> 💡 **Araştırmalar, güçlü core kaslarının bel ağrısı riskini %30-40 oranında azalttığını ve atletik performansı önemli ölçüde artırdığını gösteriyor.**
+
+## Core Kasları
+
+| Kas Grubu | Konum | İşlev |
+|-----------|-------|-------|
+| Rectus abdominis | Karın ön yüzü | Gövde büküşü (crunch hareketi) |
+| Transversus abdominis | En derin karın kası | Omurga stabilitesi, IAP |
+| Obliques (iç/dış) | Karın yanları | Rotasyon, lateral fleksiyon |
+| Multifidus | Omurga boyunca | Vertebra stabilizasyonu |
+| Quadratus lumborum | Bel yanı | Lateral stabilite |
+| Diaphragm | Üst core | Nefes, IAP |
+| Pelvic floor | Alt core | Destek, basınç yönetimi |
+
+**IAP (İntraabdominal Basınç):** Ağır kaldırmalarda core kaslarının bir korse gibi sıkışmasıyla oluşan basınç. Omurga yaralanmalarına karşı en güçlü doğal koruma.
+
+## Core Egzersiz Kategorileri
+
+### 1. Anti-Fleksiyon (Öne Eğilmeye Direnç)
+
+| Egzersiz | Seviye | Süre/Tekrar |
+|----------|--------|------------|
+| Plank | Başlangıç | 20-60 sn |
+| RKC Plank | Orta | 10-20 sn |
+| Ab wheel rollout | İleri | 5-10 tekrar |
+| Hollow body hold | Orta-İleri | 20-40 sn |
+
+### 2. Anti-Rotasyon (Dönmeye Direnç)
+
+| Egzersiz | Araç | Set x Tekrar |
+|----------|------|-------------|
+| Pallof press | Kablo/band | 3x8-12/taraf |
+| Single arm farmer carry | Dumbbell | 3x20-30m/taraf |
+| Suitcase carry | Kettlebell | 3x20-30m/taraf |
+
+### 3. Anti-Lateral Fleksiyon (Yana Eğilmeye Direnç)
+
+| Egzersiz | Set x Süre |
+|----------|-----------|
+| Side plank | 3x20-40 sn/taraf |
+| Side plank with hip dip | 3x8-10/taraf |
+| Windmill | 3x5-8/taraf |
+
+### 4. Kalça Fleksörü ve Dinamik Core
+
+| Egzersiz | Set x Tekrar |
+|----------|-------------|
+| Dead bug | 3x8-10/taraf |
+| Bird dog | 3x10-12/taraf |
+| Hanging knee raise | 3x10-15 |
+| Hanging leg raise | 3x8-12 |
+| Dragon flag | 3x5-8 |
+
+## Plank Doğru Yapılıyor mu?
+
+Plank, en çok yanlış yapılan core egzersizlerinden biridir.
+
+| Hata | Doğrusu |
+|------|---------|
+| Kalça havaya kalkıyor | Kulak-omuz-kalça-topuk hizası |
+| Bel sarkıyor | Core sıkıştır, pelvis nötral |
+| Nefes tutmak | Ritmik nefes alıp ver |
+| Omuzlar kulağa yakın | Omuzlar aşağı-geriye |
+
+> 💡 **Plankı uzun süre tutmak değil, doğru form odaklı kısa set yapmak çok daha etkilidir.** 60 saniye gevşek plank < 20 saniye RKC plank.
+
+## RKC Plank (En Yoğun Plank Varyantı)
+
+Normal planka kıyasla 3-4 kat daha fazla kas aktivasyonu sağlar.
+
+**Nasıl yapılır:**
+1. Normal plank pozisyonuna gelin
+2. Kolları öne, ayakları geriye doğru sanki zemine sabitlemeye çalışın
+3. Tüm kasları aynı anda maksimum sıkın
+4. 10-20 saniye tutun, tam dinlenin
+
+## Dead Bug — Omurga Dostu Core Egzersizi
+
+Bel sorunları olanlar için ideal. Lumbar omurgayı nötral pozisyonda tutar.
+
+| Adım | Uygulama |
+|------|---------|
+| Başlangıç | Sırt üstü, bacaklar 90° büküklü havada, kollar tavana |
+| Hareket | Sağ kol + sol bacak yavaşça yere iner |
+| Kural | Bel zemine basılı kalır, ASLA kalkmamalı |
+| Geri dönüş | Kontrollü, nefes vererek |
+
+## Core Antrenman Programı (Haftada 3 Gün)
+
+### Temel Program (Başlangıç)
+
+| Egzersiz | Set x Süre/Tekrar |
+|----------|------------------|
+| Plank | 3x30 sn |
+| Dead bug | 3x8/taraf |
+| Bird dog | 3x10/taraf |
+| Side plank | 3x20 sn/taraf |
+| Pallof press (band) | 3x10/taraf |
+
+### İleri Seviye Program
+
+| Egzersiz | Set x Süre/Tekrar |
+|----------|------------------|
+| RKC Plank | 3x15-20 sn |
+| Ab wheel rollout | 4x8 |
+| Hanging leg raise | 4x10-12 |
+| Pallof press (kablo) | 3x12/taraf |
+| Dragon flag negatif | 3x5 |
+
+## Core Antrenman Sıklığı
+
+| Durum | Sıklık |
+|-------|--------|
+| Bağımsız core çalışması | Haftada 2-3 gün |
+| Bileşik hareketten sonra | Antrenman sonuna ekle |
+| Dinlenme günü core | Hafif stabilizasyon çalışması |
+
+## Sonuç
+
+Core gücü, görsel çekicilikten çok fonksiyonel performansın temelidir. Anti-fleksiyon, anti-rotasyon ve anti-lateral fleksiyon egzersizlerini dengeli bir şekilde programınıza ekleyin.
+
+> 💡 Mevcut antrenman programınıza haftada 2 gün 15-20 dakikalık core bloğu eklemek, hem performansınızı artırır hem de bel sağlığınızı korur.`,
+    seoTitle: "Core Antrenmanı ve En Etkili Egzersizler | Gokalaf",
+    seoDescription: "Güçlü core için hangi egzersizler yapılmalı? Plank, dead bug, pallof press, ab wheel rehberi ve haftada 3 günlük core programı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Kişisel Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kardiyo-vs-agirlik",
+    title: "Kardiyo mu Ağırlık mı Hangisi Daha Etkili",
+    category: "antrenman",
+    excerpt: "Yağ yakmak için sabah koşusu mu yapmalısınız, yoksa ağırlık mı kaldırmalısınız? Bu sorunun cevabı hedefinize bağlıdır. İki antrenman türünün fizyolojik etkileri ve doğru kombinasyon stratejisi.",
+    heroImage: "/articles/kardiyo-agirlik-antrenman-karsilastirma.webp",
+    content: `# Kardiyo mu Ağırlık mı Hangisi Daha Etkili
+
+Spor salonuna ilk adım atan herkesin kafasında dönen soru: "Koşu bandında mı zaman geçireyim, yoksa ağırlık mı kaldırayım?" Bu sorunun tek bir doğru cevabı yoktur — cevap hedefinize bağlıdır.
+
+> 💡 **En yeni araştırmalar, optimal sağlık ve vücut kompozisyonu için ikisinin de gerekli olduğunu, ancak ağırlık antrenmanının yağ yakımı ve kas geliştirme açısından kardiyoya kıyasla daha uzun vadeli avantajlar sunduğunu gösteriyor.**
+
+## Kardiyovasküler Antrenman Nedir?
+
+Kardiyo, kalp atışını ve solunum hızını belirli bir süre yüksek tutan her türlü sürekli egzersizdir.
+
+| Kardiyo Türü | Örnek | Yoğunluk |
+|-------------|-------|---------|
+| LISS (Düşük yoğunluk sabit durum) | Yürüyüş, hafif koşu | %55-65 maks. KAH |
+| MISS (Orta yoğunluk) | Tempolu koşu | %65-75 maks. KAH |
+| HIIT (Yüksek yoğunluk aralıklı) | Sprint intervaller | %85-95 maks. KAH |
+
+## Direnç (Ağırlık) Antrenmanı Nedir?
+
+Kasların dirence karşı kasılmasını içeren her türlü egzersizdir.
+
+| Ağırlık Antrenman Türü | Örnek |
+|------------------------|-------|
+| Serbest ağırlık | Barbell, dumbbell |
+| Makine | Leg press, lat pulldown |
+| Vücut ağırlığı | Squat, push-up, barfiks |
+| Kettlebell | Swing, Turkish get-up |
+
+## Kalori Harcaması Karşılaştırması
+
+| Aktivite | Saatte Kalori Harcaması (70kg) | Süre Sonrası Etki |
+|----------|-------------------------------|-----------------|
+| Yürüyüş | 280-350 kcal | Minimal |
+| Koşu (orta) | 500-600 kcal | Minimal |
+| HIIT | 400-600 kcal | Yüksek EPOC |
+| Ağırlık antrenmanı | 250-450 kcal | Yüksek EPOC |
+
+**EPOC (Egzersiz Sonrası Aşırı Oksijen Tüketimi):** Antrenman bitiminden sonra metabolizmanın yüksek kalmaya devam etmesidir. Ağırlık ve HIIT, LISS kardiyoya kıyasla çok daha yüksek EPOC yaratır.
+
+## Uzun Vadeli Metabolik Etki
+
+| Faktör | Kardiyo | Ağırlık Antrenmanı |
+|--------|---------|-------------------|
+| Antrenman sırasında kalori | Yüksek | Orta |
+| 24-48 saat sonra kalori | Minimal | +100-200 kcal/gün |
+| Kas kütlesi değişimi | Nötr veya hafif azalış | Artar |
+| BMR (bazal metabolizma) | Değişmez | Kas artışıyla yükselir |
+| Kemik yoğunluğu | Orta etki | Yüksek pozitif etki |
+| İnsülin duyarlılığı | İyi | Çok iyi |
+
+> 💡 1 kg kas kütlesi günde yaklaşık 13-25 kcal ekstra yakar. 5 kg kas kazanmak, günde 65-125 kcal daha fazla harcamak anlamına gelir — yıllık 24.000-45.000 kcal.
+
+## Hedefe Göre Öncelik
+
+| Hedef | Öncelik | Kardiyo Rolü |
+|-------|---------|-------------|
+| Yağ yakımı | Ağırlık + ılımlı kardiyo | Kalori açığını destekler |
+| Kas yapımı | Ağırlık ağırlıklı | Minimal — performansı düşürür |
+| Genel sağlık | İkisi dengeli | Her ikisi zorunlu |
+| Dayanıklılık | Kardiyo ağırlıklı | Ana antrenman |
+| Vücut kompozisyonu | Ağırlık + HIIT | Kombine etkili |
+
+## Aynı Günde Kardiyo ve Ağırlık
+
+Aynı seansta ikisini yapmak zorundaysanız sıra önemlidir.
+
+| Seçenek | Sıra | Dezavantaj |
+|---------|------|-----------|
+| Yağ yakımı hedefi | Ağırlık → Kardiyo | Minimal |
+| Dayanıklılık hedefi | Kardiyo → Ağırlık | Güç azalır |
+| Kas yapımı | Ağırlık → hafif kardiyo | Kardiyo minimal olsun |
+
+> ⚠️ Uzun süreli kardiyo sonrası ağırlık antrenmanı yapmak, glikojen tükenmişliği nedeniyle güç çıktısını %20-30 düşürür.
+
+## Sık Yapılan Hatalar
+
+| Hata | Sonuç | Düzeltme |
+|------|-------|---------|
+| Sadece kardiyo | Kas kaybı, yavaşlayan metabolizma | Haftada 2-3 ağırlık ekle |
+| Çok fazla kardiyo | Overtraining, kortizol yükselişi | Haftalık 150-300dk ile sınırla |
+| Ağırlık + sıfır kardiyo | Kardiyovasküler sağlık zarar görür | Haftada 2 orta yoğunluklu kardiyo |
+| Aynı kardiyo hep aynı | Adaptasyon, plato | Türü ve yoğunluğu değiştir |
+
+## Önerilen Haftalık Yapı
+
+### Yağ Yakımı Odaklı Program
+
+| Gün | Antrenman |
+|-----|----------|
+| Pazartesi | Ağırlık (üst vücut) |
+| Salı | HIIT (20 dk) |
+| Çarşamba | Ağırlık (alt vücut) |
+| Perşembe | LISS yürüyüş (30 dk) |
+| Cuma | Ağırlık (full body) |
+| Cumartesi | Aktif dinlenme / yürüyüş |
+| Pazar | Dinlenme |
+
+## Sonuç
+
+Kardiyo ve ağırlık antrenmanı birbirinin rakibi değil tamamlayıcısıdır. Vücut kompozisyonu, metabolik sağlık ve uzun vadeli sürdürülebilirlik için ikisini dengeli birleştirin.
+
+> 💡 Yağ yakmak istiyorsanız ağırlık antrenmanına öncelik verin, kardiyoyu takviye olarak kullanın. Ağırlık, uzun vadede kardiyodan çok daha yüksek metabolik ödül sağlar.`,
+    seoTitle: "Kardiyo mu Ağırlık mı Hangisi Daha Etkili | Gokalaf",
+    seoDescription: "Yağ yakmak için kardiyo mu yoksa ağırlık antrenmanı mı daha etkili? EPOC, metabolizma, kalori harcaması karşılaştırması ve önerilen haftalık program.",
+    publishedAt: "2026-04-01",
+    ctaText: "Kişisel Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "hidrasyon-ve-performans",
+    title: "Su İçmek ve Spor Performansı Arasındaki Bağlantı",
+    category: "beslenme",
+    excerpt: "Vücut ağırlığının yalnızca yüzde ikisi oranındaki sıvı kaybı güç ve dayanıklılığı belirgin biçimde düşürür. Elektrolit dengesi, günlük su ihtiyacı ve antrenman etrafında hidrasyon stratejisi.",
+    heroImage: "/articles/hidrasyon-su-spor-performansi.webp",
+    content: `# Su İçmek ve Spor Performansı Arasındaki Bağlantı
+
+Su, vücudun en temel bileşenidir. Yetişkin vücut ağırlığının %55-65'ini oluşturur ve her fizyolojik süreçte kritik rol oynar. Buna karşın hidrasyon, sporcularda en çok ihmal edilen beslenme değişkenlerinden biridir.
+
+> 💡 **Araştırmalar, vücut ağırlığının yalnızca %2'si oranındaki sıvı kaybının güç çıktısını %10-15, aerobik kapasiteyi %20-30 düşürdüğünü gösteriyor.**
+
+## Suyun Vücuttaki Rolü
+
+| İşlev | Detay |
+|-------|-------|
+| Termoregülasyon | Terleme yoluyla vücut ısısını düzenler |
+| Besin taşıması | Glikozu ve amino asitleri hücrelere iletir |
+| Eklem yağlaması | Eklem sıvısının ana bileşeni |
+| Atık uzaklaştırma | Laktik asit ve metabolik atıkların atılımı |
+| Kan hacmi | Kalp debisini ve oksijen taşımayı etkiler |
+| Kas kasılması | Elektrolit dengesi kasılma-gevşeme döngüsü için şart |
+
+## Dehidrasyon Performansı Nasıl Etkiler?
+
+| Sıvı Kaybı (% vücut ağırlığı) | Etki |
+|-------------------------------|------|
+| %1 | Susuzluk hissi başlar, konsantrasyon hafif düşer |
+| %2 | Güç %10-15, dayanıklılık %20-30 düşer |
+| %3-4 | Isı düzenleme zorlaşır, yorgunluk belirginleşir |
+| %5-6 | Baş dönmesi, bulantı, koordinasyon bozukluğu |
+| %8+ | Ciddi sağlık riski |
+
+## Günlük Su İhtiyacı
+
+| Durum | Öneri |
+|-------|-------|
+| Sedanter yetişkin | 30-35 ml / kg / gün |
+| Orta aktif sporcu | 40-45 ml / kg / gün |
+| Yoğun antrenman | 45-60 ml / kg / gün |
+
+**Örnek:** 80 kg, orta aktif sporcu → 80 x 40 = 3.200 ml/gün
+
+> 💡 Bu rakam tam sayı değildir. Hava sıcaklığı, nem, terleme miktarı ve diyet içeriği günlük ihtiyacı değiştirir.
+
+## Antrenman Etrafında Hidrasyon
+
+| Zaman | Su Miktarı |
+|-------|-----------|
+| 2-3 saat önce | 500-600 ml |
+| 15-20 dk önce | 200-300 ml |
+| Antrenman sırasında | 150-250 ml / 15-20 dakika |
+| Antrenman sonrası | Kaybedilen ağırlık x 1.5 |
+
+**Antrenman sonrası kayıp hesabı:**
+Antrenman öncesi tartının, antrenman sonrası tartının. Farkı 1.5 ile çarpın = alınacak su miktarı.
+
+Örnek: 80.0 kg → 79.2 kg = 0.8 kg kayıp → 0.8 x 1.5 = 1.2 litre
+
+## Elektrolit Dengesi
+
+Sadece su içmek yeterli değildir. Terlemeyle birlikte elektrolit kayıpları da yaşanır.
+
+| Elektrolit | Terlemeyle Kayıp | Rolü |
+|-----------|-----------------|------|
+| Sodyum | En fazla kaybedilen | Sıvı dengesi, sinir iletimi |
+| Potasyum | Orta | Kas kasılması |
+| Magnezyum | Az-orta | Kas gevşemesi, enerji |
+| Kalsiyum | Az | Kas kasılması |
+| Klorür | Sodyumla birlikte | Asit-baz dengesi |
+
+### Ne Zaman Elektrolit Takviyesi Gerekir?
+
+| Durum | Gereklilik |
+|-------|-----------|
+| <60 dk antrenman, ılımlı terleme | Yalnızca su yeterli |
+| 60-90 dk orta yoğunluklu | Antrenman sonrası yemekle karşılanır |
+| >90 dk veya aşırı terleme | Elektrolit içecek/tuz takviyesi önerilir |
+| Uzun dayanıklılık etkinlikleri | Zorunlu |
+
+## Hidrasyon Durumunu Nasıl Ölçersiniz?
+
+### İdrar Rengi
+
+| Renk | Hidrasyon Durumu |
+|------|-----------------|
+| Renksiz-açık sarı | İyi hidrasyon |
+| Koyu sarı | Hafif dehidrasyon |
+| Amber/turuncu | Orta dehidrasyon |
+| Koyu kahverengi | Ciddi dehidrasyon veya sağlık sorunu |
+
+> 💡 Sabah ilk idrar her zaman daha koyu olur — bu normaldir. Gün içindeki idrar rengi daha güvenilir göstergedir.
+
+### Kuru Ağırlık Yöntemi
+
+Antrenman öncesi ve sonrası tartılmak, sıvı kaybının tam ölçümünü verir.
+
+## Sıvı İçeceklerin Kıyaslaması
+
+| İçecek | Hidrasyona Katkı | Not |
+|--------|-----------------|-----|
+| Su | Mükemmel | Her zaman birinci tercih |
+| Süt | Çok iyi | Protein + elektrolit kombinasyonu |
+| Hindistancevizi suyu | İyi | Doğal elektrolit |
+| Sporcu içecekleri | Orta-İyi | >60 dk antrenman için |
+| Kafeinli içecekler | Orta | Hafif diüretik — ölçülü tüketin |
+| Meyve suyu | Orta | Yüksek şeker içeriği |
+| Alkol | Kötü | Güçlü diüretik, kaçının |
+
+## Yaygın Hidrasyon Hataları
+
+| Hata | Doğrusu |
+|------|---------|
+| Yalnızca susayınca içmek | Susuzluk geç gelen bir sinyaldir; saatlik içmeyi alışkanlık edin |
+| Kahveyi suya saymamak | Kafein ılımlı dozda hidrasyona katkı sağlar |
+| Soğuk havada az içmek | Soğukta da terlenir ve nem kaybedilir |
+| Antrenman sonrası tek seferde içmek | Kademeli, yavaş yavaş içmek daha verimli |
+
+## Sonuç
+
+Hidrasyon, antrenman performansının en ucuz ve en kolay optimize edilen değişkenidir. Yeterli su içmek; gücünüzü, dayanıklılığınızı ve toparlanmanızı doğrudan etkiler.
+
+> 💡 Günlük su ihtiyacınızın önemli bir kısmını gıdalardan da karşılarsınız. Meyve, sebze ve süt ürünleri yüksek su içerir.`,
+    seoTitle: "Su İçmek ve Spor Performansı Arasındaki Bağlantı | Gokalaf",
+    seoDescription: "Dehidrasyon spor performansını nasıl etkiler? Günlük su ihtiyacı, elektrolit dengesi ve antrenman etrafında doğru hidrasyon stratejisi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kac-ogun-yenmeli",
+    title: "Günde Kaç Öğün Yenmeli, Metabolizma Gerçekten Hızlanıyor mu",
+    category: "beslenme",
+    excerpt: "Sık yemek metabolizmayı hızlandırır mı? Az öğünde fazla yemek yağ biriktirir mi? Öğün sıklığının kas gelişimine, yağ yakımına ve tokluk hormonlarına etkisi bilimsel verilerle incelendi.",
+    heroImage: "/articles/kac-ogun-yenmeli-metabolizma.webp",
+    content: `# Günde Kaç Öğün Yenmeli?
+
+"Günde 6 kez yiyen metabolizmayı ateşte tutar, 3 kez yiyen yağ depolar." Bu inanış, fitness dünyasında onlarca yıl egemen oldu. Bugün bilim bunun büyük ölçüde efsane olduğunu söylüyor.
+
+> 💡 **Güncel araştırmalar, eşit kalori ve protein alımında öğün sayısının vücut kompozisyonu üzerinde minimal etkisi olduğunu gösteriyor.**
+
+## Öğün Sıklığı Metabolizmayı Gerçekten Etkiler mi?
+
+### Termik Etki (TEF) Gerçeği
+
+Her yediğinizde vücut yediğiniz besini sindirmek için enerji harcar — buna **besinlerin termik etkisi (TEF)** denir.
+
+| Makro | TEF Oranı |
+|-------|-----------|
+| Protein | %20-30 |
+| Karbonhidrat | %5-10 |
+| Yağ | %0-3 |
+
+**Önemli nokta:** TEF toplam kalori alımının bir oranıdır. 6 öğünde 2400 kcal yeseniz de 3 öğünde 2400 kcal yeseniz de TEF aynıdır. Öğün sayısı TEF'i değiştirmez.
+
+### Metabolizma Hızı
+
+| Araştırma Bulgusu | Sonuç |
+|------------------|-------|
+| Bellisle et al. (1997) | Öğün sıklığı BMR'yi değiştirmez |
+| Cameron et al. (2010) | 3 vs 6 öğün — vücut ağırlığı farkı yok |
+| Alencar et al. (2015) | Öğün sayısı REE'yi etkilemiyor |
+
+> ⚠️ **Öğün sayısını artırmak metabolizmayı "ateşlemez."** Metabolizma hızı kalori alımıyla değil, kas kütlesi ve tiroid hormonlarıyla belirlenir.
+
+## Öğün Sayısının Gerçekten Etkilediği Şeyler
+
+### Tokluk ve Açlık Yönetimi
+
+Burada bireysel fark vardır.
+
+| Tercih | Neden? |
+|--------|--------|
+| Fazla öğün (5-6) | Küçük porsiyonlarla kan şekerini sabit tutar |
+| Az öğün (2-3) | Büyük öğünler daha uzun süre tok tutar |
+| IF (16:8) | Tokluk penceresini kısaltarak toplam kaloriyi azaltır |
+
+### Kas Protein Sentezi
+
+Bu noktada öğün dağılımı önem kazanır.
+
+| Araştırma | Bulgu |
+|-----------|-------|
+| Areta et al. (2013) | Proteini eşit dağıtmak (20g x 4 öğün), toplu almaktan (%80-90) daha iyi kas protein sentezi sağlıyor |
+| Moore et al. (2012) | 0.25-0.40 g/kg protein içeren öğünler optimal anabolik yanıt |
+
+**Sonuç:** Günlük toplam protein eşit öğünlere dağıtılırsa daha iyi sonuç alınır — ama bu öğün sayısının 6 olması gerektiği anlamına gelmez. 3-4 öğün yeterlidir.
+
+### Örnek Protein Dağılımı (75 kg sporcu, 150g protein hedefi)
+
+| Öğün Sayısı | Öğün Başı Protein |
+|------------|------------------|
+| 3 öğün | 50g |
+| 4 öğün | 37.5g |
+| 5 öğün | 30g |
+| 6 öğün | 25g |
+
+Her seçenek çalışır. Pratik olan ne olursa onu seçin.
+
+## Kan Şekeri ve "Sık Yemek" Efsanesi
+
+"Kan şekerini sabit tutmak için sık yemek gerekir" — bu fikir çoğu sağlıklı birey için gereksizdir.
+
+| Durum | Sık Yeme Gerekli mi? |
+|-------|---------------------|
+| Sağlıklı birey | Hayır — insülin regülasyonu yeterli |
+| Diyabetik / insülin dirençli | Evet — doktor önerisiyle |
+| Hipoglisemi geçmişi | Evet |
+| Yoğun dayanıklılık sporcusu | Evet — enerji sürekliliği için |
+
+## Öğün Zamanlaması Ne Zaman Önemlidir?
+
+| Durum | Zamanlama Önemli mi? |
+|-------|---------------------|
+| Yüksek performans sporcu | Evet — antrenman etrafı kritik |
+| Gün içi enerjinin dengeli olması | Orta düzey |
+| Kas yapımı | Protein dağılımı önemli |
+| Yağ yakımı | Sınırlı — toplam kalori belirleyici |
+
+## Kaç Öğün Sizin İçin Doğru?
+
+Doğru öğün sayısı hedefinize, programınıza ve tok kalma kapasitenize bağlıdır.
+
+| Kişilik | Önerilen Öğün Sayısı |
+|---------|---------------------|
+| Büyük öğünlerde tok kalan | 2-3 öğün |
+| Küçük öğünleri tercih eden | 4-5 öğün |
+| IF yapan | 2 büyük öğün |
+| Yoğun antrenman + profesyonel | 4-6 öğün |
+
+## Sonuç
+
+Metabolizma hızı öğün sıklığıyla değil kas kütlenizle ve toplam kaloriyle belirlenir. Öğün sayısını hayat tarzınıza uygun şekilde belirleyin, toplam kalori ve protein hedeflerinize odaklanın.
+
+> 💡 Günde 3 büyük öğün de, 5 küçük öğün de işe yarar. Önemli olan yıllarca sürdürebildiğiniz bir düzen bulmaktır.`,
+    seoTitle: "Günde Kaç Öğün Yenmeli, Metabolizma Hızlanır mı | Gokalaf",
+    seoDescription: "Sık yemek metabolizmayı hızlandırır mı? Öğün sıklığı ve kas gelişimi, kan şekeri dengesi ve protein dağılımının bilimsel analizi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "vegan-sporcu-beslenmesi",
+    title: "Bitkisel Beslenerek Kas Yapılır mı",
+    category: "beslenme",
+    excerpt: "Vegan sporcular yeterli protein alabilir mi? Bitkisel kaynaklarda eksik amino asitler nasıl tamamlanır? Demir, B12, kreatin gibi kritik besinlerin vegan sporcular için stratejisi.",
+    heroImage: "/articles/vegan-sporcu-beslenmesi.webp",
+    content: `# Bitkisel Beslenerek Kas Yapılır mı?
+
+Vegan beslenerek ciddi kas kütlesi geliştirmenin mümkün olmadığı düşüncesi, bilimsel olarak çürütülmüştür. Dikkatli planlama ve doğru takviye stratejisiyle vegan sporcular, omnivore sporcularla benzer sonuçlar elde edebilir.
+
+> 💡 **2021'de yayımlanan randomize kontrollü çalışma, eşit protein alımında 12 haftalık direnç antrenmanı sonrası vegan ve omnivore gruplar arasında kas gelişimi bakımından anlamlı bir fark olmadığını gösterdi.**
+
+## Vegan Beslenmede Temel Zorluklar
+
+### 1. Protein Miktarı ve Kalitesi
+
+Bitkisel proteinlerin çoğu **eksik amino asit profili** taşır; yani tüm esansiyel amino asitleri yeterli miktarda içermez.
+
+| Bitkisel Protein | Eksik Amino Asit |
+|-----------------|-----------------|
+| Tahıllar (pirinç, buğday) | Lizin |
+| Baklagiller (fasulye, mercimek) | Metiyonin |
+| Mısır | Triptofan, lizin |
+
+**Çözüm:** Protein tamamlama kombinasyonları:
+
+| Kombinasyon | Tam Profil mi? |
+|-------------|---------------|
+| Pirinç + mercimek | ✅ Tamamlanmış |
+| Tam buğday ekmek + fıstık ezmesi | ✅ Tamamlanmış |
+| Mısır + fasulye | ✅ Tamamlanmış |
+| Soya (tek başına) | ✅ Tam protein |
+
+> 💡 Bu kombinasyonları aynı öğünde almanız zorunlu değildir — gün içinde dengeli karıştırmak yeterlidir.
+
+### 2. Protein Hedefini Karşılamak
+
+Bitkisel proteinlerin biyoyararlanımı hayvansal proteinlere göre %10-20 düşük olduğundan, vegan sporcuların protein hedefini biraz yüksek tutması önerilir.
+
+| Durum | Protein Hedefi |
+|-------|---------------|
+| Omnivore sporcu | 1.6-2.0 g/kg |
+| Vegan sporcu | 1.8-2.2 g/kg |
+
+### En İyi Vegan Protein Kaynakları
+
+| Kaynak | Protein (100g) | Not |
+|--------|---------------|-----|
+| Soya fasulyesi (edamame) | 11g (pişmiş) | Tam amino asit |
+| Tofu (firm) | 17g | Tam protein |
+| Tempeh | 19g | Fermente, yüksek biyoyararlanım |
+| Seitan (buğday gluteni) | 25g | Glüten içerir |
+| Bezelye proteini (supplement) | 20-24g/porsiyon | Yüksek lizin |
+| Nohut | 9g | Kombine edin |
+| Mercimek | 9g | Kombine edin |
+| Kinoa | 4g | Tam protein |
+
+## Kritik Besin Eksiklikleri ve Çözümleri
+
+### B12 Vitamini
+
+Bitkisel gıdalarda **doğal B12 yoktur**. Vegan sporcuların mutlaka takviye alması gerekir.
+
+| Doz | Form |
+|-----|------|
+| 1000 mcg/gün veya | Siyanokobalamin |
+| 2000-2500 mcg/hafta | Metilkobalamin |
+
+### Demir
+
+Bitkisel gıdalardaki **non-hem demir**, hem demire kıyasla %2-20 emilim oranıyla daha düşük biyoyararlanıma sahiptir.
+
+| Emilimi Artıranlar | Emilimi Düşürenler |
+|-------------------|--------------------|
+| C vitamini | Çay/kahve (öğünle) |
+| Fermente gıdalar | Kalsiyum (aynı öğünde) |
+| Isı işlemi | Fitik asit (tam tahıl) |
+
+**Yüksek demir kaynakları:** Mercimek, soya, tofu, kabak çekirdeği, ıspanak.
+
+### Kreatin
+
+Kreatin neredeyse yalnızca hayvansal ürünlerde bulunur. Vegan sporcuların kas kreatini %20-30 daha düşüktür.
+
+| Vegan Sporcu İçin Kreatin Takviyesi | Öneri |
+|------------------------------------|-------|
+| Doz | 3-5 g/gün (fermente kaynaklı) |
+| Form | Kreatin monohidrat |
+| Etki | Omnivore sporculara kıyasla daha belirgin |
+
+### Omega-3
+
+Balık yağı yoktur, ancak ALA (bitkisel) → EPA/DHA dönüşümü yalnızca %5-10'dur.
+
+**Çözüm:** Alg bazlı DHA/EPA takviyesi (balıkların omega-3 kaynağı da zaten alg).
+
+| Takviye | Doz |
+|---------|-----|
+| Alg yağı (DHA+EPA) | 250-500 mg DHA/gün |
+
+### D Vitamini ve Kalsiyum
+
+| Kaynak | Vegan Alternatifleri |
+|--------|---------------------|
+| D3 takviyesi | Likenlerden elde edilen vegan D3 |
+| Kalsiyum | Kalsiyumla zenginleştirilmiş bitki sütü, tofu, brokoli |
+
+### Çinko
+
+Biyoyararlanımı düşük. Ek alım veya fitik asidi azaltan hazırlama yöntemleri (ıslatma, fermente) önerilir.
+
+## Vegan Sporcu İçin Günlük Beslenme Planı Örneği (80 kg, 2800 kcal, 176g protein)
+
+| Öğün | Besinler | Protein |
+|------|---------|---------|
+| Sabah | Soya sütü ile yulaf + chia + fıstık ezmesi | 35g |
+| Öğle | Tempeh + kahverengi pirinç + brokoli | 45g |
+| Ara öğün | Bezelye protein shake + muz | 30g |
+| Akşam | Tofu stir-fry + kinoa + ıspanak | 40g |
+| Gece | Edamame + kabak çekirdeği | 25g |
+
+## Zorunlu Takviyeler (Vegan Sporcu)
+
+| Takviye | Neden Zorunlu? |
+|---------|---------------|
+| B12 | Bitkisel kaynakta yok |
+| Kreatin | Kas performansı ve gelişimi |
+| Alg bazlı Omega-3 | DHA/EPA için |
+| Vegan D3 | Genellikle eksik |
+| Protein tozu (bezelye/pirinç) | Protein hedefini kolayca karşılamak için |
+
+## Sonuç
+
+Bitkisel beslenmeyle ciddi kas gelişimi mümkündür — ancak omnivore sporcuya kıyasla daha fazla planlama gerektirir. Protein kombinasyonlarına dikkat edin, kritik takviyeleri almayı ihmal etmeyin ve kalori hedefinizi doğru tutun.
+
+> 💡 Vegan sporcular için en büyük risk protein miktarı değil B12, kreatin ve omega-3 eksikliğidir. Bu üç takviyeleme yapılırsa performans farkı minimuma iner.`,
+    seoTitle: "Vegan Sporcu Beslenmesi ve Kas Yapımı | Gokalaf",
+    seoDescription: "Bitkisel beslenerek kas yapılır mı? Vegan protein kaynakları, B12, kreatin ve omega-3 takviye stratejisi ve günlük beslenme planı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kafein-antrenman-etkisi",
+    title: "Kafein Antrenman Performansını Nasıl Etkiler",
+    category: "takviyeler",
+    excerpt: "Kafein, bilimsel olarak kanıtlanmış en etkili ergojenik takviyelerden biridir. Güç, dayanıklılık, yağ yakımı ve konsantrasyon üzerindeki mekanizması, doğru doz ve zamanlama.",
+    heroImage: "/articles/kafein-antrenman-performans.webp",
+    content: `# Kafein Antrenman Performansını Nasıl Etkiler?
+
+Kafein, dünyada en yaygın kullanılan psikoaktif maddedir. Ve spor bilimine göre, en iyi araştırılmış ergojenik (performans artırıcı) takviyelerden biridir.
+
+> 💡 **Uluslararası Spor Beslenmesi Derneği (ISSN), kafeini güçlü kanıt düzeyiyle desteklenen en etkili takviyelerden biri olarak sınıflandırmaktadır.**
+
+## Kafein Nasıl Çalışır?
+
+Kafein bir adenozin reseptörü antagonistidir.
+
+| Süreç | Açıklama |
+|-------|----------|
+| Normal: Adenozin birikimi | Adenozin beyne "yoruldum" sinyali gönderir |
+| Kafein: Adenozin bloke edilir | Yorgunluk sinyali iletilmez |
+| Sonuç | Uyanıklık, konsantrasyon ve performans artar |
+
+Aynı zamanda:
+- Epinefrin (adrenalin) salınımını artırır
+- Yağ dokusundan serbest yağ asidi mobilizasyonunu artırır
+- Kas kasılma gücünü iyileştirir
+
+## Atletik Performansa Etkileri
+
+### Dayanıklılık
+
+| Araştırma | Bulgu |
+|-----------|-------|
+| Doherty & Smith (2005) meta-analiz | Ortalama dayanıklılık %12.4 artar |
+| Spriet (2014) | Aerobik kapasiteyi %3-7 artırır |
+| Burke (2008) | Uzun mesafe sporcularında yorgunluk başlama süresini uzatır |
+
+### Güç ve Kuvvet
+
+| Etki | Büyüklük |
+|------|---------|
+| Maksimum güç (1RM) | %3-7 artış |
+| Patlayıcı güç | Belirgin iyileşme |
+| Yüksek tekrar dayanıklılığı | Anlamlı artış |
+
+### Bilişsel Performans
+
+| Etki | Açıklama |
+|------|----------|
+| Konsantrasyon | Artar |
+| Tepki süresi | Kısalır |
+| Algılanan efor | Azalır (hareket daha kolay hissedilir) |
+| Motor öğrenme | Kısmen iyileşir |
+
+### Yağ Yakımı
+
+| Etki | Not |
+|------|-----|
+| Lipoliz artışı | Serbest yağ asidi mobilizasyonu artar |
+| Yağ oksidasyonu | L-Karnitin ile sinerjik |
+| Kalori harcaması | Hafif artış (%3-11 REE yükselişi) |
+
+## Doğru Doz
+
+| Doz | Etki |
+|-----|------|
+| 1-2 mg/kg | Minimal etki |
+| **3-6 mg/kg** | **Optimal performans** |
+| >6 mg/kg | Ek fayda minimal, yan etki riski artar |
+| >9 mg/kg | Bulantı, titreme, taşikardi riski |
+
+**Örnek:** 75 kg sporcu → 225-450 mg kafein
+
+### Yaygın Kafein Kaynaklarında Miktar
+
+| Kaynak | Kafein |
+|--------|--------|
+| Filtre kahve (240ml) | 95-200 mg |
+| Espresso (30ml) | 60-80 mg |
+| Siyah çay (240ml) | 40-70 mg |
+| Energy drink (250ml) | 80-150 mg |
+| Pre-workout (1 servis) | 150-300 mg |
+| Yeşil çay (240ml) | 25-50 mg |
+
+## Zamanlama
+
+| Alım Zamanı | Kan Konsantrasyonu Piki |
+|------------|------------------------|
+| Antrenman 30-60 dk önce | Antrenman sırasında maksimum etki |
+| En geç | Antrenman başlamadan 45 dk önce |
+
+> ⚠️ Yatmadan 6 saat önce kafein alımı uyku kalitesini bozabilir. Kafeinin yarı ömrü 5-6 saattir.
+
+## Kafein Toleransı ve Döngü
+
+Düzenli kafein kullanımında tolerans gelişir — yani aynı etki için daha fazla kafein gerekir.
+
+| Strateji | Uygulama |
+|---------|---------|
+| Haftalık 2-3 kafein tatili | Duyarlılık korunur |
+| Dönemsel bırakma | 1-2 hafta sıfır kafein |
+| Doz kontrolü | Arttırmak yerine döngüsel kullanım |
+
+## Yan Etkiler ve Dikkat Edilecekler
+
+| Yan Etki | Ne Zaman? | Çözüm |
+|---------|-----------|-------|
+| Anksiyete / titreme | Yüksek doz | Dozu azalt |
+| Uyku bozukluğu | Geç alım | 14:00 sonra kafein alma |
+| GI rahatsızlık | Aç karnına | Hafif atıştırmalıkla al |
+| Taşikardi | >6mg/kg | Doz kısıt |
+| Baş ağrısı (bırakma) | Ani bırakma | Kademeli azalt |
+
+## Kimler Dikkatli Olmalı?
+
+| Grup | Öneri |
+|------|-------|
+| Hipertansiyon hastası | Düşük doz veya denetimsiz kullanma |
+| Kalp ritim bozukluğu | Doktor onayı |
+| Hamile | 200mg/gün altında |
+| Uyku problemi olanlar | Öğleden sonra kesme |
+| Kafein hassasiyeti | Düşük doz başla (1mg/kg) |
+
+## Sonuç
+
+Kafein, önerilen dozda kullanıldığında güvenli ve etkili bir performans takviyes.  Doğru doz, doğru zamanlama ve düzenli kafein tatilleriyle maksimum faydayı elde edebilirsiniz.
+
+> 💡 Kahve veya çay, pre-workout ürünlerinden çok daha ucuz ve doğal kafein kaynaklarıdır. Pre-workout almanız için mutlaka kafeine ihtiyaç yoktur.`,
+    seoTitle: "Kafein Antrenman Performansına Etkisi ve Doğru Doz | Gokalaf",
+    seoDescription: "Kafein spor performansını nasıl artırır? Doğru doz, zamanlama, tolerans yönetimi ve yan etkileri. Pre-workout bileşeni kafein rehberi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "eaa-bcaa-farki",
+    title: "EAA ve BCAA Arasındaki Fark Nedir",
+    category: "takviyeler",
+    excerpt: "BCAA mi almalıyım, EAA mı? Esansiyel amino asitler ve dallanmış zincirli amino asitler arasındaki fark, hangisinin kas gelişimine daha fazla katkı sağladığı ve doğru kullanım rehberi.",
+    heroImage: "/articles/eaa-bcaa-amino-asit-fark.webp",
+    content: `# EAA ve BCAA Arasındaki Fark Nedir?
+
+Amino asit takviyeleri söz konusu olduğunda kafalar çabuk karışır. BCAA, EAA, lösin, izolösin, valin — bunlar ne anlama gelir ve hangisi gerçekten işe yarıyor?
+
+> 💡 **Güncel araştırmalar, EAA'nın BCAA'ya kıyasla kas protein sentezini daha etkili uyardığını gösteriyor. BCAA, tam amino asit profiline sahip yeterli protein alındığında büyük ölçüde gereksiz hale gelir.**
+
+## Amino Asit Sınıflandırması
+
+| Sınıf | Tanım | Sayı |
+|-------|-------|------|
+| Esansiyel (EAA) | Vücut üretemez, dışarıdan alınmalı | 9 |
+| Koşullu esansiyel | Normalde üretilir, stres döneminde dışarıdan gerekir | Değişken |
+| Esansiyel olmayan | Vücut sentezler | 11 |
+
+### 9 Esansiyel Amino Asit (EAA)
+
+| Amino Asit | Kategori | Ana İşlevi |
+|-----------|---------|-----------|
+| Lösin | BCAA | Kas protein sentezi (mTOR aktivasyonu) |
+| İzolösin | BCAA | Kas glikojen kullanımı, enerji |
+| Valin | BCAA | Kas onarımı, enerji |
+| Histidin | EAA | Hemoglobin, antioksidan karnosin |
+| Lizin | EAA | Kolajen, karnitin sentezi |
+| Metiyonin | EAA | DNA metilasyonu, antioksidan |
+| Fenilalanin | EAA | Tirozin, nörotransmiter sentezi |
+| Treonin | EAA | Bağışıklık, kolajen |
+| Triptofan | EAA | Serotonin sentezi |
+
+## BCAA Nedir?
+
+BCAA (Branched Chain Amino Acids — Dallanmış Zincirli Amino Asitler), 9 EAA içinden 3 tanesinin alt grubudur: **lösin, izolösin ve valin**.
+
+### BCAA'nın Özellikleri
+
+| Özellik | Detay |
+|---------|-------|
+| Karaciğer bypası | Direkt kasa gider, karaciğerde metabolize edilmez |
+| Hızlı emilim | Kan seviyesi hızla yükselir |
+| Lösin | mTOR yolağını aktive eder (kas yapım sinyali) |
+| Anti-katabolik | Yoğun antrenmanda kas yıkımını azaltır |
+
+## EAA Nedir?
+
+EAA, tüm 9 esansiyel amino asidi kapsayan daha kapsamlı bir takviyedir.
+
+### EAA vs BCAA Karşılaştırması
+
+| Kriter | BCAA | EAA |
+|--------|------|-----|
+| Amino asit sayısı | 3 | 9 |
+| Kas protein sentezi | Kısmi (lösin sinyali) | Tam (tüm yapı taşları mevcut) |
+| Tam protein sentezi | Hayır — eksik amino asit | Evet |
+| Antrenman öncesi/sırası | İyi | Daha iyi |
+| Aç karnına antrenman | Faydalı | Çok daha faydalı |
+| Maliyet | Düşük | Orta-Yüksek |
+
+> 💡 Kas protein sentezi için hem anabolik sinyal (lösin / mTOR) hem de yapı taşları (tüm EAA) gereklidir. BCAA sinyali tetikler ama yapı taşı sağlamaz — bina için çekiç var ama tuğla yok.
+
+## Araştırmalar Ne Söylüyor?
+
+| Çalışma | Bulgu |
+|---------|-------|
+| Wolfe (2017) | EAA takviyesi, BCAA'ya kıyasla kas protein sentezini daha etkin uyardı |
+| Jackman et al. (2017) | BCAA, direnç antrenmanı sonrası protein sentezini artırdı ama EAA kadar değil |
+| Trommelen et al. (2018) | Yeterli whey proteini alındığında BCAA ek katkı sağlamadı |
+
+## Hangisini Seçmeli?
+
+| Durum | Öneri |
+|-------|-------|
+| Yeterli protein alıyorsanız (1.8-2.2g/kg) | BCAA veya EAA gerekmez — whey yeterli |
+| Aç karnına antrenman | EAA (10-12g) |
+| Düşük protein diyet | EAA öncelikli |
+| Bitkisel beslenme | EAA (hayvansal profil tamamlar) |
+| Uzun antrenmanlarda (90+ dk) | EAA veya protein shake |
+| Bütçe kısıtlı | Whey protein her ikisini de karşılar |
+
+## Doz ve Zamanlama
+
+### BCAA
+
+| Parametre | Değer |
+|-----------|-------|
+| Doz | 5-10g |
+| Zamanlama | Antrenman öncesi / sırası / sonrası |
+| Lösin oranı | %45 lösin içeren ürün seçin (2:1:1 oranı) |
+
+### EAA
+
+| Parametre | Değer |
+|-----------|-------|
+| Doz | 10-15g |
+| Zamanlama | Antrenman öncesi veya sırasında |
+| Lösin | En az 2.5-3g lösin içermeli |
+
+## BCAA ve EAA'dan Daha İyi Seçenek Var mı?
+
+Evet: **Whey protein**.
+
+| Takviye | EAA Profili | Lösin (30g porsiyonda) | Maliyet/g protein |
+|---------|------------|----------------------|------------------|
+| Whey isolate | Tam | ~2.5-3g | Düşük |
+| Whey concentrate | Tam | ~2.3-2.8g | Çok düşük |
+| EAA takviyesi | Tam | 2.5-3g | Yüksek |
+| BCAA takviyesi | Kısmi | 2.5g (sadece 3 AA) | Orta |
+
+> 💡 Yeterli protein alıyorsanız, ayrıca BCAA veya EAA harcamanız gerekmez. Bütçenizi protein tozuna yönlendirin.
+
+## Sonuç
+
+EAA, BCAA'ya kıyasla daha kapsamlı ve etkili bir amino asit takviyes.  Ancak yeterli kaliteli protein alındığında her ikisi de büyük ölçüde gereksiz hale gelir.
+
+> 💡 **Öncelik sırası:** 1. Yeterli toplam protein → 2. Whey gibi tam kaynak → 3. Gerekirse EAA. BCAA bu listede dördüncüdür.`,
+    seoTitle: "EAA ve BCAA Arasındaki Fark, Hangisi Daha Etkili | Gokalaf",
+    seoDescription: "EAA mı BCAA mı daha etkili? Esansiyel amino asitler, kas protein sentezi, doğru doz ve aç karnına antrenman için amino asit rehberi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "probiyotik-spor-performansi",
+    title: "Probiyotik Takviyeleri Spor Performansına Katkı Sağlar mı",
+    category: "takviyeler",
+    excerpt: "Bağırsak mikrobiyomu spor performansıyla nasıl ilişkili? Probiyotiklerin toparlanma, bağışıklık ve besin emilimi üzerindeki etkileri ile sporculara özel suşlar ve doz rehberi.",
+    heroImage: "/articles/probiyotik-spor-performansi.webp",
+    content: `# Probiyotik Takviyeleri Spor Performansına Katkı Sağlar mı?
+
+"Bağırsak sağlığı" artık yalnızca sindirim konusu değildir. Son 10 yılda yapılan araştırmalar, bağırsak mikrobiyomunun bağışıklık, enflamasyon, enerji metabolizması ve hatta beyin fonksiyonlarıyla derin bağlantılar kurduğunu göstermektedir.
+
+Peki sporcular için probiyotikler gerçekten işe yarıyor mu?
+
+> 💡 **Araştırmalar, probiyotik kullanımının sporcuların üst solunum yolu enfeksiyonlarını %33-50 azalttığını ve antrenman sonrası kas hasarı belirteçlerini düşürdüğünü gösteriyor.**
+
+## Bağırsak Mikrobiyomu Nedir?
+
+Bağırsak mikrobiyomu, sindirim sisteminde yaşayan trilyonlarca mikroorganizma topluluğudur.
+
+| Mikrobiyom Bileşenleri | Sayı |
+|----------------------|------|
+| Bakteri türü | 500-1000+ |
+| Toplam bakteri sayısı | ~38 trilyon |
+| Gen sayısı | İnsan genomunun 150 katı |
+
+Bu ekosistem:
+- Besinlerin sindirimini ve emilimini etkiler
+- Bağışıklık sisteminin %70-80'ini barındırır
+- Kısa zincirli yağ asitleri (SCFA) üretir
+- Beyin-bağırsak ekseni üzerinden ruh halini etkiler
+
+## Yoğun Antrenman Bağırsağı Nasıl Etkiler?
+
+| Etki | Açıklama |
+|------|----------|
+| Bağırsak geçirgenliği artar | "Leaky gut" — toksinler kana geçer |
+| Kan bağırsaktan uzaklaşır | Splanchnic iskemi → bağırsak hasarı |
+| Mikrobiyom çeşitliliği düşer | Disbiyoz riski |
+| Enflamasyon artar | Sistemik inflamasyon yükü |
+
+Uzun mesafe koşucular ve triatlet gibi yüksek hacimli sporcuların %30-70'inde GI (gastrointestinal) sorunlar yaşandığı bilinmektedir.
+
+## Probiyotiklerin Sporcular İçin Faydaları
+
+### 1. Bağışıklık Güçlendirme
+
+| Etki | Araştırma |
+|------|----------|
+| Üst solunum yolu enfeksiyonu | %33-50 azalma |
+| Hastalıkta geçen gün | Azalma |
+| Antikor üretimi | Artış |
+
+### 2. Toparlanma
+
+| Etki | Mekanizma |
+|------|----------|
+| Kas hasarı belirteçleri (CK, LDH) | Azalır |
+| Enflamasyon (IL-6, TNF-α) | Düşer |
+| Yorgunluk | Azalır |
+| DOMS (kas ağrısı) | Hafifler |
+
+### 3. Besin Emilimi
+
+| Besin | Probiyotik Etkisi |
+|-------|-----------------|
+| Protein | Amino asit emilimi artar |
+| Demir | Non-hem demir emilimi iyileşir |
+| B vitaminleri | Mikrobiyom B12, K2 üretir |
+| Omega-3 | Anti-inflamatuar etki sinerjisi |
+
+### 4. Enerji Metabolizması
+
+| Etki | Açıklama |
+|------|----------|
+| Glikojen sentezi | Kısa zincirli yağ asitleri (SCFA) katkısı |
+| Laktik asit temizlenmesi | Belirli suşlarda daha hızlı |
+| Mitokondrial fonksiyon | Oxidatif stres azalmasıyla iyileşme |
+
+## Sporculara Önerilen Probiyotik Suşları
+
+| Suş | Kanıtlanmış Etki |
+|-----|----------------|
+| Lactobacillus acidophilus | Bağışıklık, GI sağlık |
+| Lactobacillus rhamnosus GG | Enfeksiyon önleme |
+| Bifidobacterium longum | Enflamasyon azaltma |
+| Lactobacillus plantarum | Protein emilimi, toparlanma |
+| Streptococcus thermophilus | Laktoz toleransı |
+
+> 💡 Tek suş yerine çoklu suş (multi-strain) probiyotikler genellikle daha kapsamlı fayda sağlar.
+
+## Doğru Doz ve Kullanım
+
+| Parametre | Öneri |
+|-----------|-------|
+| Doz | 5-10 milyar CFU/gün |
+| Zamanlama | Yemekle birlikte (veya hemen önce) |
+| Süre | En az 4-8 hafta (etki için) |
+| Saklama | Soğutmalı ürünler buzdolabında |
+
+**CFU (Colony Forming Unit):** Canlı bakteri sayısı. Ürünün son kullanma tarihinde garanti edilen CFU'ya bakın.
+
+## Prebiyotik ve Probiyotiğin Farkı
+
+| Terim | Tanım | Örnek |
+|-------|-------|-------|
+| Probiyotik | Canlı faydalı bakteriler | Yoğurt, kefir, takviye |
+| Prebiyotik | Faydalı bakterilerin besini (lif) | Yulaf, muz, enginar, sarımsak |
+| Sinbiyotik | İkisinin kombinasyonu | Prebiyotik + probiyotik içeren ürünler |
+
+> 💡 Probiyotik almak, beslemeden bağımsız olarak etkilidir; ancak prebiyotik zengin bir diyet, mikrobiyomun kalıcı olarak güçlenmesini sağlar.
+
+## Doğal Probiyotik Kaynakları
+
+| Gıda | Suş | Not |
+|------|-----|-----|
+| Yoğurt | L. bulgaricus, S. thermophilus | "Canlı kültür" yazmalı |
+| Kefir | 10-20+ suş | Yoğurttan daha zengin |
+| Lahana turşusu (pastörizesiz) | Lactobacillus türleri | Pastörize olmayanı tercih edin |
+| Tempeh | Bacillus subtilis | Fermente soya |
+| Miso | Aspergillus oryzae | Pişirmeden tüketin |
+| Kimchi | Lactobacillus kimchii | Fermente sebze |
+
+## Sonuç
+
+Probiyotikler, kas yapımı veya güç artışı konusunda doğrudan etkili değildir. Ancak **bağışıklık güçlendirme, toparlanma hızlandırma ve besin emilimi iyileştirme** yoluyla sporcunun verimliliğini dolaylı olarak artırır.
+
+> 💡 Sık hastalanıyorsanız, GI sorunlar yaşıyorsanız veya yoğun antrenman dönemindeyseniz kaliteli bir multi-strain probiyotik değerlendirmeye değer.`,
+    seoTitle: "Probiyotik Takviyeleri Spor Performansına Etkisi | Gokalaf",
+    seoDescription: "Probiyotikler spor performansına katkı sağlar mı? Bağırsak sağlığı, bağışıklık, toparlanma ve sporcular için önerilen suşlar ve doz rehberi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
