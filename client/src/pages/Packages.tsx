@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Check, HelpCircle, Star, Zap, Loader2, ChevronDown } from "lucide-react";
+import { Check, HelpCircle, Star, Zap, Loader2, Crown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,11 +33,11 @@ const NATURAL_FEATURES = [
 ];
 
 const TEAM_ALAF_EXTRAS = [
-  "Kişiye özel ileri seviye performans protokolü planlaması",
-  "Süreç boyunca detaylı analiz ve ilerleme takibi",
-  "Kan değerlerinin trend analizine göre gelişim değerlendirmesi",
-  "Sporcu sağlığı odaklı haftalık ölçüm ve takip rehberi",
-  "Düzenli kan tahlili kontrol listesi",
+  "Kişiye Özel İleri Seviye Performans Protokolü Planlaması",
+  "Süreç Boyunca Detaylı Analiz ve İlerleme Takibi",
+  "Kan Değerlerinin Trend Analizine Göre Gelişim Değerlendirmesi",
+  "Sporcu Sağlığı Odaklı Haftalık Ölçüm ve Takip Rehberi",
+  "Düzenli Kan Tahlili Kontrol Listesi",
 ];
 
 const faqs = [
@@ -72,7 +72,7 @@ function DurationSelector({
   options: number[];
   selected: number;
   onSelect: (w: number) => void;
-  accent: "green" | "white";
+  accent: "green" | "white" | "gold";
 }) {
   return (
     <div className="flex items-center gap-1 bg-white/[0.04] rounded-xl p-1 border border-white/[0.07]">
@@ -87,6 +87,8 @@ function DurationSelector({
               active
                 ? accent === "green"
                   ? "bg-[#ccff00] text-black shadow-[0_0_12px_rgba(204,255,0,0.2)]"
+                  : accent === "gold"
+                  ? "bg-[#e8c04a] text-black shadow-[0_0_12px_rgba(232,192,74,0.3)]"
                   : "bg-white text-black shadow-[0_0_12px_rgba(255,255,255,0.15)]"
                 : "text-gray-500 hover:text-gray-300"
             }`}
@@ -102,6 +104,7 @@ function DurationSelector({
 export default function Packages() {
   const [naturalWeeks, setNaturalWeeks] = useState(12);
   const [teamWeeks, setTeamWeeks] = useState(12);
+  const [mobileTab, setMobileTab] = useState<"natural" | "team">("natural");
 
   const { data: packages = [], isLoading } = useQuery<Package[]>({
     queryKey: ["/api/packages"],
@@ -221,6 +224,34 @@ export default function Packages() {
             </p>
           </motion.div>
 
+          {/* ── Mobile Tab Switcher ── */}
+          <div className="lg:hidden max-w-xs mx-auto mb-6">
+            <div className="flex bg-white/[0.04] border border-white/[0.08] rounded-2xl p-1 gap-1">
+              <button
+                onClick={() => setMobileTab("natural")}
+                data-testid="button-tab-natural"
+                className={`flex-1 py-2.5 px-3 rounded-xl text-[12px] font-bold uppercase tracking-wide transition-all duration-200 ${
+                  mobileTab === "natural"
+                    ? "bg-[#ccff00] text-black shadow-[0_0_16px_rgba(204,255,0,0.25)]"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Natural
+              </button>
+              <button
+                onClick={() => setMobileTab("team")}
+                data-testid="button-tab-team"
+                className={`flex-1 py-2.5 px-3 rounded-xl text-[12px] font-bold uppercase tracking-wide transition-all duration-200 ${
+                  mobileTab === "team"
+                    ? "bg-[#e8c04a] text-black shadow-[0_0_16px_rgba(232,192,74,0.3)]"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Team Alaf
+              </button>
+            </div>
+          </div>
+
           {/* ── Package Cards ── */}
           <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20">
 
@@ -229,7 +260,7 @@ export default function Packages() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1 }}
-              className="relative"
+              className={`relative ${mobileTab === "team" ? "hidden lg:block" : ""}`}
             >
               <div className="relative h-full bg-[#0a0a0a] border border-white/[0.08] rounded-2xl overflow-hidden flex flex-col">
                 {/* Top accent line */}
@@ -312,35 +343,35 @@ export default function Packages() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="relative"
+              className={`relative ${mobileTab === "natural" ? "hidden lg:block" : ""}`}
             >
-              {/* Glow border wrapper */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-white/20 via-white/[0.06] to-transparent pointer-events-none z-10" />
+              {/* Gold glow border wrapper */}
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#e8c04a]/30 via-[#e8c04a]/[0.08] to-transparent pointer-events-none z-10" />
 
               {/* Recommended badge */}
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                <div className="flex items-center gap-1.5 bg-white text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                  <Zap size={10} />
-                  Önerilen
+                <div className="flex items-center gap-1.5 bg-[#e8c04a] text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(232,192,74,0.4)]">
+                  <Crown size={10} />
+                  Premium
                 </div>
               </div>
 
-              <div className="relative h-full bg-[#0d0d0d] border border-white/[0.12] rounded-2xl overflow-hidden flex flex-col">
+              <div className="relative h-full bg-[#0d0b05] border border-[#e8c04a]/[0.18] rounded-2xl overflow-hidden flex flex-col">
                 {/* Top accent line */}
-                <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                <div className="h-px bg-gradient-to-r from-transparent via-[#e8c04a]/60 to-transparent" />
 
                 {/* Subtle inner glow */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-white/[0.025] rounded-full blur-[60px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-56 h-56 bg-[#e8c04a]/[0.04] rounded-full blur-[60px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
                 {/* Card body */}
                 <div className="p-6 flex flex-col flex-1 relative z-10">
                   {/* Title */}
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center">
-                        <Zap size={13} className="text-white" />
+                      <div className="w-7 h-7 rounded-lg bg-[#e8c04a]/10 border border-[#e8c04a]/25 flex items-center justify-center">
+                        <Crown size={13} className="text-[#e8c04a]" />
                       </div>
-                      <span className="text-[10px] text-white/50 uppercase tracking-[0.25em] font-medium">Üst Seviye</span>
+                      <span className="text-[10px] text-[#e8c04a]/70 uppercase tracking-[0.25em] font-medium">Üst Seviye</span>
                     </div>
                     <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
                     <p className="text-gray-500 text-[12px] mt-0.5">İleri seviye performans koçluğu</p>
@@ -353,7 +384,7 @@ export default function Packages() {
                       options={teamDurations}
                       selected={teamWeeks}
                       onSelect={setTeamWeeks}
-                      accent="white"
+                      accent="gold"
                     />
                   </div>
 
@@ -367,7 +398,7 @@ export default function Packages() {
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <p className="text-[38px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
+                        <p className="text-[38px] font-bold text-[#e8c04a] tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
                         <p className="text-gray-600 text-[12px] mt-1">{teamWeeks} haftalık program</p>
@@ -380,15 +411,15 @@ export default function Packages() {
                     {/* Natural base */}
                     <div>
                       <div className="flex items-center gap-2 mb-2.5">
-                        <div className="h-px flex-1 bg-white/[0.06]" />
-                        <span className="text-[10px] text-gray-700 uppercase tracking-[0.15em] whitespace-nowrap">Natural Paket'teki her şey</span>
-                        <div className="h-px flex-1 bg-white/[0.06]" />
+                        <div className="h-px flex-1 bg-[#e8c04a]/[0.1]" />
+                        <span className="text-[10px] text-[#e8c04a]/40 uppercase tracking-[0.15em] whitespace-nowrap">Natural Paket'teki her şey</span>
+                        <div className="h-px flex-1 bg-[#e8c04a]/[0.1]" />
                       </div>
                       <div className="space-y-1.5">
                         {NATURAL_FEATURES.map((f, i) => (
                           <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-white/[0.06] border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-gray-500" />
+                            <div className="w-4 h-4 rounded-full bg-[#e8c04a]/[0.06] border border-[#e8c04a]/15 flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={9} className="text-[#e8c04a]/40" />
                             </div>
                             <span className="text-gray-600 text-[11px] leading-relaxed">{f}</span>
                           </div>
@@ -399,17 +430,17 @@ export default function Packages() {
                     {/* Extra features */}
                     <div>
                       <div className="flex items-center gap-2 mb-2.5">
-                        <div className="h-px flex-1 bg-white/[0.06]" />
-                        <span className="text-[10px] text-white/60 uppercase tracking-[0.15em] whitespace-nowrap font-semibold">+ Team Alaf Extras</span>
-                        <div className="h-px flex-1 bg-white/[0.06]" />
+                        <div className="h-px flex-1 bg-[#e8c04a]/20" />
+                        <span className="text-[10px] text-[#e8c04a] uppercase tracking-[0.15em] whitespace-nowrap font-bold">+ Team Alaf Extras</span>
+                        <div className="h-px flex-1 bg-[#e8c04a]/20" />
                       </div>
                       <div className="space-y-2">
                         {TEAM_ALAF_EXTRAS.map((f, i) => (
                           <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-white" />
+                            <div className="w-4 h-4 rounded-full bg-[#e8c04a]/15 border border-[#e8c04a]/35 flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={9} className="text-[#e8c04a]" />
                             </div>
-                            <span className="text-white/80 text-[12px] leading-relaxed">{f}</span>
+                            <span className="text-white text-[12px] leading-relaxed">{f}</span>
                           </div>
                         ))}
                       </div>
@@ -422,7 +453,7 @@ export default function Packages() {
                       onClick={() => teamPkg && trackAddToCart(`${teamWeeks} Haftalık Team Alaf Paketi`, teamPkg.id, parseFloat(teamPkg.price))}
                       disabled={!teamPkg}
                       data-testid="button-buy-team-alaf"
-                      className="w-full h-11 rounded-xl bg-white text-black font-bold text-[13px] uppercase tracking-wider hover:bg-white/90 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-full h-11 rounded-xl bg-[#e8c04a] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#e8c04a]/90 transition-all hover:shadow-[0_0_24px_rgba(232,192,74,0.35)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       Satın Al
                     </button>
