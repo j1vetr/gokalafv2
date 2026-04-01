@@ -36,6 +36,12 @@ export default function Articles() {
         a.excerpt.toLowerCase().includes(q)
       );
     }
+    result.sort((a, b) => {
+      if (!a.publishedAt && !b.publishedAt) return 0;
+      if (!a.publishedAt) return 1;
+      if (!b.publishedAt) return -1;
+      return b.publishedAt.localeCompare(a.publishedAt);
+    });
     return result;
   }, [selectedCategory, searchQuery]);
 
