@@ -1584,102 +1584,173 @@ export default function AdminDashboard() {
                       .filter(o => ["paid", "active", "completed"].includes(o.status))
                       .reduce((s, o) => s + parseFloat(o.totalPrice), 0);
                     const activeCount = orders.filter(o => o.status === "active").length;
+                    const pendingCount = orders.filter(o => o.status === "pending").length;
                     const avgVal = orders.length > 0
-                      ? orders.reduce((s, o) => s + parseFloat(o.totalPrice), 0) / orders.length
+                      ? orders.filter(o => ["paid","active","completed"].includes(o.status)).reduce((s, o) => s + parseFloat(o.totalPrice), 0) / Math.max(orders.filter(o => ["paid","active","completed"].includes(o.status)).length, 1)
                       : 0;
 
+                    const statusConfig: Record<string, { label: string; dot: string; bg: string; border: string; text: string }> = {
+                      active:    { label: "Aktif",      dot: "bg-green-400",  bg: "bg-green-500/10",  border: "border-green-500/20",  text: "text-green-400" },
+                      pending:   { label: "Bekliyor",   dot: "bg-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20", text: "text-yellow-400" },
+                      paid:      { label: "Ödendi",     dot: "bg-blue-400",   bg: "bg-blue-500/10",   border: "border-blue-500/20",   text: "text-blue-400" },
+                      completed: { label: "Tamamlandı", dot: "bg-gray-500",   bg: "bg-gray-500/10",   border: "border-gray-500/20",   text: "text-gray-500" },
+                      cancelled: { label: "İptal",      dot: "bg-red-400",    bg: "bg-red-500/10",    border: "border-red-500/20",    text: "text-red-400" },
+                    };
+
                     const statusTabs = [
-                      { key: "all", label: "Tümü", count: orders.length, color: "text-gray-300" },
-                      { key: "pending", label: "Bekliyor", count: orders.filter(o => o.status === "pending").length, color: "text-yellow-400" },
-                      { key: "paid", label: "Ödendi", count: orders.filter(o => o.status === "paid").length, color: "text-blue-400" },
-                      { key: "active", label: "Aktif", count: orders.filter(o => o.status === "active").length, color: "text-green-400" },
-                      { key: "completed", label: "Tamamlandı", count: orders.filter(o => o.status === "completed").length, color: "text-gray-500" },
-                      { key: "cancelled", label: "İptal", count: orders.filter(o => o.status === "cancelled").length, color: "text-red-400" },
+                      { key: "all",       label: "Tümü",       count: orders.length },
+                      { key: "active",    label: "Aktif",      count: orders.filter(o => o.status === "active").length },
+                      { key: "pending",   label: "Bekliyor",   count: orders.filter(o => o.status === "pending").length },
+                      { key: "paid",      label: "Ödendi",     count: orders.filter(o => o.status === "paid").length },
+                      { key: "completed", label: "Tamamlandı", count: orders.filter(o => o.status === "completed").length },
+                      { key: "cancelled", label: "İptal",      count: orders.filter(o => o.status === "cancelled").length },
                     ];
 
                     const sourceEmoji: Record<string, string> = {
                       "arama-motoru": "🔍",
-                      "yapay-zeka": "🤖",
+                      "yapay-zeka":   "🤖",
                       "sosyal-medya": "📱",
-                      "reklam": "📣",
-                      "e-posta": "📧",
-                      "direkt": "🔗",
-                      "diger": "🌐",
+                      "reklam":       "📣",
+                      "e-posta":      "📧",
+                      "direkt":       "🔗",
+                      "diger":        "🌐",
                     };
 
-                    const amountColor = (status: string) => {
-                      if (status === "active") return "text-[#ccff00]";
-                      if (status === "paid") return "text-blue-400";
-                      if (status === "completed") return "text-gray-400";
-                      return "text-white";
+                    const getProgress = (order: Order) => {
+                      if (!order.startDate || !order.endDate) return null;
+                      const start = new Date(order.startDate).getTime();
+                      const end = new Date(order.endDate).getTime();
+                      const now = Date.now();
+                      const total = end - start;
+                      const elapsed = now - start;
+                      const pct = Math.min(100, Math.max(0, (elapsed / total) * 100));
+                      const daysLeft = Math.max(0, Math.ceil((end - now) / 86400000));
+                      return { pct, daysLeft };
                     };
+
+                    const avatarGradients = [
+                      "from-[#ccff00]/20 to-[#ccff00]/5",
+                      "from-blue-500/20 to-blue-500/5",
+                      "from-purple-500/20 to-purple-500/5",
+                      "from-orange-500/20 to-orange-500/5",
+                      "from-pink-500/20 to-pink-500/5",
+                    ];
 
                     return (
-                      <div className="space-y-4">
-                        {/* ── Header ── */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="space-y-5">
+
+                        {/* ── Page Title + Search ── */}
+                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                           <div>
-                            <h2 className="text-[11px] text-gray-600 uppercase tracking-[0.2em] mb-1">Yönetim</h2>
-                            <div className="flex items-center gap-3">
-                              <p className="text-2xl font-bold text-white">Siparişler</p>
-                              <span className="px-2 py-0.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-[12px] text-gray-400 tabular-nums">{orders.length}</span>
-                            </div>
+                            <p className="text-[10px] text-gray-700 uppercase tracking-[0.25em] mb-1.5">Yönetim Paneli</p>
+                            <h1 className="text-[26px] font-bold text-white leading-none tracking-tight">Siparişler</h1>
                           </div>
-                          <div className="relative w-full sm:w-64">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 w-4 h-4" />
+                          <div className="relative w-full sm:w-72">
+                            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 w-4 h-4" />
                             <input
-                              placeholder="İsim, e-posta veya referans ara..."
+                              placeholder="İsim, e-posta veya referans..."
                               value={searchTerm}
                               onChange={(e) => setSearchTerm(e.target.value)}
                               data-testid="input-search-orders"
-                              className="w-full pl-9 pr-4 py-2.5 bg-[#0d0d0d] border border-white/[0.08] rounded-xl text-[13px] text-white placeholder:text-gray-700 focus:outline-none focus:border-[#ccff00]/30 transition-colors"
+                              className="w-full pl-10 pr-4 py-2.5 bg-[#0c0c0c] border border-white/[0.07] rounded-xl text-[13px] text-white placeholder:text-gray-700 focus:outline-none focus:border-[#ccff00]/25 transition-colors"
                             />
                           </div>
                         </div>
 
-                        {/* ── KPI Strip ── */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                          {[
-                            { label: "Toplam Sipariş", value: orders.length, suffix: "", color: "text-white" },
-                            { label: "Toplam Gelir", value: `₺${revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}`, suffix: "", color: "text-[#ccff00]" },
-                            { label: "Aktif Program", value: activeCount, suffix: " aktif", color: "text-green-400" },
-                            { label: "Ort. Sipariş", value: `₺${avgVal.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}`, suffix: "", color: "text-blue-400" },
-                          ].map((kpi) => (
-                            <div key={kpi.label} className="bg-[#080808] border border-white/[0.06] rounded-xl px-4 py-3">
-                              <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1">{kpi.label}</p>
-                              <p className={`text-xl font-bold tabular-nums ${kpi.color}`}>{kpi.value}{kpi.suffix}</p>
+                        {/* ── KPI Cards ── */}
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                          {/* Revenue */}
+                          <div className="relative col-span-2 lg:col-span-1 bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ccff00]/[0.04] to-transparent pointer-events-none" />
+                            <div className="flex items-start justify-between mb-3">
+                              <p className="text-[10px] text-gray-600 uppercase tracking-[0.18em]">Toplam Gelir</p>
+                              <div className="w-7 h-7 rounded-lg bg-[#ccff00]/8 border border-[#ccff00]/15 flex items-center justify-center">
+                                <DollarSign size={13} className="text-[#ccff00]/70" />
+                              </div>
                             </div>
-                          ))}
+                            <p className="text-[28px] font-bold text-[#ccff00] tabular-nums leading-none">
+                              ₺{revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
+                            </p>
+                            <p className="text-[11px] text-gray-700 mt-2">Ödenen siparişlerden</p>
+                          </div>
+
+                          {/* Active */}
+                          <div className="relative bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-500/[0.04] to-transparent pointer-events-none" />
+                            <div className="flex items-start justify-between mb-3">
+                              <p className="text-[10px] text-gray-600 uppercase tracking-[0.18em]">Aktif</p>
+                              <div className="w-2 h-2 rounded-full bg-green-400 mt-1" style={{ boxShadow: "0 0 6px #4ade80" }} />
+                            </div>
+                            <p className="text-[28px] font-bold text-green-400 tabular-nums leading-none">{activeCount}</p>
+                            <p className="text-[11px] text-gray-700 mt-2">Devam eden program</p>
+                          </div>
+
+                          {/* Pending */}
+                          <div className="relative bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 overflow-hidden">
+                            <div className="flex items-start justify-between mb-3">
+                              <p className="text-[10px] text-gray-600 uppercase tracking-[0.18em]">Bekliyor</p>
+                              <div className="w-7 h-7 rounded-lg bg-yellow-500/8 border border-yellow-500/15 flex items-center justify-center">
+                                <Clock size={13} className="text-yellow-500/70" />
+                              </div>
+                            </div>
+                            <p className="text-[28px] font-bold text-yellow-400 tabular-nums leading-none">{pendingCount}</p>
+                            <p className="text-[11px] text-gray-700 mt-2">Onay bekleyen</p>
+                          </div>
+
+                          {/* Avg */}
+                          <div className="relative bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 overflow-hidden">
+                            <div className="flex items-start justify-between mb-3">
+                              <p className="text-[10px] text-gray-600 uppercase tracking-[0.18em]">Ort. Değer</p>
+                              <div className="w-7 h-7 rounded-lg bg-blue-500/8 border border-blue-500/15 flex items-center justify-center">
+                                <TrendingUp size={13} className="text-blue-400/70" />
+                              </div>
+                            </div>
+                            <p className="text-[28px] font-bold text-blue-400 tabular-nums leading-none">
+                              ₺{avgVal.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
+                            </p>
+                            <p className="text-[11px] text-gray-700 mt-2">Ortalama sipariş</p>
+                          </div>
                         </div>
 
-                        {/* ── Filters ── */}
-                        <div className="flex flex-wrap gap-3">
-                          {/* Status pills */}
-                          <div className="flex flex-wrap gap-1.5">
-                            {statusTabs.map(tab => (
-                              <button
-                                key={tab.key}
-                                onClick={() => setOrdersStatusFilter(tab.key)}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium border transition-all ${
-                                  ordersStatusFilter === tab.key
-                                    ? "bg-[#ccff00]/10 border-[#ccff00]/30 text-[#ccff00]"
-                                    : "bg-[#0a0a0a] border-white/[0.06] text-gray-500 hover:border-white/15 hover:text-gray-300"
-                                }`}
-                              >
-                                {tab.label}
-                                {tab.count > 0 && (
-                                  <span className={`text-[11px] tabular-nums ${ordersStatusFilter === tab.key ? "text-[#ccff00]/70" : "text-gray-700"}`}>{tab.count}</span>
-                                )}
-                              </button>
-                            ))}
+                        {/* ── Status Tabs + Source Filter ── */}
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                          {/* Status tabs */}
+                          <div className="flex items-center bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-1 gap-0.5 flex-wrap">
+                            {statusTabs.map(tab => {
+                              const cfg = statusConfig[tab.key];
+                              const active = ordersStatusFilter === tab.key;
+                              return (
+                                <button
+                                  key={tab.key}
+                                  onClick={() => setOrdersStatusFilter(tab.key)}
+                                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all ${
+                                    active
+                                      ? "bg-white/[0.07] text-white"
+                                      : "text-gray-600 hover:text-gray-400"
+                                  }`}
+                                >
+                                  {cfg && <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot} ${active ? "opacity-100" : "opacity-40"}`} />}
+                                  {tab.label}
+                                  {tab.count > 0 && (
+                                    <span className={`text-[10px] tabular-nums ${active ? "text-gray-400" : "text-gray-700"}`}>
+                                      {tab.count}
+                                    </span>
+                                  )}
+                                </button>
+                              );
+                            })}
                           </div>
 
                           {/* Source filter */}
                           {allSources.length > 1 && (
-                            <div className="flex flex-wrap gap-1.5 border-l border-white/[0.06] pl-3">
+                            <div className="flex items-center gap-1.5 flex-wrap">
                               <button
                                 onClick={() => setOrdersSourceFilter("all")}
-                                className={`px-3 py-1.5 rounded-lg text-[12px] border transition-all ${ordersSourceFilter === "all" ? "bg-[#ccff00]/10 border-[#ccff00]/30 text-[#ccff00]" : "bg-[#0a0a0a] border-white/[0.06] text-gray-500 hover:border-white/15 hover:text-gray-300"}`}
+                                className={`px-2.5 py-1.5 rounded-lg text-[11px] border transition-all ${
+                                  ordersSourceFilter === "all"
+                                    ? "bg-[#ccff00]/10 border-[#ccff00]/25 text-[#ccff00]"
+                                    : "bg-[#0a0a0a] border-white/[0.06] text-gray-600 hover:text-gray-400"
+                                }`}
                               >
                                 Tüm Kaynaklar
                               </button>
@@ -1687,7 +1758,11 @@ export default function AdminDashboard() {
                                 <button
                                   key={src}
                                   onClick={() => setOrdersSourceFilter(src)}
-                                  className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[12px] border transition-all ${ordersSourceFilter === src ? "bg-[#ccff00]/10 border-[#ccff00]/30 text-[#ccff00]" : "bg-[#0a0a0a] border-white/[0.06] text-gray-500 hover:border-white/15 hover:text-gray-300"}`}
+                                  className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] border transition-all ${
+                                    ordersSourceFilter === src
+                                      ? "bg-[#ccff00]/10 border-[#ccff00]/25 text-[#ccff00]"
+                                      : "bg-[#0a0a0a] border-white/[0.06] text-gray-600 hover:text-gray-400"
+                                  }`}
                                 >
                                   <span>{sourceEmoji[src] || "🌐"}</span>
                                   {SOURCE_LABELS[src as TrafficSource] || src}
@@ -1695,117 +1770,81 @@ export default function AdminDashboard() {
                               ))}
                             </div>
                           )}
-                        </div>
 
-                        {/* ── Orders List ── */}
-                        <div className="bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden">
-                          {pageOrders.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-20 gap-4">
-                              <div className="w-16 h-16 rounded-2xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                                <ShoppingCart size={24} className="text-gray-700" />
-                              </div>
-                              <div className="text-center">
-                                <p className="text-white font-medium">Sipariş Bulunamadı</p>
-                                <p className="text-gray-600 text-sm mt-1">
-                                  {searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all"
-                                    ? "Filtrelerinizi değiştirmeyi deneyin"
-                                    : "Henüz hiç sipariş yok"}
-                                </p>
-                              </div>
+                          {/* Results count */}
+                          <div className="sm:ml-auto">
+                            <p className="text-[11px] text-gray-700 whitespace-nowrap">
+                              {pageOrders.length} sonuç
                               {(searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all") && (
                                 <button
                                   onClick={() => { setSearchTerm(""); setOrdersStatusFilter("all"); setOrdersSourceFilter("all"); }}
-                                  className="text-[12px] text-[#ccff00]/60 hover:text-[#ccff00] transition-colors"
+                                  className="ml-2 text-[#ccff00]/50 hover:text-[#ccff00] transition-colors"
                                 >
-                                  Filtreleri Temizle
+                                  temizle ×
                                 </button>
                               )}
-                            </div>
-                          ) : (
-                            <div className="divide-y divide-white/[0.04]">
-                              {pageOrders.map((order, idx) => {
-                                const u = userMap[order.userId];
-                                const pkg = packageMap[order.packageId];
-                                const src = (order.orderSource || "direkt") as TrafficSource;
-                                const srcColors = SOURCE_COLORS[src] || SOURCE_COLORS["direkt"];
+                            </p>
+                          </div>
+                        </div>
 
-                                return (
-                                  <motion.div
-                                    key={order.id}
-                                    initial={{ opacity: 0, y: 6 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: idx * 0.03, duration: 0.2 }}
-                                    className="flex items-center gap-4 px-5 py-4 hover:bg-white/[0.02] transition-colors group"
-                                    data-testid={`row-order-${order.id}`}
-                                  >
+                        {/* ── Orders Grid ── */}
+                        {pageOrders.length === 0 ? (
+                          <div className="flex flex-col items-center justify-center py-24 gap-4">
+                            <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
+                              <ShoppingCart size={22} className="text-gray-700" />
+                            </div>
+                            <div className="text-center">
+                              <p className="text-white font-medium">Sipariş bulunamadı</p>
+                              <p className="text-gray-600 text-sm mt-1">
+                                {searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all"
+                                  ? "Filtrelerinizi değiştirmeyi deneyin"
+                                  : "Henüz hiç sipariş yok"}
+                              </p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                            {pageOrders.map((order, idx) => {
+                              const u = userMap[order.userId];
+                              const pkg = packageMap[order.packageId];
+                              const src = (order.orderSource || "direkt") as TrafficSource;
+                              const srcColors = SOURCE_COLORS[src] || SOURCE_COLORS["direkt"];
+                              const cfg = statusConfig[order.status] || statusConfig["pending"];
+                              const progress = order.status === "active" ? getProgress(order) : null;
+                              const gradClass = avatarGradients[idx % avatarGradients.length];
+
+                              return (
+                                <motion.div
+                                  key={order.id}
+                                  initial={{ opacity: 0, y: 8 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: idx * 0.04, duration: 0.22 }}
+                                  className="group relative bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 hover:border-white/[0.12] transition-all duration-200"
+                                  data-testid={`row-order-${order.id}`}
+                                >
+                                  {/* Top row: avatar + user + status + edit */}
+                                  <div className="flex items-start gap-3.5 mb-4">
                                     {/* Avatar */}
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/[0.04] border border-white/[0.08] flex items-center justify-center shrink-0 text-[14px] font-bold text-gray-300">
+                                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradClass} border border-white/[0.08] flex items-center justify-center shrink-0 text-[15px] font-bold text-white/80`}>
                                       {u?.fullName?.charAt(0)?.toUpperCase() || "?"}
                                     </div>
 
                                     {/* User info */}
-                                    <div className="min-w-0 w-44 shrink-0">
-                                      <p className="text-white text-[13px] font-semibold truncate">{u?.fullName || "Bilinmeyen"}</p>
-                                      <p className="text-gray-600 text-[11px] truncate">{u?.email || "—"}</p>
-                                    </div>
-
-                                    {/* Package + ref */}
                                     <div className="flex-1 min-w-0">
-                                      <div className="flex items-center gap-2 flex-wrap">
-                                        <span className="px-2.5 py-0.5 rounded-md bg-[#ccff00]/8 border border-[#ccff00]/15 text-[#ccff00]/80 text-[11px] font-medium">
-                                          {pkg?.name || "—"}
-                                        </span>
-                                        {pkg?.weeks && (
-                                          <span className="text-[11px] text-gray-700">{pkg.weeks} hafta</span>
-                                        )}
-                                      </div>
-                                      {order.referenceId && (
-                                        <p className="text-[11px] text-gray-700 mt-0.5 font-mono">{order.referenceId}</p>
+                                      <p className="text-white text-[14px] font-semibold leading-tight truncate">
+                                        {u?.fullName || "Bilinmeyen"}
+                                      </p>
+                                      <p className="text-gray-600 text-[12px] truncate mt-0.5">{u?.email || "—"}</p>
+                                      {u?.phone && (
+                                        <p className="text-gray-700 text-[11px] mt-0.5">{u.phone}</p>
                                       )}
                                     </div>
 
-                                    {/* Source badge */}
-                                    <div className="shrink-0 hidden sm:block">
-                                      <span className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] border ${srcColors.bg} ${srcColors.text} ${srcColors.border}`}>
-                                        <span>{sourceEmoji[src] || "🌐"}</span>
-                                        {SOURCE_LABELS[src] || "Diğer"}
-                                      </span>
-                                    </div>
-
-                                    {/* Dates */}
-                                    {(order.startDate || order.endDate) && (
-                                      <div className="shrink-0 hidden lg:block text-right">
-                                        {order.startDate && (
-                                          <p className="text-[11px] text-gray-600">
-                                            {new Date(order.startDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
-                                          </p>
-                                        )}
-                                        {order.endDate && (
-                                          <p className="text-[11px] text-gray-700">
-                                            → {new Date(order.endDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
-                                          </p>
-                                        )}
-                                      </div>
-                                    )}
-
-                                    {/* Amount + Status + Date */}
-                                    <div className="shrink-0 text-right">
-                                      <p className={`text-[15px] font-bold tabular-nums ${amountColor(order.status)}`}>
-                                        ₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}
-                                      </p>
-                                      <p className="text-[11px] text-gray-700 mt-0.5">
-                                        {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "2-digit" })}
-                                      </p>
-                                    </div>
-
-                                    {/* Status badge */}
-                                    <div className="shrink-0 w-20 text-right">
-                                      {order.status === "active" && <span className="px-2 py-1 rounded-lg bg-green-500/10 text-green-400 text-[11px] border border-green-500/20 font-medium">Aktif</span>}
-                                      {order.status === "pending" && <span className="px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 text-[11px] border border-yellow-500/20 font-medium">Bekliyor</span>}
-                                      {order.status === "paid" && <span className="px-2 py-1 rounded-lg bg-blue-500/10 text-blue-400 text-[11px] border border-blue-500/20 font-medium">Ödendi</span>}
-                                      {order.status === "completed" && <span className="px-2 py-1 rounded-lg bg-gray-500/10 text-gray-500 text-[11px] border border-gray-500/20 font-medium">Bitti</span>}
-                                      {order.status === "cancelled" && <span className="px-2 py-1 rounded-lg bg-red-500/10 text-red-400 text-[11px] border border-red-500/20 font-medium">İptal</span>}
-                                    </div>
+                                    {/* Status pill */}
+                                    <span className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border shrink-0 ${cfg.bg} ${cfg.border} ${cfg.text}`}>
+                                      <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot}`} />
+                                      {cfg.label}
+                                    </span>
 
                                     {/* Edit */}
                                     <button
@@ -1823,29 +1862,85 @@ export default function AdminDashboard() {
                                     >
                                       <Edit size={13} />
                                     </button>
-                                  </motion.div>
-                                );
-                              })}
-                            </div>
-                          )}
+                                  </div>
 
-                          {/* Footer count */}
-                          {pageOrders.length > 0 && (
-                            <div className="px-5 py-3 border-t border-white/[0.04] flex items-center justify-between">
-                              <p className="text-[12px] text-gray-700">
-                                {pageOrders.length} / {orders.length} sipariş gösteriliyor
-                              </p>
-                              {(ordersStatusFilter !== "all" || ordersSourceFilter !== "all" || searchTerm) && (
-                                <button
-                                  onClick={() => { setSearchTerm(""); setOrdersStatusFilter("all"); setOrdersSourceFilter("all"); }}
-                                  className="text-[11px] text-gray-700 hover:text-gray-400 transition-colors"
-                                >
-                                  Filtreleri temizle
-                                </button>
-                              )}
-                            </div>
-                          )}
-                        </div>
+                                  {/* Divider */}
+                                  <div className="h-px bg-white/[0.05] mb-4" />
+
+                                  {/* Package info + amount */}
+                                  <div className="flex items-end justify-between gap-3 mb-4">
+                                    <div className="min-w-0">
+                                      <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-1">Paket</p>
+                                      <p className="text-white text-[13px] font-semibold truncate">{pkg?.name || "—"}</p>
+                                      {pkg?.weeks && (
+                                        <p className="text-gray-600 text-[11px] mt-0.5">{pkg.weeks} haftalık program</p>
+                                      )}
+                                    </div>
+                                    <div className="text-right shrink-0">
+                                      <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-1">Tutar</p>
+                                      <p className={`text-[22px] font-bold tabular-nums leading-none ${order.status === "active" ? "text-[#ccff00]" : order.status === "cancelled" ? "text-gray-600" : "text-white"}`}>
+                                        ₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}
+                                      </p>
+                                    </div>
+                                  </div>
+
+                                  {/* Progress bar for active orders */}
+                                  {progress && (
+                                    <div className="mb-4">
+                                      <div className="flex items-center justify-between mb-1.5">
+                                        <p className="text-[10px] text-gray-700">Program İlerlemesi</p>
+                                        <p className="text-[10px] text-gray-600">{progress.daysLeft} gün kaldı</p>
+                                      </div>
+                                      <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
+                                        <motion.div
+                                          initial={{ width: 0 }}
+                                          animate={{ width: `${progress.pct}%` }}
+                                          transition={{ duration: 0.8, delay: idx * 0.05, ease: "easeOut" }}
+                                          className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
+                                        />
+                                      </div>
+                                    </div>
+                                  )}
+
+                                  {/* Bottom: dates + source */}
+                                  <div className="flex items-center justify-between flex-wrap gap-2">
+                                    <div className="flex items-center gap-3">
+                                      {order.startDate && order.endDate ? (
+                                        <div className="flex items-center gap-1.5">
+                                          <Calendar size={11} className="text-gray-700" />
+                                          <span className="text-[11px] text-gray-600">
+                                            {new Date(order.startDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
+                                            {" → "}
+                                            {new Date(order.endDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "2-digit" })}
+                                          </span>
+                                        </div>
+                                      ) : (
+                                        <div className="flex items-center gap-1.5">
+                                          <Clock size={11} className="text-gray-700" />
+                                          <span className="text-[11px] text-gray-700">
+                                            {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric" })}
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    <span className={`flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] border ${srcColors.bg} ${srcColors.text} ${srcColors.border}`}>
+                                      <span>{sourceEmoji[src] || "🌐"}</span>
+                                      {SOURCE_LABELS[src] || "Diğer"}
+                                    </span>
+                                  </div>
+
+                                  {/* Reference ID if present */}
+                                  {order.referenceId && (
+                                    <p className="text-[10px] text-gray-700 font-mono mt-2 truncate">
+                                      Ref: {order.referenceId}
+                                    </p>
+                                  )}
+                                </motion.div>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
                     );
                   })()}
