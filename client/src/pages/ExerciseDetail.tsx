@@ -250,7 +250,7 @@ export default function ExerciseDetail() {
                         }`}
                         data-testid={`button-thumbnail-${idx}`}
                       >
-                        <img src={img} alt="" className="w-full h-full object-cover" />
+                        <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                           <span className="text-xs font-medium text-white">
                             {idx === 0 ? "Başlangıç" : "Bitiş"}
@@ -556,7 +556,7 @@ export default function ExerciseDetail() {
                     }`}
                     data-testid={`button-modal-thumbnail-${index}`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
+                    <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   </button>
                 ))}
               </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity, ChevronLeft } from "lucide-react";
+import { ArrowRight, Check, TrendingUp, Zap, Trophy, MessageCircle, ChevronRight, Target, Activity, ChevronLeft, BookOpen, Calculator, Dumbbell, Info } from "lucide-react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -136,7 +136,7 @@ export default function Home() {
               </div>
               
               <p className="text-sm sm:text-base lg:text-lg text-gray-200 max-w-xs sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-4 lg:mb-8">
-                Bilimsel veriler, kişiselleştirilmiş stratejiler ve disiplinli takip sistemiyle potansiyelini açığa çıkar.
+                Türkiye'nin önde gelen <strong className="text-white font-medium">online fitness koçluk</strong> platformu. Kişiselleştirilmiş antrenman ve beslenme programlarıyla <strong className="text-white font-medium">vücut geliştirme</strong> hedeflerine ulaş. Bilimsel veriler, disiplinli takip ve birebir koçluk desteğiyle potansiyelini açığa çıkar.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
@@ -347,6 +347,63 @@ export default function Home() {
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* İÇ BAĞLANTILAR — KEŞFET */}
+      <section className="py-12 md:py-16 bg-[#080808] border-t border-white/5 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 md:mb-10">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-2 block">Tüm İhtiyacın Burada</span>
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold uppercase text-white tracking-tighter">
+              Platformu Keşfet
+            </h2>
+            <p className="text-gray-500 text-sm mt-2 max-w-md mx-auto">
+              Online fitness koçluğundan hesaplama araçlarına, egzersiz rehberinden uzman yazılarına her şey tek çatı altında.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              {
+                href: "/yazilar",
+                icon: <BookOpen size={22} />,
+                title: "Blog & Makaleler",
+                desc: "Fitness, beslenme ve antrenman üzerine 70+ uzman yazısı"
+              },
+              {
+                href: "/araclar",
+                icon: <Calculator size={22} />,
+                title: "Fitness Araçları",
+                desc: "VKİ, kalori, makro ve 12+ ücretsiz hesaplama aracı"
+              },
+              {
+                href: "/egzersiz-akademisi",
+                icon: <Dumbbell size={22} />,
+                title: "Egzersiz Akademisi",
+                desc: "Doğru form ve tekniklerle kapsamlı egzersiz rehberi"
+              },
+              {
+                href: "/hakkimizda",
+                icon: <Info size={22} />,
+                title: "Hakkımızda",
+                desc: "Gokalaf koçluk sistemi, felsefesi ve koç Göktuğ Alaf"
+              },
+            ].map((item) => (
+              <Link key={item.href} href={item.href}>
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="bg-[#0A0A0A] border border-white/[0.07] rounded-xl p-4 md:p-5 hover:border-primary/30 hover:bg-primary/[0.04] transition-all duration-300 group h-full cursor-pointer"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-white font-heading font-bold text-xs sm:text-sm uppercase mb-1.5 tracking-wide">{item.title}</h3>
+                  <p className="text-gray-500 text-[11px] sm:text-xs leading-relaxed">{item.desc}</p>
+                </motion.div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

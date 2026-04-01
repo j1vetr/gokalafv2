@@ -87,7 +87,9 @@ export default function About() {
               <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-white/10 shadow-xl group">
                 <img 
                   src="/goktug-alaf.jpg" 
-                  alt="Göktuğ Alaf" 
+                  alt="Göktuğ Alaf - Online Fitness ve Vücut Geliştirme Koçu" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
