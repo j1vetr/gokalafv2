@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Check, HelpCircle, Star, Crown, Loader2, Flame } from "lucide-react";
+import { Check, HelpCircle, Loader2, Flame } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
@@ -266,12 +266,6 @@ export default function Packages() {
                 <div className="p-6 flex flex-col flex-1">
                   {/* Title block */}
                   <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <div className="w-7 h-7 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center">
-                        <Star size={13} className="text-[#ccff00]" />
-                      </div>
-                      <span className="text-[10px] text-[#ccff00]/60 uppercase tracking-[0.25em] font-semibold">Başlangıç seviyesi</span>
-                    </div>
                     <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Natural Paket</h2>
                     <p className="text-gray-500 text-[12px] mt-0.5">Kapsamlı temel koçluk programı</p>
                   </div>
@@ -361,12 +355,6 @@ export default function Packages() {
                 <div className="p-6 flex flex-col flex-1 relative z-10">
                   {/* Title block */}
                   <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <div className="w-7 h-7 rounded-lg bg-[#d4a017]/15 border border-[#d4a017]/30 flex items-center justify-center">
-                        <Crown size={13} className="text-[#d4a017]" />
-                      </div>
-                      <span className="text-[10px] text-[#d4a017]/80 uppercase tracking-[0.25em] font-semibold">Üst seviye</span>
-                    </div>
                     <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
                     <p className="text-gray-500 text-[12px] mt-0.5">İleri seviye performans koçluğu</p>
                   </div>
@@ -392,7 +380,7 @@ export default function Packages() {
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <p className="text-[38px] font-bold text-[#d4a017] tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
+                        <p className="text-[38px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
                         <p className="text-gray-600 text-[12px] mt-1">{teamWeeks} haftalık program</p>
@@ -477,7 +465,7 @@ export default function Packages() {
               <p className="text-gray-600 text-sm mt-2">
                 Cevap bulamazsan{" "}
                 <a
-                  href="https://wa.me/905000000000"
+                  href="https://wa.me/905312822402"
                   className="text-[#ccff00]/70 hover:text-[#ccff00] transition-colors"
                 >
                   WhatsApp hattından
