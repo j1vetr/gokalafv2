@@ -263,7 +263,7 @@ export default function Packages() {
                   {/* Title block */}
                   <div className="mb-4">
                     <h2 className="text-lg font-heading font-bold uppercase text-white tracking-tight">Natural Paket</h2>
-                    <p className="text-gray-500 text-[11px] mt-0.5">Kapsamlı temel koçluk programı</p>
+                    <p className="text-gray-500 text-[11px] mt-0.5">Kapsamlı Temel Koçluk Programı</p>
                   </div>
 
                   {/* Duration */}
@@ -290,7 +290,7 @@ export default function Packages() {
                         <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-package-price">
                           ₺{naturalPkg ? parseFloat(naturalPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[11px] mt-0.5">{naturalWeeks} haftalık program</p>
+                        <p className="text-gray-600 text-[11px] mt-0.5">{naturalWeeks} Haftalık Program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
@@ -352,7 +352,7 @@ export default function Packages() {
                   {/* Title block */}
                   <div className="mb-4">
                     <h2 className="text-lg font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
-                    <p className="text-gray-500 text-[11px] mt-0.5">İleri seviye performans koçluğu</p>
+                    <p className="text-gray-500 text-[11px] mt-0.5">İleri Seviye Performans Koçluğu</p>
                   </div>
 
                   {/* Duration */}
@@ -379,7 +379,7 @@ export default function Packages() {
                         <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[11px] mt-0.5">{teamWeeks} haftalık program</p>
+                        <p className="text-gray-600 text-[11px] mt-0.5">{teamWeeks} Haftalık Program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
