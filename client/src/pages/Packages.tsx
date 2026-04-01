@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Check, HelpCircle, Star, Zap, Loader2, Crown } from "lucide-react";
+import { Check, HelpCircle, Star, Crown, Loader2, Flame } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,33 +17,33 @@ interface Package {
 }
 
 const NATURAL_FEATURES = [
-  "Kişisel Antrenman Programı",
-  "Beslenme Planlaması",
-  "Kardiyo Planlaması",
-  "Vitamin & Supplement Önerisi",
-  "Form Analizi (Foto/Video)",
-  "Teknik Düzeltme Geri Bildirimleri",
-  "Haftalık Kontrol",
-  "Geri Dönüşe Göre Plan Güncelleme",
-  "Haftalık Teknik Video Analizi",
-  "Makro Güncellemesi (Gelişime Göre)",
-  "Yaşam Tarzına Uygun Planlama",
-  "Haftalık Q&A Destek",
-  "7/24 WhatsApp İletişim",
+  "Kişisel antrenman programı",
+  "Beslenme planlaması",
+  "Kardiyo planlaması",
+  "Vitamin & supplement önerisi",
+  "Form analizi (foto/video)",
+  "Teknik düzeltme geri bildirimleri",
+  "Haftalık kontrol",
+  "Geri dönüşe göre plan güncelleme",
+  "Haftalık teknik video analizi",
+  "Makro güncellemesi (gelişime göre)",
+  "Yaşam tarzına uygun planlama",
+  "Haftalık Q&A destek",
+  "7/24 WhatsApp iletişim",
 ];
 
 const TEAM_ALAF_EXTRAS = [
-  "Kişiye Özel İleri Seviye Performans Protokolü Planlaması",
-  "Süreç Boyunca Detaylı Analiz ve İlerleme Takibi",
-  "Kan Değerlerinin Trend Analizine Göre Gelişim Değerlendirmesi",
-  "Sporcu Sağlığı Odaklı Haftalık Ölçüm ve Takip Rehberi",
-  "Düzenli Kan Tahlili Kontrol Listesi",
+  "Kişiye özel ileri seviye performans protokolü",
+  "Süreç boyunca detaylı analiz ve ilerleme takibi",
+  "Kan değerlerine göre gelişim değerlendirmesi",
+  "Sporcu sağlığı odaklı haftalık ölçüm rehberi",
+  "Düzenli kan tahlili kontrol listesi",
 ];
 
 const faqs = [
   {
     q: "Ödemeyi nasıl yapabilirim?",
-    a: "Ödemeleri Kredi Kartı ile (Shopier güvencesiyle) güvenle yapabilirsiniz.",
+    a: "Ödemeleri kredi kartı ile (Shopier güvencesiyle) güvenle yapabilirsiniz.",
   },
   {
     q: "Programlar nasıl teslim ediliyor?",
@@ -72,7 +72,7 @@ function DurationSelector({
   options: number[];
   selected: number;
   onSelect: (w: number) => void;
-  accent: "green" | "white" | "gold";
+  accent: "green" | "gold";
 }) {
   return (
     <div className="flex items-center gap-1 bg-white/[0.04] rounded-xl p-1 border border-white/[0.07]">
@@ -86,10 +86,8 @@ function DurationSelector({
             className={`flex-1 py-1.5 px-2 rounded-lg text-[12px] font-bold uppercase tracking-wide transition-all duration-200 ${
               active
                 ? accent === "green"
-                  ? "bg-[#ccff00] text-black shadow-[0_0_12px_rgba(204,255,0,0.2)]"
-                  : accent === "gold"
-                  ? "bg-[#e8c04a] text-black shadow-[0_0_12px_rgba(232,192,74,0.3)]"
-                  : "bg-white text-black shadow-[0_0_12px_rgba(255,255,255,0.15)]"
+                  ? "bg-[#ccff00] text-black shadow-[0_0_12px_rgba(204,255,0,0.25)]"
+                  : "bg-[#d4a017] text-black shadow-[0_0_12px_rgba(212,160,23,0.35)]"
                 : "text-gray-500 hover:text-gray-300"
             }`}
           >
@@ -196,15 +194,15 @@ export default function Packages() {
       />
 
       <div className="min-h-screen bg-[#050505] pt-24 pb-20">
-        {/* ── Background texture ── */}
+        {/* Background texture */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ccff00]/[0.025] rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/[0.015] rounded-full blur-[100px]" />
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ccff00]/[0.02] rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#d4a017]/[0.015] rounded-full blur-[100px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
 
-          {/* ── Header ── */}
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -216,15 +214,15 @@ export default function Packages() {
               <span className="text-[#ccff00] text-[11px] font-semibold uppercase tracking-[0.2em]">Koçluk Paketleri</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-heading font-bold uppercase text-white leading-tight mb-3">
-              Hedefine Uygun <br />
-              <span className="text-[#ccff00]">Paketi Seç</span>
+              Hedefine uygun <br />
+              <span className="text-[#ccff00]">paketi seç</span>
             </h1>
             <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed">
               İki farklı seviyede profesyonel koçluk. Süreyi ve planı belirle, değişim başlasın.
             </p>
           </motion.div>
 
-          {/* ── Mobile Tab Switcher ── */}
+          {/* Mobile Tab Switcher */}
           <div className="lg:hidden max-w-xs mx-auto mb-6">
             <div className="flex bg-white/[0.04] border border-white/[0.08] rounded-2xl p-1 gap-1">
               <button
@@ -243,7 +241,7 @@ export default function Packages() {
                 data-testid="button-tab-team"
                 className={`flex-1 py-2.5 px-3 rounded-xl text-[12px] font-bold uppercase tracking-wide transition-all duration-200 ${
                   mobileTab === "team"
-                    ? "bg-[#e8c04a] text-black shadow-[0_0_16px_rgba(232,192,74,0.3)]"
+                    ? "bg-[#d4a017] text-black shadow-[0_0_16px_rgba(212,160,23,0.35)]"
                     : "text-gray-500 hover:text-gray-300"
                 }`}
               >
@@ -252,7 +250,7 @@ export default function Packages() {
             </div>
           </div>
 
-          {/* ── Package Cards ── */}
+          {/* Package Cards */}
           <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20">
 
             {/* ── Natural Paket ── */}
@@ -263,26 +261,24 @@ export default function Packages() {
               className={`relative ${mobileTab === "team" ? "hidden lg:block" : ""}`}
             >
               <div className="relative h-full bg-[#0a0a0a] border border-white/[0.08] rounded-2xl overflow-hidden flex flex-col">
-                {/* Top accent line */}
                 <div className="h-px bg-gradient-to-r from-transparent via-[#ccff00]/40 to-transparent" />
 
-                {/* Card body */}
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Title */}
+                  {/* Title block */}
                   <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5">
                       <div className="w-7 h-7 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center">
                         <Star size={13} className="text-[#ccff00]" />
                       </div>
-                      <span className="text-[10px] text-[#ccff00]/70 uppercase tracking-[0.25em] font-medium">Başlangıç Seviyesi</span>
+                      <span className="text-[10px] text-[#ccff00]/60 uppercase tracking-[0.25em] font-semibold">Başlangıç seviyesi</span>
                     </div>
                     <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Natural Paket</h2>
-                    <p className="text-gray-600 text-[12px] mt-0.5">Kapsamlı temel koçluk programı</p>
+                    <p className="text-gray-500 text-[12px] mt-0.5">Kapsamlı temel koçluk programı</p>
                   </div>
 
-                  {/* Duration selector */}
+                  {/* Duration */}
                   <div className="mb-5">
-                    <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-2">Program Süresi</p>
+                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-2">Program süresi</p>
                     <DurationSelector
                       options={naturalDurations}
                       selected={naturalWeeks}
@@ -317,7 +313,7 @@ export default function Packages() {
                           <div className="w-4 h-4 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/25 flex items-center justify-center shrink-0 mt-0.5">
                             <Check size={9} className="text-[#ccff00]" />
                           </div>
-                          <span className="text-gray-400 text-[12px] leading-relaxed">{f}</span>
+                          <span className="text-gray-400 text-[13px] leading-relaxed">{f}</span>
                         </div>
                       ))}
                     </div>
@@ -329,9 +325,9 @@ export default function Packages() {
                       onClick={() => naturalPkg && trackAddToCart(`${naturalWeeks} Haftalık Natural Paket`, naturalPkg.id, parseFloat(naturalPkg.price))}
                       disabled={!naturalPkg}
                       data-testid="button-buy-natural"
-                      className="w-full h-11 rounded-xl bg-[#ccff00] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#ccff00]/90 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.2)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-full h-11 rounded-xl bg-[#ccff00] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#ccff00]/90 transition-all hover:shadow-[0_0_20px_rgba(204,255,0,0.25)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
                     >
-                      Satın Al
+                      Satın al
                     </button>
                   </Link>
                 </div>
@@ -345,41 +341,39 @@ export default function Packages() {
               transition={{ duration: 0.45, delay: 0.2 }}
               className={`relative ${mobileTab === "natural" ? "hidden lg:block" : ""}`}
             >
-              {/* Gold glow border wrapper */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#e8c04a]/30 via-[#e8c04a]/[0.08] to-transparent pointer-events-none z-10" />
+              {/* Gold glow border */}
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#d4a017]/35 via-[#d4a017]/08 to-transparent pointer-events-none z-10" />
 
-              {/* Recommended badge */}
+              {/* Badge */}
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                <div className="flex items-center gap-1.5 bg-[#e8c04a] text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(232,192,74,0.4)]">
-                  <Crown size={10} />
-                  Premium
+                <div className="flex items-center gap-1.5 bg-[#d4a017] text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] shadow-[0_0_18px_rgba(212,160,23,0.5)]">
+                  <Flame size={10} />
+                  Sık tercih edilen
                 </div>
               </div>
 
-              <div className="relative h-full bg-[#0d0b05] border border-[#e8c04a]/[0.18] rounded-2xl overflow-hidden flex flex-col">
-                {/* Top accent line */}
-                <div className="h-px bg-gradient-to-r from-transparent via-[#e8c04a]/60 to-transparent" />
+              <div className="relative h-full bg-[#0d0b04] border border-[#d4a017]/25 rounded-2xl overflow-hidden flex flex-col">
+                <div className="h-px bg-gradient-to-r from-transparent via-[#d4a017]/70 to-transparent" />
 
-                {/* Subtle inner glow */}
-                <div className="absolute top-0 right-0 w-56 h-56 bg-[#e8c04a]/[0.04] rounded-full blur-[60px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
+                {/* Warm inner glow */}
+                <div className="absolute top-0 right-0 w-60 h-60 bg-[#d4a017]/[0.06] rounded-full blur-[70px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
-                {/* Card body */}
                 <div className="p-6 flex flex-col flex-1 relative z-10">
-                  {/* Title */}
+                  {/* Title block */}
                   <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="w-7 h-7 rounded-lg bg-[#e8c04a]/10 border border-[#e8c04a]/25 flex items-center justify-center">
-                        <Crown size={13} className="text-[#e8c04a]" />
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <div className="w-7 h-7 rounded-lg bg-[#d4a017]/15 border border-[#d4a017]/30 flex items-center justify-center">
+                        <Crown size={13} className="text-[#d4a017]" />
                       </div>
-                      <span className="text-[10px] text-[#e8c04a]/70 uppercase tracking-[0.25em] font-medium">Üst Seviye</span>
+                      <span className="text-[10px] text-[#d4a017]/80 uppercase tracking-[0.25em] font-semibold">Üst seviye</span>
                     </div>
                     <h2 className="text-xl font-heading font-bold uppercase text-white tracking-tight">Team Alaf Paketi</h2>
                     <p className="text-gray-500 text-[12px] mt-0.5">İleri seviye performans koçluğu</p>
                   </div>
 
-                  {/* Duration selector */}
+                  {/* Duration */}
                   <div className="mb-5">
-                    <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-2">Program Süresi</p>
+                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-2">Program süresi</p>
                     <DurationSelector
                       options={teamDurations}
                       selected={teamWeeks}
@@ -398,7 +392,7 @@ export default function Packages() {
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18 }}
                       >
-                        <p className="text-[38px] font-bold text-[#e8c04a] tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
+                        <p className="text-[38px] font-bold text-[#d4a017] tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
                         <p className="text-gray-600 text-[12px] mt-1">{teamWeeks} haftalık program</p>
@@ -407,44 +401,46 @@ export default function Packages() {
                   </div>
 
                   {/* Features */}
-                  <div className="flex-1 mb-6 space-y-4">
-                    {/* Natural base */}
+                  <div className="flex-1 mb-6 space-y-5">
+
+                    {/* Natural base — muted/secondary */}
                     <div>
-                      <div className="flex items-center gap-2 mb-2.5">
-                        <div className="h-px flex-1 bg-[#e8c04a]/[0.1]" />
-                        <span className="text-[10px] text-[#e8c04a]/40 uppercase tracking-[0.15em] whitespace-nowrap">Natural Paket'teki her şey</span>
-                        <div className="h-px flex-1 bg-[#e8c04a]/[0.1]" />
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="h-px flex-1 bg-white/[0.07]" />
+                        <span className="text-[10px] text-gray-600 uppercase tracking-[0.15em] whitespace-nowrap">Natural paket'teki her şey</span>
+                        <div className="h-px flex-1 bg-white/[0.07]" />
                       </div>
                       <div className="space-y-1.5">
                         {NATURAL_FEATURES.map((f, i) => (
                           <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-[#e8c04a]/[0.06] border border-[#e8c04a]/15 flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-[#e8c04a]/40" />
+                            <div className="w-4 h-4 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={9} className="text-gray-500" />
                             </div>
-                            <span className="text-gray-600 text-[11px] leading-relaxed">{f}</span>
+                            <span className="text-gray-500 text-[11px] leading-relaxed">{f}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Extra features */}
+                    {/* Team Alaf Extras — fully bright */}
                     <div>
-                      <div className="flex items-center gap-2 mb-2.5">
-                        <div className="h-px flex-1 bg-[#e8c04a]/20" />
-                        <span className="text-[10px] text-[#e8c04a] uppercase tracking-[0.15em] whitespace-nowrap font-bold">+ Team Alaf Extras</span>
-                        <div className="h-px flex-1 bg-[#e8c04a]/20" />
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="h-px flex-1 bg-[#d4a017]/30" />
+                        <span className="text-[10px] text-[#d4a017] uppercase tracking-[0.15em] whitespace-nowrap font-bold">+ Team Alaf Extras</span>
+                        <div className="h-px flex-1 bg-[#d4a017]/30" />
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         {TEAM_ALAF_EXTRAS.map((f, i) => (
                           <div key={i} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-[#e8c04a]/15 border border-[#e8c04a]/35 flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={9} className="text-[#e8c04a]" />
+                            <div className="w-4 h-4 rounded-full bg-[#d4a017]/20 border border-[#d4a017]/50 flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={9} className="text-[#d4a017]" />
                             </div>
-                            <span className="text-white text-[12px] leading-relaxed">{f}</span>
+                            <span className="text-white text-[13px] leading-relaxed font-medium">{f}</span>
                           </div>
                         ))}
                       </div>
                     </div>
+
                   </div>
 
                   {/* CTA */}
@@ -453,17 +449,18 @@ export default function Packages() {
                       onClick={() => teamPkg && trackAddToCart(`${teamWeeks} Haftalık Team Alaf Paketi`, teamPkg.id, parseFloat(teamPkg.price))}
                       disabled={!teamPkg}
                       data-testid="button-buy-team-alaf"
-                      className="w-full h-11 rounded-xl bg-[#e8c04a] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#e8c04a]/90 transition-all hover:shadow-[0_0_24px_rgba(232,192,74,0.35)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="w-full h-11 rounded-xl bg-[#d4a017] text-black font-bold text-[13px] uppercase tracking-wider hover:bg-[#d4a017]/90 transition-all hover:shadow-[0_0_24px_rgba(212,160,23,0.4)] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed"
                     >
-                      Satın Al
+                      Satın al
                     </button>
                   </Link>
                 </div>
               </div>
             </motion.div>
+
           </div>
 
-          {/* ── FAQ ── */}
+          {/* FAQ */}
           <div className="max-w-2xl mx-auto" id="faq">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -474,9 +471,9 @@ export default function Packages() {
             >
               <div className="flex items-center justify-center gap-2 mb-3">
                 <HelpCircle size={16} className="text-[#ccff00]" />
-                <span className="text-[11px] text-[#ccff00]/70 uppercase tracking-[0.2em]">Sıkça Sorulan Sorular</span>
+                <span className="text-[11px] text-[#ccff00]/70 uppercase tracking-[0.2em]">Sıkça sorulan sorular</span>
               </div>
-              <h2 className="text-xl font-heading font-bold uppercase text-white">Aklına Takılanlar</h2>
+              <h2 className="text-xl font-heading font-bold uppercase text-white">Aklına takılanlar</h2>
               <p className="text-gray-600 text-sm mt-2">
                 Cevap bulamazsan{" "}
                 <a
@@ -513,6 +510,7 @@ export default function Packages() {
               ))}
             </Accordion>
           </div>
+
         </div>
       </div>
     </>
