@@ -1172,41 +1172,153 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  {/* ── KPI Cards ── */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <StatCard
-                      icon={DollarSign}
-                      label="Toplam Gelir"
-                      value={`₺${(stats?.totalRevenue || 0).toLocaleString("tr-TR")}`}
-                      trend={revenueGrowth}
-                      color="green-400"
-                      testId="stat-total-revenue"
-                    />
-                    <StatCard
-                      icon={TrendingUp}
-                      label="Bu Ay Gelir"
-                      value={`₺${(stats?.thisMonthRevenue || 0).toLocaleString("tr-TR")}`}
-                      subValue={`${orders.filter(o => o.status === "active").length} aktif paket`}
-                      color="primary"
-                      testId="stat-monthly-revenue"
-                    />
-                    <StatCard
-                      icon={Users}
-                      label="Toplam Üye"
-                      value={stats?.totalUsers || 0}
-                      subValue={`+${stats?.newUsersThisMonth || 0} bu ay`}
-                      color="blue-400"
-                      testId="stat-total-users"
-                    />
-                    <StatCard
-                      icon={Clock}
-                      label="Bekleyen Sipariş"
-                      value={stats?.pendingOrders || 0}
-                      subValue={`${stats?.activeOrders || 0} aktif devam ediyor`}
-                      color="yellow-400"
-                      testId="stat-pending-orders"
-                    />
-                  </div>
+                  {/* ── ALL-TIME Stats ── */}
+                  {(() => {
+                    const now = new Date();
+                    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+                    const prevMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+                    const prevMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59);
+
+                    const thisMonthOrders = orders.filter(o => new Date(o.createdAt) >= monthStart);
+                    const thisMonthPaid = thisMonthOrders.filter(o => ["paid","active","completed"].includes(o.status));
+                    const prevMonthPaid = orders.filter(o => {
+                      const d = new Date(o.createdAt);
+                      return d >= prevMonthStart && d <= prevMonthEnd && ["paid","active","completed"].includes(o.status);
+                    });
+                    const thisMonthRevenue = thisMonthPaid.reduce((s, o) => s + parseFloat(o.totalPrice), 0);
+                    const prevMonthRevenue = prevMonthPaid.reduce((s, o) => s + parseFloat(o.totalPrice), 0);
+                    const revTrend = prevMonthRevenue > 0 ? ((thisMonthRevenue - prevMonthRevenue) / prevMonthRevenue * 100).toFixed(1) : thisMonthRevenue > 0 ? "100" : "0";
+
+                    const convRate = users.length > 0 ? ((orders.filter(o => o.status !== "cancelled").length / users.length) * 100).toFixed(1) : "0";
+
+                    return (
+                      <div className="space-y-4">
+                        {/* All-time row */}
+                        <div>
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-[11px] text-gray-700 uppercase tracking-[0.18em] font-medium">Tüm Zamanlar</span>
+                            <div className="flex-1 h-px bg-white/[0.05]" />
+                          </div>
+                          <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
+                            {[
+                              { icon: DollarSign, label: "Toplam Gelir", value: `₺${(stats?.totalRevenue || 0).toLocaleString("tr-TR")}`, sub: "Ödenen siparişler", testId: "stat-total-revenue" },
+                              { icon: ShoppingCart, label: "Toplam Sipariş", value: orders.length, sub: `${stats?.completedOrders || 0} tamamlandı`, testId: "stat-total-orders" },
+                              { icon: Users, label: "Toplam Üye", value: stats?.totalUsers || 0, sub: "Kayıtlı kullanıcı", testId: "stat-total-users" },
+                              { icon: CheckCircle, label: "Tamamlanan Paket", value: stats?.completedOrders || 0, sub: `${orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(0) : 0}% tamamlanma`, testId: "stat-completed" },
+                            ].map(({ icon: Icon, label, value, sub, testId }) => (
+                              <motion.div
+                                key={label}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="bg-[#090909] border border-white/[0.05] rounded-xl px-4 py-4 relative overflow-hidden group hover:border-white/[0.10] transition-all duration-300"
+                                data-testid={testId}
+                              >
+                                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/6 to-transparent" />
+                                <div className="flex items-center gap-2 mb-2.5">
+                                  <div className="w-7 h-7 rounded-lg bg-white/[0.05] border border-white/[0.07] flex items-center justify-center">
+                                    <Icon size={14} className="text-gray-500" />
+                                  </div>
+                                  <span className="text-[11px] text-gray-600 font-medium">{label}</span>
+                                </div>
+                                <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{value}</p>
+                                <p className="text-[11px] text-gray-700 mt-1.5">{sub}</p>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* This month row */}
+                        <div>
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-[11px] text-[#ccff00]/60 uppercase tracking-[0.18em] font-medium">
+                              {now.toLocaleDateString("tr-TR", { month: "long", year: "numeric" })}
+                            </span>
+                            <div className="flex-1 h-px bg-[#ccff00]/[0.08]" />
+                          </div>
+                          <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.05 }}
+                              className="relative bg-[#090909] border border-[#ccff00]/[0.12] rounded-xl px-4 py-4 overflow-hidden group hover:border-[#ccff00]/[0.22] transition-all duration-300"
+                              data-testid="stat-monthly-revenue"
+                            >
+                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ccff00]/20 to-transparent" />
+                              <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full blur-2xl opacity-10 bg-[#ccff00]" />
+                              <div className="flex items-center justify-between mb-2.5">
+                                <div className="flex items-center gap-2">
+                                  <div className="w-7 h-7 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center">
+                                    <DollarSign size={14} className="text-[#ccff00]" />
+                                  </div>
+                                  <span className="text-[11px] text-gray-500 font-medium">Bu Ay Gelir</span>
+                                </div>
+                                <div className={`flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-full ${parseFloat(revTrend) >= 0 ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400"}`}>
+                                  {parseFloat(revTrend) >= 0 ? <TrendingUp size={9} /> : <TrendingDown size={9} />}
+                                  {revTrend}%
+                                </div>
+                              </div>
+                              <p className="text-[1.6rem] font-bold text-white leading-none tabular-nums">₺{thisMonthRevenue.toLocaleString("tr-TR")}</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">Geçen ay: ₺{prevMonthRevenue.toLocaleString("tr-TR")}</p>
+                            </motion.div>
+
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.08 }}
+                              className="relative bg-[#090909] border border-white/[0.05] rounded-xl px-4 py-4 overflow-hidden hover:border-white/[0.10] transition-all duration-300"
+                              data-testid="stat-monthly-orders"
+                            >
+                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/6 to-transparent" />
+                              <div className="flex items-center gap-2 mb-2.5">
+                                <div className="w-7 h-7 rounded-lg bg-white/[0.05] border border-white/[0.07] flex items-center justify-center">
+                                  <ShoppingCart size={14} className="text-blue-400" />
+                                </div>
+                                <span className="text-[11px] text-gray-600 font-medium">Bu Ay Sipariş</span>
+                              </div>
+                              <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{thisMonthOrders.length}</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">{thisMonthPaid.length} ödeme tamamlandı</p>
+                            </motion.div>
+
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.11 }}
+                              className="relative bg-[#090909] border border-white/[0.05] rounded-xl px-4 py-4 overflow-hidden hover:border-white/[0.10] transition-all duration-300"
+                              data-testid="stat-monthly-users"
+                            >
+                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/6 to-transparent" />
+                              <div className="flex items-center gap-2 mb-2.5">
+                                <div className="w-7 h-7 rounded-lg bg-white/[0.05] border border-white/[0.07] flex items-center justify-center">
+                                  <Users size={14} className="text-purple-400" />
+                                </div>
+                                <span className="text-[11px] text-gray-600 font-medium">Yeni Üye</span>
+                              </div>
+                              <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">+{stats?.newUsersThisMonth || 0}</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">Toplam {stats?.totalUsers || 0} üye</p>
+                            </motion.div>
+
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.14 }}
+                              className="relative bg-[#090909] border border-white/[0.05] rounded-xl px-4 py-4 overflow-hidden hover:border-white/[0.10] transition-all duration-300"
+                              data-testid="stat-conversion"
+                            >
+                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/6 to-transparent" />
+                              <div className="flex items-center gap-2 mb-2.5">
+                                <div className="w-7 h-7 rounded-lg bg-white/[0.05] border border-white/[0.07] flex items-center justify-center">
+                                  <ArrowUpRight size={14} className="text-yellow-400" />
+                                </div>
+                                <span className="text-[11px] text-gray-600 font-medium">Dönüşüm Oranı</span>
+                              </div>
+                              <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{convRate}%</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">{stats?.pendingOrders || 0} bekleyen sipariş</p>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* ── Revenue chart + Donut ── */}
                   <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
@@ -1381,33 +1493,127 @@ export default function AdminDashboard() {
                     </div>
                   </div>
 
-                  {/* ── Quick stats row ── */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {[
-                      {
-                        label: "Ort. Sipariş Değeri",
-                        value: `₺${orders.length > 0 ? (orders.reduce((s, o) => s + parseFloat(o.totalPrice), 0) / orders.length).toLocaleString("tr-TR", { maximumFractionDigits: 0 }) : "0"}`,
-                        sub: "Tüm zamanlar",
-                      },
-                      {
-                        label: "Dönüşüm Oranı",
-                        value: `${users.length > 0 ? ((orders.filter(o => o.status !== "cancelled").length / users.length) * 100).toFixed(1) : "0"}%`,
-                        sub: "Üye → Müşteri",
-                      },
-                      {
-                        label: "Tamamlanma Oranı",
-                        value: `${orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1) : "0"}%`,
-                        sub: "Tamamlanan paketler",
-                      },
-                    ].map((item) => (
-                      <div key={item.label} className="bg-[#080808] border border-white/[0.06] rounded-2xl px-6 py-5 relative overflow-hidden group hover:border-white/[0.12] transition-all duration-300">
-                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-                        <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-2">{item.label}</p>
-                        <p className="text-2xl font-bold text-white tabular-nums">{item.value}</p>
-                        <p className="text-[12px] text-gray-700 mt-1">{item.sub}</p>
+                  {/* ── Son Siparişler + En Çok Satan ── */}
+                  {(() => {
+                    const recentOrders = [...orders]
+                      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+                      .slice(0, 6);
+
+                    const bestPackage = packages.length > 0 ? packages.map(pkg => {
+                      const paidCount = orders.filter(o => o.packageId === pkg.id && ["paid","active","completed"].includes(o.status)).length;
+                      const revenue = orders.filter(o => o.packageId === pkg.id && ["paid","active","completed"].includes(o.status)).reduce((s, o) => s + parseFloat(o.totalPrice), 0);
+                      return { ...pkg, paidCount, revenue };
+                    }).sort((a, b) => b.paidCount - a.paidCount)[0] : null;
+
+                    const avgOrderValue = orders.length > 0 ? orders.reduce((s, o) => s + parseFloat(o.totalPrice), 0) / orders.length : 0;
+
+                    return (
+                      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                        {/* Son Siparişler */}
+                        <div className="xl:col-span-2 bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden">
+                          <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.05]">
+                            <div>
+                              <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-0.5">Son İşlemler</p>
+                              <p className="text-white font-semibold text-[15px]">Son Siparişler</p>
+                            </div>
+                            <button
+                              onClick={() => setActiveTab("orders")}
+                              className="text-[12px] text-[#ccff00]/60 hover:text-[#ccff00] flex items-center gap-1 transition-colors"
+                            >
+                              Tümünü Gör <ChevronRight size={13} />
+                            </button>
+                          </div>
+                          <div className="divide-y divide-white/[0.04]">
+                            {recentOrders.length === 0 ? (
+                              <p className="text-gray-600 text-center py-10 text-sm">Henüz sipariş yok</p>
+                            ) : recentOrders.map((order) => {
+                              const orderUser = userMap[order.userId];
+                              const orderPkg = packageMap[order.packageId];
+                              return (
+                                <div key={order.id} className="flex items-center gap-4 px-6 py-3.5 hover:bg-white/[0.02] transition-colors group">
+                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/[0.08] flex items-center justify-center shrink-0 text-[12px] font-bold text-gray-400">
+                                    {orderUser?.fullName?.charAt(0)?.toUpperCase() || "?"}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-white text-[13px] font-medium truncate">{orderUser?.fullName || "Bilinmeyen"}</p>
+                                    <p className="text-gray-600 text-[11px] truncate">{orderPkg?.name || "—"}</p>
+                                  </div>
+                                  <div className="text-right shrink-0">
+                                    <p className="text-[13px] font-semibold text-white tabular-nums">₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}</p>
+                                    <p className="text-[11px] text-gray-700 mt-0.5">
+                                      {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
+                                    </p>
+                                  </div>
+                                  <div className="shrink-0 ml-2">
+                                    {order.status === "active" && <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-[10px] border border-green-500/20">Aktif</span>}
+                                    {order.status === "pending" && <span className="px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-400 text-[10px] border border-yellow-500/20">Bekliyor</span>}
+                                    {order.status === "paid" && <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-[10px] border border-blue-500/20">Ödendi</span>}
+                                    {order.status === "completed" && <span className="px-2 py-0.5 rounded-full bg-gray-500/10 text-gray-400 text-[10px] border border-gray-500/20">Bitti</span>}
+                                    {order.status === "cancelled" && <span className="px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 text-[10px] border border-red-500/20">İptal</span>}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Sağ sütun: En çok satan + ort değer */}
+                        <div className="flex flex-col gap-4">
+                          {/* En Çok Satan */}
+                          {bestPackage && (
+                            <div className="relative bg-[#080808] border border-[#ccff00]/[0.12] rounded-2xl p-5 overflow-hidden">
+                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ccff00]/25 to-transparent" />
+                              <div className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full blur-3xl opacity-10 bg-[#ccff00]" />
+                              <p className="text-[10px] text-[#ccff00]/50 uppercase tracking-[0.18em] font-medium mb-3">En Çok Satan</p>
+                              <div className="flex items-center gap-2.5 mb-4">
+                                <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center">
+                                  <Package size={16} className="text-[#ccff00]" />
+                                </div>
+                                <div>
+                                  <p className="text-white font-bold text-[15px] leading-tight">{bestPackage.name}</p>
+                                  <p className="text-gray-600 text-[11px]">{bestPackage.weeks} Haftalık Program</p>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-3">
+                                <div className="bg-white/[0.04] rounded-xl p-3 text-center">
+                                  <p className="text-xl font-bold text-white tabular-nums">{bestPackage.paidCount}</p>
+                                  <p className="text-[10px] text-gray-600 mt-0.5">Satış</p>
+                                </div>
+                                <div className="bg-white/[0.04] rounded-xl p-3 text-center">
+                                  <p className="text-xl font-bold text-[#ccff00] tabular-nums">₺{bestPackage.revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}</p>
+                                  <p className="text-[10px] text-gray-600 mt-0.5">Gelir</p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Ort. değer + tamamlanma */}
+                          <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-5 space-y-4">
+                            <div>
+                              <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] mb-1">Ort. Sipariş Değeri</p>
+                              <p className="text-2xl font-bold text-white tabular-nums">
+                                ₺{avgOrderValue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
+                              </p>
+                              <p className="text-[11px] text-gray-700 mt-0.5">Tüm siparişler ortalama</p>
+                            </div>
+                            <div className="h-px bg-white/[0.05]" />
+                            <div>
+                              <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] mb-1">Tamamlanma Oranı</p>
+                              <p className="text-2xl font-bold text-white tabular-nums">
+                                {orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1) : "0"}%
+                              </p>
+                              <div className="mt-2 h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
+                                <div
+                                  className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
+                                  style={{ width: `${orders.length > 0 ? (stats?.completedOrders || 0) / orders.length * 100 : 0}%` }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })()}
                 </motion.div>
               )}
 
