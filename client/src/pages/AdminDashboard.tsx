@@ -1201,10 +1201,10 @@ export default function AdminDashboard() {
                           </div>
                           <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
                             {[
-                              { icon: DollarSign, label: "Toplam Gelir", value: `₺${(stats?.totalRevenue || 0).toLocaleString("tr-TR")}`, sub: "Ödenen siparişler", testId: "stat-total-revenue" },
-                              { icon: ShoppingCart, label: "Toplam Sipariş", value: orders.length, sub: `${stats?.completedOrders || 0} tamamlandı`, testId: "stat-total-orders" },
-                              { icon: Users, label: "Toplam Üye", value: stats?.totalUsers || 0, sub: "Kayıtlı kullanıcı", testId: "stat-total-users" },
-                              { icon: CheckCircle, label: "Tamamlanan Paket", value: stats?.completedOrders || 0, sub: `${orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(0) : 0}% tamamlanma`, testId: "stat-completed" },
+                              { icon: DollarSign, label: "Toplam Gelir", value: `₺${(stats?.totalRevenue || 0).toLocaleString("tr-TR")}`, sub: "Ödenen Siparişler", testId: "stat-total-revenue" },
+                              { icon: ShoppingCart, label: "Toplam Sipariş", value: orders.length, sub: `${stats?.completedOrders || 0} Tamamlandı`, testId: "stat-total-orders" },
+                              { icon: Users, label: "Toplam Üye", value: stats?.totalUsers || 0, sub: "Kayıtlı Kullanıcı", testId: "stat-total-users" },
+                              { icon: CheckCircle, label: "Tamamlanan Paket", value: stats?.completedOrders || 0, sub: `${orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(0) : 0}% Tamamlanma`, testId: "stat-completed" },
                             ].map(({ icon: Icon, label, value, sub, testId }) => (
                               <motion.div
                                 key={label}
@@ -1258,7 +1258,7 @@ export default function AdminDashboard() {
                                 </div>
                               </div>
                               <p className="text-[1.6rem] font-bold text-white leading-none tabular-nums">₺{thisMonthRevenue.toLocaleString("tr-TR")}</p>
-                              <p className="text-[11px] text-gray-700 mt-1.5">Geçen ay: ₺{prevMonthRevenue.toLocaleString("tr-TR")}</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">Geçen Ay: ₺{prevMonthRevenue.toLocaleString("tr-TR")}</p>
                             </motion.div>
 
                             <motion.div
@@ -1276,7 +1276,7 @@ export default function AdminDashboard() {
                                 <span className="text-[11px] text-gray-600 font-medium">Bu Ay Sipariş</span>
                               </div>
                               <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{thisMonthOrders.length}</p>
-                              <p className="text-[11px] text-gray-700 mt-1.5">{thisMonthPaid.length} ödeme tamamlandı</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">{thisMonthPaid.length} Ödeme Tamamlandı</p>
                             </motion.div>
 
                             <motion.div
@@ -1294,7 +1294,7 @@ export default function AdminDashboard() {
                                 <span className="text-[11px] text-gray-600 font-medium">Yeni Üye</span>
                               </div>
                               <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">+{stats?.newUsersThisMonth || 0}</p>
-                              <p className="text-[11px] text-gray-700 mt-1.5">Toplam {stats?.totalUsers || 0} üye</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">Toplam {stats?.totalUsers || 0} Üye</p>
                             </motion.div>
 
                             <motion.div
@@ -1312,7 +1312,7 @@ export default function AdminDashboard() {
                                 <span className="text-[11px] text-gray-600 font-medium">Dönüşüm Oranı</span>
                               </div>
                               <p className="text-[1.6rem] font-bold text-white/90 leading-none tabular-nums">{convRate}%</p>
-                              <p className="text-[11px] text-gray-700 mt-1.5">{stats?.pendingOrders || 0} bekleyen sipariş</p>
+                              <p className="text-[11px] text-gray-700 mt-1.5">{stats?.pendingOrders || 0} Bekleyen Sipariş</p>
                             </motion.div>
                           </div>
                         </div>
@@ -1594,7 +1594,7 @@ export default function AdminDashboard() {
                               <p className="text-2xl font-bold text-white tabular-nums">
                                 ₺{avgOrderValue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
                               </p>
-                              <p className="text-[11px] text-gray-700 mt-0.5">Tüm siparişler ortalama</p>
+                              <p className="text-[11px] text-gray-700 mt-0.5">Tüm Siparişler Ortalama</p>
                             </div>
                             <div className="h-px bg-white/[0.05]" />
                             <div>
@@ -2153,7 +2153,7 @@ export default function AdminDashboard() {
                             : "0"
                           }
                         </p>
-                        <p className="text-xs text-gray-500 mt-2">Tüm zamanlar</p>
+                        <p className="text-xs text-gray-500 mt-2">Tüm Zamanlar</p>
                       </div>
                       <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
                         <h3 className="text-sm text-gray-500 uppercase mb-2">Dönüşüm Oranı</h3>
@@ -2173,7 +2173,7 @@ export default function AdminDashboard() {
                             : "0"
                           }%
                         </p>
-                        <p className="text-xs text-gray-500 mt-2">Tamamlanan paketler</p>
+                        <p className="text-xs text-gray-500 mt-2">Tamamlanan Paketler</p>
                       </div>
                     </div>
 
