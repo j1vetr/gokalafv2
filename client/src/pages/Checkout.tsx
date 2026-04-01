@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { ShoppingCart, CreditCard, Shield, Check, ArrowLeft, ExternalLink, Tag, X, Loader2, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { trackInitiateCheckout } from "@/lib/facebook-pixel";
+import { getTrafficSource } from "@/hooks/useTrafficSource";
 
 interface Package {
   id: string;
@@ -139,6 +140,7 @@ export default function Checkout() {
         body: JSON.stringify({ 
           packageId: selectedPackage.id,
           couponCode: appliedCoupon ? appliedCoupon.code : undefined,
+          orderSource: getTrafficSource(),
         }),
       });
       

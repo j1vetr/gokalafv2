@@ -58,6 +58,7 @@ export const orders = pgTable("orders", {
   paymentMethod: text("payment_method"), // shopier
   paymentId: text("payment_id"), // shopier transaction ID
   source: text("source").notNull().default("shopier"), // shopier, admin_assigned
+  orderSource: text("order_source").default("direkt"), // arama-motoru, yapay-zeka, sosyal-medya, reklam, e-posta, direkt, diger
   adminAssignedBy: varchar("admin_assigned_by").references(() => users.id), // admin who assigned
   startDate: timestamp("start_date"),
   endDate: timestamp("end_date"),

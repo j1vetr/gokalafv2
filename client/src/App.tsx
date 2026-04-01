@@ -8,6 +8,7 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { useTabNotification } from "@/hooks/useTabNotification";
+import { useTrafficSource } from "@/hooks/useTrafficSource";
 import AIChatAssistant from "@/components/AIChatAssistant";
 import FeaturePopup from "@/components/FeaturePopup";
 
@@ -72,6 +73,7 @@ function AppContent() {
   const [maintenanceChecked, setMaintenanceChecked] = useState(false);
   
   useTabNotification();
+  useTrafficSource();
   
   const isAdminRoute = location.startsWith("/gokadmin");
   const isDashboard = location === "/panel";

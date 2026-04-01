@@ -536,6 +536,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
         paymentId: null,
         startDate: null,
         endDate: null,
+        orderSource: req.body.orderSource || "direkt",
       });
 
       res.json({ order });
