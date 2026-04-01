@@ -959,50 +959,65 @@ export default function AdminDashboard() {
     );
   }
 
-  const StatCard = ({ icon: Icon, label, value, subValue, trend, color = "primary", testId }: any) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-gradient-to-br from-[#0A0A0A] to-[#111111] border border-white/10 rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300"
-      data-testid={testId}
-    >
-      <div className={`absolute top-0 right-0 w-32 h-32 bg-${color}/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-${color}/10 transition-all`} />
-      <div className="flex items-start justify-between relative">
-        <div>
-          <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">{label}</p>
-          <p className="text-3xl font-bold text-white">{value}</p>
-          {subValue && <p className="text-gray-400 text-sm mt-1">{subValue}</p>}
+  const StatCard = ({ icon: Icon, label, value, subValue, trend, color = "primary", testId }: any) => {
+    const colorMap: Record<string, { bg: string; border: string; text: string; glow: string }> = {
+      "primary": { bg: "bg-[#ccff00]/10", border: "border-[#ccff00]/20", text: "text-[#ccff00]", glow: "#ccff00" },
+      "green-400": { bg: "bg-green-400/10", border: "border-green-400/20", text: "text-green-400", glow: "#4ade80" },
+      "blue-400": { bg: "bg-blue-400/10", border: "border-blue-400/20", text: "text-blue-400", glow: "#60a5fa" },
+      "yellow-400": { bg: "bg-yellow-400/10", border: "border-yellow-400/20", text: "text-yellow-400", glow: "#facc15" },
+    };
+    const c = colorMap[color] || colorMap["primary"];
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative bg-[#090909] border border-white/[0.06] rounded-2xl p-6 overflow-hidden group hover:border-white/[0.14] transition-all duration-500 cursor-default"
+        data-testid={testId}
+      >
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full blur-3xl opacity-15 group-hover:opacity-25 transition-opacity duration-500" style={{ backgroundColor: c.glow }} />
+
+        <div className="relative flex items-start justify-between mb-5">
+          <div className={`w-11 h-11 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center`}>
+            <Icon size={20} className={c.text} />
+          </div>
+          {trend !== undefined && (
+            <div className={`flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full font-medium ${
+              parseFloat(trend) >= 0
+                ? "bg-green-500/10 text-green-400 border border-green-500/20"
+                : "bg-red-500/10 text-red-400 border border-red-500/20"
+            }`}>
+              {parseFloat(trend) >= 0 ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
+              <span>{trend}%</span>
+            </div>
+          )}
         </div>
-        <div className={`w-12 h-12 rounded-xl bg-${color}/20 flex items-center justify-center`}>
-          <Icon className={`text-${color}`} size={24} />
-        </div>
-      </div>
-      {trend !== undefined && (
-        <div className={`flex items-center gap-1 mt-3 text-sm ${parseFloat(trend) >= 0 ? "text-green-400" : "text-red-400"}`}>
-          {parseFloat(trend) >= 0 ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
-          <span>{trend}%</span>
-          <span className="text-gray-500 ml-1">geçen aya göre</span>
-        </div>
-      )}
-    </motion.div>
-  );
+
+        <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] font-medium mb-1.5">{label}</p>
+        <p className="text-[2rem] font-bold text-white leading-none tracking-tight">{value}</p>
+        {subValue && <p className="text-gray-600 text-[12px] mt-2">{subValue}</p>}
+      </motion.div>
+    );
+  };
 
   const SidebarItem = ({ id, icon: Icon, label, count }: { id: string, icon: any, label: string, count?: number }) => (
     <button
       onClick={() => setActiveTab(id)}
       data-testid={`nav-${id}`}
-      className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm font-bold uppercase tracking-wide ${
-        activeTab === id 
-          ? "bg-primary text-black shadow-lg shadow-primary/20" 
-          : "text-gray-400 hover:bg-white/5 hover:text-white"
+      className={`w-full flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200 text-[13px] group ${
+        activeTab === id
+          ? "bg-[#ccff00]/10 text-[#ccff00] border border-[#ccff00]/20"
+          : "text-gray-500 hover:bg-white/[0.04] hover:text-gray-300 border border-transparent"
       }`}
     >
       <span className="flex items-center gap-3">
-        <Icon size={18} />
-        {label}
+        <Icon size={16} className={activeTab === id ? "text-[#ccff00]" : ""} />
+        <span className="font-medium tracking-wide">{label}</span>
       </span>
       {count !== undefined && count > 0 && (
-        <span className={`text-xs px-2 py-0.5 rounded-full ${activeTab === id ? "bg-black/20" : "bg-white/10"}`}>
+        <span className={`text-[11px] px-2 py-0.5 rounded-full tabular-nums ${
+          activeTab === id ? "bg-[#ccff00]/15 text-[#ccff00]" : "bg-white/[0.07] text-gray-600"
+        }`}>
           {count}
         </span>
       )}
@@ -1010,95 +1025,107 @@ export default function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-[#050505]">
+    <div className="min-h-screen pt-20 pb-16 bg-[#050505]">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <aside className="lg:w-72 shrink-0">
-            <div className="bg-gradient-to-b from-[#0A0A0A] to-[#080808] border border-white/10 rounded-2xl p-5 sticky top-28">
-              <div className="flex items-center gap-3 px-2 mb-6 pb-5 border-b border-white/10">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/30 text-primary flex items-center justify-center font-bold text-lg">
-                  G
-                </div>
-                <div>
-                  <h3 className="font-bold text-white">Admin Panel</h3>
-                  <p className="text-xs text-gray-500 truncate max-w-[140px]">{user?.email}</p>
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* ─── Sidebar ─── */}
+          <aside className="lg:w-64 shrink-0">
+            <div className="bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden sticky top-24">
+              {/* Brand header */}
+              <div className="px-5 py-5 border-b border-white/[0.06]">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center text-[#ccff00] font-bold text-sm">
+                    G
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-white text-sm font-semibold leading-none mb-0.5">Gokalaf</p>
+                    <p className="text-[11px] text-gray-600 truncate">{user?.email}</p>
+                  </div>
                 </div>
               </div>
 
-              <nav className="space-y-2">
-                <SidebarItem id="overview" icon={LayoutDashboard} label="Genel Bakış" />
-                <SidebarItem id="orders" icon={ShoppingCart} label="Siparişler" count={orders.length} />
-                <SidebarItem id="users" icon={Users} label="Kullanıcılar" count={users.length} />
-                <SidebarItem id="packages" icon={Package} label="Paketler" count={packages.length} />
-                <SidebarItem id="reports" icon={BarChart3} label="Raporlar" />
-                <SidebarItem id="analytics" icon={Activity} label="Analytics" />
-              </nav>
+              {/* Nav groups */}
+              <div className="px-3 py-4 space-y-5">
+                {/* Main nav */}
+                <div className="space-y-0.5">
+                  <SidebarItem id="overview" icon={LayoutDashboard} label="Genel Bakış" />
+                  <SidebarItem id="orders" icon={ShoppingCart} label="Siparişler" count={orders.length} />
+                  <SidebarItem id="users" icon={Users} label="Kullanıcılar" count={users.length} />
+                  <SidebarItem id="packages" icon={Package} label="Paketler" count={packages.length} />
+                  <SidebarItem id="reports" icon={BarChart3} label="Raporlar" />
+                  <SidebarItem id="analytics" icon={Activity} label="Analytics" />
+                </div>
 
-              <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Yönetim</p>
-              <nav className="space-y-2">
-                <button
-                  onClick={() => setLocation("/gokadmin/kuponlar")}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
-                  data-testid="nav-coupons"
-                >
-                  <Ticket size={18} /> Kuponlar
-                </button>
-                <button
-                  onClick={() => setLocation("/gokadmin/loglar")}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
-                  data-testid="nav-logs"
-                >
-                  <FileText size={18} /> Sistem Logları
-                </button>
-                <button
-                  onClick={() => setLocation("/gokadmin/yedekleme")}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm font-bold uppercase tracking-wide"
-                  data-testid="nav-backup"
-                >
-                  <Database size={18} /> Yedekleme
-                </button>
-                </nav>
+                {/* Management nav */}
+                <div>
+                  <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] font-medium px-3 mb-2">Yönetim</p>
+                  <div className="space-y-0.5">
+                    {[
+                      { label: "Kuponlar", icon: Ticket, path: "/gokadmin/kuponlar", testId: "nav-coupons" },
+                      { label: "Sistem Logları", icon: FileText, path: "/gokadmin/loglar", testId: "nav-logs" },
+                      { label: "Yedekleme", icon: Database, path: "/gokadmin/yedekleme", testId: "nav-backup" },
+                    ].map(({ label, icon: NavIcon, path, testId }) => (
+                      <button
+                        key={path}
+                        onClick={() => setLocation(path)}
+                        data-testid={testId}
+                        className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-500 hover:bg-white/[0.04] hover:text-gray-300 border border-transparent transition-all duration-200 text-[13px] font-medium tracking-wide"
+                      >
+                        <NavIcon size={16} />
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-              <p className="text-xs text-gray-600 uppercase tracking-wider px-4 mt-6 mb-2">Pazarlama</p>
-              <nav className="space-y-2">
-                <SidebarItem id="email-marketing" icon={Mail} label="E-mail Pazarlama" />
-                <SidebarItem id="ai-chats" icon={MessageSquare} label="AI Sohbetler" />
-              </nav>
+                {/* Marketing nav */}
+                <div>
+                  <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] font-medium px-3 mb-2">Pazarlama</p>
+                  <div className="space-y-0.5">
+                    <SidebarItem id="email-marketing" icon={Mail} label="E-posta Kampanya" />
+                    <SidebarItem id="ai-chats" icon={MessageSquare} label="AI Sohbetler" />
+                  </div>
+                </div>
+              </div>
 
-              <div className="mt-6 pt-5 border-t border-white/10 space-y-2">
-                <div 
-                  className={`flex items-center justify-between p-3 rounded-lg border transition-all ${maintenanceMode ? "bg-orange-500/20 border-orange-500/30" : "bg-white/5 border-white/10"}`}
+              {/* Footer actions */}
+              <div className="px-3 pb-4 pt-1 border-t border-white/[0.06] space-y-1">
+                <div
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl border transition-all ${
+                    maintenanceMode
+                      ? "bg-orange-500/10 border-orange-500/20"
+                      : "border-transparent"
+                  }`}
                   data-testid="maintenance-toggle-container"
                 >
-                  <div className="flex items-center gap-2">
-                    <Wrench size={16} className={maintenanceMode ? "text-orange-400" : "text-gray-400"} />
-                    <span className={`text-sm font-medium ${maintenanceMode ? "text-orange-400" : "text-gray-400"}`}>
+                  <div className="flex items-center gap-2.5">
+                    <Wrench size={15} className={maintenanceMode ? "text-orange-400" : "text-gray-600"} />
+                    <span className={`text-[13px] font-medium ${maintenanceMode ? "text-orange-400" : "text-gray-600"}`}>
                       Bakım Modu
                     </span>
                   </div>
-                  <Switch 
+                  <Switch
                     checked={maintenanceMode}
                     onCheckedChange={toggleMaintenanceMode}
                     disabled={isTogglingMaintenance}
                     data-testid="switch-maintenance"
                   />
                 </div>
-                <Button 
-                  variant="ghost" 
+
+                <button
                   onClick={fetchAllData}
-                  className="w-full justify-start text-gray-400 hover:text-white hover:bg-white/5"
                   data-testid="button-refresh"
+                  className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 hover:bg-white/[0.04] hover:text-gray-400 border border-transparent transition-all text-[13px] font-medium"
                 >
-                  <RefreshCw size={16} className="mr-2" /> Yenile
-                </Button>
-                <Button 
-                  variant="ghost" 
+                  <RefreshCw size={15} /> Yenile
+                </button>
+                <button
                   onClick={logout}
-                  className="w-full justify-start text-red-400 hover:text-red-300 hover:bg-red-500/10"
                   data-testid="button-logout"
+                  className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-red-500/70 hover:bg-red-500/[0.06] hover:text-red-400 border border-transparent transition-all text-[13px] font-medium"
                 >
-                  <LogOut size={16} className="mr-2" /> Çıkış Yap
-                </Button>
+                  <LogOut size={15} /> Çıkış Yap
+                </button>
               </div>
             </div>
           </aside>
@@ -1108,101 +1135,124 @@ export default function AdminDashboard() {
               {activeTab === "overview" && (
                 <motion.div
                   key="overview"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-5"
                 >
-                  <div className="flex items-center justify-between mb-2">
+                  {/* ── Header strip ── */}
+                  <div className="flex items-center justify-between">
                     <div>
-                      <h1 className="text-2xl font-heading font-bold text-white uppercase">Yönetim Paneli</h1>
-                      <p className="text-gray-500 text-sm mt-1">Hoş geldin, {user?.fullName?.split(" ")[0]}</p>
+                      <div className="flex items-center gap-2.5 mb-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse" />
+                        <span className="text-[11px] text-[#ccff00]/70 uppercase tracking-[0.18em] font-medium">Canlı</span>
+                      </div>
+                      <h1 className="text-2xl font-bold text-white tracking-tight">Yönetim Paneli</h1>
+                      <p className="text-gray-600 text-[13px] mt-0.5">Hoş geldin, {user?.fullName?.split(" ")[0]} — {new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" })}</p>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
-                        <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
-                        Çevrimiçi
-                      </Badge>
+                    <div className="flex items-center gap-2">
                       <a
                         href="https://gokalaf.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg text-sm transition-all"
+                        className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.16] hover:bg-white/[0.07] text-gray-400 hover:text-white px-3.5 py-2 rounded-xl text-[13px] transition-all duration-200"
                         data-testid="link-view-site"
                       >
-                        <ExternalLink size={14} />
-                        Siteyi Görüntüle
+                        <ExternalLink size={13} />
+                        Siteyi Aç
                       </a>
+                      <button
+                        onClick={fetchAllData}
+                        className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.16] hover:bg-white/[0.07] text-gray-400 hover:text-white px-3.5 py-2 rounded-xl text-[13px] transition-all duration-200"
+                      >
+                        <RefreshCw size={13} />
+                        Yenile
+                      </button>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <StatCard 
-                      icon={DollarSign} 
-                      label="Toplam Gelir" 
+                  {/* ── KPI Cards ── */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <StatCard
+                      icon={DollarSign}
+                      label="Toplam Gelir"
                       value={`₺${(stats?.totalRevenue || 0).toLocaleString("tr-TR")}`}
                       trend={revenueGrowth}
                       color="green-400"
                       testId="stat-total-revenue"
                     />
-                    <StatCard 
-                      icon={ShoppingCart} 
-                      label="Bu Ay Gelir" 
+                    <StatCard
+                      icon={TrendingUp}
+                      label="Bu Ay Gelir"
                       value={`₺${(stats?.thisMonthRevenue || 0).toLocaleString("tr-TR")}`}
                       subValue={`${orders.filter(o => o.status === "active").length} aktif paket`}
                       color="primary"
                       testId="stat-monthly-revenue"
                     />
-                    <StatCard 
-                      icon={Users} 
-                      label="Toplam Kullanıcı" 
+                    <StatCard
+                      icon={Users}
+                      label="Toplam Üye"
                       value={stats?.totalUsers || 0}
                       subValue={`+${stats?.newUsersThisMonth || 0} bu ay`}
                       color="blue-400"
                       testId="stat-total-users"
                     />
-                    <StatCard 
-                      icon={Package} 
-                      label="Bekleyen Sipariş" 
+                    <StatCard
+                      icon={Clock}
+                      label="Bekleyen Sipariş"
                       value={stats?.pendingOrders || 0}
-                      subValue={`${stats?.activeOrders || 0} aktif`}
+                      subValue={`${stats?.activeOrders || 0} aktif devam ediyor`}
                       color="yellow-400"
                       testId="stat-pending-orders"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                    <div className="xl:col-span-2 bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
+                  {/* ── Revenue chart + Donut ── */}
+                  <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                    {/* Area chart */}
+                    <div className="xl:col-span-2 bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
                       <div className="flex items-center justify-between mb-6">
-                        <h3 className="font-heading font-bold text-white uppercase">Aylık Gelir</h3>
-                        <Badge className="bg-primary/10 text-primary border-primary/20">{new Date().getFullYear()}</Badge>
+                        <div>
+                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Aylık Gelir</p>
+                          <p className="text-white font-semibold text-lg">{new Date().getFullYear()} Yıl Özeti</p>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#ccff00]/8 border border-[#ccff00]/15 rounded-lg">
+                          <div className="w-2 h-2 rounded-full bg-[#ccff00]" />
+                          <span className="text-[11px] text-[#ccff00]/80 font-medium">Gelir</span>
+                        </div>
                       </div>
-                      <div className="h-72">
+                      <div className="h-64">
                         <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart data={revenueData}>
+                          <AreaChart data={revenueData} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
                             <defs>
-                              <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#ccff00" stopOpacity={0.3}/>
-                                <stop offset="95%" stopColor="#ccff00" stopOpacity={0}/>
+                              <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#ccff00" stopOpacity={0.25} />
+                                <stop offset="100%" stopColor="#ccff00" stopOpacity={0} />
                               </linearGradient>
                             </defs>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                            <XAxis dataKey="month" stroke="#666" fontSize={12} />
-                            <YAxis stroke="#666" fontSize={12} tickFormatter={(v) => `₺${(v/1000).toFixed(0)}k`} />
-                            <Tooltip 
-                              contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
-                              labelStyle={{ color: "#fff" }}
+                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" vertical={false} />
+                            <XAxis dataKey="month" stroke="#444" fontSize={11} tickLine={false} axisLine={false} dy={8} />
+                            <YAxis stroke="#444" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `₺${(v / 1000).toFixed(0)}k`} width={45} />
+                            <Tooltip
+                              contentStyle={{ backgroundColor: "#0f0f0f", border: "1px solid #ffffff15", borderRadius: "10px", boxShadow: "0 8px 32px rgba(0,0,0,0.6)" }}
+                              labelStyle={{ color: "#fff", fontWeight: 600, marginBottom: 4 }}
                               formatter={(value: number) => [`₺${value.toLocaleString("tr-TR")}`, "Gelir"]}
+                              cursor={{ stroke: "#ccff00", strokeWidth: 1, strokeOpacity: 0.3 }}
                             />
-                            <Area type="monotone" dataKey="revenue" stroke="#ccff00" strokeWidth={2} fillOpacity={1} fill="url(#colorRevenue)" />
+                            <Area type="monotone" dataKey="revenue" stroke="#ccff00" strokeWidth={2} fillOpacity={1} fill="url(#revenueGrad)" dot={false} activeDot={{ r: 4, fill: "#ccff00", stroke: "#050505", strokeWidth: 2 }} />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <h3 className="font-heading font-bold text-white uppercase mb-6">Sipariş Durumu</h3>
-                      <div className="h-56">
+                    {/* Donut chart */}
+                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
+                      <div className="mb-5">
+                        <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Sipariş Durumu</p>
+                        <p className="text-white font-semibold">Dağılım</p>
+                      </div>
+                      <div className="h-44">
                         <ResponsiveContainer width="100%" height="100%">
                           <PieChart>
                             <Pie
@@ -1213,82 +1263,150 @@ export default function AdminDashboard() {
                               ]}
                               cx="50%"
                               cy="50%"
-                              innerRadius={50}
-                              outerRadius={80}
-                              paddingAngle={5}
+                              innerRadius={44}
+                              outerRadius={70}
+                              paddingAngle={4}
                               dataKey="value"
+                              strokeWidth={0}
                             >
                               <Cell fill="#22c55e" />
                               <Cell fill="#eab308" />
-                              <Cell fill="#6b7280" />
+                              <Cell fill="#334155" />
                             </Pie>
-                            <Legend 
-                              verticalAlign="bottom" 
-                              iconType="circle"
-                              formatter={(value) => <span className="text-gray-400 text-sm">{value}</span>}
+                            <Tooltip
+                              contentStyle={{ backgroundColor: "#0f0f0f", border: "1px solid #ffffff15", borderRadius: "10px" }}
+                              formatter={(value: number, name: string) => [value, name]}
                             />
                           </PieChart>
                         </ResponsiveContainer>
                       </div>
+                      <div className="space-y-2 mt-2">
+                        {[
+                          { label: "Aktif", value: stats?.activeOrders || 0, color: "bg-green-500" },
+                          { label: "Bekliyor", value: stats?.pendingOrders || 0, color: "bg-yellow-500" },
+                          { label: "Tamamlandı", value: stats?.completedOrders || 0, color: "bg-slate-600" },
+                        ].map(item => (
+                          <div key={item.label} className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <div className={`w-2 h-2 rounded-full ${item.color}`} />
+                              <span className="text-[12px] text-gray-500">{item.label}</span>
+                            </div>
+                            <span className="text-[13px] font-semibold text-white tabular-nums">{item.value}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-heading font-bold text-white uppercase">Son Aktiviteler</h3>
-                        <Activity size={18} className="text-primary" />
+                  {/* ── Activity + Calculator ── */}
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    {/* Activity timeline */}
+                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Son Aktiviteler</p>
+                          <p className="text-white font-semibold">Canlı Akış</p>
+                        </div>
+                        <div className="w-8 h-8 rounded-xl bg-[#ccff00]/8 border border-[#ccff00]/15 flex items-center justify-center">
+                          <Activity size={15} className="text-[#ccff00]/70" />
+                        </div>
                       </div>
-                      <div className="space-y-3 max-h-80 overflow-y-auto pr-2" data-testid="activity-list">
-                        {activities.slice(0, 8).map((activity, i) => (
-                          <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors" data-testid={`activity-item-${i}`}>
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                              activity.type === "user" ? "bg-blue-500/20 text-blue-400" : "bg-green-500/20 text-green-400"
+                      <div className="space-y-1 max-h-72 overflow-y-auto pr-1" data-testid="activity-list">
+                        {activities.length === 0 ? (
+                          <p className="text-gray-600 text-center py-10 text-sm">Henüz aktivite yok</p>
+                        ) : activities.slice(0, 8).map((activity, i) => (
+                          <div
+                            key={i}
+                            className="relative flex items-start gap-3 py-3 group"
+                            data-testid={`activity-item-${i}`}
+                          >
+                            {i < Math.min(7, activities.length - 1) && (
+                              <div className="absolute left-[15px] top-10 bottom-0 w-px bg-white/[0.05]" />
+                            )}
+                            <div className={`relative z-10 w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border ${
+                              activity.type === "user"
+                                ? "bg-blue-500/10 border-blue-500/20 text-blue-400"
+                                : "bg-[#ccff00]/10 border-[#ccff00]/20 text-[#ccff00]"
                             }`}>
-                              {activity.type === "user" ? <User size={14} /> : <ShoppingCart size={14} />}
+                              {activity.type === "user" ? <User size={13} /> : <ShoppingCart size={13} />}
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-white text-sm truncate">{activity.message}</p>
-                              <p className="text-gray-500 text-xs mt-0.5">
+                            <div className="flex-1 min-w-0 pt-0.5">
+                              <p className="text-gray-300 text-[13px] leading-snug truncate group-hover:text-white transition-colors">{activity.message}</p>
+                              <p className="text-gray-700 text-[11px] mt-0.5">
                                 {new Date(activity.date).toLocaleDateString("tr-TR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
                               </p>
                             </div>
                           </div>
                         ))}
-                        {activities.length === 0 && (
-                          <p className="text-gray-500 text-center py-8">Henüz aktivite yok</p>
-                        )}
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-heading font-bold text-white uppercase">Hesaplayıcı Kullanımı</h3>
-                        <Calculator size={18} className="text-primary" />
+                    {/* Calculator usage */}
+                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Araç Kullanımı</p>
+                          <p className="text-white font-semibold">Hesaplayıcılar</p>
+                        </div>
+                        <div className="w-8 h-8 rounded-xl bg-[#ccff00]/8 border border-[#ccff00]/15 flex items-center justify-center">
+                          <Calculator size={15} className="text-[#ccff00]/70" />
+                        </div>
                       </div>
-                      <div className="h-64">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart data={calculatorStats} layout="vertical">
-                            <CartesianGrid strokeDasharray="3 3" stroke="#222" horizontal={false} />
-                            <XAxis type="number" stroke="#666" fontSize={12} />
-                            <YAxis 
-                              dataKey="type" 
-                              type="category" 
-                              stroke="#666" 
-                              fontSize={12} 
-                              width={80}
-                              tickFormatter={(value) => calculatorNames[value] || value}
-                            />
-                            <Tooltip 
-                              contentStyle={{ backgroundColor: "#111", border: "1px solid #333", borderRadius: "8px" }}
-                              formatter={(value: number) => [value, "Kullanım"]}
-                              labelFormatter={(label) => calculatorNames[label] || label}
-                            />
-                            <Bar dataKey="count" fill="#ccff00" radius={[0, 4, 4, 0]} />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
+                      {calculatorStats.length === 0 ? (
+                        <p className="text-gray-600 text-center py-10 text-sm">Henüz veri yok</p>
+                      ) : (
+                        <div className="space-y-3">
+                          {calculatorStats.slice(0, 6).map((stat) => {
+                            const maxCount = Math.max(...calculatorStats.map(s => s.count), 1);
+                            const pct = Math.round((stat.count / maxCount) * 100);
+                            return (
+                              <div key={stat.type}>
+                                <div className="flex items-center justify-between mb-1.5">
+                                  <span className="text-[12px] text-gray-400">{calculatorNames[stat.type] || stat.type}</span>
+                                  <span className="text-[12px] font-semibold text-white tabular-nums">{stat.count}</span>
+                                </div>
+                                <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${pct}%` }}
+                                    transition={{ duration: 0.8, delay: 0.1 }}
+                                    className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
+                                  />
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
+                  </div>
+
+                  {/* ── Quick stats row ── */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {[
+                      {
+                        label: "Ort. Sipariş Değeri",
+                        value: `₺${orders.length > 0 ? (orders.reduce((s, o) => s + parseFloat(o.totalPrice), 0) / orders.length).toLocaleString("tr-TR", { maximumFractionDigits: 0 }) : "0"}`,
+                        sub: "Tüm zamanlar",
+                      },
+                      {
+                        label: "Dönüşüm Oranı",
+                        value: `${users.length > 0 ? ((orders.filter(o => o.status !== "cancelled").length / users.length) * 100).toFixed(1) : "0"}%`,
+                        sub: "Üye → Müşteri",
+                      },
+                      {
+                        label: "Tamamlanma Oranı",
+                        value: `${orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1) : "0"}%`,
+                        sub: "Tamamlanan paketler",
+                      },
+                    ].map((item) => (
+                      <div key={item.label} className="bg-[#080808] border border-white/[0.06] rounded-2xl px-6 py-5 relative overflow-hidden group hover:border-white/[0.12] transition-all duration-300">
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+                        <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-2">{item.label}</p>
+                        <p className="text-2xl font-bold text-white tabular-nums">{item.value}</p>
+                        <p className="text-[12px] text-gray-700 mt-1">{item.sub}</p>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               )}
