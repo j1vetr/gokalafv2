@@ -61,15 +61,16 @@ export function generateHomeMeta(): MetaTags {
         "@type": "Organization",
         "@id": `${BASE_URL}/#organization`,
         "name": "Gokalaf",
+        "alternateName": ["Alaf Coaching", "Gökalaf", "gokalaf.com"],
         "url": BASE_URL,
         "logo": {
           "@type": "ImageObject",
-          "url": `${BASE_URL}/favicon.png`,
-          "width": 512,
-          "height": 512
+          "url": `${BASE_URL}/og-image.png`,
+          "width": 1200,
+          "height": 630
         },
         "image": `${BASE_URL}/og-image.png`,
-        "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu.",
+        "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu. Sefa Göktuğ Alaf liderliğinde kişiselleştirilmiş antrenman, beslenme ve takip programları.",
         "telephone": "+905312822402",
         "email": "alafcoaching@gmail.com",
         "address": {
@@ -90,8 +91,19 @@ export function generateHomeMeta(): MetaTags {
           "contactType": "customer service",
           "availableLanguage": ["Turkish"]
         },
+        "founder": {
+          "@type": "Person",
+          "@id": `${BASE_URL}/#person-sefa`,
+          "name": "Sefa Göktuğ Alaf",
+          "jobTitle": "Fitness Koçu & Kurucu",
+          "sameAs": [
+            "https://www.instagram.com/gokalaf",
+            "https://www.youtube.com/@gokalaf"
+          ]
+        },
         "foundingDate": "2024",
-        "areaServed": "TR"
+        "areaServed": "TR",
+        "knowsAbout": ["Fitness", "Vücut Geliştirme", "Beslenme", "Online Koçluk", "Antrenman Programı"]
       },
       {
         "@type": "WebSite",

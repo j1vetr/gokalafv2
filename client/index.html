@@ -75,6 +75,71 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     
+    <!-- Organization Schema — Google Knowledge Panel -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://gokalaf.com/#organization",
+          "name": "Gokalaf",
+          "alternateName": ["Alaf Coaching", "Gökalaf", "gokalaf.com"],
+          "url": "https://gokalaf.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://gokalaf.com/og-image.png",
+            "width": 1200,
+            "height": 630
+          },
+          "image": "https://gokalaf.com/og-image.png",
+          "description": "Türkiye'nin önde gelen online fitness ve vücut geliştirme koçluğu platformu. Sefa Göktuğ Alaf liderliğinde kişiselleştirilmiş antrenman, beslenme ve takip programları.",
+          "telephone": "+905312822402",
+          "email": "alafcoaching@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "TR",
+            "addressLocality": "Türkiye"
+          },
+          "sameAs": [
+            "https://www.instagram.com/gokalaf",
+            "https://www.youtube.com/@gokalaf",
+            "https://kick.com/gokalaf",
+            "https://twitter.com/gokalaf",
+            "https://www.tiktok.com/@gokalaf"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+905312822402",
+            "contactType": "customer service",
+            "availableLanguage": ["Turkish"]
+          },
+          "founder": {
+            "@type": "Person",
+            "@id": "https://gokalaf.com/#person-sefa",
+            "name": "Sefa Göktuğ Alaf",
+            "jobTitle": "Fitness Koçu & Kurucu",
+            "sameAs": [
+              "https://www.instagram.com/gokalaf",
+              "https://www.youtube.com/@gokalaf"
+            ]
+          },
+          "foundingDate": "2024",
+          "areaServed": "TR",
+          "knowsAbout": ["Fitness", "Vücut Geliştirme", "Beslenme", "Online Koçluk", "Antrenman Programı"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://gokalaf.com/#website",
+          "name": "Gokalaf",
+          "url": "https://gokalaf.com",
+          "publisher": { "@id": "https://gokalaf.com/#organization" },
+          "inLanguage": "tr-TR"
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
