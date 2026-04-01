@@ -356,6 +356,7 @@ export default function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [ordersStatusFilter, setOrdersStatusFilter] = useState<string>("all");
   const [ordersSourceFilter, setOrdersSourceFilter] = useState<string>("all");
+  const [ordersTablePage, setOrdersTablePage] = useState(1);
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [revenueData, setRevenueData] = useState<RevenueData[]>([]);
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -750,6 +751,10 @@ export default function AdminDashboard() {
       fetchAllData();
     }
   }, [isAuthenticated, isAdmin]);
+
+  useEffect(() => {
+    setOrdersTablePage(1);
+  }, [searchTerm, ordersStatusFilter, ordersSourceFilter]);
 
   const fetchUserDetails = async (userId: string) => {
     try {
@@ -1787,160 +1792,336 @@ export default function AdminDashboard() {
                           </div>
                         </div>
 
-                        {/* ── Orders Grid ── */}
-                        {pageOrders.length === 0 ? (
-                          <div className="flex flex-col items-center justify-center py-24 gap-4">
-                            <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
-                              <ShoppingCart size={22} className="text-gray-700" />
-                            </div>
-                            <div className="text-center">
-                              <p className="text-white font-medium">Sipariş bulunamadı</p>
-                              <p className="text-gray-600 text-sm mt-1">
-                                {searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all"
-                                  ? "Filtrelerinizi değiştirmeyi deneyin"
-                                  : "Henüz hiç sipariş yok"}
-                              </p>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
-                            {pageOrders.map((order, idx) => {
-                              const u = userMap[order.userId];
-                              const pkg = packageMap[order.packageId];
-                              const src = (order.orderSource || "direkt") as TrafficSource;
-                              const srcColors = SOURCE_COLORS[src] || SOURCE_COLORS["direkt"];
-                              const cfg = statusConfig[order.status] || statusConfig["pending"];
-                              const progress = order.status === "active" ? getProgress(order) : null;
-                              const gradClass = avatarGradients[idx % avatarGradients.length];
+                        {/* ── Source Statistics Card ── */}
+                        {(() => {
+                          const paidOrders = orders.filter(o => ["paid","active","completed"].includes(o.status));
+                          const sourceStats = Object.entries(
+                            paidOrders.reduce((acc, o) => {
+                              const src = o.orderSource || "direkt";
+                              if (!acc[src]) acc[src] = { count: 0, revenue: 0 };
+                              acc[src].count++;
+                              acc[src].revenue += parseFloat(o.totalPrice);
+                              return acc;
+                            }, {} as Record<string, { count: number; revenue: number }>)
+                          ).sort((a, b) => b[1].revenue - a[1].revenue);
 
-                              return (
-                                <motion.div
-                                  key={order.id}
-                                  initial={{ opacity: 0, y: 8 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: idx * 0.04, duration: 0.22 }}
-                                  className="group relative bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5 hover:border-white/[0.12] transition-all duration-200"
-                                  data-testid={`row-order-${order.id}`}
-                                >
-                                  {/* Top row: avatar + user + status + edit */}
-                                  <div className="flex items-start gap-3.5 mb-4">
-                                    {/* Avatar */}
-                                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradClass} border border-white/[0.08] flex items-center justify-center shrink-0 text-[15px] font-bold text-white/80`}>
-                                      {u?.fullName?.charAt(0)?.toUpperCase() || "?"}
-                                    </div>
+                          const sourceBarColors: Record<string, string> = {
+                            "arama-motoru": "bg-blue-500",
+                            "yapay-zeka":   "bg-purple-500",
+                            "sosyal-medya": "bg-pink-500",
+                            "reklam":       "bg-orange-500",
+                            "e-posta":      "bg-cyan-500",
+                            "direkt":       "bg-[#ccff00]",
+                            "diger":        "bg-gray-500",
+                          };
+                          const sourceTextColors: Record<string, string> = {
+                            "arama-motoru": "text-blue-400",
+                            "yapay-zeka":   "text-purple-400",
+                            "sosyal-medya": "text-pink-400",
+                            "reklam":       "text-orange-400",
+                            "e-posta":      "text-cyan-400",
+                            "direkt":       "text-[#ccff00]",
+                            "diger":        "text-gray-400",
+                          };
+                          const maxRevenue = sourceStats[0]?.[1]?.revenue || 1;
 
-                                    {/* User info */}
-                                    <div className="flex-1 min-w-0">
-                                      <p className="text-white text-[14px] font-semibold leading-tight truncate">
-                                        {u?.fullName || "Bilinmeyen"}
-                                      </p>
-                                      <p className="text-gray-600 text-[12px] truncate mt-0.5">{u?.email || "—"}</p>
-                                      {u?.phone && (
-                                        <p className="text-gray-700 text-[11px] mt-0.5">{u.phone}</p>
-                                      )}
-                                    </div>
+                          if (sourceStats.length === 0) return null;
 
-                                    {/* Status pill */}
-                                    <span className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border shrink-0 ${cfg.bg} ${cfg.border} ${cfg.text}`}>
-                                      <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot}`} />
-                                      {cfg.label}
-                                    </span>
+                          return (
+                            <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-5">
+                              <div className="flex items-center justify-between mb-4">
+                                <div>
+                                  <p className="text-[10px] text-gray-700 uppercase tracking-[0.2em] mb-0.5">Sipariş Kaynakları</p>
+                                  <p className="text-white text-[14px] font-semibold">Nereden Geliyor?</p>
+                                </div>
+                                <div className="text-right">
+                                  <p className="text-[10px] text-gray-700">Ödenen sipariş</p>
+                                  <p className="text-white text-sm font-bold">{paidOrders.length}</p>
+                                </div>
+                              </div>
 
-                                    {/* Edit */}
-                                    <button
-                                      onClick={() => {
-                                        setSelectedOrder(order);
-                                        setEditOrderForm({
-                                          status: order.status,
-                                          startDate: order.startDate ? new Date(order.startDate).toISOString().split("T")[0] : "",
-                                          endDate: order.endDate ? new Date(order.endDate).toISOString().split("T")[0] : "",
-                                        });
-                                        setShowOrderModal(true);
-                                      }}
-                                      className="shrink-0 w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-600 hover:bg-[#ccff00]/10 hover:border-[#ccff00]/20 hover:text-[#ccff00] transition-all opacity-0 group-hover:opacity-100"
-                                      data-testid={`button-edit-order-${order.id}`}
-                                    >
-                                      <Edit size={13} />
-                                    </button>
-                                  </div>
-
-                                  {/* Divider */}
-                                  <div className="h-px bg-white/[0.05] mb-4" />
-
-                                  {/* Package info + amount */}
-                                  <div className="flex items-end justify-between gap-3 mb-4">
-                                    <div className="min-w-0">
-                                      <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-1">Paket</p>
-                                      <p className="text-white text-[13px] font-semibold truncate">{pkg?.name || "—"}</p>
-                                      {pkg?.weeks && (
-                                        <p className="text-gray-600 text-[11px] mt-0.5">{pkg.weeks} haftalık program</p>
-                                      )}
-                                    </div>
-                                    <div className="text-right shrink-0">
-                                      <p className="text-[10px] text-gray-700 uppercase tracking-[0.15em] mb-1">Tutar</p>
-                                      <p className={`text-[22px] font-bold tabular-nums leading-none ${order.status === "active" ? "text-[#ccff00]" : order.status === "cancelled" ? "text-gray-600" : "text-white"}`}>
-                                        ₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  {/* Progress bar for active orders */}
-                                  {progress && (
-                                    <div className="mb-4">
+                              <div className="space-y-3">
+                                {sourceStats.map(([src, data]) => {
+                                  const pct = paidOrders.length > 0 ? (data.count / paidOrders.length) * 100 : 0;
+                                  const barColor = sourceBarColors[src] || "bg-gray-500";
+                                  const textColor = sourceTextColors[src] || "text-gray-400";
+                                  return (
+                                    <div key={src}>
                                       <div className="flex items-center justify-between mb-1.5">
-                                        <p className="text-[10px] text-gray-700">Program İlerlemesi</p>
-                                        <p className="text-[10px] text-gray-600">{progress.daysLeft} gün kaldı</p>
+                                        <div className="flex items-center gap-2">
+                                          <span className="text-[13px]">{sourceEmoji[src] || "🌐"}</span>
+                                          <span className={`text-[12px] font-medium ${textColor}`}>
+                                            {SOURCE_LABELS[src as TrafficSource] || src}
+                                          </span>
+                                          <span className="text-[11px] text-gray-700">{data.count} sipariş</span>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                          <span className="text-[11px] text-gray-600 tabular-nums">
+                                            ₺{data.revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
+                                          </span>
+                                          <span className="text-[11px] text-gray-700 tabular-nums w-8 text-right">
+                                            {pct.toFixed(0)}%
+                                          </span>
+                                        </div>
                                       </div>
                                       <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
                                         <motion.div
                                           initial={{ width: 0 }}
-                                          animate={{ width: `${progress.pct}%` }}
-                                          transition={{ duration: 0.8, delay: idx * 0.05, ease: "easeOut" }}
-                                          className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
+                                          animate={{ width: `${(data.revenue / maxRevenue) * 100}%` }}
+                                          transition={{ duration: 0.7, ease: "easeOut" }}
+                                          className={`h-full ${barColor} rounded-full opacity-70`}
                                         />
                                       </div>
                                     </div>
-                                  )}
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })()}
 
-                                  {/* Bottom: dates + source */}
-                                  <div className="flex items-center justify-between flex-wrap gap-2">
-                                    <div className="flex items-center gap-3">
-                                      {order.startDate && order.endDate ? (
-                                        <div className="flex items-center gap-1.5">
-                                          <Calendar size={11} className="text-gray-700" />
-                                          <span className="text-[11px] text-gray-600">
-                                            {new Date(order.startDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
-                                            {" → "}
-                                            {new Date(order.endDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "2-digit" })}
-                                          </span>
-                                        </div>
-                                      ) : (
-                                        <div className="flex items-center gap-1.5">
-                                          <Clock size={11} className="text-gray-700" />
-                                          <span className="text-[11px] text-gray-700">
-                                            {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "numeric" })}
-                                          </span>
-                                        </div>
-                                      )}
-                                    </div>
+                        {/* ── Premium Table ── */}
+                        {(() => {
+                          const PAGE_SIZE = 25;
+                          const totalPages = Math.ceil(pageOrders.length / PAGE_SIZE);
+                          const tablePage = ordersTablePage;
+                          const setTablePage = setOrdersTablePage;
+                          const slicedOrders = pageOrders.slice((tablePage - 1) * PAGE_SIZE, tablePage * PAGE_SIZE);
 
-                                    <span className={`flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] border ${srcColors.bg} ${srcColors.text} ${srcColors.border}`}>
-                                      <span>{sourceEmoji[src] || "🌐"}</span>
-                                      {SOURCE_LABELS[src] || "Diğer"}
-                                    </span>
+                          const avatarGradients = [
+                            "from-[#ccff00]/20 to-[#ccff00]/5",
+                            "from-blue-500/20 to-blue-500/5",
+                            "from-purple-500/20 to-purple-500/5",
+                            "from-orange-500/20 to-orange-500/5",
+                            "from-pink-500/20 to-pink-500/5",
+                          ];
+
+                          const getProgress = (order: Order) => {
+                            if (!order.startDate || !order.endDate) return null;
+                            const start = new Date(order.startDate).getTime();
+                            const end = new Date(order.endDate).getTime();
+                            const now = Date.now();
+                            const pct = Math.min(100, Math.max(0, ((now - start) / (end - start)) * 100));
+                            const daysLeft = Math.max(0, Math.ceil((end - now) / 86400000));
+                            return { pct, daysLeft };
+                          };
+
+                          if (pageOrders.length === 0) return (
+                            <div className="flex flex-col items-center justify-center py-24 gap-4 bg-[#0a0a0a] border border-white/[0.06] rounded-2xl">
+                              <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
+                                <ShoppingCart size={20} className="text-gray-700" />
+                              </div>
+                              <div className="text-center">
+                                <p className="text-white font-medium text-[14px]">Sipariş bulunamadı</p>
+                                <p className="text-gray-600 text-sm mt-1">
+                                  {searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all"
+                                    ? "Filtrelerinizi değiştirmeyi deneyin"
+                                    : "Henüz hiç sipariş yok"}
+                                </p>
+                              </div>
+                              {(searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all") && (
+                                <button
+                                  onClick={() => { setSearchTerm(""); setOrdersStatusFilter("all"); setOrdersSourceFilter("all"); }}
+                                  className="text-[12px] text-[#ccff00]/50 hover:text-[#ccff00] transition-colors"
+                                >
+                                  Filtreleri temizle
+                                </button>
+                              )}
+                            </div>
+                          );
+
+                          return (
+                            <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-2xl overflow-hidden">
+                              {/* Table header */}
+                              <div className="grid grid-cols-[2rem_1fr_1fr_7rem_7rem_7rem_5rem_2.5rem] gap-0 border-b border-white/[0.06] px-4 py-2.5">
+                                {["#","Kullanıcı","Paket","Tutar","Kaynak","Tarih","Durum",""].map((col, i) => (
+                                  <div key={i} className={`text-[10px] text-gray-700 uppercase tracking-[0.15em] font-medium ${i === 0 ? "text-center" : i >= 3 ? "text-right" : ""}`}>
+                                    {col}
                                   </div>
+                                ))}
+                              </div>
 
-                                  {/* Reference ID if present */}
-                                  {order.referenceId && (
-                                    <p className="text-[10px] text-gray-700 font-mono mt-2 truncate">
-                                      Ref: {order.referenceId}
-                                    </p>
+                              {/* Rows */}
+                              <div className="divide-y divide-white/[0.04]">
+                                {slicedOrders.map((order, idx) => {
+                                  const globalIdx = (tablePage - 1) * PAGE_SIZE + idx;
+                                  const u = userMap[order.userId];
+                                  const pkg = packageMap[order.packageId];
+                                  const src = (order.orderSource || "direkt") as TrafficSource;
+                                  const srcColors = SOURCE_COLORS[src] || SOURCE_COLORS["direkt"];
+                                  const cfg = statusConfig[order.status] || statusConfig["pending"];
+                                  const progress = order.status === "active" ? getProgress(order) : null;
+                                  const gradClass = avatarGradients[globalIdx % avatarGradients.length];
+
+                                  return (
+                                    <motion.div
+                                      key={order.id}
+                                      initial={{ opacity: 0 }}
+                                      animate={{ opacity: 1 }}
+                                      transition={{ delay: idx * 0.02, duration: 0.18 }}
+                                      className="grid grid-cols-[2rem_1fr_1fr_7rem_7rem_7rem_5rem_2.5rem] gap-0 items-center px-4 py-3 hover:bg-white/[0.02] transition-colors group"
+                                      data-testid={`row-order-${order.id}`}
+                                    >
+                                      {/* # */}
+                                      <div className="text-center text-[11px] text-gray-700 tabular-nums">
+                                        {globalIdx + 1}
+                                      </div>
+
+                                      {/* Kullanıcı */}
+                                      <div className="flex items-center gap-2.5 min-w-0 pr-3">
+                                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${gradClass} border border-white/[0.07] flex items-center justify-center shrink-0 text-[12px] font-bold text-white/80`}>
+                                          {u?.fullName?.charAt(0)?.toUpperCase() || "?"}
+                                        </div>
+                                        <div className="min-w-0">
+                                          <p className="text-white text-[12px] font-medium leading-tight truncate">{u?.fullName || "Bilinmeyen"}</p>
+                                          <p className="text-gray-700 text-[10px] truncate">{u?.email || "—"}</p>
+                                        </div>
+                                      </div>
+
+                                      {/* Paket */}
+                                      <div className="min-w-0 pr-3">
+                                        <p className="text-gray-300 text-[12px] truncate">{pkg?.name || "—"}</p>
+                                        {pkg?.weeks && (
+                                          <p className="text-gray-700 text-[10px]">{pkg.weeks} hafta</p>
+                                        )}
+                                        {/* Mini progress for active */}
+                                        {progress && (
+                                          <div className="mt-1 h-1 bg-white/[0.05] rounded-full overflow-hidden w-20">
+                                            <div
+                                              className="h-full bg-[#ccff00]/50 rounded-full"
+                                              style={{ width: `${progress.pct}%` }}
+                                            />
+                                          </div>
+                                        )}
+                                      </div>
+
+                                      {/* Tutar */}
+                                      <div className="text-right pr-3">
+                                        <p className={`text-[13px] font-bold tabular-nums ${
+                                          order.status === "active" ? "text-[#ccff00]"
+                                          : order.status === "cancelled" ? "text-gray-600"
+                                          : order.status === "paid" ? "text-blue-400"
+                                          : "text-white"
+                                        }`}>
+                                          ₺{parseFloat(order.totalPrice).toLocaleString("tr-TR")}
+                                        </p>
+                                        {progress && (
+                                          <p className="text-[10px] text-gray-700">{progress.daysLeft}g kaldı</p>
+                                        )}
+                                      </div>
+
+                                      {/* Kaynak */}
+                                      <div className="flex justify-end pr-3">
+                                        <span className={`flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] border ${srcColors.bg} ${srcColors.text} ${srcColors.border}`}>
+                                          <span>{sourceEmoji[src] || "🌐"}</span>
+                                          <span className="hidden sm:inline">{SOURCE_LABELS[src] || "Diğer"}</span>
+                                        </span>
+                                      </div>
+
+                                      {/* Tarih */}
+                                      <div className="text-right pr-3">
+                                        <p className="text-[11px] text-gray-600 tabular-nums">
+                                          {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "2-digit" })}
+                                        </p>
+                                        {order.endDate && (
+                                          <p className="text-[10px] text-gray-700">
+                                            → {new Date(order.endDate).toLocaleDateString("tr-TR", { day: "numeric", month: "short", year: "2-digit" })}
+                                          </p>
+                                        )}
+                                      </div>
+
+                                      {/* Durum */}
+                                      <div className="flex justify-end">
+                                        <span className={`flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-medium border ${cfg.bg} ${cfg.border} ${cfg.text}`}>
+                                          <span className={`w-1 h-1 rounded-full ${cfg.dot}`} />
+                                          {cfg.label}
+                                        </span>
+                                      </div>
+
+                                      {/* Aksiyon */}
+                                      <div className="flex justify-end">
+                                        <button
+                                          onClick={() => {
+                                            setSelectedOrder(order);
+                                            setEditOrderForm({
+                                              status: order.status,
+                                              startDate: order.startDate ? new Date(order.startDate).toISOString().split("T")[0] : "",
+                                              endDate: order.endDate ? new Date(order.endDate).toISOString().split("T")[0] : "",
+                                            });
+                                            setShowOrderModal(true);
+                                          }}
+                                          className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-gray-700 hover:bg-[#ccff00]/10 hover:border-[#ccff00]/20 hover:text-[#ccff00] transition-all opacity-0 group-hover:opacity-100"
+                                          data-testid={`button-edit-order-${order.id}`}
+                                        >
+                                          <Edit size={12} />
+                                        </button>
+                                      </div>
+                                    </motion.div>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Table footer: count + pagination */}
+                              <div className="border-t border-white/[0.05] px-4 py-3 flex items-center justify-between">
+                                <p className="text-[11px] text-gray-700">
+                                  <span className="text-gray-500">{pageOrders.length}</span> sipariş
+                                  {(searchTerm || ordersStatusFilter !== "all" || ordersSourceFilter !== "all") && (
+                                    <button
+                                      onClick={() => { setSearchTerm(""); setOrdersStatusFilter("all"); setOrdersSourceFilter("all"); }}
+                                      className="ml-2 text-[#ccff00]/40 hover:text-[#ccff00] transition-colors"
+                                    >
+                                      × temizle
+                                    </button>
                                   )}
-                                </motion.div>
-                              );
-                            })}
-                          </div>
-                        )}
+                                </p>
+
+                                {totalPages > 1 && (
+                                  <div className="flex items-center gap-1">
+                                    <button
+                                      onClick={() => setTablePage(p => Math.max(1, p - 1))}
+                                      disabled={tablePage === 1}
+                                      className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-gray-600 hover:text-white disabled:opacity-30 transition-all text-[11px]"
+                                    >
+                                      ‹
+                                    </button>
+                                    {Array.from({ length: totalPages }, (_, i) => i + 1)
+                                      .filter(p => p === 1 || p === totalPages || Math.abs(p - tablePage) <= 1)
+                                      .reduce((acc: (number | string)[], p, i, arr) => {
+                                        if (i > 0 && (p as number) - (arr[i-1] as number) > 1) acc.push("…");
+                                        acc.push(p);
+                                        return acc;
+                                      }, [])
+                                      .map((p, i) =>
+                                        p === "…" ? (
+                                          <span key={`ellipsis-${i}`} className="text-[11px] text-gray-700 px-1">…</span>
+                                        ) : (
+                                          <button
+                                            key={p}
+                                            onClick={() => setTablePage(p as number)}
+                                            className={`w-7 h-7 rounded-lg border text-[11px] transition-all ${
+                                              tablePage === p
+                                                ? "bg-[#ccff00]/10 border-[#ccff00]/25 text-[#ccff00]"
+                                                : "bg-white/[0.03] border-white/[0.06] text-gray-600 hover:text-white"
+                                            }`}
+                                          >
+                                            {p}
+                                          </button>
+                                        )
+                                      )
+                                    }
+                                    <button
+                                      onClick={() => setTablePage(p => Math.min(totalPages, p + 1))}
+                                      disabled={tablePage === totalPages}
+                                      className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-gray-600 hover:text-white disabled:opacity-30 transition-all text-[11px]"
+                                    >
+                                      ›
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })()}
                       </div>
                     );
                   })()}
