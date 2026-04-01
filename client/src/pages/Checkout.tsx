@@ -310,16 +310,16 @@ export default function Checkout() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="mb-10"
+          className="mb-12"
         >
-          <div className="flex items-center gap-3 mb-1">
+          <div className="flex items-center justify-center gap-3 mb-6">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-[#ccff00] flex items-center justify-center">
                 <span className="text-black text-[10px] font-bold">1</span>
               </div>
               <span className="text-[#ccff00] text-[12px] font-semibold uppercase tracking-wider">Bilgiler</span>
             </div>
-            <div className="flex-1 max-w-[60px] h-px bg-white/[0.08]" />
+            <div className="w-16 h-px bg-white/[0.08]" />
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-white/[0.06] border border-white/[0.1] flex items-center justify-center">
                 <span className="text-gray-600 text-[10px] font-bold">2</span>
@@ -327,7 +327,7 @@ export default function Checkout() {
               <span className="text-gray-600 text-[12px] font-medium uppercase tracking-wider">Ödeme</span>
             </div>
           </div>
-          <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white mt-3">
+          <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white">
             Siparişini <span className="text-[#ccff00]">tamamla</span>
           </h1>
         </motion.div>
@@ -478,7 +478,7 @@ export default function Checkout() {
                     <span className="text-gray-500 text-[12px] leading-relaxed group-hover:text-gray-400 transition-colors">
                       Kişiye özel koçluk hizmeti kapsamında cayma hakkımın bulunmadığını kabul ediyorum.{" "}
                       <Link href="/iptal-iade" className="text-[#ccff00]/60 hover:text-[#ccff00] underline transition-colors" target="_blank">
-                        İade politikası
+                        İade Politikası
                       </Link>
                     </span>
                   </label>
@@ -524,17 +524,17 @@ export default function Checkout() {
                 <div className="mt-4 flex items-center justify-center gap-4 text-gray-700 text-[11px]">
                   <span className="flex items-center gap-1">
                     <Shield size={12} />
-                    SSL korumalı
+                    SSL Korumalı
                   </span>
                   <span className="w-px h-3 bg-white/[0.07]" />
                   <span className="flex items-center gap-1">
                     <Zap size={12} />
-                    Shopier güvencesi
+                    Shopier Güvencesi
                   </span>
                   <span className="w-px h-3 bg-white/[0.07]" />
                   <span className="flex items-center gap-1">
                     <Lock size={12} />
-                    256-bit şifreli
+                    256-bit Şifreli
                   </span>
                 </div>
               </div>
@@ -577,7 +577,7 @@ export default function Checkout() {
                         }`}
                       >
                         <p className={`text-[13px] font-semibold ${isSelected ? "text-white" : "text-gray-300"}`}>
-                          {pkg.weeks} haftalık program
+                          {pkg.weeks} Haftalık Programı
                         </p>
                         <div className="flex items-center gap-2 shrink-0">
                           <span className={`text-[13px] font-bold ${isTA ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
@@ -689,7 +689,7 @@ export default function Checkout() {
                       className="border-t border-white/[0.06] pt-4 space-y-2"
                     >
                       <div className="flex justify-between text-[12px]">
-                        <span className="text-gray-500">Paket ücreti</span>
+                        <span className="text-gray-500">Paket Ücreti</span>
                         <span className={`${appliedCoupon ? "line-through text-gray-600" : "text-white"}`}>
                           ₺{originalPrice.toLocaleString("tr-TR")}
                         </span>
