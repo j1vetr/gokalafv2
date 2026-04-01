@@ -135,7 +135,7 @@ export default function Home() {
                 </h1>
               </div>
               
-              <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xs sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-4 lg:mb-8">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-200 max-w-xs sm:max-w-md mx-auto lg:mx-0 leading-relaxed font-light mb-4 lg:mb-8">
                 Bilimsel veriler, kişiselleştirilmiş stratejiler ve disiplinli takip sistemiyle potansiyelini açığa çıkar.
               </p>
 
