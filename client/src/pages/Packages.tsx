@@ -268,7 +268,7 @@ export default function Packages() {
 
                   {/* Duration */}
                   <div className="mb-3">
-                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
+                    <p className="text-[10px] text-white/60 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
                     <DurationSelector
                       options={naturalDurations}
                       selected={naturalWeeks}
@@ -357,7 +357,7 @@ export default function Packages() {
 
                   {/* Duration */}
                   <div className="mb-3">
-                    <p className="text-[10px] text-gray-600 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
+                    <p className="text-[10px] text-white/60 uppercase tracking-[0.15em] mb-1.5">Program süresi</p>
                     <DurationSelector
                       options={teamDurations}
                       selected={teamWeeks}
