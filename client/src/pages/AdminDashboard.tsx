@@ -22,8 +22,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import {
-  AreaChart,
-  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -1320,201 +1318,165 @@ export default function AdminDashboard() {
                     );
                   })()}
 
-                  {/* ── Revenue chart + Donut ── */}
-                  <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-                    {/* Area chart */}
-                    <div className="xl:col-span-2 bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
-                      <div className="flex items-center justify-between mb-6">
-                        <div>
-                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Aylık Gelir</p>
-                          <p className="text-white font-semibold text-lg">{new Date().getFullYear()} Yıl Özeti</p>
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#ccff00]/8 border border-[#ccff00]/15 rounded-lg">
-                          <div className="w-2 h-2 rounded-full bg-[#ccff00]" />
-                          <span className="text-[11px] text-[#ccff00]/80 font-medium">Gelir</span>
-                        </div>
-                      </div>
-                      <div className="h-64">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart data={revenueData} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-                            <defs>
-                              <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#ccff00" stopOpacity={0.25} />
-                                <stop offset="100%" stopColor="#ccff00" stopOpacity={0} />
-                              </linearGradient>
-                            </defs>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff08" vertical={false} />
-                            <XAxis dataKey="month" stroke="#444" fontSize={11} tickLine={false} axisLine={false} dy={8} />
-                            <YAxis stroke="#444" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `₺${(v / 1000).toFixed(0)}k`} width={45} />
-                            <Tooltip
-                              contentStyle={{ backgroundColor: "#0f0f0f", border: "1px solid #ffffff15", borderRadius: "10px", boxShadow: "0 8px 32px rgba(0,0,0,0.6)" }}
-                              labelStyle={{ color: "#fff", fontWeight: 600, marginBottom: 4 }}
-                              formatter={(value: number) => [`₺${value.toLocaleString("tr-TR")}`, "Gelir"]}
-                              cursor={{ stroke: "#ccff00", strokeWidth: 1, strokeOpacity: 0.3 }}
-                            />
-                            <Area type="monotone" dataKey="revenue" stroke="#ccff00" strokeWidth={2} fillOpacity={1} fill="url(#revenueGrad)" dot={false} activeDot={{ r: 4, fill: "#ccff00", stroke: "#050505", strokeWidth: 2 }} />
-                          </AreaChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
-
-                    {/* Donut chart */}
-                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
-                      <div className="mb-5">
-                        <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Sipariş Durumu</p>
-                        <p className="text-white font-semibold">Dağılım</p>
-                      </div>
-                      <div className="h-44">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <PieChart>
-                            <Pie
-                              data={[
-                                { name: "Aktif", value: stats?.activeOrders || 0 },
-                                { name: "Bekliyor", value: stats?.pendingOrders || 0 },
-                                { name: "Tamamlandı", value: stats?.completedOrders || 0 },
-                              ]}
-                              cx="50%"
-                              cy="50%"
-                              innerRadius={44}
-                              outerRadius={70}
-                              paddingAngle={4}
-                              dataKey="value"
-                              strokeWidth={0}
-                            >
-                              <Cell fill="#22c55e" />
-                              <Cell fill="#eab308" />
-                              <Cell fill="#334155" />
-                            </Pie>
-                            <Tooltip
-                              contentStyle={{ backgroundColor: "#0f0f0f", border: "1px solid #ffffff15", borderRadius: "10px" }}
-                              formatter={(value: number, name: string) => [value, name]}
-                            />
-                          </PieChart>
-                        </ResponsiveContainer>
-                      </div>
-                      <div className="space-y-2 mt-2">
-                        {[
-                          { label: "Aktif", value: stats?.activeOrders || 0, color: "bg-green-500" },
-                          { label: "Bekliyor", value: stats?.pendingOrders || 0, color: "bg-yellow-500" },
-                          { label: "Tamamlandı", value: stats?.completedOrders || 0, color: "bg-slate-600" },
-                        ].map(item => (
-                          <div key={item.label} className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <div className={`w-2 h-2 rounded-full ${item.color}`} />
-                              <span className="text-[12px] text-gray-500">{item.label}</span>
-                            </div>
-                            <span className="text-[13px] font-semibold text-white tabular-nums">{item.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* ── Activity + Calculator ── */}
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-                    {/* Activity timeline */}
-                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
-                      <div className="flex items-center justify-between mb-5">
-                        <div>
-                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Son Aktiviteler</p>
-                          <p className="text-white font-semibold">Canlı Akış</p>
-                        </div>
-                        <div className="w-8 h-8 rounded-xl bg-[#ccff00]/8 border border-[#ccff00]/15 flex items-center justify-center">
-                          <Activity size={15} className="text-[#ccff00]/70" />
-                        </div>
-                      </div>
-                      <div className="space-y-1 max-h-72 overflow-y-auto pr-1" data-testid="activity-list">
-                        {activities.length === 0 ? (
-                          <p className="text-gray-600 text-center py-10 text-sm">Henüz aktivite yok</p>
-                        ) : activities.slice(0, 8).map((activity, i) => (
-                          <div
-                            key={i}
-                            className="relative flex items-start gap-3 py-3 group"
-                            data-testid={`activity-item-${i}`}
-                          >
-                            {i < Math.min(7, activities.length - 1) && (
-                              <div className="absolute left-[15px] top-10 bottom-0 w-px bg-white/[0.05]" />
-                            )}
-                            <div className={`relative z-10 w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border ${
-                              activity.type === "user"
-                                ? "bg-blue-500/10 border-blue-500/20 text-blue-400"
-                                : "bg-[#ccff00]/10 border-[#ccff00]/20 text-[#ccff00]"
-                            }`}>
-                              {activity.type === "user" ? <User size={13} /> : <ShoppingCart size={13} />}
-                            </div>
-                            <div className="flex-1 min-w-0 pt-0.5">
-                              <p className="text-gray-300 text-[13px] leading-snug truncate group-hover:text-white transition-colors">{activity.message}</p>
-                              <p className="text-gray-700 text-[11px] mt-0.5">
-                                {new Date(activity.date).toLocaleDateString("tr-TR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Calculator usage */}
-                    <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
-                      <div className="flex items-center justify-between mb-5">
-                        <div>
-                          <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Araç Kullanımı</p>
-                          <p className="text-white font-semibold">Hesaplayıcılar</p>
-                        </div>
-                        <div className="w-8 h-8 rounded-xl bg-[#ccff00]/8 border border-[#ccff00]/15 flex items-center justify-center">
-                          <Calculator size={15} className="text-[#ccff00]/70" />
-                        </div>
-                      </div>
-                      {calculatorStats.length === 0 ? (
-                        <p className="text-gray-600 text-center py-10 text-sm">Henüz veri yok</p>
-                      ) : (
-                        <div className="space-y-3">
-                          {calculatorStats.slice(0, 6).map((stat) => {
-                            const maxCount = Math.max(...calculatorStats.map(s => s.count), 1);
-                            const pct = Math.round((stat.count / maxCount) * 100);
-                            return (
-                              <div key={stat.type}>
-                                <div className="flex items-center justify-between mb-1.5">
-                                  <span className="text-[12px] text-gray-400">{calculatorNames[stat.type] || stat.type}</span>
-                                  <span className="text-[12px] font-semibold text-white tabular-nums">{stat.count}</span>
-                                </div>
-                                <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                                  <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${pct}%` }}
-                                    transition={{ duration: 0.8, delay: 0.1 }}
-                                    className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
-                                  />
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* ── Son Siparişler + En Çok Satan ── */}
+                  {/* ── Revenue chart + Sipariş Durumu ── */}
                   {(() => {
-                    const recentOrders = [...orders]
+                    const yearTotal = revenueData.reduce((s, d) => s + (d.revenue || 0), 0);
+                    const totalOrderCount = orders.length;
+                    const statusItems = [
+                      { label: "Aktif", value: stats?.activeOrders || 0, color: "#22c55e", bar: "bg-green-500" },
+                      { label: "Bekliyor", value: stats?.pendingOrders || 0, color: "#eab308", bar: "bg-yellow-500" },
+                      { label: "Tamamlandı", value: stats?.completedOrders || 0, color: "#ccff00", bar: "bg-[#ccff00]" },
+                      { label: "İptal", value: orders.filter(o => o.status === "cancelled").length, color: "#ef4444", bar: "bg-red-500" },
+                    ];
+                    return (
+                      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                        {/* Premium bar chart */}
+                        <div className="xl:col-span-2 bg-[#080808] border border-white/[0.06] rounded-2xl p-6">
+                          <div className="flex items-start justify-between mb-6">
+                            <div>
+                              <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Yıllık Gelir Özeti</p>
+                              <p className="text-white font-bold text-xl">{new Date().getFullYear()}</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-[11px] text-gray-600 mb-0.5">Yıl Toplamı</p>
+                              <p className="text-[#ccff00] font-bold text-lg tabular-nums">₺{yearTotal.toLocaleString("tr-TR")}</p>
+                            </div>
+                          </div>
+                          {revenueData.length === 0 ? (
+                            <p className="text-gray-600 text-center py-16 text-sm">Henüz gelir verisi yok</p>
+                          ) : (
+                            <div className="h-52">
+                              <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={revenueData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }} barCategoryGap="28%">
+                                  <defs>
+                                    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+                                      <stop offset="0%" stopColor="#ccff00" stopOpacity={0.9} />
+                                      <stop offset="100%" stopColor="#ccff00" stopOpacity={0.3} />
+                                    </linearGradient>
+                                  </defs>
+                                  <CartesianGrid strokeDasharray="0" stroke="#ffffff06" vertical={false} horizontal={true} />
+                                  <XAxis dataKey="month" stroke="#333" fontSize={11} tickLine={false} axisLine={false} dy={8} tick={{ fill: "#555" }} />
+                                  <YAxis stroke="#333" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => v === 0 ? "" : `₺${(v / 1000).toFixed(0)}k`} width={42} tick={{ fill: "#444" }} />
+                                  <Tooltip
+                                    contentStyle={{ backgroundColor: "#0d0d0d", border: "1px solid #ffffff10", borderRadius: "12px", boxShadow: "0 16px 48px rgba(0,0,0,0.7)", padding: "10px 14px" }}
+                                    labelStyle={{ color: "#fff", fontWeight: 700, fontSize: 13, marginBottom: 4 }}
+                                    itemStyle={{ color: "#ccff00", fontSize: 13 }}
+                                    formatter={(value: number) => [`₺${value.toLocaleString("tr-TR")}`, "Gelir"]}
+                                    cursor={{ fill: "#ffffff04", radius: 6 }}
+                                  />
+                                  <Bar dataKey="revenue" fill="url(#barGrad)" radius={[5, 5, 2, 2]} maxBarSize={40} />
+                                </BarChart>
+                              </ResponsiveContainer>
+                            </div>
+                          )}
+                          {/* Month order counts below */}
+                          <div className="grid grid-cols-6 gap-1 mt-3 sm:grid-cols-12">
+                            {revenueData.map((d) => (
+                              <div key={d.month} className="text-center">
+                                <p className="text-[10px] text-gray-700 tabular-nums">{d.orderCount}</p>
+                              </div>
+                            ))}
+                          </div>
+                          <p className="text-[10px] text-gray-700 mt-0.5 text-center">sipariş / ay</p>
+                        </div>
+
+                        {/* Sipariş Durumu - custom design, no overflow */}
+                        <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-6 flex flex-col">
+                          <div className="mb-5">
+                            <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-1">Sipariş Durumu</p>
+                            <p className="text-white font-bold">Dağılım</p>
+                          </div>
+
+                          {/* Center stat */}
+                          <div className="flex items-center justify-center mb-6">
+                            <div className="relative w-32 h-32">
+                              <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="#ffffff06" strokeWidth="12" />
+                                {(() => {
+                                  const circumference = 2 * Math.PI * 50;
+                                  let offset = 0;
+                                  return statusItems.filter(s => s.value > 0).map((item, idx) => {
+                                    const pct = totalOrderCount > 0 ? item.value / totalOrderCount : 0;
+                                    const dash = circumference * pct;
+                                    const gap = circumference - dash;
+                                    const el = (
+                                      <circle
+                                        key={idx}
+                                        cx="60" cy="60" r="50"
+                                        fill="none"
+                                        stroke={item.color}
+                                        strokeWidth="12"
+                                        strokeDasharray={`${dash - 3} ${gap + 3}`}
+                                        strokeDashoffset={-offset}
+                                        strokeLinecap="round"
+                                        opacity={0.85}
+                                      />
+                                    );
+                                    offset += dash;
+                                    return el;
+                                  });
+                                })()}
+                              </svg>
+                              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                <p className="text-2xl font-bold text-white tabular-nums">{totalOrderCount}</p>
+                                <p className="text-[10px] text-gray-600">Sipariş</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Legend rows */}
+                          <div className="space-y-3 flex-1">
+                            {statusItems.map((item) => {
+                              const pct = totalOrderCount > 0 ? Math.round(item.value / totalOrderCount * 100) : 0;
+                              return (
+                                <div key={item.label}>
+                                  <div className="flex items-center justify-between mb-1.5">
+                                    <div className="flex items-center gap-2">
+                                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
+                                      <span className="text-[12px] text-gray-500">{item.label}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-[11px] text-gray-600">{pct}%</span>
+                                      <span className="text-[13px] font-semibold text-white tabular-nums w-6 text-right">{item.value}</span>
+                                    </div>
+                                  </div>
+                                  <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
+                                    <motion.div
+                                      initial={{ width: 0 }}
+                                      animate={{ width: `${pct}%` }}
+                                      transition={{ duration: 0.7, delay: 0.1 }}
+                                      className={`h-full ${item.bar} rounded-full`}
+                                    />
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* ── Siparişler + En Çok Satan Paketler ── */}
+                  {(() => {
+                    const recentOrds = [...orders]
                       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-                      .slice(0, 6);
+                      .slice(0, 7);
 
-                    const bestPackage = packages.length > 0 ? packages.map(pkg => {
-                      const paidCount = orders.filter(o => o.packageId === pkg.id && ["paid","active","completed"].includes(o.status)).length;
-                      const revenue = orders.filter(o => o.packageId === pkg.id && ["paid","active","completed"].includes(o.status)).reduce((s, o) => s + parseFloat(o.totalPrice), 0);
-                      return { ...pkg, paidCount, revenue };
-                    }).sort((a, b) => b.paidCount - a.paidCount)[0] : null;
-
-                    const avgOrderValue = orders.length > 0 ? orders.reduce((s, o) => s + parseFloat(o.totalPrice), 0) / orders.length : 0;
+                    const pkgStats = packages.map(pkg => {
+                      const paid = orders.filter(o => o.packageId === pkg.id && ["paid","active","completed"].includes(o.status));
+                      return { ...pkg, paidCount: paid.length, revenue: paid.reduce((s, o) => s + parseFloat(o.totalPrice), 0) };
+                    }).sort((a, b) => b.paidCount - a.paidCount);
+                    const maxSales = Math.max(...pkgStats.map(p => p.paidCount), 1);
 
                     return (
                       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-                        {/* Son Siparişler */}
+                        {/* Siparişler */}
                         <div className="xl:col-span-2 bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden">
                           <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.05]">
                             <div>
                               <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-0.5">Son İşlemler</p>
-                              <p className="text-white font-semibold text-[15px]">Son Siparişler</p>
+                              <p className="text-white font-semibold text-[15px]">Siparişler</p>
                             </div>
                             <button
                               onClick={() => setActiveTab("orders")}
@@ -1524,14 +1486,14 @@ export default function AdminDashboard() {
                             </button>
                           </div>
                           <div className="divide-y divide-white/[0.04]">
-                            {recentOrders.length === 0 ? (
-                              <p className="text-gray-600 text-center py-10 text-sm">Henüz sipariş yok</p>
-                            ) : recentOrders.map((order) => {
+                            {recentOrds.length === 0 ? (
+                              <p className="text-gray-600 text-center py-10 text-sm">Henüz Sipariş Yok</p>
+                            ) : recentOrds.map((order) => {
                               const orderUser = userMap[order.userId];
                               const orderPkg = packageMap[order.packageId];
                               return (
-                                <div key={order.id} className="flex items-center gap-4 px-6 py-3.5 hover:bg-white/[0.02] transition-colors group">
-                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/[0.08] flex items-center justify-center shrink-0 text-[12px] font-bold text-gray-400">
+                                <div key={order.id} className="flex items-center gap-4 px-6 py-3.5 hover:bg-white/[0.02] transition-colors">
+                                  <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center shrink-0 text-[12px] font-bold text-gray-400">
                                     {orderUser?.fullName?.charAt(0)?.toUpperCase() || "?"}
                                   </div>
                                   <div className="flex-1 min-w-0">
@@ -1544,11 +1506,11 @@ export default function AdminDashboard() {
                                       {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
                                     </p>
                                   </div>
-                                  <div className="shrink-0 ml-2">
+                                  <div className="shrink-0 w-16 text-right">
                                     {order.status === "active" && <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-[10px] border border-green-500/20">Aktif</span>}
                                     {order.status === "pending" && <span className="px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-400 text-[10px] border border-yellow-500/20">Bekliyor</span>}
                                     {order.status === "paid" && <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-[10px] border border-blue-500/20">Ödendi</span>}
-                                    {order.status === "completed" && <span className="px-2 py-0.5 rounded-full bg-gray-500/10 text-gray-400 text-[10px] border border-gray-500/20">Bitti</span>}
+                                    {order.status === "completed" && <span className="px-2 py-0.5 rounded-full bg-gray-500/10 text-gray-500 text-[10px] border border-gray-500/20">Bitti</span>}
                                     {order.status === "cancelled" && <span className="px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 text-[10px] border border-red-500/20">İptal</span>}
                                   </div>
                                 </div>
@@ -1557,63 +1519,43 @@ export default function AdminDashboard() {
                           </div>
                         </div>
 
-                        {/* Sağ sütun: En çok satan + ort değer */}
-                        <div className="flex flex-col gap-4">
-                          {/* En Çok Satan */}
-                          {bestPackage && (
-                            <div className="relative bg-[#080808] border border-[#ccff00]/[0.12] rounded-2xl p-5 overflow-hidden">
-                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ccff00]/25 to-transparent" />
-                              <div className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full blur-3xl opacity-10 bg-[#ccff00]" />
-                              <p className="text-[10px] text-[#ccff00]/50 uppercase tracking-[0.18em] font-medium mb-3">En Çok Satan</p>
-                              <div className="flex items-center gap-2.5 mb-4">
-                                <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center">
-                                  <Package size={16} className="text-[#ccff00]" />
+                        {/* En Çok Satan Paketler */}
+                        <div className="bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden">
+                          <div className="px-6 py-4 border-b border-white/[0.05]">
+                            <p className="text-[11px] text-gray-600 uppercase tracking-[0.15em] mb-0.5">Performans</p>
+                            <p className="text-white font-semibold text-[15px]">En Çok Satan Paketler</p>
+                          </div>
+                          <div className="p-5 space-y-4">
+                            {pkgStats.length === 0 ? (
+                              <p className="text-gray-600 text-center py-8 text-sm">Henüz Paket Yok</p>
+                            ) : pkgStats.map((pkg, idx) => (
+                              <div key={pkg.id}>
+                                <div className="flex items-center justify-between mb-1.5">
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <span className={`text-[11px] font-bold tabular-nums shrink-0 ${idx === 0 ? "text-[#ccff00]" : "text-gray-600"}`}>#{idx + 1}</span>
+                                    <span className="text-[13px] text-white font-medium truncate">{pkg.name}</span>
+                                  </div>
+                                  <div className="flex items-center gap-3 shrink-0 ml-2">
+                                    <span className="text-[12px] text-[#ccff00] font-semibold tabular-nums">{pkg.paidCount} satış</span>
+                                  </div>
                                 </div>
-                                <div>
-                                  <p className="text-white font-bold text-[15px] leading-tight">{bestPackage.name}</p>
-                                  <p className="text-gray-600 text-[11px]">{bestPackage.weeks} Haftalık Program</p>
+                                <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden mb-1">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${Math.round(pkg.paidCount / maxSales * 100)}%` }}
+                                    transition={{ duration: 0.7, delay: idx * 0.07 }}
+                                    className={`h-full rounded-full ${idx === 0 ? "bg-[#ccff00]" : "bg-white/20"}`}
+                                  />
                                 </div>
+                                <p className="text-[11px] text-gray-700">₺{pkg.revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })} gelir · {pkg.weeks} hafta</p>
                               </div>
-                              <div className="grid grid-cols-2 gap-3">
-                                <div className="bg-white/[0.04] rounded-xl p-3 text-center">
-                                  <p className="text-xl font-bold text-white tabular-nums">{bestPackage.paidCount}</p>
-                                  <p className="text-[10px] text-gray-600 mt-0.5">Satış</p>
-                                </div>
-                                <div className="bg-white/[0.04] rounded-xl p-3 text-center">
-                                  <p className="text-xl font-bold text-[#ccff00] tabular-nums">₺{bestPackage.revenue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}</p>
-                                  <p className="text-[10px] text-gray-600 mt-0.5">Gelir</p>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Ort. değer + tamamlanma */}
-                          <div className="bg-[#080808] border border-white/[0.06] rounded-2xl p-5 space-y-4">
-                            <div>
-                              <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] mb-1">Ort. Sipariş Değeri</p>
-                              <p className="text-2xl font-bold text-white tabular-nums">
-                                ₺{avgOrderValue.toLocaleString("tr-TR", { maximumFractionDigits: 0 })}
-                              </p>
-                              <p className="text-[11px] text-gray-700 mt-0.5">Tüm Siparişler Ortalama</p>
-                            </div>
-                            <div className="h-px bg-white/[0.05]" />
-                            <div>
-                              <p className="text-[10px] text-gray-700 uppercase tracking-[0.18em] mb-1">Tamamlanma Oranı</p>
-                              <p className="text-2xl font-bold text-white tabular-nums">
-                                {orders.length > 0 ? ((stats?.completedOrders || 0) / orders.length * 100).toFixed(1) : "0"}%
-                              </p>
-                              <div className="mt-2 h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                                <div
-                                  className="h-full bg-gradient-to-r from-[#ccff00]/60 to-[#ccff00] rounded-full"
-                                  style={{ width: `${orders.length > 0 ? (stats?.completedOrders || 0) / orders.length * 100 : 0}%` }}
-                                />
-                              </div>
-                            </div>
+                            ))}
                           </div>
                         </div>
                       </div>
                     );
                   })()}
+
                 </motion.div>
               )}
 
