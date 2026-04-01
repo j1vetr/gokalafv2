@@ -290,7 +290,7 @@ export default function Packages() {
                         <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-package-price">
                           ₺{naturalPkg ? parseFloat(naturalPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[11px] mt-0.5">{naturalWeeks} Haftalık Program</p>
+                        <p className="text-white/70 text-[11px] mt-0.5">{naturalWeeks} Haftalık Program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
@@ -379,7 +379,7 @@ export default function Packages() {
                         <p className="text-[30px] font-bold text-white tabular-nums leading-none tracking-tight" data-testid="text-team-alaf-price">
                           ₺{teamPkg ? parseFloat(teamPkg.price).toLocaleString("tr-TR") : "—"}
                         </p>
-                        <p className="text-gray-600 text-[11px] mt-0.5">{teamWeeks} Haftalık Program</p>
+                        <p className="text-white/70 text-[11px] mt-0.5">{teamWeeks} Haftalık Program</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
