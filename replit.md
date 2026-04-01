@@ -5,7 +5,7 @@
 Gokalaf is a premium Turkish-language online fitness and bodybuilding coaching platform. The application serves as both a corporate website and a user management system for selling and managing coaching packages. It features a modern, performance-oriented design focused on discipline and professional coaching services.
 
 The platform enables users to:
-- Browse and purchase coaching packages (8, 12, 16, or 24-week programs)
+- Browse and purchase coaching packages: **Natural Paket** (8/12/16/24 weeks) and **Team Alaf Paketi** (12/24 weeks, premium)
 - Access personalized fitness tools and calculators
 - Track their progress through a user dashboard
 - Communicate with the coach via integrated WhatsApp

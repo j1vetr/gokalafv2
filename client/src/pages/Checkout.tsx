@@ -52,9 +52,17 @@ export default function Checkout() {
         setPackages(data.packages || []);
         
         const urlParams = new URLSearchParams(window.location.search);
+        const packageId = urlParams.get("packageId");
         const weeks = urlParams.get("weeks");
-        if (weeks && data.packages) {
-          const pkg = data.packages.find((p: Package) => p.weeks === parseInt(weeks));
+        if (data.packages) {
+          let pkg: Package | undefined;
+          if (packageId) {
+            pkg = data.packages.find((p: Package) => p.id === packageId);
+          }
+          if (!pkg && weeks) {
+            // For Natural packages: match by weeks excluding Team Alaf
+            pkg = data.packages.find((p: Package) => p.weeks === parseInt(weeks) && !p.name.includes("Team Alaf"));
+          }
           if (pkg) setSelectedPackage(pkg);
         }
       } catch (error) {
