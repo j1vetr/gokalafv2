@@ -327,7 +327,7 @@ export default function Checkout() {
               <span className="text-gray-600 text-[12px] font-medium uppercase tracking-wider">Ödeme</span>
             </div>
           </div>
-          <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white">
+          <h1 className="text-2xl md:text-3xl font-heading font-bold uppercase text-white text-center">
             Siparişini <span className="text-[#ccff00]">tamamla</span>
           </h1>
         </motion.div>
