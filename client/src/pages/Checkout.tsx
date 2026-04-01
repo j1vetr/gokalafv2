@@ -577,7 +577,7 @@ export default function Checkout() {
                         }`}
                       >
                         <p className={`text-[13px] font-semibold ${isSelected ? "text-white" : "text-gray-300"}`}>
-                          {pkg.weeks} Haftalık Programı
+                          {pkg.weeks} Haftalık Program
                         </p>
                         <div className="flex items-center gap-2 shrink-0">
                           <span className={`text-[13px] font-bold ${isTA ? "text-[#d4a017]" : "text-[#ccff00]"}`}>
