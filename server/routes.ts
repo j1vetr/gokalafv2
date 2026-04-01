@@ -763,6 +763,41 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
             } catch (emailError) {
               console.error("Order confirmation email failed:", emailError);
             }
+
+            // WhatsApp welcome message via WPileti
+            const wpiletiKey = process.env.WPILETI_API_KEY;
+            if (wpiletiKey && user.phone) {
+              try {
+                // Format Turkish phone: 05XX XXX XXXX → 905XXXXXXXXX
+                const rawPhone = user.phone.replace(/\D/g, "");
+                const formattedPhone = rawPhone.startsWith("90")
+                  ? rawPhone
+                  : rawPhone.startsWith("0")
+                  ? "9" + rawPhone
+                  : "90" + rawPhone;
+
+                const wpMessage = `${user.fullName.split(" ")[0]}, Takıma hoşgeldin brom.\nFormu mailine iletiyorum 🫡`;
+
+                const wpRes = await fetch("https://my.wpileti.com/api/send-message", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    api_key: wpiletiKey,
+                    receiver: formattedPhone,
+                    data: { message: wpMessage },
+                  }),
+                });
+
+                if (wpRes.ok) {
+                  console.log(`[WPileti] WhatsApp sent to ${formattedPhone}`);
+                } else {
+                  const errBody = await wpRes.text();
+                  console.error(`[WPileti] Failed: ${wpRes.status} — ${errBody}`);
+                }
+              } catch (wpError) {
+                console.error("[WPileti] WhatsApp send error:", wpError);
+              }
+            }
           }
 
           if (order.couponId) {
