@@ -397,10 +397,10 @@ export default function Packages() {
                       <div className="space-y-1">
                         {NATURAL_FEATURES.map((f, i) => (
                           <div key={i} className="flex items-start gap-2">
-                            <div className="w-3.5 h-3.5 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center shrink-0 mt-0.5">
-                              <Check size={8} className="text-gray-500" />
+                            <div className="w-3.5 h-3.5 rounded-full bg-white/[0.08] border border-white/[0.2] flex items-center justify-center shrink-0 mt-0.5">
+                              <Check size={8} className="text-white" />
                             </div>
-                            <span className="text-gray-500 text-[11px] leading-snug">{f}</span>
+                            <span className="text-white text-[11px] leading-snug">{f}</span>
                           </div>
                         ))}
                       </div>
