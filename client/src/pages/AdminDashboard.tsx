@@ -1035,16 +1035,8 @@ export default function AdminDashboard() {
           <aside className="lg:w-64 shrink-0">
             <div className="bg-[#080808] border border-white/[0.06] rounded-2xl overflow-hidden sticky top-24">
               {/* Brand header */}
-              <div className="px-5 py-5 border-b border-white/[0.06]">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/20 flex items-center justify-center text-[#ccff00] font-bold text-sm shrink-0">
-                    G
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-white text-sm font-semibold leading-none mb-1.5">Gokalaf</p>
-                    <span className="font-black text-white/60 text-[15px] tracking-[0.22em] uppercase leading-none">TOOV</span>
-                  </div>
-                </div>
+              <div className="px-5 py-4 border-b border-white/[0.06] flex items-center justify-center">
+                <img src="/toov-logo.png" alt="TOOV" className="h-7 w-auto" />
               </div>
 
               {/* Nav groups */}
