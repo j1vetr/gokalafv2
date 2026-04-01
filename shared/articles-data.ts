@@ -12294,6 +12294,2300 @@ Evet, E vitamini omega-3'ü oksidasyondan korur. Bazı kaliteli ürünler zaten 
     ctaText: "Supplement Danışmanlığı Al",
     ctaLink: "/paketler",
   },
+  {
+    slug: "isinma-ve-soguma",
+    title: "Isınma ve Soğuma Egzersizleri: Neden Bu Kadar Önemli?",
+    category: "antrenman",
+    excerpt: "Isınma ve soğuma, antrenmanın en çok atlanan ama en kritik bölümleridir. Bu rehberde doğru ısınma protokolü, dinamik ve statik germe farkları ile antrenman sonrası soğuma rutini detaylıca açıklanıyor.",
+    heroImage: "/articles/isinma-ve-soguma-egzersizleri.webp",
+    content: `# Isınma ve Soğuma Egzersizleri: Neden Bu Kadar Önemli?
+
+Spor salonuna girdiğinizde çoğu kişinin ağırlıklara direkt atladığını, antrenman bitiminde ise hızla kapıya yöneldiğini görürsünüz. Bu iki hata — ısınma ve soğumayı atlamak — hem performansı düşürür hem de yaralanma riskini dramatik biçimde artırır.
+
+Bu rehberde ısınma ve soğumanın fizyolojisini, doğru protokolü ve pratikte nasıl uygulanacağını ele alacağız.
+
+> 💡 **Araştırmalar, düzgün ısınmanın antrenman performansını %10-20 oranında artırdığını ve yaralanma riskini %50 azalttığını gösteriyor.**
+
+## Isınmanın Fizyolojisi: Vücudunuzda Ne Olur?
+
+Isınma, vücudu fiziksel strese hazırlayan fizyolojik bir süreçtir. Bu süreçte:
+
+| Fizyolojik Değişim | Etki |
+|-------------------|------|
+| Kas sıcaklığı artar | Kas elastikiyeti ve güç üretimi iyileşir |
+| Kalp atım hızı yükselir | Kaslara daha fazla oksijenli kan ulaşır |
+| Eklem sıvısı aktive olur | Eklem sürtünmesi azalır |
+| Sinir iletim hızı artar | Kas-sinir koordinasyonu gelişir |
+| Enzim aktivitesi artar | Enerji üretimi hızlanır |
+
+Kaslar soğukken lastik gibi davranır: esneme kapasitesi düşer, ani yüklere maruz kaldığında yırtılma riski artar. Isındıkça elastikiyet kazanır ve güç üretimi en verimli seviyeye ulaşır.
+
+## Isınmanın 3 Aşaması
+
+### Aşama 1: Genel Kardiyovasküler Aktivasyon (3-5 dakika)
+
+Kalp atışını yavaşça yükseltmek ve kan dolaşımını artırmak için düşük yoğunluklu aktivitelerle başlanır.
+
+| Aktivite | Süre | Yoğunluk |
+|----------|------|----------|
+| Hafif tempolu yürüyüş | 2-3 dk | Düşük |
+| Bisiklet (düşük direnç) | 3-5 dk | Düşük |
+| Hafif koşu | 2-3 dk | Orta-Düşük |
+
+### Aşama 2: Dinamik Germe ve Mobilite (5-8 dakika)
+
+Dinamik germe, hareketi boyunca kasları gerip bıraktığınız aktif egzersizlerdir. Statik germeden önce gelmelidir.
+
+| Dinamik Hareket | Hedef Bölge | Tekrar |
+|----------------|-------------|--------|
+| Bacak sallama | Kalça fleksörleri, hamstring | 10/taraf |
+| Kol çevirme | Omuz, göğüs | 10 ileri/geri |
+| Kalça rotasyonu | Kalça, bel | 10/taraf |
+| Yüksek diz | Kalça fleksörleri, core | 10/taraf |
+| Yan adım squat | Kalça abduktörleri | 10/taraf |
+| Kedi-inek hareketi | Torasik omurga | 10 tekrar |
+
+> 💡 Dinamik germe yaralanma riskini azaltırken, antrenman öncesi statik germe kas gücünü ve patlama kuvvetini geçici olarak düşürebilir.
+
+### Aşama 3: Spesifik Aktivasyon (3-5 dakika)
+
+O günkü antrenmanla ilgili bölgeler özel olarak aktive edilir.
+
+| Antrenman Türü | Aktivasyon Egzersizleri |
+|----------------|------------------------|
+| Bacak günü | Band squat, glute bridge, crab walk |
+| Göğüs günü | Bandla chest fly, push-up (hafif), omuz rotasyonu |
+| Sırt günü | Band pull-apart, cat-cow, scapular squeeze |
+| Omuz günü | Band lateral raise, face pull, rotator cuff çalışması |
+
+### Antrenman Öncesi Aktivasyon Egzersizi: Boş Bar ile Çalışma
+
+Bileşik hareketler yapmadan önce aynı hareketi boş bar veya çok hafif ağırlıkla yapın:
+
+| Set | Ağırlık | Tekrar |
+|-----|---------|--------|
+| 1 | Sadece bar | 15 |
+| 2 | %40 çalışma ağırlığı | 10 |
+| 3 | %60 çalışma ağırlığı | 6 |
+| 4 | %80 çalışma ağırlığı | 3 |
+| 5 (iş seti) | %100 çalışma ağırlığı | Programa göre |
+
+## Dinamik vs Statik Germe: Hangi Durum Ne Zaman?
+
+| Özellik | Dinamik Germe | Statik Germe |
+|---------|--------------|--------------|
+| Zamanlama | Antrenman öncesi | Antrenman sonrası |
+| Süre | Hareket boyunca | 20-60 saniye pozisyonda tutma |
+| Güç üzerine etkisi | Nötr veya pozitif | Antrenman öncesi olumsuz |
+| Esneklik gelişimi | Sınırlı | Yüksek |
+| Isınma etkisi | Yüksek | Düşük |
+
+> ⚠️ **Yanlış bilgi:** "Antrenman öncesi esneyin." Doğrusu: Antrenman öncesi dinamik germe yapın, statik germeyi antrenman sonrasına bırakın.
+
+## Soğuma: Neden Gerekli?
+
+Soğuma, antrenmanın ani bitmesini önleyerek vücudu fizyolojik olarak dinlenme moduna geçirir.
+
+**Soğuma olmadan ne olur:**
+- Kan bacaklarda birikir (ani ortostatik hipotansiyon — baş dönmesi)
+- Laktik asit temizlenmesi yavaşlar
+- Kalp atımı aniden yavaşlar, kardiyovasküler stres artar
+- Gecikmiş başlangıçlı kas ağrısı (DOMS) daha şiddetli olur
+
+### Soğuma Protokolü (10-12 dakika)
+
+**1. Kardiyovasküler soğuma (3-5 dakika):**
+Antrenman temponu kademeli düşürün — hafif yürüyüş, bisiklet.
+
+**2. Statik germe (5-7 dakika):**
+
+| Kas Grubu | Germe Egzersizi | Süre |
+|-----------|----------------|------|
+| Hamstring | Öne eğilme germe | 30-45 sn/taraf |
+| Kalça fleksörleri | Lunj pozisyonu | 30-45 sn/taraf |
+| Göğüs | Kapı germe | 30-45 sn |
+| Omuz/Triseps | Baş üstü triseps germe | 30-45 sn/taraf |
+| Bel | Çocuk pozu | 30-60 sn |
+| Kuadriseps | Ayakta quad germe | 30-45 sn/taraf |
+
+**3. Foam roller (isteğe bağlı, 2-3 dakika):**
+IT band, torasik omurga ve kalça bölgelerinde miofasyal gevşeme sağlar.
+
+## Foam Roller Kullanımı
+
+Foam roller, myofasyal gevşeme tekniği için kullanılan bir öz-masaj aracıdır.
+
+| Bölge | Uygulama Süresi | Dikkat |
+|-------|----------------|--------|
+| IT bandı | 30-60 sn/taraf | Ağrılı noktada 5-10 sn bekleyin |
+| Torasik omurga | 1-2 dk | Boynu destekleyin |
+| Kalça/piriformis | 30-60 sn/taraf | Koldan destek alın |
+| Baldır | 30-60 sn/taraf | Ayak bileğine kadar inin |
+
+> 💡 Foam roller eklem üzerinde değil, yalnızca kas dokusunda kullanılmalıdır.
+
+## Isınma İçin Zaman Yok Mu?
+
+Zamanınız kısıtlıysa bile 5 dakikalık hızlı protokol uygulayabilirsiniz:
+
+| Dakika | Aktivite |
+|--------|----------|
+| 0:00-1:30 | Hızlı yürüyüş veya hafif koşu |
+| 1:30-3:00 | Dinamik germe (bacak sallama, kol çevirme, squat) |
+| 3:00-5:00 | Boş bar / hafif ağırlıkla ana hareket aktivasyonu |
+
+## Sonuç
+
+Isınma ve soğuma, antrenman programınızın ayrılmaz parçalarıdır. Isınma, vücudu en verimli performans moduna hazırlarken soğuma, toparlanma sürecini optimize eder ve uzun vadeli sağlığınızı korur.
+
+> 💡 Profesyonel sporcular ısınma ve soğumaya antrenman sürelerinin %15-20'sini ayırır. Bu süre, yaralanma riskini azaltarak uzun vadede kazandığınız sürededir.`,
+    seoTitle: "Isınma ve Soğuma Egzersizleri: Doğru Protokol Rehberi | Gokalaf",
+    seoDescription: "Antrenman öncesi ısınma ve sonrası soğuma neden önemlidir? Dinamik germe, statik germe, foam roller ve doğru protokol bu rehberde.",
+    publishedAt: "2026-04-01",
+    ctaText: "Kişisel Antrenman Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "periodizasyon-nedir",
+    title: "Antrenman Periodizasyonu Nedir? Platoya Son Verin",
+    category: "antrenman",
+    excerpt: "Plato neden oluşur ve nasıl kırılır? Periodizasyon, antrenman değişkenlerini sistematik olarak düzenleyerek sürekli gelişim sağlayan bilimsel bir programlama yöntemidir. Lineer, dalga ve blok periodizasyon karşılaştırmalı rehber.",
+    heroImage: "/articles/periodizasyon-antrenman-programlama.webp",
+    content: `# Antrenman Periodizasyonu Nedir? Platoya Son Verin
+
+Aylardır aynı programı yapıyorsunuz, aynı ağırlıkları kaldırıyorsunuz, aynı sonuçları alıyorsunuz. İşte bu duruma **plato** denir. Platoya çözüm ise periodizasyondur.
+
+**Periodizasyon**, antrenman yükünü, hacmini ve yoğunluğunu sistematik biçimde değiştirerek vücudu sürekli yeni uyaranlarla zorlayan bilimsel programlama yaklaşımıdır.
+
+> 💡 **Araştırmalar, periodize programların periodize olmayan programlara kıyasla güç gelişiminde %50'ye kadar daha fazla kazanım sağladığını gösteriyor.**
+
+## Periodizasyonun Temeli: GAS Modeli
+
+Periodizasyon, Hans Selye'nin **Genel Adaptasyon Sendromu (GAS)** modeline dayanır:
+
+| Aşama | Açıklama | Antrenmanla Örtüşmesi |
+|-------|----------|----------------------|
+| Alarm | Vücut yeni stresörü fark eder | İlk antrenman haftaları |
+| Direnç | Adaptasyon başlar | Güç ve kas artışı |
+| Tükenme | Stres fazla sürerse çöküş | Overtraining |
+
+Periodizasyon, direnç aşamasını maksimize edip tükenme aşamasından kaçınmak için yükü dönemsel olarak değiştirir.
+
+## Periodizasyon Terminolojisi
+
+| Terim | Tanım | Örnek Süre |
+|-------|-------|-----------|
+| Mikrosikl | En kısa dönem | 1 hafta |
+| Mezosikl | Orta dönem | 3-6 hafta |
+| Makrosikl | Tüm program | 3-12 ay |
+
+## Periodizasyon Türleri
+
+### 1. Lineer (Doğrusal) Periodizasyon
+
+En klasik yaklaşımdır. Her hafta veya mezosikl geçişinde ağırlık artar, tekrar azalır.
+
+| Hafta | Tekrar | % 1RM | Odak |
+|-------|--------|--------|------|
+| 1-4 | 12-15 | %60-65 | Hipertrofi / Adaptasyon |
+| 5-8 | 8-10 | %70-75 | Hipertrofi |
+| 9-12 | 4-6 | %80-85 | Güç |
+| 13-14 | 1-3 | %90-95 | Güç / Peak |
+| 15 | Deload | %50-60 | Toparlanma |
+
+**Kime uygun:** Yeni başlayanlar ve orta seviye sporcular.
+
+**Avantajı:** Basit, takip kolay.
+
+**Dezavantajı:** Uzun süre sonra monotonlaşır.
+
+### 2. Dalgalı (Undulating) Periodizasyon
+
+Hafta içinde veya her antrenmanda farklı tekrar aralıkları kullanılır.
+
+**Günlük Dalgalı Periodizasyon (DUP) örneği:**
+
+| Gün | Tekrar | % 1RM | Odak |
+|-----|--------|--------|------|
+| Pazartesi | 3-5 | %82-88 | Güç |
+| Çarşamba | 8-10 | %68-75 | Hipertrofi |
+| Cuma | 12-15 | %60-65 | Dayanıklılık/Pompa |
+
+**Kime uygun:** Orta-ileri seviye sporcular.
+
+**Avantajı:** Vücut aynı uyaranlara adapte olamaz, gelişim hızlanır.
+
+**Dezavantajı:** Program yönetimi daha karmaşık.
+
+> 💡 Araştırmalar, DUP'ın lineer periodizasyona kıyasla güç gelişimini %28 daha hızlı sağladığını gösteriyor.
+
+### 3. Blok Periodizasyon
+
+Mezosikller belirli bir özelliğe odaklanır; bu özellikler birbirini destekler.
+
+| Blok | Süre | Odak | Tekrar Aralığı |
+|------|------|------|----------------|
+| Akümülasyon | 3-5 hafta | Hacim / Hipertrofi | 10-15 |
+| İntensifikasyon | 3-4 hafta | Yoğunluk / Güç | 4-8 |
+| Realizasyon | 1-2 hafta | Peak / Test | 1-3 |
+| Deload | 1 hafta | Toparlanma | Hafif |
+
+**Kime uygun:** İleri seviye ve elit sporcular.
+
+## Deload: Geri Adım Atmak
+
+Deload, antrenman yükünün kasıtlı olarak azaltıldığı toparlanma haftasıdır.
+
+**Neden gerekli?**
+- Merkezi sinir sistemi (MSS) birikmiş yorgunluğu atar
+- Tendon ve ligament yapılar iyileşir
+- Motivasyon tazelenir
+- Supercompensation (süper telafi) oluşur
+
+| Deload Yöntemi | Nasıl? |
+|----------------|--------|
+| Hacim azaltma | Setleri %40-50 düşür, ağırlığı koru |
+| Yoğunluk azaltma | %60-70 1RM ile çalış |
+| Tam dinlenme | 5-7 gün aktif toparlanma |
+
+**Ne zaman deload gerekir?**
+- Her 4-8 haftada bir program dahilinde
+- Kronik yorgunluk, güç kaybı, uyku bozukluğu belirtilerinde
+
+## Rep Range ve Hipertrofi İlişkisi
+
+| Tekrar Aralığı | % 1RM | Etki |
+|----------------|--------|------|
+| 1-5 | %85-100 | Güç gelişimi, nöral adaptasyon |
+| 6-12 | %65-85 | Hipertrofi (en verimli bölge) |
+| 12-20 | %50-65 | Dayanıklılık, metabolik stres |
+| 20+ | <%50 | Kan akımı kısıtlaması, pompa |
+
+> 💡 Güncel araştırmalar, yeterli hacim sağlandığında her tekrar aralığında hipertrofi oluşabildiğini gösteriyor. Ancak 6-12 rep aralığı pratikte en verimli bölge olmaya devam ediyor.
+
+## 12 Haftalık Temel Periodizasyon Örneği
+
+| Mezosikl | Hafta | Hacim | Yoğunluk | Odak |
+|----------|-------|-------|----------|------|
+| 1 (Adaptasyon) | 1-3 | Orta | Düşük-Orta | Teknik, adaptasyon |
+| 2 (Hipertrofi) | 4-7 | Yüksek | Orta | Kas kütlesi |
+| 3 (Güç) | 8-11 | Orta-Düşük | Yüksek | Güç artışı |
+| 4 (Peak/Test) | 12 | Düşük | Çok Yüksek | Maksimum performans |
+
+## Sık Yapılan Hatalar
+
+| Hata | Doğrusu |
+|------|---------|
+| Hiç program değiştirmemek | Her 4-8 haftada yük değiştir |
+| Deload'u atlamak | Her mezosikl sonunda deload yap |
+| Çok sık program değiştirmek | En az 4-6 hafta aynı programda kal |
+| Aynı rep range'de kalmak | Farklı aralıkları döngüsel kullan |
+
+## Sonuç
+
+Periodizasyon, amatör ve profesyonel fark etmeksizin her sporcunun programında olması gereken bir yapıdır. Vücudunuzu sürekli yeni uyaranlarla zorlayın, dinlenmeyi planlı uygulayın ve platoya son verin.
+
+> 💡 En iyi periodizasyon programı, hedeflerinize, toparlanma kapasitenize ve yaşam tarzınıza göre kişiselleştirilen programdır. Gokalaf koçluk paketleriyle size özel bilimsel program alabilirsiniz.`,
+    seoTitle: "Periodizasyon Nedir? Lineer, Dalgalı ve Blok Periodizasyon Rehberi | Gokalaf",
+    seoDescription: "Antrenman periodizasyonu nedir, plato nasıl kırılır? Lineer, undulating ve blok periodizasyon farkları, deload ve 12 haftalık program örneği.",
+    publishedAt: "2026-04-01",
+    ctaText: "Periodize Program Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "uyku-ve-toparlanma",
+    title: "Uyku ve Toparlanma: Kaslar Antrenman Sırasında Değil Uyurken Büyür",
+    category: "antrenman",
+    excerpt: "Kas gelişiminin %30-40'ı uyku sırasında gerçekleşir. Büyüme hormonu, protein sentezi ve toparlanma mekanizmaları uyku kalitesiyle doğrudan ilişkilidir. Bu rehberde uyku ve toparlanmanın bilimi açıklanıyor.",
+    heroImage: "/articles/uyku-ve-toparlanma-kas-gelisimi.webp",
+    content: `# Uyku ve Toparlanma: Kaslar Uyurken Büyür
+
+"Ağırlık kaldırdığımda mı büyürüm, yoksa uyurken mi?" sorusunun cevabı nettir: **Uyurken.** Antrenman yalnızca uyarıyı verir; gerçek adaptasyon ve büyüme toparlanma sürecinde, özellikle uyku sırasında gerçekleşir.
+
+> 💡 **Araştırmalar, yetersiz uykunun kas protein sentezini %18 azalttığını ve kortizol seviyesini %37 yükselttiğini gösteriyor.**
+
+## Uyku Sırasında Vücudunuzda Ne Olur?
+
+### Büyüme Hormonu (GH) Salgılanması
+
+Büyüme hormonunun %70-80'i derin uyku (NREM 3. evre) sırasında salgılanır.
+
+| Büyüme Hormonu'nun İşlevleri |
+|-----------------------------|
+| Kas protein sentezini artırır |
+| Yağ dokusunu enerji için parçalar |
+| Tendon ve bağ dokusunu onarır |
+| Kemik yoğunluğunu destekler |
+
+**Gece yarısından önce uyumak neden kritiktir?**
+En yoğun GH salgısı uykunun ilk 2-3 saatinde gerçekleşir. Gece 2'de yatan biri hem daha az uyumuş hem de bu kritik GH penceresini kaçırmış olur.
+
+### Kas Protein Sentezi
+
+Uyku sırasında anabolik hormonlar yükselir, katabolik hormonlar düşer:
+
+| Hormon | Uyku Sırasındaki Değişim | Etki |
+|--------|------------------------|------|
+| Büyüme hormonu | ↑ %70-80 | Kas onarımı ve büyüme |
+| Testosteron | ↑ (REM uykusunda) | Kas protein sentezi |
+| IGF-1 | ↑ | Hücre büyümesi |
+| Kortizol | ↓ | Katabolizma azalır |
+| Ghrelin | ↑ | Yetersiz uykuda açlık artar |
+
+### Sinir Sistemi Toparlanması
+
+Merkezi sinir sistemi (MSS), ağır antrenmanlardan kas dokusundan çok daha uzun sürede toparlanır.
+
+| Sistem | Tam Toparlanma Süresi |
+|--------|----------------------|
+| Kas dokusu | 24-72 saat |
+| Merkezi sinir sistemi | 48-120 saat (yoğun set sonrası) |
+| Bağ doku / tendon | 72-168 saat |
+
+> ⚠️ Bu nedenle "dün bacak yaktım, bugün yine bacak yaparım" yaklaşımı MSS'yi kronik yorgunluğa iter.
+
+## Uyku Evreleri ve Toparlanma
+
+| Evre | Süre | Fonksiyon |
+|------|------|-----------|
+| NREM 1 (Hafif uyku) | 5-10 dk | Geçiş |
+| NREM 2 (Hafif-derin arası) | 20 dk | Vücut ısısı düşer, HR yavaşlar |
+| NREM 3 (Derin uyku) | 20-40 dk | **GH pik salgısı, kas onarımı** |
+| REM | 90-120 dk aralıklarla | Bilişsel iyileşme, testosteron |
+
+Bir gece boyunca bu döngü 4-6 kez tekrarlanır. Her döngü ~90 dakikadır.
+
+## Kaç Saat Uyumalısınız?
+
+| Grup | Önerilen Uyku Süresi |
+|------|---------------------|
+| Yetişkin (sedanter) | 7-9 saat |
+| Düzenli antrenman yapan | 8-9 saat |
+| Yoğun antrenman / sporcu | 9-10 saat |
+| Ergen sporcu | 9-11 saat |
+
+**Uyku borcu birikmez:** 5 gün 5 saat uyuyup hafta sonu 12 saat uyumak bu açığı kapatmaz. Kronik uyku yoksunluğu anabolik kapasiteyi kalıcı olarak düşürür.
+
+## Yetersiz Uykunun Atletik Performansa Etkileri
+
+| Etki | Araştırma Bulgusu |
+|------|------------------|
+| Güç kaybı | 1 haftalık 6 saat uyku → %10-15 güç düşüşü |
+| Tepki süresi | 24 saat uykusuzluk = 0.8‰ alkol etkisi |
+| Yağ kaybı | Diyet yapanlarda derin uyku = yağ kaybı, yetersiz uyku = kas kaybı |
+| Yaralanma riski | Haftada <8 saat uyku → %1.7x fazla yaralanma |
+| Testosteron | 1 hafta 5 saat uyku → %10-15 testosteron düşüşü |
+
+## Uyku Kalitesini Artırmanın 10 Yolu
+
+| Strateji | Uygulama |
+|----------|---------|
+| Tutarlı uyku saati | Her gün aynı saatte yat/kalk |
+| Oda sıcaklığı | 16-19°C ideal |
+| Karanlık oda | Blackout perde veya uyku maskesi |
+| Ekrandan uzak dur | Yatmadan 1 saat önce telefon/bilgisayar kapat |
+| Kafein kesim saati | Öğleden sonra 14:00'dan itibaren kafein alma |
+| Akşam proteini | Yatmadan önce kazein protein veya süt |
+| Magnezyum | 200-400mg magnezyum glikonat/bisglikinaz |
+| Soğuk duş | Yatmadan 1-2 saat önce ılık/serin duş |
+| Alkol yok | Alkol REM uykusunu bozar |
+| Düzenli antrenman | Fiziksel aktivite uyku kalitesini artırır |
+
+## Aktif Toparlanma Nedir?
+
+Dinlenme günleri "yatak günü" olmak zorunda değildir. Aktif toparlanma, düşük yoğunluklu aktivitelerle kan dolaşımını artırır ve laktik asit temizlenmesini hızlandırır.
+
+| Aktif Toparlanma Yöntemi | Uygulanması |
+|--------------------------|------------|
+| Yürüyüş | 20-40 dk, düşük tempo |
+| Yüzme | 20-30 dk, rahat tempo |
+| Yoga veya germe | 30-45 dk |
+| Bisiklet | Düşük dirençte 20-30 dk |
+| Foam roller | 10-15 dk |
+
+> 💡 Aktif toparlanma, tamamen hareketsiz dinlenmeye kıyasla kas ağrısını (DOMS) %50 daha hızlı azaltır.
+
+## Toparlanmayı Destekleyen Besinler
+
+| Besin | Toparlanmadaki Rolü |
+|-------|---------------------|
+| Protein | Kas onarımı (yatmadan önce kazein) |
+| Karbonhidrat | Glikojen depolarını doldurur |
+| Omega-3 | Anti-inflamatuar etki |
+| Magnezyum | Kas gevşemesi ve uyku kalitesi |
+| C vitamini | Kollajen sentezi, serbest radikal temizliği |
+| D vitamini | Kas fonksiyonu ve bağışıklık |
+
+## Sonuç
+
+En iyi antrenman programı, en iyi uyku ve toparlanma rutiniyle tamamlanır. Antrenmana harcadığınız enerji ve para ne kadar çok olursa olsun, uyku eksikse potansiyelinizin ancak yarısını açığa çıkarabilirsiniz.
+
+> 💡 **Altın kural:** Antrenman yap, beslen, uyu — sırasıyla. Bu üçünden biri eksik olduğunda diğer ikisinin değeri yarıya düşer.`,
+    seoTitle: "Uyku ve Toparlanma: Kas Gelişiminde Uykunun Rolü | Gokalaf",
+    seoDescription: "Kaslar uyku sırasında mı büyür? Büyüme hormonu, uyku evreleri, yetersiz uykunun atletik performansa etkileri ve toparlanmayı artırmanın yolları.",
+    publishedAt: "2026-04-01",
+    ctaText: "Profesyonel Koçluk Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "overtraining-sendromu",
+    title: "Aşırı Antrenman Sendromu: Belirtileri, Nedenleri ve Tedavisi",
+    category: "antrenman",
+    excerpt: "Daha fazla antrenman = daha fazla sonuç formülü her zaman doğru değildir. Aşırı antrenman sendromu (overtraining), performans düşüşüne, kas kaybına ve ciddi sağlık sorunlarına yol açabilir. Belirtileri ve çözümleri bu rehberde.",
+    heroImage: "/articles/overtraining-asiri-antrenman-sendromu.webp",
+    content: `# Aşırı Antrenman Sendromu: Ne Zaman "Fazla" Gerçekten Fazladır?
+
+Fitness dünyasının en tehlikeli yanılgısı şudur: "Ne kadar çok çalışırsam o kadar çok gelişirim." Bu anlayış, binlerce sporcuyu **aşırı antrenman sendromuna (Overtraining Syndrome — OTS)** sürükler.
+
+OTS yalnızca geçici yorgunluk değil; hormonal dengesizlik, immün sistem çöküşü ve aylarca süren performans kaybına yol açabilen ciddi bir durumdur.
+
+> 💡 **Araştırmalar, düzenli antrenman yapan sporcuların %65'inin kariyer boyunca en az bir kez OTS yaşadığını gösteriyor.**
+
+## Overtraining vs Overreaching: Fark Nedir?
+
+| Durum | Tanım | Toparlanma Süresi |
+|-------|-------|-------------------|
+| Fonksiyonel Overreaching | Kısa süreli aşırı yüklenme, planlı | Günler-2 hafta |
+| Non-fonksiyonel Overreaching | İstenmeyen, farkında olmadan aşırı yüklenme | 2-4 hafta |
+| Overtraining Sendromu (OTS) | Kronik, sistemik bozulma | Aylar-yıllar |
+
+Aradaki fark kritiktir. Fonksiyonel overreaching, periodizasyon içinde planlı yapılır ve süperkompensasyona (süper toparlanma) yol açar. OTS ise planlanmamış kronik birikmedir.
+
+## OTS'nin Nedenleri
+
+| Neden | Açıklama |
+|-------|----------|
+| Aşırı hacim | Vücudun topalanabilmeyeceği kadar fazla set/tekrar |
+| Yetersiz toparlanma | Dinlenme günleri olmadan günde iki antrenman |
+| Yetersiz uyku | Kronik 5-6 saat uyku |
+| Yetersiz kalori | Aşırı kalori kısıtlaması + yoğun antrenman |
+| Psikolojik stres | İş/aile stresi + yoğun antrenman kombinasyonu |
+| Monoton programlama | Aynı yükle aynı hareketleri haftalarca yapmak |
+
+## OTS'nin Belirtileri
+
+### Fiziksel Belirtiler
+
+| Belirti | Açıklama |
+|---------|----------|
+| Performans düşüşü | Daha az ağırlık kaldırma, güç kaybı |
+| Kronik kas ağrısı | 72+ saat süren DOMS |
+| Sık hastalanma | Bağışıklık sistemi zayıflar |
+| Yüksek istirahat kalp atışı | Normal değerin 5-10 atım üzerinde |
+| Koordinasyon bozukluğu | Teknik dağılır, form bozulur |
+| İştahsızlık | Ghrelin dengesizliği |
+
+### Hormonal Belirtiler
+
+| Hormon | OTS'deki Değişim | Etki |
+|--------|-----------------|------|
+| Kortizol | ↑ kronik yüksek | Kas yıkımı, yağ birikmesi |
+| Testosteron | ↓ | Libido düşüşü, güç kaybı |
+| GH (büyüme hormonu) | ↓ | Toparlanma yavaşlar |
+| Epinefrin / Norepinefrin | Tükenir | Motivasyon kaybı |
+
+### Psikolojik Belirtiler
+
+| Belirti |
+|---------|
+| Motivasyon ve istek kaybı |
+| Depresif ruh hali |
+| Uyku bozuklukları (paradoks insomnia) |
+| Konsantrasyon güçlüğü |
+| Tahriş ve sabırsızlık |
+
+> ⚠️ OTS'nin en sinsi özelliği: Kişi daha çok çalışmanın çözüm olduğunu düşünür ve durumu daha da kötüleştirir.
+
+## OTS'yi Nasıl Teşhis Edersiniz?
+
+Altı soruyu kendinize sorun:
+
+1. Son 2-3 haftadır performansım düşüyor mu?
+2. Normal yüklerde normalden çok yoruluyor muyum?
+3. Sabahları istirahat kalp atışım normalden yüksek mi?
+4. Motivasyonum ciddi şekilde düştü mü?
+5. Sık sık hastalanıyor muyum?
+6. Kas ağrılarım 72 saatten fazla mı sürüyor?
+
+3 veya daha fazla "evet" varsa overreaching veya OTS yaşıyor olabilirsiniz.
+
+**Kan testi parametreleri (doktor eşliğinde):**
+
+| Parametre | OTS'de Beklenen |
+|-----------|----------------|
+| Kortizol | Yüksek |
+| Testosteron / Kortizol oranı | Düşük |
+| CK (kreatin kinaz) | Yüksek (kas hasarı) |
+| Ferritin | Düşük |
+| Lenfosit sayısı | Düşük |
+
+## OTS'den Toparlanmak
+
+### Toparlanma Süreci
+
+| Aşama | Süre | Yapılacaklar |
+|-------|------|-------------|
+| Tam dinlenme | 1-2 hafta | Antrenmana ara ver |
+| Hafif aktivite | 1-2 hafta | Yürüyüş, yoga |
+| Düşük yoğunluklu antrenman | 2-4 hafta | %50-60 1RM, düşük hacim |
+| Kademeli dönüş | 4-8 hafta | Haftalık %10 artış |
+
+> ⚠️ OTS'de "birkaç gün dinlenirim, olur" çalışmaz. Tam toparlanma aylar alabilir ve zorunlu dinlenme olmadan daha da kötüleşir.
+
+### Beslenme Desteği
+
+| Besin | Rolü |
+|-------|------|
+| Kalori artışı | Açıkta çalışıyorsanız kapat |
+| Protein | 1.8-2.2 g/kg/gün |
+| Karbonhidrat | Kortizolü düşürür, glikojen doldurur |
+| Omega-3 | İltihap azaltır |
+| Magnezyum | Kortizol regülasyonu |
+| Vitamin C | Bağışıklık ve kortizol |
+
+## OTS'yi Önlemenin 7 Yolu
+
+| Strateji | Uygulama |
+|----------|---------|
+| Periodizasyon kullan | Her 4-6 haftada yük döngüsü |
+| Deload yap | Her mezosikl sonunda 1 hafta |
+| Uyku önceliği | 7-9 saat, tutarlı saatlerde |
+| Stres yönetimi | Hayat stresi + antrenman stresini birlikte değerlendir |
+| Kalori yeterli olsun | Aşırı açık + yoğun antrenman kombinasyonundan kaç |
+| Dinlenme günleri kutsal | Haftada en az 1-2 tam dinlenme günü |
+| Vücudunu dinle | Kronik yorgunluk sinyallerini görmezden gelme |
+
+## Sonuç
+
+Daha fazla antrenman her zaman daha iyi sonuç vermez. En iyi sporcular, ne zaman gaz vereceklerini olduğu kadar ne zaman fren yapacaklarını da bilirler.
+
+> 💡 **Profesyonel koçluk**, hacim, yoğunluk ve toparlanmayı sistematik dengeleyerek hem OTS'den kaçınmanızı hem de maksimum gelişim sağlamanızı mümkün kılar.`,
+    seoTitle: "Aşırı Antrenman Sendromu (Overtraining): Belirtileri ve Tedavisi | Gokalaf",
+    seoDescription: "Overtraining sendromu nedir, belirtileri nelerdir? Aşırı antrenmanın hormonal etkileri, toparlanma süreci ve önleme yöntemleri bu rehberde.",
+    publishedAt: "2026-04-01",
+    ctaText: "Dengeli Program Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "antrenman-oncesi-sonrasi-beslenme",
+    title: "Antrenman Öncesi ve Sonrası Beslenme: Anabolik Pencere Gerçek mi?",
+    category: "antrenman",
+    excerpt: "Antrenman öncesi ne yemeli, sonrasında ne kadar sürede protein almalısınız? 'Anabolik pencere' efsanesinin bilimsel gerçeği ve pratik beslenme stratejileri bu rehberde.",
+    heroImage: "/articles/antrenman-oncesi-sonrasi-beslenme.webp",
+    content: `# Antrenman Öncesi ve Sonrası Beslenme: Bilim Ne Diyor?
+
+"Antrenman sonrası 30 dakika içinde protein almasan kaslar erir." Bu cümleyi duymuş olabilirsiniz. Bu inanış — **anabolik pencere** teorisi — kısmen doğru, kısmen abartılmış bir kavramdır.
+
+Bu rehberde antrenman etrafındaki beslenmenin bilimini, pratik önerilerini ve yaygın mitleri inceliyoruz.
+
+> 💡 **Güncel araştırmalar, toplam günlük protein alımının, protein zamanlamasından çok daha belirleyici olduğunu gösteriyor.**
+
+## Antrenman Öncesi Beslenme
+
+### Ne Zaman Yemeli?
+
+| Yemek Zamanı | İdeal Öğün Büyüklüğü | İçerik |
+|-------------|---------------------|--------|
+| 2-3 saat önce | Büyük öğün | Protein + karbonhidrat + az yağ |
+| 60-90 dk önce | Orta öğün | Protein + orta karbonhidrat |
+| 30-45 dk önce | Küçük atıştırmalık | Hızlı sindirilen karbonhidrat + az protein |
+| Hemen önce | Sadece içecek | Whey + basit karbonhidrat |
+
+### Antrenman Öncesi Karbonhidrat
+
+Karbonhidratlar, yüksek yoğunluklu antrenmanlarda birincil enerji kaynağıdır.
+
+| Durum | Karbonhidrat İhtiyacı |
+|-------|-----------------------|
+| Sabah açken antrenman | Basit karbonhidrat + küçük protein |
+| 2 saat sonra antrenman | Orta-yavaş karbonhidrat + protein |
+| Akşam antrenmanı | Öğle yemeği yeterliyse ek gerekmez |
+
+**İyi antrenman öncesi karbonhidrat seçenekleri:**
+- Yulaf ezmesi
+- Pirinç
+- Tatlı patates
+- Muz
+- Ekmek + fıstık ezmesi
+
+### Antrenman Öncesi Protein
+
+Antrenman öncesi protein, kas protein yıkımını (katabolizma) sınırlar.
+
+| Önerilen Miktar | Kaynak |
+|----------------|--------|
+| 20-40g protein | Whey protein, tavuk, yumurta, süt |
+
+> 💡 Özellikle sabah aç karnına antrenman yapıyorsanız, 20-30g whey ile yapılan küçük bir shake hem sindirimi hızlı hem de pratik bir seçenektir.
+
+### Antrenman Öncesi Yağ
+
+Yağlar sindirim sürecini yavaşlatır. Antrenman öncesinde yüksek yağlı öğünler:
+- Mide rahatsızlığına neden olabilir
+- Enerji kullanılabilirliğini geçici olarak düşürür
+
+**Antrenman 2-3 saat sonraysa:** Orta miktarda sağlıklı yağ sorun yaratmaz.
+**Antrenman 30-60 dk sonraysa:** Yağı minimuma indirin.
+
+## Anabolik Pencere: Efsane mi, Gerçek mi?
+
+"Anabolik pencere" teorisi, antrenman sonrası 30-60 dakika içinde protein alınmazsa kas yapımının dramatik biçimde azalacağını öne sürer.
+
+**Güncel bilim ne diyor?**
+
+| Eski Görüş | Güncel Araştırmalar |
+|-----------|---------------------|
+| 30 dk içinde protein alınmalı | Pencere 4-6 saate kadar uzar |
+| Şeker+protein şart | Protein tek başına yeterli |
+| Miss edersen kas erir | Toplam günlük alım belirleyici |
+
+> 💡 Araştırmacı Brad Schoenfeld'in 2013 meta-analizi: Protein zamanlamasının etkisi, yeterli toplam protein alımı yapıldığında minimaldür. Bununla birlikte, antrenman etrafında protein almak avantajlıdır — kritik olmasa da optimize edici bir faktördür.
+
+**Kim için zamanlama daha kritik?**
+- Aç karnına antrenman yapanlar
+- Günde 2 antrenman yapanlar
+- Son öğünleri 5+ saat önceyse
+
+## Antrenman Sonrası Beslenme
+
+### Protein: Ne Kadar, Ne Zaman?
+
+| Parametre | Öneri |
+|-----------|-------|
+| Miktar | 20-40g protein |
+| Zamanlama | İdeal olarak 1-2 saat içinde |
+| Kaynak | Whey (hızlı sindirim) veya tam gıda |
+
+### Karbonhidrat: Glikojen Yenileme
+
+Antrenman, kas glikojenini tüketir. Glikojenin yenilenmesi toparlanma için kritiktir.
+
+| Antrenman Türü | Sonrası Karbonhidrat İhtiyacı |
+|----------------|-------------------------------|
+| Güç antrenmanı (60-90 dk) | 0.5-1.0 g/kg |
+| Uzun süreli dayanıklılık (2+ saat) | 1.0-1.5 g/kg |
+| Hafif/orta antrenman | Öğün zamanı yeterli |
+
+**Hızlı seçenekler:**
+- Muz
+- Pirinç keki + reçel
+- Protein shake + süt
+- Yulaf ezmesi + bal
+
+### Antrenman Sonrası Yağ Alımı
+
+Yağın protein emilimini yavaşlattığı düşüncesi abartılmıştır. Antrenman sonrası tam gıda öğününde orta miktarda yağ sorun yaratmaz.
+
+## Pratik Antrenman Öncesi ve Sonrası Örnek Öğünler
+
+### Antrenman Öncesi (2-3 saat önce)
+
+| Öğün | Protein | Karbonhidrat | Kalori |
+|------|---------|-------------|--------|
+| Yulaf + 3 yumurta + muz | 30g | 60g | ~450 kcal |
+| Tavuk + pirinç + salata | 35g | 55g | ~500 kcal |
+| Süzme peynir + tam buğday ekmek | 28g | 45g | ~380 kcal |
+
+### Antrenman Sonrası (1-2 saat içinde)
+
+| Öğün | Protein | Karbonhidrat |
+|------|---------|-------------|
+| Whey + muz + süt | 35g | 45g |
+| Tavuk + beyaz pirinç | 40g | 60g |
+| Yumurta + tost + az reçel | 28g | 40g |
+
+## Hidratasyon
+
+Antrenman performansının %60-70'i yeterli hidrasyon ile korunur.
+
+| Zamanlama | Önerilen |
+|-----------|---------|
+| 2-3 saat önce | 500-600ml su |
+| 15-20 dk önce | 200-300ml su |
+| Antrenman sırasında | 150-250ml/15-20 dk |
+| Antrenman sonrası | Kaybedilen ağırlık x 1.5L |
+
+> 💡 Vücut ağırlığının %2'si kadar sıvı kaybı, güç çıktısını %10-15 düşürür.
+
+## Kahve ve Kafein: Antrenman Öncesi Süper Silah
+
+| Kafein Dozu | Etki |
+|------------|------|
+| 3-6 mg/kg | Güç, dayanıklılık, yağ yakımı, konsantrasyon artışı |
+| Zamanlama | Antrenman öncesi 30-60 dk |
+| Kaynak | Kahve, pre-workout, kafein hapı |
+
+## Sonuç
+
+Antrenman etrafındaki beslenme, toplam günlük beslenmenin optimize edici bir parçasıdır — temel değil. Önce toplam kalori ve protein hedefini tutturun, sonra zamanlamayı optimize edin.
+
+> 💡 **Önem sırası:** 1. Toplam kalori → 2. Toplam protein → 3. Besin kalitesi → 4. Zamanlama. Bu sırayı tersine çevirmek, temel hataların kaynağıdır.`,
+    seoTitle: "Antrenman Öncesi ve Sonrası Beslenme Rehberi | Gokalaf",
+    seoDescription: "Antrenman öncesi ne yemeli? Anabolik pencere nedir, gerçek mi? Antrenman sonrası protein ve karbonhidrat zamanlaması rehberi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Koçluğu Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "protein-kaynaklari",
+    title: "Protein Kaynakları: Hayvansal mı, Bitkisel mi? Bilimsel Karşılaştırma",
+    category: "beslenme",
+    excerpt: "Tavuk mu, yumurta mı, whey mi yoksa baklagiller mi? Farklı protein kaynaklarının biyoyararlanımı, PDCAAS skoru ve kas gelişimine etkisi bu kapsamlı karşılaştırma rehberinde açıklanıyor.",
+    heroImage: "/articles/protein-kaynaklari-hayvansal-bitkisel.webp",
+    content: `# Protein Kaynakları: Hangisi Daha İyi?
+
+Protein, kasın yapı taşıdır. Ama her protein eşit değildir. Farklı gıdalar farklı amino asit profilleri, farklı sindirim hızları ve farklı biyoyararlanım oranları sunar.
+
+Bu rehberde en yaygın protein kaynaklarını bilimsel kriterlerle karşılaştırıyoruz.
+
+> 💡 **Kas protein sentezi için yalnızca protein miktarı değil, amino asit kalitesi ve biyoyararlanım da kritik öneme sahiptir.**
+
+## Protein Kalitesini Nasıl Ölçeriz?
+
+### PDCAAS (Protein Sindirilabilirlik Düzeltmeli Amino Asit Skoru)
+
+0-1.0 arasında puanlama; 1.0 en yüksek kalite anlamına gelir.
+
+| Protein Kaynağı | PDCAAS Skoru |
+|----------------|-------------|
+| Whey protein | 1.0 |
+| Yumurta akı | 1.0 |
+| Kazein | 1.0 |
+| Soya proteini | 0.91-1.0 |
+| Mercimek | 0.52 |
+| Buğday (gluten) | 0.25 |
+
+### DIAAS (Sindirilebilir Esansiyel Amino Asit Skoru)
+
+Daha güncel ve hassas ölçüm yöntemi:
+
+| Protein Kaynağı | DIAAS Skoru |
+|----------------|------------|
+| Süt proteini | 1.18 |
+| Yumurta | 1.13 |
+| Sığır eti | 1.10 |
+| Bezelye proteini | 0.82 |
+| Pirinç proteini | 0.59 |
+
+## Hayvansal Protein Kaynakları
+
+### Tavuk Göğsü
+
+| Özellik | Değer (100g, haşlanmış) |
+|---------|------------------------|
+| Protein | 31g |
+| Yağ | 3.6g |
+| Kalori | 165 kcal |
+| Lösin | 2.4g |
+| PDCAAS | 0.99 |
+
+**Avantaj:** Ucuz, versatil, yağ-protein oranı mükemmel.
+**Dezavantaj:** Hazırlaması zaman alır, monoton olabilir.
+
+### Yumurta
+
+| Özellik | Değer (1 büyük yumurta) |
+|---------|------------------------|
+| Protein | 6g (3g sarı, 3g ak) |
+| Yağ | 5g (çoğu sarıda) |
+| Kalori | 78 kcal |
+| Biyoyararlanım | %91-94 |
+
+**Avantaj:** Tam protein, en yüksek biyoyararlanım, kolay hazırlık.
+**Dezavantaj:** Yüksek kolesterol endişesi (modern araştırmalar bu endişeyi büyük ölçüde çürütmüştür).
+
+> 💡 Araştırmalar, sağlıklı bireylerde günde 3-4 yumurtanın kardiyovasküler risk oluşturmadığını gösteriyor.
+
+### Sığır Eti (Yağsız)
+
+| Özellik | Değer (100g, yağsız, pişmiş) |
+|---------|------------------------------|
+| Protein | 26g |
+| Yağ | 7g |
+| Kalori | 172 kcal |
+| Kreatin | ~500mg (doğal kaynak) |
+| Demir | Yüksek (hem demir) |
+
+**Avantaj:** Zengin demir ve B12, doğal kreatin, tam amino asit profili.
+**Dezavantaj:** Pahalı, doymuş yağ içeriği yüksek.
+
+### Balık (Salmon / Ton)
+
+| Özellik | Salmon (100g) | Ton Balığı (100g) |
+|---------|--------------|-------------------|
+| Protein | 22g | 30g |
+| Yağ | 13g | 1g |
+| Omega-3 | Yüksek | Orta |
+| Kalori | 208 kcal | 130 kcal |
+
+**Avantaj:** Omega-3 ile anti-inflamatuar etki, yüksek kaliteli protein.
+**Dezavantaj:** Cıva endişesi (haftada 2-3 porsiyon sınırında kalın).
+
+### Süzme Peynir (Lor)
+
+| Özellik | Değer (100g) |
+|---------|-------------|
+| Protein | 11-14g |
+| Yağ | 4-5g |
+| Kazein oranı | Yüksek (yavaş sindirim) |
+| Kalori | 98 kcal |
+
+**Avantaj:** Kazein proteini sayesinde gece boyunca salınan amino asitler — yatmadan önce ideal.
+
+## Bitkisel Protein Kaynakları
+
+### Soya
+
+En kaliteli bitkisel protein kaynağıdır.
+
+| Özellik | Değer (100g tofu, firm) |
+|---------|------------------------|
+| Protein | 17g |
+| Yağ | 9g |
+| PDCAAS | 0.91-1.0 |
+| İzoflavon | Var (fitoöstrojen) |
+
+**Avantaj:** Tam amino asit profili, PDCAAS yüksek.
+**Dezavantaj:** İzoflavon endişesi (araştırmalar makul dozlarda güvenli olduğunu gösteriyor).
+
+### Mercimek
+
+| Özellik | Değer (100g, pişmiş) |
+|---------|---------------------|
+| Protein | 9g |
+| Lif | 8g |
+| Demir | Yüksek (non-hem) |
+| Kalori | 116 kcal |
+
+**Avantaj:** Lif içeriği yüksek, C vitaminiyle birlikte demir emilimi artar.
+**Dezavantaj:** Düşük lösin, eksik amino asit profili — tahılla kombinlenince tamamlanır.
+
+### Nohut
+
+| Özellik | Değer (100g, pişmiş) |
+|---------|---------------------|
+| Protein | 8.9g |
+| Karbonhidrat | 27g |
+| Lif | 7.6g |
+| Kalori | 164 kcal |
+
+### Bezelye Proteini (Supplement)
+
+| Özellik | Değer (30g porsiyon) |
+|---------|---------------------|
+| Protein | 20-24g |
+| DIAAS | 0.82 |
+| Lösin | 1.8g |
+
+**Avantaj:** Hayvansal proteine yakın lösin içeriği, iyi sindirilebilirlik.
+
+## Karşılaştırma Tablosu: Proteinler
+
+| Kaynak | Protein/100g | Biyoyararlanım | Lösin | Fiyat |
+|--------|-------------|----------------|-------|-------|
+| Whey | 80-90g | Çok yüksek | 10g/100g protein | Orta |
+| Yumurta | 13g | Çok yüksek | 8.5g/100g protein | Düşük |
+| Tavuk | 31g | Yüksek | 7.5g/100g protein | Düşük |
+| Sığır | 26g | Yüksek | 7g/100g protein | Yüksek |
+| Soya | 36g (kuru) | Yüksek | 6.5g/100g protein | Düşük |
+| Mercimek | 9g (pişmiş) | Orta | 5g/100g protein | Çok düşük |
+
+## Hayvansal mı, Bitkisel mi?
+
+| Kriter | Hayvansal | Bitkisel |
+|--------|-----------|---------|
+| Amino asit profili | Tam | Çoğu eksik (kombinasyon şart) |
+| Lösin içeriği | Yüksek | Düşük-orta |
+| Biyoyararlanım | Yüksek | Orta-düşük |
+| Lif | Yok | Var |
+| Çevre etkisi | Yüksek | Düşük |
+| Doymuş yağ | Çoğu yüksek | Düşük |
+
+> 💡 Kas yapımı için en verimli yaklaşım: Günlük proteinin çoğunu yüksek kaliteli hayvansal kaynaklardan alın, bitkisel kaynakları çeşitlilik ve lif için ekleyin.
+
+## Sonuç
+
+"En iyi" protein kaynağı yoktur — hedeflerinize, bütçenize ve tercihlerinize göre en uygun kaynaklar vardır. Bitkisel besleniyorsanız, amino asit profilini tamamlayan kombinasyonlara (pirinç + bezelye, tahıl + baklagil) dikkat edin.
+
+> 💡 Günlük protein hedefini (1.6-2.2 g/kg) tutturmak, protein kaynağını seçmekten önce gelir.`,
+    seoTitle: "Protein Kaynakları Karşılaştırması: Hayvansal vs Bitkisel | Gokalaf",
+    seoDescription: "En iyi protein kaynakları hangileri? PDCAAS skoru, biyoyararlanım, tavuk, yumurta, whey, mercimek ve soya proteininin karşılaştırmalı analizi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "aralıkli-oruc-intermittent-fasting",
+    title: "Aralıklı Oruç (Intermittent Fasting): Yağ Yakar mı, Kas Eritir mi?",
+    category: "beslenme",
+    excerpt: "Aralıklı oruç gerçekten işe yarıyor mu? 16:8, 5:2 ve OMAD protokolleri, yağ yakımına ve kas kütlesine etkileri, kimler yapmamalı ve bilimsel gerçekler bu rehberde.",
+    heroImage: "/articles/aralıkli-oruc-intermittent-fasting.webp",
+    content: `# Aralıklı Oruç (Intermittent Fasting): Bilim Ne Diyor?
+
+Son 10 yılın en popüler beslenme yaklaşımlarından biri olan **aralıklı oruç (intermittent fasting — IF)**, ne yediğinizi değil ne zaman yediğinizi düzenler. Ancak bu yöntem hakkında birçok yanlış anlama da dolaşmaktadır.
+
+Bu rehberde IF'nin bilimini, farklı protokollerini, avantaj ve dezavantajlarını ve kimin yapıp yapmaması gerektiğini ele alıyoruz.
+
+> 💡 **Araştırmalar, IF'nin kilo kaybında kalori kısıtlamasına kıyasla ek bir metabolik avantaj sağlamadığını, ancak uyum kolaylığı ve insülin duyarlılığı üzerinde pozitif etkilerinin olduğunu gösteriyor.**
+
+## Aralıklı Oruç Nedir?
+
+IF, belirli zaman dilimlerinde yemek yenilen, geri kalan sürede ise su/çay/kahve dışında hiçbir kalorinin alınmadığı bir beslenme düzenidir.
+
+**Değişen şey:** Yeme penceresi
+**Değişmeyen şey:** Toplam kalori ve besin kalitesi
+
+## Popüler IF Protokolleri
+
+### 16:8 Protokolü
+
+| Parametre | Detay |
+|-----------|-------|
+| Oruç süresi | 16 saat |
+| Yeme penceresi | 8 saat |
+| Örnek | 12:00 - 20:00 arası yemek |
+| Zorluk | Düşük-Orta |
+| Kimler için | Başlangıç seviyesi |
+
+En yaygın kullanılan protokoldür. Uyku süresini hesaba katınca 16 saat beklenenden kolaydır.
+
+### 18:6 Protokolü
+
+| Parametre | Detay |
+|-----------|-------|
+| Oruç süresi | 18 saat |
+| Yeme penceresi | 6 saat |
+| Örnek | 13:00 - 19:00 arası yemek |
+| Zorluk | Orta |
+
+### 20:4 (Warrior Dieti)
+
+| Parametre | Detay |
+|-----------|-------|
+| Oruç süresi | 20 saat |
+| Yeme penceresi | 4 saat |
+| İçerik | Gündüz hafif meyveler, akşam büyük öğün |
+| Zorluk | Yüksek |
+
+### 5:2 Diyeti
+
+| Parametre | Detay |
+|-----------|-------|
+| Normal günler | 5 gün — normal beslenme |
+| Kısıtlı günler | 2 gün — 500-600 kcal |
+| Zorluk | Orta-Yüksek |
+
+### OMAD (One Meal a Day)
+
+| Parametre | Detay |
+|-----------|-------|
+| Oruç süresi | 23 saat |
+| Yeme penceresi | 1 saat |
+| Kalori | Günlük tüm kalori 1 öğünde |
+| Zorluk | Çok yüksek |
+
+> ⚠️ OMAD, yoğun antrenman yapanlar için yeterli enerji ve protein almayı son derece zorlaştırır.
+
+## IF'nin Fizyolojik Etkileri
+
+### İnsülin ve Yağ Yakımı
+
+| Süre (oruçtan itibaren) | Fizyoloji |
+|------------------------|-----------|
+| 0-4 saat | Sindirim, insülin yüksek |
+| 4-8 saat | Kan şekeri düşer, insülin azalır |
+| 8-12 saat | Karaciğer glikojeni azalır, yağ yakımı başlar |
+| 12-18 saat | Ketoz başlar, lipoliz hızlanır |
+| 18-24 saat | Otofaji artar, büyüme hormonu yükselir |
+
+### Otofaji
+
+Otofaji, vücudun hasarlı hücresel bileşenleri "temizleyip" yeniden kullandığı bir süreçtir. 16+ saat oruç ile aktive olur. Bu süreç hücresel sağlıkla ilişkilidir ancak kas kaybıyla değil.
+
+## IF ve Kas Kütlesi: Kas Erir mi?
+
+Bu, IF'nin en çok sorulan sorusudur.
+
+| Araştırma Bulgusu | Sonuç |
+|------------------|-------|
+| 16:8 IF + direnç antrenmanı | Kas kütlesi korundu, yağ azaldı |
+| IF + yeterli protein alımı | Kas kayıpı gözlemlenmedi |
+| IF + düşük protein | Kas kayıpları görüldü |
+| Uzun süreli IF (>20 saat) | Kas proteini kullanımı artar |
+
+**Sonuç:** Yeterli protein alındığında (1.6-2.2 g/kg) IF kas kütlesini tehdit etmez.
+
+> ⚠️ Risk yok ama: Öğün sayısı az olduğu için günlük protein hedefini karşılamak zorlaşır. Bu durumda öğün başına daha fazla protein (40-50g) almanız gerekir.
+
+## IF'nin Kanıtlanmış Faydaları
+
+| Fayda | Kanıt Düzeyi |
+|-------|-------------|
+| Kilo kaybı | Yüksek (kalori açığı yoluyla) |
+| İnsülin duyarlılığı artışı | Yüksek |
+| Tokluk hormonu (leptin) düzenlenmesi | Orta |
+| LDL kolesterol düşüşü | Orta |
+| İnflamasyon azalması | Orta |
+| Otofaji aktivasyonu | Orta |
+| Ömür uzaması | Düşük (hayvan çalışmaları) |
+
+## IF'nin Dezavantajları
+
+| Dezavantaj | Açıklama |
+|-----------|----------|
+| Sosyal kısıt | Kahvaltıları, sabah toplantılarını zorlaştırabilir |
+| Performans düşüşü | Sabah antrenmanı öncesi yetersiz enerji |
+| Aşırı yeme riski | Kısa pencerede fazla kalori alımı |
+| Protein hedefi | Az öğünde yeterli protein almak zor |
+| Uyum güçlüğü | Uzun vadede herkes devam ettiremez |
+
+## IF'yi Kimler Yapmamalı?
+
+| Grup | Neden? |
+|------|--------|
+| Hamileler / Emziren anneler | Yüksek besin ihtiyacı |
+| Yeme bozukluğu geçmişi olanlar | Kısıtlayıcı yaklaşım tetikleyici olabilir |
+| Tip 1 Diyabetikler | Hipoglisemi riski |
+| Ergenler | Büyüme ve gelişme döneminde |
+| Yetersiz kilolular | Kalori açığını derinleştirir |
+
+## IF ve Antrenman Kombinasyonu
+
+**En iyi senaryo:** Yeme pencerenizi antrenmanı kapsayacak şekilde düzenleyin.
+
+| Antrenman Zamanı | Önerilen Pencere |
+|-----------------|-----------------|
+| Sabah 07:00 | 07:00-15:00 (antrenmandan önce hafif atıştırma) |
+| Öğlen 12:00 | 10:00-18:00 |
+| Akşam 18:00 | 12:00-20:00 (en yaygın) |
+
+**Aç karnına antrenman yapıyorsanız:**
+- Kısa süreli, orta yoğunluklu antrenmanlarda sorun çıkmaz
+- Yoğun güç antrenmanlarında performans düşüşü olabilir
+- Antrenman öncesi 5g BCAA veya küçük protein atıştırması faydalı olabilir
+
+## Sonuç
+
+IF, yemek zamanlamasını kontrol etmeyi kolay bulan kişiler için etkili bir araçtır. Ancak mucizevi bir diyet değildir; işe yaraması için kalori ve protein hedeflerinin hâlâ karşılanması gerekir.
+
+> 💡 IF'nin sizi başarılı kılması için toplam kalori dengesi ve protein alımı korunmalıdır. Bu iki parametre yerindeyse IF uyumu artıran pratik bir yapı sunar.`,
+    seoTitle: "Aralıklı Oruç (Intermittent Fasting) Nedir? 16:8, 5:2 Rehberi | Gokalaf",
+    seoDescription: "Aralıklı oruç nedir, kas eritir mi? 16:8, 5:2, OMAD protokolleri, yağ yakımına etkisi ve antrenmanla kombinasyonu bu rehberde.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Planı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "yag-yakma-diyeti",
+    title: "Yağ Yakma Diyeti Rehberi: Kalori Açığı, Makrolar ve Pratik Öneriler",
+    category: "beslenme",
+    excerpt: "Yağ yakmak için ne yemeli, kaç kalori almanız gerekiyor? Kesim (cutting) döneminde kas koruma stratejileri, makro oranları ve haftalık öğün planı bu kapsamlı rehberde.",
+    heroImage: "/articles/yag-yakma-diyeti-cutting.webp",
+    content: `# Yağ Yakma Diyeti: Bilimsel ve Pratik Rehber
+
+Yağ yakmak, enerji dengesi prensibiyle açıklanır: Harcadığınızdan az kalori alırsanız vücut enerji açığını yağ dokusundan karşılar. Ama bu basit denklemin uygulaması sanıldığı kadar kolay değildir.
+
+Bu rehberde yağ yakma fizyolojisini, doğru kalori açığını, kas koruma stratejilerini ve pratik öğün planlamasını ele alıyoruz.
+
+> 💡 **Günde 500 kcal açık, haftada yaklaşık 0.5 kg yağ kaybına eşittir. Bu hız, kas kütlesini büyük ölçüde koruyarak sürdürülebilir bir kesim sağlar.**
+
+## Kalori Açığı Hesaplama
+
+### Adım 1: TDEE Bulun
+
+TDEE (Total Daily Energy Expenditure), günde yaktığınız toplam kaloridir.
+
+| Aktivite Seviyesi | Çarpan |
+|------------------|--------|
+| Sedanter (masa başı, az hareket) | BMH x 1.2 |
+| Hafif aktif (haftada 1-3 gün egzersiz) | BMH x 1.375 |
+| Orta aktif (haftada 3-5 gün) | BMH x 1.55 |
+| Çok aktif (haftada 6-7 gün yoğun) | BMH x 1.725 |
+
+> 💡 TDEE hesaplamak için Gokalaf TDEE hesaplayıcısını kullanın: [gokalaf.com/araclar/tdee](/araclar/tdee)
+
+### Adım 2: Kalori Açığı Belirleyin
+
+| Açık Büyüklüğü | Haftalık Kilo Kaybı | Risk |
+|----------------|---------------------|------|
+| 200-300 kcal/gün | ~0.2 kg | Düşük (yavaş ama güvenli) |
+| 400-500 kcal/gün | ~0.4-0.5 kg | Optimal |
+| 700-1000 kcal/gün | ~0.7-1 kg | Kas kaybı riski artar |
+| 1000+ kcal/gün | >1 kg | Yüksek kas kaybı, metabolik adaptasyon |
+
+**Genel kural:** Yağ kaybı için vücut ağırlığının %0.5-1'i kadar haftalık kayıp hedefleyin.
+
+## Makro Oranları: Yağ Yakarken Ne Yemeli?
+
+### Protein: En Önemli Makro
+
+Yağ yakarken protein, kritik öneme sahiptir çünkü:
+- Kas kütlesini korur
+- Tokluk sağlar
+- Termik etkisi yüksektir (yemek sindirirken kalori yakar)
+
+| Durum | Protein Hedefi |
+|-------|---------------|
+| Normal kilo kaybı | 1.6-2.0 g/kg |
+| Yoğun antrenman + cutting | 2.0-2.4 g/kg |
+| İleri kesim (düşük vücut yağı) | 2.4-3.1 g/kg |
+
+### Karbonhidrat
+
+Karbonhidrat kesimine gerek yoktur. Enerji ve antrenman performansı için önemlidir.
+
+| Yaklaşım | Karbonhidrat |
+|----------|-------------|
+| Geleneksel cutting | Kalorilerin %35-45'i |
+| Düşük karbonhidrat | Kalorilerin %20-30'u |
+| Ketojenik | <%50g/gün |
+
+> 💡 Karbonhidratı tamamen kesmek antrenman performansını düşürür. Çoğu sporcu için orta karbonhidrat yaklaşımı daha sürdürülebilirdir.
+
+### Yağ
+
+Hormon üretimi için minimum yağ alımı gereklidir.
+
+| Minimum Alım | Sağlık |
+|-------------|--------|
+| <20% kalori | Testosteron düşüşü, D vitamini emilimi azalır |
+| %20-30 kalori | Optimal hormon üretimi |
+
+## Örnek Makro Dağılımı: 80 kg Sporcu
+
+| Hedef | Kalori | Protein | Karbonhidrat | Yağ |
+|-------|--------|---------|-------------|-----|
+| TDEE | 2800 kcal | — | — | — |
+| Cutting (500 açık) | 2300 kcal | 176g | 250g | 64g |
+
+## Yağ Yakarken Kas Nasıl Korunur?
+
+### 1. Yüksek Protein
+
+Her öğünde yeterli protein almak, kas protein sentezini aktif tutar.
+
+### 2. Direnç Antrenmanını Sürdür
+
+Ağırlık antrenmanı, vücuda "kas gerekli" sinyali verir. Cutting döneminde kardiyoya geçmek yerine ağırlıkları sürdürün.
+
+### 3. Yüksek Volüm, Orta Yoğunluk
+
+Cutting döneminde 8-15 rep aralığı, kas hacmini korumak için idealdir.
+
+### 4. Kalori Açığını Aşırıya Kaçırma
+
+Haftada 1 kg'dan fazla kayıp, kaybın %40-50'sinin kas dokusundan gelmesi anlamına gelebilir.
+
+## Yağ Yakarken Kaçınılacak Hatalar
+
+| Hata | Neden Yanlış | Doğrusu |
+|------|-------------|---------|
+| Çok az yemek | Metabolizma yavaşlar, kas erir | Makul açık: 300-500 kcal |
+| Protein ihmal | Kas kaybı | 1.8-2.2g/kg protein |
+| Kardio ağırlıklı | Kas kaybı riski | Ağırlık antrenmanı öncelikli |
+| Yağı tamamen kesmek | Hormonal bozukluk | Min %20 kalori yağdan |
+| Karbosuz diyet | Enerji ve performans düşüşü | Orta karbonhidrat |
+| Hızlı kilo vermeye çalışmak | Yo-yo etkisi | Haftada 0.5-0.7 kg |
+
+## Refeed Günü Nedir?
+
+Uzun süreli kalori kısıtlamasında leptin (tokluk hormonu) düşer, metabolizma yavaşlar. **Refeed günü**, haftada 1-2 gün kaloriyi TDEE'ye veya biraz üstüne çıkarmaktır.
+
+| Refeed Günü | Normalden Fark |
+|------------|----------------|
+| Kalori | TDEE veya +%10 |
+| Karbonhidrat | Artırılır |
+| Protein | Aynı kalır |
+| Yağ | Azaltılır |
+
+**Faydaları:**
+- Leptin seviyesini geçici olarak düşürür
+- Antrenman performansını yeniler
+- Psikolojik rahatlama sağlar
+
+## Örnek Haftalık Yemek Planı (Cutting)
+
+### Sabah (Kahvaltı)
+- 3 yumurta (haşlanmış) + 2 yumurta akı
+- 1 dilim tam buğday ekmek
+- Söğüş (domates, salatalık)
+
+### Öğle
+- 150g haşlanmış tavuk göğsü
+- 80g pirinç (haşlanmış ağırlık: ~200g)
+- Yeşil salata + zeytinyağı (1 tatlı kaşığı)
+
+### Antrenman Öncesi / Sonrası
+- 1 ölçek whey protein + su
+- 1 muz
+
+### Akşam
+- 150g somon veya ton balığı
+- Buharda pişmiş sebze
+- Küçük tatlı patates
+
+### Gece (isteğe bağlı)
+- 150g süzme peynir
+
+> Bu plan yaklaşık 2200-2400 kcal, 185-200g protein sağlar.
+
+## Sonuç
+
+Yağ yakmak zaman, sabır ve tutarlılık gerektirir. Hızlı sonuç vaat eden protokoller genellikle kas kaybıyla sonuçlanır ve yo-yo etkisi yaratır. Makul kalori açığı, yüksek protein ve sürdürülen antrenman — bu üçü kalıcı sonuç verir.
+
+> 💡 Kişiselleştirilmiş kesim (cutting) programı için Gokalaf koçluk paketlerimize göz atın. Hedeflerinize göre hazırlanan beslenme ve antrenman planı ile güvenli ve etkili yağ yakın.`,
+    seoTitle: "Yağ Yakma Diyeti: Cutting Rehberi, Makrolar ve Kalori Hesaplama | Gokalaf",
+    seoDescription: "Yağ yakmak için kaç kalori almalısınız? Cutting döneminde kas koruma, makro oranları, refeed günü ve haftalık örnek beslenme planı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Cutting Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "kas-yapma-diyeti",
+    title: "Kas Yapma Diyeti (Bulk): Temiz Bulk ile Kirli Bulk Arasındaki Fark",
+    category: "beslenme",
+    excerpt: "Kas yapmak için ne kadar fazla kalori almanız gerekiyor? Temiz bulk ve kirli bulk farkları, makro hesaplama, antrenman dönemi beslenme stratejisi ve bulk-cut döngüsü bu rehberde açıklanıyor.",
+    heroImage: "/articles/kas-yapma-diyeti-bulk.webp",
+    content: `# Kas Yapma Diyeti (Bulk): Bilim ve Pratik
+
+"Yemeden büyüyemezsin" — bu söylem kısmen doğrudur. Kas yapımı için enerji fazlası gereklidir. Ama ne kadar fazla? Ve bu fazlayı nasıl yönetmelisiniz?
+
+Bu rehberde kas yapma döneminin (bulk) fizyolojisini, kalori hesaplamayı, makro dağılımını ve temiz/kirli bulk tartışmasını bilimsel verilerle ele alıyoruz.
+
+> 💡 **Araştırmalar, yeni başlayanların günde 200-300 kcal fazlasıyla maksimum kas yapım hızına ulaşabildiğini gösteriyor. Daha fazlası yağ birikimiyle sonuçlanır.**
+
+## Kas Yapımının Fizyolojisi
+
+Kas büyümesi (hipertrofi) üç koşulun birleşimiyle gerçekleşir:
+
+1. **Mekanik gerilim:** Ağırlık antrenmanı ile kaslar yüklenir
+2. **Metabolik stres:** Laktik asit birikimi ve hücre şişmesi
+3. **Kas hasarı:** Mikro yırtıklar ve onarım
+
+Tüm bu süreçler enerji gerektirir. Kalori fazlası, bu onarım ve büyüme süreçlerine yakıt sağlar.
+
+## Teorik Kas Yapım Hızı Sınırı
+
+Vücut fizyoloji olarak belli bir hızda kas yapabilir. Bu sınırın üzerindeki kalori fazlası yağa dönüşür.
+
+| Seviye | Aylık Maksimum Kas Yapım Hızı |
+|--------|-------------------------------|
+| Yeni başlayan (0-1 yıl) | 0.9-1.2 kg/ay |
+| Orta seviye (1-3 yıl) | 0.4-0.7 kg/ay |
+| İleri seviye (3+ yıl) | 0.1-0.3 kg/ay |
+| Elit sporcu | 0.05-0.1 kg/ay |
+
+> 💡 Bu veriler, doğal sporcular içindir. Hızlı kilo almak çoğunlukla yağ birikimidir, kas değil.
+
+## Kalori Fazlası Hesaplama
+
+### Adım 1: TDEE Hesaplayın
+
+[TDEE hesaplayıcımızı kullanabilirsiniz](/araclar/tdee)
+
+### Adım 2: Fazlayı Belirleyin
+
+| Yaklaşım | Kalori Fazlası | Kilo Artışı/Hafta |
+|---------|----------------|-------------------|
+| Minimal bulk | +100-150 kcal | ~0.1 kg |
+| Temiz bulk | +200-300 kcal | ~0.2-0.3 kg |
+| Agresif bulk | +400-500 kcal | ~0.4-0.5 kg |
+| Kirli bulk | +500-1000+ kcal | 0.5-1+ kg (büyük yağ birikimi) |
+
+**Önerilen fazla:** Yeni başlayan için +250-400 kcal, ileri seviye için +150-250 kcal.
+
+## Temiz Bulk vs Kirli Bulk
+
+### Temiz Bulk (Clean Bulk)
+
+| Özellik | Detay |
+|---------|-------|
+| Kalori fazlası | 200-400 kcal |
+| Kilo artışı | 0.2-0.3 kg/hafta |
+| Yağ birikimi | Minimal |
+| Besin kalitesi | Yüksek, işlenmemiş gıdalar |
+| Kesim dönem ihtiyacı | Kısa |
+
+**Avantajlar:**
+- Yağ birikimi minimum
+- Hormon dengesi daha iyi
+- Kesim dönemi kısa ve kolay
+
+**Dezavantajlar:**
+- Yavaş ilerleme
+- Yeme disiplini gerektirir
+
+### Kirli Bulk (Dirty Bulk)
+
+| Özellik | Detay |
+|---------|-------|
+| Kalori fazlası | 700-1500+ kcal |
+| Kilo artışı | 0.7-1.5 kg/hafta |
+| Yağ birikimi | Yüksek |
+| Besin kalitesi | Düşük (fast food, işlenmiş gıda) |
+| Kesim dönem ihtiyacı | Uzun, zorlu |
+
+**Avantajlar:**
+- Yemek özgürlüğü
+- Antrenman performansı yüksek
+
+**Dezavantajlar:**
+- Yağ birikimi fazla → uzun ve zorlu kesim
+- İnsülin direnci riski
+- Hormon dengesi bozulabilir
+
+> 💡 **Sonuç:** Yağ dokusunun yüzeye yakın olduğu kişilerde (>%15 erkek, >%25 kadın) kirli bulk önerilmez. Vücudu her zaman "istediğiniz görünüme yakın" tutmak uzun vadede daha sürdürülebilirdir.
+
+## Makro Dağılımı: Bulk Döneminde Ne Yemeli?
+
+### Protein
+
+Bulk döneminde protein ihtiyacı, cutting dönemine benzerdir.
+
+| Durum | Protein Hedefi |
+|-------|---------------|
+| Bulk (genel) | 1.6-2.0 g/kg |
+| Yoğun antrenman | 2.0-2.2 g/kg |
+
+### Karbonhidrat
+
+Bulk döneminin yıldızıdır. Antrenman performansını artırır, glikojen depolarını dolu tutar.
+
+| Karbonhidrat Oranı | Durum |
+|-------------------|-------|
+| %45-55 kalori | Genel bulk |
+| %55-65 kalori | Yüksek hacimli antrenman |
+
+**İyi karbonhidrat kaynakları:**
+- Pirinç, yulaf, makarna
+- Tatlı patates, patates
+- Muz, yulaf lapası
+- Tam tahıllı ekmek
+
+### Yağ
+
+| Yağ Oranı | Etki |
+|-----------|------|
+| %20-30 kalori | Optimal testosteron ve hormon üretimi |
+| <%20 | Testosteron düşüşü riski |
+
+## Örnek Bulk Günlük Beslenme Planı (80 kg sporcu, TDEE 2600)
+
+**Hedef:** 2900 kcal, 165g protein
+
+### Sabah (Kahvaltı)
+- 5 yumurta (3 bütün, 2 ak) = 28g protein, 350 kcal
+- 80g yulaf ezmesi (kuru) = 10g protein, 300 kcal
+- 1 muz = 100 kcal
+- 1 bardak süt = 8g protein, 150 kcal
+
+### Öğle
+- 200g haşlanmış tavuk göğsü = 62g protein, 330 kcal
+- 120g pirinç (kuru ağırlık) = 10g protein, 430 kcal
+- Salata + 2 yemek kaşığı zeytinyağı = 240 kcal
+
+### Antrenman Sonrası
+- 1 ölçek whey = 25g protein, 130 kcal
+- 1 muz = 100 kcal
+- 50g pirinç keki = 30g karbonhidrat, 150 kcal
+
+### Akşam
+- 180g sığır eti (yağsız) = 46g protein, 310 kcal
+- Tatlı patates (200g) = 4g protein, 180 kcal
+- Buharda sebze
+
+**Toplam:** ~2850 kcal, ~185g protein
+
+## Bulk-Cut Döngüsü
+
+| Dönem | Süre | Fazla/Açık | Hedef |
+|-------|------|-----------|-------|
+| Bulk | 12-20 hafta | +200-400 kcal | Kas yapım |
+| Kesim (mini cut) | 4-8 hafta | -400-500 kcal | Yağ eritme |
+| Idame | 2-4 hafta | Dengede | Stabilizasyon |
+
+**Bulk'a ne zaman başlamalı?**
+Erkekler için ideal başlangıç vücut yağ oranı: %10-15
+Kadınlar için: %18-23
+
+Yağ oranı bu değerlerin üzerindeyse önce kesim yapılması önerilir.
+
+## Sık Yapılan Bulk Hataları
+
+| Hata | Sonuç | Çözüm |
+|------|-------|-------|
+| Çok fazla kalori fazlası | Yağlanma | Günde 200-400 kcal fazlasıyla sınırlı tut |
+| Yetersiz protein | Yağlanma, az kas | 1.8-2.2g/kg hedefle |
+| Kalori takibi yapmamak | Hedefi kaçırma | En az 4 hafta takip et |
+| Kirli bulk | Uzun ve zorlu kesim | Besin kalitesine dikkat et |
+| Çok az antrenman | Kalori yağa gider | Volümü artır |
+
+## Sonuç
+
+Kas yapmanın şartı kalori fazlasıdır — ama bu fazla kontrollü, hesaplı ve besin kalitesi yüksek gıdalardan karşılanmalıdır. Kirli bulk kısa vadeli kolaylık sağlayabilir; uzun vadede aylarca süren kesim dönemiyle "ödeme" yaparsınız.
+
+> 💡 En hızlı ilerleme, doğru fazla, yeterli protein ve disiplinli antrenman kombinasyonuyla mümkündür. Gokalaf koçluk paketleriyle sizin için özel bulk programı hazırlayabiliriz.`,
+    seoTitle: "Kas Yapma Diyeti (Bulk): Temiz Bulk, Kalori Hesaplama Rehberi | Gokalaf",
+    seoDescription: "Kas yapmak için ne kadar kalori almalısınız? Temiz bulk vs kirli bulk, makro dağılımı, bulk-cut döngüsü ve örnek beslenme planı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Bulk Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "besin-degerleri-rehberi",
+    title: "Temel Gıdaların Besin Değerleri: Sporcu Beslenme Referans Tablosu",
+    category: "beslenme",
+    excerpt: "Tavuk, yumurta, pirinç, ekmek, meyve, sebze — en çok tüketilen gıdaların 100g başına kalori, protein, karbonhidrat ve yağ değerleri bu kapsamlı referans tablosunda.",
+    heroImage: "/articles/besin-degerleri-tablosu.webp",
+    content: `# Temel Gıdaların Besin Değerleri Referans Tablosu
+
+Beslenme planı yaparken en çok ihtiyaç duyulan şey, yediğiniz gıdaların makro besin içeriklerini bilmektir. Bu rehber, en sık tüketilen gıdaların 100g başına besin değerlerini kategorilere göre listeler.
+
+> 💡 **Tüm değerler 100g pişirilmemiş (ham) ağırlık üzerinden hesaplanmıştır, aksi belirtilmedikçe.**
+
+## Protein Kaynakları
+
+### Et ve Kümes Hayvanları
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Tavuk göğsü (haşlanmış) | 165 | 31g | 0g | 3.6g |
+| Tavuk göğsü (ham) | 120 | 23g | 0g | 2.6g |
+| Tavuk but (derisiz) | 177 | 25g | 0g | 8g |
+| Hindi göğsü | 104 | 22g | 0g | 1.7g |
+| Dana eti (yağsız) | 158 | 26g | 0g | 6g |
+| Dana eti (kuşbaşı, yağlı) | 215 | 20g | 0g | 14g |
+| Dana kıyma (%80 yağsız) | 254 | 17g | 0g | 20g |
+
+### Balık ve Deniz Ürünleri
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Ton balığı (konserve, suda) | 116 | 25g | 0g | 1g |
+| Somon (atlantik) | 208 | 22g | 0g | 13g |
+| Levrek | 97 | 19g | 0g | 2g |
+| Hamsi | 131 | 20g | 0g | 5g |
+| Karides | 99 | 24g | 0.2g | 0.3g |
+
+### Yumurta ve Süt Ürünleri
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Tam yumurta (1 adet ~50g) | 78 | 6g | 0.6g | 5g |
+| Yumurta akı (1 adet) | 17 | 3.6g | 0.2g | 0.05g |
+| Süt (%2 yağ) | 50 | 3.4g | 4.8g | 2g |
+| Yoğurt (tam yağlı) | 61 | 3.5g | 4.7g | 3.3g |
+| Yoğurt (0 yağ) | 35 | 5.7g | 3.8g | 0.4g |
+| Süzme peynir (lor) | 98 | 11g | 3.4g | 4.3g |
+| Beyaz peynir (az tuzlu) | 264 | 14g | 2.1g | 22g |
+| Kaşar peyniri | 402 | 25g | 1.3g | 33g |
+| Whey protein (1 ölçek ~30g) | 120 | 24g | 3g | 1.5g |
+
+## Karbonhidrat Kaynakları
+
+### Tahıllar ve Baklagiller
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Beyaz pirinç (ham) | 365 | 7g | 80g | 0.7g |
+| Beyaz pirinç (pişmiş) | 130 | 2.7g | 28g | 0.3g |
+| Esmer pirinç (ham) | 370 | 7.5g | 77g | 2.9g |
+| Yulaf ezmesi (ham) | 389 | 17g | 66g | 7g |
+| Makarna (durum, ham) | 371 | 13g | 75g | 1.5g |
+| Makarna (pişmiş) | 131 | 5g | 25g | 1.1g |
+| Tam buğday ekmek | 247 | 13g | 43g | 4.2g |
+| Beyaz ekmek | 265 | 9g | 49g | 3.2g |
+| Kuskus (pişmiş) | 112 | 3.8g | 23g | 0.2g |
+| Mercimek (pişmiş) | 116 | 9g | 20g | 0.4g |
+| Nohut (pişmiş) | 164 | 8.9g | 27g | 2.6g |
+| Kuru fasulye (pişmiş) | 127 | 8.7g | 23g | 0.5g |
+| Kinoa (pişmiş) | 120 | 4.4g | 21g | 1.9g |
+
+### Sebzeler
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Brokoli | 34 | 2.8g | 7g | 0.4g |
+| Ispanak | 23 | 2.9g | 3.6g | 0.4g |
+| Domates | 18 | 0.9g | 3.9g | 0.2g |
+| Salatalık | 15 | 0.7g | 3.6g | 0.1g |
+| Biber (dolmalık) | 31 | 1g | 6g | 0.3g |
+| Havuç | 41 | 0.9g | 10g | 0.2g |
+| Tatlı patates | 86 | 1.6g | 20g | 0.1g |
+| Patates (haşlanmış) | 87 | 1.9g | 20g | 0.1g |
+| Mantar | 22 | 3.1g | 3.3g | 0.3g |
+| Bezelye (taze) | 81 | 5.4g | 14g | 0.4g |
+
+### Meyveler
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Muz (1 orta boy ~120g) | 89 | 1.1g | 23g | 0.3g |
+| Elma (orta boy ~182g) | 95 | 0.5g | 25g | 0.3g |
+| Portakal | 47 | 0.9g | 12g | 0.1g |
+| Üzüm | 69 | 0.7g | 18g | 0.2g |
+| Çilek | 32 | 0.7g | 7.7g | 0.3g |
+| Yaban mersini | 57 | 0.7g | 14g | 0.3g |
+| Karpuz | 30 | 0.6g | 7.6g | 0.2g |
+| Avokado | 160 | 2g | 9g | 15g |
+
+## Sağlıklı Yağ Kaynakları
+
+| Gıda | Kalori | Protein | Karbonhidrat | Yağ |
+|------|--------|---------|-------------|-----|
+| Zeytinyağı (1 yemek kaşığı=14g) | 124 | 0g | 0g | 14g |
+| Fıstık ezmesi (1 yemek kaşığı=16g) | 94 | 3.5g | 3.1g | 8g |
+| Badem (30 adet ~28g) | 164 | 6g | 6g | 14g |
+| Ceviz (7 adet ~28g) | 185 | 4.3g | 3.9g | 18g |
+| Keten tohumu | 534 | 18g | 29g | 42g |
+| Chia tohumu | 486 | 17g | 42g | 31g |
+| Hindistan cevizi yağı (14g) | 120 | 0g | 0g | 14g |
+
+## Pratik Hesaplama İpuçları
+
+### Pişirme Sonrası Ağırlık Değişimi
+
+| Gıda | Ham Ağırlık | Pişmiş Ağırlık | Değişim |
+|------|------------|----------------|---------|
+| Tavuk göğsü | 100g | ~70-75g | -%25-30 |
+| Beyaz pirinç | 100g | ~300g | +%200 |
+| Yulaf | 100g | ~230g | +%130 |
+| Makarna | 100g | ~240g | +%140 |
+
+> ⚠️ Ham ağırlık üzerinden kalori hesaplamak daha tutarlıdır. Pişirme yöntemi (yağ eklemek) kalorileri değiştirir.
+
+### Pratik Ağırlık Referansları
+
+| Gıda | Pratik Ölçü | Yaklaşık Ağırlık |
+|------|-------------|-----------------|
+| Yumurta | 1 büyük boy | 55-60g |
+| Dilimlenmiş ekmek | 1 dilim | 25-30g |
+| Pirinç (ham) | 1 yemek kaşığı | 15g |
+| Zeytinyağı | 1 yemek kaşığı | 10-14g |
+| Fıstık ezmesi | 1 yemek kaşığı | 16g |
+| Badem | 1 avuç | 28-30g |
+
+## Sonuç
+
+Bu tablo, beslenme planınızı oluştururken hızlı referans almanızı sağlar. Makro takibi yapıyorsanız, gıdaları ham ağırlık üzerinden tartmak en doğru sonucu verir.
+
+> 💡 Kişiselleştirilmiş beslenme planı için günlük kalori ve makro hedeflerinizi [kalori hesaplayıcımızla](/araclar/kalori) ve [makro hesaplayıcımızla](/araclar/makro) belirleyebilirsiniz.`,
+    seoTitle: "Gıdaların Besin Değerleri Tablosu: Kalori, Protein, Karbonhidrat | Gokalaf",
+    seoDescription: "Tavuk, yumurta, pirinç, yulaf ve diğer temel gıdaların 100g başına kalori, protein, karbonhidrat ve yağ değerleri. Sporcu beslenme referans tablosu.",
+    publishedAt: "2026-04-01",
+    ctaText: "Beslenme Programı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "magnezyum-nedir",
+    title: "Magnezyum Nedir? Sporculara Faydaları, Türleri ve Doğru Doz",
+    category: "takviyeler",
+    excerpt: "Magnezyum, 300'den fazla enzimatik reaksiyonda görev alır. Uyku kalitesi, kas kasılması, kortizol düzeyi ve enerji üretimindeki kritik rolü ile sporcuların eksikliği en çok yaşadığı minerallerden biridir.",
+    heroImage: "/articles/magnezyum-takviye-sporcular.webp",
+    content: `# Magnezyum Nedir? Sporculara Etkisi ve Kullanım Rehberi
+
+Magnezyum, vücutta en bol bulunan dördüncü mineraldir ve **300'den fazla enzimatik reaksiyonda** kofaktör olarak görev yapar. Enerji üretimi, protein sentezi, kas ve sinir fonksiyonu, kan şekeri kontrolü ve kan basıncı düzenlemesi — hepsi magnezyum gerektirir.
+
+Buna karşın araştırmalar, yetişkinlerin %50-80'inin magnezyum ihtiyacını günlük besinlerden karşılayamadığını göstermektedir.
+
+> 💡 **Sporcular, terleme yoluyla standart popülasyona kıyasla %20-40 daha fazla magnezyum kaybeder. Bu da eksiklik riskini daha da artırır.**
+
+## Vücuttaki Magnezyum Dağılımı
+
+| Yer | Oran |
+|-----|------|
+| Kemikler | %60-65 |
+| Kas dokusu | %27 |
+| Yumuşak doku | %6-7 |
+| Kan ve sıvılar | %1 |
+
+Kan testindeki magnezyum değeri toplam vücut magnezyumunun yalnızca %1'ini yansıtır. Bu nedenle kan testi "normal" çıksa bile doku düzeyinde eksiklik olabilir.
+
+## Magnezyumun Sporcu Performansına Etkileri
+
+### Enerji Üretimi
+
+Magnezyum, ATP (adenozin trifosfat) sentezi için zorunludur. ATP'nin aktif formu **Mg-ATP**'dir.
+
+| Magnezyum Eksikliği | Etki |
+|---------------------|------|
+| ATP verimi düşer | Enerji kaybı, hızlı yorulma |
+| Laktik asit birikimi artar | Antrenman performansı düşer |
+| Kas kasılması zayıflar | Güç çıktısı azalır |
+
+### Kas Kasılması ve Gevşemesi
+
+Magnezyum, kalsiyumun antagonistidir. Kalsiyum kasların kasılmasını sağlarken, magnezyum kasılma sonrası **gevşemeyi** sağlar.
+
+| Durum | Sonuç |
+|-------|-------|
+| Yetersiz magnezyum | Kas krampları, sertlik |
+| Yeterli magnezyum | Düzgün kasılma-gevşeme döngüsü |
+
+### Uyku Kalitesi
+
+Magnezyum, GABA reseptörlerini aktive eder — GABA, sinir sistemini sakinleştiren ana nörotransmiterdir.
+
+| Magnezyum'un Uyku Üzerine Etkisi | Araştırma Bulgusu |
+|----------------------------------|------------------|
+| Uyku başlama süresi | Kısalır |
+| Derin uyku (NREM) | Artar |
+| Kortizol (stres hormonu) | Düşer |
+| Sabah dinginliği | Gelişir |
+
+### Kortizol ve Stres Yönetimi
+
+Magnezyum, HPA eksenini (hipotalamus-hipofiz-adrenal) düzenler. Yeterli magnezyum, kortizol yükselmesini frenler.
+
+> 💡 Ağır antrenman yapanlarda kronik yüksek kortizol kas kaybına yol açar. Magnezyum bu döngüyü kırmada yardımcı olur.
+
+## Magnezyum Eksikliğinin Belirtileri
+
+| Belirti | Açıklama |
+|---------|----------|
+| Kas krampları | Özellikle gece ve egzersiz sırasında |
+| Yorgunluk | ATP verimsizliği |
+| Uyku sorunları | GABA aktivasyonu yetersiz |
+| Baş ağrısı | Damar düzenleme bozukluğu |
+| Tahriş / anksiyete | Sinir sistemi aşırı aktive |
+| Yüksek tansiyon | Damar düz kasları gerilir |
+| Kabızlık | Bağırsak peristaltizmi zayıflar |
+
+## Magnezyum Türleri: Hangisini Seçmeli?
+
+Piyasada birçok farklı magnezyum formu bulunmaktadır. Biyoyararlanım oranları büyük farklılık gösterir.
+
+| Form | Biyoyararlanım | En İyi Kullanım |
+|------|---------------|----------------|
+| **Magnezyum Glikonat** | Yüksek | Genel amaç, mide dostu |
+| **Magnezyum Malat** | Yüksek | Enerji ve yorgunluk |
+| **Magnezyum L-Treonat** | Çok yüksek (beyin) | Bilişsel fonksiyon |
+| **Magnezyum Sitrat** | Orta-Yüksek | Genel, laksatif etki |
+| **Magnezyum Bisglisinat** | Yüksek | Uyku ve anksiyete |
+| **Magnezyum Oksit** | Düşük (%4) | Sadece laksatif olarak |
+| **Magnezyum Klorür** | Yüksek | Topikal veya oral |
+
+> ⚠️ Magnezyum oksit, en yaygın satılan ve en ucuz formdur — ancak emilimi yalnızca %4'tür. Kaliteli takviye için glikonat, malat veya bisglisinat tercih edin.
+
+## Doğru Doz
+
+| Grup | Günlük İhtiyaç | Takviye Dozu |
+|------|---------------|-------------|
+| Yetişkin erkek | 400-420 mg | 200-400 mg |
+| Yetişkin kadın | 310-320 mg | 150-300 mg |
+| Sporcu (erkek) | 450-500 mg | 300-400 mg |
+| Hamile | 350-360 mg | Doktor önerisiyle |
+
+**Zamanlama:**
+- Uyku kalitesi için → yatmadan 30-60 dakika önce
+- Enerji ve performans için → sabah veya öğle
+- Kas krampi için → antrenman öncesi veya sonrası
+
+## Doğal Magnezyum Kaynakları
+
+| Gıda | Magnezyum (100g) |
+|------|----------------|
+| Kabak çekirdeği | 550 mg |
+| Chia tohumu | 335 mg |
+| Badem | 270 mg |
+| Ispanak (pişmiş) | 87 mg |
+| Siyah fasulye (pişmiş) | 70 mg |
+| Avokado | 29 mg |
+| Muz | 27 mg |
+| Koyu çikolata (%70+) | 228 mg |
+
+## Yan Etkiler ve Uyarılar
+
+| Durum | Dikkat |
+|-------|--------|
+| Yüksek doz (>350 mg takviye) | Ishal, bulantı |
+| Böbrek yetmezliği | Dikkatli olun, doktor kontrolü |
+| Belirli ilaçlarla etkileşim | Antibiyotik, diüretik, kalp ilaçları |
+| Takviyeden gelen maksimum | 350 mg/gün üst limit (UL) |
+
+> 💡 Gıdadan alınan magnezyum için üst sınır yoktur — yalnızca takviyelerden alınan için geçerlidir.
+
+## Sonuç
+
+Magnezyum, uyku kalitesi, enerji üretimi, kas fonksiyonu ve stres yönetimi üzerindeki kapsamlı etkileriyle sporcular için öncelikli takviyelerden biridir. Eğer düzenli antrenman yapıyor ve uyku veya toparlanma sorunları yaşıyorsanız, magnezyum eksikliği değerlendirilmeye değer bir faktördür.
+
+> 💡 Takviye seçmeden önce beslenmenizi magnezyum açısından değerlendirin. Yetersizse önce gıda kaynaklarını artırın, ardından gerekirse yüksek biyoyararlanımlı bir form ekleyin.`,
+    seoTitle: "Magnezyum Nedir? Sporculara Faydaları, Türleri ve Doz Rehberi | Gokalaf",
+    seoDescription: "Magnezyum eksikliği belirtileri, magnezyum bisglisinat vs oksit farkı, sporcular için doğru doz ve uyku kalitesine etkisi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "vitamin-d-k2-nedir",
+    title: "Vitamin D ve K2: Neden Birlikte Alınmalı? Sporculara Etkisi",
+    category: "takviyeler",
+    excerpt: "D vitamini eksikliği kas güçsüzlüğü, bağışıklık çöküşü ve düşük testosteronla ilişkilidir. K2 ise D vitamininin kalsiyumu doğru yere yönlendirmesi için kritiktir. İkili kombinasyonun bilimsel rehberi.",
+    heroImage: "/articles/vitamin-d-k2-takviye.webp",
+    content: `# Vitamin D ve K2: Neden Birlikte Alınmalı?
+
+D vitamini son yılların en çok araştırılan takviyelerinden biridir. Türkiye'deki çalışmalar, nüfusun %60-80'inde D vitamini yetersizliği olduğunu göstermektedir. Ancak D vitaminini tek başına yüksek dozda almak sorun yaratabilir — işte bu noktada K2 devreye girer.
+
+> 💡 **D vitamini kalsiyum emilimini artırır; K2 ise bu kalsiyumun damarlara değil kemiklere yönlendirilmesini sağlar. Bu ikili, birbirinin tamamlayıcısıdır.**
+
+## D Vitamini Nedir?
+
+D vitamini, güneş ışığının etkisiyle ciltte üretilen yağda çözünen bir vitamindir. Aslında bir **prohormon** olarak kabul edilir çünkü vücutta aktif hormon formuna (kalsitriol) dönüştürülür.
+
+### D Vitamini'nin Vücuttaki Rol
+
+| İşlev | Detay |
+|-------|-------|
+| Kalsiyum emilimi | Bağırsaktan kalsiyum absorbsiyonu |
+| Kemik yoğunluğu | Osteoporoz koruması |
+| Bağışıklık sistemi | T hücre aktivasyonu |
+| Kas fonksiyonu | Kas güçsüzlüğünü önler |
+| Testosteron üretimi | Leydig hücrelerini uyarır |
+| İnflamasyon kontrolü | Anti-inflamatuar sitokinler |
+
+## D Vitamini Eksikliğinin Sporcu Performansına Etkisi
+
+| Eksikliğin Etkisi | Araştırma Bulgusu |
+|------------------|------------------|
+| Kas gücü | %20-30 azalma |
+| Testosteron | %20'ye kadar düşüş |
+| Toparlanma | Yavaşlama |
+| Yaralanma riski | Stres kırıkları ve kas zorlanması artışı |
+| Bağışıklık | Solunum yolu enfeksiyonları artışı |
+
+> 💡 Bir çalışmada (Pilz et al., 2011), D vitamini takviyesi alan erkeklerde testosteron seviyeleri %25 artmıştır.
+
+## D Vitamini Seviyeleri: Kaçı Olmalı?
+
+| Seviye | ng/mL | Yorum |
+|--------|-------|-------|
+| Ağır eksiklik | <10 | Acil müdahale gerekli |
+| Eksiklik | 10-20 | Takviye şart |
+| Yetersizlik | 20-30 | Takviye önerilir |
+| Yeterli | 30-50 | Normal aralık |
+| Optimal (sporcu) | 50-80 | İdeal performans |
+| Toksik | >150 | D vitamini zehirlenmesi riski |
+
+## D2 mi, D3 mü?
+
+| Form | Kaynak | Etkinlik |
+|------|--------|---------|
+| D2 (Ergokalsiferol) | Bitkisel, maya | Düşük-Orta |
+| D3 (Kolekalsiferol) | Hayvansal, güneş ışığı | Yüksek |
+
+**D3 tercih edin:** D3, kan seviyelerini 2-3 kat daha etkili artırır ve daha uzun süre devam eder.
+
+## K2 Vitamini Nedir?
+
+K vitamini iki ana formda bulunur: K1 (filokinon) ve K2 (menakinon).
+
+| Form | Kaynak | Etki |
+|------|--------|------|
+| K1 | Yeşil yapraklı sebzeler | Kan pıhtılaşması |
+| K2 MK-4 | Hayvansal ürünler | Kısa etki süreli |
+| K2 MK-7 | Natto (fermente soya), peynir | Uzun etki süreli, kemik/damar |
+
+**K2 MK-7 en etkili formdur** — uzun yarı ömrü sayesinde günde tek dozla etki gösterir.
+
+## D Vitamini ve K2'yi Neden Birlikte Almalısınız?
+
+D vitamini, bağırsaktan kalsiyum emilimini artırır. Bu kalsiyumun nereye gittiği kritiktir:
+
+| Yeterli K2 | Yetersiz K2 |
+|-----------|------------|
+| Kalsiyum → Kemiklere | Kalsiyum → Damarlara birikir |
+| Kemik yoğunluğu artar | Damar kireçlenmesi riski |
+| Arterleri korur | Kardiyovasküler risk artar |
+
+> ⚠️ Yüksek doz D vitamini (3000+ IU) alırken K2 eksikliği varsa, artan kalsiyum emilimi damarlarda birikim riski yaratabilir. K2 bu riski ortadan kaldırır.
+
+## Doğru Doz
+
+### D Vitamini
+
+| Durum | Öneri |
+|-------|-------|
+| Eksiklik yok, koruyucu | 1000-2000 IU/gün |
+| Hafif eksiklik | 2000-4000 IU/gün |
+| Eksiklik (20-30 ng/mL) | 4000-6000 IU/gün |
+| Ağır eksiklik (<20 ng/mL) | 6000-10000 IU/gün (doktor kontrolünde) |
+
+### K2
+
+| Takviye Dozu | Form |
+|-------------|------|
+| 90-200 mcg/gün | MK-7 (tercihli) |
+| 1-15 mg/gün | MK-4 (yüksek doz gerektirir) |
+
+**Genel öneri:** Her 1000 IU D3 için 100 mcg K2 MK-7.
+
+## Alım Zamanlaması
+
+D vitamini yağda çözünür; yağlı bir öğünle birlikte alındığında emilimi %50 artar.
+
+| Zamanlama |
+|----------|
+| Yağlı öğünle birlikte (kahvaltı, öğle) |
+| Sabah veya öğlen (gece alımı melatonini etkileyebilir) |
+
+## Doğal Kaynaklar
+
+### D Vitamini
+
+| Kaynak | D Vitamini |
+|--------|-----------|
+| Güneş ışığı (10-15 dk, öğlen) | 10.000-20.000 IU (tüm vücut) |
+| Somon (100g) | 570-800 IU |
+| Ringa balığı (100g) | 1500 IU |
+| Yumurta sarısı (1 adet) | 40 IU |
+| Fortifiye süt (240ml) | 100-120 IU |
+
+### K2
+
+| Kaynak | K2 İçeriği |
+|--------|-----------|
+| Natto (100g) | 1103 mcg MK-7 |
+| Gouda peyniri (100g) | 75 mcg |
+| Jarlsberg peyniri (100g) | 80 mcg |
+| Tavuk karaciğeri (100g) | 14 mcg |
+| Sığır eti (100g) | 1-5 mcg |
+
+## Takviye Seçiminde Dikkat Edilecekler
+
+| Kriter | D Vitamini | K2 |
+|--------|-----------|-----|
+| Form | D3 (kolekalsiferol) | MK-7 |
+| Marka kalitesi | USP/NSF sertifikalı | Fermente kaynaklı |
+| Kombinasyon | D3+K2 kombine ürünler uygundur | — |
+| Başlamadan önce | Kan testi önerilir | — |
+
+## Sonuç
+
+D vitamini ve K2, sporcular için güçlü bir ikildir. D vitamini kas fonksiyonu, testosteron ve bağışıklığı desteklerken, K2 kalsiyumun güvenli yönlendirmesini sağlar. İkisi birlikte alındığında, ayrı ayrı alınmalarına kıyasla çok daha güvenli ve etkili sonuç verir.
+
+> 💡 D vitamini takviyelendirmesine başlamadan önce kan testi yaptırmanız, doğru doz belirleme açısından önemlidir. Hedef değer: 50-80 ng/mL.`,
+    seoTitle: "Vitamin D ve K2: Neden Birlikte Alınmalı? Sporculara Etkisi | Gokalaf",
+    seoDescription: "D vitamini eksikliği belirtileri, D3 ve K2 MK-7 birlikte kullanımı, testosteron üzerine etkisi ve sporculara doğru doz rehberi.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "zma-nedir",
+    title: "ZMA Nedir? Testosteron ve Uyku Kalitesine Etkisi",
+    category: "takviyeler",
+    excerpt: "ZMA (Çinko, Magnezyum, B6 Vitamini) kombinasyonu, sporcuların uyku kalitesini artırmak ve testosteron seviyelerini desteklemek için kullandığı popüler bir takviyedir. Bilimsel kanıtlar ve doğru kullanım rehberi.",
+    heroImage: "/articles/zma-takviye-nedir.webp",
+    content: `# ZMA Nedir? Sporcular İçin Kapsamlı Rehber
+
+ZMA, **Çinko Monomethionine Aspartate, Magnezyum Aspartate ve Vitamin B6** kombinasyonundan oluşan spor takviyesidir. 1990'larda Amerikalı beslenme araştırmacısı Victor Conte tarafından geliştirilen bu formül, özellikle sporcularda yaygın olan çinko ve magnezyum eksikliklerini gidermeye yöneliktir.
+
+> 💡 **Yoğun antrenman yapan sporcuların %70'inden fazlasında çinko veya magnezyum eksikliği saptanmıştır. ZMA bu eksiklikleri gidererek uyku ve toparlanmayı destekler.**
+
+## ZMA'nın Bileşenleri
+
+| Bileşen | Standart Doz (3 kapsül) | İşlev |
+|---------|------------------------|-------|
+| Çinko (monomethionine aspartate) | 30 mg | Testosteron sentezi, bağışıklık |
+| Magnezyum (aspartate) | 450 mg | Uyku, kas gevşemesi, enerji |
+| Vitamin B6 (piridoksin) | 10.5 mg | Çinko ve Mg emilimi artırır |
+
+B6 vitamini, hem çinkonun hem de magnezyumun emilimini artıran sinerjistik bir bileşendir.
+
+## ZMA'nın Sporcu Performansına Etkileri
+
+### Testosteron Üzerine
+
+Çinko, Leydig hücrelerinde testosteron sentezi için zorunlu bir mineraldir.
+
+| Çinko Durumu | Testosteron |
+|-------------|-------------|
+| Yeterli çinko | Normal testosteron |
+| Çinko eksikliği | %25-50 testosteron düşüşü |
+| Eksiklik giderilince | Testosteron normale döner |
+
+> 💡 **Önemli not:** ZMA, testosteron eksikliği olan (çinko eksikliği nedeniyle düşük) kişilerde testosteronu normalize eder. Normal çinko seviyesindeki kişilerde ek testosteron artışı beklenmez.
+
+### Uyku Kalitesi Üzerine
+
+ZMA'nın en belgelenmiş faydası uyku kalitesini artırmasıdır.
+
+| Etki | Mekanizma |
+|------|-----------|
+| Derin uyku artışı | Magnezyum → GABA aktivasyonu |
+| REM uykusu | Uyku döngüsü düzenlenir |
+| Uykuya dalış | GABA sakinleştirici etki |
+| Büyüme hormonu | Derin uyku → GH piki |
+
+| Araştırma | Bulgu |
+|-----------|-------|
+| Brilla ve Conte, 2000 | ZMA alan futbolcular daha yüksek testosteron ve IGF-1, %11.6 güç artışı |
+| Koehler et al., 2009 | Yeterli çinko seviyesi olan sporcularda anlamlı testosteron artışı gözlemlenmedi |
+
+### Bağışıklık Üzerine
+
+Çinko, bağışıklık sisteminin temel düzenleyicilerinden biridir.
+
+| Çinko Eksikliğinde | ZMA ile |
+|-------------------|---------|
+| T hücre aktivitesi düşer | T hücre aktivitesi normale döner |
+| Soğuk algınlığı süresi uzar | Enfeksiyon süresi kısalır |
+| NK hücre aktivitesi azalır | Doğal öldürücü hücreler aktive olur |
+
+## ZMA'yı Kim Kullanmalı?
+
+ZMA, aşağıdaki gruplarda en fazla fayda sağlar:
+
+| Grup | Neden? |
+|------|--------|
+| Yoğun antrenman yapanlar | Terleme ile mineral kaybı |
+| Bitkisel beslenenler | Çinko biyoyararlanımı düşük |
+| Stres altındaki sporcular | Çinko ve Mg tüketimi artar |
+| Uyku sorunu yaşayanlar | Magnezyum desteği |
+| Düşük testosteron şüphesi olanlar | Çinko eksikliğini gidermek için |
+
+## ZMA'yı Kim Kullanmamalı?
+
+| Grup | Neden? |
+|------|--------|
+| Hamileler | Yüksek doz çinko endişesi |
+| Böbrek sorunu olanlar | Yüksek magnezyum riski |
+| Çinko ve Mg seviyesi zaten yeterli olanlar | Ek fayda sınırlı |
+
+## Doğru Kullanım
+
+### Doz
+
+| Yaş/Cinsiyet | Önerilen Doz |
+|-------------|-------------|
+| Yetişkin erkek | 3 kapsül/gün (30mg Zn, 450mg Mg) |
+| Yetişkin kadın | 2 kapsül/gün (20mg Zn, 300mg Mg) |
+
+### Zamanlama: Neden Yatmadan Önce?
+
+ZMA, aç karnına yatmadan 30-60 dakika önce alınmalıdır.
+
+| Neden? | Açıklama |
+|--------|----------|
+| Kalsiyumla rekabet | Kalsiyum çinko emilimini düşürür |
+| Uyku optimizasyonu | Magnezyum GABA etkisi |
+| GH salgısı | Derin uykuyla eş zamanlı |
+
+> ⚠️ Süt, yoğurt, peynir veya kalsiyum içeren takviyeler ZMA ile birlikte alınmamalıdır. Kalsiyum, çinkonun emilimini %50'ye kadar düşürür.
+
+## ZMA'da Çinko ve Magnezyumun Doğal Kaynakları
+
+### Çinko Kaynakları
+
+| Gıda | Çinko (100g) |
+|------|-------------|
+| İstiridye | 78 mg |
+| Dana eti (kıyma) | 5 mg |
+| Kabak çekirdeği | 7.5 mg |
+| Tavuk eti | 3 mg |
+| Yulaf | 3.6 mg |
+
+### Magnezyum Kaynakları
+
+| Gıda | Magnezyum (100g) |
+|------|----------------|
+| Kabak çekirdeği | 550 mg |
+| Ispanak | 87 mg |
+| Badem | 270 mg |
+| Siyah fasulye | 70 mg |
+
+## Beklentileri Yönetmek
+
+| Beklenti | Gerçek |
+|----------|--------|
+| Dramatik testosteron artışı | Yalnızca eksiklik varsa normalize eder |
+| Hemen sonuç | Etkiler 2-4 haftada belirginleşir |
+| Uyku iyileşmesi | Birçok kullanıcı 1-2 haftada fark eder |
+| Kas gelişimi | Dolaylı — toparlanma ve GH üzerinden |
+
+## Sonuç
+
+ZMA, özellikle yoğun antrenman yapan ve mineral eksikliği riski taşıyan sporcular için güvenli ve etkili bir takviyedir. Testosteron patlaması vaat eden abartılı pazarlamadan uzak durun; ZMA'nın gerçek değeri **uyku kalitesini artırması, mineral eksikliklerini gidermesi ve toparlanmayı desteklemesi** üzerinden değerlendirilmelidir.
+
+> 💡 Kullanmadan önce çinko ve magnezyum kan seviyelerinizi test ettirmek, hedefli bir yaklaşım sağlar.`,
+    seoTitle: "ZMA Nedir? Testosteron, Uyku Kalitesi ve Sporcular İçin Kullanım | Gokalaf",
+    seoDescription: "ZMA (çinko, magnezyum, B6) nedir, testosteron artırır mı? Uyku kalitesine etkisi, doğru doz, zamanlama ve kimler kullanmalı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "l-karnitin-nedir",
+    title: "L-Karnitin Nedir? Yağ Yakımına Gerçekten Etkisi Var mı?",
+    category: "takviyeler",
+    excerpt: "L-Karnitin, uzun zincirli yağ asitlerini mitokondri içine taşıyan bir bileşiktir. Yağ yakımı, dayanıklılık ve toparlanma üzerindeki bilimsel kanıtlar ve doğru kullanım rehberi.",
+    heroImage: "/articles/l-karnitin-yag-yakimi.webp",
+    content: `# L-Karnitin Nedir? Bilimsel Rehber
+
+L-Karnitin, vücutta ağırlıklı olarak karaciğer ve böbrekte sentezlenen, kırmızı ette de bulunan amino asit türevi bir bileşiktir. Spor dünyasında "yağ yakıcı" olarak bilinir — ancak bu tanımlama hem doğru hem de eksiktir.
+
+> 💡 **L-Karnitin yağ yakmaz; yağ asitlerini yakıt olarak kullanılacakları mitokondri içine taşır. Yağ yakımı için önce kalori açığı ve egzersiz gereklidir.**
+
+## L-Karnitin Nasıl Çalışır?
+
+Yağ asitleri, mitokondri membranından geçemez. L-Karnitin bu geçişi sağlayan "taşıyıcı molekül" görevini üstlenir.
+
+| Adım | Süreç |
+|------|-------|
+| 1 | Yağ asitleri sitozolde serbest hale gelir |
+| 2 | L-Karnitin yağ asidine bağlanır (Asil-Karnitin oluşur) |
+| 3 | Karnitin taşıyıcıları Asil-Karnitin'i mitokondri içine taşır |
+| 4 | Beta-oksidasyon: Yağ asidi enerji (ATP) üretimine girer |
+| 5 | Karnitin geri salınır, döngü tekrarlanır |
+
+Bu mekanizma sayesinde L-Karnitin özellikle **uzun süreli aerobik egzersizlerde** yağ kullanım verimliliğini artırır.
+
+## L-Karnitin Türleri
+
+| Form | En İyi Kullanım |
+|------|----------------|
+| L-Karnitin tartrat | Egzersiz performansı, toparlanma |
+| Asetil-L-Karnitin (ALCAR) | Bilişsel fonksiyon, nörolojik destek |
+| L-Karnitin L-Tartrat | Spor performansı (en yaygın spor formu) |
+| Glisin Propionil L-Karnitin (GPLC) | Kan akımı, nitrik oksit |
+| D-Karnitin | ⚠️ Etkisiz, L-Karnitin'i bloke eder — almayın |
+
+## Bilimsel Kanıtlar: Ne İşe Yarıyor?
+
+### Yağ Yakımı
+
+| Araştırma | Sonuç |
+|-----------|-------|
+| Stephens et al. (2007) | Karbonhidratla birlikte alındığında yağ oksidasyonu artar |
+| Wall et al. (2011) | 24 haftalık 2g/gün → yağ kütlesi azalması |
+| Pooyandjoo et al. (2016) | Kilolu bireylerde vücut ağırlığı ve BMI azalması |
+
+**Kritik nokta:** L-Karnitin, vücuttaki L-Karnitin eksikliği varsa etkilidir. Sağlıklı et yiyen birinin vücudundaki karnitin doygun olabilir ve takviyenin ek etkisi sınırlı kalabilir.
+
+**Vejetaryen ve vejegan bireyler** için takviye daha faydalıdır çünkü et tüketmediğinden karnitin düzeyleri daha düşüktür.
+
+### Egzersiz Performansı ve Toparlanma
+
+| Fayda | Kanıt |
+|-------|-------|
+| Egzersiz sonrası kas hasarı azalır | L-Karnitin tartrat → CK enzimi düşer |
+| DOMS (kas ağrısı) azalır | Kas içi oksidatif stres düşer |
+| Dayanıklılık artar | Yağ kullanım verimliliği → glikojen korunur |
+| Maksimum VO2 artışı | Orta düzey kanıt |
+
+### Kardiyovasküler Sağlık
+
+| Etki | Araştırma |
+|------|-----------|
+| HDL (iyi kolesterol) artışı | Pozitif |
+| Anjina semptomları | Azalma gözlemlendi |
+| Kalp yetmezliği | Destekleyici yardımcı tedavi |
+
+### Testosteron ve Androjen Reseptörleri
+
+| Araştırma | Bulgu |
+|-----------|-------|
+| Kraemer et al. (2006) | L-Karnitin tartrat → androjen reseptör yoğunluğu artışı |
+| Sonuç | Testosteron verimliliği iyileşir, testosteron düzeyi değil |
+
+## Doğru Doz ve Zamanlama
+
+| Amaç | Doz | Zamanlama |
+|------|-----|-----------|
+| Yağ yakımı | 2-3 g/gün | Egzersiz öncesi + karbonhidratla |
+| Toparlanma | 1-2 g/gün | Egzersiz sonrası |
+| Bilişsel destek (ALCAR) | 500-1500 mg/gün | Sabah veya öğlen |
+| Kardiyovasküler | 2-3 g/gün | Doktor önerisiyle |
+
+> 💡 **Karbonhidratla birlikte almak neden önemli?** İnsülin, L-Karnitin'in kas içine alınmasını artırır. 40-80g karbonhidratla birlikte alınan L-Karnitin, kas dokusunda %55'e kadar daha fazla birikebilir (Stephens et al.).
+
+## Doğal L-Karnitin Kaynakları
+
+| Gıda | L-Karnitin (100g) |
+|------|------------------|
+| Dana eti | 60-160 mg |
+| Kuzu eti | 160 mg |
+| Domuz eti | 30 mg |
+| Tavuk | 3-5 mg |
+| Balık | 5-8 mg |
+| Süt | 3 mg |
+| Avokado | 2 mg |
+
+Vücudun günlük L-Karnitin sentezi: 11-34 mg (lizin ve metionin amino asitlerinden).
+
+## Güvenlik ve Yan Etkiler
+
+| Yan Etki | Doz | Not |
+|----------|-----|-----|
+| Balık kokusu (TMAO) | Yüksek dozda | ALCAR formunda daha az |
+| Bulantı, ishal | >3g/gün | Dozu bölerek alın |
+| Kilo artışı | Yoktur | Mitselleşme riski yok |
+| İlaç etkileşimi | Kan sulandırıcılar | Dikkat |
+
+**L-Karnitin tolere edilebilirliği yüksektir.** Günde 2-3g, uzun süreli kullanımda güvenli kabul edilmektedir.
+
+## L-Karnitin Gerçekten Yağ Yakar mı?
+
+| Beklenti | Gerçek |
+|----------|--------|
+| Egzersiz yapmadan yağ eritir | Hayır |
+| Kalori açığı olmadan etkili | Hayır |
+| Yağ oksidasyonunu artırır | Evet, egzersizle birlikte |
+| Vejetaryenler için faydalı | Evet, belirgin |
+| Toparlanmayı hızlandırır | Evet, kanıtlı |
+
+## Sonuç
+
+L-Karnitin, sihirli bir yağ yakıcı değildir — egzersiz ve kalori açığının yerini tutmaz. Ancak doğru kişide, doğru kullanımla **yağ oksidasyonunu destekleyen, kas hasarını azaltan ve toparlanmayı hızlandıran** değerli bir takviyedir.
+
+> 💡 Vejetaryen/vegan besleniyorsanız veya yoğun aerobik antrenman yapıyorsanız L-Karnitin takviyesinden en fazla faydayı siz alırsınız.`,
+    seoTitle: "L-Karnitin Nedir? Yağ Yakımına Etkisi ve Doğru Kullanım | Gokalaf",
+    seoDescription: "L-Karnitin yağ yakar mı? L-Karnitin türleri, doğru doz ve zamanlama, egzersiz performansına etkisi ve bilimsel kanıtlar.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
+  {
+    slug: "glutamin-nedir",
+    title: "Glutamin Nedir? Toparlanma, Bağırsak Sağlığı ve Bağışıklığa Etkisi",
+    category: "takviyeler",
+    excerpt: "Glutamin, vücutta en bol bulunan amino asittir. Yoğun antrenman dönemlerinde kan glutamin düzeyi düşer ve bağışıklık, bağırsak sağlığı ile toparlanma bundan olumsuz etkilenir. Bilimsel rehber.",
+    heroImage: "/articles/glutamin-takviye-toparlanma.webp",
+    content: `# Glutamin Nedir? Sporcular İçin Kapsamlı Rehber
+
+Glutamin (L-Glutamin), vücutta en yoğun bulunan serbest amino asittir. Kan dolaşımındaki amino asitlerin yaklaşık %30-35'ini oluşturur. Buna karşın yoğun antrenman dönemlerinde vücut glutamin tüketimi sentezini aşabilir — bu noktada "koşullu esansiyel" hale gelir.
+
+> 💡 **Glutamin, kasın yapı taşı olmaktan çok bağışıklık hücrelerinin yakıtı, bağırsak duvarının onarıcısı ve yoğun antrenman dönemlerinde toparlanmanın destekçisidir.**
+
+## Glutaminin Vücuttaki Rolü
+
+### 1. Bağışıklık Sistemi
+
+Bağışıklık hücreleri (lenfositler, makrofajlar, nötrofiller) enerji için ağırlıklı olarak glutamin kullanır.
+
+| Bağışıklık Etkisi | Detay |
+|------------------|-------|
+| Lenfosit çoğalması | Glutamin olmadan yavaşlar |
+| NK (doğal öldürücü) hücre aktivitesi | Glutaminle artar |
+| Fagositoz | Glutamin bağımlı |
+| Sitokın üretimi | Glutamin regüle eder |
+
+Yoğun egzersiz sonrasında kan glutamin düzeyi %20-40 düşer. Bu düşüş, bağışıklık "penceresini" (open window theory) açar ve sporcu enfeksiyona karşı savunmasız hale gelir.
+
+### 2. Bağırsak Sağlığı
+
+Bağırsak epitel hücreleri (enterositler), enerji kaynağı olarak glutamin kullanır.
+
+| Glutaminin Bağırsak Etkisi |
+|---------------------------|
+| Bağırsak duvarı bütünlüğünü korur |
+| "Sızdıran bağırsak" (leaky gut) riskini azaltır |
+| Villiyi (bağırsak parmakçıkları) destekler |
+| Besin emilimini iyileştirir |
+| Bağırsak iltihabını azaltır |
+
+> 💡 Klinik ortamlarda glutamin, ciddi yanık, ameliyat ve sepsis vakalarında bağırsak koruyucu olarak kullanılır. Sporcular için bağırsak geçirgenliğini azaltması önemlidir.
+
+### 3. Kas Protein Sentezi ve Anti-katabolizma
+
+| Glutamin'in Kas Üzerine Etkisi | Detay |
+|-------------------------------|-------|
+| Kas glikojen sentezi | İnsülinden bağımsız olarak destekler |
+| Protein sentezi | mTOR yolağını aktive eder |
+| Anti-katabolik | Kortizol etkisine karşı koyar |
+| Hücre hidrasyonu | Kas hücresi şişmesi → anabolik sinyal |
+
+### 4. Asit-Baz Dengesi
+
+Yoğun egzersiz sırasında asidoz oluşur (pH düşer). Glutamin, böbrekte amonyum üretimini artırarak asit-baz dengesinin korunmasına yardım eder.
+
+## Glutamin Eksikliği: Belirtileri
+
+| Belirti | Açıklama |
+|---------|----------|
+| Sık hastalanma | Bağışıklık zayıflaması |
+| Uzun toparlanma | Kas protein sentezi düşer |
+| Sindirim sorunları | Bağırsak epitel hasarı |
+| Kronik yorgunluk | Enerji substrat eksikliği |
+| Kas kütlesi kaybı | Katabolizma artışı |
+
+## Bilimsel Kanıtlar
+
+| Araştırma | Bulgu |
+|-----------|-------|
+| Antonio & Street (1999) | Vücut geliştirmecilerde lean mass artışı gözlemlenmedi |
+| Hiscock & Mackinnon (1998) | Dayanıklılık sporcularında enfeksiyon sıklığı azaldı |
+| Candow et al. (2001) | Direnç antrenmanıyla birlikte ek kas kütlesi artışı yok |
+| Roth et al. (1990) | Klinik hastalarda azot dengesi iyileşti |
+
+**Sonuç:** Glutaminin faydaları **bağışıklık ve bağırsak sağlığı** üzerinde daha belirgindir. Kas kütlesi artışı üzerindeki etkisi sınırlıdır — protein ve kreatin kadar güçlü bir anabolik etki beklenmemelidir.
+
+## Kim Kullanmalı?
+
+| Grup | Fayda |
+|------|-------|
+| Yüksek hacimli antrenman yapanlar | Bağışıklık penceresi koruması |
+| Dayanıklılık sporcuları | Bağırsak permeabilitesi azalması |
+| Çift antrenman günleri olanlar | Hızlı toparlanma |
+| Bağırsak sorunu yaşayanlar | Epitel onarımı |
+| Düşük kalorili diyet yapanlar | Anti-katabolik destek |
+
+## Kim Kullanmamalı?
+
+| Grup | Neden? |
+|------|--------|
+| Böbrek yetmezliği olanlar | Azot yükü artar |
+| Karaciğer hastalığı olanlar | Amonyak yükü riski |
+| Epilepsi geçmişi | Nöroeksitasyon potansiyeli |
+
+## Doğru Doz ve Kullanım
+
+| Amaç | Doz | Zamanlama |
+|------|-----|-----------|
+| Bağışıklık desteği | 5g/gün | İstediğiniz zaman |
+| Bağırsak sağlığı | 5-10g/gün | Sabah aç karnına |
+| Toparlanma | 5g | Antrenman sonrası |
+| Yoğun dönem | 10-20g/gün | Bölünmüş dozlar |
+
+**Genel öneri:** Günde 5-10g, 2-3 porsiyona bölünmüş.
+
+> 💡 Glutamin ısıya duyarlıdır — sıcak içeceklere karışmaz, soğuk su veya shake ile alın.
+
+## Doğal Glutamin Kaynakları
+
+| Gıda | Glutamin (100g) |
+|------|----------------|
+| Dana eti | 1.2g |
+| Tavuk göğsü | 0.9g |
+| Balık | 0.6-1.0g |
+| Yumurta | 0.6g |
+| Süt | 0.3g |
+| Beyaz pirinç (pişmiş) | 0.3g |
+| Mısır | 0.4g |
+| Tofu | 0.6g |
+
+Normal beslenmeyle günlük 3-6g glutamin alınır. Yoğun antrenman dönemlerinde bu miktar yetersiz kalabilir.
+
+## Glutamin vs. Diğer Toparlanma Takviyeleri
+
+| Takviye | Güç/Hipertrofi | Toparlanma | Bağışıklık | Bağırsak |
+|---------|---------------|------------|------------|---------|
+| Kreatin | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐ |
+| Whey Protein | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ |
+| Glutamin | ⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| BCAA | ⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐ |
+
+## Sonuç
+
+Glutamin, kas yapmak için sihirli bir çözüm değildir — bu konuda whey protein ve kreatin çok daha güçlü kanıtlara sahiptir. Ancak **bağışıklık sistemi, bağırsak sağlığı ve yoğun antrenman dönemlerinde toparlanma** için değerli bir destektir.
+
+> 💡 Yoğun antrenman yapıyorsanız, sık hastalanıyorsanız veya bağırsak sorunlarınız varsa glutamin denemeye değer güvenli ve etkili bir takviyedir.`,
+    seoTitle: "Glutamin Nedir? Toparlanma, Bağırsak ve Bağışıklığa Etkisi | Gokalaf",
+    seoDescription: "L-Glutamin nedir, ne işe yarar? Toparlanma, bağırsak sağlığı, bağışıklık etkisi, doğru doz ve kimler kullanmalı.",
+    publishedAt: "2026-04-01",
+    ctaText: "Supplement Danışmanlığı Al",
+    ctaLink: "/paketler",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
