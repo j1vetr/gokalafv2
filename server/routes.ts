@@ -90,9 +90,13 @@ export async function registerRoutes(
 
   // ===== SEO SITEMAP =====
   const SITEMAP_BASE = "https://gokalaf.com";
-  const today = new Date().toISOString().split("T")[0];
+
+  function getToday() {
+    return new Date().toISOString().split("T")[0];
+  }
 
   function buildUrlset(pages: { loc: string; priority: string; changefreq: string; lastmod?: string }[]) {
+    const today = getToday();
     return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(p => `  <url>
@@ -106,6 +110,7 @@ ${pages.map(p => `  <url>
 
   // Sitemap index
   app.get("/sitemap.xml", (_req, res) => {
+    const today = getToday();
     const index = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
@@ -171,8 +176,9 @@ ${pages.map(p => `  <url>
     res.send(buildUrlset(pages));
   });
 
-  // Yazılar sitemap
+  // Yazılar sitemap — her istekte articles-data'dan taze okur
   app.get("/sitemap-yazilar.xml", async (_req, res) => {
+    const today = getToday();
     try {
       const { articles: staticArticles } = await import("../shared/articles-data.js");
       const pages = staticArticles.map((a: any) => ({
@@ -190,7 +196,7 @@ ${pages.map(p => `  <url>
     }
   });
 
-  // Hareketler sitemap
+  // Hareketler sitemap — her istekte veritabanından taze çeker
   app.get("/sitemap-hareketler.xml", async (_req, res) => {
     try {
       const slugs = await storage.getAllExerciseSlugs();
