@@ -1,19 +1,7 @@
-import { useEffect, useState, useRef } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import {
-  CheckCircle,
-  MessageCircle,
-  ArrowRight,
-  Calendar,
-  Package,
-  Clock,
-  Star,
-  Trophy,
-  Zap,
-  ChevronRight,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle, Package, Star, Trophy, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 
 interface OrderInfo {
   id: string;
@@ -22,6 +10,21 @@ interface OrderInfo {
   totalPrice: string;
   startDate: string | null;
   endDate: string | null;
+}
+
+function WhatsAppIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
 }
 
 function Particle({ delay, x, y, size }: { delay: number; x: number; y: number; size: number }) {
@@ -34,19 +37,40 @@ function Particle({ delay, x, y, size }: { delay: number; x: number; y: number; 
         width: size,
         height: size,
         background: size % 3 === 0 ? "#ccff00" : size % 2 === 0 ? "#39ff14" : "#ffffff",
-        opacity: 0,
       }}
+      initial={{ opacity: 0, scale: 0, y: 0 }}
       animate={{
-        opacity: [0, 0.8, 0],
-        y: [0, -80 - Math.random() * 60],
-        x: [0, (Math.random() - 0.5) * 40],
+        opacity: [0, 0.7, 0],
         scale: [0, 1, 0],
+        y: [0, -(70 + size * 6)],
       }}
       transition={{
-        duration: 1.8 + Math.random() * 0.8,
+        duration: 2 + size * 0.1,
         delay,
         repeat: Infinity,
-        repeatDelay: 3 + Math.random() * 2,
+        repeatDelay: 3 + size * 0.3,
+        ease: "easeOut",
+      }}
+    />
+  );
+}
+
+function PulseRing({ delay, scale }: { delay: number; scale: number }) {
+  return (
+    <motion.div
+      className="absolute rounded-full"
+      style={{
+        inset: 0,
+        borderRadius: "50%",
+        border: "1.5px solid rgba(204,255,0,0.5)",
+      }}
+      initial={{ scale: 1, opacity: 0 }}
+      animate={{ scale, opacity: [0, 0.55, 0] }}
+      transition={{
+        duration: 2.2,
+        delay,
+        repeat: Infinity,
+        repeatDelay: 0.3,
         ease: "easeOut",
       }}
     />
@@ -56,40 +80,40 @@ function Particle({ delay, x, y, size }: { delay: number; x: number; y: number; 
 const STEPS = [
   {
     icon: CheckCircle,
-    title: "Sipariş onaylandı",
+    title: "Sipariş Onaylandı",
     desc: "Ödemeniz başarıyla alındı, sistemimize kaydedildi.",
     done: true,
     color: "#ccff00",
   },
   {
-    icon: MessageCircle,
-    title: "WhatsApp ile iletişim",
+    useWhatsApp: true,
+    title: "WhatsApp ile İletişim",
     desc: "24 saat içinde koçunuz sizi WhatsApp'tan arayacak.",
     done: false,
     color: "#25d366",
   },
   {
     icon: Zap,
-    title: "Kişisel program hazırlanıyor",
+    title: "Kişisel Program Hazırlanıyor",
     desc: "Vücudunuza özel antrenman ve beslenme planı oluşturuluyor.",
     done: false,
     color: "#ccff00",
   },
   {
     icon: Trophy,
-    title: "Dönüşüm başlıyor",
+    title: "Dönüşüm Başlıyor",
     desc: "Hedeflerinize giden yolda ilk adımı attınız.",
     done: false,
     color: "#d4a017",
   },
 ];
 
-const particles = Array.from({ length: 22 }, (_, i) => ({
+const particles = Array.from({ length: 20 }, (_, i) => ({
   id: i,
-  x: 5 + Math.random() * 90,
-  y: 10 + Math.random() * 80,
-  size: 4 + Math.floor(Math.random() * 8),
-  delay: i * 0.18,
+  x: 5 + (i / 20) * 90 + (Math.sin(i) * 10),
+  y: 10 + (Math.cos(i * 2.3) * 35 + 35),
+  size: 4 + (i % 6),
+  delay: i * 0.22,
 }));
 
 export default function PaymentSuccess() {
@@ -147,7 +171,6 @@ export default function PaymentSuccess() {
 
   return (
     <div className="min-h-screen bg-[#050505] overflow-hidden relative">
-      {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -156,7 +179,6 @@ export default function PaymentSuccess() {
         }}
       />
 
-      {/* Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {particles.map((p) => (
           <Particle key={p.id} delay={p.delay} x={p.x} y={p.y} size={p.size} />
@@ -172,28 +194,17 @@ export default function PaymentSuccess() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <div className="relative mb-8">
-            {/* Outer pulse rings */}
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                className="absolute inset-0 rounded-full border border-primary/40"
-                style={{ borderRadius: "50%" }}
-                animate={{ scale: [1, 1.6 + i * 0.3], opacity: [0.5, 0] }}
-                transition={{
-                  duration: 2,
-                  delay: i * 0.4,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                }}
-              />
-            ))}
+          <div className="relative mb-8 w-28 h-28">
+            <PulseRing delay={0} scale={1.55} />
+            <PulseRing delay={0.65} scale={1.85} />
+            <PulseRing delay={1.3} scale={2.2} />
+
             <motion.div
-              className="relative w-28 h-28 rounded-full flex items-center justify-center"
+              className="absolute inset-0 rounded-full flex items-center justify-center"
               style={{
-                background: "radial-gradient(circle, rgba(204,255,0,0.15) 0%, rgba(204,255,0,0.05) 100%)",
-                border: "2px solid rgba(204,255,0,0.4)",
-                boxShadow: "0 0 40px rgba(204,255,0,0.25), 0 0 80px rgba(204,255,0,0.1)",
+                background: "radial-gradient(circle, rgba(204,255,0,0.15) 0%, rgba(204,255,0,0.04) 100%)",
+                border: "2px solid rgba(204,255,0,0.45)",
+                boxShadow: "0 0 36px rgba(204,255,0,0.22), 0 0 70px rgba(204,255,0,0.09)",
               }}
               initial={{ scale: 0, rotate: -30 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -219,10 +230,7 @@ export default function PaymentSuccess() {
             transition={{ delay: 0.6 }}
           >
             Yolculuğunuz{" "}
-            <span
-              className="text-primary"
-              style={{ textShadow: "0 0 30px rgba(204,255,0,0.5)" }}
-            >
+            <span className="text-primary" style={{ textShadow: "0 0 30px rgba(204,255,0,0.5)" }}>
               Başlıyor
             </span>
           </motion.h1>
@@ -257,7 +265,7 @@ export default function PaymentSuccess() {
                 Sipariş Detayları
               </h2>
             </div>
-            <div className="space-y-0 divide-y divide-white/5">
+            <div className="divide-y divide-white/5">
               {[
                 { label: "Paket", value: orderInfo.packageName },
                 { label: "Süre", value: `${orderInfo.weeks} Hafta` },
@@ -267,21 +275,15 @@ export default function PaymentSuccess() {
                   highlight: true,
                 },
                 ...(orderInfo.startDate
-                  ? [
-                      {
-                        label: "Program Tarihleri",
-                        value: `${formatDate(orderInfo.startDate)} – ${formatDate(orderInfo.endDate)}`,
-                      },
-                    ]
+                  ? [{
+                      label: "Program Tarihleri",
+                      value: `${formatDate(orderInfo.startDate)} – ${formatDate(orderInfo.endDate)}`,
+                    }]
                   : []),
               ].map((row, i) => (
                 <div key={i} className="flex justify-between items-center py-3">
                   <span className="text-gray-500 text-sm">{row.label}</span>
-                  <span
-                    className={`font-semibold text-sm ${
-                      (row as any).highlight ? "text-primary text-base" : "text-white"
-                    }`}
-                  >
+                  <span className={`font-semibold text-sm ${ (row as any).highlight ? "text-primary text-base" : "text-white" }`}>
                     {row.value}
                   </span>
                 </div>
@@ -290,7 +292,7 @@ export default function PaymentSuccess() {
           </motion.div>
         )}
 
-        {/* Next steps timeline */}
+        {/* Next steps */}
         <AnimatePresence>
           {showSteps && (
             <motion.div
@@ -304,7 +306,8 @@ export default function PaymentSuccess() {
               </p>
               <div className="space-y-2">
                 {STEPS.map((step, i) => {
-                  const Icon = step.icon;
+                  const Icon = (step as any).icon;
+                  const isWA = (step as any).useWhatsApp;
                   return (
                     <motion.div
                       key={i}
@@ -313,9 +316,7 @@ export default function PaymentSuccess() {
                       transition={{ delay: i * 0.15 }}
                       className="flex items-start gap-4 rounded-xl p-4 relative overflow-hidden"
                       style={{
-                        background: step.done
-                          ? "rgba(204,255,0,0.05)"
-                          : "rgba(255,255,255,0.02)",
+                        background: step.done ? "rgba(204,255,0,0.05)" : "rgba(255,255,255,0.02)",
                         border: `1px solid ${step.done ? "rgba(204,255,0,0.2)" : "rgba(255,255,255,0.06)"}`,
                       }}
                     >
@@ -324,9 +325,13 @@ export default function PaymentSuccess() {
                         style={{
                           background: `${step.color}18`,
                           border: `1px solid ${step.color}40`,
+                          color: step.color,
                         }}
                       >
-                        <Icon size={16} style={{ color: step.color }} />
+                        {isWA
+                          ? <WhatsAppIcon size={16} />
+                          : <Icon size={16} style={{ color: step.color }} />
+                        }
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
@@ -334,10 +339,7 @@ export default function PaymentSuccess() {
                           {step.done && (
                             <span
                               className="text-xs px-2 py-0.5 rounded-full font-bold"
-                              style={{
-                                background: "rgba(204,255,0,0.12)",
-                                color: "#ccff00",
-                              }}
+                              style={{ background: "rgba(204,255,0,0.12)", color: "#ccff00" }}
                             >
                               Tamamlandı
                             </span>
@@ -345,7 +347,6 @@ export default function PaymentSuccess() {
                         </div>
                         <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
                       </div>
-                      {/* Step number */}
                       <span className="text-white/10 font-heading font-black text-3xl absolute right-4 top-1/2 -translate-y-1/2 select-none">
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -357,7 +358,7 @@ export default function PaymentSuccess() {
           )}
         </AnimatePresence>
 
-        {/* WhatsApp CTA */}
+        {/* WhatsApp CTA card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -368,18 +369,15 @@ export default function PaymentSuccess() {
             border: "1px solid rgba(37,211,102,0.25)",
           }}
         >
-          <div
-            className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full opacity-10"
-            style={{ background: "#25d366" }}
-          />
+          <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full opacity-10" style={{ background: "#25d366" }} />
           <div className="flex items-start gap-4">
             <motion.div
-              className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+              className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white"
               style={{ background: "#25d366" }}
               animate={{ scale: [1, 1.08, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <MessageCircle className="w-6 h-6 text-white" />
+              <WhatsAppIcon size={26} />
             </motion.div>
             <div>
               <h3 className="text-white font-heading font-bold text-base mb-1">
@@ -394,37 +392,25 @@ export default function PaymentSuccess() {
           </div>
         </motion.div>
 
-        {/* Buttons */}
+        {/* Single CTA button */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
-          className="flex flex-col sm:flex-row items-stretch gap-3"
         >
           <Button
             onClick={() => window.open("https://wa.me/905312822402", "_blank")}
-            className="flex-1 py-6 text-base font-heading font-bold uppercase tracking-wider"
+            className="w-full py-6 text-base font-heading font-bold uppercase tracking-wider"
             style={{
               background: "#25d366",
               color: "#fff",
-              boxShadow: "0 0 24px rgba(37,211,102,0.3)",
+              boxShadow: "0 0 28px rgba(37,211,102,0.35)",
             }}
             data-testid="button-whatsapp-success"
           >
-            <MessageCircle size={20} className="mr-2" />
+            <WhatsAppIcon size={22} className="mr-2" />
             WhatsApp ile Ulaş
           </Button>
-
-          <Link href="/panel" className="flex-1">
-            <Button
-              variant="outline"
-              className="w-full py-6 text-base font-heading font-bold uppercase tracking-wider border-primary/40 text-primary hover:bg-primary hover:text-black transition-all"
-              data-testid="button-go-panel"
-            >
-              Panele Git
-              <ArrowRight size={18} className="ml-2" />
-            </Button>
-          </Link>
         </motion.div>
 
         {/* Motivational footer */}
