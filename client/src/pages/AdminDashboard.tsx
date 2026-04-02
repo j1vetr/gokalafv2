@@ -17,7 +17,7 @@ import {
   TrendingUp, TrendingDown, Activity, Eye, Edit, Trash2, BarChart3, 
   Calendar, Phone, Mail, User, ShoppingCart, Calculator, ArrowUpRight,
   ChevronRight, LayoutDashboard, Settings, AlertCircle, RefreshCw,
-  Ticket, FileText, Database, Wrench, Send, Filter, Loader2, MessageSquare, Bot, ChevronDown, ChevronUp, ExternalLink
+  Ticket, FileText, Database, Wrench, Send, Filter, Loader2, MessageSquare, Bot, ChevronDown, ChevronUp, ExternalLink, X
 } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -389,6 +389,10 @@ export default function AdminDashboard() {
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [isTogglingMaintenance, setIsTogglingMaintenance] = useState(false);
   const [usersRoleFilter, setUsersRoleFilter] = useState("all");
+  const [showEmailCollectModal, setShowEmailCollectModal] = useState(false);
+  const [emailCollectPaid, setEmailCollectPaid] = useState(true);
+  const [emailCollectUnpaid, setEmailCollectUnpaid] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   // Analytics state
   const [analyticsData, setAnalyticsData] = useState<any>(null);
@@ -2061,7 +2065,7 @@ export default function AdminDashboard() {
                           data-testid="input-search-users"
                         />
                       </div>
-                      <div className="flex items-center gap-2 shrink-0">
+                      <div className="flex items-center gap-2 shrink-0 flex-wrap">
                         {(["all", "admin", "user"] as const).map(f => (
                           <button key={f} onClick={() => setUsersRoleFilter(f)}
                             className="px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200"
@@ -2073,6 +2077,14 @@ export default function AdminDashboard() {
                             {f === "all" ? "Tümü" : f === "admin" ? "Admin" : "Üye"}
                           </button>
                         ))}
+                        <button
+                          onClick={() => setShowEmailCollectModal(true)}
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200 hover:brightness-110"
+                          style={{ background: "rgba(96,165,250,0.1)", color: "#60a5fa", border: "1px solid rgba(96,165,250,0.25)" }}
+                          data-testid="button-collect-emails">
+                          <Mail size={13} />
+                          E-posta Al
+                        </button>
                       </div>
                     </div>
 
@@ -3349,6 +3361,162 @@ export default function AdminDashboard() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* ── EMAIL COLLECT MODAL ─────────────────────────────────── */}
+      <AnimatePresence>
+        {showEmailCollectModal && (() => {
+          const paidUserIds = new Set(
+            orders
+              .filter(o => o.status === "paid" || o.status === "active" || o.status === "completed")
+              .map(o => o.userId)
+          );
+          const paidUsers = users.filter(u => u.role !== "admin" && paidUserIds.has(u.id));
+          const unpaidUsers = users.filter(u => u.role !== "admin" && !paidUserIds.has(u.id));
+
+          const collected: string[] = [];
+          if (emailCollectPaid) paidUsers.forEach(u => collected.push(u.email));
+          if (emailCollectUnpaid) unpaidUsers.forEach(u => collected.push(u.email));
+          const emailText = collected.join("\n");
+
+          const handleCopy = () => {
+            if (!emailText) return;
+            navigator.clipboard.writeText(emailText).then(() => {
+              setEmailCopied(true);
+              setTimeout(() => setEmailCopied(false), 2200);
+            });
+          };
+
+          return (
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+              style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(16px)" }}
+              onClick={() => setShowEmailCollectModal(false)}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 8 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full max-w-lg rounded-2xl overflow-hidden"
+                style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
+                onClick={e => e.stopPropagation()}>
+
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(96,165,250,0.12)", border: "1px solid rgba(96,165,250,0.2)" }}>
+                      <Mail size={16} style={{ color: "#60a5fa" }} />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-sm">E-posta Listesi</h3>
+                      <p className="text-gray-600 text-xs mt-0.5">Kullanıcı grubu seçerek e-postaları topla</p>
+                    </div>
+                  </div>
+                  <button onClick={() => setShowEmailCollectModal(false)}
+                    className="w-8 h-8 rounded-xl flex items-center justify-center transition-colors hover:bg-white/10"
+                    style={{ color: "rgba(255,255,255,0.4)" }}>
+                    <X size={16} />
+                  </button>
+                </div>
+
+                {/* Selection cards */}
+                <div className="p-5 space-y-3">
+                  {[
+                    {
+                      key: "paid" as const,
+                      label: "Ödeme Yapanlar",
+                      desc: `${paidUsers.length} kullanıcı — en az 1 tamamlanmış ödeme`,
+                      color: "#34d399",
+                      checked: emailCollectPaid,
+                      toggle: () => setEmailCollectPaid(p => !p),
+                    },
+                    {
+                      key: "unpaid" as const,
+                      label: "Ödeme Yapmayanlar",
+                      desc: `${unpaidUsers.length} kullanıcı — henüz ödeme yapmamış`,
+                      color: "#f87171",
+                      checked: emailCollectUnpaid,
+                      toggle: () => setEmailCollectUnpaid(p => !p),
+                    },
+                  ].map(item => (
+                    <button key={item.key} onClick={item.toggle}
+                      className="w-full flex items-center gap-4 p-4 rounded-xl text-left transition-all duration-200"
+                      style={{
+                        background: item.checked ? `${item.color}0d` : "rgba(255,255,255,0.025)",
+                        border: `1px solid ${item.checked ? `${item.color}40` : "rgba(255,255,255,0.07)"}`,
+                      }}>
+                      {/* Checkbox visual */}
+                      <div className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-all duration-200"
+                        style={{
+                          background: item.checked ? item.color : "rgba(255,255,255,0.05)",
+                          border: `1.5px solid ${item.checked ? item.color : "rgba(255,255,255,0.15)"}`,
+                        }}>
+                        {item.checked && <CheckCircle size={12} style={{ color: "#050505" }} />}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-white">{item.label}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>{item.desc}</p>
+                      </div>
+                      <span className="text-xl font-black shrink-0" style={{ color: item.color }}>
+                        {item.key === "paid" ? paidUsers.length : unpaidUsers.length}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Email list output */}
+                <div className="px-5 pb-5 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.3)" }}>
+                      {collected.length} e-posta
+                    </span>
+                    {collected.length > 0 && (
+                      <button onClick={handleCopy}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200"
+                        style={{
+                          background: emailCopied ? "rgba(52,211,153,0.15)" : "rgba(204,255,0,0.1)",
+                          color: emailCopied ? "#34d399" : "#ccff00",
+                          border: `1px solid ${emailCopied ? "rgba(52,211,153,0.3)" : "rgba(204,255,0,0.25)"}`,
+                        }}
+                        data-testid="button-copy-emails">
+                        {emailCopied ? (
+                          <><CheckCircle size={12} /> Kopyalandı!</>
+                        ) : (
+                          <><Mail size={12} /> Tümünü Kopyala</>
+                        )}
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="rounded-xl overflow-hidden" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                    {collected.length === 0 ? (
+                      <div className="flex flex-col items-center justify-center py-8 gap-2">
+                        <Mail size={28} style={{ color: "rgba(255,255,255,0.1)" }} />
+                        <p className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>Grup seçin</p>
+                      </div>
+                    ) : (
+                      <div className="max-h-52 overflow-y-auto divide-y" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+                        <AnimatePresence>
+                          {collected.map((email, i) => (
+                            <motion.div key={email}
+                              initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: 8 }}
+                              transition={{ duration: 0.2, delay: Math.min(i * 0.02, 0.3) }}
+                              className="flex items-center justify-between px-4 py-2.5 group hover:bg-white/[0.03]">
+                              <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.6)" }}>{email}</span>
+                              <span className="text-[10px] tabular-nums shrink-0 ml-3" style={{ color: "rgba(255,255,255,0.2)" }}>{i + 1}</span>
+                            </motion.div>
+                          ))}
+                        </AnimatePresence>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })()}
+      </AnimatePresence>
     </div>
   );
 }
