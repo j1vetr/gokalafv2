@@ -88,7 +88,7 @@ const STEPS = [
   {
     useWhatsApp: true,
     title: "WhatsApp ile İletişim",
-    desc: "24 saat içinde koçunuz sizi WhatsApp'tan arayacak.",
+    desc: "24 saat içinde koçunuz WhatsApp üzerinden sizinle iletişime geçecek.",
     done: false,
     color: "#25d366",
   },
