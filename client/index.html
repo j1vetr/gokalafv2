@@ -15,27 +15,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
     
-    <!-- Google Analytics -->
+    <!-- Preconnect: Facebook CDN (deferred pixel için önceden bağlantı) -->
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+
+    <!-- Google Analytics — async, ana iş parçacığını bloklamaz -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHR36JTV56"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-FHR36JTV56');
+      gtag('config', 'G-FHR36JTV56', { send_page_view: false });
+      window.addEventListener('load', function() { gtag('event', 'page_view'); }, { once: true });
     </script>
-    
-    <!-- Meta Pixel Code -->
+
+    <!-- Meta Pixel — INP optimizasyonu: stub hemen kurulur, ağır script sayfa yüklendikten sonra enjekte edilir -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '33582373151376249');
-    fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      /* script enjeksiyonu kasıtlı olarak atlandı — aşağıda defer ile yapılıyor */
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','33582373151376249');
+    fbq('track','PageView');
+
+    function _loadFBScript(){
+      if(window._fbqScriptInjected)return;
+      window._fbqScriptInjected=true;
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+    }
+    if(document.readyState==='complete'){
+      setTimeout(_loadFBScript,0);
+    } else {
+      window.addEventListener('load',function(){ setTimeout(_loadFBScript,0); },{once:true});
+    }
     </script>
     <!-- End Meta Pixel Code -->
     
