@@ -89,29 +89,55 @@ export async function registerRoutes(
   app.use(sessionMiddleware);
 
   // ===== SEO SITEMAP =====
-  app.get("/sitemap.xml", async (req, res) => {
-    const baseUrl = "https://gokalaf.com";
-    const staticPages = [
+  const SITEMAP_BASE = "https://gokalaf.com";
+  const today = new Date().toISOString().split("T")[0];
+
+  function buildUrlset(pages: { loc: string; priority: string; changefreq: string; lastmod?: string }[]) {
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(p => `  <url>
+    <loc>${SITEMAP_BASE}${p.loc}</loc>
+    <lastmod>${p.lastmod || today}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join("\n")}
+</urlset>`;
+  }
+
+  // Sitemap index
+  app.get("/sitemap.xml", (_req, res) => {
+    const index = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${SITEMAP_BASE}/sitemap-sayfalar.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITEMAP_BASE}/sitemap-araclar.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITEMAP_BASE}/sitemap-yazilar.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITEMAP_BASE}/sitemap-hareketler.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+</sitemapindex>`;
+    res.setHeader("Content-Type", "application/xml");
+    res.send(index);
+  });
+
+  // Sayfalar sitemap
+  app.get("/sitemap-sayfalar.xml", (_req, res) => {
+    const pages = [
       { loc: "/", priority: "1.0", changefreq: "weekly" },
       { loc: "/paketler", priority: "0.95", changefreq: "weekly" },
       { loc: "/hakkimizda", priority: "0.9", changefreq: "monthly" },
       { loc: "/yazilar", priority: "0.9", changefreq: "daily" },
       { loc: "/araclar", priority: "0.9", changefreq: "weekly" },
-      { loc: "/araclar/boy-kilo-endeksi", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/vki", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/kalori", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/tdee", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/makro", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/ideal-kilo", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/vucut-yagi", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/bir-tekrar-max", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/su-tuketimi", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/kalp-atisi", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/protein", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/dinlenme", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/bel-kalca-orani", priority: "0.95", changefreq: "monthly" },
-      { loc: "/araclar/vucut-tipi", priority: "0.95", changefreq: "monthly" },
-      { loc: "/egzersiz-akademisi", priority: "0.8", changefreq: "weekly" },
+      { loc: "/egzersiz-akademisi", priority: "0.85", changefreq: "weekly" },
       { loc: "/giris", priority: "0.5", changefreq: "monthly" },
       { loc: "/kayit", priority: "0.5", changefreq: "monthly" },
       { loc: "/gizlilik-politikasi", priority: "0.3", changefreq: "yearly" },
@@ -119,47 +145,66 @@ export async function registerRoutes(
       { loc: "/iptal-iade", priority: "0.3", changefreq: "yearly" },
       { loc: "/mesafeli-satis-sozlesmesi", priority: "0.3", changefreq: "yearly" },
     ];
+    res.setHeader("Content-Type", "application/xml");
+    res.send(buildUrlset(pages));
+  });
 
+  // Araçlar sitemap
+  app.get("/sitemap-araclar.xml", (_req, res) => {
+    const pages = [
+      { loc: "/araclar/boy-kilo-endeksi", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vki", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/kalori", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/tdee", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/makro", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/ideal-kilo", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vucut-yagi", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/bir-tekrar-max", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/su-tuketimi", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/kalp-atisi", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/protein", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/dinlenme", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/bel-kalca-orani", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vucut-tipi", priority: "0.9", changefreq: "monthly" },
+    ];
+    res.setHeader("Content-Type", "application/xml");
+    res.send(buildUrlset(pages));
+  });
+
+  // Yazılar sitemap
+  app.get("/sitemap-yazilar.xml", async (_req, res) => {
     try {
       const { articles: staticArticles } = await import("../shared/articles-data.js");
-      const articlePages = staticArticles.map((a: any) => ({
-          loc: `/yazilar/${a.slug}`,
-          priority: "0.95",
-          changefreq: "monthly",
-        }));
+      const pages = staticArticles.map((a: any) => ({
+        loc: `/yazilar/${a.slug}`,
+        priority: "0.85",
+        changefreq: "monthly",
+        lastmod: a.publishedAt ? new Date(a.publishedAt).toISOString().split("T")[0] : today,
+      }));
+      res.setHeader("Content-Type", "application/xml");
+      res.send(buildUrlset(pages));
+    } catch (error) {
+      console.error("Yazılar sitemap error:", error);
+      res.setHeader("Content-Type", "application/xml");
+      res.send(buildUrlset([]));
+    }
+  });
 
-      const exercises = await storage.getAllExerciseSlugs();
-      const exercisePages = exercises.map(slug => ({
+  // Hareketler sitemap
+  app.get("/sitemap-hareketler.xml", async (_req, res) => {
+    try {
+      const slugs = await storage.getAllExerciseSlugs();
+      const pages = slugs.map((slug: string) => ({
         loc: `/egzersiz-akademisi/${slug}`,
-        priority: "0.7",
+        priority: "0.75",
         changefreq: "monthly",
       }));
-
-      const allPages = [...staticPages, ...articlePages, ...exercisePages];
-
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages.map(page => `  <url>
-    <loc>${baseUrl}${page.loc}</loc>
-    <priority>${page.priority}</priority>
-    <changefreq>${page.changefreq}</changefreq>
-  </url>`).join("\n")}
-</urlset>`;
-
       res.setHeader("Content-Type", "application/xml");
-      res.send(sitemap);
+      res.send(buildUrlset(pages));
     } catch (error) {
-      console.error("Sitemap generation error:", error);
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${staticPages.map(page => `  <url>
-    <loc>${baseUrl}${page.loc}</loc>
-    <priority>${page.priority}</priority>
-    <changefreq>${page.changefreq}</changefreq>
-  </url>`).join("\n")}
-</urlset>`;
+      console.error("Hareketler sitemap error:", error);
       res.setHeader("Content-Type", "application/xml");
-      res.send(sitemap);
+      res.send(buildUrlset([]));
     }
   });
 
@@ -202,7 +247,11 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-Sitemap: https://gokalaf.com/sitemap.xml`;
+Sitemap: https://gokalaf.com/sitemap.xml
+Sitemap: https://gokalaf.com/sitemap-sayfalar.xml
+Sitemap: https://gokalaf.com/sitemap-araclar.xml
+Sitemap: https://gokalaf.com/sitemap-yazilar.xml
+Sitemap: https://gokalaf.com/sitemap-hareketler.xml`;
 
     res.setHeader("Content-Type", "text/plain");
     res.send(robotsTxt);
