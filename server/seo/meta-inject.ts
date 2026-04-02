@@ -132,11 +132,11 @@ export function generateHomeMeta(): MetaTags {
   });
 
   return {
-    title: "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
-    description: "Gokalaf ile profesyonel online fitness ve vücut geliştirme koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları, haftalık takip ve uzman rehberliği ile hedeflerinize ulaşın.",
-    keywords: "online fitness koçluğu, vücut geliştirme, personal trainer, beslenme programı, antrenman programı, online pt, fitness koçu, kilo verme, kas yapma, gokalaf",
-    ogTitle: "Gokalaf | Online Fitness & Vücut Geliştirme Koçluğu",
-    ogDescription: "Bedenini, beslenmeni ve antrenmanlarını veri odaklı sistemle yönet. Gokalaf ile profesyonel online koçluk hizmeti.",
+    title: "Gokalaf | Online Fitness & Uzaktan Eğitim Koçluğu",
+    description: "Gokalaf ile profesyonel online fitness ve uzaktan eğitim koçluğu. Kişiselleştirilmiş antrenman ve beslenme programları, haftalık takip ve uzman rehberliği ile hedeflerinize ulaşın.",
+    keywords: "online fitness koçluğu, fitness uzaktan eğitim, uzaktan fitness eğitimi, online uzaktan antrenman, vücut geliştirme, personal trainer, beslenme programı, antrenman programı, online pt, fitness koçu, kilo verme, kas yapma, uzaktan koçluk, gokalaf",
+    ogTitle: "Gokalaf | Online Fitness & Uzaktan Eğitim Koçluğu",
+    ogDescription: "Bedenini, beslenmeni ve antrenmanlarını veri odaklı sistemle yönet. Gokalaf ile profesyonel online fitness ve uzaktan eğitim koçluğu.",
     ogImage: DEFAULT_OG_IMAGE,
     ogUrl: BASE_URL,
     ogType: "website",
@@ -209,7 +209,7 @@ export function generatePackagesMeta(packages: Package[]): MetaTags {
   return {
     title: "Online Fitness Koçluk Paketleri - Fiyatlar ve İçerikler | Gokalaf",
     description: `Profesyonel online fitness koçluğu paketleri. ${weekOptions} seçenekleri ile kişiselleştirilmiş antrenman programı, beslenme danışmanlığı ve 7/24 WhatsApp desteği.${priceRange ? ` Fiyatlar: ${priceRange}` : ''}`,
-    keywords: "online fitness koçluğu fiyat, personal trainer online, pt paketi, antrenman programı satın al, beslenme danışmanlığı paket, fitness koçu fiyatları, 8 haftalık program, 12 haftalık program, 16 haftalık program, 24 haftalık program, gokalaf paket",
+    keywords: "online fitness koçluğu fiyat, fitness uzaktan eğitim, uzaktan antrenman programı, uzaktan fitness eğitimi, personal trainer online, pt paketi, antrenman programı satın al, beslenme danışmanlığı paket, fitness koçu fiyatları, 8 haftalık program, 12 haftalık program, 16 haftalık program, 24 haftalık program, gokalaf paket",
     ogTitle: "Online Fitness Koçluk Paketleri | Gokalaf",
     ogDescription: `${weekOptions} seçenekleri. Kişisel antrenman ve beslenme programı, haftalık takip, 7/24 destek.${priceRange ? ` ${priceRange}` : ''}`,
     ogImage: DEFAULT_OG_IMAGE,
