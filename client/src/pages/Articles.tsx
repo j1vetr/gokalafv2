@@ -232,18 +232,18 @@ export default function Articles() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4"
+            className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 text-center md:text-left"
           >
             Bilgi Kütüphanesi
           </motion.p>
 
           {/* Title row */}
-          <div className="flex items-end justify-between gap-6 mb-5">
+          <div className="flex flex-col items-center md:flex-row md:items-end md:justify-between gap-3 md:gap-6 mb-5">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading font-black text-white uppercase leading-none"
+              className="font-heading font-black text-white uppercase leading-none text-center md:text-left"
               style={{ fontSize: "clamp(52px, 9vw, 100px)", letterSpacing: "-0.03em" }}
             >
               YAZILAR
@@ -254,9 +254,9 @@ export default function Articles() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-right shrink-0 hidden sm:block"
+              className="text-center md:text-right shrink-0"
             >
-              <p className="font-heading font-black text-white leading-none" style={{ fontSize: "clamp(36px, 5vw, 56px)" }}>
+              <p className="font-heading font-black text-white leading-none" style={{ fontSize: "clamp(32px, 5vw, 56px)" }}>
                 <Counter target={counts.all} />
               </p>
               <p className="text-gray-500 text-xs uppercase tracking-widest font-medium">Uzman Yazı</p>
@@ -276,12 +276,12 @@ export default function Articles() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8"
+            className="flex flex-col items-center md:flex-row md:items-center md:justify-between gap-4 mb-8"
           >
-            <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
+            <p className="text-gray-400 text-sm max-w-sm leading-relaxed text-center md:text-left">
               Fitness, beslenme ve takviyeler üzerine bilimsel temelli, uygulanabilir içerikler.
             </p>
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-6">
               {categories.map(c => (
                 <div key={c.id} className="text-center">
                   <p className="font-heading font-bold text-white text-lg leading-none" style={{ color: CAT[c.id]?.color }}>
@@ -298,7 +298,7 @@ export default function Articles() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="relative max-w-lg"
+            className="relative max-w-lg mx-auto md:mx-0"
           >
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
             <input
@@ -453,10 +453,10 @@ export default function Articles() {
               </p>
             </div>
 
-            <div className="relative z-10 flex flex-col sm:flex-row gap-3 shrink-0">
-              <Link href="/paketler">
+            <div className="relative z-10 flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
+              <Link href="/paketler" className="w-full sm:w-auto">
                 <button
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-black transition-opacity hover:opacity-90"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-black transition-opacity hover:opacity-90"
                   style={{ background: "#ccff00", boxShadow: "0 0 24px rgba(204,255,0,0.25)" }}
                   data-testid="button-cta-packages"
                 >
@@ -464,9 +464,9 @@ export default function Articles() {
                   <ArrowRight size={16} />
                 </button>
               </Link>
-              <a href="https://wa.me/905312822402" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/905312822402" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <button
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-white transition-all hover:bg-white/5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-white transition-all hover:bg-white/5"
                   style={{ border: "1px solid rgba(255,255,255,0.12)" }}
                   data-testid="button-whatsapp-cta"
                 >
