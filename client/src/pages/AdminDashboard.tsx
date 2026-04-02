@@ -388,6 +388,7 @@ export default function AdminDashboard() {
 
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [isTogglingMaintenance, setIsTogglingMaintenance] = useState(false);
+  const [usersRoleFilter, setUsersRoleFilter] = useState("all");
 
   // Analytics state
   const [analyticsData, setAnalyticsData] = useState<any>(null);
@@ -2004,125 +2005,224 @@ export default function AdminDashboard() {
                 </motion.div>
               )}
 
-              {activeTab === "users" && (
-                <motion.div
-                  key="users"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                >
-                  <div className="bg-gradient-to-br from-[#0A0A0A] to-[#0D0D0D] border border-white/10 rounded-2xl overflow-hidden">
-                    <div className="p-6 border-b border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                      <div>
-                        <h2 className="text-xl font-heading font-bold uppercase text-white">Kullanıcılar</h2>
-                        <p className="text-gray-500 text-sm mt-1">Toplam {users.length} kullanıcı</p>
-                      </div>
-                      <div className="relative w-full sm:w-72">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
-                        <Input 
-                          placeholder="Kullanıcı ara..." 
+              {activeTab === "users" && (() => {
+                const roleFiltered = filteredUsers.filter(u =>
+                  usersRoleFilter === "all" ? true :
+                  usersRoleFilter === "admin" ? u.role === "admin" :
+                  u.role !== "admin"
+                );
+                const adminCount = users.filter(u => u.role === "admin").length;
+                const userCount = users.filter(u => u.role !== "admin").length;
+                const thisMonth = new Date();
+                const newThisMonth = users.filter(u => {
+                  const d = new Date(u.createdAt);
+                  return d.getMonth() === thisMonth.getMonth() && d.getFullYear() === thisMonth.getFullYear();
+                }).length;
+
+                const getInitials = (name: string) => name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+                const getAvatarColor = (id: string) => {
+                  const colors = ["#ccff00", "#60a5fa", "#c084fc", "#f472b6", "#34d399", "#fb923c"];
+                  const idx = id.charCodeAt(0) % colors.length;
+                  return colors[idx];
+                };
+
+                return (
+                  <motion.div key="users" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.4 }} className="space-y-5">
+
+                    {/* ── STAT PILLS ─────────────────────────────────── */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {[
+                        { label: "Toplam Üye", value: users.length, color: "#ccff00" },
+                        { label: "Admin", value: adminCount, color: "#f87171" },
+                        { label: "Kullanıcı", value: userCount, color: "#60a5fa" },
+                        { label: "Bu Ay Yeni", value: newThisMonth, color: "#34d399" },
+                      ].map((s, i) => (
+                        <motion.div key={s.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.06 }}
+                          className="rounded-2xl p-4 flex flex-col gap-1"
+                          style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                          <span className="text-[10px] uppercase tracking-[0.2em] font-bold" style={{ color: "rgba(255,255,255,0.3)" }}>{s.label}</span>
+                          <span className="text-2xl font-black font-heading" style={{ color: s.color }}>{s.value}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* ── SEARCH + FILTER BAR ─────────────────────────── */}
+                    <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                      <div className="relative flex-1 min-w-0">
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 w-4 h-4" />
+                        <input
+                          placeholder="İsim veya e-posta ile ara..."
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className="pl-10 bg-white/5 border-white/10"
+                          className="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none focus:ring-1 transition-all"
+                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                           data-testid="input-search-users"
                         />
                       </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {(["all", "admin", "user"] as const).map(f => (
+                          <button key={f} onClick={() => setUsersRoleFilter(f)}
+                            className="px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+                            style={{
+                              background: usersRoleFilter === f ? "#ccff00" : "rgba(255,255,255,0.04)",
+                              color: usersRoleFilter === f ? "#050505" : "rgba(255,255,255,0.4)",
+                              border: usersRoleFilter === f ? "none" : "1px solid rgba(255,255,255,0.08)",
+                            }}>
+                            {f === "all" ? "Tümü" : f === "admin" ? "Admin" : "Üye"}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                    <div className="overflow-x-auto">
-                      <Table>
-                        <TableHeader>
-                          <TableRow className="border-white/10 hover:bg-transparent">
-                            <TableHead className="text-primary">Ad Soyad</TableHead>
-                            <TableHead className="text-primary">Email</TableHead>
-                            <TableHead className="text-primary">Telefon</TableHead>
-                            <TableHead className="text-primary">Kaynak</TableHead>
-                            <TableHead className="text-primary">Rol</TableHead>
-                            <TableHead className="text-primary">Kayıt</TableHead>
-                            <TableHead className="text-primary text-right">İşlemler</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {filteredUsers.map((u) => (
-                            <TableRow key={u.id} className="border-white/10 hover:bg-white/5" data-testid={`row-user-${u.id}`}>
-                              <TableCell className="text-white font-medium">{u.fullName}</TableCell>
-                              <TableCell className="text-gray-400">{u.email}</TableCell>
-                              <TableCell className="text-gray-400">{u.phone || "-"}</TableCell>
-                              <TableCell>
-                                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 capitalize">
-                                  {u.trafficSource || "direct"}
-                                </Badge>
-                              </TableCell>
-                              <TableCell>
-                                <Badge className={u.role === "admin" ? "bg-red-500/20 text-red-400 border-red-500/30" : "bg-blue-500/20 text-blue-400 border-blue-500/30"}>
-                                  {u.role === "admin" ? "Admin" : "Kullanıcı"}
-                                </Badge>
-                              </TableCell>
-                              <TableCell className="text-gray-500">{new Date(u.createdAt).toLocaleDateString("tr-TR")}</TableCell>
-                              <TableCell className="text-right">
-                                <div className="flex items-center justify-end gap-1">
-                                  <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    onClick={() => fetchUserDetails(u.id)}
-                                    className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
-                                    data-testid={`button-view-user-${u.id}`}
-                                  >
-                                    <Eye size={16} />
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    onClick={() => {
+
+                    {/* ── USER CARDS GRID ─────────────────────────────── */}
+                    {roleFiltered.length === 0 ? (
+                      <div className="flex flex-col items-center justify-center py-20 gap-4"
+                        style={{ borderRadius: 20, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                        <Users size={40} className="text-gray-700" />
+                        <p className="text-gray-600 text-sm">Kullanıcı bulunamadı</p>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+                        <AnimatePresence>
+                          {roleFiltered.map((u, i) => {
+                            const initials = getInitials(u.fullName);
+                            const avatarColor = getAvatarColor(u.id);
+                            const isAdmin = u.role === "admin";
+                            const userOrders = orders.filter(o => o.userId === u.id);
+                            const activeOrder = userOrders.find(o => o.status === "active" || o.status === "paid");
+
+                            return (
+                              <motion.div key={u.id}
+                                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.96 }}
+                                transition={{ duration: 0.3, delay: Math.min(i * 0.04, 0.3) }}
+                                data-testid={`row-user-${u.id}`}
+                                className="group relative rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+                                style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
+                                onMouseEnter={e => (e.currentTarget.style.borderColor = isAdmin ? "rgba(248,113,113,0.3)" : "rgba(204,255,0,0.2)")}
+                                onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)")}>
+
+                                {/* Top accent line */}
+                                <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                  style={{ background: isAdmin ? "#f87171" : "#ccff00" }} />
+
+                                <div className="p-5">
+                                  {/* Header row */}
+                                  <div className="flex items-start gap-3 mb-4">
+                                    {/* Avatar */}
+                                    <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 font-bold text-sm"
+                                      style={{ background: `${avatarColor}18`, border: `1.5px solid ${avatarColor}40`, color: avatarColor }}>
+                                      {initials}
+                                    </div>
+
+                                    {/* Name + email */}
+                                    <div className="flex-1 min-w-0">
+                                      <p className="text-white font-semibold text-sm truncate leading-tight">{u.fullName}</p>
+                                      <p className="text-gray-500 text-xs truncate mt-0.5">{u.email}</p>
+                                    </div>
+
+                                    {/* Role badge */}
+                                    <span className="shrink-0 px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider"
+                                      style={{
+                                        background: isAdmin ? "rgba(248,113,113,0.12)" : "rgba(96,165,250,0.12)",
+                                        color: isAdmin ? "#f87171" : "#60a5fa",
+                                        border: `1px solid ${isAdmin ? "rgba(248,113,113,0.2)" : "rgba(96,165,250,0.2)"}`,
+                                      }}>
+                                      {isAdmin ? "Admin" : "Üye"}
+                                    </span>
+                                  </div>
+
+                                  {/* Info rows */}
+                                  <div className="space-y-2 mb-4">
+                                    {u.phone && (
+                                      <div className="flex items-center gap-2">
+                                        <Phone size={11} className="text-gray-600 shrink-0" />
+                                        <span className="text-xs text-gray-500">{u.phone}</span>
+                                      </div>
+                                    )}
+                                    <div className="flex items-center gap-2">
+                                      <Calendar size={11} className="text-gray-600 shrink-0" />
+                                      <span className="text-xs text-gray-500">
+                                        {new Date(u.createdAt).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
+                                      </span>
+                                    </div>
+                                    {u.trafficSource && (
+                                      <div className="flex items-center gap-2">
+                                        <Activity size={11} className="text-gray-600 shrink-0" />
+                                        <span className="text-xs capitalize" style={{ color: SOURCE_COLORS[u.trafficSource as TrafficSource]?.text || "rgba(255,255,255,0.4)" }}>
+                                          {SOURCE_LABELS[u.trafficSource as TrafficSource] || u.trafficSource}
+                                        </span>
+                                      </div>
+                                    )}
+                                    {activeOrder && (
+                                      <div className="flex items-center gap-2">
+                                        <Package size={11} className="shrink-0" style={{ color: "#ccff00" }} />
+                                        <span className="text-xs" style={{ color: "#ccff00" }}>
+                                          {packageMap[activeOrder.packageId]?.name || "Aktif Paket"}
+                                        </span>
+                                      </div>
+                                    )}
+                                  </div>
+
+                                  {/* Action buttons */}
+                                  <div className="flex items-center gap-1.5 pt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                                    <button onClick={() => fetchUserDetails(u.id)}
+                                      className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-medium transition-all hover:brightness-110"
+                                      style={{ background: "rgba(96,165,250,0.1)", color: "#60a5fa", border: "1px solid rgba(96,165,250,0.2)" }}
+                                      data-testid={`button-view-user-${u.id}`}>
+                                      <Eye size={12} /> Detay
+                                    </button>
+
+                                    <button onClick={() => {
                                       setSelectedUser({ user: u, orders: [], measurements: [], habits: [] });
-                                      setEditUserForm({
-                                        fullName: u.fullName,
-                                        email: u.email,
-                                        phone: u.phone || "",
-                                        role: u.role,
-                                      });
+                                      setEditUserForm({ fullName: u.fullName, email: u.email, phone: u.phone || "", role: u.role });
                                       setShowUserEditModal(true);
                                     }}
-                                    className="text-primary hover:text-primary hover:bg-primary/10"
-                                    data-testid={`button-edit-user-${u.id}`}
-                                  >
-                                    <Edit size={16} />
-                                  </Button>
-                                  {u.role !== "admin" && (
-                                    <>
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        onClick={() => openAssignModal(u.id)}
-                                        className="text-green-400 hover:text-green-300 hover:bg-green-500/10"
-                                        data-testid={`button-assign-package-${u.id}`}
-                                        title="Paket Ata"
-                                      >
-                                        <Package size={16} />
-                                      </Button>
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        onClick={() => {
-                                          setUserToDelete(u);
-                                          setShowDeleteConfirm(true);
-                                        }}
-                                        className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
-                                        data-testid={`button-delete-user-${u.id}`}
-                                      >
-                                        <Trash2 size={16} />
-                                      </Button>
-                                    </>
-                                  )}
+                                      className="flex items-center justify-center w-8 h-8 rounded-xl transition-all hover:brightness-110"
+                                      style={{ background: "rgba(204,255,0,0.08)", border: "1px solid rgba(204,255,0,0.15)" }}
+                                      data-testid={`button-edit-user-${u.id}`}>
+                                      <Edit size={13} style={{ color: "#ccff00" }} />
+                                    </button>
+
+                                    {!isAdmin && (
+                                      <>
+                                        <button onClick={() => openAssignModal(u.id)}
+                                          className="flex items-center justify-center w-8 h-8 rounded-xl transition-all hover:brightness-110"
+                                          style={{ background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.2)" }}
+                                          data-testid={`button-assign-package-${u.id}`}
+                                          title="Paket Ata">
+                                          <Package size={13} style={{ color: "#34d399" }} />
+                                        </button>
+
+                                        <button onClick={() => { setUserToDelete(u); setShowDeleteConfirm(true); }}
+                                          className="flex items-center justify-center w-8 h-8 rounded-xl transition-all hover:brightness-110"
+                                          style={{ background: "rgba(248,113,113,0.08)", border: "1px solid rgba(248,113,113,0.2)" }}
+                                          data-testid={`button-delete-user-${u.id}`}>
+                                          <Trash2 size={13} style={{ color: "#f87171" }} />
+                                        </button>
+                                      </>
+                                    )}
+                                  </div>
                                 </div>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
+                              </motion.div>
+                            );
+                          })}
+                        </AnimatePresence>
+                      </div>
+                    )}
+
+                    {/* Result count */}
+                    {roleFiltered.length > 0 && (
+                      <p className="text-center text-xs text-gray-700 pt-2">
+                        {roleFiltered.length} kullanıcı gösteriliyor
+                      </p>
+                    )}
+                  </motion.div>
+                );
+              })()}
 
               {activeTab === "packages" && (
                 <motion.div
