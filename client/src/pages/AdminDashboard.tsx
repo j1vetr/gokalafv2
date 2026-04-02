@@ -389,6 +389,8 @@ export default function AdminDashboard() {
   const [maintenanceMode, setMaintenanceMode] = useState(false);
   const [isTogglingMaintenance, setIsTogglingMaintenance] = useState(false);
   const [usersRoleFilter, setUsersRoleFilter] = useState("all");
+  const [usersPage, setUsersPage] = useState(1);
+  const USERS_PER_PAGE = 12;
   const [showEmailCollectModal, setShowEmailCollectModal] = useState(false);
   const [emailCollectPaid, setEmailCollectPaid] = useState(true);
   const [emailCollectUnpaid, setEmailCollectUnpaid] = useState(false);
@@ -2015,6 +2017,9 @@ export default function AdminDashboard() {
                   usersRoleFilter === "admin" ? u.role === "admin" :
                   u.role !== "admin"
                 );
+                const totalPages = Math.ceil(roleFiltered.length / USERS_PER_PAGE);
+                const safePage = Math.min(usersPage, Math.max(1, totalPages));
+                const paginatedUsers = roleFiltered.slice((safePage - 1) * USERS_PER_PAGE, safePage * USERS_PER_PAGE);
                 const adminCount = users.filter(u => u.role === "admin").length;
                 const userCount = users.filter(u => u.role !== "admin").length;
                 const thisMonth = new Date();
@@ -2059,7 +2064,7 @@ export default function AdminDashboard() {
                         <input
                           placeholder="İsim veya e-posta ile ara..."
                           value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}
+                          onChange={(e) => { setSearchTerm(e.target.value); setUsersPage(1); }}
                           className="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none focus:ring-1 transition-all"
                           style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                           data-testid="input-search-users"
@@ -2067,7 +2072,7 @@ export default function AdminDashboard() {
                       </div>
                       <div className="flex items-center gap-2 shrink-0 flex-wrap">
                         {(["all", "admin", "user"] as const).map(f => (
-                          <button key={f} onClick={() => setUsersRoleFilter(f)}
+                          <button key={f} onClick={() => { setUsersRoleFilter(f); setUsersPage(1); }}
                             className="px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200"
                             style={{
                               background: usersRoleFilter === f ? "#ccff00" : "rgba(255,255,255,0.04)",
@@ -2098,7 +2103,7 @@ export default function AdminDashboard() {
                     ) : (
                       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                         <AnimatePresence>
-                          {roleFiltered.map((u, i) => {
+                          {paginatedUsers.map((u, i) => {
                             const initials = getInitials(u.fullName);
                             const avatarColor = getAvatarColor(u.id);
                             const isAdmin = u.role === "admin";
@@ -2226,10 +2231,61 @@ export default function AdminDashboard() {
                       </div>
                     )}
 
-                    {/* Result count */}
-                    {roleFiltered.length > 0 && (
-                      <p className="text-center text-xs text-gray-700 pt-2">
-                        {roleFiltered.length} kullanıcı gösteriliyor
+                    {/* ── PAGINATION ──────────────────────────────────── */}
+                    {totalPages > 1 && (
+                      <div className="flex items-center justify-between pt-2">
+                        <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
+                          {(safePage - 1) * USERS_PER_PAGE + 1}–{Math.min(safePage * USERS_PER_PAGE, roleFiltered.length)} / {roleFiltered.length} kullanıcı
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setUsersPage(p => Math.max(1, p - 1))}
+                            disabled={safePage === 1}
+                            className="w-8 h-8 rounded-xl flex items-center justify-center transition-all disabled:opacity-25"
+                            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                            <ChevronRight size={14} className="rotate-180" style={{ color: "rgba(255,255,255,0.6)" }} />
+                          </button>
+
+                          <div className="flex items-center gap-1">
+                            {Array.from({ length: totalPages }, (_, i) => i + 1)
+                              .filter(p => p === 1 || p === totalPages || Math.abs(p - safePage) <= 1)
+                              .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+                                if (idx > 0 && (p as number) - (arr[idx - 1] as number) > 1) acc.push("…");
+                                acc.push(p);
+                                return acc;
+                              }, [])
+                              .map((p, idx) =>
+                                p === "…" ? (
+                                  <span key={`ellipsis-${idx}`} className="w-7 text-center text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>…</span>
+                                ) : (
+                                  <button
+                                    key={p}
+                                    onClick={() => setUsersPage(p as number)}
+                                    className="w-8 h-8 rounded-xl text-xs font-semibold transition-all duration-150"
+                                    style={{
+                                      background: safePage === p ? "#ccff00" : "rgba(255,255,255,0.04)",
+                                      color: safePage === p ? "#050505" : "rgba(255,255,255,0.4)",
+                                      border: safePage === p ? "none" : "1px solid rgba(255,255,255,0.07)",
+                                    }}>
+                                    {p}
+                                  </button>
+                                )
+                              )}
+                          </div>
+
+                          <button
+                            onClick={() => setUsersPage(p => Math.min(totalPages, p + 1))}
+                            disabled={safePage === totalPages}
+                            className="w-8 h-8 rounded-xl flex items-center justify-center transition-all disabled:opacity-25"
+                            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                            <ChevronRight size={14} style={{ color: "rgba(255,255,255,0.6)" }} />
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                    {roleFiltered.length > 0 && totalPages <= 1 && (
+                      <p className="text-center text-xs pt-2" style={{ color: "rgba(255,255,255,0.2)" }}>
+                        {roleFiltered.length} kullanıcı
                       </p>
                     )}
                   </motion.div>
