@@ -234,8 +234,6 @@ export default function Exercises() {
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-3">Gokalaf</p>
-
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h1
                 className="font-heading font-black text-white uppercase leading-none"
