@@ -1712,7 +1712,7 @@ Sitemap: https://gokalaf.com/sitemap.xml`;
     }
   });
 
-  app.post("/api/coupons/validate", requireAuth, async (req, res) => {
+  app.post("/api/coupons/validate", async (req, res) => {
     try {
       const { code, orderAmount } = z.object({
         code: z.string(),
