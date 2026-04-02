@@ -217,7 +217,7 @@ export default function Exercises() {
       />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative pt-[76px] pb-8 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 pb-8 overflow-hidden">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(ellipse, rgba(204,255,0,0.07) 0%, transparent 70%)", filter: "blur(60px)" }}
@@ -255,9 +255,6 @@ export default function Exercises() {
             <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
               className="h-px bg-white/10 my-4 origin-left" />
 
-            <p className="text-gray-400 text-sm max-w-md">
-              Çalıştırmak istediğin kas grubuna tıkla ya da ada göre ara — hareketleri keşfet.
-            </p>
           </motion.div>
         </div>
       </section>
@@ -272,7 +269,7 @@ export default function Exercises() {
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-full lg:w-[340px] xl:w-[360px] shrink-0 lg:sticky lg:top-[76px]"
+              className="w-full lg:w-[340px] xl:w-[360px] shrink-0 lg:sticky lg:top-[120px]"
             >
               <div
                 className="rounded-2xl p-5"
@@ -385,7 +382,7 @@ export default function Exercises() {
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="flex-1 min-w-0 scroll-mt-[76px]"
+              className="flex-1 min-w-0 scroll-mt-[120px]"
             >
               {/* Search + results header */}
               <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mb-5">

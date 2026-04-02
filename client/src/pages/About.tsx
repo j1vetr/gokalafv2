@@ -46,8 +46,9 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
 }
 
 /* ─── Fade-in wrapper ──────────────────────────────────────── */
-const Reveal = ({ children, delay = 0, y = 20 }: { children: React.ReactNode; delay?: number; y?: number }) => (
+const Reveal = ({ children, delay = 0, y = 20, className = "" }: { children: React.ReactNode; delay?: number; y?: number; className?: string }) => (
   <motion.div
+    className={className}
     initial={{ opacity: 0, y }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
@@ -123,7 +124,7 @@ export default function About() {
         {/* ══════════════════════════════════════════════════════
             HERO — split layout
         ══════════════════════════════════════════════════════ */}
-        <section className="relative flex flex-col lg:flex-row" style={{ paddingTop: 60, minHeight: "100vh" }}>
+        <section className="relative flex flex-col lg:flex-row pt-28 md:pt-36" style={{ minHeight: "100vh" }}>
 
           {/* Photo column */}
           <div className="relative w-full lg:w-[44%] shrink-0 h-[64vw] max-h-[500px] lg:h-auto lg:max-h-none lg:self-stretch">
@@ -345,11 +346,11 @@ export default function About() {
               </h2>
             </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {philosophy.map((item, i) => (
-                <Reveal key={item.title} delay={i * 0.1}>
+                <Reveal key={item.title} delay={i * 0.1} className="h-full">
                   <div
-                    className="group relative rounded-2xl p-7 md:p-8 overflow-hidden cursor-default transition-all duration-500 hover:-translate-y-1"
+                    className="group relative rounded-2xl p-7 md:p-8 overflow-hidden cursor-default transition-all duration-500 hover:-translate-y-1 flex flex-col h-full"
                     style={{
                       background: "rgba(255,255,255,0.025)",
                       border: "1px solid rgba(255,255,255,0.07)",
