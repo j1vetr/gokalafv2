@@ -193,9 +193,8 @@ export default function Packages() {
   const [naturalWeeks, setNaturalWeeks] = useState(12);
   const [teamWeeks, setTeamWeeks] = useState(12);
   const [mobileTab, setMobileTab] = useState<"natural" | "team">("natural");
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 400], [0, 40]);
 
   const { data: packages = [], isLoading } = useQuery<Package[]>({
     queryKey: ["/api/packages"],
@@ -267,7 +266,7 @@ export default function Packages() {
         </div>
 
         {/* ── HERO ────────────────────────────────────────────── */}
-        <section ref={heroRef} className="relative pt-32 md:pt-40 pb-16 md:pb-20 z-10">
+        <section className="relative pt-32 md:pt-40 pb-16 md:pb-20 z-10">
 
           {/* Marquee strip */}
           <motion.div style={{ y: heroY }} className="mb-10 md:mb-14">
