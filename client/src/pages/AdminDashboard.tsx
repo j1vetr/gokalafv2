@@ -1494,15 +1494,6 @@ export default function AdminDashboard() {
                       { key: "cancelled", label: "İptal",      count: orders.filter(o => o.status === "cancelled").length },
                     ];
 
-                    const sourceEmoji: Record<string, string> = {
-                      "arama-motoru": "🔍",
-                      "yapay-zeka":   "🤖",
-                      "sosyal-medya": "📱",
-                      "reklam":       "📣",
-                      "e-posta":      "📧",
-                      "direkt":       "🔗",
-                      "diger":        "🌐",
-                    };
 
                     const getProgress = (order: Order) => {
                       if (!order.startDate || !order.endDate) return null;
@@ -1652,7 +1643,6 @@ export default function AdminDashboard() {
                                       : "bg-[#0a0a0a] border-white/[0.06] text-gray-600 hover:text-gray-400"
                                   }`}
                                 >
-                                  <span>{sourceEmoji[src] || "🌐"}</span>
                                   {SOURCE_LABELS[src as TrafficSource] || src}
                                 </button>
                               ))}
@@ -1732,7 +1722,6 @@ export default function AdminDashboard() {
                                     <div key={src}>
                                       <div className="flex items-center justify-between mb-1.5">
                                         <div className="flex items-center gap-2">
-                                          <span className="text-[13px]">{sourceEmoji[src] || "🌐"}</span>
                                           <span className={`text-[12px] font-medium ${textColor}`}>
                                             {SOURCE_LABELS[src as TrafficSource] || src}
                                           </span>
@@ -1896,7 +1885,6 @@ export default function AdminDashboard() {
                                       {/* Kaynak */}
                                       <div className="flex justify-end pr-3">
                                         <span className={`flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] border ${srcColors.bg} ${srcColors.text} ${srcColors.border}`}>
-                                          <span>{sourceEmoji[src] || "🌐"}</span>
                                           <span className="hidden sm:inline">{SOURCE_LABELS[src] || "Diğer"}</span>
                                         </span>
                                       </div>
