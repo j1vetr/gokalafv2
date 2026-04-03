@@ -74,7 +74,7 @@ export const SOURCE_LABELS: Record<TrafficSource, string> = {
   "arama-motoru": "Arama Motoru",
   "yapay-zeka": "Yapay Zeka",
   "sosyal-medya": "Sosyal Medya",
-  "reklam": "Reklam",
+  "reklam": "Google",
   "e-posta": "E-posta",
   "direkt": "Direkt",
   "diger": "Diğer",
