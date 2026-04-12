@@ -371,6 +371,39 @@ export default function TDEECalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            TDEE Hakkında <span className="text-primary">Doğru Bilinen Yanlışlar ve Sık Sorulan Sorular</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Günde kaç kalori yakmalıyım?" sorusu, internet üzerinde en çok aranan beslenme sorularından biridir. Cevap kişisel TDEE değerine bağlıdır ve bu değer sanıldığından çok daha kişiseldir. İki kişi aynı boy, kilo ve yaşa sahip olsa bile TDEE değerleri günlük 200-400 kcal farklı olabilir; bu farkı yaratan faktörler arasında genetik, kas kütlesi, hormonal durum ve geçmiş diyet geçmişi sayılabilir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">TDEE Hakkında En Çok Sorulan Sorular</h3>
+            <p>
+              <strong className="text-white">TDEE ile BMR arasındaki fark nedir?</strong> BMR (Bazal Metabolizma Hızı), vücudun tamamen dinlenme halindeyken harcadığı kaloriyi ifade eder. TDEE ise BMR'ın tüm günlük fiziksel aktivitelerle çarpılmış halidir. TDEE her zaman BMR'dan büyüktür. Hareketsiz bir yaşam süren biri için TDEE ≈ BMR × 1.2 iken, çok aktif biri için TDEE ≈ BMR × 1.7-1.9'a çıkabilir.
+            </p>
+            <p>
+              <strong className="text-white">TDEE her gün aynı mı kalır?</strong> Hayır. Günlük TDEE, aktivite düzeyine bağlı olarak önemli ölçüde dalgalanır. Aktif bir antrenman gününde TDEE, dinlenme gününe kıyasla 300-800 kcal daha yüksek olabilir. Bu nedenle sabit bir kalori hedefi belirlemek yerine, bazı programlarda antrenman ve dinlenme günleri için farklı kalori hedefleri kullanılır; bu yaklaşım "kalori döngüsü" (calorie cycling) olarak bilinir.
+            </p>
+            <p>
+              <strong className="text-white">TDEE hesabı ne kadar doğrudur?</strong> En iyi formüller bile gerçek değerden yüzde 10-15 sapabilir. Bu sapma; bireysel metabolik hız farklılıklarından, bağırsak mikrobiyomundan, hormonal profilden ve ölçülemez günlük aktivitelerden kaynaklanır. Bu yüzden TDEE hesabını bir başlangıç noktası olarak kullanıp iki-üç haftalık kilo takibiyle kişiselleştirmek, formülü körü körüne uygulamaktan çok daha etkilidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Metabolik Adaptasyon: Neden Zaman İçinde Kilo Kaybı Yavaşlar?</h3>
+            <p>
+              Uzun süreli kalori kısıtlamasında vücut, enerji harcamasını düşürerek yeni koşullara adapte olur. Bu olgu "metabolik adaptasyon" ya da "adaptif termogenez" olarak adlandırılır. Bir çalışma, 6 aylık kilo verme programının ardından katılımcıların dinlenme metabolizma hızının öngörülenden günlük 100-300 kcal daha az olduğunu ortaya koymuştur. Bu, yalnızca kilo kaybından değil, fizyolojik bir uyum mekanizmasından kaynaklanmaktadır.
+            </p>
+            <p>
+              Metabolik adaptasyonla başa çıkmanın en etkili yolu "diyet molası" vermektir. Belirli aralıklarla (her 8-12 haftada bir) TDEE seviyesine çıkmak, leptin hormonunu yenileyerek metabolizmayı canlandırır. Bu stratejinin uzun vadeli kilo yönetiminde çok daha sürdürülebilir sonuçlar verdiğini gösteren araştırmalar giderek çoğalmaktadır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">TDEE'yi Artırmanın Kanıtlanmış Yolları</h3>
+            <p>
+              TDEE doğuştan sabit değildir; yaşam tarzı seçimleriyle önemli ölçüde artırılabilir. Direnç antrenmanı kas kütlesini artırarak dinlenme metabolizmasını yükseltir; her ekstra kilogram kas dokusu günlük yaklaşık 13-15 kcal ek enerji tüketimine katkı sağlar. Günlük NEAT (antrenman dışı fiziksel aktivite) artırmak da TDEE üzerinde şaşırtıcı büyük etkiler yaratabilir; ofis çalışanlarında standı masa kullanımı, merdiven tercihi ve yürüyüş araları günlük ek 300-500 kcal anlamına gelebilir. Uyku kalitesini iyileştirmek ise büyüme hormonu üretimini artırarak metabolizma hızını destekler.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="tdee" />
         <CalculatorFAQ title="TDEE Hesaplama" faqs={tdeeFAQs} schemaUrl="https://gokalaf.com/araclar/tdee-hesaplama" />
       </div>

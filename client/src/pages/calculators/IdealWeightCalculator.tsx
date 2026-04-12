@@ -346,6 +346,36 @@ export default function IdealWeightCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            İdeal Kiloya Ulaşmak: <span className="text-primary">Gerçekçi Beklentiler ve Bilimsel Yaklaşım</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "İdeal kilom kaç olmalı?" sorusu, Türkiye'de her ay milyonlarca kez aranan sorular arasında yer almaktadır. Bu sorunun yanıtı; boy, cinsiyet, kemik yapısı ve kas kütlesi gibi faktörlere göre değişir. Ancak bir sayıyı hedef olarak belirlemek, süreci yönetmenin yalnızca başlangıcıdır. Asıl mesele o sayıya nasıl ulaşılacağı ve bu noktada uzun süre kalınabileceğidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kilo Vermek İçin Ne Kadar Süre Gerekir?</h3>
+            <p>
+              Matematiksel hesaplamaya göre yaklaşık 7700 kalorilik açık, 1 kg yağ kaybına eşdeğerdir. Günlük 500 kcal açıkla haftada yaklaşık 0.5 kg, günlük 1000 kcal açıkla haftada yaklaşık 1 kg kilo kaybı öngörülür. Ancak bu hesap lineer değildir; vücut adaptasyon mekanizmaları devreye girer ve ilk haftalardaki hızlı düşüş — çoğunlukla su ve glikojen kaybını yansıtır — yavaşlar. İdeal kiloya ne kadar sürede ulaşılacağını hesaplamak için mevcut kilo ile hedef kilo arasındaki farkı, haftalık 0.3-0.5 kg kayıpla bölmek gerçekçi bir zaman çerçevesi verir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Boy ve Kilo Tablosu: Turkiye için Sağlıklı Ağırlık Aralıkları</h3>
+            <p>
+              Türkiye'de en sık aranan konulardan biri "boy kilo tablosu" ya da "boya göre ideal kilo" hesabıdır. Genel bir rehber olarak; 160 cm boy için sağlıklı kilo aralığı 47-65 kg, 170 cm için 53-72 kg, 175 cm için 56-77 kg, 180 cm için 60-82 kg olarak belirtilebilir. Ancak bu rakamlar, kas kütlesi ve kemik yapısı hesaba katılmadan yalnızca VKİ sınırlarına dayalıdır; bireysel değerlendirme için her zaman daha spesifik hesaplama araçları kullanılmalıdır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Yo-Yo Etkisi Neden Oluşur ve Nasıl Önlenir?</h3>
+            <p>
+              Kilo verildikten sonra geri alınması — yo-yo etkisi — kilo yönetiminin en yaygın ve en hayal kırıklığı yaratan sonucudur. Araştırmalar, kilo veren insanların yüzde 80'inden fazlasının 5 yıl içinde verdikleri kiloların büyük bölümünü geri aldığını ortaya koymaktadır. Bu durumun temelinde birkaç mekanizma yatar: adipoz doku (yağ hücreleri) küçülür ama yok olmaz; leptin düzeyleri düşer ve iştah artar; metabolik hız kalıcı olarak baskılanabilir.
+            </p>
+            <p>
+              Yo-yo etkisini önlemenin en güçlü stratejisi, kilo verme sürecinde kas kütlesini korumaktır. Bunu sağlamanın yolu ise yeterli protein alımı ve düzenli direnç antrenmanıdır. Kas dokusu, beden ağırlığının korunmasında hem metabolik hem de davranışsal mekanizmalar aracılığıyla kritik bir rol oynar. Kasları yüksek tutmak; TDEE'yi yüksek tutmak, açlık hormonlarını dengelemek ve hedef kiloyu sürdürmeyi kolaylaştırmak anlamına gelir.
+            </p>
+            <p>
+              İdeal kilonuzu yalnızca hedef bir sayı olarak değil; sürdürülebilir beslenme alışkanlıkları, düzenli hareket ve kaliteli uyku etrafında kurulmuş bir yaşam tarzının doğal sonucu olarak görmek, bu noktaya ulaşmanızı ve orada kalmanızı çok daha olası kılacaktır.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="ideal-kilo" />
         <CalculatorFAQ title="İdeal Kilo Hesaplama" faqs={idealWeightFAQs} schemaUrl="https://gokalaf.com/araclar/ideal-kilo" />
       </div>

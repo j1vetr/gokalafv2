@@ -327,6 +327,42 @@ export default function RestTimerCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kas Toparlanması ve Uyku: <span className="text-primary">Göz Ardı Edilen Bağlantı</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Antrenman aralarında ne kadar dinlenmeliyim?", "Kaslar ne kadar sürede toparlanır?", "Uyku gerçekten bu kadar önemli mi?" — bu sorular sporseverler tarafından sıkça araştırılmaktadır. Bu rehberde, dinlenme ve toparlanma sürecinin fizyolojisini ve pratik optimizasyon yollarını açıklıyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kaslar Ne Zaman Büyür: Antrenman Sırasında mı, Sonrasında mı?</h3>
+            <p>
+              Çok yaygın bir yanılgıyı düzeltmek gerekir: kaslar antrenman sırasında değil, sonrasında büyür. Egzersiz, kas dokusunda mikroskobik hasarlar oluşturur; bu hasar, vücudun onarım ve yeniden yapılanma sürecini tetikler. Bu süreç 24-72 saat arasında sürebilir ve sürenin uzunluğu kas grubuna, antrenman yoğunluğuna ve bireyin toparlanma kapasitesine bağlıdır. Kaslar hasardan daha güçlü onarılarak büyür; bu "süperameli" (supercompensation) olarak bilinir. Yeterli dinlenme vermeksizin aynı kas grubunu tekrar tekrar çalıştırmak bu süreci engeller.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Uyku Esnasında Vücutta Ne Olur?</h3>
+            <p>
+              Uyku, antrenman adaptasyonunun gerçekleştiği birincil zaman dilimidir. Derin uyku (slow-wave sleep) evrelerinde büyüme hormonu (GH) günlük salgısının yüzde 70-80'i gerçekleşir. Büyüme hormonu, protein sentezini teşvik eder, yağ asitlerini enerji olarak mobilize eder ve kas dokusunu onarır. Bu nedenle yetersiz uyku, antrenmanın büyük bölümünün boşa gitmesi anlamına gelir: egzersiz yaptınız, uyarım oluşturdunuz, ancak adaptasyonun gerçekleşeceği ortamı sağlamadınız.
+            </p>
+            <p>
+              Araştırmalar, uyku kalitesini ve süresini iyileştirmenin kas gücü, reaksiyon süresi, kardiyovasküler dayanıklılık ve yaralanma riskini anlamlı biçimde etkilediğini göstermektedir. Stanford Üniversitesi'nin basketbolcularla yürüttüğü bir çalışmada, uyku süresi 10 saate çıkarılan oyuncuların sprint süreleri hızlandı, serbest atış isabetliliği arttı ve genel performans anlamlı biçimde iyileşti.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Toparlanmayı Hızlandıran Kanıtlanmış Stratejiler</h3>
+            <p>
+              <strong className="text-white">Aktif dinlenme:</strong> Yoğun antrenmandan sonraki gün hafif yürüyüş, yüzme veya yoga gibi düşük yoğunluklu aktiviteler, kan akışını artırarak metabolik atıkların uzaklaştırılmasını hızlandırır. Pasif dinlenmeye (tamamen hareketsiz kalmak) kıyasla aktif dinlenme, kas yorgunluğunu genellikle daha hızlı giderir.
+            </p>
+            <p>
+              <strong className="text-white">Soğuk-sıcak kontrast terapi:</strong> Soğuk su banyosu veya kontrast duş (soğuk-sıcak dönüşümlü), özellikle yoğun antrenmandan sonra inflamasyonu azaltır ve toparlanmayı destekler. Araştırmalar bu yöntemin kas ağrısını yüzde 20-30 azaltabileceğini göstermektedir.
+            </p>
+            <p>
+              <strong className="text-white">Beslenme zamanlaması:</strong> Antrenman sonrası 30-60 dakika içinde protein ve karbonhidrat kombinasyonu tüketmek, kas glikojen depolarını hızla yenileyerek iyileşmeyi optimize eder. Bu "anabolik pencere" artık eskisi kadar dar görülmese de antrenmandan hemen sonra beslenmek hâlâ en akıllıca stratejidir.
+            </p>
+            <p>
+              Setler arasındaki dinlenme süreleri kadar günler arasındaki dinlenme de büyük önem taşır. Bu hesap makinesini antrenman sırasında kullanarak setler arası dinlenmeyi optimize edin; günlük ve haftalık toparlanma düzeninizi ise uyku kalitesi ve aktif dinlenme günleriyle destekleyin.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="dinlenme" />
         <CalculatorFAQ title="Dinlenme Süresi Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/dinlenme-suresi" />
       </div>

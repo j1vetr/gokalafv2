@@ -499,6 +499,42 @@ export default function MacroCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Makro Hesaplama <span className="text-primary">Sık Sorulan Sorular ve Pratik Rehber</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Makro takibi, son yıllarda Türkiye'de de hızla yaygınlaşan bir beslenme yönetim yaklaşımıdır. "Makrolarım neler olmalı?", "Kas yaparken karbonhidrat yenilmeli mi?", "Yağ tüketmek gerçekten yağlandırır mı?" gibi sorular, fitness topluluğunun en çok meşgul olduğu konuların başında gelmektedir. Bu rehberde bu soruları bilimsel kanıtlar ışığında yanıtlıyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Karbonhidrat Düşmanınız Değil</h3>
+            <p>
+              "Karbonhidrat yemek yağlandırır" efsanesi hâlâ yaygın olsa da bu saptama bilimsel olarak doğrulanmamıştır. Karbonhidrat alımı, tek başına yağ birikimine yol açmaz; toplam kalori dengesi belirleyicidir. Araştırmalar, eşit kalorili düşük yağlı ve düşük karbonhidratlı diyetlerin uzun vadede benzer kilo kaybı sağladığını göstermektedir. Karbonhidratların kısılması kısa vadede hızlı kilo kaybı gibi görünür; ancak bu büyük ölçüde glikojen ve su kaybıdır, yağ kaybı değil.
+            </p>
+            <p>
+              Egzersiz performansı söz konusu olduğunda karbonhidratın önemi daha da artar. Kasların birincil yakıtı olan glikojen, yalnızca karbonhidratlardan sentezlenir. Düşük karbonhidrat diyetlerinde antrenman yoğunluğu ve hacmi genellikle düşer; bu da uzun vadede kas kazanımını sekteye uğratabilir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Diyet Yağı Hakkında Bilinen Yanlışlar</h3>
+            <p>
+              "Yağ yemek yağlandırır" düşüncesi, diyetisyenlerin defalarca çürüttüğü ancak bir türlü ortadan kalkmayan bir efsanedir. Yağın gram başına 9 kcal içermesi, onu dikkatli tüketilmesi gereken bir makro yapar; ancak diyetten tamamen çıkarmak hormonsal dengeyi bozar. Testosteron, östrojen ve kortizon gibi steroid hormonlar kolesterolden sentezlenir ve kolesterol yalnızca hayvansal yağlarda bulunur. Çok düşük yağlı diyetler bu hormonların üretimini sekteye uğratabilir.
+            </p>
+            <p>
+              Öte yandan omega-3 yağ asitleri (yağlı balık, ceviz, keten tohumu) iltihaplanmayı azaltır, kalp sağlığını korur ve kas iyileşmesini hızlandırır. Bu "sağlıklı yağlar", makro planlamasında minimum yüzde 20-25 yağ alımının korunması gerektiğini destekleyen en önemli gerekçelerden biridir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Makrolarınızı Gerçek Hayata Uyarlama</h3>
+            <p>
+              <strong className="text-white">Dışarıda yemek yediğinizde ne yapmalısınız?</strong> Restoran porsiyonları genellikle ev porsiyonlarından yüzde 60-200 daha büyüktür. Pratik bir kural: tabağı ikiye bölün, yarısını eve götürün veya yarısını bitirmeden kalkın. Protein kaynağını tanımlayın (et, tavuk, balık), karbonhidrat kaynağını tahmin edin, sosları mümkün olduğunca sınırlayın.
+            </p>
+            <p>
+              <strong className="text-white">Makro takibini ne zaman bırakabilirsiniz?</strong> Beyin kısa sürede besin içeriklerini sezgisel olarak tahmin etmeyi öğrenir. Araştırmalar, yoğun makro takibi deneyiminin ardından çoğu kişinin bant kontrolü olmadan da makrolarına yakın beslendiğini göstermektedir. Hedefinize ulaştıktan sonra haftalık-aylık "spot kontrol" yöntemiyle makrolarınızı periyodik olarak gözden geçirmek, tam takipten vazgeçerken kazanımlarınızı korumanızı sağlar.
+            </p>
+            <p>
+              Son olarak makro takibinin psikolojik boyutunu göz ardı etmemek gerekir. Bazı bireyler için aşırı titiz makro takibi, yiyeceklerle sağlıksız bir ilişkiye ya da besin anksiyetesine yol açabilir. Bu işaretleri fark ederseniz, yüzde seksen kuralı veya daha esnek bir yaklaşım benimsemek, uzun vadeli sağlık ve mutluluk için çok daha uygun bir stratejidir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="makro" />
         <CalculatorFAQ title="Makro Hesaplama" faqs={macroFAQs} schemaUrl="https://gokalaf.com/araclar/makro-hesaplama" />
       </div>

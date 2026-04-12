@@ -454,6 +454,36 @@ export default function BodyTypeCalculator() {
             </div>
           </div>
 
+          {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              Vücut Tipine Göre <span className="text-primary">Özel Beslenme ve Antrenman Planı Rehberi</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                "Ektomorf nasıl kilo alır?", "Endomorf nasıl zayıflar?", "Mezomorf için en iyi antrenman programı hangisi?" — bu sorular vücut tipi hesabı yapan herkesi meşgul eden sorulardır. Bu rehberde her vücut tipi için özelleştirilmiş, bilimsel temelli yaklaşımları somut biçimde açıklıyoruz.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Ektomorf Kilo Nasıl Alır?</h3>
+              <p>
+                Ektomorflar için kilo almanın en büyük engeli genellikle iştah eksikliği ve yüksek metabolizmadır. Günde 3 büyük öğün yerine 5-6 daha küçük öğün, kalori alımını zorlanmadan artırmanın pratik yoludur. Kalori yoğun besinler (fındık ezmesi, avokado, zeytinyağı, tam tahıllar, kuru meyveler) hacim artışı olmaksızın önemli kalori katkısı sağlar. Protein alımı kilogram başına 2-2.5 gram olmalı ve her öğüne bir protein kaynağı eklenmelidir. Sıvı kaloriler (smoothie, süt bazlı içecekler) özellikle katı gıdaları yeterince tüketemeyenler için etkili bir tamamlayıcıdır.
+              </p>
+              <p>
+                Antrenman açısından ektomorflar için şiddetli kardio kas kazanımını sekteye uğratır. Haftada 2-3 yoğun direnç antrenmanı, minimum kardio ile birleştirildiğinde en verimli sonuçları üretir. Kompound hareketler (squat, deadlift, bench, row) yüksek tekrarlı izole hareketlere kıyasla anabolik yanıtı çok daha güçlü tetikler. Dinlenme ve uyku, ektomorflar için özellikle kritiktir.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Endomorf Nasıl Zayıflar?</h3>
+              <p>
+                Endomorflar için kilo yönetiminin anahtarı, insülin duyarlılığını artırmak ve metabolizmayı canlı tutmaktır. Karbonhidrat alımının egzersiz etrafında yoğunlaştırılması (antrenman öncesi ve sonrası), karbonhidratın yağ olarak depolanma eğilimini azaltır. Genel beslenme stili açısından orta karbonhidrat-yüksek protein-yeterli sağlıklı yağ içeren bir yaklaşım (örneğin kalorilerin yüzde 35'i karbonhidrat, yüzde 35'i protein, yüzde 30'u yağ) endomorflar için iyi bir başlangıç noktasıdır.
+              </p>
+              <p>
+                Antrenman açısından endomorflar hem kardiyovasküler egzersizden hem de direnç antrenmanından yararlanır. Direnç antrenmanı kas kütlesini koruyarak metabolizmayı yüksek tutar, kardio ise kalori açığını destekler. Haftada 4-5 gün antrenman (3 gün direnç + 2 gün orta yoğunluklu kardio) endomorflar için iyi belgelenmiş bir yaklaşımdır.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Vücut Tipi Zamanla Değişir Mi?</h3>
+              <p>
+                Kısmen evet. Somatotip ağırlıklı olarak genetik tarafından belirlense de yaşam tarzı değişiklikleriyle fenotipik ifadesi önemli ölçüde değişebilir. Yıllarca yoğun direnç antrenmanı yapan bir ektomorf, dışarıdan mezomorf gibi görünebilir. Endomorf olan biri doğru beslenme ve egzersizle atletik ve yalın bir görünüme ulaşabilir. Vücut tipini bir sınır olarak değil, başlangıç noktası olarak görmek; motivasyonu koruyarak gerçekçi bir ilerleme planı yapmanızı sağlar.
+              </p>
+            </div>
+          </div>
+
           <CalculatorFAQ faqs={vucutTipiFAQs} title="Vücut Tipi Sıkça Sorulan Sorular" />
           
           <RelatedCalculators currentSlug="vucut-tipi" />

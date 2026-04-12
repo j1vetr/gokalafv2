@@ -417,6 +417,45 @@ export default function CalorieCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kalori Sayarken <span className="text-primary">Yapılan En Yaygın Hatalar ve Çözümleri</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Kalori takibi, vücut kompozisyonu hedeflerine ulaşmanın en güvenilir yollarından biridir. Ancak araştırmalar, çoğu insanın yediklerini yüzde 20-50 oranında olduğundan az, fiziksel aktivitelerini ise yüzde 30-50 oranında fazla tahmin ettiğini ortaya koymaktadır. Bu sistematik sapma, kalori hesabından beklenen sonuçların alınamamasının başlıca nedenidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kalori Takibinde En Sık Yapılan 5 Hata</h3>
+            <p>
+              <strong className="text-white">1. Pişirme yağını ve sosları hesaba katmamak:</strong> Bir yemek kaşığı zeytinyağı 120 kalori içerir. Günde üç-dört kaşık kullanım, fark edilmeksizin 360-480 kalori ekler. Çoğu kalori takip uygulaması bu "gizli kalorileri" atlamayı kolaylaştırır.
+            </p>
+            <p>
+              <strong className="text-white">2. Porsiyon boyutlarını göz kararı tahmin etmek:</strong> Yapılan araştırmalar, insanların porsiyon boyutlarını ortalama yüzde 25-50 oranında küçümsediğini göstermektedir. Özellikle yüksek kalorili yoğun besinlerde (kuruyemişler, peynir, tahıllar) bu yanılsama çok belirginleşir. Mutfak terazisi kullanmak, bu hatayı en aza indiren en etkili yöntemdir.
+            </p>
+            <p>
+              <strong className="text-white">3. Sıvı kalorileri görmezden gelmek:</strong> Meyve suları, süt, sporcu içecekleri, alkol ve şekerli çaylar önemli kalori yükleri taşır ama çoğu kişi bunları "yemek" olarak değerlendirmez. 250 ml portakal suyu yaklaşık 110 kalori içerirken bütün portakal 62 kalori ve çok daha fazla lif sağlar. Sıvı kalorileri, toplam günlük alımı sessizce yüzde 15-20 artırabilir.
+            </p>
+            <p>
+              <strong className="text-white">4. Egzersiz kalorilerini çift saymak:</strong> Fitness cihazları ve uygulamaları egzersiz kalori hesaplamalarında yüzde 30-100 arasında değişen abartılı değerler üretebilir. Bu değerlere güvenip "egzersiz yaptım, daha fazla yiyebilirim" mantığıyla hareket etmek, kalori açığını tamamen ortadan kaldırabilir.
+            </p>
+            <p>
+              <strong className="text-white">5. Hafta sonu kalorilerini hafta içiyle dengelememek:</strong> Araştırmalar, insanların hafta içi oluşturdukları kalori açığının büyük bölümünü hafta sonu yedikleriyle kapattığını göstermektedir. Haftalık ortalama kalori alımı, günlük takipten çok daha anlamlı bir göstergedir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kilo Vermek İçin Günde Kaç Kalori Yenilmeli?</h3>
+            <p>
+              Bu, Türkiye'de en çok aranan fitness sorularından biridir. Genel yanıt şudur: TDEE'nizden 300-500 kalori düşük yemek, sürdürülebilir ve kas koruyucu bir kilo kaybı sağlar. 70 kg, orta aktif yaşam süren 30 yaşında bir kadın için bu yaklaşık 1500-1700 kcal/gün anlamına gelir. 80 kg, orta aktif 30 yaşında bir erkek için ise 2000-2200 kcal/gün civarındadır. Bunlar yalnızca başlangıç noktalarıdır; gerçek değer bireyden bireye değişir ve 2-3 haftalık kilo takibiyle kalibre edilmelidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kalori Açığı Ne Kadar Olmalı?</h3>
+            <p>
+              "Çok az yersen metabolizma yavaşlar" — bu yaygın ifadenin arkasında gerçek bir fizyolojik mekanizma yatmaktadır. Günlük 500 kalorininin üzerindeki açıklar, vücudun adaptif termogenezisini tetikler ve enerji harcamasını düşürür. Bu nedenle büyük kalori kısıtlamaları kısa vadede hızlı kilo kaybı verse de orta ve uzun vadede sonuçlar çoğunlukla hayal kırıklığı yaratır. 250-500 kcal arası bir günlük açık, hem sürdürülebilir hem de metabolizmanın korunması açısından bilimsel olarak desteklenen optimal aralığı temsil eder.
+            </p>
+            <p>
+              Bu hesap makinesini düzenli olarak kullanarak her 4-6 haftada bir kalori hedeflerinizi güncellemenizi öneririz. Kilo değiştikçe TDEE de değişir; dolayısıyla başlangıçta belirlenen kalori hedefi zamanla optimal olmaktan çıkar ve yeniden hesaplanması gerekir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="kalori" />
         <CalculatorFAQ title="Kalori Hesaplama" faqs={calorieFAQs} schemaUrl="https://gokalaf.com/araclar/kalori-hesaplama" />
       </div>

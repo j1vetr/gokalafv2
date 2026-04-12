@@ -359,6 +359,42 @@ export default function BMICalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            VKİ Hesabının <span className="text-primary">Sınırları ve Doğru Yorumlama Rehberi</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Vücut Kitle İndeksi, 1832 yılında Belçikalı matematikçi Adolphe Quetelet tarafından geliştirilen ve bugün dünyanın en yaygın kullanılan sağlık ölçümlerinden biri olmayı sürdüren bir formüldür. Ancak Quetelet bu formülü bireysel sağlık değerlendirmesi için değil, nüfus istatistikleri için tasarlamıştı. Bu önemli tarihsel bağlamı göz önünde bulundurduğumuzda, VKİ'nin hem güçlü hem de zayıf yönlerini çok daha net biçimde anlayabiliriz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">VKİ Neden Her Zaman Yeterli Değil?</h3>
+            <p>
+              VKİ'nin en temel sorunu, vücut ağırlığını oluşturan bileşenleri ayırt edememesidir. Kas dokusu, yağ dokusundan çok daha yoğundur; bu nedenle yüksek kas kütlesine sahip bir atlet, aynı boydaki hareketsiz bir bireyle aynı VKİ değerini paylaşabilir. Dünya Sağlık Örgütü sınıflandırmasına göre "obez" kategorisine giren bir powerlifting sporcusu, gerçekte yüzde 12 vücut yağıyla son derece sağlıklı bir tabloya sahip olabilir. Bu nedenle VKİ, kas kütlesi yüksek bireyler için yanıltıcı sonuçlar üretir.
+            </p>
+            <p>
+              Yaş da VKİ yorumlamada önemli bir faktördür. İleri yaşlarda kemik yoğunluğu azalırken kas kütlesi düşer; bu durum, gerçek vücut yağ yüzdesinin VKİ'nin öngördüğünden çok daha yüksek olmasına yol açabilir. 65 yaş üzeri bireylerde normal kabul edilen VKİ aralığının biraz daha geniş tutulması (22-27 arası) klinik pratikle daha uyumludur.
+            </p>
+            <p>
+              Etnik köken de VKİ eşiklerini etkiler. Asya kökenli bireyler için kronik hastalık riski, standart Batı normlarına göre daha düşük VKİ değerlerinde başlar. Dünya Sağlık Örgütü, Asya popülasyonu için "aşırı kilo" sınırını 25 yerine 23 olarak önermektedir. Bu farkı bilmek, özellikle farklı etnik geçmişlere sahip bireyler için doğru risk değerlendirmesi açısından hayati önem taşır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">VKİ ile Birlikte Kullanılması Gereken Ölçümler</h3>
+            <p>
+              Sağlık riskini daha doğru değerlendirmek için VKİ'yi tek başına kullanmak yerine şu ölçümlerle birleştirmek önerilir: Bel çevresi ölçümü (erkeklerde 94 cm, kadınlarda 80 cm üzeri risk sinyali verir), bel-kalça oranı (visseral yağ birikimini gösterir), vücut yağ yüzdesi (en doğru kompozisyon bilgisini sunar) ve kan biyomarkerları (trigliserid, HDL, insülin direnci). Bu dört ölçüm, VKİ ile birlikte değerlendirildiğinde çok daha kapsamlı ve güvenilir bir sağlık tablosu ortaya çıkar.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Sık Sorulan Sorular: VKİ Kaç Olmalı?</h3>
+            <p>
+              Arama motorlarında en çok sorulan soruların başında "kaç kiloda hangi VKİ değeri normal sayılır?" sorusu gelir. Türkiye'de 170 cm boyunda bir erkek için sağlıklı kilo aralığı 53-72 kg (VKİ 18.5-24.9) olarak hesaplanır. 165 cm boyundaki bir kadın içinse bu aralık 50-68 kg'a karşılık gelir. Ancak bu rakamlar yalnızca istatistiksel ortalamaları yansıtır; bireysel sağlık durumu, yaş ve vücut yapısı bu aralıkları önemli ölçüde değiştirebilir.
+            </p>
+            <p>
+              Öte yandan "VKİ 25 fazla kilolu sayılır mı?" sorusu da sıkça karşılaşılan bir sorundur. Teknik olarak evet; ancak bu etiket, bağlamdan koparıldığında yanıltıcı olabilir. Düzenli egzersiz yapan, kan değerleri normal olan ve bel çevresi ideal sınırlar içinde olan bir bireyin VKİ'si 25-27 arasında olsa bile gerçek sağlık riski son derece düşük olabilir.
+            </p>
+            <p>
+              Sonuç olarak VKİ, sağlığın bir fotoğrafını değil yalnızca bir ipucunu sunar. En doğru değerlendirme; VKİ, vücut yağ yüzdesi, bel çevresi ve yaşam tarzı alışkanlıklarının bir bütün olarak ele alınmasıyla mümkündür. Bu hesap makinesini düzenli olarak kullanarak zaman içindeki değişimlerinizi takip etmek, anlık bir ölçümden çok daha değerli bilgiler sağlayacaktır.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="vki" />
         <CalculatorFAQ title="BMI Hesaplama" faqs={bmiFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-kitle-indeksi" />
       </div>

@@ -330,6 +330,37 @@ export default function WaterIntakeCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Su İçme Alışkanlığı Hakkında <span className="text-primary">Sık Sorulan Sorular ve Uzman Tavsiyeleri</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Günde kaç litre su içmeliyim?" sorusu, sağlık ve beslenme alanında en sık aranan sorular arasında yer alır. Yanıt kişiden kişiye önemli ölçüde değişse de bu rehberde hem genel ilkeleri hem de bireysel ince ayarı yapmanıza yardımcı olacak bilimsel verileri paylaşıyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Günde 8 Bardak Su Gerçekten Yeterli Mi?</h3>
+            <p>
+              "Günde 8 bardak su için" tavsiyesi yaygın olmakla birlikte bilimsel bir temelden yoksundur. Bu ifade, muhtemelen 1945 tarihli bir ABD Gıda ve Beslenme Kurulu önerisinin yanlış yorumlanmasından kaynaklanmaktadır. Söz konusu öneri, günlük 2-2.5 litre suyun büyük bölümünün besinlerden karşılandığını da açıkça belirtmiştir. Güncel araştırmalar, "8 bardak" gibi sabit bir hedef yerine bireysel ihtiyaca göre belirlenen miktarın çok daha uygun olduğu sonucuna varıyor. Bu hesap makinesinin sunduğu kişiselleştirilmiş değer, bu nedenle sabit hedeflerden çok daha değerlidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Aşırı Su İçmek Zararlı Olabilir Mi?</h3>
+            <p>
+              Evet, nadir ancak ciddi bir durum olan hiponatremi (kan sodyumunun aşırı seyrelmesi), gereğinden fazla su tüketimiyle tetiklenebilir. Bu risk özellikle uzun mesafe koşularında veya aşırı terleme olmaksızın çok miktarda su tüketildiğinde ortaya çıkar. Günlük 4-5 litrenin üzerindeki su tüketimi sağlıklı yetişkinler için dikkat gerektirir. Normal koşullarda böbrekler sağlıklı bir insanın saatte yaklaşık 0.8-1 litre su atabilir; bu üst sınırın farkında olmak, aşırı su tüketiminden korunmanın ilk adımıdır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Suyun Kilo Vermeye Etkisi Var Mı?</h3>
+            <p>
+              Araştırmalar, yemekten önce 500 ml su içmenin kalori alımını ortalama yüzde 13 azalttığını göstermektedir. Bunun nedeni mide hacminin geçici olarak dolması ve tokluk sinyallerinin tetiklenmesidir. 12 haftalık bir çalışmada, yemekten önce su içen grup yemekten önce su içmeyen gruba kıyasla iki kat daha fazla kilo kaybetti. Soğuk su içmek ise vücudun suyu vücut sıcaklığına getirme çabası sayesinde çok küçük bir kalori harcamasına neden olur (yaklaşık 8-12 kcal/bardak); bu etki pratik açıdan anlamlı değildir ancak var olan tüm stratejilerin bir toplamı olarak değer taşır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Sporculara Özel Su Tüketim Rehberi</h3>
+            <p>
+              Profesyonel sporcularda ve yoğun antrenman yapanlarda su ihtiyacı dramatik biçimde artar. Maraton veya uzun mesafeli bisiklet gibi dayanıklılık sporlarında seans başına 2-4 litreye kadar çıkabilen sıvı kaybı söz konusudur. Bu düzeyde kayıplar yalnızca suyla değil, elektrolitlerle (sodyum, potasyum, magnezyum) birlikte yerine konulmalıdır. Hiponatreminin büyük bölümü, uzun etkinliklerde sadece su içen ve elektrolit almayan sporcuların başına gelir. Bir saatten uzun süren etkinliklerde sodyum içeren sporcu içecekleri veya elektrolit takviyeleri, yalnızca suya kıyasla çok daha üstün bir hidrasyon sağlar.
+            </p>
+            <p>
+              Günlük su tüketiminizi artırmanın en kolay yolu alışkanlık yığımlama tekniğidir: her kahve veya çay içişinizden sonra bir bardak su, her öğün öncesi bir bardak su ve her antrenman öncesi-sonrası su gibi mevcut alışkanlıklara su içmeyi bağlamak, bilinçli bir çaba harcamadan günlük hedefinizi tutturmanızı sağlar.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="su-tuketimi" />
         <CalculatorFAQ title="Su Tüketimi Hesaplama" faqs={waterIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/su-tuketimi" />
       </div>

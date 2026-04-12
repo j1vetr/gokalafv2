@@ -396,6 +396,36 @@ export default function WaistHipRatioCalculator() {
             </div>
           </div>
 
+          {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              Bel Çevresini Küçültmenin <span className="text-primary">Bilimsel Yolları ve Sık Sorulan Sorular</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                "Bel incelme egzersizleri neler?", "Göbek yağını yakmanın en hızlı yolu nedir?", "Bel kalça oranı nasıl düzeltilir?" — bu sorular fitness dünyasının en çok aranan konuları arasındadır. Bu rehberde bilimsel kanıtlara dayalı, gerçekçi ve uygulanabilir yanıtlar sunuyoruz.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Mekik Yapmak Göbeği Eritir Mi?</h3>
+              <p>
+                Bu en yaygın yanılgılardan biridir. Mekik (crunch) ve benzeri karın egzersizleri, karın kaslarını güçlendirir ve geliştirir; ancak üzerlerindeki yağ dokusunu doğrudan eritmez. "Bölgesel yağ yakımı" (spot reduction) bilimsel olarak defalarca çürütülmüş bir kavramdır. Bel çevresini gerçekten küçülten şey, genel vücut yağ yüzdesini düşüren sistematik bir yaklaşımdır. Karın antrenmanları bu hedef için destekleyici ama başlı başına yeterli değildir.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Visseral Yağı Azaltmanın En Hızlı Yolu</h3>
+              <p>
+                İyi haber şudur: visseral yağ, cilt altı yağa kıyasla diyet ve egzersiz müdahalelerine çok daha hızlı yanıt verir. Yüksek yoğunluklu interval antrenmanı (HIIT), visseral yağ azaltmada geleneksel düşük yoğunluklu kardiyoya kıyasla daha etkili olduğunu gösteren araştırmalar mevcuttur. Haftada 3 kez 20-30 dakikalık HIIT seansı, aylık bel çevresi ölçümlerinde gözle görülür fark yaratabilir. Direnç antrenmanı da visseral yağ azaltmada aerobik egzersizle karşılaştırılabilir sonuçlar vermektedir; özellikle bu ikisinin kombinasyonu en yüksek etkinliği sağlar.
+              </p>
+              <h3 className="text-base font-semibold text-white mt-4">Beslenmenin Bel Çevresi Üzerindeki Etkisi</h3>
+              <p>
+                İşlenmiş gıdalar, rafine karbonhidratlar ve trans yağlar visseral yağ birikimini tetikleyen başlıca besin faktörleridir. Öte yandan yüksek lif içeren diyet (günlük 25-30 gram hedef), visseral yağ azaltmayla güçlü biçimde ilişkilidir. Meğerse lifin en önemli faydalarından biri, bağırsak mikrobiyomunu olumlu yönde şekillendirerek iltihaplanmayı azaltması ve insülin duyarlılığını artırmasıdır; her ikisi de visseral yağ birikimini önleyen mekanizmalardır.
+              </p>
+              <p>
+                Alkol tüketimi de bel çevresini etkileyen önemli bir faktördür. Alkol, vücut tarafından yakıt olarak öncelikli kullanılır; bu süreçte yağ yakımı duraklar ve gıdalardan gelen kaloriler büyük ölçüde yağ olarak depolanır. Alkol ayrıca kortizol düzeyini yükselterek abdominal yağlanmaya doğrudan zemin hazırlar.
+              </p>
+              <p>
+                Bel-kalça oranınızı iki ayda bir ölçmek, tüm bu stratejilerin gerçek etkisini nesnel biçimde izlemenizi sağlar. Küçük ama tutarlı düşüşler — ayda 0.5-1 cm bel incelemesi — doğru yönde ilerlediğinizi gösterir. Bu hesap makinesini düzenli olarak kullanarak ilerlemenizi kayıt altına alın.
+              </p>
+            </div>
+          </div>
+
           <CalculatorFAQ faqs={belKalcaFAQs} title="Bel Kalça Oranı Sıkça Sorulan Sorular" />
           
           <RelatedCalculators currentSlug="bel-kalca-orani" />

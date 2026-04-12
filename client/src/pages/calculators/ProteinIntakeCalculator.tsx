@@ -317,6 +317,37 @@ export default function ProteinIntakeCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Protein Alımı Hakkında <span className="text-primary">Doğru Bilinen Yanlışlar ve Sık Sorulan Sorular</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Günde ne kadar protein almalıyım?" sorusu, spor ve beslenme alanında en çok aranan sorulardan biridir. Yanıt kişisel koşullara göre değişse de bilimsel literatürde bu konuda giderek güçlenen bir fikir birliği mevcuttur. Yanlış anlamalar ise genellikle iki uçta kümelenmektedir: ya protein alımı yetersiz kalır ya da "ne kadar çok o kadar iyi" mantığıyla gerektiğinden fazla tüketilir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Çok Fazla Protein Böbreklere Zarar Verir Mi?</h3>
+            <p>
+              Bu, spor dünyasının en köklü efsanelerinden biridir. Araştırmalar, böbrek fonksiyonu sağlıklı olan bireyler için yüksek protein alımının (3 g/kg'a kadar) böbrek sağlığını olumsuz etkilemediğini ortaya koymaktadır. Böbrek hastalığı veya böbrek yetmezliği olan bireyler için protein kısıtlaması gerekebilir; ancak bu durum, sağlıklı bireylere genelleştirilemez. Dünya genelinde milyonlarca sporcu yıllarca yüksek protein alımını sürdürmekte ve böbrek sorunu yaşamamaktadır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Bitkisel Protein Hayvansal Proteinle Aynı Etkiyi Sağlar Mı?</h3>
+            <p>
+              Bitkisel proteinlerin kas sentezi açısından hayvansal proteinlerden daha az etkili olduğu bilinmektedir; ancak bu fark yeterli miktarda ve doğru kombinasyonlarla büyük ölçüde kapatılabilir. Temel sorun, çoğu bitkisel proteinin düşük lösin içeriğidir. Lösin, kas protein sentezini tetikleyen en kritik amino asittir. Soya, lösin bakımından en zengin bitkisel protein kaynağıdır ve hayvansal proteinlere en yakın kas senteziuyarımını sağlar. Bezelye ve pirinç protein kombinasyonu da (50/50) eksiksiz bir amino asit profili oluşturur.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Yaşlılıkta Protein İhtiyacı Artar Mı?</h3>
+            <p>
+              Evet, önemli ölçüde. 60 yaş üzerinde kas dokusunun yenilenmesi için gereken uyarım eşiği yükselir; bu fenomene "anabolik direnç" denir. Başka bir deyişle, aynı miktarda kas sentezi için daha fazla protein gerekmektedir. Güncel araştırmalar, 65 yaş üzeri bireyler için kilogram başına en az 1.2-1.6 gram protein önermekte; bazı uzmanlar bu aralığın 2.0 g/kg'a kadar çıkılabileceğini savunmaktadır. Bu konuda bilinç oluşturmak özellikle önemlidir çünkü yaşlılıkta kas kaybı (sarkopeni) bağımsız yaşamı ve genel sağlığı tehdit eden en önde gelen faktörlerden biridir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Sabahları Protein Tüketmek Neden Bu Kadar Önemli?</h3>
+            <p>
+              Uyku sırasında 7-9 saatlik oruç sonrası vücut, kas protein yıkımı üstün gelmeye başlar. Sabah yüksek protein içeren bir kahvaltı, bu yıkım sürecini anabolizm (yapım) lehine döndürür. Araştırmalar, sabah kahvaltısına 30-40 gram protein eklemenin günlük toplam protein sentezini öğleden ve akşamdan alınan eşdeğer miktarına kıyasla anlamlı biçimde artırdığını ortaya koymaktadır. Bu nedenle sabah kahvaltısını atlamak veya düşük proteinli geçiştirmek, özellikle kas koruma ve gelişimi hedefleyenler için maliyetli bir alışkanlıktır.
+            </p>
+            <p>
+              Bu hesap makinesini üç ayda bir yeniden kullanmanızı öneririz. Kilo, aktivite düzeyi veya hedef değiştikçe optimum protein miktarı da değişir. Güncel verilerle hesaplanmış bir protein hedefi, hem sonuç almanızı hızlandırır hem de kaynaklarınızı en verimli şekilde kullanmanızı sağlar.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="protein" />
         <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci" />
       </div>

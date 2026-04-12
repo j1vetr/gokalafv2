@@ -444,6 +444,37 @@ export default function BoyKiloEndeksiCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Sağlıklı Vücut Ağırlığı İçin <span className="text-primary">Bütünsel Yaşam Tarzı Rehberi</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Sağlıklı bir vücut ağırlığını sürdürmek, yalnızca ne yediğiniz ve ne kadar hareket ettiğinizle sınırlı değildir. Modern araştırmalar, uyku, stres, sosyal bağlar ve çevre faktörlerinin de vücut ağırlığını belirlemede önemli roller üstlendiğini ortaya koymaktadır. Bu rehberde, boy kilo endeksinizi ve genel sağlık durumunuzu iyileştirmek için kanıtlanmış bütünsel stratejileri ele alıyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Türkiye'de Boy Kilo İlişkisi: Ne Bilmek Gerekir?</h3>
+            <p>
+              Türkiye İstatistik Kurumu verilerine göre Türkiye'deki yetişkin nüfusun yaklaşık yüzde 32'si obez, yüzde 35'i ise fazla kilolu kategorisinde yer almaktadır. Bu oran, son otuz yılda yaklaşık üç katına çıkmıştır. Hızlı kentleşme, sedanter yaşam tarzı, işlenmiş gıdalara artan erişim ve stres bu artışın başlıca nedenleri arasında sayılmaktadır. Bu bağlamda kendi ağırlık durumunuzu düzenli olarak takip etmek, kişisel sağlık yönetiminin kritik bir parçasıdır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Çevre Düzenlemesi: Sağlıklı Yemeyi Kolaylaştırın</h3>
+            <p>
+              Araştırmalar, kararlarımızın büyük bölümünün bilinçli tercihten değil çevre koşullarından şekillendiğini göstermektedir. "Çevre düzenlemesi" bu gerçeği avantaja dönüştürür: mutfakta sağlıklı gıdaları göz hizasına koyun, işlenmiş atıştırmalıkları görünmez alanlara kaldırın. Akşam yemeklerini küçük tabaklarda servis etmek — araştırmalara göre yüzde 20-30 daha az yenilmesini sağlar — gibi basit fiziksel değişiklikler, irade gücü gerektirmeksizin kalori alımını azaltabilir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Sosyal Çevrenin Kilo Üzerindeki Etkisi</h3>
+            <p>
+              Nicholas Christakis ve James Fowler'ın çığır açan araştırması, obezitenin sosyal ağlar üzerinden yayılabildiğini ortaya koydu. Yakın çevrenizde obezite olan kişilerin sayısı arttıkça, sizin de obez olma olasılığınız belirgin biçimde artmaktadır. Bunun tersi de geçerlidir: aktif ve sağlıklı beslenen bir sosyal çevre, sağlıklı davranışları pekiştirir. Bu bulgu, partnerlerin veya arkadaş gruplarının birlikte egzersiz yapmasının ve sağlıklı beslenmesinin neden bu kadar etkili olduğunu açıklamaktadır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Vücut Ağırlığını Yönetmede Mikrobiyomun Rolü</h3>
+            <p>
+              Bağırsak mikrobiyomu, son on yılın en heyecan verici araştırma alanlarından biridir. Araştırmalar, bağırsak bakteri çeşitliliğinin enerji metabolizması, yağ depolama eğilimi ve iştah hormonları üzerinde doğrudan etkisi olduğunu ortaya koymaktadır. Fermente gıdalar (yoğurt, kefir, turşu), yüksek lifli besinler ve polifenol açısından zengin besinler (meyveler, sebzeler, zeytinyağı) bağırsak mikrobiyomunu olumlu yönde şekillendirir ve böylece vücut ağırlığı yönetimine dolaylı ama gerçek bir katkı sağlar.
+            </p>
+            <p>
+              Boy kilo endeksinizi düzenli aralıklarla bu hesap makinesiyle takip etmek, sağlık yolculuğunuzdaki değişimleri nesnel biçimde görmenizi sağlar. Sayılara odaklanmak değil, ama sayıların anlattığı hikâyeyi dinlemek — işte sağlıklı yaşamın özü budur.
+            </p>
+          </div>
+        </div>
+
         {/* Related Calculators */}
         <RelatedCalculators currentSlug="boy-kilo-endeksi" />
         

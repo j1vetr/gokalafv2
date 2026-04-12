@@ -266,6 +266,37 @@ export default function HeartRateZonesCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kardiyovasküler Sağlık İçin <span className="text-primary">Kalp Hızı Egzersizi: Sık Sorulan Sorular</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Yağ yakma bölgesi gerçek mi?", "Cardio kalp hızı kaç olmalı?", "Sabah aç karnına kardio daha mı etkili?" — bu sorular fitness topluluğunun en merak ettiği konulardandır. Bu rehberde, kalp hızı temelli antrenmanın gerçek faydalarını ve yaygın yanılgıları ele alıyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Yağ Yakma Bölgesi Gerçek mi, Mit mi?</h3>
+            <p>
+              "Yağ yakma bölgesi" (genellikle maksimum kalp hızının yüzde 55-65'i) gerçek bir fizyolojik kavramdır; ancak sıklıkla yanlış anlaşılmaktadır. Bu bölgede yağ, toplam enerji üretiminin daha büyük bir yüzdesini oluşturur; ancak toplam kalori harcaması düşüktür. Daha yüksek yoğunluklarda karbonhidrat oranı artar ama toplam enerji harcaması da artar. Sonuç: aynı süre içinde yüksek yoğunluklu egzersiz genellikle daha fazla kalori ve daha fazla toplam yağ yakar. Bu nedenle "yağ yakmak istiyorum, düşük yoğunlukta çalışmalıyım" düşüncesi eksik bir yaklaşımdır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Dinlenme Kalp Hızı Düşürmenin Yolları</h3>
+            <p>
+              Düşük dinlenme kalp hızı, kardiyovasküler sağlığın önemli bir göstergesidir. Düzenli aerobik antrenman, kalbin her atışta daha fazla kan pompaladığı anlamına gelen "kalp hacmi artışı"na yol açar. Bu adaptasyon sayesinde kalp, aynı kanı pompalamak için daha az atış yapar; yani dinlenme kalp hızı düşer. Bu adaptasyon, haftalar-aylar içinde gelişir ve tutarlı aerobik egzersizle doğru orantılıdır. Elit dayanıklılık sporcularında dinlenme kalp hızı 30-40 atım/dk değerlerine kadar düşebilirken, hareketsiz bir yaşam süren biri için 70-90 atım/dk tipiktir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kalp Atış Hızı Yüksek Olunca Ne Yapmalı?</h3>
+            <p>
+              Egzersiz sırasında kalp atış hızı planlanan bölgenin çok üzerine çıkıyorsa birkaç olası neden düşünülebilir: yetersiz uyku veya toparlanma, yüksek stres, dehidrasyon, hastalık ya da aşırı antrenman. Bu durumda "zorla" hedef kalp hızını tutturmaya çalışmak yerine tempo düşürmek ya da aktif dinlenme gününe geçmek çok daha akıllıca bir karardır. Kronik olarak yüksek dinlenme kalp hızı (sürekli 90'ın üzeri) bir sağlık profesyoneliyle değerlendirilmelidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Kalp Hızı Egzersizinde Saat vs. Hissedilen Efor</h3>
+            <p>
+              Kalp hızı monitörü kullanmak antrenman kalitesini artırır; ancak tek başına yeterli değildir. "Algısal efor skalası" (RPE, 0-10 arası), kalp hızıyla birlikte kullanıldığında çok daha bütünlüklü bir geri bildirim sağlar. Örneğin, bir kişi Bölge 3 kalp hızı gösterse de RPE 8-9 gibi çok yüksek hissediyorsa bu vücudun olağanüstü yorgunluğuna işaret edebilir. Cihaz verileri ile öznel his birlikte değerlendirildiğinde en doğru antrenman kararları alınır.
+            </p>
+            <p>
+              Sonuç olarak kalp hızı bölgeleri, antrenman planlamasını rastgele tahminden sistematik bir bilime dönüştüren güçlü bir araçtır. Hedeflerinize göre doğru bölgede çalışmak, hem daha hızlı sonuç almanızı hem de uzun vadede sağlıklı ve sürdürülebilir bir egzersiz hayatı kurmanızı sağlar.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="kalp-atisi" />
         <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
       </div>

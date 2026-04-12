@@ -319,6 +319,40 @@ export default function OneRepMaxCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 4: Google Odaklı Uzman Rehberi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Güç Standartları ve <span className="text-primary">1RM Hakkında Sık Sorulan Sorular</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              "Squat'ta kaç kilo kaldırmalıyım?", "Bench press 1RM'im iyi mi?", "1RM ne kadar sürede artar?" — bu sorular, güç antrenmanı yapan herkesin merak ettiği konulardır. Bu rehberde güç standartları ve 1RM gelişimi hakkında gerçekçi bir perspektif sunuyoruz.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">Güç Standartları: Nerede Duruyorsunuz?</h3>
+            <p>
+              Güç standartları, vücut ağırlığına göreli 1RM değerlerine dayanır ve deneyim düzeyine göre kategorize edilir. Squat için genel referans noktaları şöyledir: yeni başlayan erkek için vücut ağırlığının yüzde 75'i, orta düzey için yüzde 150, ileri düzey için yüzde 200 ve elit sporcu için yüzde 250 veya üzeri. Kadınlar için bu değerler genellikle yüzde 20-30 daha düşüktür. Bench press için erkekte başlangıç yüzde 50, orta yüzde 100 ve ileri düzey yüzde 150 vücut ağırlığı olarak sınıflandırılır. Bu rakamlar kesin sınırlar değil, yol gösterici referans noktaları olarak değerlendirilmelidir.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">1RM Ne Kadar Sürede Artar?</h3>
+            <p>
+              1RM gelişim hızı, antrenman deneyimine göre dramatik biçimde farklılık gösterir. Yeni başlayanlar (0-1 yıl) "yeni başlayan kazanımları" sayesinde her 1-2 haftada belirgin güç artışı yaşarlar; bu dönemde aylık yüzde 5-15 gibi hızlı ilerlemeler mümkündür. Orta düzey sporcular (1-3 yıl) için aylık yüzde 2-5, ileri düzey sporcular (3+ yıl) için ise aylık yüzde 1-2 veya altı daha gerçekçidir. Güç antrenmanında ilerleme kaçınılmaz olarak yavaşlar; bu nedenle deneyimli sporcuların hedeflerini buna göre ayarlaması kritik önem taşır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">1RM Artırmak İçin En Etkili Antrenman Yöntemleri</h3>
+            <p>
+              <strong className="text-white">Lineer periodizasyon</strong>, yeni başlayanlar için en etkili yöntemdir. Her seansta ağırlığı küçük miktarlarda (alt vücut için 2.5 kg, üst vücut için 1.25 kg) artırmak, güçlü bir adaptasyon sinyali oluşturur. Lineer ilerleme platoya ulaştığında dalgalı veya blok periodizasyona geçmek süreci canlandırır.
+            </p>
+            <p>
+              <strong className="text-white">Submaksimal yükleme</strong>, 1RM test yapmadan güç kazanmanın en sürdürülebilir yoludur. Yüzde 85-90 yüklerde 2-3 tekrar ile birden fazla set yapmak (5×2 veya 6×3 gibi), nöromüsküler adaptasyonu maksimuma çıkarırken sakatlanma riskini minimize eder. Bu yöntem, Sovyet ağırlıkçılık programlarından günümüze uzanan köklü bir geleneğe dayanır.
+            </p>
+            <h3 className="text-base font-semibold text-white mt-4">1RM Testinden Sonra Ne Yapmalısınız?</h3>
+            <p>
+              Maksimal bir 1RM testi, merkezi sinir sistemini (MSS) yoğun biçimde yorar. Kas ağrısı minimum olsa bile MSS 48-72 saat tam toparlanma gerektirir. Bu nedenle test sonrası aktif dinlenme ya da düşük yoğunluklu teknik çalışması en uygun yaklaşımdır. Bazı koçlar, 1RM testini önemli bir yarışma veya hedeften 1-2 hafta önce değil, en az 2-3 hafta önce yapılmasını önerir; böylece test yorgunluğu pik performansı olumsuz etkilemez.
+            </p>
+            <p>
+              Bu hesap makinesini kullanarak 1RM değerlerinizi düzenli olarak hesaplayın ve zaman içindeki ilerlemenizi kaydedin. Büyük bileşik hareketlerde elde edilen güç artışı, fitness yolculuğunuzun en güvenilir ve motive edici göstergelerinden biridir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="bir-tekrar-max" />
         <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/one-rep-max" />
       </div>
