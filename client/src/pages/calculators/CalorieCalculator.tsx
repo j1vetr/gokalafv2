@@ -321,6 +321,102 @@ export default function CalorieCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Nedir & Nasıl Hesaplanır */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kalori <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Kalori, besinlerin içerdiği enerji miktarını ifade eden bir birimdir. Teknik tanımıyla bir kilokalori (kcal), bir litre suyu 1°C ısıtmak için gereken enerji miktarına eşittir. Beslenme dünyasında "kalori" derken aslında hep kilokalori'den bahsedilir; etiketlerde "200 kalori" yazan bir ürün, fizik açısından 200 kilokalori enerji içermektedir.
+            </p>
+            <p>
+              Vücudunuz her an enerji harcar — nefes alırken, uyurken, düşünürken ve hareket ederken. Bu enerji kaynağını besinlerden sağlarsınız. Karbonhidratlar ve proteinler gram başına yaklaşık 4 kcal, yağlar ise 9 kcal enerji sağlar. Alkol gram başına 7 kcal ile besin değeri neredeyse sıfır olan ama enerji yoğunluğu yüksek bir madde olarak öne çıkar.
+            </p>
+            <p>
+              Bu hesap makinesinde kullandığımız formül <strong className="text-white">Mifflin-St Jeor denklemdir</strong>. 1990 yılında geliştirilen ve bilimsel literatürde en doğru sonuçları verdiği kanıtlanan bu formül, günümüzde diyetisyenler ve spor bilimciler tarafından altın standart olarak kabul görmektedir. Formül şu şekilde çalışır:
+            </p>
+            <div className="bg-white/5 border border-white/10 rounded-xl p-4 space-y-2">
+              <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Mifflin-St Jeor Denklemi</div>
+              <div className="text-white font-mono text-sm"><span className="text-primary">Erkek:</span> BMR = (10 × kilo) + (6.25 × boy) − (5 × yaş) + 5</div>
+              <div className="text-white font-mono text-sm"><span className="text-pink-400">Kadın:</span> BMR = (10 × kilo) + (6.25 × boy) − (5 × yaş) − 161</div>
+            </div>
+            <p>
+              Bu denklem önce <strong className="text-white">Bazal Metabolizma Hızı'nı (BMR)</strong> verir. BMR; tamamen dinlenme halindeyken, hiçbir şey yemeden ve en temel yaşamsal fonksiyonları sürdürmek için vücudun tükettiği kalori miktarıdır. Kalp atışı, solunum, vücut ısısını koruma, sinir sistemi aktivitesi ve hücre yenilenmesi gibi süreçler bu enerjiyi tüketir. Çoğu yetişkin için BMR, toplam günlük enerji harcamasının yüzde 60 ila 75'ini oluşturur.
+            </p>
+            <p>
+              Mifflin-St Jeor'dan önce yaygın kullanılan Harris-Benedict denklemi (1919) de benzer mantıkla çalışır ancak modern araştırmalar Mifflin-St Jeor'un gerçek ölçümlerle daha yüksek korelasyon gösterdiğini ortaya koymuştur. Özellikle 10 kg'dan fazla fazla kilosu olan bireylerde doğruluk farkı belirginleşmektedir. Bu yüzden günümüzde Mifflin-St Jeor tercih edilmektedir.
+            </p>
+            <p>
+              Hesaplama sırasında doğru veriler girmeniz sonucun güvenilirliğini doğrudan etkiler. Kilo ölçümünüzü sabah aç karnına, boy ölçümünüzü ise düz bir zeminde dik dururken yapmanız önerilir. Aktivite seviyesini belirlerken dürüst olmak da kritik öneme sahiptir; pek çok kişi aktivite seviyesini olduğundan yüksek seçerek kalori ihtiyacını abartır ve bu da kilo kontrolünü zorlaştırır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: BMR, TDEE ve Sonuçların Yorumu */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            BMR ve TDEE <span className="text-primary">Ne Anlama Gelir?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Hesap makinesi size üç temel değer sunar: BMR, TDEE ve hedef kalori. Bu üç değeri doğru anlamak, beslenme planınızı gerçekten işe yarar hale getirir.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-6">
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+                <div className="text-yellow-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">BMR</div>
+                <div className="text-white font-bold text-sm mb-2">Bazal Metabolizma Hızı</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Tamamen yatakta, hiç hareket etmeden, aç karnına yaşamak için gereken minimum kalori. Uyurken bile bu kadar kalori yakarsınız. Vücudunuzun "rölantide" tükettiği enerjidir.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">TDEE</div>
+                <div className="text-white font-bold text-sm mb-2">Toplam Günlük Enerji Harcaması</div>
+                <p className="text-gray-500 text-xs leading-relaxed">BMR'nin aktivite çarpanıyla çarpılmasıyla elde edilir. Günlük tüm hareketlerinizi, egzersizinizi ve yaşam aktivitenizi kapsar. Kilonuzu korumak için alması gereken kaloridir.</p>
+              </div>
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-4">
+                <div className="text-primary font-heading font-bold uppercase text-xs tracking-wider mb-1">Hedef Kalori</div>
+                <div className="text-white font-bold text-sm mb-2">Hedefinize Göre Ayarlı</div>
+                <p className="text-gray-500 text-xs leading-relaxed">TDEE'den hedefinize göre kalori eklenip çıkarılır. Kilo vermek için −500 kcal, kilonuzu korumak için ±0, kas kazanmak için +300 kcal uygulanır.</p>
+              </div>
+            </div>
+
+            <p>
+              Aktivite çarpanları şu şekilde belirlenir: <strong className="text-white">Hareketsiz (1.2)</strong> yalnızca masa başı çalışanlar için, <strong className="text-white">Hafif Aktif (1.375)</strong> haftada 1-2 gün hafif egzersiz yapanlar için, <strong className="text-white">Orta Aktif (1.55)</strong> haftada 3-5 gün antrenman yapanlar için, <strong className="text-white">Çok Aktif (1.725)</strong> haftada 6-7 gün yoğun çalışanlar için, <strong className="text-white">Ekstra Aktif (1.9)</strong> ise fiziksel iş yapan ya da günde iki kez antrenman yapanlar için geçerlidir.
+            </p>
+            <p>
+              Kilo verme hedefinde uygulanan <strong className="text-white">−500 kcal</strong> açığı, teorik olarak haftada yaklaşık 0.45 kg yağ kaybına karşılık gelir (1 kg yağ ≈ 7.700 kcal). Bu tempo hem sürdürülebilir hem de kas kütlesini büyük ölçüde koruyan bir hızdır. Bunun iki katı olan −1000 kcal açığı daha hızlı kilo kaybına yol açsa da kas kaybı, metabolizma yavaşlaması ve besin eksikliği riski beraberinde gelir.
+            </p>
+            <p>
+              Kas kazanımı için uygulanan <strong className="text-white">+300 kcal</strong> fazlası ise kasın büyümesi için gereken anabolik ortamı yaratır. Daha büyük fazlalar (500+ kcal) kas gelişimini anlamlı biçimde hızlandırmaz, yalnızca yağ birikimini artırır. Bu yüzden "temiz bulk" stratejisinde 200-400 kcal fazlası altın aralık olarak kabul edilir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Pratik Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kalori Hedefini Fitness'ta <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Kalori hesabını bilmek ile onu günlük hayata uygulamak arasında önemli bir fark vardır. Hesap makinenizden aldığınız değer bir başlangıç noktasıdır — vücudunuzun gerçek tepkisine göre birkaç hafta içinde ince ayar yapmanız gerekebilir. Bunun nedeni formüllerin istatistiksel ortalamalardan türetilmiş olmasıdır; bireysel metabolizma hızları gerçekte hesaplanan değerden yüzde 10-20 oranında farklılık gösterebilir.
+            </p>
+            <p>
+              Pratik bir yaklaşım olarak şu adımları uygulayabilirsiniz: İlk iki hafta hesaplanan kalori hedefiyle beslenin ve kilonuzdaki değişimi takip edin. Beklenen hızda (haftada 0.3-0.5 kg) kilo vermiyorsanız kaloriyi 100-150 kcal daha düşürün. Öte yandan sürekli yorgunluk, uyku bozukluğu veya performans düşüşü yaşıyorsanız kaloriyi 100-200 kcal artırmayı deneyin. Bu "adaptif kalibrasyon" yaklaşımı, körü körüne bir sayıya bağlı kalmaktan çok daha etkili sonuçlar verir.
+            </p>
+            <p>
+              Kalori saymak bir zorunluluk mu? Kesinlikle değil. Ancak en azından birkaç hafta boyunca yediğiniz besinlerin kalori değerini takip etmek, porsiyon boyutları ve besin yoğunluğu konusunda kalıcı bir sezgi geliştirir. Bu sezgiyi bir kez kazandığınızda, hassas takip yapmadan da hedefinize yakın beslenebilirsiniz. Beslenme uygulamaları (MyFitnessPal, Cronometer gibi) bu süreci önemli ölçüde kolaylaştırır.
+            </p>
+            <p>
+              Kalori hedefi belirledikten sonra bir sonraki adım <strong className="text-white">makro dağılımını planlamaktır</strong>. Aynı kalori miktarını çok farklı makro oranlarıyla karşılayabilirsiniz; bu oranlar vücut kompozisyonunuzu doğrudan etkiler. Kas kazanırken yüksek protein (vücut ağırlığının kilogramı başına 1.6-2.2 g), kilo verirken yeterli protein (1.8-2.5 g/kg) kas kütlesini korumak için kritiktir. Karbonhidrat ve yağ dağılımı ise kişisel tercih, antrenman tipi ve tıbbi duruma göre esnek şekilde ayarlanabilir.
+            </p>
+            <p>
+              Son olarak şunu vurgulamak gerekir: Kalori dengesi kilo kontrolünün en temel prensibi olsa da tek belirleyici faktör değildir. Uyku kalitesi, stres hormonu kortizol, bağırsak mikrobiyomunu, besin kalitesi ve hormon dengesi de vücut kompozisyonunu etkileyen önemli değişkenlerdir. Bu yüzden kalori hedefine ulaşıyor olmanıza rağmen beklenen sonucu görmüyorsanız, bu diğer faktörleri de gözden geçirmeniz gerektiğinin işaretidir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="kalori" />
         <CalculatorFAQ title="Kalori Hesaplama" faqs={calorieFAQs} schemaUrl="https://gokalaf.com/araclar/kalori-hesaplama" />
       </div>

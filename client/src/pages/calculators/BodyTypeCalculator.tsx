@@ -383,6 +383,77 @@ export default function BodyTypeCalculator() {
             </div>
           </div>
 
+          {/* İçerik Bölümü 1: Vücut Tipleri Nedir */}
+          <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              Vücut Tipleri <span className="text-primary">Nedir?</span> Nasıl Belirlenir?
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                Vücut tipleri (somatotipler), 1940'larda Amerikalı psikolog William Sheldon tarafından geliştirilen bir sınıflandırma sistemidir. Bu sisteme göre insan vücudu üç temel tipe ayrılır: <strong className="text-white">ektomorf</strong> (ince, uzun kemikli, az yağlı), <strong className="text-white">mezomorf</strong> (atletik, kas gelişimine yatkın) ve <strong className="text-white">endomorf</strong> (yuvarlak, yağ depolamaya eğilimli). Günümüzde bu sınıflandırma, beslenme ve antrenman planlamasında bireysel farklılıkları anlamak için bir çerçeve olarak kullanılmaktadır.
+              </p>
+              <p>
+                Önemli bir nokta: çoğu insan saf bir somatotipe sahip değildir. Gerçekte büyük çoğunluk, iki ya da üç tipin karışımından oluşan bir spektrumda yer alır. "Ekto-mezomorf", "meso-endomorf" gibi melez tipler çok daha yaygındır ve bu hesap makinesi baskın tipi belirlemek için oran ve ölçüm değerlerini kullanır.
+              </p>
+              <p>
+                Vücut tipini belirlemede kullanılan pratik yöntemler arasında bilek çevresi ve boy oranı, omuz-kalça oranı ve görsel değerlendirme yer alır. Bu hesap makinesi, bileğinizin çevresini referans alarak boy ile ağırlığınızı bu formüle dahil eder. Bilek çevresi, kemik yapısının (iskelet boyutunun) dolaylı bir göstergesi olduğundan doğal vücut tipini tahminlemede güvenilir bir ölçüttür.
+              </p>
+              <p>
+                Sheldon'ın orijinal sistemi hem genetik hem de psikolojik özelliklerle ilişkilendirmeye çalışmıştı; ancak bu kısım bilimsel dayanaktan yoksun bulunarak büyük ölçüde terk edilmiştir. Modern spor biliminde somatotip kavramı, metabolik yanıt, kas gelişim potansiyeli ve yağ depolama eğilimi gibi fizyolojik farklılıkları anlamanın başlangıç noktası olarak değer taşımaktadır.
+              </p>
+              <p>
+                Vücut tipinizi bilmek, antrenman ve beslenme stratejinizi kişiselleştirmenin ilk adımıdır. "Herkese uyan tek bir program" yoktur; ektomorfun yediği besin miktarını endomorfun tüketmesi veya aynı antrenman programını her iki tipin uygulaması, birbirine tamamen zıt sonuçlar doğurabilir.
+              </p>
+            </div>
+          </div>
+
+          {/* İçerik Bölümü 2: 3 Vücut Tipi ve Özellikleri */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              3 Vücut Tipinin <span className="text-primary">Özellikleri ve Farkları</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                  <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Ektomorf</div>
+                  <p className="text-gray-500 text-xs leading-relaxed mt-1">İnce kemik yapısı, hızlı metabolizma, düşük doğal kas kütlesi. Kilo almakta ve kas yapmakta güçlük çeker. Yüksek kalori ve karbonhidrat alımı kritiktir. Aşırı kardio kas gelişimini engeller.</p>
+                </div>
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-4">
+                  <div className="text-primary font-heading font-bold uppercase text-xs tracking-wider mb-1">Mezomorf</div>
+                  <p className="text-gray-500 text-xs leading-relaxed mt-1">Atletik yapı, orta-geniş kemik çerçevesi, hızlı kas yanıtı. Kas kazanımına ve yağ yakmaya en yatkın tip. Çoğu antrenman programı mezomorflar için tasarlanmış gibi görünür; ancak dikkat edilmezse yağ birikimi de hızlı olabilir.</p>
+                </div>
+                <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
+                  <div className="text-orange-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Endomorf</div>
+                  <p className="text-gray-500 text-xs leading-relaxed mt-1">Geniş kemik yapısı, yavaş metabolizma, yağ depolamaya yüksek eğilim. Kas kazanımı görece kolaydır; ancak yağ altında kalır. Kalori kontrolü ve kardiyovasküler aktivite önceliklidir.</p>
+                </div>
+              </div>
+              <p>
+                Bu üç tip arasındaki en kritik fark, <strong className="text-white">insülin duyarlılığı ve metabolik hızdır</strong>. Ektomorflar genellikle yüksek insülin duyarlılığına ve hızlı metabolizmaya sahiptir; bu yüzden yüksek karbonhidrat alımı onlar için daha az risk taşır. Endomorflar ise insülin direncine daha yatkın oldukları için karbonhidrat toleransları daha düşük olabilir ve besin seçimlerinde daha dikkatli olmak avantaj sağlar.
+              </p>
+            </div>
+          </div>
+
+          {/* İçerik Bölümü 3: Vücut Tipine Göre Strateji */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              Vücut Tipine Göre <span className="text-primary">Antrenman ve Beslenme Stratejisi</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                <strong className="text-white">Ektomorflar için:</strong> Kalori fazlası ve yüksek karbonhidrat tüketimi önceliklidir. Haftada 3-4 gün yoğun direnç antrenmanı, minimum kardio. Kompound hareketler (squat, deadlift, bench press, row) kas büyümesini en hızlı tetikleyen egzersizlerdir. Protein alımı kilogram başına 2-2.5 gram olmalıdır. Uyku ve stres yönetimi, bu tip için özellikle kritiktir çünkü kortizol kas katabolizmasını hızlandırır.
+              </p>
+              <p>
+                <strong className="text-white">Mezomorflar için:</strong> En fazla esnekliğe sahip olan bu tip, hem kas kazanımı hem de yağ kaybı için oldukça hızlı sonuç alabilir. Tehlike ise bu kolaylığa güvenerek beslenmeyi ihmal etmektir. Periyodik diyet dönemleri ve çeşitlendirilmiş antrenman programları mezomorfların uzun vadede en iyi formlarını korumalarını sağlar.
+              </p>
+              <p>
+                <strong className="text-white">Endomorflar için:</strong> Kalori kontrolü ve kardiyovasküler antrenman öne çıkar. Düşük-orta karbonhidrat, yüksek protein ve sağlıklı yağ ağırlıklı beslenme tercih edilir. Yüksek hacimli direnç antrenmanı ile interval kardio kombinasyonu en etkili yaklaşımdır. Yavaş metabolizmayla mücadelede tutarlılık ve sabır, hızlı sonuç arayışından çok daha belirleyicidir.
+              </p>
+              <p>
+                Son olarak şunu hatırlatmak gerekir: vücut tipi bir kader değildir. Epigenetik araştırmalar, genetik eğilimlerin yaşam tarzı seçimleriyle önemli ölçüde değiştirilebileceğini göstermektedir. Vücut tipinizi başlangıç noktanızı anlamak için kullanın; ama limitlerinizi çizmek için değil. Disiplinli bir beslenme ve antrenman programıyla her vücut tipi, dramatik fiziksel dönüşümler yaşayabilir.
+              </p>
+            </div>
+          </div>
+
           <CalculatorFAQ faqs={vucutTipiFAQs} title="Vücut Tipi Sıkça Sorulan Sorular" />
           
           <RelatedCalculators currentSlug="vucut-tipi" />

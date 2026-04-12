@@ -234,6 +234,89 @@ export default function ProteinIntakeCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Protein Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Protein İhtiyacı <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Protein, vücudun en temel yapı taşıdır. Amino asitlerden oluşan bu makro besin; kaslar, organlar, enzimler, hormonlar, antikorlar ve hücre zarlarının yapımında kullanılır. Günlük protein ihtiyacı, vücut ağırlığına, aktivite düzeyine, yaşa ve spor hedefine göre önemli ölçüde değişir. Bu hesap makinesi, bilimsel araştırmalara dayalı kişiselleştirilmiş bir günlük protein hedefi sunar.
+            </p>
+            <p>
+              Protein ihtiyacı hesaplamasının temeli, vücut ağırlığının kilogramı başına düşen gram miktarına (g/kg) dayanır. Hareketsiz bir yaşam süren yetişkin için minimum 0.8 g/kg yeterli görülse de bu değer, aktif bireyler ve sporcular için yetersiz kalır. Güncel spor bilimi araştırmaları, direnç antrenmanı yapan bireyler için <strong className="text-white">1.6-2.2 g/kg</strong> aralığını optimum kas gelişimi için önermektedir. Kalori kısıtlaması dönemlerinde ise bu aralığın üst sınırına çıkmak, kas kaybını önlemek açısından kritik önem taşır.
+            </p>
+            <p>
+              Hesaplama yaparken <strong className="text-white">yağsız vücut kütlesi (YVK)</strong> üzerinden protein hedefi belirlemek daha doğru sonuçlar verir. Vücut yağ yüzdesi yüksek olan bireylerde toplam vücut ağırlığı üzerinden hesaplama yapılırsa protein hedefi abartılabilir. YVK = Toplam Kilo × (1 − Yağ Yüzdesi) formülüyle hesaplanan değer üzerinden belirlenen protein miktarı, gerçek fizyolojik ihtiyacı daha iyi yansıtır.
+            </p>
+            <p>
+              Yaş faktörü de protein ihtiyacını doğrudan etkiler. 65 yaş üzeri bireylerde kas kaybı (sarkopeni) riski arttığından, günlük protein alımının 1.2-1.6 g/kg düzeyinde tutulması önerilir. Ergenlik dönemindeyse büyüme ve gelişim için ek protein gerekmektedir. Bu hesap makinesi yaşınızı hesaba katarak size uygun aralığı belirler.
+            </p>
+            <p>
+              Protein kaynaklarının kalitesi de miktarı kadar önemlidir. <strong className="text-white">Tam protein kaynakları</strong> — yumurta, et, tavuk, balık, süt ürünleri ve soya — tüm esansiyel amino asitleri içerir. Bitkisel protein kaynakları genellikle bir veya daha fazla esansiyel amino asit bakımından sınırlıdır; ancak çeşitli bitkisel kaynakların (baklagiller + tahıllar gibi) kombinasyonu eksiksiz bir amino asit profili sağlar. Whey protein, kazein ve bitkisel protein takviyeler de günlük hedefe ulaşmayı kolaylaştıran pratik seçeneklerdir.
+            </p>
+            <p>
+              Protein sindirimine ilişkin önemli bir nokta: vücudun tek öğünde sindirebileceği protein miktarına dair eski "30-40 gram sınırı" artık bilimsel olarak desteklenmemektedir. Vücut, tüketilen tüm proteini zaman içinde işleyebilir; ancak öğün başına 30-50 gram protein tüketimi, kas protein sentezini optimize etmek açısından pratik bir hedef olarak değerini korumaktadır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Hedeflerine Göre Protein */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Hedefe Göre <span className="text-primary">Protein İhtiyacı</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Kilo Verme</div>
+                <div className="text-white font-bold text-sm mb-2">2.0 – 2.5 g/kg</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kalori açığında kas kaybını en aza indirmek için protein ihtiyacı artar. Yüksek protein, doygunluk hissini de destekler ve toplam kalori alımını doğal biçimde azaltmaya yardımcı olur.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Kas Kazanımı</div>
+                <div className="text-white font-bold text-sm mb-2">1.6 – 2.2 g/kg</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kas protein sentezini maksimize etmek için yeterli amino asit temini gerekir. Bu aralığın üzerinde tüketmek ek kas kazanımı sağlamaz; fazla protein enerji olarak kullanılır.</p>
+              </div>
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-4">
+                <div className="text-primary font-heading font-bold uppercase text-xs tracking-wider mb-1">Genel Sağlık</div>
+                <div className="text-white font-bold text-sm mb-2">0.8 – 1.2 g/kg</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Fiziksel aktivite yapmayan veya hafif aktif yaşayan bireyler için günlük minimum ihtiyaç. Bağışıklık sistemi, doku tamiri ve hormon üretimi için yeterli düzeyi karşılar.</p>
+              </div>
+            </div>
+            <p>
+              Protein zamalaması — öğünlerin gün içine nasıl dağıtıldığı — toplam protein miktarı kadar önemlidir. Araştırmalar, protein tüketimini güne eşit dağıtmanın (sabah, öğle, akşam ve antrenman sonrası) 24 saatlik kas protein sentezini artırdığını göstermektedir. Özellikle sabah kahvaltısında yeterli protein tüketmek, kahvaltıyı atlayan ya da düşük proteinli öğünle geçiştirenlere kıyasla belirgin bir avantaj sağlar.
+            </p>
+            <p>
+              Antrenman sonrası protein penceresi ise gerçektir ancak çok dar değildir. Egzersizin ardından 2-3 saat içinde protein tüketmek, kas sentezini desteklemek için yeterlidir. 30 dakikalık "anabolik pencere" fikri abartılmıştır. Günlük toplam protein hedefini karşılamak ve düzenli aralıklarla protein tüketmek, zamanlama kaygısından çok daha etkili bir stratejidir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Pratik Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Günlük Protein Hedefine <span className="text-primary">Nasıl Ulaşırsın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Hesaplanan protein hedefine düzenli olarak ulaşmak, fitness sürecinin en zorlu pratik parçalarından biridir. Özellikle 150-200 gram gibi yüksek protein hedefleri, dikkatli planlama ve doğru gıda seçimleri gerektir. İşte bu hedefe sistematik biçimde ulaşmak için kanıtlanmış stratejiler:
+            </p>
+            <p>
+              <strong className="text-white">Gıda başına protein yoğunluğunu bilmek</strong> ilk adımdır. 100 gram pişmiş tavuk göğsü yaklaşık 31g, yumurta (1 adet) 6g, 100g lor peyniri 12g, 100g yağsız kırmızı et 28g, 100g somon 25g protein içerir. Bu değerleri yaklaşık olarak ezberlemek, çeşitli öğünleri makul bir eforla hedefle uyumlu hale getirmenizi sağlar.
+            </p>
+            <p>
+              <strong className="text-white">Her öğüne bir protein kaynağı koymak</strong> en etkili pratik alışkanlıktır. Kahvaltıda yumurta veya süzme peynir, öğle yemeğinde tavuk veya ton balığı, akşamda kırmızı et veya balık planlamak; günlük hedefe otomatik biçimde yaklaşmanızı sağlar. Öğün atlamak protein hedefini tutturmayı ciddi ölçüde güçleştirir.
+            </p>
+            <p>
+              Protein takviyeleri, diyetten yeterli protein almakta zorlananlara pratik bir çözüm sunar. 1 ölçek whey protein tozu genellikle 20-25g protein içerir ve düşük kalori yüküyle bu gramajı karşılamanın en hızlı yoludur. Ancak takviyelerin gerçek gıdaların yerini tutamayacağını hatırlatmak gerekir; gerçek gıdalar, protein dışında pek çok mikro besin ve faydalı bileşik sunar.
+            </p>
+            <p>
+              Son olarak: hesaplanan protein hedefi her gün tam olarak tutturulmak zorunda değildir. Haftalık ortalamaya odaklanmak daha sürdürülebilir bir yaklaşımdır. Sosyal etkinlikler, yoğun iş günleri veya seyahat dönemlerinde hedefin biraz altında kalmak, genel ilerlemeyi anlamlı biçimde etkilemez. Önemli olan, tutarlı bir haftalık ortalamayı korumaktır.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="protein" />
         <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci" />
       </div>

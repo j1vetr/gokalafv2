@@ -274,6 +274,78 @@ export default function IdealWeightCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: İdeal Kilo Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            İdeal Kilo <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              İdeal kilo, belirli bir boy için sağlık riskleri ve yaşam kalitesi açısından en uygun vücut ağırlığı aralığını ifade eden kavramdır. Tek bir "doğru" değer olmaktan çok, kişinin fiziksel yapısına, kas kütlesine, kemik yoğunluğuna ve yaşına göre değişen bir aralık söz konusudur. Bu hesap makinesi, bilim dünyasında en yaygın kabul gören dört farklı formülü bir arada kullanarak size kapsamlı bir değerlendirme sunar.
+            </p>
+            <p>
+              İdeal kilo hesaplamada kullanılan başlıca formüller şunlardır: <strong className="text-white">Devine formülü</strong> (1974), başlangıçta ilaç dozajı hesaplamak için geliştirilmiş ancak zamanla ideal kilo tahminine uyarlanmıştır. <strong className="text-white">Robinson formülü</strong> (1983), Devine'den daha hassas bir yaklaşım sunar. <strong className="text-white">Miller formülü</strong> (1983), özellikle düşük boylar için daha gerçekçi sonuçlar verir. <strong className="text-white">Hamwi formülü</strong> ise klinik pratikte diyetisyenler tarafından sıkça başvurulan klasik bir yöntemdir.
+            </p>
+            <p>
+              Tüm bu formüller boy üzerinden bir temel kilo belirler ve her ek santimetre için küçük bir ağırlık artışı ekler. Erkek ve kadın için ayrı hesaplamalar yapılır çünkü kadınların kemik yapısı ve kas kütlesi dağılımı erkeklerden farklıdır. Bu farklılık, aynı boyda bir erkek ve kadın için önerilen ideal kilo aralığının birbirinden ayrışmasına yol açar.
+            </p>
+            <p>
+              Kemik yapısı (çerçeve boyutu) da ideal kiloyu etkileyen önemli bir faktördür. İnce kemik yapısına sahip biri ile geniş kemikli biri için aynı boy değerinde birbirinden farklı ideal ağırlık aralıkları söz konusu olabilir. Bileğin çevresi ölçülerek kabaca kemik yapısı tahmin edilebilir: 17 cm altı ince, 17-20 cm orta, 20 cm üzeri geniş kemik yapısına işaret eder. Bu hesap makinesi bu farkı dikkate alarak önerilen aralığı birkaç kilogram kaydırabilir.
+            </p>
+            <p>
+              İdeal kilo kavramının sınırlılıklarını da göz önünde bulundurmak gerekir. Bu formüller genel popülasyon ortalamaları üzerinden türetilmiştir ve sporculara, vücut geliştiricilere ya da özel tıbbi durumlara sahip bireylere direkt uygulanamaz. Yüksek kas kütlesine sahip bir atlet, formüle göre "fazla kilolu" görünebilir; oysa gerçekte mükemmel bir sağlık tablosu sergileyebilir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Sonuçları Yorumlama */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            İdeal Kilo Sonuçlarını <span className="text-primary">Nasıl Yorumlamalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Hesap makinesi size birden fazla formülden elde edilen sonuçları gösterir. Bu değerlerin birbirinden birkaç kilogram farklı olması normaldir; dört formülün ortalaması ya da ortanca değeri en güvenilir tahmini sunar. Önemli olan, tek bir sayıya değil, bu sonuçların işaret ettiği genel aralığa odaklanmaktır.
+            </p>
+            <p>
+              Mevcut kilonuzun ideal aralığın üzerinde olması; hedef kilo vermek için kalori açığı oluşturmanız, düzenli egzersiz yapmanız ve beslenme düzeninizi gözden geçirmeniz gerektiğine işaret eder. Kilo verme sürecinde haftada 0.5-1 kg arası kayıp, hem sürdürülebilir hem de kas kütlesini koruma açısından en güvenli hızdır.
+            </p>
+            <p>
+              Mevcut kilonuz ideal aralığın altındaysa, bu beslenme yetersizliği, düşük kas kütlesi veya bir sağlık sorununa işaret edebilir. Kilo almak amacıyla yalnızca kalori fazlası oluşturmak yerine, direnç antrenmanıyla desteklenen ve protein ağırlıklı bir kalori fazlası stratejisi benimsemek, kilo artışının büyük bölümünün kas olarak gelmesini sağlar.
+            </p>
+            <p>
+              İdeal kiloya ulaştıktan sonra hedef yalnızca kilo korumak olmamalıdır. Vücut kompozisyonunu iyileştirmek — aynı ağırlıkta daha fazla kas, daha az yağ — sağlık, performans ve görünüm açısından çok daha anlamlı bir hedef olabilir. Bu "rekomposizyon" süreci, yeterli protein alımı ve düzenli direnç antrenmanının kombinasyonuyla mümkündür; ancak kilo değişimi minimal olduğundan çok daha sabır gerektiren bir yoldur.
+            </p>
+            <p>
+              Son olarak ideal kilo hedefini kısa vadeli bir varış noktası olarak değil, uzun vadeli bir sağlık yolculuğunun kilometre taşı olarak değerlendirmek önemlidir. Herhangi bir özel sağlık durumunuz varsa veya ciddi kilo değişikliği hedefliyorsanız, bir diyetisyen ya da spor hekimi ile çalışmanızı öneririz.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            İdeal Kiloyu Fitness Hedefi Olarak <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              İdeal kilo hesabını bir fitness yol haritasının başlangıç noktası olarak kullanmak, hedef belirleme sürecini önemli ölçüde netleştirir. Ancak bu değeri körü körüne takip etmek yerine, kendi vücut yapınızı, yaşam tarzınızı ve gerçekçi hedeflerinizi de göz önünde bulundurmanız gerekir.
+            </p>
+            <p>
+              Formüle dayalı ideal kilodan farklı olarak <strong className="text-white">kişisel ideal kilonuzu</strong> belirlemek için şu soruları kendinize sorun: Hangi kiloda enerji dolu ve sağlıklı hissediyordunuz? Kan değerleriniz hangi kilo aralığında normal seyretti? Hangi kiloda spor performansınız en yüksekti? Bu kişisel referans noktaları, genellikle formül sonuçlarından daha anlamlı bir hedef ortaya koyar.
+            </p>
+            <p>
+              İdeal kiloya giden yolda sürdürülebilirlik en kritik faktördür. Hızlı kilo kaybı yöntemleri (çok düşük kalorili diyetler, aşırı kardio) kısa vadede etkili görünse de uzun vadede kas kaybı, metabolizma yavaşlaması ve "yo-yo" etkisiyle sonuçlanır. Kademeli ilerleme, alışkanlık geliştirme ve yaşam tarzı değişiklikleri; hedefe çok daha kalıcı biçimde ulaşmayı sağlar.
+            </p>
+            <p>
+              İdeal kiloya yaklaştıkça ilerleme yavaşlar. Bu "set point" etkisi, vücudun belirli bir ağırlığı korumaya çalışan metabolik adaptasyonunun sonucudur. Bu dönemde kilo değişimine odaklanmak yerine vücut kompozisyonuna — yağ yüzdesi ve kas kütlesine — odaklanmak motivasyonu korur ve süreci daha anlamlı kılar. Bant ölçüleri ve vücut yağ yüzdesi takibi, bu dönemde kilogramdan çok daha fazlasını söyler.
+            </p>
+            <p>
+              İdeal kilo hesabını <strong className="text-white">TDEE ve kalori hesabıyla birlikte kullanmak</strong> en akıllıca yaklaşımdır. İdeal kilonuzu belirleyin, ardından TDEE hesabıyla o kilodaki enerji ihtiyacınızı öngörün. Mevcut kilonuz ile ideal kilonuz arasındaki fark, ne kadar kalori açığı oluşturmanız ya da ne kadar süre sürdürmeniz gerektiğine dair gerçekçi bir çerçeve sunar.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="ideal-kilo" />
         <CalculatorFAQ title="İdeal Kilo Hesaplama" faqs={idealWeightFAQs} schemaUrl="https://gokalaf.com/araclar/ideal-kilo" />
       </div>

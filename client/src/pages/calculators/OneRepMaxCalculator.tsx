@@ -234,6 +234,91 @@ export default function OneRepMaxCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: 1RM Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            1 Tekrar Maksimum <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              1 Tekrar Maksimum (1RM), bir kişinin belirli bir harekette tek seferinde kaldırabileceği maksimum ağırlık miktarıdır. Güç antrenmanının temel referans noktası olan bu değer; antrenman yükünü belirlemek, ilerlemeyi ölçmek ve program tasarlamak için dünya genelinde spor bilimciler ve koçlar tarafından kullanılmaktadır.
+            </p>
+            <p>
+              1RM'i doğrudan test etmek mümkündür; ancak maksimal yük denemeleri ciddi sakatlanma riski taşır ve özellikle yeni başlayanlar için tavsiye edilmez. Bu nedenle bu hesap makinesi, <strong className="text-white">submaksimal test yöntemine</strong> dayanır: maksimumdan daha az bir ağırlıkla yapılan tekrar sayısından 1RM tahminlenir. Bu, hem güvenli hem de pratik bir yaklaşımdır.
+            </p>
+            <p>
+              Hesap makinesinde kullanılan başlıca formüller şunlardır: <strong className="text-white">Epley formülü</strong> (1RM = Ağırlık × (1 + Tekrar/30)) ve <strong className="text-white">Brzycki formülü</strong> (1RM = Ağırlık × (36 / (37 − Tekrar))). Her iki formül de 10 tekrar veya altında en güvenilir sonuçları verir. Tekrar sayısı yükseldikçe (10+) tahmin hatası da artar; bu yüzden 3-8 tekrar aralığında test yapmak daha sağlıklı veriler üretir.
+            </p>
+            <p>
+              1RM tahmininin doğruluğunu etkileyen faktörler arasında teknik form, dinlenme durumu, günlük psikolojik durum, sıcaklık ve kasların ısınma düzeyi yer alır. Bu nedenle ölçümü standart koşullarda (iyi dinlenmiş, ısınmış, tutarlı formla) yapmak, zaman içindeki karşılaştırmaların anlamlı olmasını sağlar.
+            </p>
+            <p>
+              1RM değeri bireyden bireye ve hareketten harekete önemli ölçüde farklılık gösterir. Vücut ağırlığına göreli 1RM değerleri ise performansı karşılaştırmak için kullanılır. Örneğin vücut ağırlığınızın 1.5 katı squat yapmak orta-üst düzey güç olarak kabul edilirken, 2 kat ya da üzerindeki değerler elit sporcu sınıfına girer. Bu oranlar performans düzeyinizi nesnel olarak değerlendirmenize yardımcı olur.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: 1RM Yüzdeleri */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            1RM Yüzdelerini <span className="text-primary">Nasıl Kullanırsın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              1RM'nin asıl değeri, yüzde bazlı antrenman yüklerini belirlemekte yatar. Antrenman hedefine göre hangi yüzde aralığında çalışmanız gerektiği bilimsel olarak belirlenmiştir:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Güç Dayanıklılığı</div>
+                <div className="text-white font-bold text-sm mb-2">%50-65 / 15-20 tekrar</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kas dayanıklılığını geliştirmek için kullanılır. Yüksek tekrar sayısı metabolik uyumu ön plana çıkarır.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Hipertrofi (Kas Büyümesi)</div>
+                <div className="text-white font-bold text-sm mb-2">%65-85 / 6-12 tekrar</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kas kütlesi kazanımı için en optimal aralık. Mekanik gerilim ve metabolik stres kombinasyonu kas büyümesini tetikler.</p>
+              </div>
+              <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
+                <div className="text-orange-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Güç Geliştirme</div>
+                <div className="text-white font-bold text-sm mb-2">%85-95 / 2-5 tekrar</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Nöromüsküler adaptasyonu ve kas gücünü geliştirmeye odaklanır. Sinir sistemi bu aralıkta maksimum motor ünite devşirmeyi öğrenir.</p>
+              </div>
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Maksimal Güç</div>
+                <div className="text-white font-bold text-sm mb-2">%95-100 / 1-2 tekrar</div>
+                <p className="text-gray-500 text-xs leading-relaxed">1RM test ve gelişim için kullanılır. Deneyimli sporcular için uygundur, merkezi sinir sistemini yoğun biçimde zorlar. Yeterli iyileşme zorunludur.</p>
+              </div>
+            </div>
+            <p>
+              Periyodizasyon (döngüsel antrenman) planlarında 1RM yüzdeleri sistematik biçimde değiştirilir. Örneğin bir 12 haftalık program; ilk 4 hafta hipertrofi ağırlıklı (%70-80), sonraki 4 hafta güç odaklı (%80-90) ve son 4 hafta pik performans için maksimal yükleme (%90-100) içerebilir. Bu döngüsel yaklaşım, hem sürekli ilerlemeyi hem de toparlanmayı optimize eder.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Pratik Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            1RM'yi Antrenman Programına <span className="text-primary">Nasıl Entegre Etmelisin?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              1RM bilgisine sahip olmak, antrenman yükünüzü tahmine dayalı değil, bilimsel olarak belirlemenizi sağlar. "Bu hafta kaç kilo koyayım?" sorusu, 1RM'nizin belirli bir yüzdesiyle otomatik olarak yanıtlanır. Bu yaklaşım, hem aşırı yüklenmeden hem de yetersiz uyarımdan kaçınmanızı sağlar.
+            </p>
+            <p>
+              1RM değerlerinizi belirli aralıklarla (her 4-8 haftada bir) güncellemek önemlidir. Antrenman ilerledikçe güç düzeyiniz artar ve eski 1RM değerlerine göre belirlenen yükler giderek yetersiz kalır. Bu güncelleme, programınızın sürekli zorlu ve gelişim sağlayıcı kalmasını güvence altına alır.
+            </p>
+            <p>
+              Büyük bileşik hareketler (squat, deadlift, bench press, overhead press) için 1RM takibi en değerli olanıdır. Bu hareketler, en fazla kas grubunu bir arada çalıştıran ve güç gelişiminin temel göstergesi olan egzersizlerdir. İzole hareketler için 1RM'yi takip etmek daha az önceliklidir ve sakatlanma riski taşıyabilir.
+            </p>
+            <p>
+              1RM testini nasıl yapmalısınız? Önce genel ısınma, ardından çalışacağınız hareket için spesifik ısınma setleri yapın. Ağırlığı kademeli olarak artırın: yüzde 50, 70, 85, 95 ve 100 şeklinde. Her set arasında en az 3-5 dakika dinlenin. Formu bozmadan tamamlayabileceğiniz en ağır yük 1RM'nizdir. Test sonrasında merkezi sinir sistemi yorulduğu için en az 48-72 saat tam dinlenme planlamak önemlidir.
+            </p>
+            <p>
+              Submaksimal tahmin yönteminde ise test günü yorgunken veya düşük motivasyonlu günlerde hesaplama yapılmamalıdır. Çünkü 6 tekrar yapabildiğiniz ağırlık, zinde bir günde 8 tekrar yapabileceğiniz ağırlıkla aynı olmayabilir ve bu fark 1RM tahminini birkaç kilogram kaydırır.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="bir-tekrar-max" />
         <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/one-rep-max" />
       </div>

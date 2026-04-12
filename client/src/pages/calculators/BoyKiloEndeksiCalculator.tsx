@@ -375,6 +375,75 @@ export default function BoyKiloEndeksiCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Boy Kilo Endeksi Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Boy Kilo Endeksi <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Boy Kilo Endeksi (BKE), vücut ağırlığını boy ile karşılaştıran ve sağlık riskini değerlendirmeye yardımcı olan bir ölçümdür. Bu hesap makinesinde kullanılan endeks, geleneksel VKİ formülünden farklı bir yaklaşım benimseyerek boya göreli ağırlık dağılımını değerlendirir. Özellikle Çin ve Uzak Doğu kaynaklı tıp araştırmalarında yaygın kullanım alanı bulan bu yöntem, Asya popülasyonuna özgü sağlık riski eşiklerini daha doğru yansıtır.
+            </p>
+            <p>
+              Standart VKİ hesabında boy'un karesi paydada yer alırken, bazı boy kilo endeksi uygulamaları farklı ağırlıklandırma faktörleri kullanır. Bu yaklaşım, boy ile kilo arasındaki orantısallık ilişkisini farklı bir perspektiften ele alarak aynı VKİ değerine sahip ancak farklı boylu bireyler arasındaki sağlık farklılıklarını daha iyi açıklamaya çalışır.
+            </p>
+            <p>
+              Hesap makinesinin pratik kullanımında boy ve kilo bilgilerini doğru girmek kritik önem taşır. Boy için sabah ölçümü tercih edilmeli, kilo için ise sabah aç karnına tartılmalıdır. Bu tutarlılık, zaman içinde yapılan karşılaştırmaların güvenilirliğini artırır. Ölçüm sıklığı olarak ayda bir değerlendirme, hem günlük su/besin dalgalanmalarını elimine eder hem de gerçek eğilimi görmek için yeterli süreyi sağlar.
+            </p>
+            <p>
+              Boy kilo endeksi değerini tek başına kullanmak yerine bel çevresi, vücut yağ yüzdesi ve bel-kalça oranı gibi tamamlayıcı metriklerle birlikte değerlendirmek, çok daha kapsamlı bir sağlık tablosu ortaya koyar. Hiçbir tek ölçüm aracı vücudun tüm karmaşıklığını tam olarak yansıtamaz; bu yüzden farklı araçların kombinasyonu her zaman daha değerli bilgiler sunar.
+            </p>
+            <p>
+              Genel nüfus düzeyinde epidemiyolojik çalışmalarda ve klinik pratik takipte kullanışlı olan bu endeks, birey bazında kesin tanı için değil yönlendirici bir değerlendirme aracı olarak ele alınmalıdır. Herhangi bir sağlık endişeniz varsa, bu değerleri bir sağlık profesyoneliyle birlikte yorumlamanızı öneririz.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Sonuçları Yorumlama */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Sonuçları <span className="text-primary">Nasıl Yorumlamalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Boy kilo endeksi değerlendirmesinde yalnızca anlık sonuca değil, zamanla nasıl değiştiğine odaklanmak daha değerlidir. Tek bir ölçüm, vücudun mevcut durumunun anlık bir fotoğrafı iken; aylık ölçümlerin takibi, beslenme ve egzersiz alışkanlıklarınızın gerçek etkisini ortaya koyar.
+            </p>
+            <p>
+              Endeks değerinizin önerilen aralığın üzerinde olması; kalori dengesi, besin kalitesi ve fiziksel aktivite düzeyi konularında iyileştirme yapılabileceğine işaret eder. Bu durumda öncelikli strateji genellikle şunlardır: günlük kalori alımını TDEE'nin altında tutmak, işlenmiş besinleri azaltmak, düzenli aerobik ve direnç antrenmanına başlamak.
+            </p>
+            <p>
+              Değeriniz önerilen aralığın altındaysa, bu yetersiz kalori alımı veya düşük kas kütlesinin göstergesi olabilir. Özellikle ağırlık kazanmakta zorlanan "hard gainer" bireyler için yüksek kalorili, besin değeri zengin bir beslenme planı ve sistematik direnç antrenmanı kombinasyonu en etkili yaklaşımdır.
+            </p>
+            <p>
+              Endeks değeriniz sağlıklı aralıkta olsa bile, bel çevresi veya vücut yağ yüzdesi yüksekse bu "normal kilolu obezite" (TOFI — Thin Outside, Fat Inside) durumuna işaret edebilir. Bu nedenle boy kilo endeksini her zaman diğer ölçümlerle birlikte değerlendirmek önemlidir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Sağlıklı Boy Kilo Dengesi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Sağlıklı Boy Kilo Dengesi İçin <span className="text-primary">Ne Yapmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Sağlıklı bir boy kilo dengesini korumak, anlık diyet ya da kısa süreli yoğun egzersiz programlarıyla değil; sürdürülebilir yaşam tarzı alışkanlıklarıyla mümkündür. Araştırmalar, kısa vadeli agresif yaklaşımların büyük çoğunlukla "yo-yo" etkisiyle sonuçlandığını ve başlangıç noktasına veya daha kötüsüne dönüşle bittiğini göstermektedir.
+            </p>
+            <p>
+              Beslenme açısından en etkili strateji; belirleyici kurallarla değil, <strong className="text-white">besin yoğunluğuyla</strong> düşünmektir. Yani aynı kaloriyle ne kadar fazla besin değeri (vitamin, mineral, protein, lif) alabileceğinize odaklanmak. Sebzeler, meyveler, baklagiller, tam tahıllar ve kaliteli protein kaynakları bu prensip için ideal gıdalardır.
+            </p>
+            <p>
+              Egzersiz açısından ise çeşitlilik ve tutarlılık bütünlüğün anahtarıdır. Haftada en az 150 dakika orta yoğunlukta aerobik aktivite (Dünya Sağlık Örgütü önerisi) ve haftada en az iki gün tüm vücudu kapsayan direnç antrenmanı, sağlıklı vücut ağırlığını korumak ve kardiyovasküler sağlığı desteklemek için bilimsel olarak kanıtlanmış minimumları temsil eder.
+            </p>
+            <p>
+              Günlük adım sayısı ve genel hareket düzeyi de göz ardı edilmemelidir. Günde 8.000-10.000 adım atılması, antrenman dışı enerji harcamasını (NEAT) artırarak toplam kalori yakımını önemli ölçüde yükseltir. Bu nedenle "antrenman yaptım, geri kalanında hareketsizim" yaklaşımı yerine, gün boyunca aktif kalmak hedeflenmeli; merdiven, yürüyüş ve ayakta çalışma gibi küçük aktiviteler desteklenmelidir.
+            </p>
+            <p>
+              Son olarak uyku ve stres yönetimi, vücut ağırlığı kontrolünde düşünüldüğünden çok daha büyük bir rol oynar. Kronik uyku yoksunluğu ve yüksek stres; iştah düzenleyici hormonları (ghrelin ve leptin) bozarak aşırı yemeye ve yağ birikimine zemin hazırlar. Sağlıklı bir boy kilo dengesi, yalnızca ne yediğiniz ve ne kadar hareket ettiğinizle değil; ne kadar uyuduğunuz ve stresi nasıl yönettiğinizle de şekillenir.
+            </p>
+          </div>
+        </div>
+
         {/* Related Calculators */}
         <RelatedCalculators currentSlug="boy-kilo-endeksi" />
         

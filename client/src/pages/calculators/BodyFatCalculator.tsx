@@ -335,6 +335,91 @@ export default function BodyFatCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Vücut Yağ Oranı Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Vücut Yağ Oranı <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Vücut yağ oranı, toplam vücut ağırlığının yüzde kaçının yağ dokusundan oluştuğunu gösteren bir ölçümdür. VKİ'nin aksine, bu değer vücudun gerçek kompozisyonunu yansıtır ve aynı kiloda iki farklı bireyin ne denli farklı bir fiziksel yapıya sahip olabileceğini ortaya koyar. Fitness ve sağlık değerlendirmesinde kullanılan en bilgilendirici metriklerden biridir.
+            </p>
+            <p>
+              Bu hesap makinesinde kullanılan yöntem <strong className="text-white">ABD Deniz Kuvvetleri (US Navy) formülüdür</strong>. Bel, boyun ve kalça (kadınlar için) çevre ölçümlerini kullanan bu formül, laboratuvar ekipmanı gerektirmeksizin oldukça güvenilir sonuçlar verir. Bilimsel çalışmalar, doğru ölçümler yapıldığında bu yöntemin gerçek değerden ortalama yüzde 3-4 sapma gösterdiğini ortaya koymaktadır. Bu, pratik kullanım için kabul edilebilir bir hata payıdır.
+            </p>
+            <p>
+              Daha hassas ölçüm yöntemleri de mevcuttur. <strong className="text-white">DEXA (Dual-Energy X-ray Absorptiometry)</strong> en doğru laboratuvar yöntemi olarak kabul görür ve yüzde 1-2 hata payıyla sonuç verir; ancak pahalı ve uzmanlık gerektiren bir testtir. <strong className="text-white">Hidrodansitometri (su altı tartımı)</strong> altın standart olarak bilinir. <strong className="text-white">Kaliper ölçümü</strong> eğitimli uygulayıcı tarafından yapıldığında güvenilir sonuçlar verir. <strong className="text-white">Biyoelektrik empedans (BIA)</strong> ise hidrasyon durumuna bağlı olarak tutarsız sonuçlar üretebilir.
+            </p>
+            <p>
+              Doğru ölçüm için bel çevrenizi göbek hizasında, boyun çevrenizi ise çene altında ölçün. Ölçümü sabah aç karnına, tuvaletten sonra yapmak en tutarlı sonucu verir. Kadınlar için kalça çevresi, en geniş nokta üzerinden ölçülmelidir. Her ölçüm noktasında en az iki ölçüm alıp ortalamasını kullanmak, hata payını azaltır.
+            </p>
+            <p>
+              Vücut yağ oranı zaman içinde takip edildiğinde son derece değerli bilgiler sunar. Kilo sabit kalsa bile yağ oranındaki düşüş ve kas kütlesindeki artış, vücut kompozisyonunun iyileştiğine işaret eder. Bu "rekomposizyon" süreci, kilogram odaklı takiple fark edilemeyebilir; bu yüzden aylık vücut yağ ölçümü, fitness ilerlemenizi değerlendirmenin en kapsamlı yollarından biridir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Kategoriler ve Sağlık */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Vücut Yağ Oranı <span className="text-primary">Kategorileri Ne Anlama Gelir?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Atletik (Erkek)</div>
+                <div className="text-white font-bold text-sm mb-2">%6 – %13</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Profesyonel sporculara özgü aralık. Kas tanımlanması belirgin, damarlar görünür. %6'nın altı tehlikeli düzeyde olup hormon üretimini bozabilir.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Atletik (Kadın)</div>
+                <div className="text-white font-bold text-sm mb-2">%14 – %20</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kadınlarda hormonal ve üreme sağlığı için minimum yağ miktarı erkeklerden yüksektir. %14'ün altı kadınlar için sağlık riskleri taşır.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Fitness (Erkek)</div>
+                <div className="text-white font-bold text-sm mb-2">%14 – %17</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Düzenli egzersiz yapan aktif bireylerin aralığı. Sağlık açısından optimal, sürdürülebilir ve günlük performansa uyumlu. Kas kondisyonu belirgin biçimde görünür.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Fitness (Kadın)</div>
+                <div className="text-white font-bold text-sm mb-2">%21 – %24</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kadınlar için sağlıklı aktif aralık. Enerji, hormonal denge ve günlük fonksiyon açısından optimal. Düzenli egzersiz ve dengeli beslenmeyle ulaşılabilir ve korunabilir.</p>
+              </div>
+            </div>
+            <p>
+              Vücut yağ oranı yükseldikçe kronik hastalık riskleri artar. Özellikle <strong className="text-white">visseral yağ</strong> (karın boşluğundaki iç organ yağı), cilt altı yağdan çok daha tehlikelidir. Visseral yağ yüksekliği, insülin direnci, tip 2 diyabet, kardiyovasküler hastalıklar ve metabolik sendromla doğrudan ilişkilidir. Bel çevresi yüksekliği (erkekte 94 cm, kadında 80 cm üzeri), visseral yağ birikiminin basit bir göstergesi olarak klinisyenler tarafından sıkça kullanılmaktadır.
+            </p>
+            <p>
+              Düşük vücut yağının da riskleri vardır. Erkeklerde %5'in, kadınlarda %12-13'ün altına düşen yağ oranı; hormon üretimini bozabilir, bağışıklık sistemini zayıflatabilir, kemik mineral yoğunluğunu düşürebilir ve kadınlarda menstrüel bozukluklara yol açabilir. Bu yüzden "ne kadar az yağ o kadar iyi" anlayışı yanlış ve potansiyel olarak tehlikeli bir yaklaşımdır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Vücut Yağ Oranını Fitness'ta <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Vücut yağ oranı, fitness planlamasında kilo ölçümünden çok daha güçlü bir rehberdir. İki temel strateji olan bulk (kas kazanımı fazı) ve cut (yağ yakma fazı) arasındaki geçiş kararını bu değer üzerinden vermek, süreci çok daha akıllıca yönetmenizi sağlar.
+            </p>
+            <p>
+              Genel kabul gören bir kural olarak; erkekler için <strong className="text-white">%15'in üzerinde</strong>, kadınlar için <strong className="text-white">%25'in üzerinde</strong> yağ oranıyla bulk yapmak tavsiye edilmez. Bu seviyelerde kalori fazlası oluşturmak, ağırlıklı olarak yağ birikimiyle sonuçlanır. Önce yağ oranını sağlıklı aralığa düşürmek (cut), ardından kontrolü bir fazla kalori dönemine geçmek çok daha verimli bir yol haritasıdır.
+            </p>
+            <p>
+              Ölçümlerinizi ayda bir veya iki ayda bir tekrarlamak, trendleri görmek için yeterlidir. Günlük değişimler; su tutma, besin içeriği, ölçüm tekniği ve hidrasyon gibi pek çok faktörden etkilendiği için anlamlı değildir. Uzun vadeli trendi takip etmek — örneğin altı ayda yüzde 3 düşüş — vücut kompozisyonunuzdaki gerçek değişimi yansıtır.
+            </p>
+            <p>
+              Vücut yağ oranını düşürmenin en etkili kombinasyonu: <strong className="text-white">kalori açığı + direnç antrenmanı + yeterli protein alımı</strong>. Bu üçlü strateji, kilo verirken kas kütlesini korur ve "yağ oranı düşürme" yerine "yağsız bir vücuda dönüşme" sürecini yönetir. Yalnızca kardio odaklı bir yaklaşım, kalori fazı döneminde kaybedilen kas kütlesini de götürebilir ve yağ oranının uzun vadede artmasına yol açar.
+            </p>
+            <p>
+              Son olarak: bant ölçüleri, fotoğraf karşılaştırması ve vücut yağ oranı ölçümünü bir arada kullanmak, kilogram ölçümüne kıyasla çok daha kapsamlı bir ilerleme tablosu sunar. "Ayna testi" olarak da bilinen fotoğraf karşılaştırması, sayıların gösteremediği görsel değişimleri net biçimde ortaya koyar ve motivasyonu besler.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="vucut-yagi" />
         <CalculatorFAQ title="Vücut Yağ Oranı Hesaplama" faqs={bodyFatFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-yag-orani" />
       </div>

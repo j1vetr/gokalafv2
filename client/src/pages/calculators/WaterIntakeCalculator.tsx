@@ -250,6 +250,86 @@ export default function WaterIntakeCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Su Tüketimi Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Günlük Su İhtiyacı <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Su, insan vücudunun yüzde 60'ını oluşturan ve neredeyse tüm metabolik süreçlerin temelini oluşturan vazgeçilmez bir bileşendir. Besin maddelerini taşımak, vücut ısısını düzenlemek, eklemleri yağlamak, atık maddeleri uzaklaştırmak ve biyokimyasal reaksiyonlara ortam hazırlamak suyun başlıca görevleri arasındadır. Yeterli su tüketimi, hem sağlık hem de fiziksel performans açısından kalori ya da protein kadar kritik öneme sahiptir.
+            </p>
+            <p>
+              Günlük su ihtiyacı kişiden kişiye önemli ölçüde değişir. Bu hesap makinesi, vücut ağırlığınızı, aktivite düzeyinizi ve iklim koşullarınızı birlikte değerlendirerek kişiselleştirilmiş bir tavsiye sunar. Yaygın kullanılan temel formül; vücut ağırlığının kilogramı başına <strong className="text-white">30-35 ml su</strong> olarak hesaplanmasıdır. Buna göre 70 kg bir birey için günlük temel su ihtiyacı 2.1-2.45 litre olarak belirlenir.
+            </p>
+            <p>
+              Egzersiz, su ihtiyacını önemli ölçüde artırır. Orta yoğunlukta bir antrenman sırasında vücut saatte 0.5 ila 1.5 litre arasında ter yoluyla su kaybeder. Bu kaybı yerine koymak için antrenman öncesinde 400-600 ml su içmek, egzersiz sırasında her 15-20 dakikada bir 150-250 ml tüketmek ve antrenman sonrasında kaybedilen her yarım kilogram için 600 ml ek su almak önerilir.
+            </p>
+            <p>
+              Sıcak ve nemli iklimlerde ter üretimi artar, dolayısıyla su ihtiyacı yükselir. Yüksek irtifada da solunum yoluyla su kaybı arttığı için günlük alımın artırılması gerekir. Hamilelik ve emzirme dönemlerinde de su ihtiyacı belirgin biçimde yükselir. Bu hesap makinesi bu faktörleri dikkate alarak temel değeri ayarlar.
+            </p>
+            <p>
+              Suyun sadece içeceklerden değil, besinlerden de karşılandığını hatırlatmak gerekir. Meyveler, sebzeler, çorbalar ve süt gibi besinler, günlük su ihtiyacının yüzde 20-30'unu karşılayabilir. Ancak hesap makineleri genellikle içecek olarak alınması gereken miktarı verir; bu nedenle günlük ölçümünüzü yalnızca sıvı alımınız üzerinden değerlendirmeniz önerilir.
+            </p>
+            <p>
+              Kafein içeren içecekler (kahve, çay) hafif diüretik etkiye sahiptir ancak ölçülü tüketimde su kaybına yol açmaz. Alkol ise gerçek anlamda dehidrasyon yapan bir maddedir; içilen her alkollü içecek için en az bir bardak su içmek iyi bir pratik kuraldır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Dehidrasyon ve Belirtileri */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Dehidrasyon <span className="text-primary">Belirtileri ve Etkileri</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+                <div className="text-yellow-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Hafif (%1-2)</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Susuzluk hissi, hafif baş ağrısı, konsantrasyon güçlüğü, yorgunluk. Spor performansı yüzde 5-10 oranında düşer. İdrar rengi koyu sarıya döner.</p>
+              </div>
+              <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
+                <div className="text-orange-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Orta (%2-5)</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Belirgin yorgunluk, koordinasyon bozukluğu, kas krampları, mide bulantısı. Aerobik kapasite yüzde 20'ye kadar düşebilir. Bilişsel işlevler ciddi ölçüde zayıflar.</p>
+              </div>
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Ağır (%5+)</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Baş dönmesi, hızlı kalp atışı, bilinç bulanıklığı, acil tıbbi müdahale gerekebilir. Isı çarpması ve uzun vadeli organ hasarı riski ciddi düzeye ulaşır.</p>
+              </div>
+            </div>
+            <p>
+              Thirst (susuzluk) mekanizması, hafif dehidrasyon için bile geç devreye girer. Yani susuzluk hissettiren zaman, vücudun zaten yüzde 1-2 oranında su kaybettiği andır. Bu yüzden "susayınca iç" kuralı, optimal hidrasyon için yeterli değildir. Gün boyunca düzenli aralıklarla su içmek, susuzluk hissi beklemekten çok daha etkili bir stratejidir.
+            </p>
+            <p>
+              <strong className="text-white">İdrar rengi</strong>, hidrasyon durumunuzu değerlendirmenin en kolay ve güvenilir yöntemlerinden biridir. Açık sarı (limonata rengi) iyi hidrasyon, koyu sarı veya kahverengi ise yetersiz su alımına işaret eder. Sabah ilk idrarda koyu renk normaldir; gün içinde soluk renge dönmesi hedeflenir. Renksiz idrar ise aşırı su tüketiminin göstergesi olabilir; bu da elektrolit dengesini bozabilir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Su Stratejisi */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Fitness Sürecinde <span className="text-primary">Su Tüketim Stratejisi</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Düzenli egzersiz yapan bireyler için su yönetimi, performans ve iyileşme sürecinin ayrılmaz bir parçasıdır. Antrenman öncesi, sırası ve sonrasında su alımını planlamak, yalnızca sağlık için değil atletik performans için de kritik öneme sahiptir.
+            </p>
+            <p>
+              <strong className="text-white">Antrenman öncesi:</strong> Egzersizden 2-3 saat önce 500-600 ml su içmek, antrenmanı tam hidrate başlamanızı sağlar. Antrenmanın hemen öncesinde (15-30 dakika önce) ek 200-300 ml almak da önerilir. Eğer sabah erken antrenman yapıyorsanız, uyku sırasında oluşan su kaybını karşılamak için sabah kalkışında en az bir büyük bardak (300-400 ml) su içmeyi alışkanlık haline getirin.
+            </p>
+            <p>
+              <strong className="text-white">Antrenman sırasında:</strong> Her 15-20 dakikada bir 150-250 ml su tüketimi genel öneri olarak kabul görmektedir. 60 dakikadan uzun veya yoğun terlemenin yaşandığı antrenmanlarda sodyum içeren sporcu içecekleri ya da elektrolit takviyesi, yalnızca suya kıyasla daha etkin bir hidrasyon sağlar.
+            </p>
+            <p>
+              <strong className="text-white">Antrenman sonrası:</strong> Kaybedilen her 0.5 kg vücut ağırlığı için yaklaşık 600-750 ml sıvı alınması önerilir. Bu nedenle antrenmandan önce ve sonra tartılmak, kayıp miktarını doğru belirlemenize yardımcı olur. Antrenman sonrası su alımını protein ve karbonhidratlı bir öğün ya da içecekle birleştirmek, kasların glikojen depolarını yenilemesini ve iyileşme sürecini hızlandırır.
+            </p>
+            <p>
+              Günlük su hedefini tutturmayı kolaylaştıran pratik alışkanlıklar: her sabah kalkışta bir bardak su içmek, her öğünde su ile başlamak, çalışma ortamında görünür bir su şişesi bulundurmak ve gün içinde hatırlatıcı alarmlar kurmak. Bu küçük alışkanlıklar, bilincinde olmadan günlük hedefinizin büyük bölümünü karşılamanızı sağlar.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="su-tuketimi" />
         <CalculatorFAQ title="Su Tüketimi Hesaplama" faqs={waterIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/su-tuketimi" />
       </div>

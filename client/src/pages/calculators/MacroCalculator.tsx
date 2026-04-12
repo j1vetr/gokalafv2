@@ -412,6 +412,93 @@ export default function MacroCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Makrolar Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Makro Besinler <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Makro besinler ya da kısaca "makrolar", vücudun enerji ve yapı taşı olarak kullandığı üç temel besin grubunu ifade eder: <strong className="text-white">protein, karbonhidrat ve yağ</strong>. Her birinin farklı işlevleri, farklı enerji değerleri ve vücut kompozisyonu üzerinde farklı etkileri vardır. Kalori saymak "ne kadar yiyeceğini" söylerken, makro takibi "ne yiyeceğini" belirler.
+            </p>
+            <p>
+              Enerji değerleri açısından: <strong className="text-white">Protein ve karbonhidrat</strong> gram başına 4 kcal, <strong className="text-white">yağ</strong> ise gram başına 9 kcal sağlar. Bu fark, aynı kalori miktarını farklı gramaj kombinasyonlarıyla karşılayabileceğiniz anlamına gelir. Örneğin 2000 kcal'lik bir plan; 200g protein (800 kcal) + 175g karbonhidrat (700 kcal) + 55g yağ (500 kcal) şeklinde düzenlenebilir.
+            </p>
+            <p>
+              Makro hesaplaması üç adımda gerçekleşir. Önce TDEE belirlenir, ardından hedefe göre (kilo verme, koruma veya kas kazanımı) toplam kalori ayarlanır. Son adımda bu kalori miktarı üç makroya dağıtılır. Bu hesap makinesi bu dağılımı otomatik olarak yapar ve size gram cinsinden günlük protein, karbonhidrat ve yağ hedeflerinizi gösterir.
+            </p>
+            <p>
+              Makro dağılımının temelinde <strong className="text-white">protein önceliği</strong> ilkesi yatar. Günümüz spor beslenme araştırmaları, optimum kas gelişimi ve korunması için vücut ağırlığının kilogramı başına 1.6 ila 2.2 gram protein tüketimini önermektedir. Kalori kısıtlaması dönemlerinde bu aralığın üst sınırına çıkmak (2.2-2.5 g/kg), kas kaybını minimize etmeye yardımcı olur. Protein hedefi belirlendikten sonra kalan kalori, karbonhidrat ve yağ arasında kişisel tercih ve metabolik yanıta göre paylaştırılır.
+            </p>
+            <p>
+              Hesap makinesinde seçebileceğiniz hazır makro şablonları, kanıta dayalı farklı beslenme yaklaşımlarını temsil eder. Dengeli beslenme için standart oranlar uygulanırken, düşük karbonhidrat veya ketojenik seçenekler karbonhidratı dramatik biçimde düşürüp yağı artırır. Yüksek protein şablonu ise protein oranını maksimuma çıkararak özellikle kesim dönemlerinde kas korumayı ön plana alır.
+            </p>
+            <p>
+              Makro hesabının formüller üzerinden yapılan teorik bir çalışma olduğunu ve gerçek uygulama sırasında ince ayara ihtiyaç duyulabileceğini hatırlatmak gerekir. İki-üç haftalık takip sonucunda performansınızı, enerjinizi ve vücut ağırlığı değişiminizi değerlendirip gerekirse karbonhidrat ve yağ dağılımını revize edebilirsiniz. Protein hedefi ise genel olarak sabit tutulur.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Makroların Rolü */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Her Makronun <span className="text-primary">Vücuttaki Rolü</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Protein</div>
+                <div className="text-white font-bold text-sm mb-2">4 kcal / gram</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kas dokusu, enzimler, hormonlar ve bağışıklık proteinlerinin yapı taşıdır. Doygunluk hissini en uzun süre sağlayan makrodur. Termik etkisi en yüksek olan besin grubudur; sindirimi için harcanan enerji, alınan kalorinin yüzde 20-30'una ulaşabilir.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Karbonhidrat</div>
+                <div className="text-white font-bold text-sm mb-2">4 kcal / gram</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Beynin ve kasların tercih ettiği yakıt kaynağıdır. Glikojen olarak kaslarda depolanan karbonhidrat, yoğun egzersiz performansının temelini oluşturur. Lifli karbonhidratlar bağırsak sağlığını destekler ve kan şekerini dengeler.</p>
+              </div>
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+                <div className="text-yellow-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Yağ</div>
+                <div className="text-white font-bold text-sm mb-2">9 kcal / gram</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Hormon üretimi (özellikle testosteron ve östrojen) için vazgeçilmezdir. Yağda çözünen vitaminlerin (A, D, E, K) emilimini sağlar. Uzun süreli düşük yoğunluklu aktiviteler için önemli bir enerji kaynağıdır. Minimum yüzde 20 yağ alımının altına düşmek hormon dengesini bozabilir.</p>
+              </div>
+            </div>
+
+            <p>
+              Makro dağılımı hedefe göre önemli ölçüde değişir. <strong className="text-white">Kas kazanımında (bulk)</strong> karbonhidrat antrenman performansı için yüksek tutulurken, protein kas sentezi için yeterli düzeyde kalır. <strong className="text-white">Yağ yakarken (cut)</strong> karbonhidrat azaltılır, protein artırılır; böylece kalori açığında kas korunur. <strong className="text-white">Vücudu koruma döneminde</strong> ise dengeli ve sürdürülebilir bir dağılım tercih edilir.
+            </p>
+            <p>
+              Makro takibine yeni başlayanlar için pratik bir başlangıç noktası şöyledir: önce protein hedefini kilogram başına 2 gram olarak sabitleyin. Kalan kalorileri yaklaşık yüzde 50 karbonhidrat ve yüzde 25-30 yağ şeklinde dağıtın. Bu standart dengeli profil, çoğu kişi için güvenli ve etkin bir başlangıç noktasıdır; ilk birkaç hafta içinde kişisel yanıtınıza göre ince ayar yapabilirsiniz.
+            </p>
+            <p>
+              Makrolar kadar önemli olan bir konu da <strong className="text-white">besin kalitesidir</strong>. Aynı protein gramına ulaşmak için işlenmiş et ürünleri veya yüksek kaliteli tam gıdalar (yumurta, tavuk, baklagiller) tercih etmek; sindirim, hormonal denge ve genel sağlık üzerinde çok farklı sonuçlar doğurur. Makro takibi yalnızca miktarla değil, kaynaklarla birlikte düşünüldüğünde gerçek anlamını kazanır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Makroları Fitness Sürecinde <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Makro takibini pratiğe dökmek, ilk başta karmaşık görünebilir. Ancak birkaç temel ilkeyi benimsemek bu süreci önemli ölçüde sadeleştirir. İlk ve en kritik adım, hesaplanan makro hedeflerinizi bir beslenme takip uygulamasına (MyFitnessPal, Cronometer veya benzeri) girerek günlük öğünlerinizi kaydetmektir. İlk 2-3 haftada bu alışkanlığı oturtmak, uzun vadede çok daha bilinçli beslenme kararları almanızı sağlar.
+            </p>
+            <p>
+              Makro takibinde esneklik büyük önem taşır. <strong className="text-white">Esnek Diyet (IIFYM — If It Fits Your Macros)</strong> yaklaşımı, herhangi bir besini makro hedeflerine uyduğu sürece tüketmeyi mümkün kılar. Bu yaklaşım, sosyal etkinliklerde ve yemek dışarıda yenildiğinde beslenmeyi yönetmeyi kolaylaştırır. Mükemmeliyetçi bir yaklaşım yerine "yüzde seksen kuralı" daha sürdürülebilirdir: hedeflerin yüzde seksenine ulaşmak, tam hedeften sapmayı kurtarmaktan çok daha iyidir.
+            </p>
+            <p>
+              Antrenman zamanlamasına göre karbonhidrat dağılımını optimize etmek de bir sonraki adımdır. <strong className="text-white">Antrenman öncesi</strong> (1-2 saat önce) kompleks karbonhidrat ağırlıklı bir öğün, egzersiz performansını destekler. <strong className="text-white">Antrenman sonrası</strong> (ilk 30-60 dakika içinde) hızlı karbonhidrat ve protein kombinasyonu kas glikojen depolarını yeniler ve iyileşme sürecini hızlandırır. Bu strateji, özellikle yüksek hacimli ya da iki günlük antrenmanlarda belirgin fark yaratır.
+            </p>
+            <p>
+              Makro hesabınızı belirli aralıklarla güncellemek de önemlidir. Vücut ağırlığınız değiştikçe (her 5 kg'da bir veya her 4-6 haftada bir) makro hedeflerinizi yeniden hesaplamak, beslenme planınızın mevcut fiziksel durumunuza uygun kalmасını sağlar. Başlangıç kilonuza ve hedefinize göre hesaplanan makrolar, 20 kg kilo kaybından sonra artık optimum değildir.
+            </p>
+            <p>
+              Son olarak makro takibinin uzun vadeli bir beceri olduğunu unutmamak gerekir. Aylarca haftalık hassas takip yapan kişiler, zamanla porsiyon boyutlarını ve besinlerin makro içeriklerini sezgisel olarak tahmin edebilir hale gelir. Bu sezgi, beslenme uygulamasına sürekli bağımlı kalmadan da dengeli ve hedefe uygun beslenebilme özgürlüğü sağlar. Makro takibi nihai bir araç değil; sağlıklı beslenme alışkanlıklarını içselleştirme sürecinde güçlü bir eğitim yöntemidir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="makro" />
         <CalculatorFAQ title="Makro Hesaplama" faqs={macroFAQs} schemaUrl="https://gokalaf.com/araclar/makro-hesaplama" />
       </div>

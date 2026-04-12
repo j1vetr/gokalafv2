@@ -278,6 +278,99 @@ export default function TDEECalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: TDEE Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            TDEE <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              TDEE, İngilizce "Total Daily Energy Expenditure" ifadesinin kısaltmasıdır ve Türkçeye <strong className="text-white">Toplam Günlük Enerji Harcaması</strong> olarak çevrilir. Adından da anlaşılacağı gibi, bir günde vücudunuzun tüm aktiviteleri için harcadığı toplam kalori miktarını ifade eder. Bu değer yalnızca egzersizi değil; dinlenirken, iş yaparken, yemek yerken ve uyurken harcanan enerjiyi de kapsar.
+            </p>
+            <p>
+              TDEE'nin hesaplanması iki aşamadan oluşur. İlk aşamada <strong className="text-white">Bazal Metabolizma Hızı (BMR)</strong> hesaplanır. BMR, vücudun tamamen dinlenme halindeyken temel yaşamsal fonksiyonları — kalp atışı, solunum, vücut ısısı, sinir sistemi ve hücre yenilenmesi — için harcadığı enerjidir. Hesap makinemizde BMR için Mifflin-St Jeor denklemi kullanılmaktadır: erkekler için BMR = (10 × kilo) + (6.25 × boy) − (5 × yaş) + 5, kadınlar için ise bu formüle −161 eklenir.
+            </p>
+            <p>
+              İkinci aşamada BMR değeri bir <strong className="text-white">aktivite çarpanıyla</strong> çarpılır. Bu çarpan, günlük hareketlilik düzeyinizi yansıtır. Aktivite çarpanları şu şekildedir: masa başı hareketsiz yaşam için 1.2, haftada 1-3 gün hafif egzersiz için 1.375, haftada 3-5 gün orta yoğunlukta egzersiz için 1.55, haftada 6-7 gün yoğun antrenman için 1.725 ve fiziksel iş ile günde iki kez antrenman kombinasyonu için 1.9 kullanılır.
+            </p>
+            <p>
+              TDEE kavramı beslenme biliminde 1919'larda Harris ve Benedict'in çalışmalarına dayanır; ancak modern dünklemler çok daha fazla değişkeni hesaba katar. Günümüzde Mifflin-St Jeor (1990) ile Katch-McArdle (vücut yağ yüzdesini kullanan) denklemleri en yaygın ve doğru hesaplama yöntemleri olarak kabul görmektedir.
+            </p>
+            <p>
+              TDEE ile kalori ihtiyacı arasındaki farka dikkat etmek gerekir. TDEE, kilonuzu <em>korumak</em> için tüketmeniz gereken kalori miktarını gösterir. Kilo vermek için bunun altında, kilo almak ya da kas kazanmak için ise üzerinde kalori tüketmeniz gerekir. Bu temel denge, beslenme planlamasının ve vücut kompozisyonu çalışmalarının temelidir.
+            </p>
+            <p>
+              Hesaplama yaparken aktivite seviyenizi olduğundan yüksek seçmek çok yaygın yapılan bir hatadır. Haftada 4 gün antrenman yapıyor olsanız bile, günün geri kalanını masa başında geçiriyorsanız "orta aktif" kategorisi gerçeği en iyi yansıtan seçenek olacaktır. Aktivite seviyesini abartmak, kalori dengesini bozar ve hedeflere ulaşmayı zorlaştırır.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Sonuçları Yorumlama */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            TDEE Sonuçlarını <span className="text-primary">Nasıl Yorumlamalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Hesap makinesi size dört farklı hedef için kalori değeri sunar. Bu değerlerin her biri farklı bir vücut kompozisyonu stratejisine karşılık gelir ve doğru seçim, hedefinize ve mevcut fiziksel durumunuza göre değişir.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Hızlı Kilo Verme</div>
+                <div className="text-white font-bold text-sm mb-2">TDEE − 500 kcal</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Haftada yaklaşık 0.45 kg kilo kaybına yol açar. Motivasyonu yüksek tutar ancak uzun vadede kas kaybı ve metabolizma yavaşlaması riski taşır. Kısa süreli müdahaleler için uygundur.</p>
+              </div>
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+                <div className="text-yellow-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Yavaş Kilo Verme</div>
+                <div className="text-white font-bold text-sm mb-2">TDEE − 250 kcal</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Haftada 0.2-0.3 kg kayıp. Kas kütlesini en iyi koruyan, sürdürülebilir ve uzun vadeli tercih. Yeni başlayanlar ve uzun süreli diyet geçmişi olanlar için ideal başlangıç noktasıdır.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Yavaş Kas Yapma</div>
+                <div className="text-white font-bold text-sm mb-2">TDEE + 250 kcal</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Temiz bulk olarak bilinen bu strateji minimum yağ depolarken kas gelişimine olanak sağlar. Vücut yağ oranı %15-20 (erkek) veya %22-27 (kadın) üzerindeyse önerilen yaklaşımdır.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Hızlı Kas Yapma</div>
+                <div className="text-white font-bold text-sm mb-2">TDEE + 500 kcal</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Daha agresif bir fazla kalori stratejisi. Kas gelişimini biraz hızlandırır ancak yağ birikimini de artırır. İnce yapılı, zor kilo alan bireylere daha uygundur.</p>
+              </div>
+            </div>
+
+            <p>
+              TDEE değeriniz yaşa, vücut kompozisyonuna ve antrenman geçmişinize göre önemli ölçüde değişir. Kas dokusu, yağ dokusuna kıyasla dinlenirken daha fazla kalori yakar. Bu yüzden kas kütlesi yüksek birinin TDEE'si, aynı kiloda ancak daha fazla vücut yağı olan birine göre belirgin şekilde daha yüksektir. Bu fark özellikle 10+ yıl direnç antrenmanı yapan sporcular için günlük 300-500 kcal'a kadar ulaşabilir.
+            </p>
+            <p>
+              Kadınlarda TDEE döngüsel hormonal değişimler nedeniyle ay içinde farklılık gösterebilir. Luteal fazda (ovülasyondan âdete kadar) BMR yaklaşık 100-300 kcal artabilir; bu dönemde açlık hissinin artması tamamen fizyolojik bir tepkidir ve irade eksikliğiyle açıklanamaz.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            TDEE'yi Fitness Planında <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              TDEE, bir fitness planının merkezinde yer alması gereken değerdir. Antrenman programı ne kadar iyi yazılmış olursa olsun, kalori dengesi doğru kurulmadan vücut kompozisyonunda anlamlı değişimler elde etmek son derece güçtür. TDEE'yi bir "sıfır noktası" olarak düşünebilirsiniz: bu değerin altında kalırsanız kilo verirsiniz, üzerinde çıkarsanız kilo alırsınız.
+            </p>
+            <p>
+              Pratikte TDEE'nin gerçek bir araç olarak çalışabilmesi için onu <strong className="text-white">refeeding stratejisiyle</strong> birleştirmek önerilir. Kalori kısıtlaması sürecinde metabolizma zamanla uyum sağlar ve enerji harcaması düşebilir; bu olguya "metabolik adaptasyon" denir. Bunu önlemek için her 8-12 haftada bir 1-2 haftalık ara verme ya da TDEE seviyesine çıkma dönemleri planlanabilir. Bu strateji hem metabolizmayı canlı tutar hem de psikolojik yükü azaltır.
+            </p>
+            <p>
+              TDEE değerinizin ne kadar doğru olduğunu anlamak için en iyi yöntem <strong className="text-white">iki haftalık kilo takibi</strong> yapmaktır. Hesaplanan TDEE kadar yiyin ve kilonuzun nasıl değiştiğini gözlemleyin. Kilo sabit kalıyorsa hesap doğrudur. Her hafta artıyorsa gerçek TDEE'niz hesaplananın altındadır; düşüyorsa üstündedir. Bu kişisel kalibrasyon, formül tabanlı hesaplamanın öngöremediği bireysel metabolizma farklarını ortaya çıkarır.
+            </p>
+            <p>
+              TDEE'yi antrenman döngülerinize göre dinamik olarak ayarlamak da büyük fark yaratır. Yoğun antrenman dönemlerinde (hacim fazı, yarışma hazırlığı vb.) kalori ihtiyacı artarken, aktif dinlenme ya da deload haftalarında düşer. Sabit bir kalori hedefine takılı kalmak yerine, haftalık antrenman yüküyle paralel bir beslenme yaklaşımı benimsemek hem performansı hem de vücut kompozisyonu sonuçlarını iyileştirir.
+            </p>
+            <p>
+              Son olarak TDEE hesabını <strong className="text-white">makro hesaplayıcısıyla birlikte kullanmayı</strong> öneririz. Toplam kalori hedefinizi belirledikten sonra bu kalorileri protein, karbonhidrat ve yağ olarak nasıl dağıtacağınızı belirlemek, özellikle kas koruma ve kas kazanımı süreçlerinde kritik önem taşır. TDEE size "ne kadar yiyeceğini", makro dağılımı ise "ne yiyeceğini" söyler; ikisi birlikte tam bir beslenme stratejisi oluşturur.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="tdee" />
         <CalculatorFAQ title="TDEE Hesaplama" faqs={tdeeFAQs} schemaUrl="https://gokalaf.com/araclar/tdee-hesaplama" />
       </div>

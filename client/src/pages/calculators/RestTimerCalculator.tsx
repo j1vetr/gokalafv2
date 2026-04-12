@@ -245,6 +245,88 @@ export default function RestTimerCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Dinlenme Süresi Neden Önemlidir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Setler Arası Dinlenme <span className="text-primary">Neden Önemlidir?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Setler arası dinlenme süresi, antrenman programlamasının en sık göz ardı edilen ancak en belirleyici değişkenlerinden biridir. Doğru dinlenme süresini seçmek; performansı, kas uyarımını, hormonsal yanıtı ve enerji sistemlerinin kullanımını doğrudan etkiler. "Ne kadar dinlenmeliyim?" sorusunun yanıtı ise hedef, egzersiz türü ve bireysel toparlanma kapasitesine göre değişir.
+            </p>
+            <p>
+              Dinlenmenin fizyolojik temeli <strong className="text-white">ATP-PCr (fosfokreatin) sisteminin yenilenmesine</strong> dayanır. Yüksek yoğunluklu kısa süreli egzersizlerde (ağır kaldırma, sprintle vb.) birincil enerji kaynağı olan PCr, kas hücrelerinde sınırlı miktarda depolanır ve kasılmalar sırasında hızla tükenir. Tam yenilenmesi için yaklaşık <strong className="text-white">3-5 dakika</strong> gerekmektedir. Kısa dinlenme süreleriyle tekrar eden yüksek yoğunluklu setler, yorgunlukla birlikte performans düşüşüne yol açar.
+            </p>
+            <p>
+              Laktik asit birikimi de dinlenme ihtiyacını etkileyen önemli bir faktördür. Orta-yüksek tekrarlı setlerde (8-15 tekrar) artan laktat konsantrasyonu, kas asitliğini yükselterek kasılma kapasitesini düşürür. Bu asidik ortamın temizlenmesi, hem oksijene hem de zaman gerektirir. Bu nedenle metabolik stres odaklı antrenmanlarda 60-90 saniyelik dinlenme süreleri, bu birikimi yönetmek için yeterlidir.
+            </p>
+            <p>
+              Sinir sistemi yorgunluğu da göz ardı edilmemesi gereken bir boyuttur. Özellikle maksimal ya da maksimale yakın yüklerle yapılan egzersizler (güç antrenmanı, olimpik kaldırışlar) merkezi sinir sistemini yoğun biçimde zorlar. Bu tür egzersizlerde kas yorgunluğunun çok ötesinde bir toparlanma zamanı gereklidir; 3-5 dakika hatta bazı durumlarda daha uzun süreler uygundur.
+            </p>
+            <p>
+              Bu hesap makinesi, seçtiğiniz egzersiz türü ve hedefinizi dikkate alarak bilimsel literatüre dayalı bir dinlenme süresi önerisi sunar. Kronometreyle ölçülen disiplinli dinlenme, "hissettiğinizde başlamak"tan çok daha tutarlı antrenman kalitesi sağlar.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: Hedefe Göre Dinlenme Süreleri */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Hedefe Göre <span className="text-primary">Dinlenme Süreleri</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Maksimal Güç</div>
+                <div className="text-white font-bold text-sm mb-2">3 – 5 dakika</div>
+                <p className="text-gray-500 text-xs leading-relaxed">%85-100 1RM yüklerinde çalışılırken PCr sisteminin tam yenilenmesi ve sinir sistemi toparlanması için uzun dinlenme şarttır. Kısa dinlenme güç çıktısını ciddi ölçüde düşürür.</p>
+              </div>
+              <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
+                <div className="text-orange-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Hipertrofi (Kas Büyümesi)</div>
+                <div className="text-white font-bold text-sm mb-2">60 – 90 saniye</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Metabolik stres ve hormonsal tepkiyi (büyüme hormonu, testosteron) artırmak için kas henüz tam toparlanmadan bir sonraki sete geçilir. Sürdürülebilir yorgunluk birikimi hedeflenir.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="text-blue-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Güç Dayanıklılığı</div>
+                <div className="text-white font-bold text-sm mb-2">30 – 60 saniye</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Kısa dinlenme süreleriyle birikimli yorgunlukla çalışmak kardiyovasküler kapasiteyi ve kas dayanıklılığını artırır. Devre antrenmanları ve yüksek yoğunluklu interval programları bu aralığı kullanır.</p>
+              </div>
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Genel Kondisyon</div>
+                <div className="text-white font-bold text-sm mb-2">45 – 90 saniye</div>
+                <p className="text-gray-500 text-xs leading-relaxed">Genel fitness hedefli antrenmanlarda esneklik önemlidir. Ağırlık, tekrar sayısı ve kişisel toparlanma kapasitesine göre bu aralıkta ince ayar yapılabilir.</p>
+              </div>
+            </div>
+            <p>
+              Önemli bir not: bu süreler genel kılavuz niteliğindedir. Bireysel toparlanma kapasitesi, yaş, kondisyon düzeyi, uyku kalitesi ve beslenme durumu bu süreleri etkileyebilir. Deneyimli sporcular, yeni başlayanlardan daha hızlı toparlanabilirken 40 yaş üzeri bireyler için dinlenme sürelerinin biraz uzatılması performansı koruyabilir.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Dinlenme Süresini Optimize Etme */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Dinlenme Sürecini <span className="text-primary">Nasıl Optimize Etmelisin?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Dinlenme süreci sadece pasif bekleme değildir; bu zamanı bilinçli kullanmak antrenman kalitesini artırır. Setler arasında yapabileceğiniz şeyler arasında hafif germeler (statik değil, dinâmik), nefes kontrolü egzersizleri, antagonist kas grupları için hafif aktivasyonlar veya zihinsel hazırlık yer alabilir.
+            </p>
+            <p>
+              <strong className="text-white">Süperset ve drop set</strong> tekniklerinde dinlenme zamanlaması farklılaşır. Zıt kas gruplarının süperseti (örn. biceps + triceps) her iki egzersiz için de ayrı ayrı 30-45 saniyelik pasif dinlenme sağlarken toplam antrenman süresini kısaltır. Drop setlerde ise ağırlığı azaltarak hemen devam edilir; bu nedenle setler arası dinlenmeye gerek kalmaz.
+            </p>
+            <p>
+              Uzun antrenman seanslarında dinlenme sürelerinin kümülatif etkisi ciddi biçimde uzar. 4 set × 8 egzersiz × 2 dakika dinlenme = 64 dakika yalnızca beklemeyle geçer. Dinlenme sürelerini hedefe göre optimize etmek, antrenman süresini kısaltırken yoğunluğu artırır. Bu sayede daha kısa ama daha kaliteli seanslar mümkün olur.
+            </p>
+            <p>
+              Setler arası dinlenmeyi izlemek için bu uygulamayı ya da spor saatinizdeki kronometre özelliğini kullanın. "Hazır hissedince başlarım" yaklaşımı, araştırmalarda tutarsız dinlenme sürelerine ve dolayısıyla tutarsız performansa yol açtığı gösterilmiştir. Dinlenme sürelerini standartlaştırmak, antrenman yüküne ilişkin nesnel veri toplamanıza ve ilerlemeyi doğru izlemenize imkân tanır.
+            </p>
+            <p>
+              Son olarak set arası dinlenmeyi nefes alışverişinizle ilişkilendirmek pratik bir kural sunar: nefes hızınız normale döndüğünde veya bir sonraki seti tam güçle yapabilecek kadar toparlandığınızı hissettiğinizde başlayın. Bu özellikle ileri düzey sporcular için, egzersiz türüne ve yoğunluğa göre dinamik dinlenme sürelerini kullananlar için değerli bir tamamlayıcı stratejidir.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="dinlenme" />
         <CalculatorFAQ title="Dinlenme Süresi Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/dinlenme-suresi" />
       </div>

@@ -189,6 +189,83 @@ export default function HeartRateZonesCalculator() {
           </div>
         </div>
 
+        {/* İçerik Bölümü 1: Kalp Atış Hızı Bölgeleri Nedir */}
+        <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kalp Atış Hızı Bölgeleri <span className="text-primary">Nedir?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Kalp atış hızı bölgeleri (heart rate zones), egzersiz yoğunluğunu kalp hızı üzerinden kategorize eden bir sistemdir. Maksimum kalp hızınızın belirli yüzdelerine karşılık gelen bu bölgeler, her birinin farklı fizyolojik süreçleri ve antrenman etkilerini temsil etmesi nedeniyle egzersiz planlamasında kritik bir araçtır. Doğru bölgede egzersiz yapmak, hem hedeflerinize ulaşma hızını artırır hem de aşırı antrenman ve sakatlanma riskini azaltır.
+            </p>
+            <p>
+              Maksimum kalp hızı (MKH), teorik olarak kişinin bir dakikada ulaşabileceği en yüksek kalp hızıdır. En yaygın kullanılan tahmin formülü <strong className="text-white">220 − yaş</strong>'tır. Bu basit formülün hata payı yaklaşık ±10-12 atım/dk olup bireysel farklılıkları tam olarak yansıtmaz. Daha doğru bir tahmin için <strong className="text-white">Tanaka formülü</strong> (208 − 0.7 × yaş) kullanılabilir; bu formül özellikle 40 yaş üzeri bireylerde daha güvenilir sonuçlar verir. En kesin yöntem ise kardiyopulmoner egzersiz testi veya sahada yapılan maksimal egzersiz protokolleridir.
+            </p>
+            <p>
+              Dinlenme kalp hızı da antrenman planlaması için önemli bir değerdir. Sağlıklı yetişkinlerde dinlenme kalp hızı genellikle 60-100 atım/dk arasındadır. Düzenli aerobik antrenman yapan bireylerde bu değer 40-60'a kadar düşebilir; bu, kalbin daha verimli çalıştığının göstergesidir. Sabah yataktan kalkmadan önce ölçülen dinlenme kalp hızı, iyileşme durumunuzu ve aşırı antrenman belirtilerini takip etmek için de güvenilir bir gösterge işlevi görür.
+            </p>
+            <p>
+              Bu hesap makinesi, maksimum kalp hızınızı hesaplayıp beş temel bölgeye böler. Her bölge belirli bir yoğunluk aralığını temsil eder ve farklı antrenman hedefleri için kullanılır. Kalp hızı monitörü veya spor saati ile bu bölgeleri gerçek zamanlı takip etmek, antrenman kalitesini önemli ölçüde artırır.
+            </p>
+            <p>
+              Kalp atış hızı bölgelerini kullanmak için ekstra alet şart değildir. Algısal efor skalası (RPE — Rate of Perceived Exertion), yaklaşık bir yoğunluk tahmini sunar: rahat konuşabiliyorsanız düşük bölgedesinizdir, kısa cümlelerle konuşabiliyorsanız orta bölgedesinizdir, konuşmak zorlaştıysa yüksek bölgeye giriyorsunuzdur.
+            </p>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 2: 5 Bölge ve Etkileri */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            5 Kalp Hızı Bölgesi <span className="text-primary">Ne Anlama Gelir?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <div className="space-y-2 my-4">
+              {[
+                { zone: "Bölge 1", pct: "%50-60", color: "bg-blue-500/10 border-blue-500/20 text-blue-400", title: "Aktif Dinlenme", desc: "Isınma, soğuma ve aktif toparlanma için idealdir. Kardiyovasküler sistemi çok az zorlar. Enerji büyük ölçüde yağdan karşılanır. Uzun süre sürdürülebilir, neredeyse sınırsız dayanıklılık bölgesidir." },
+                { zone: "Bölge 2", pct: "%60-70", color: "bg-green-500/10 border-green-500/20 text-green-400", title: "Aerobik Temel", desc: "Yağ yakımının maksimize olduğu bölgedir. Aerobik kapasite ve temel dayanıklılık bu bölgede gelişir. Uzun mesafe koşularının büyük çoğunluğu burada yapılır. Kelime 'aerobik' burada gerçek anlamını bulur." },
+                { zone: "Bölge 3", pct: "%70-80", color: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400", title: "Aerobik Geliştirme", desc: "Kardiyovasküler verim artar, vücut laktata alışmaya başlar. Hem yağ hem karbonhidrat yakılır. Tempo koşuları ve orta yoğunluklu antrenmanlar bu bölgede gerçekleşir." },
+                { zone: "Bölge 4", pct: "%80-90", color: "bg-orange-500/10 border-orange-500/20 text-orange-400", title: "Anaerobik Eşik", desc: "Laktat birikimi hızlanır, enerji artık ağırlıklı olarak karbonhidrattan sağlanır. Hız ve güç dayanıklılığı bu bölgede gelişir. Interval antrenmanları ve yarış temposu burada yer alır." },
+                { zone: "Bölge 5", pct: "%90-100", color: "bg-red-500/10 border-red-500/20 text-red-400", title: "Maksimal", desc: "Çok kısa süreli maksimum efor bölgesidir. VO2 maks geliştirme ve sürat kapasitesi için kullanılır. Birkaç dakikadan uzun sürdürülemez. Deneyimli sporcular için uygundur." },
+              ].map(z => (
+                <div key={z.zone} className={`${z.color} border rounded-xl p-3 flex gap-3 items-start`}>
+                  <div className="shrink-0 w-16">
+                    <div className={`font-heading font-bold text-xs uppercase ${z.color.split(' ')[2]}`}>{z.zone}</div>
+                    <div className="text-white text-xs font-bold">{z.pct}</div>
+                  </div>
+                  <div>
+                    <div className="text-white text-xs font-semibold mb-0.5">{z.title}</div>
+                    <p className="text-gray-500 text-xs leading-relaxed">{z.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+        <div className="mt-12 space-y-6">
+          <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+            Kalp Hızı Bölgelerini Antrenmanında <span className="text-primary">Nasıl Kullanmalısın?</span>
+          </h2>
+          <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+            <p>
+              Kalp hızı bölgelerini antrenman planlamasına entegre etmek, rastgele egzersiz yapmakla kıyaslandığında çok daha sistematik ve ölçülebilir bir gelişim sağlar. Hangi bölgede ne kadar zaman geçirdiğinizi bilmek, antrenman yükünüzü kontrol etmenizi ve iyileşme süreçlerini optimize etmenizi mümkün kılar.
+            </p>
+            <p>
+              Dayanıklılık sporcuları için yaygın kabul gören <strong className="text-white">80/20 kuralı</strong>, antrenman süresinin yüzde 80'ini Bölge 1-2'de (düşük yoğunluk), yüzde 20'sini ise Bölge 4-5'te (yüksek yoğunluk) geçirmeyi önerir. Bu dağılım, hem yorgunluğu yönetir hem de aerobik kapasiteyi ve hız dayanıklılığını aynı anda geliştirmenize olanak tanır.
+            </p>
+            <p>
+              Yağ yakımını hedefliyorsanız, Bölge 2 antrenmanlarına odaklanmak en etkili stratejidir. Bölge 2, yağı birincil enerji kaynağı olarak kullanan bölgedir ve uzun süre sürdürülebilir olması sayesinde toplam kalori harcaması da yüksek olur. Yaygın yanılgı şudur: daha yoğun egzersiz yaptıkça yağ yakmak daha hızlanır; oysa çok yüksek yoğunluklarda enerji kaynağı ağırlıklı olarak karbonhidrata kayar.
+            </p>
+            <p>
+              Kalp hızı bölgeleri güç antrenmanında da kullanılabilir. Yüksek tekrarlı setler arasında kalp hızının Bölge 2'ye düşmesini beklemek, iyileşme sürecini optimize eder ve bir sonraki seti daha kaliteli yapmanızı sağlar. Bu yöntem, kardiyovasküler kapasiteyi de geliştirir.
+            </p>
+            <p>
+              Düzenli kalp hızı takibi, aşırı antrenmanı erkenden fark etmenin de en güvenilir yoludur. Sabah dinlenme kalp hızınız normalden 5-10 atım/dk daha yüksekse, bu vücudun yeterince toparlanamadığının işaretidir. Bu durumda planlanmış yoğun bir antrenman yerine düşük yoğunluklu aktif dinlenme ya da tam dinlenme gününü tercih etmek, uzun vadeli performansı koruyan akıllıca bir karardır.
+            </p>
+          </div>
+        </div>
+
         <RelatedCalculators currentSlug="kalp-atisi" />
         <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
       </div>

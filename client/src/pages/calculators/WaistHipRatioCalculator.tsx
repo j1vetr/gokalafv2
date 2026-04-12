@@ -314,6 +314,88 @@ export default function WaistHipRatioCalculator() {
             </div>
           </div>
 
+          {/* İçerik Bölümü 1: Bel Kalça Oranı Nedir */}
+          <div className="mt-16 pt-12 border-t border-white/10 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              Bel Kalça Oranı <span className="text-primary">Nedir?</span> Nasıl Hesaplanır?
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                Bel-kalça oranı (BKO), bel çevresinin kalça çevresine bölünmesiyle elde edilen basit ancak bilgilendirici bir sağlık göstergesidir. Bu oran, vücuttaki yağ dağılımını değerlendirmek ve özellikle karın bölgesindeki visseral yağ birikimini tespit etmek amacıyla dünya genelinde yaygın biçimde kullanılmaktadır. Dünya Sağlık Örgütü, bu ölçümü kronik hastalık riskini değerlendirmede standart bir araç olarak benimsemiştir.
+              </p>
+              <p>
+                Formül son derece basittir: <strong className="text-white">BKO = Bel Çevresi (cm) ÷ Kalça Çevresi (cm)</strong>. Örneğin bel çevresi 80 cm, kalça çevresi 100 cm olan biri için BKO = 80 ÷ 100 = 0.80'dir. Bu değer cinsiyete göre farklı risk eşiklerine karşılık gelir.
+              </p>
+              <p>
+                Doğru ölçüm için bel çevresini göbek hizasında (genellikle kaburgalar ile kalça kemikleri arasındaki en dar noktada), kalça çevresini ise en geniş noktasından ölçmek gerekir. Ölçümü sabah aç karnına ve derin bir nefes verildikten sonra yapmak, tutarlı sonuçlar için önerilir. Bant, cilde yapışmadan ancak sarkmadan saracak şekilde tutulmalıdır.
+              </p>
+              <p>
+                BKO'nun önemi, yalnızca genel obeziteyi değil <strong className="text-white">yağ dağılımını</strong> ölçmesinden kaynaklanır. "Armut tipi" vücut (kalça-uyluk bölgesinde yağ birikimi) ve "elma tipi" vücut (karın bölgesinde yağ birikimi) aynı VKİ değerine sahip olabilir; ancak sağlık riskleri açısından önemli farklılıklar taşır. Elma tipi yağ dağılımı, tip 2 diyabet, hipertansiyon, kardiyovasküler hastalıklar ve metabolik sendromla çok daha güçlü bir ilişki içindedir.
+              </p>
+              <p>
+                VKİ ile kıyaslandığında BKO, visseral (iç organ) yağı saptamada daha başarılı bir göstergedir. Araştırmalar, BKO'nun kardiyovasküler hastalık riskini VKİ'den daha iyi öngördüğünü ortaya koymaktadır. Bu yüzden her ikisini birlikte kullanmak, sağlık risklerinizi en kapsamlı biçimde değerlendirmenizi sağlar.
+              </p>
+            </div>
+          </div>
+
+          {/* İçerik Bölümü 2: Risk Kategorileri */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              BKO Değerleri <span className="text-primary">Ne Anlama Gelir?</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                  <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Düşük Risk (Erkek)</div>
+                  <div className="text-white font-bold text-sm mb-2">BKO ≤ 0.90</div>
+                  <p className="text-gray-500 text-xs leading-relaxed">Karın bölgesinde aşırı yağ birikimi yok. Kardiyovasküler ve metabolik hastalık riski normal popülasyon düzeyinde. Mevcut sağlıklı yaşam tarzını korumak yeterlidir.</p>
+                </div>
+                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                  <div className="text-green-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Düşük Risk (Kadın)</div>
+                  <div className="text-white font-bold text-sm mb-2">BKO ≤ 0.80</div>
+                  <p className="text-gray-500 text-xs leading-relaxed">Kadınlarda fizyolojik olarak daha geniş kalça yapısı nedeniyle risk eşiği erkeklerden düşük tutulur. Bu aralıkta sağlıklı yağ dağılımı görülmektedir.</p>
+                </div>
+                <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+                  <div className="text-yellow-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Orta Risk</div>
+                  <div className="text-white font-bold text-sm mb-2">Erkek: 0.91-0.99 / Kadın: 0.81-0.85</div>
+                  <p className="text-gray-500 text-xs leading-relaxed">Metabolik sendrom ve kardiyovasküler risk belirgin biçimde yükselir. Beslenme ve egzersiz alışkanlıklarının gözden geçirilmesi önerilir.</p>
+                </div>
+                <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                  <div className="text-red-400 font-heading font-bold uppercase text-xs tracking-wider mb-1">Yüksek Risk</div>
+                  <div className="text-white font-bold text-sm mb-2">Erkek: ≥ 1.0 / Kadın: ≥ 0.86</div>
+                  <p className="text-gray-500 text-xs leading-relaxed">Visseral yağ birikimi tehlikeli düzeye ulaşmıştır. Profesyonel tıbbi değerlendirme ve kapsamlı yaşam tarzı müdahalesi önerilir. Metabolik hastalık riski çok yüksektir.</p>
+                </div>
+              </div>
+              <p>
+                Menopoz sonrası kadınlarda yağ dağılımı armut tipinden elma tipine kayabilir ve BKO yükselebilir. Bu fizyolojik bir değişimdir ve hormon dengesindeki dönüşümün bir yansımasıdır. Bu dönemde bel çevresini düzenli takip etmek ve aktivite düzeyini yüksek tutmak, bu değişimi en aza indirmenin en etkili yoludur.
+              </p>
+            </div>
+          </div>
+
+          {/* İçerik Bölümü 3: Fitness'ta Kullanım */}
+          <div className="mt-12 space-y-6">
+            <h2 className="text-2xl font-heading font-bold uppercase text-white tracking-tight">
+              BKO'yu Fitness Sürecinde <span className="text-primary">Nasıl Kullanmalısın?</span>
+            </h2>
+            <div className="space-y-4 text-gray-400 leading-relaxed text-sm">
+              <p>
+                BKO, kilo verme sürecinde ölçek üzerindeki kilogram değişiminden çok daha anlamlı bir gelişme göstergesidir. Kilonuz aynı kalsa bile bel çevreniz azalıyorsa, bu yağ kütlesini kaybedip kas kütlesi kazandığınıza — vücut kompozisyonunun iyileştiğine — işaret eder. Bu nedenle egzersiz ve beslenme programınıza başlarken BKO değerinizi not alın ve aylık takip edin.
+              </p>
+              <p>
+                Bel çevresini azaltmanın en etkili stratejisi; kalori açığı, yeterli protein alımı ve özellikle karın bölgesi visseral yağını hedef alan egzersizlerin kombinasyonudur. Önemli bir not: bölgesel yağ yakımı (spot reduction) bilimsel olarak kanıtlanmamış bir kavramdır. Mekik yapmak karın yağını doğrudan eritmez; ancak genel vücut yağını azaltan bir program, bel çevresini de küçültür.
+              </p>
+              <p>
+                Aerobik egzersizler — özellikle orta ve yüksek yoğunluklu kardiyovasküler aktiviteler — visseral yağı azaltmada en etkili egzersiz türü olarak öne çıkmaktadır. Direnç antrenmanı ile kombine edildiğinde ise hem yağ azalır hem de kasa dönüşüm sağlanır; bu da BKO'yu en hızlı iyileştiren kombinasyondur.
+              </p>
+              <p>
+                Uyku kalitesi ve stres yönetimi de BKO üzerinde doğrudan etkilidir. Yetersiz uyku ve kronik stres, kortizol hormonunu yükselterek özellikle karın bölgesinde yağ birikimine zemin hazırlar. Bu nedenle beslenme ve egzersiz kadar uyku hijyenine ve stres azaltma tekniklerine dikkat etmek, bel çevresini kontrol altında tutmanın önemli bir parçasıdır.
+              </p>
+              <p>
+                BKO ölçümünü her iki ayda bir tekrarlamak ilerlemenizi nesnel biçimde değerlendirmenizi sağlar. Ölçümü her seferinde aynı koşullarda (aynı saat, aynı açlık durumu, aynı teknik) yapmak, değişimlerin gerçek anlamda yorumlanabilmesi için şarttır.
+              </p>
+            </div>
+          </div>
+
           <CalculatorFAQ faqs={belKalcaFAQs} title="Bel Kalça Oranı Sıkça Sorulan Sorular" />
           
           <RelatedCalculators currentSlug="bel-kalca-orani" />
