@@ -15886,7 +15886,7 @@ Probiyotikler, kas yapımı veya güç artışı konusunda doğrudan etkili değ
   // 1 — ANTRENMAN: SIRT EGZERSİZLERİ
   {
     slug: "sirt-egzersizleri",
-    title: "Sırt Egzersizleri: En Etkili Hareketler ve Tam Sırt Antrenmanı Rehberi",
+    title: "Sırt Egzersizleri: En Etkili Hareketler",
     category: "antrenman",
     excerpt: "Güçlü ve geniş bir sırt için en etkili sırt egzersizleri, doğru form rehberi ve haftalık antrenman programı. Deadlift'ten lat pulldown'a kapsamlı rehber.",
     heroImage: "/articles/sirt-egzersizleri-antrenman-rehberi.webp",
@@ -16021,7 +16021,7 @@ Sırt, uzun vadeli atletik performansın ve sağlıklı postürün temel taşıd
   // 2 — ANTRENMAN: OMUZ EGZERSİZLERİ
   {
     slug: "omuz-egzersizleri",
-    title: "Omuz Egzersizleri: Lateral Raise, Rear Delt ve Güçlü Omuz Antrenmanı",
+    title: "Omuz Egzersizleri: Güçlü Omuz İçin Rehber",
     category: "antrenman",
     excerpt: "Geniş ve güçlü omuzlar için en etkili egzersizler. Lateral raise, overhead press, rear delt fly ve omuz antrenmanı rehberi.",
     heroImage: "/articles/omuz-egzersizleri-antrenman-rehberi.webp",
@@ -16154,7 +16154,7 @@ Güçlü ve geniş omuzlar; hem estetik hem işlevsel hem de sağlıklı bir üs
   // 3 — ANTRENMAN: BALDIRLAR
   {
     slug: "baldır-egzersizleri",
-    title: "Baldır Egzersizleri: Calf Raise Nasıl Yapılır ve Kalf Geliştirme Rehberi",
+    title: "Baldır (Kalf) Egzersizleri Nasıl Yapılır?",
     category: "antrenman",
     excerpt: "Gelişimi en zor olan kas grubundan biri: baldırlar. Doğru calf raise teknikleri, antrenman sıklığı ve baldır gelişimini hızlandıran taktikler.",
     heroImage: "/articles/baldır-egzersizleri-kalf-gelistirme.webp",
@@ -16253,7 +16253,7 @@ Baldırlar, doğru antrenmanla kesinlikle geliştirilebilir; ancak sabır ve tut
   // 4 — ANTRENMAN: HAMSTRİNG
   {
     slug: "hamstring-egzersizleri",
-    title: "Hamstring Egzersizleri: Arka Bacak Kaslarını Geliştirme Rehberi",
+    title: "Hamstring Egzersizleri: Arka Bacak Geliştirme",
     category: "antrenman",
     excerpt: "Hamstring (arka bacak) kaslarını geliştirmek için en etkili egzersizler. Romanian deadlift, leg curl, Nordic curl ve antrenman programı.",
     heroImage: "/articles/hamstring-egzersizleri-arka-bacak.webp",
@@ -16354,7 +16354,7 @@ Hamstringler, antrenman programlarında hak ettiği ilgiyi nadiren görür. Oysa
   // 5 — ANTRENMAN: SUPERSET
   {
     slug: "superset-nedir",
-    title: "Superset Nedir? Süperset Antrenmanın Faydaları ve Nasıl Uygulanır",
+    title: "Superset Nedir ve Nasıl Uygulanır?",
     category: "antrenman",
     excerpt: "Superset nedir, nasıl yapılır? Antagonist ve agonist süperset farkları, zaman tasarrufu, kas gelişimine etkisi ve örnek program.",
     heroImage: "/articles/superset-nedir-antrenman-teknigi.webp",
@@ -16470,7 +16470,7 @@ Superset, doğru kullanıldığında antrenman verimliliğini artıran güçlü 
   // 6 — ANTRENMAN: ANTRENMAN PROGRAMI OLUŞTURMA
   {
     slug: "antrenman-programi-nasil-olusturulur",
-    title: "Antrenman Programı Nasıl Oluşturulur? Adım Adım Rehber",
+    title: "Antrenman Programı Nasıl Oluşturulur?",
     category: "antrenman",
     excerpt: "Kendi antrenman programını oluşturmak için bilmen gereken her şey: hedef belirleme, split seçimi, hacim, yoğunluk ve ilerleme stratejisi.",
     heroImage: "/articles/antrenman-programi-nasil-olusturulur.webp",
@@ -16598,7 +16598,7 @@ Front Squat veya Hack Squat 4×10, Leg Extension 3×15, Nordic Curl 3×8, Calf R
   // 7 — ANTRENMAN: FONKSİYONEL ANTRENMAN
   {
     slug: "fonksiyonel-antrenman-nedir",
-    title: "Fonksiyonel Antrenman Nedir? Günlük Hayata Yansıyan Fitness",
+    title: "Fonksiyonel Antrenman Nedir?",
     category: "antrenman",
     excerpt: "Fonksiyonel antrenman nedir, klasik ağırlık antrenmanından farkı nedir? Günlük hayatı kolaylaştıran egzersizler ve program.",
     heroImage: "/articles/fonksiyonel-antrenman-nedir.webp",
@@ -16708,7 +16708,7 @@ Fonksiyonel antrenman, "spor salonundaki güç" ile "hayattaki güç" arasındak
   // 8 — BESLENME: CHEAT MEAL
   {
     slug: "cheat-meal-nedir",
-    title: "Cheat Meal Nedir? Hile Öğünü Yapılmalı mı ve Nasıl Planlanır?",
+    title: "Cheat Meal Nedir? Diyette Hile Öğünü",
     category: "beslenme",
     excerpt: "Cheat meal nedir, diyet sürecinde hile öğününe yer var mı? Metabolik etkileri, psikolojik faydası ve nasıl planlanması gerektiği.",
     heroImage: "/articles/cheat-meal-nedir-hile-ogun.webp",
@@ -16795,7 +16795,7 @@ Cheat meal, diyetin yıkımı değil sürdürülebilirliğinin aracı olduğunda
   // 9 — BESLENME: UYKU ÖNCESİ BESLENME
   {
     slug: "uyku-oncesi-ne-yenmeli",
-    title: "Uyku Öncesi Ne Yenilmeli? Gece Beslenme Rehberi",
+    title: "Uyku Öncesi Ne Yenilmeli?",
     category: "beslenme",
     excerpt: "Uyku öncesi ne yemeli ne yememeli? Kazein protein, yavaş sindirilen gıdalar ve gece metabolizmasının bilimsel açıklaması.",
     heroImage: "/articles/uyku-oncesi-ne-yenmeli-gece-beslenmesi.webp",
@@ -16883,7 +16883,7 @@ Uyku öncesi yemek doğasında yanlış değildir; ne yediğiniz ve ne kadar yed
   // 10 — BESLENME: GLİSEMİK İNDEKS
   {
     slug: "glisemik-indeks-nedir",
-    title: "Glisemik İndeks Nedir? Kan Şekeri ve Sporcu Beslenmesindeki Önemi",
+    title: "Glisemik İndeks Nedir?",
     category: "beslenme",
     excerpt: "Glisemik indeks nedir, glisemik yük ile farkı nedir? Düşük ve yüksek GI gıdalar, antrenman zamanlaması ve diyet uygulaması.",
     heroImage: "/articles/glisemik-indeks-nedir-kan-sekeri.webp",
@@ -16975,7 +16975,7 @@ Glisemik indeks, karbonhidrat seçimini bilinçli yapmanın güçlü bir aracıd
   // 11 — BESLENME: SAĞLIKLI ATIŞTIRILMALIKLAR
   {
     slug: "saglikli-atistirmaliklar",
-    title: "Sporcu İçin Sağlıklı Atıştırmalıklar: Pratik ve Besleyici Ara Öğün Rehberi",
+    title: "Sporcu İçin Sağlıklı Atıştırmalıklar",
     category: "beslenme",
     excerpt: "Antrenman öncesi ve sonrası için en iyi sağlıklı atıştırmalıklar. Protein, enerji ve tokluk sağlayan pratik ara öğün fikirleri.",
     heroImage: "/articles/saglikli-atistirmaliklar-sporcu-beslenmesi.webp",
@@ -17097,7 +17097,7 @@ Sağlıklı atıştırmalık, abur cubur ile büyük öğün arasındaki dengeyi
   // 12 — BESLENME: DİYET LİFİ
   {
     slug: "diyet-lifi-nedir",
-    title: "Diyet Lifi Nedir? Sporculara Faydaları ve En İyi Lif Kaynakları",
+    title: "Diyet Lifi Nedir? Sporculara Faydaları",
     category: "beslenme",
     excerpt: "Diyet lifi nedir, çözünür ve çözünmez lif farkı nedir? Sporculara faydaları, bağırsak sağlığı ve günlük lif hedefi.",
     heroImage: "/articles/diyet-lifi-nedir-sporcu-beslenmesi.webp",
@@ -17198,7 +17198,7 @@ Diyet lifi, spor ve fitness bağlamında hak ettiği ilgiyi nadiren görür. Oys
   // 13 — BESLENME: SAĞLIKLI YAĞLAR
   {
     slug: "saglikli-yaglar-nelerdir",
-    title: "Sağlıklı Yağlar Nelerdir? Avokado, Ceviz, Zeytinyağı Rehberi",
+    title: "Sağlıklı Yağlar Nelerdir?",
     category: "beslenme",
     excerpt: "Sağlıklı yağlar nelerdir, hangilerini tercih etmeli? Omega-3, tekli doymamış yağ asitleri ve sporcular için yağ kaynakları rehberi.",
     heroImage: "/articles/saglikli-yaglar-avokado-ceviz-zeytinyagi.webp",
@@ -17298,7 +17298,7 @@ Yağ düşmanınız değil müttefikinizdir — doğru türleri seçtiğinizde. 
   // 14 — BESLENME: ŞEKER VE SPOR
   {
     slug: "seker-ve-spor-performansi",
-    title: "Şeker ve Spor Performansı: Ne Zaman Faydalı, Ne Zaman Zararlı?",
+    title: "Şeker Spor Performansını Etkiler mi?",
     category: "beslenme",
     excerpt: "Şeker sporcular için düşman mı, yoksa dost mu? Antrenman zamanlaması, glikojen ve şekerin spor performansına etkisi.",
     heroImage: "/articles/seker-ve-spor-performansi.webp",
@@ -17382,7 +17382,7 @@ DSÖ, günlük serbest şeker alımını toplam kalorinin **%10'undan az** (idea
   // 15 — TAKVİYELER: BETA ALANİN
   {
     slug: "beta-alanin-nedir",
-    title: "Beta Alanin Nedir? Dayanıklılığa Etkisi ve Kaşıntı Hissinin Açıklaması",
+    title: "Beta Alanin Nedir? Dayanıklılığa Etkisi",
     category: "takviyeler",
     excerpt: "Beta alanin nedir, ne işe yarar? Karnosin, tamponlama kapasitesi, kaşıntı hissi (parestezi) ve doğru kullanım rehberi.",
     heroImage: "/articles/beta-alanin-nedir-takviye.webp",
@@ -17467,7 +17467,7 @@ Beta alanin, yoğun egzersiz performansını artırmak için bilimsel olarak des
   // 16 — TAKVİYELER: L-SİTRÜLİN
   {
     slug: "l-sitrülin-nedir",
-    title: "L-Sitrülin Nedir? Nitrik Oksit, Pompa Etkisi ve Performansa Katkısı",
+    title: "L-Sitrülin Nedir? Nitrik Oksit ve Pompa",
     category: "takviyeler",
     excerpt: "L-Sitrülin nedir, arginin ile farkı nedir? Nitrik oksit üretimi, kan akışı artışı, pompa etkisi ve doğru kullanım rehberi.",
     heroImage: "/articles/l-sitrülin-nedir-nitrik-oksit.webp",
@@ -17555,7 +17555,7 @@ L-sitrülin, nitrik oksit destekleyiciler arasında en iyi biyoyararlanıma sahi
   // 17 — TAKVİYELER: ÇİNKO
   {
     slug: "cinko-nedir-sporcular",
-    title: "Çinko Nedir? Sporculara Faydaları, Testosteron Etkisi ve Doğru Doz",
+    title: "Çinko Nedir? Sporculara Faydaları",
     category: "takviyeler",
     excerpt: "Çinko (zinc) nedir, ne işe yarar? Testosteron, bağışıklık, toparlanma ve sporcularda çinko eksikliği belirtileri.",
     heroImage: "/articles/cinko-nedir-sporcular-icin.webp",
@@ -17657,7 +17657,7 @@ ZMA; çinko, magnezyum aspartat ve B6 vitamini kombinasyonudur. Özellikle testo
   // 18 — TAKVİYELER: ZERDEÇAL
   {
     slug: "zerdeçal-curcumin-spor",
-    title: "Zerdeçal ve Curcumin: İltihap Karşıtı Etkileri ve Sporcu Kullanımı",
+    title: "Zerdeçal ve Curcumin: Sporculara Faydası",
     category: "takviyeler",
     excerpt: "Zerdeçal ve curcumin nedir? Anti-inflamatuar etkileri, spor toparlanmasına katkısı, biyoyararlanım sorunu ve doğru kullanım.",
     heroImage: "/articles/zerdeçal-curcumin-sporcu.webp",
@@ -17746,7 +17746,7 @@ Zerdeçal/curcumin, sporcu beslenmesine eklenebilecek güçlü bir anti-inflamat
   // 19 — TAKVİYELER: VİTAMİN B12
   {
     slug: "vitamin-b12-nedir-sporcular",
-    title: "Vitamin B12 Nedir? Sporculara Faydaları ve Eksiklik Belirtileri",
+    title: "Vitamin B12 Nedir? Sporculara Faydaları",
     category: "takviyeler",
     excerpt: "B12 vitamini nedir, sporculara ne sağlar? Enerji metabolizması, sinir sistemi, eksiklik belirtileri ve kimler risk altında?",
     heroImage: "/articles/vitamin-b12-nedir-sporcular.webp",
@@ -17859,7 +17859,7 @@ B12 vitamini, sporcuların çoğunlukla göz ardı ettiği ama eksikliği belirg
   // 20 — TAKVİYELER: HMB
   {
     slug: "hmb-nedir",
-    title: "HMB Nedir? Kas Kaybını Önleyen Takviye mi? Bilimsel Gerçekler",
+    title: "HMB Nedir? Kas Kaybını Önler mi?",
     category: "takviyeler",
     excerpt: "HMB (beta-hidroksi beta-metilbutirat) nedir, gerçekten kas kaybını önler mi? Bilimsel kanıtlar, kimler için faydalı ve doz rehberi.",
     heroImage: "/articles/hmb-nedir-kas-kaybi.webp",
