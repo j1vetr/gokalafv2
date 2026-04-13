@@ -71,10 +71,10 @@ export function getTrafficSource(): TrafficSource {
 }
 
 export const SOURCE_LABELS: Record<TrafficSource, string> = {
-  "arama-motoru": "Bing - Yandex",
+  "arama-motoru": "Arama Motorları",
   "yapay-zeka": "Yapay Zeka",
   "sosyal-medya": "Sosyal Medya",
-  "reklam": "Google",
+  "reklam": "Instagram Reklam",
   "e-posta": "E-posta",
   "direkt": "Direkt",
   "diger": "Diğer",
