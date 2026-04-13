@@ -5731,7 +5731,7 @@ Açılmamış paketlerde 1-2 yıl, açıldıktan sonra 3-6 ay içinde tüketilme
     seoDescription: "Protein tozu nedir? Whey, casein, bitkisel protein farkları, günlük dozaj, kullanım zamanları ve yan etkileri. Kapsamlı protein tozu rehberi ile doğru seçimi yapın.",
     publishedAt: "",
     ctaText: "Protein ihtiyacını hesapla",
-    ctaLink: "/araclar/protein-ihtiyaci-hesaplama",
+    ctaLink: "/araclar/gunluk-protein-ihtiyaci-hesaplama",
   },
   {
     slug: "supplement-rehberi",

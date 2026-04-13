@@ -18,9 +18,9 @@ const fitnessTools = [
   { name: "İdeal Kilo", path: "/araclar/ideal-kilo-hesaplama", desc: "Sağlıklı kilo aralığını öğren" },
   { name: "Vücut Yağı", path: "/araclar/vucut-yagi-orani-hesaplama", desc: "Vücut yağ oranını hesapla" },
   { name: "1RM Hesaplama", path: "/araclar/bir-tekrar-max-hesaplama", desc: "Maksimum kaldırma kapasiteni bul" },
-  { name: "Su Tüketimi", path: "/araclar/su-tuketimi-hesaplama", desc: "Günlük su ihtiyacını hesapla" },
+  { name: "Su Tüketimi", path: "/araclar/gunluk-su-ihtiyaci-hesaplama", desc: "Günlük su ihtiyacını hesapla" },
   { name: "Kalp Atış Hızı", path: "/araclar/kalp-atisi-hesaplama", desc: "Hedef kalp atış hızını öğren" },
-  { name: "Protein İhtiyacı", path: "/araclar/protein-ihtiyaci-hesaplama", desc: "Günlük protein ihtiyacını hesapla" },
+  { name: "Protein İhtiyacı", path: "/araclar/gunluk-protein-ihtiyaci-hesaplama", desc: "Günlük protein ihtiyacını hesapla" },
 ];
 
 function getRandomTools(count: number) {

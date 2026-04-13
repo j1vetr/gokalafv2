@@ -301,9 +301,9 @@ export function renderTools(): string {
     { path: "/araclar/ideal-kilo-hesaplama", title: "İdeal Kilo Hesaplayıcı", desc: "Boyunuza göre ideal kilonuzu hesaplayın" },
     { path: "/araclar/vucut-yagi-orani-hesaplama", title: "Vücut Yağ Oranı", desc: "Vücut yağ yüzdenizi hesaplayın" },
     { path: "/araclar/bir-tekrar-max-hesaplama", title: "1RM Hesaplayıcı", desc: "Maksimum kaldırma kapasiteni hesaplayın" },
-    { path: "/araclar/su-tuketimi-hesaplama", title: "Su İhtiyacı", desc: "Günlük su ihtiyacınızı hesaplayın" },
+    { path: "/araclar/gunluk-su-ihtiyaci-hesaplama", title: "Su İhtiyacı", desc: "Günlük su ihtiyacınızı hesaplayın" },
     { path: "/araclar/kalp-atisi-hesaplama", title: "Kalp Hızı Bölgeleri", desc: "Antrenman kalp hızı bölgelerinizi öğrenin" },
-    { path: "/araclar/protein-ihtiyaci-hesaplama", title: "Protein İhtiyacı", desc: "Günlük protein ihtiyacınızı hesaplayın" },
+    { path: "/araclar/gunluk-protein-ihtiyaci-hesaplama", title: "Protein İhtiyacı", desc: "Günlük protein ihtiyacınızı hesaplayın" },
     { path: "/araclar/dinlenme-suresi-hesaplama", title: "Dinlenme Süresi", desc: "İdeal set arası dinlenme sürenizi öğrenin" },
   ];
 

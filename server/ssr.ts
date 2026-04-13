@@ -233,7 +233,7 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleOneRepMaxTool,
   },
   {
-    pattern: /^\/araclar\/su-tuketimi-hesaplama\/?$/,
+    pattern: /^\/araclar\/gunluk-su-ihtiyaci-hesaplama\/?$/,
     handler: handleSuTuketimiTool,
   },
   {
@@ -241,7 +241,7 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleKalpAtisiTool,
   },
   {
-    pattern: /^\/araclar\/protein-ihtiyaci-hesaplama\/?$/,
+    pattern: /^\/araclar\/gunluk-protein-ihtiyaci-hesaplama\/?$/,
     handler: handleProteinTool,
   },
   {
@@ -545,9 +545,11 @@ const SLUG_REDIRECTS: Record<string, string> = {
   "/araclar/ideal-kilo": "/araclar/ideal-kilo-hesaplama",
   "/araclar/vucut-yagi": "/araclar/vucut-yagi-orani-hesaplama",
   "/araclar/bir-tekrar-max": "/araclar/bir-tekrar-max-hesaplama",
-  "/araclar/su-tuketimi": "/araclar/su-tuketimi-hesaplama",
+  "/araclar/su-tuketimi": "/araclar/gunluk-su-ihtiyaci-hesaplama",
+  "/araclar/su-tuketimi-hesaplama": "/araclar/gunluk-su-ihtiyaci-hesaplama",
   "/araclar/kalp-atisi": "/araclar/kalp-atisi-hesaplama",
-  "/araclar/protein": "/araclar/protein-ihtiyaci-hesaplama",
+  "/araclar/protein": "/araclar/gunluk-protein-ihtiyaci-hesaplama",
+  "/araclar/protein-ihtiyaci-hesaplama": "/araclar/gunluk-protein-ihtiyaci-hesaplama",
   "/araclar/dinlenme": "/araclar/dinlenme-suresi-hesaplama",
   "/araclar/boy-kilo-endeksi": "/araclar/boy-kilo-endeksi-hesaplama",
   "/araclar/bel-kalca-orani": "/araclar/bel-kalca-orani-hesaplama",

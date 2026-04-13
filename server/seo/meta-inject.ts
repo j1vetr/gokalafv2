@@ -993,7 +993,7 @@ export function generateSuTuketimiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/su-tuketimi#app`,
         "name": "Su İhtiyacı Hesaplayıcı",
         "description": "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
-        "url": `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
+        "url": `${BASE_URL}/araclar/gunluk-su-ihtiyaci-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1012,7 +1012,7 @@ export function generateSuTuketimiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi-hesaplama` }
+          { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/gunluk-su-ihtiyaci-hesaplama` }
         ]
       }
     ]
@@ -1025,13 +1025,13 @@ export function generateSuTuketimiToolMeta(): MetaTags {
     ogTitle: "Su İhtiyacı Hesaplayıcı | Gokalaf",
     ogDescription: "Günlük su ihtiyacınızı hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
+    ogUrl: `${BASE_URL}/araclar/gunluk-su-ihtiyaci-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Su İhtiyacı Hesaplayıcı | Gokalaf",
     twitterDescription: "Günlük su ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
+    canonical: `${BASE_URL}/araclar/gunluk-su-ihtiyaci-hesaplama`,
     schema,
   };
 }
@@ -1115,7 +1115,7 @@ export function generateProteinToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/protein#app`,
         "name": "Protein İhtiyacı Hesaplayıcı",
         "description": "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
-        "url": `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
+        "url": `${BASE_URL}/araclar/gunluk-protein-ihtiyaci-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1134,7 +1134,7 @@ export function generateProteinToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama` }
+          { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/gunluk-protein-ihtiyaci-hesaplama` }
         ]
       }
     ]
@@ -1147,13 +1147,13 @@ export function generateProteinToolMeta(): MetaTags {
     ogTitle: "Protein İhtiyacı Hesaplayıcı | Gokalaf",
     ogDescription: "Günlük protein ihtiyacınızı hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
+    ogUrl: `${BASE_URL}/araclar/gunluk-protein-ihtiyaci-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Protein İhtiyacı Hesaplayıcı | Gokalaf",
     twitterDescription: "Günlük protein ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
+    canonical: `${BASE_URL}/araclar/gunluk-protein-ihtiyaci-hesaplama`,
     schema,
   };
 }

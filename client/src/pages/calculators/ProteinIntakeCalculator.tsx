@@ -55,7 +55,7 @@ export default function ProteinIntakeCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Protein İhtiyacı Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/protein-ihtiyaci-hesaplama",
+          "url": "https://gokalaf.com/araclar/gunluk-protein-ihtiyaci-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
@@ -348,8 +348,8 @@ export default function ProteinIntakeCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="protein-ihtiyaci-hesaplama" />
-        <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/protein-ihtiyaci-hesaplama" />
+        <RelatedCalculators currentSlug="gunluk-protein-ihtiyaci-hesaplama" />
+        <CalculatorFAQ title="Protein İhtiyacı Hesaplama" faqs={proteinIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/gunluk-protein-ihtiyaci-hesaplama" />
       </div>
     </div>
   );

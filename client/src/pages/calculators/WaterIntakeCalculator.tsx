@@ -60,7 +60,7 @@ export default function WaterIntakeCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Su Tüketimi Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/su-tuketimi-hesaplama",
+          "url": "https://gokalaf.com/araclar/gunluk-su-ihtiyaci-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
@@ -361,8 +361,8 @@ export default function WaterIntakeCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="su-tuketimi-hesaplama" />
-        <CalculatorFAQ title="Su Tüketimi Hesaplama" faqs={waterIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/su-tuketimi-hesaplama" />
+        <RelatedCalculators currentSlug="gunluk-su-ihtiyaci-hesaplama" />
+        <CalculatorFAQ title="Su Tüketimi Hesaplama" faqs={waterIntakeFAQs} schemaUrl="https://gokalaf.com/araclar/gunluk-su-ihtiyaci-hesaplama" />
       </div>
     </div>
   );

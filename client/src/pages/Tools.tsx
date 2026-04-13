@@ -23,9 +23,9 @@ export default function Tools() {
         { "@type": "ListItem", "position": 6, "name": "İdeal Kilo", "url": "https://gokalaf.com/araclar/ideal-kilo-hesaplama" },
         { "@type": "ListItem", "position": 7, "name": "Vücut Yağ Oranı", "url": "https://gokalaf.com/araclar/vucut-yagi-orani-hesaplama" },
         { "@type": "ListItem", "position": 8, "name": "1RM Hesaplama", "url": "https://gokalaf.com/araclar/bir-tekrar-max-hesaplama" },
-        { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi-hesaplama" },
+        { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/gunluk-su-ihtiyaci-hesaplama" },
         { "@type": "ListItem", "position": 10, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atisi-hesaplama" },
-        { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein-ihtiyaci-hesaplama" },
+        { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/gunluk-protein-ihtiyaci-hesaplama" },
         { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme-suresi-hesaplama" },
         { "@type": "ListItem", "position": 13, "name": "Bel Kalça Oranı", "url": "https://gokalaf.com/araclar/bel-kalca-orani-hesaplama" },
         { "@type": "ListItem", "position": 14, "name": "Vücut Tipi Belirleme", "url": "https://gokalaf.com/araclar/vucut-tipi-hesaplama" }
@@ -111,7 +111,7 @@ export default function Tools() {
       desc: "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
       icon: <Droplets className="w-8 h-8" />,
       category: "Hidrasyon",
-      path: "/araclar/su-tuketimi-hesaplama",
+      path: "/araclar/gunluk-su-ihtiyaci-hesaplama",
       color: "cyan"
     },
     {
@@ -129,7 +129,7 @@ export default function Tools() {
       desc: "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
       icon: <Beef className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/araclar/protein-ihtiyaci-hesaplama",
+      path: "/araclar/gunluk-protein-ihtiyaci-hesaplama",
       color: "amber"
     },
     {

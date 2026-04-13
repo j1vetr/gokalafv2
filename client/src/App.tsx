@@ -120,9 +120,9 @@ function AppContent() {
             <Route path="/araclar/ideal-kilo-hesaplama" component={IdealWeightCalculator} />
             <Route path="/araclar/vucut-yagi-orani-hesaplama" component={BodyFatCalculator} />
             <Route path="/araclar/bir-tekrar-max-hesaplama" component={OneRepMaxCalculator} />
-            <Route path="/araclar/su-tuketimi-hesaplama" component={WaterIntakeCalculator} />
+            <Route path="/araclar/gunluk-su-ihtiyaci-hesaplama" component={WaterIntakeCalculator} />
             <Route path="/araclar/kalp-atisi-hesaplama" component={HeartRateZonesCalculator} />
-            <Route path="/araclar/protein-ihtiyaci-hesaplama" component={ProteinIntakeCalculator} />
+            <Route path="/araclar/gunluk-protein-ihtiyaci-hesaplama" component={ProteinIntakeCalculator} />
             <Route path="/araclar/dinlenme-suresi-hesaplama" component={RestTimerCalculator} />
             <Route path="/araclar/boy-kilo-endeksi-hesaplama" component={BoyKiloEndeksiCalculator} />
             <Route path="/araclar/bel-kalca-orani-hesaplama" component={WaistHipRatioCalculator} />
