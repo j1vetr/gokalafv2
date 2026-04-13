@@ -567,7 +567,7 @@ export function generateVkiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/vki#app`,
         "name": "VKİ Hesaplayıcı - Vücut Kitle İndeksi",
         "description": "Vücut kitle indeksinizi (VKİ/BMI) hesaplayın. Boy ve kilonuza göre sağlıklı kilo aralığınızı öğrenin.",
-        "url": `${BASE_URL}/araclar/vki`,
+        "url": `${BASE_URL}/araclar/vki-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -586,7 +586,7 @@ export function generateVkiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "VKİ Hesaplayıcı", "item": `${BASE_URL}/araclar/vki` }
+          { "@type": "ListItem", "position": 3, "name": "VKİ Hesaplayıcı", "item": `${BASE_URL}/araclar/vki-hesaplama` }
         ]
       }
     ]
@@ -599,13 +599,13 @@ export function generateVkiToolMeta(): MetaTags {
     ogTitle: "VKİ Hesaplayıcı - Vücut Kitle İndeksi | Gokalaf",
     ogDescription: "Vücut kitle indeksinizi hesaplayın. İdeal kilo aralığınızı öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/vki`,
+    ogUrl: `${BASE_URL}/araclar/vki-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "VKİ Hesaplayıcı | Gokalaf",
     twitterDescription: "Vücut kitle indeksinizi hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/vki`,
+    canonical: `${BASE_URL}/araclar/vki-hesaplama`,
     schema,
   };
 }
@@ -628,7 +628,7 @@ export function generateCalorieToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/kalori#app`,
         "name": "Kalori Hesaplayıcı",
         "description": "Günlük kalori ihtiyacınızı hesaplayın. Kilo vermek, korumak veya almak için gereken kalori miktarını öğrenin.",
-        "url": `${BASE_URL}/araclar/kalori`,
+        "url": `${BASE_URL}/araclar/kalori-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -647,7 +647,7 @@ export function generateCalorieToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplayıcı", "item": `${BASE_URL}/araclar/kalori` }
+          { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplayıcı", "item": `${BASE_URL}/araclar/kalori-hesaplama` }
         ]
       }
     ]
@@ -660,13 +660,13 @@ export function generateCalorieToolMeta(): MetaTags {
     ogTitle: "Kalori Hesaplayıcı - Günlük Kalori İhtiyacı | Gokalaf",
     ogDescription: "Günlük kalori ihtiyacınızı hesaplayın. Kilo yönetimi için doğru kalori hedefini öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/kalori`,
+    ogUrl: `${BASE_URL}/araclar/kalori-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Kalori Hesaplayıcı | Gokalaf",
     twitterDescription: "Günlük kalori ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/kalori`,
+    canonical: `${BASE_URL}/araclar/kalori-hesaplama`,
     schema,
   };
 }
@@ -689,7 +689,7 @@ export function generateTdeeToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/tdee#app`,
         "name": "TDEE Hesaplayıcı",
         "description": "Toplam Günlük Enerji Harcaması (TDEE) hesaplayıcı. Aktivite seviyenize göre yakmanız gereken kaloriyi öğrenin.",
-        "url": `${BASE_URL}/araclar/tdee`,
+        "url": `${BASE_URL}/araclar/tdee-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -708,7 +708,7 @@ export function generateTdeeToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplayıcı", "item": `${BASE_URL}/araclar/tdee` }
+          { "@type": "ListItem", "position": 3, "name": "TDEE Hesaplayıcı", "item": `${BASE_URL}/araclar/tdee-hesaplama` }
         ]
       }
     ]
@@ -721,13 +721,13 @@ export function generateTdeeToolMeta(): MetaTags {
     ogTitle: "TDEE Hesaplayıcı - Toplam Günlük Enerji Harcaması | Gokalaf",
     ogDescription: "Toplam günlük enerji harcamanızı hesaplayın. Aktivite seviyenize göre kalori yakımınızı öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/tdee`,
+    ogUrl: `${BASE_URL}/araclar/tdee-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "TDEE Hesaplayıcı | Gokalaf",
     twitterDescription: "Toplam günlük enerji harcamanızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/tdee`,
+    canonical: `${BASE_URL}/araclar/tdee-hesaplama`,
     schema,
   };
 }
@@ -750,7 +750,7 @@ export function generateMacroToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/makro#app`,
         "name": "Makro Hesaplayıcı",
         "description": "Günlük protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro besin dağılımını öğrenin.",
-        "url": `${BASE_URL}/araclar/makro`,
+        "url": `${BASE_URL}/araclar/makro-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -769,7 +769,7 @@ export function generateMacroToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Makro Hesaplayıcı", "item": `${BASE_URL}/araclar/makro` }
+          { "@type": "ListItem", "position": 3, "name": "Makro Hesaplayıcı", "item": `${BASE_URL}/araclar/makro-hesaplama` }
         ]
       }
     ]
@@ -782,13 +782,13 @@ export function generateMacroToolMeta(): MetaTags {
     ogTitle: "Makro Hesaplayıcı - Protein, Karbonhidrat, Yağ | Gokalaf",
     ogDescription: "Protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın. Hedeflerinize uygun makro dağılımını öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/makro`,
+    ogUrl: `${BASE_URL}/araclar/makro-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Makro Hesaplayıcı | Gokalaf",
     twitterDescription: "Protein, karbonhidrat ve yağ ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/makro`,
+    canonical: `${BASE_URL}/araclar/makro-hesaplama`,
     schema,
   };
 }
@@ -810,7 +810,7 @@ export function generateIdealKiloToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/ideal-kilo#app`,
         "name": "İdeal Kilo Hesaplayıcı",
         "description": "Boyunuza ve cinsiyetinize göre ideal kilonuzu hesaplayın. Devine, Robinson, Miller ve Hamwi formülleriyle sonuç alın.",
-        "url": `${BASE_URL}/araclar/ideal-kilo`,
+        "url": `${BASE_URL}/araclar/ideal-kilo-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -829,7 +829,7 @@ export function generateIdealKiloToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "İdeal Kilo Hesaplayıcı", "item": `${BASE_URL}/araclar/ideal-kilo` }
+          { "@type": "ListItem", "position": 3, "name": "İdeal Kilo Hesaplayıcı", "item": `${BASE_URL}/araclar/ideal-kilo-hesaplama` }
         ]
       }
     ]
@@ -842,13 +842,13 @@ export function generateIdealKiloToolMeta(): MetaTags {
     ogTitle: "İdeal Kilo Hesaplayıcı | Gokalaf",
     ogDescription: "Boyunuza ve cinsiyetinize göre ideal kilonuzu hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/ideal-kilo`,
+    ogUrl: `${BASE_URL}/araclar/ideal-kilo-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "İdeal Kilo Hesaplayıcı | Gokalaf",
     twitterDescription: "Boyunuza göre ideal kilonuzu hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/ideal-kilo`,
+    canonical: `${BASE_URL}/araclar/ideal-kilo-hesaplama`,
     schema,
   };
 }
@@ -871,7 +871,7 @@ export function generateVucutYagiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/vucut-yagi#app`,
         "name": "Vücut Yağ Oranı Hesaplayıcı",
         "description": "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
-        "url": `${BASE_URL}/araclar/vucut-yagi`,
+        "url": `${BASE_URL}/araclar/vucut-yagi-orani-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -890,7 +890,7 @@ export function generateVucutYagiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Vücut Yağ Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/vucut-yagi` }
+          { "@type": "ListItem", "position": 3, "name": "Vücut Yağ Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/vucut-yagi-orani-hesaplama` }
         ]
       }
     ]
@@ -903,13 +903,13 @@ export function generateVucutYagiToolMeta(): MetaTags {
     ogTitle: "Vücut Yağ Oranı Hesaplayıcı | Gokalaf",
     ogDescription: "Vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/vucut-yagi`,
+    ogUrl: `${BASE_URL}/araclar/vucut-yagi-orani-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Vücut Yağ Oranı Hesaplayıcı | Gokalaf",
     twitterDescription: "Vücut yağ yüzdenizi hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/vucut-yagi`,
+    canonical: `${BASE_URL}/araclar/vucut-yagi-orani-hesaplama`,
     schema,
   };
 }
@@ -932,7 +932,7 @@ export function generateOneRepMaxToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/bir-tekrar-max#app`,
         "name": "One Rep Max (1RM) Hesaplayıcı",
         "description": "Kaldırdığınız ağırlık ve tekrar sayısından maksimum kaldırma kapasiteni hesaplayın.",
-        "url": `${BASE_URL}/araclar/bir-tekrar-max`,
+        "url": `${BASE_URL}/araclar/bir-tekrar-max-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -951,7 +951,7 @@ export function generateOneRepMaxToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "1RM Hesaplayıcı", "item": `${BASE_URL}/araclar/bir-tekrar-max` }
+          { "@type": "ListItem", "position": 3, "name": "1RM Hesaplayıcı", "item": `${BASE_URL}/araclar/bir-tekrar-max-hesaplama` }
         ]
       }
     ]
@@ -964,13 +964,13 @@ export function generateOneRepMaxToolMeta(): MetaTags {
     ogTitle: "One Rep Max (1RM) Hesaplayıcı | Gokalaf",
     ogDescription: "Maksimum kaldırma kapasiteni hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/bir-tekrar-max`,
+    ogUrl: `${BASE_URL}/araclar/bir-tekrar-max-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "1RM Hesaplayıcı | Gokalaf",
     twitterDescription: "Maksimum kaldırma kapasiteni hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/bir-tekrar-max`,
+    canonical: `${BASE_URL}/araclar/bir-tekrar-max-hesaplama`,
     schema,
   };
 }
@@ -993,7 +993,7 @@ export function generateSuTuketimiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/su-tuketimi#app`,
         "name": "Su İhtiyacı Hesaplayıcı",
         "description": "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
-        "url": `${BASE_URL}/araclar/su-tuketimi`,
+        "url": `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1012,7 +1012,7 @@ export function generateSuTuketimiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi` }
+          { "@type": "ListItem", "position": 3, "name": "Su İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/su-tuketimi-hesaplama` }
         ]
       }
     ]
@@ -1025,13 +1025,13 @@ export function generateSuTuketimiToolMeta(): MetaTags {
     ogTitle: "Su İhtiyacı Hesaplayıcı | Gokalaf",
     ogDescription: "Günlük su ihtiyacınızı hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/su-tuketimi`,
+    ogUrl: `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Su İhtiyacı Hesaplayıcı | Gokalaf",
     twitterDescription: "Günlük su ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/su-tuketimi`,
+    canonical: `${BASE_URL}/araclar/su-tuketimi-hesaplama`,
     schema,
   };
 }
@@ -1054,7 +1054,7 @@ export function generateKalpAtisiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/kalp-atisi#app`,
         "name": "Kalp Hızı Bölgeleri Hesaplayıcı",
         "description": "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın. Yağ yakımı, aerobik ve anaerobik bölgelerini öğrenin.",
-        "url": `${BASE_URL}/araclar/kalp-atisi`,
+        "url": `${BASE_URL}/araclar/kalp-atisi-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1073,7 +1073,7 @@ export function generateKalpAtisiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Kalp Hızı Bölgeleri", "item": `${BASE_URL}/araclar/kalp-atisi` }
+          { "@type": "ListItem", "position": 3, "name": "Kalp Hızı Bölgeleri", "item": `${BASE_URL}/araclar/kalp-atisi-hesaplama` }
         ]
       }
     ]
@@ -1086,13 +1086,13 @@ export function generateKalpAtisiToolMeta(): MetaTags {
     ogTitle: "Kalp Hızı Bölgeleri Hesaplayıcı | Gokalaf",
     ogDescription: "Antrenman kalp hızı bölgelerinizi hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/kalp-atisi`,
+    ogUrl: `${BASE_URL}/araclar/kalp-atisi-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Kalp Hızı Bölgeleri Hesaplayıcı | Gokalaf",
     twitterDescription: "Antrenman kalp hızı bölgelerinizi hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/kalp-atisi`,
+    canonical: `${BASE_URL}/araclar/kalp-atisi-hesaplama`,
     schema,
   };
 }
@@ -1115,7 +1115,7 @@ export function generateProteinToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/protein#app`,
         "name": "Protein İhtiyacı Hesaplayıcı",
         "description": "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
-        "url": `${BASE_URL}/araclar/protein`,
+        "url": `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1134,7 +1134,7 @@ export function generateProteinToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein` }
+          { "@type": "ListItem", "position": 3, "name": "Protein İhtiyacı Hesaplayıcı", "item": `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama` }
         ]
       }
     ]
@@ -1147,13 +1147,13 @@ export function generateProteinToolMeta(): MetaTags {
     ogTitle: "Protein İhtiyacı Hesaplayıcı | Gokalaf",
     ogDescription: "Günlük protein ihtiyacınızı hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/protein`,
+    ogUrl: `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Protein İhtiyacı Hesaplayıcı | Gokalaf",
     twitterDescription: "Günlük protein ihtiyacınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/protein`,
+    canonical: `${BASE_URL}/araclar/protein-ihtiyaci-hesaplama`,
     schema,
   };
 }
@@ -1176,7 +1176,7 @@ export function generateDinlenmeToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/dinlenme#app`,
         "name": "Dinlenme Süresi Hesaplayıcı",
         "description": "Antrenman tipinize göre ideal set arası dinlenme sürenizi öğrenin.",
-        "url": `${BASE_URL}/araclar/dinlenme`,
+        "url": `${BASE_URL}/araclar/dinlenme-suresi-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1195,7 +1195,7 @@ export function generateDinlenmeToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Dinlenme Süresi Hesaplayıcı", "item": `${BASE_URL}/araclar/dinlenme` }
+          { "@type": "ListItem", "position": 3, "name": "Dinlenme Süresi Hesaplayıcı", "item": `${BASE_URL}/araclar/dinlenme-suresi-hesaplama` }
         ]
       }
     ]
@@ -1208,13 +1208,13 @@ export function generateDinlenmeToolMeta(): MetaTags {
     ogTitle: "Dinlenme Süresi Hesaplayıcı | Gokalaf",
     ogDescription: "Antrenman tipinize göre ideal dinlenme sürenizi öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/dinlenme`,
+    ogUrl: `${BASE_URL}/araclar/dinlenme-suresi-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Dinlenme Süresi Hesaplayıcı | Gokalaf",
     twitterDescription: "Antrenman tipinize göre ideal dinlenme sürenizi öğrenin.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/dinlenme`,
+    canonical: `${BASE_URL}/araclar/dinlenme-suresi-hesaplama`,
     schema,
   };
 }
@@ -1237,7 +1237,7 @@ export function generateBoyKiloEndeksiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/boy-kilo-endeksi#app`,
         "name": "Boy Kilo Endeksi Hesaplayıcı",
         "description": "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın ve sağlık durumunuzu değerlendirin.",
-        "url": `${BASE_URL}/araclar/boy-kilo-endeksi`,
+        "url": `${BASE_URL}/araclar/boy-kilo-endeksi-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1256,7 +1256,7 @@ export function generateBoyKiloEndeksiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Boy Kilo Endeksi Hesaplayıcı", "item": `${BASE_URL}/araclar/boy-kilo-endeksi` }
+          { "@type": "ListItem", "position": 3, "name": "Boy Kilo Endeksi Hesaplayıcı", "item": `${BASE_URL}/araclar/boy-kilo-endeksi-hesaplama` }
         ]
       }
     ]
@@ -1269,13 +1269,13 @@ export function generateBoyKiloEndeksiToolMeta(): MetaTags {
     ogTitle: "Boy Kilo Endeksi Hesaplama | Gokalaf",
     ogDescription: "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/boy-kilo-endeksi`,
+    ogUrl: `${BASE_URL}/araclar/boy-kilo-endeksi-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Boy Kilo Endeksi Hesaplayıcı | Gokalaf",
     twitterDescription: "Boyunuza göre ideal kilonuzda olup olmadığınızı hesaplayın.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/boy-kilo-endeksi`,
+    canonical: `${BASE_URL}/araclar/boy-kilo-endeksi-hesaplama`,
     schema,
   };
 }
@@ -1298,7 +1298,7 @@ export function generateBelKalcaOraniToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/bel-kalca-orani#app`,
         "name": "Bel Kalça Oranı Hesaplayıcı",
         "description": "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
-        "url": `${BASE_URL}/araclar/bel-kalca-orani`,
+        "url": `${BASE_URL}/araclar/bel-kalca-orani-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1317,7 +1317,7 @@ export function generateBelKalcaOraniToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Bel Kalça Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/bel-kalca-orani` }
+          { "@type": "ListItem", "position": 3, "name": "Bel Kalça Oranı Hesaplayıcı", "item": `${BASE_URL}/araclar/bel-kalca-orani-hesaplama` }
         ]
       }
     ]
@@ -1330,13 +1330,13 @@ export function generateBelKalcaOraniToolMeta(): MetaTags {
     ogTitle: "Bel Kalça Oranı Hesaplama | Gokalaf",
     ogDescription: "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/bel-kalca-orani`,
+    ogUrl: `${BASE_URL}/araclar/bel-kalca-orani-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Bel Kalça Oranı Hesaplayıcı | Gokalaf",
     twitterDescription: "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/bel-kalca-orani`,
+    canonical: `${BASE_URL}/araclar/bel-kalca-orani-hesaplama`,
     schema,
   };
 }
@@ -1359,7 +1359,7 @@ export function generateVucutTipiToolMeta(): MetaTags {
         "@id": `${BASE_URL}/araclar/vucut-tipi#app`,
         "name": "Vücut Tipi Belirleme Aracı",
         "description": "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin ve kişiselleştirilmiş antrenman önerileri alın.",
-        "url": `${BASE_URL}/araclar/vucut-tipi`,
+        "url": `${BASE_URL}/araclar/vucut-tipi-hesaplama`,
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Web",
         "isAccessibleForFree": true,
@@ -1378,7 +1378,7 @@ export function generateVucutTipiToolMeta(): MetaTags {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": BASE_URL },
           { "@type": "ListItem", "position": 2, "name": "Araçlar", "item": `${BASE_URL}/araclar` },
-          { "@type": "ListItem", "position": 3, "name": "Vücut Tipi Belirleme", "item": `${BASE_URL}/araclar/vucut-tipi` }
+          { "@type": "ListItem", "position": 3, "name": "Vücut Tipi Belirleme", "item": `${BASE_URL}/araclar/vucut-tipi-hesaplama` }
         ]
       }
     ]
@@ -1391,13 +1391,13 @@ export function generateVucutTipiToolMeta(): MetaTags {
     ogTitle: "Vücut Tipi Belirleme Testi | Gokalaf",
     ogDescription: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
     ogImage: DEFAULT_OG_IMAGE,
-    ogUrl: `${BASE_URL}/araclar/vucut-tipi`,
+    ogUrl: `${BASE_URL}/araclar/vucut-tipi-hesaplama`,
     ogType: "website",
     twitterCard: "summary_large_image",
     twitterTitle: "Vücut Tipi Belirleme | Gokalaf",
     twitterDescription: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
     twitterImage: DEFAULT_OG_IMAGE,
-    canonical: `${BASE_URL}/araclar/vucut-tipi`,
+    canonical: `${BASE_URL}/araclar/vucut-tipi-hesaplama`,
     schema,
   };
 }

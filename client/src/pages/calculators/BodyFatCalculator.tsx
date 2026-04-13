@@ -115,7 +115,7 @@ export default function BodyFatCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Vücut Yağ Oranı Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/vucut-yag-orani",
+          "url": "https://gokalaf.com/araclar/vucut-yagi-orani-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": {
@@ -453,8 +453,8 @@ export default function BodyFatCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="vucut-yagi" />
-        <CalculatorFAQ title="Vücut Yağ Oranı Hesaplama" faqs={bodyFatFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-yag-orani" />
+        <RelatedCalculators currentSlug="vucut-yagi-orani-hesaplama" />
+        <CalculatorFAQ title="Vücut Yağ Oranı Hesaplama" faqs={bodyFatFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-yagi-orani-hesaplama" />
       </div>
     </div>
   );

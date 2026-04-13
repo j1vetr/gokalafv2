@@ -294,17 +294,17 @@ export function renderAbout(): string {
 
 export function renderTools(): string {
   const tools = [
-    { path: "/araclar/vki", title: "VKİ Hesaplayıcı", desc: "Vücut kitle indeksinizi hesaplayın" },
-    { path: "/araclar/kalori", title: "Kalori Hesaplayıcı", desc: "Günlük kalori ihtiyacınızı öğrenin" },
-    { path: "/araclar/tdee", title: "TDEE Hesaplayıcı", desc: "Toplam günlük enerji harcamanızı hesaplayın" },
-    { path: "/araclar/makro", title: "Makro Hesaplayıcı", desc: "Protein, karbonhidrat ve yağ oranlarınızı belirleyin" },
-    { path: "/araclar/ideal-kilo", title: "İdeal Kilo Hesaplayıcı", desc: "Boyunuza göre ideal kilonuzu hesaplayın" },
-    { path: "/araclar/vucut-yagi", title: "Vücut Yağ Oranı", desc: "Vücut yağ yüzdenizi hesaplayın" },
-    { path: "/araclar/bir-tekrar-max", title: "1RM Hesaplayıcı", desc: "Maksimum kaldırma kapasiteni hesaplayın" },
-    { path: "/araclar/su-tuketimi", title: "Su İhtiyacı", desc: "Günlük su ihtiyacınızı hesaplayın" },
-    { path: "/araclar/kalp-atisi", title: "Kalp Hızı Bölgeleri", desc: "Antrenman kalp hızı bölgelerinizi öğrenin" },
-    { path: "/araclar/protein", title: "Protein İhtiyacı", desc: "Günlük protein ihtiyacınızı hesaplayın" },
-    { path: "/araclar/dinlenme", title: "Dinlenme Süresi", desc: "İdeal set arası dinlenme sürenizi öğrenin" },
+    { path: "/araclar/vki-hesaplama", title: "VKİ Hesaplayıcı", desc: "Vücut kitle indeksinizi hesaplayın" },
+    { path: "/araclar/kalori-hesaplama", title: "Kalori Hesaplayıcı", desc: "Günlük kalori ihtiyacınızı öğrenin" },
+    { path: "/araclar/tdee-hesaplama", title: "TDEE Hesaplayıcı", desc: "Toplam günlük enerji harcamanızı hesaplayın" },
+    { path: "/araclar/makro-hesaplama", title: "Makro Hesaplayıcı", desc: "Protein, karbonhidrat ve yağ oranlarınızı belirleyin" },
+    { path: "/araclar/ideal-kilo-hesaplama", title: "İdeal Kilo Hesaplayıcı", desc: "Boyunuza göre ideal kilonuzu hesaplayın" },
+    { path: "/araclar/vucut-yagi-orani-hesaplama", title: "Vücut Yağ Oranı", desc: "Vücut yağ yüzdenizi hesaplayın" },
+    { path: "/araclar/bir-tekrar-max-hesaplama", title: "1RM Hesaplayıcı", desc: "Maksimum kaldırma kapasiteni hesaplayın" },
+    { path: "/araclar/su-tuketimi-hesaplama", title: "Su İhtiyacı", desc: "Günlük su ihtiyacınızı hesaplayın" },
+    { path: "/araclar/kalp-atisi-hesaplama", title: "Kalp Hızı Bölgeleri", desc: "Antrenman kalp hızı bölgelerinizi öğrenin" },
+    { path: "/araclar/protein-ihtiyaci-hesaplama", title: "Protein İhtiyacı", desc: "Günlük protein ihtiyacınızı hesaplayın" },
+    { path: "/araclar/dinlenme-suresi-hesaplama", title: "Dinlenme Süresi", desc: "İdeal set arası dinlenme sürenizi öğrenin" },
   ];
 
   return `

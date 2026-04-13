@@ -11,16 +11,16 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import SEO from "@/components/SEO";
 
 const fitnessTools = [
-  { name: "VKİ Hesaplama", path: "/araclar/vki", desc: "Vücut kitle indeksini hesapla" },
-  { name: "Kalori Hesaplama", path: "/araclar/kalori", desc: "Günlük kalori ihtiyacını öğren" },
-  { name: "TDEE Hesaplama", path: "/araclar/tdee", desc: "Toplam enerji harcamanı hesapla" },
-  { name: "Makro Hesaplama", path: "/araclar/makro", desc: "Protein, yağ, karbonhidrat oranlarını bul" },
-  { name: "İdeal Kilo", path: "/araclar/ideal-kilo", desc: "Sağlıklı kilo aralığını öğren" },
-  { name: "Vücut Yağı", path: "/araclar/vucut-yagi", desc: "Vücut yağ oranını hesapla" },
-  { name: "1RM Hesaplama", path: "/araclar/bir-tekrar-max", desc: "Maksimum kaldırma kapasiteni bul" },
-  { name: "Su Tüketimi", path: "/araclar/su-tuketimi", desc: "Günlük su ihtiyacını hesapla" },
-  { name: "Kalp Atış Hızı", path: "/araclar/kalp-atisi", desc: "Hedef kalp atış hızını öğren" },
-  { name: "Protein İhtiyacı", path: "/araclar/protein", desc: "Günlük protein ihtiyacını hesapla" },
+  { name: "VKİ Hesaplama", path: "/araclar/vki-hesaplama", desc: "Vücut kitle indeksini hesapla" },
+  { name: "Kalori Hesaplama", path: "/araclar/kalori-hesaplama", desc: "Günlük kalori ihtiyacını öğren" },
+  { name: "TDEE Hesaplama", path: "/araclar/tdee-hesaplama", desc: "Toplam enerji harcamanı hesapla" },
+  { name: "Makro Hesaplama", path: "/araclar/makro-hesaplama", desc: "Protein, yağ, karbonhidrat oranlarını bul" },
+  { name: "İdeal Kilo", path: "/araclar/ideal-kilo-hesaplama", desc: "Sağlıklı kilo aralığını öğren" },
+  { name: "Vücut Yağı", path: "/araclar/vucut-yagi-orani-hesaplama", desc: "Vücut yağ oranını hesapla" },
+  { name: "1RM Hesaplama", path: "/araclar/bir-tekrar-max-hesaplama", desc: "Maksimum kaldırma kapasiteni bul" },
+  { name: "Su Tüketimi", path: "/araclar/su-tuketimi-hesaplama", desc: "Günlük su ihtiyacını hesapla" },
+  { name: "Kalp Atış Hızı", path: "/araclar/kalp-atisi-hesaplama", desc: "Hedef kalp atış hızını öğren" },
+  { name: "Protein İhtiyacı", path: "/araclar/protein-ihtiyaci-hesaplama", desc: "Günlük protein ihtiyacını hesapla" },
 ];
 
 function getRandomTools(count: number) {

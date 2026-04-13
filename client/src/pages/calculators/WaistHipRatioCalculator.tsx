@@ -97,12 +97,12 @@ export default function WaistHipRatioCalculator() {
         title="Bel Kalça Oranı Hesaplama | Sağlık Risk Değerlendirmesi - Gokalaf"
         description="Bel kalça oranı hesaplayıcı ile karın yağlanmanızı ve sağlık riskinizi değerlendirin. Ücretsiz online BKO hesaplama aracı."
         keywords="bel kalça oranı, bel kalça oranı hesaplama, BKO hesaplama, karın yağı, sağlık riski, elma tipi vücut, armut tipi vücut"
-        canonical="/araclar/bel-kalca-orani"
+        canonical="/araclar/bel-kalca-orani-hesaplama"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Bel Kalça Oranı Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/bel-kalca-orani",
+          "url": "https://gokalaf.com/araclar/bel-kalca-orani-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "description": "Bel kalça oranınızı hesaplayın ve sağlık riskinizi değerlendirin.",
@@ -428,7 +428,7 @@ export default function WaistHipRatioCalculator() {
 
           <CalculatorFAQ faqs={belKalcaFAQs} title="Bel Kalça Oranı Sıkça Sorulan Sorular" />
           
-          <RelatedCalculators currentSlug="bel-kalca-orani" />
+          <RelatedCalculators currentSlug="bel-kalca-orani-hesaplama" />
         </div>
       </div>
     </div>

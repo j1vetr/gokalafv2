@@ -8,20 +8,20 @@ interface CalculatorItem {
 }
 
 const allCalculators: CalculatorItem[] = [
-  { slug: "boy-kilo-endeksi", name: "Boy Kilo Endeksi", description: "Boyunuza göre ideal kilonuzda mısınız?" },
-  { slug: "vki", name: "Vücut Kitle İndeksi (BMI)", description: "Boy-kilo oranınızı hesaplayın" },
-  { slug: "kalori", name: "Kalori Hesaplama", description: "Günlük kalori ihtiyacınızı öğrenin" },
-  { slug: "tdee", name: "TDEE Hesaplama", description: "Toplam günlük enerji harcamanız" },
-  { slug: "makro", name: "Makro Hesaplama", description: "Protein, karbonhidrat, yağ oranları" },
-  { slug: "ideal-kilo", name: "İdeal Kilo", description: "Boyunuza göre ideal kilonuz" },
-  { slug: "su-tuketimi", name: "Su Tüketimi", description: "Günlük su ihtiyacınızı hesaplayın" },
-  { slug: "vucut-yagi", name: "Vücut Yağ Oranı", description: "Yağ yüzdenizi öğrenin" },
-  { slug: "protein", name: "Protein İhtiyacı", description: "Günlük protein miktarınız" },
-  { slug: "bir-tekrar-max", name: "1RM Hesaplama", description: "Maksimum kaldırabileceğiniz ağırlık" },
-  { slug: "kalp-atisi", name: "Kalp Atış Hızı", description: "Antrenman kalp hızı bölgeleriniz" },
-  { slug: "dinlenme", name: "Dinlenme Süresi", description: "Set arası dinlenme zamanlayıcı" },
-  { slug: "bel-kalca-orani", name: "Bel Kalça Oranı", description: "Karın yağlanması ve sağlık riski" },
-  { slug: "vucut-tipi", name: "Vücut Tipi", description: "Ektomorf, mezomorf, endomorf testi" },
+  { slug: "boy-kilo-endeksi-hesaplama", name: "Boy Kilo Endeksi", description: "Boyunuza göre ideal kilonuzda mısınız?" },
+  { slug: "vki-hesaplama", name: "Vücut Kitle İndeksi (BMI)", description: "Boy-kilo oranınızı hesaplayın" },
+  { slug: "kalori-hesaplama", name: "Kalori Hesaplama", description: "Günlük kalori ihtiyacınızı öğrenin" },
+  { slug: "tdee-hesaplama", name: "TDEE Hesaplama", description: "Toplam günlük enerji harcamanız" },
+  { slug: "makro-hesaplama", name: "Makro Hesaplama", description: "Protein, karbonhidrat, yağ oranları" },
+  { slug: "ideal-kilo-hesaplama", name: "İdeal Kilo", description: "Boyunuza göre ideal kilonuz" },
+  { slug: "su-tuketimi-hesaplama", name: "Su Tüketimi", description: "Günlük su ihtiyacınızı hesaplayın" },
+  { slug: "vucut-yagi-orani-hesaplama", name: "Vücut Yağ Oranı", description: "Yağ yüzdenizi öğrenin" },
+  { slug: "protein-ihtiyaci-hesaplama", name: "Protein İhtiyacı", description: "Günlük protein miktarınız" },
+  { slug: "bir-tekrar-max-hesaplama", name: "1RM Hesaplama", description: "Maksimum kaldırabileceğiniz ağırlık" },
+  { slug: "kalp-atisi-hesaplama", name: "Kalp Atış Hızı", description: "Antrenman kalp hızı bölgeleriniz" },
+  { slug: "dinlenme-suresi-hesaplama", name: "Dinlenme Süresi", description: "Set arası dinlenme zamanlayıcı" },
+  { slug: "bel-kalca-orani-hesaplama", name: "Bel Kalça Oranı", description: "Karın yağlanması ve sağlık riski" },
+  { slug: "vucut-tipi-hesaplama", name: "Vücut Tipi", description: "Ektomorf, mezomorf, endomorf testi" },
 ];
 
 interface RelatedCalculatorsProps {

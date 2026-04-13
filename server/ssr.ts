@@ -205,59 +205,59 @@ const SSR_ROUTES: Array<{ pattern: RegExp; handler: RouteHandler }> = [
     handler: handleTools,
   },
   {
-    pattern: /^\/araclar\/vki\/?$/,
+    pattern: /^\/araclar\/vki-hesaplama\/?$/,
     handler: handleVkiTool,
   },
   {
-    pattern: /^\/araclar\/kalori\/?$/,
+    pattern: /^\/araclar\/kalori-hesaplama\/?$/,
     handler: handleCalorieTool,
   },
   {
-    pattern: /^\/araclar\/tdee\/?$/,
+    pattern: /^\/araclar\/tdee-hesaplama\/?$/,
     handler: handleTdeeTool,
   },
   {
-    pattern: /^\/araclar\/makro\/?$/,
+    pattern: /^\/araclar\/makro-hesaplama\/?$/,
     handler: handleMacroTool,
   },
   {
-    pattern: /^\/araclar\/ideal-kilo\/?$/,
+    pattern: /^\/araclar\/ideal-kilo-hesaplama\/?$/,
     handler: handleIdealKiloTool,
   },
   {
-    pattern: /^\/araclar\/vucut-yagi\/?$/,
+    pattern: /^\/araclar\/vucut-yagi-orani-hesaplama\/?$/,
     handler: handleVucutYagiTool,
   },
   {
-    pattern: /^\/araclar\/bir-tekrar-max\/?$/,
+    pattern: /^\/araclar\/bir-tekrar-max-hesaplama\/?$/,
     handler: handleOneRepMaxTool,
   },
   {
-    pattern: /^\/araclar\/su-tuketimi\/?$/,
+    pattern: /^\/araclar\/su-tuketimi-hesaplama\/?$/,
     handler: handleSuTuketimiTool,
   },
   {
-    pattern: /^\/araclar\/kalp-atisi\/?$/,
+    pattern: /^\/araclar\/kalp-atisi-hesaplama\/?$/,
     handler: handleKalpAtisiTool,
   },
   {
-    pattern: /^\/araclar\/protein\/?$/,
+    pattern: /^\/araclar\/protein-ihtiyaci-hesaplama\/?$/,
     handler: handleProteinTool,
   },
   {
-    pattern: /^\/araclar\/dinlenme\/?$/,
+    pattern: /^\/araclar\/dinlenme-suresi-hesaplama\/?$/,
     handler: handleDinlenmeTool,
   },
   {
-    pattern: /^\/araclar\/boy-kilo-endeksi\/?$/,
+    pattern: /^\/araclar\/boy-kilo-endeksi-hesaplama\/?$/,
     handler: handleBoyKiloEndeksiTool,
   },
   {
-    pattern: /^\/araclar\/bel-kalca-orani\/?$/,
+    pattern: /^\/araclar\/bel-kalca-orani-hesaplama\/?$/,
     handler: handleBelKalcaOraniTool,
   },
   {
-    pattern: /^\/araclar\/vucut-tipi\/?$/,
+    pattern: /^\/araclar\/vucut-tipi-hesaplama\/?$/,
     handler: handleVucutTipiTool,
   },
   {
@@ -537,7 +537,32 @@ function send404Response(res: Response): void {
   }
 }
 
+const SLUG_REDIRECTS: Record<string, string> = {
+  "/araclar/vki": "/araclar/vki-hesaplama",
+  "/araclar/kalori": "/araclar/kalori-hesaplama",
+  "/araclar/tdee": "/araclar/tdee-hesaplama",
+  "/araclar/makro": "/araclar/makro-hesaplama",
+  "/araclar/ideal-kilo": "/araclar/ideal-kilo-hesaplama",
+  "/araclar/vucut-yagi": "/araclar/vucut-yagi-orani-hesaplama",
+  "/araclar/bir-tekrar-max": "/araclar/bir-tekrar-max-hesaplama",
+  "/araclar/su-tuketimi": "/araclar/su-tuketimi-hesaplama",
+  "/araclar/kalp-atisi": "/araclar/kalp-atisi-hesaplama",
+  "/araclar/protein": "/araclar/protein-ihtiyaci-hesaplama",
+  "/araclar/dinlenme": "/araclar/dinlenme-suresi-hesaplama",
+  "/araclar/boy-kilo-endeksi": "/araclar/boy-kilo-endeksi-hesaplama",
+  "/araclar/bel-kalca-orani": "/araclar/bel-kalca-orani-hesaplama",
+  "/araclar/vucut-tipi": "/araclar/vucut-tipi-hesaplama",
+};
+
 export function ssrMiddleware(req: Request, res: Response, next: NextFunction): void {
+  const cleanPath = req.path.replace(/\/+$/, "") || "/";
+  const redirectTo = SLUG_REDIRECTS[cleanPath];
+  if (redirectTo) {
+    log(`301 redirect: ${cleanPath} → ${redirectTo}`);
+    res.redirect(301, redirectTo);
+    return;
+  }
+
   if (!shouldServeSSR(req)) {
     return next();
   }

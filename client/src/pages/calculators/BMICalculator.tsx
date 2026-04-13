@@ -68,7 +68,7 @@ export default function BMICalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Vücut Kitle İndeksi (BMI) Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/vucut-kitle-indeksi",
+          "url": "https://gokalaf.com/araclar/vki-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": {
@@ -395,8 +395,8 @@ export default function BMICalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="vki" />
-        <CalculatorFAQ title="BMI Hesaplama" faqs={bmiFAQs} schemaUrl="https://gokalaf.com/araclar/vucut-kitle-indeksi" />
+        <RelatedCalculators currentSlug="vki-hesaplama" />
+        <CalculatorFAQ title="BMI Hesaplama" faqs={bmiFAQs} schemaUrl="https://gokalaf.com/araclar/vki-hesaplama" />
       </div>
     </div>
   );

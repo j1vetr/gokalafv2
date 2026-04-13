@@ -61,7 +61,7 @@ export default function OneRepMaxCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "1RM Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/one-rep-max",
+          "url": "https://gokalaf.com/araclar/bir-tekrar-max-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": {
@@ -353,8 +353,8 @@ export default function OneRepMaxCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="bir-tekrar-max" />
-        <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/one-rep-max" />
+        <RelatedCalculators currentSlug="bir-tekrar-max-hesaplama" />
+        <CalculatorFAQ title="1RM Hesaplama" faqs={oneRepMaxFAQs} schemaUrl="https://gokalaf.com/araclar/bir-tekrar-max-hesaplama" />
       </div>
     </div>
   );

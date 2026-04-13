@@ -157,20 +157,20 @@ ${pages.map(p => `  <url>
   // Araçlar sitemap
   app.get("/sitemap-araclar.xml", (_req, res) => {
     const pages = [
-      { loc: "/araclar/boy-kilo-endeksi", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/vki", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/kalori", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/tdee", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/makro", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/ideal-kilo", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/vucut-yagi", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/bir-tekrar-max", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/su-tuketimi", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/kalp-atisi", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/protein", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/dinlenme", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/bel-kalca-orani", priority: "0.9", changefreq: "monthly" },
-      { loc: "/araclar/vucut-tipi", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/boy-kilo-endeksi-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vki-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/kalori-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/tdee-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/makro-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/ideal-kilo-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vucut-yagi-orani-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/bir-tekrar-max-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/su-tuketimi-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/kalp-atisi-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/protein-ihtiyaci-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/dinlenme-suresi-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/bel-kalca-orani-hesaplama", priority: "0.9", changefreq: "monthly" },
+      { loc: "/araclar/vucut-tipi-hesaplama", priority: "0.9", changefreq: "monthly" },
     ];
     res.setHeader("Content-Type", "application/xml");
     res.send(buildUrlset(pages));

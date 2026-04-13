@@ -160,12 +160,12 @@ export default function BodyTypeCalculator() {
         title="Vücut Tipi Belirleme | Ektomorf Mezomorf Endomorf Testi - Gokalaf"
         description="Vücut tipinizi öğrenin! Ektomorf, mezomorf veya endomorf olduğunuzu belirleyin. Ücretsiz somatotip testi ile genetik yapınıza uygun antrenman ve beslenme önerileri alın."
         keywords="vücut tipi, vücut tipi testi, ektomorf, mezomorf, endomorf, somatotip, genetik yapı, vücut tipi hesaplama, vücut tipi belirleme"
-        canonical="/araclar/vucut-tipi"
+        canonical="/araclar/vucut-tipi-hesaplama"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Vücut Tipi Belirleme Aracı",
-          "url": "https://gokalaf.com/araclar/vucut-tipi",
+          "url": "https://gokalaf.com/araclar/vucut-tipi-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "description": "Vücut tipinizi belirleyin ve kişiselleştirilmiş antrenman önerileri alın.",
@@ -486,7 +486,7 @@ export default function BodyTypeCalculator() {
 
           <CalculatorFAQ faqs={vucutTipiFAQs} title="Vücut Tipi Sıkça Sorulan Sorular" />
           
-          <RelatedCalculators currentSlug="vucut-tipi" />
+          <RelatedCalculators currentSlug="vucut-tipi-hesaplama" />
         </div>
       </div>
     </div>

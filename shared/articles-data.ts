@@ -5731,7 +5731,7 @@ Açılmamış paketlerde 1-2 yıl, açıldıktan sonra 3-6 ay içinde tüketilme
     seoDescription: "Protein tozu nedir? Whey, casein, bitkisel protein farkları, günlük dozaj, kullanım zamanları ve yan etkileri. Kapsamlı protein tozu rehberi ile doğru seçimi yapın.",
     publishedAt: "",
     ctaText: "Protein ihtiyacını hesapla",
-    ctaLink: "/araclar/protein",
+    ctaLink: "/araclar/protein-ihtiyaci-hesaplama",
   },
   {
     slug: "supplement-rehberi",
@@ -6150,7 +6150,7 @@ Yağda çözünen vitaminleri (A, D, E, K) yağlı yemekle alın. Kreatin bol su
     seoDescription: "Supplement nedir? Kreatin, BCAA, pre-workout, vitamin ve mineraller hakkında bilmeniz gereken her şey. Bilimsel kaynaklara dayalı kapsamlı takviye rehberi.",
     publishedAt: "",
     ctaText: "TDEE hesapla",
-    ctaLink: "/araclar/tdee",
+    ctaLink: "/araclar/tdee-hesaplama",
   },
   {
     slug: "online-pt-avantajlari",
@@ -13404,7 +13404,7 @@ TDEE (Total Daily Energy Expenditure), günde yaktığınız toplam kaloridir.
 | Orta aktif (haftada 3-5 gün) | BMH x 1.55 |
 | Çok aktif (haftada 6-7 gün yoğun) | BMH x 1.725 |
 
-> 💡 TDEE hesaplamak için Gokalaf TDEE hesaplayıcısını kullanın: [gokalaf.com/araclar/tdee](/araclar/tdee)
+> 💡 TDEE hesaplamak için Gokalaf TDEE hesaplayıcısını kullanın: [gokalaf.com/araclar/tdee](/araclar/tdee-hesaplama)
 
 ### Adım 2: Kalori Açığı Belirleyin
 
@@ -13583,7 +13583,7 @@ Vücut fizyoloji olarak belli bir hızda kas yapabilir. Bu sınırın üzerindek
 
 ### Adım 1: TDEE Hesaplayın
 
-[TDEE hesaplayıcımızı kullanabilirsiniz](/araclar/tdee)
+[TDEE hesaplayıcımızı kullanabilirsiniz](/araclar/tdee-hesaplama)
 
 ### Adım 2: Fazlayı Belirleyin
 
@@ -13871,7 +13871,7 @@ Beslenme planı yaparken en çok ihtiyaç duyulan şey, yediğiniz gıdaların m
 
 Bu tablo, beslenme planınızı oluştururken hızlı referans almanızı sağlar. Makro takibi yapıyorsanız, gıdaları ham ağırlık üzerinden tartmak en doğru sonucu verir.
 
-> 💡 Kişiselleştirilmiş beslenme planı için günlük kalori ve makro hedeflerinizi [kalori hesaplayıcımızla](/araclar/kalori) ve [makro hesaplayıcımızla](/araclar/makro) belirleyebilirsiniz.`,
+> 💡 Kişiselleştirilmiş beslenme planı için günlük kalori ve makro hedeflerinizi [kalori hesaplayıcımızla](/araclar/kalori-hesaplama) ve [makro hesaplayıcımızla](/araclar/makro-hesaplama) belirleyebilirsiniz.`,
     seoTitle: "Gıdaların Besin Değerleri Tablosu: Kalori, Protein, Karbonhidrat | Gokalaf",
     seoDescription: "Tavuk, yumurta, pirinç, yulaf ve diğer temel gıdaların 100g başına kalori, protein, karbonhidrat ve yağ değerleri. Sporcu beslenme referans tablosu.",
     publishedAt: "2026-04-01",

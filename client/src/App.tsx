@@ -113,20 +113,20 @@ function AppContent() {
             <Route path="/" component={Home} />
             <Route path="/hakkimizda" component={About} />
             <Route path="/araclar" component={Tools} />
-            <Route path="/araclar/vki" component={BMICalculator} />
-            <Route path="/araclar/kalori" component={CalorieCalculator} />
-            <Route path="/araclar/tdee" component={TDEECalculator} />
-            <Route path="/araclar/makro" component={MacroCalculator} />
-            <Route path="/araclar/ideal-kilo" component={IdealWeightCalculator} />
-            <Route path="/araclar/vucut-yagi" component={BodyFatCalculator} />
-            <Route path="/araclar/bir-tekrar-max" component={OneRepMaxCalculator} />
-            <Route path="/araclar/su-tuketimi" component={WaterIntakeCalculator} />
-            <Route path="/araclar/kalp-atisi" component={HeartRateZonesCalculator} />
-            <Route path="/araclar/protein" component={ProteinIntakeCalculator} />
-            <Route path="/araclar/dinlenme" component={RestTimerCalculator} />
-            <Route path="/araclar/boy-kilo-endeksi" component={BoyKiloEndeksiCalculator} />
-            <Route path="/araclar/bel-kalca-orani" component={WaistHipRatioCalculator} />
-            <Route path="/araclar/vucut-tipi" component={BodyTypeCalculator} />
+            <Route path="/araclar/vki-hesaplama" component={BMICalculator} />
+            <Route path="/araclar/kalori-hesaplama" component={CalorieCalculator} />
+            <Route path="/araclar/tdee-hesaplama" component={TDEECalculator} />
+            <Route path="/araclar/makro-hesaplama" component={MacroCalculator} />
+            <Route path="/araclar/ideal-kilo-hesaplama" component={IdealWeightCalculator} />
+            <Route path="/araclar/vucut-yagi-orani-hesaplama" component={BodyFatCalculator} />
+            <Route path="/araclar/bir-tekrar-max-hesaplama" component={OneRepMaxCalculator} />
+            <Route path="/araclar/su-tuketimi-hesaplama" component={WaterIntakeCalculator} />
+            <Route path="/araclar/kalp-atisi-hesaplama" component={HeartRateZonesCalculator} />
+            <Route path="/araclar/protein-ihtiyaci-hesaplama" component={ProteinIntakeCalculator} />
+            <Route path="/araclar/dinlenme-suresi-hesaplama" component={RestTimerCalculator} />
+            <Route path="/araclar/boy-kilo-endeksi-hesaplama" component={BoyKiloEndeksiCalculator} />
+            <Route path="/araclar/bel-kalca-orani-hesaplama" component={WaistHipRatioCalculator} />
+            <Route path="/araclar/vucut-tipi-hesaplama" component={BodyTypeCalculator} />
             <Route path="/paketler" component={Packages} />
             <Route path="/yazilar" component={Articles} />
             <Route path="/yazilar/:slug" component={ArticleDetail} />

@@ -91,7 +91,7 @@ export default function IdealWeightCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "İdeal Kilo Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/ideal-kilo",
+          "url": "https://gokalaf.com/araclar/ideal-kilo-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": {
@@ -376,8 +376,8 @@ export default function IdealWeightCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="ideal-kilo" />
-        <CalculatorFAQ title="İdeal Kilo Hesaplama" faqs={idealWeightFAQs} schemaUrl="https://gokalaf.com/araclar/ideal-kilo" />
+        <RelatedCalculators currentSlug="ideal-kilo-hesaplama" />
+        <CalculatorFAQ title="İdeal Kilo Hesaplama" faqs={idealWeightFAQs} schemaUrl="https://gokalaf.com/araclar/ideal-kilo-hesaplama" />
       </div>
     </div>
   );

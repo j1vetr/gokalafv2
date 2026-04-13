@@ -404,7 +404,7 @@ export default function TDEECalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="tdee" />
+        <RelatedCalculators currentSlug="tdee-hesaplama" />
         <CalculatorFAQ title="TDEE Hesaplama" faqs={tdeeFAQs} schemaUrl="https://gokalaf.com/araclar/tdee-hesaplama" />
       </div>
     </div>

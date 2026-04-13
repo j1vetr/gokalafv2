@@ -120,12 +120,12 @@ export default function BoyKiloEndeksiCalculator() {
         title="Boy Kilo Endeksi Hesaplama | Ücretsiz BKE Hesaplayıcı - Gokalaf"
         description="Boy kilo endeksi hesaplama aracı ile boyunuza göre ideal kilonuzu öğrenin. Ücretsiz online boy kilo endeksi hesaplayıcı ile sağlık durumunuzu değerlendirin."
         keywords="boy kilo endeksi, boy kilo endeksi hesaplama, bke hesaplama, boy kilo oranı, boyuma göre kilom, ideal kilo hesaplama, sağlıklı kilo"
-        canonical="/araclar/boy-kilo-endeksi"
+        canonical="/araclar/boy-kilo-endeksi-hesaplama"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Boy Kilo Endeksi Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/boy-kilo-endeksi",
+          "url": "https://gokalaf.com/araclar/boy-kilo-endeksi-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "description": "Boyunuza göre ideal kilonuzu hesaplayın ve sağlık durumunuzu değerlendirin.",
@@ -476,13 +476,13 @@ export default function BoyKiloEndeksiCalculator() {
         </div>
 
         {/* Related Calculators */}
-        <RelatedCalculators currentSlug="boy-kilo-endeksi" />
+        <RelatedCalculators currentSlug="boy-kilo-endeksi-hesaplama" />
         
         {/* FAQ */}
         <CalculatorFAQ 
           title="Boy Kilo Endeksi Hesaplama" 
           faqs={boyKiloEndeksiFAQs} 
-          schemaUrl="https://gokalaf.com/araclar/boy-kilo-endeksi" 
+          schemaUrl="https://gokalaf.com/araclar/boy-kilo-endeksi-hesaplama" 
         />
       </div>
     </div>

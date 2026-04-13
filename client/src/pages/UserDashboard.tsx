@@ -1612,7 +1612,7 @@ export default function UserDashboard() {
                     <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
                       <h2 className="text-xl font-heading font-bold text-white mb-6">Beslenme Hesaplayıcıları</h2>
                       <div className="flex flex-col gap-3">
-                        <Link href="/araclar/kalori" className="block">
+                        <Link href="/araclar/kalori-hesaplama" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-calories-calc">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/30 transition-colors shrink-0">
                               <Flame className="w-6 h-6 text-orange-400" />
@@ -1624,7 +1624,7 @@ export default function UserDashboard() {
                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
-                        <Link href="/araclar/makro" className="block">
+                        <Link href="/araclar/makro-hesaplama" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-macros-calc">
                             <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors shrink-0">
                               <Scale className="w-6 h-6 text-green-400" />
@@ -1636,7 +1636,7 @@ export default function UserDashboard() {
                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
                           </div>
                         </Link>
-                        <Link href="/araclar/tdee" className="block">
+                        <Link href="/araclar/tdee-hesaplama" className="block">
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-tdee-calc">
                             <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors shrink-0">
                               <Zap className="w-6 h-6 text-blue-400" />
@@ -1796,7 +1796,7 @@ export default function UserDashboard() {
                   <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6">
                     <h2 className="text-xl font-heading font-bold text-white mb-6">Antrenman Hesaplayıcıları</h2>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <Link href="/araclar/bir-tekrar-max">
+                      <Link href="/araclar/bir-tekrar-max-hesaplama">
                         <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-1rm-calc">
                           <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center group-hover:bg-red-500/30 transition-colors">
                             <Dumbbell className="w-6 h-6 text-red-400" />
@@ -1808,7 +1808,7 @@ export default function UserDashboard() {
                           <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         </div>
                       </Link>
-                      <Link href="/araclar/vucut-yagi">
+                      <Link href="/araclar/vucut-yagi-orani-hesaplama">
                         <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group" data-testid="link-bodyfat-calc">
                           <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
                             <Activity className="w-6 h-6 text-purple-400" />

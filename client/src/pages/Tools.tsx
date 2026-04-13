@@ -15,20 +15,20 @@ export default function Tools() {
       "@type": "ItemList",
       "numberOfItems": 14,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Boy Kilo Endeksi", "url": "https://gokalaf.com/araclar/boy-kilo-endeksi" },
-        { "@type": "ListItem", "position": 2, "name": "BMI Hesaplama", "url": "https://gokalaf.com/araclar/vki" },
-        { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplama", "url": "https://gokalaf.com/araclar/kalori" },
-        { "@type": "ListItem", "position": 4, "name": "TDEE Hesaplama", "url": "https://gokalaf.com/araclar/tdee" },
-        { "@type": "ListItem", "position": 5, "name": "Makro Hesaplama", "url": "https://gokalaf.com/araclar/makro" },
-        { "@type": "ListItem", "position": 6, "name": "İdeal Kilo", "url": "https://gokalaf.com/araclar/ideal-kilo" },
-        { "@type": "ListItem", "position": 7, "name": "Vücut Yağ Oranı", "url": "https://gokalaf.com/araclar/vucut-yagi" },
-        { "@type": "ListItem", "position": 8, "name": "1RM Hesaplama", "url": "https://gokalaf.com/araclar/bir-tekrar-max" },
-        { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi" },
-        { "@type": "ListItem", "position": 10, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atisi" },
-        { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein" },
-        { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme" },
-        { "@type": "ListItem", "position": 13, "name": "Bel Kalça Oranı", "url": "https://gokalaf.com/araclar/bel-kalca-orani" },
-        { "@type": "ListItem", "position": 14, "name": "Vücut Tipi Belirleme", "url": "https://gokalaf.com/araclar/vucut-tipi" }
+        { "@type": "ListItem", "position": 1, "name": "Boy Kilo Endeksi", "url": "https://gokalaf.com/araclar/boy-kilo-endeksi-hesaplama" },
+        { "@type": "ListItem", "position": 2, "name": "BMI Hesaplama", "url": "https://gokalaf.com/araclar/vki-hesaplama" },
+        { "@type": "ListItem", "position": 3, "name": "Kalori Hesaplama", "url": "https://gokalaf.com/araclar/kalori-hesaplama" },
+        { "@type": "ListItem", "position": 4, "name": "TDEE Hesaplama", "url": "https://gokalaf.com/araclar/tdee-hesaplama" },
+        { "@type": "ListItem", "position": 5, "name": "Makro Hesaplama", "url": "https://gokalaf.com/araclar/makro-hesaplama" },
+        { "@type": "ListItem", "position": 6, "name": "İdeal Kilo", "url": "https://gokalaf.com/araclar/ideal-kilo-hesaplama" },
+        { "@type": "ListItem", "position": 7, "name": "Vücut Yağ Oranı", "url": "https://gokalaf.com/araclar/vucut-yagi-orani-hesaplama" },
+        { "@type": "ListItem", "position": 8, "name": "1RM Hesaplama", "url": "https://gokalaf.com/araclar/bir-tekrar-max-hesaplama" },
+        { "@type": "ListItem", "position": 9, "name": "Su Tüketimi", "url": "https://gokalaf.com/araclar/su-tuketimi-hesaplama" },
+        { "@type": "ListItem", "position": 10, "name": "Kalp Atış Hızı", "url": "https://gokalaf.com/araclar/kalp-atisi-hesaplama" },
+        { "@type": "ListItem", "position": 11, "name": "Protein İhtiyacı", "url": "https://gokalaf.com/araclar/protein-ihtiyaci-hesaplama" },
+        { "@type": "ListItem", "position": 12, "name": "Dinlenme Süresi", "url": "https://gokalaf.com/araclar/dinlenme-suresi-hesaplama" },
+        { "@type": "ListItem", "position": 13, "name": "Bel Kalça Oranı", "url": "https://gokalaf.com/araclar/bel-kalca-orani-hesaplama" },
+        { "@type": "ListItem", "position": 14, "name": "Vücut Tipi Belirleme", "url": "https://gokalaf.com/araclar/vucut-tipi-hesaplama" }
       ]
     }
   };
@@ -39,7 +39,7 @@ export default function Tools() {
       desc: "Boyunuza göre ideal kilonuzda olup olmadığınızı öğrenin.",
       icon: <Ruler className="w-8 h-8" />,
       category: "Sağlık",
-      path: "/araclar/boy-kilo-endeksi",
+      path: "/araclar/boy-kilo-endeksi-hesaplama",
       color: "emerald"
     },
     {
@@ -48,7 +48,7 @@ export default function Tools() {
       desc: "Boy ve kilonuza göre BMI değerinizi ve ideal aralığınızı hesaplayın.",
       icon: <Activity className="w-8 h-8" />,
       category: "Sağlık",
-      path: "/araclar/vki",
+      path: "/araclar/vki-hesaplama",
       color: "blue"
     },
     {
@@ -57,7 +57,7 @@ export default function Tools() {
       desc: "Hedefinize göre günlük almanız gereken kalori miktarını hesaplayın.",
       icon: <Utensils className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/araclar/kalori",
+      path: "/araclar/kalori-hesaplama",
       color: "orange"
     },
     {
@@ -66,7 +66,7 @@ export default function Tools() {
       desc: "Total Daily Energy Expenditure - günlük toplam enerji harcamanızı öğrenin.",
       icon: <Zap className="w-8 h-8" />,
       category: "Enerji",
-      path: "/araclar/tdee",
+      path: "/araclar/tdee-hesaplama",
       color: "yellow"
     },
     {
@@ -75,7 +75,7 @@ export default function Tools() {
       desc: "Protein, karbonhidrat ve yağ miktarlarınızı hesaplayın.",
       icon: <Scale className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/araclar/makro",
+      path: "/araclar/makro-hesaplama",
       color: "green"
     },
     {
@@ -84,7 +84,7 @@ export default function Tools() {
       desc: "Boyunuza ve cinsiyetinize göre bilimsel formüllerle ideal kilonuzu hesaplayın.",
       icon: <Target className="w-8 h-8" />,
       category: "Hedef",
-      path: "/araclar/ideal-kilo",
+      path: "/araclar/ideal-kilo-hesaplama",
       color: "purple"
     },
     {
@@ -93,7 +93,7 @@ export default function Tools() {
       desc: "US Navy formülüyle vücut yağ yüzdenizi ve yağsız kas kütlenizi hesaplayın.",
       icon: <Percent className="w-8 h-8" />,
       category: "Analiz",
-      path: "/araclar/vucut-yagi",
+      path: "/araclar/vucut-yagi-orani-hesaplama",
       color: "pink"
     },
     {
@@ -102,7 +102,7 @@ export default function Tools() {
       desc: "Kaldırdığınız ağırlık ve tekrardan maksimum kaldırma kapasiteni hesaplayın.",
       icon: <Dumbbell className="w-8 h-8" />,
       category: "Güç",
-      path: "/araclar/bir-tekrar-max",
+      path: "/araclar/bir-tekrar-max-hesaplama",
       color: "red"
     },
     {
@@ -111,7 +111,7 @@ export default function Tools() {
       desc: "Kilonuza ve aktivite seviyenize göre günlük su ihtiyacınızı hesaplayın.",
       icon: <Droplets className="w-8 h-8" />,
       category: "Hidrasyon",
-      path: "/araclar/su-tuketimi",
+      path: "/araclar/su-tuketimi-hesaplama",
       color: "cyan"
     },
     {
@@ -120,7 +120,7 @@ export default function Tools() {
       desc: "Yaşınıza göre antrenman kalp hızı bölgelerinizi hesaplayın.",
       icon: <Heart className="w-8 h-8" />,
       category: "Kardio",
-      path: "/araclar/kalp-atisi",
+      path: "/araclar/kalp-atisi-hesaplama",
       color: "rose"
     },
     {
@@ -129,7 +129,7 @@ export default function Tools() {
       desc: "Hedefinize ve aktivite seviyenize göre günlük protein ihtiyacınızı hesaplayın.",
       icon: <Beef className="w-8 h-8" />,
       category: "Beslenme",
-      path: "/araclar/protein",
+      path: "/araclar/protein-ihtiyaci-hesaplama",
       color: "amber"
     },
     {
@@ -138,7 +138,7 @@ export default function Tools() {
       desc: "Antrenman tipinize göre ideal dinlenme sürenizi öğrenin.",
       icon: <Timer className="w-8 h-8" />,
       category: "Antrenman",
-      path: "/araclar/dinlenme",
+      path: "/araclar/dinlenme-suresi-hesaplama",
       color: "teal"
     },
     {
@@ -147,7 +147,7 @@ export default function Tools() {
       desc: "Karın yağlanmanızı ölçün ve sağlık riskinizi değerlendirin.",
       icon: <CircleDot className="w-8 h-8" />,
       category: "Sağlık",
-      path: "/araclar/bel-kalca-orani",
+      path: "/araclar/bel-kalca-orani-hesaplama",
       color: "rose"
     },
     {
@@ -156,7 +156,7 @@ export default function Tools() {
       desc: "Ektomorf, mezomorf veya endomorf olduğunuzu öğrenin.",
       icon: <User className="w-8 h-8" />,
       category: "Genetik",
-      path: "/araclar/vucut-tipi",
+      path: "/araclar/vucut-tipi-hesaplama",
       color: "amber"
     }
   ];

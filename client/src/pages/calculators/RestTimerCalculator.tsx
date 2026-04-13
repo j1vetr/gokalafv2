@@ -85,7 +85,7 @@ export default function RestTimerCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Dinlenme Süresi Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/dinlenme-suresi",
+          "url": "https://gokalaf.com/araclar/dinlenme-suresi-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
@@ -363,8 +363,8 @@ export default function RestTimerCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="dinlenme" />
-        <CalculatorFAQ title="Dinlenme Süresi Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/dinlenme-suresi" />
+        <RelatedCalculators currentSlug="dinlenme-suresi-hesaplama" />
+        <CalculatorFAQ title="Dinlenme Süresi Hesaplama" faqs={waistHipFAQs} schemaUrl="https://gokalaf.com/araclar/dinlenme-suresi-hesaplama" />
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ export default function HeartRateZonesCalculator() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": "Kalp Atış Hızı Hesaplayıcı",
-          "url": "https://gokalaf.com/araclar/kalp-atis-hizi",
+          "url": "https://gokalaf.com/araclar/kalp-atisi-hesaplama",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
@@ -297,8 +297,8 @@ export default function HeartRateZonesCalculator() {
           </div>
         </div>
 
-        <RelatedCalculators currentSlug="kalp-atisi" />
-        <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atis-hizi" />
+        <RelatedCalculators currentSlug="kalp-atisi-hesaplama" />
+        <CalculatorFAQ title="Kalp Atış Hızı Bölgeleri" faqs={heartRateFAQs} schemaUrl="https://gokalaf.com/araclar/kalp-atisi-hesaplama" />
       </div>
     </div>
   );
