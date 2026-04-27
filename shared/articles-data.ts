@@ -20182,6 +20182,2868 @@ Günlük kalori ihtiyacınızı hesaplamak için [Günlük kalori ihtiyacını h
     ctaText: "Günlük kalori ihtiyacını hesapla",
     ctaLink: "/araclar/kalori-hesaplama",
   },
+  {
+    slug: "romanian-deadlift-nasil-yapilir",
+    title: "Romanian Deadlift Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Romanian deadlift, hamstring ve kalça arka grubunu izole eden, sırt sağlığı için kritik bir egzersizdir. Doğru hip hinge mekaniğini, set-tekrar şemalarını ve programınıza nasıl ekleyeceğinizi öğrenin.",
+    heroImage: "/articles/romanian-deadlift-nasil-yapilir.webp",
+    content: `## Romanian Deadlift Nedir?
+
+Romanian Deadlift (RDL), öne eğilme hareketiyle arka bacak kaslarını ve kalça kaslarını hedefleyen bir egzersizdir. RDL, özellikle hamstringler, kalça kasları ve bel kaslarını güçlendirmeye odaklanır. Bu egzersiz, deadlift ailesinin bir üyesi olarak, vücudu öne eğerek yapılan bir hip hinge hareketidir. Diğer deadlift varyasyonlarından farklı olarak, RDL, diz eklemindeki hareketliliği sınırlı tutar ve kalça eklemine daha fazla vurgu yapar.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+RDL, birkaç ana kas grubunu hedefler:
+
+- **Hamstringler**: Bacakların arka kısmında bulunan bu kaslar, RDL sırasında ciddi şekilde çalışır.
+- **Gluteus Maximus**: Kalçanın büyük kasıdır ve kalça ekstansiyonu sırasında aktif rol oynar.
+- **Erector Spinae**: Omurgayı destekleyen bu kas grubu, bel bölgesini stabilize eder.
+- **Adductors**: İç bacak kasları, denge sağlamak için devreye girer.
+- **Core Kasları**: Karın ve bel kasları, stabiliteyi korumak için çalışır.
+
+RDL, bu kas gruplarını izole bir şekilde çalıştırmaz, ancak birlikte etkili bir şekilde devreye sokar.
+
+> 💡 **Not:** RDL, hamstring esnekliğini artırmak ve postüral kontrolü geliştirmek isteyenler için idealdir.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Başlangıç Pozisyonu**: Omuz genişliğinde ayakta durun. Ayaklarınız yere sağlam basmalı. Barbell'i üstten tutuşla kavrayın. Elleriniz omuz genişliğinde olsun.
+   
+2. **Dizleri Hafifçe Bükün**: Dizlerinizi hafifçe kırarak, ancak diz eklemini sabit tutarak başlayın. Bu pozisyonu hareket boyunca koruyun.
+
+3. **Kalçayı Geriye İtin**: Kalçanızı geriye doğru iterek, gövdenizi öne eğin. Bu hareket sırasında sırtınız nötr pozisyonda kalmalı.
+
+4. **Barbell'i Aşağı İndirin**: Barbell'i diz seviyesinin biraz altına kadar indirin. Hamstringlerinizde bir gerilme hissetmelisiniz.
+
+5. **Yükselme**: Kalça kaslarınızı sıkarak başlangıç pozisyonuna geri dönün. Hareketi kontrollü bir şekilde tamamlayın.
+
+---
+
+## Doğru Form İpuçları
+
+- **Sırt Pozisyonu**: Hareket boyunca sırtınızı düz tutun. Omurga nötr pozisyonda kalmalı.
+- **Göz Pozisyonu**: Hafifçe ileriye doğru bakın. Bu, boynunuzu nötr pozisyonda tutmanıza yardımcı olur.
+- **Barbell Kontrolü**: Barbell'i vücudunuza yakın tutarak hareket ettirin. Bu, dengeyi korur ve sırtınıza ekstra yük bindirmez.
+- **Nefes**: Hareketin kontrolü için nefes alışverişinize dikkat edin. Aşağı inerken nefes alın, yukarı çıkarken nefes verin.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Aşırı Diz Bükme**: Kalça yerine dizleri fazla bükmek, hamstringlerin çalışmasını engeller. Dizinizi hafifçe kırık tutun.
+  
+- **Sırt Yuvarlama**: Sırtın yuvarlanması bel sakatlanmalarına yol açabilir. Sırtınızı düz tutarak dengeyi sağlayın.
+  
+- **Ağırlığı Fazla İndirme**: Barbell'i diz seviyesinin çok altına indirmek, sırtınıza gereksiz yük bindirebilir. Hareket mesafesini kontrol edin.
+  
+- **Hızlı Hareket Etme**: Kontrolsüz ve hızlı hareket etmek, formunuzu bozar. Hareketi yavaş ve kontrollü bir şekilde yapın.
+
+---
+
+## Varyasyonlar
+
+### 1. **Tek Bacak Romanian Deadlift**
+
+Tek bacak üzerinde denge sağlayarak yapılan bu varyasyon, dengeyi ve stabiliteyi artırır. Özellikle kalça ve core kaslarını daha fazla çalıştırır.
+
+### 2. **Dumbbell Romanian Deadlift**
+
+Barbell yerine dumbbell kullanarak yapılan bu varyasyon, hareketin daha fazla kontrol edilmesini sağlar. Özellikle denge ve simetri problemleri olanlara uygundur.
+
+### 3. **Kettlebell Romanian Deadlift**
+
+Kettlebell kullanarak yapılan bu varyasyon, hareketin merkezini biraz daha aşağıya çekerek farklı kas gruplarını devreye sokar.
+
+### 4. **Sumo Romanian Deadlift**
+
+Sumo pozisyonunda yapılan bu varyasyon, iç bacak kaslarını daha fazla çalıştırır. Ayaklar omuz genişliğinden daha fazla açılır.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                | Set | Tekrar | Dinlenme     |
+|----------------------|-----|--------|--------------|
+| Güç Kazanımı         | 4   | 4-6    | 2-3 dakika   |
+| Kas Kütlesi Artışı   | 3   | 8-12   | 1-2 dakika   |
+| Dayanıklılık         | 3   | 12-15  | 1 dakika     |
+| Esneklik ve Mobilite | 3   | 15-20  | 45 saniye    |
+
+> 💡 **Not:** Ağırlık seçimi, hedefinize ve fitness seviyenize göre ayarlanmalıdır. Doğru form, ağırlıktan daha önemlidir.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Bel Problemleri Olanlar**: Bel ağrısı veya sakatlığı olan bireyler, bu egzersizi yaparken dikkatli olmalı veya bir uzmana danışmalıdır.
+- **Hamstring Sakatlığı**: Hamstringlerde mevcut bir sakatlık varsa, iyileşmeden bu egzersizi yapmaktan kaçının.
+- **Yeni Başlayanlar**: Egzersizi önce düşük ağırlıklarla ve doğru formda öğrenmek önemlidir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Romanian Deadlift hangi kasları hedefler?**
+   - Hamstringler, gluteus maximus, erector spinae ve core kasları.
+
+2. **RDL ve geleneksel deadlift arasındaki fark nedir?**
+   - RDL, diz eklemine daha az vurgu yaparak, kalça ve hamstring kaslarını daha fazla hedefler.
+
+3. **RDL yapmak belime zarar verir mi?**
+   - Doğru formda yapılmadığında bel sakatlanmalarına neden olabilir. Sırtınızı düz tutmak önemlidir.
+
+4. **Romanian Deadlift için ideal ağırlık nedir?**
+   - Kişinin seviyesine ve hedefine bağlıdır. Yeni başlayanlar hafif ağırlıklarla başlamalıdır.
+
+5. **RDL esneklik artırır mı?**
+   - Evet, hamstring ve kalça esnekliğini artırır.
+
+6. **Hangi sıklıkla yapılmalıdır?**
+   - Haftada 1-2 kez, diğer antrenman programlarıyla dengeli bir şekilde uygulanabilir.
+
+7. **RDL sırasında sırtım neden ağrıyor?**
+   - Muhtemelen yanlış formdan kaynaklanıyor. Sırtınızı düz tutmaya odaklanmalısınız.
+
+8. **RDL kadınlar için uygun mu?**
+   - Evet, RDL hem erkekler hem de kadınlar için uygundur ve kalça, bacak kaslarını güçlendirmek için etkilidir.
+
+---
+
+> 💡 **Not:** Egzersizlerinizi yaparken her zaman vücudunuzun verdiği sinyalleri dinleyin. Ağrı veya rahatsızlık hissettiğinizde, bir uzmana danışın.
+
+[1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) ve antrenman programınızı kişiselleştirin.`,
+    seoTitle: "Romanian Deadlift Nasıl Yapılır, Doğru Teknik | Gokalaf",
+    seoDescription: "Romanian deadlift nasıl yapılır? Hamstring ve glut için en etkili egzersizin doğru tekniği, sıkça yapılan hatalar, set-tekrar önerileri ve varyasyonları.",
+    publishedAt: "2026-05-05T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "bulgarian-split-squat-nasil-yapilir",
+    title: "Bulgarian Split Squat Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Bulgarian split squat, tek bacak gücü ve denge geliştirmek için en etkili egzersizlerden biridir. Doğru tekniği, ayak konumlandırmayı ve varyasyonları detaylı şekilde inceliyoruz.",
+    heroImage: "/articles/bulgarian-split-squat-nasil-yapilir.webp",
+    content: `## Bulgarian Split Squat Nedir?
+
+Bulgarian Split Squat, alt vücut gücünü artırmak ve dengeyi geliştirmek için etkili bir egzersizdir. Bu egzersiz, bacakların her birini ayrı ayrı çalıştırarak kas dengesizliklerini düzeltmeye yardımcı olur. Özellikle kuadriseps, hamstringler, gluteus maximus ve kalf kaslarını hedef alır. Aynı zamanda çekirdek kas gruplarını da stabilize edici bir rol oynar.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Bulgarian Split Squat, bir dizi kas grubunu hedef alır:
+
+- **Kuadriseps:** Ön bacak kasları bu egzersizde ana itici güçtür.
+- **Hamstringler:** Arka bacak kasları, hareketin stabilizasyonu için etkilidir.
+- **Gluteus Maximus:** Kalça kasları, özellikle yukarı kalkışta büyük rol oynar.
+- **Kalf Kasları:** Stabilizasyon ve dengeyi sağlamak için aktiftir.
+- **Çekirdek Kaslar:** Dengeli kalmak için abdominal kaslar sürekli çalışır.
+
+> 💡 **Not:** Bulgarian Split Squat, iki taraflı simetrik kas gelişimini teşvik eder, bu da genel atletik performansı artırır.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Başlangıç Pozisyonu:**
+   - Bir ayağınızı arkanızdaki bir bench veya yükseltiye yerleştirin. Ön bacağınızın dizinin ayak parmaklarınızın biraz arkasında kalmasına dikkat edin.
+   
+2. **Vücut Pozisyonunu Ayarlayın:**
+   - Gövdeniz dik olmalı. Ellerinizle ağırlık kullanıyorsanız, onları yanınızda serbest bırakabilirsiniz.
+
+3. **Aşağı İniş:**
+   - Ön dizinizi bükerek vücudunuzu aşağı indirin. Arkadaki diziniz neredeyse yere değene kadar inmelisiniz.
+   
+4. **Yukarı Kalkış:**
+   - Ön bacağınızı kullanarak başlangıç pozisyonuna geri dönün. Hareket boyunca gövdenizi dik tutun.
+
+5. **Tekrar Sayısı:**
+   - Her iki bacak için eşit sayıda tekrar yapın.
+
+> 💡 **Not:** Dizinizin ayak parmaklarınızın önüne geçmemesine dikkat edin. Bu, diz eklemine aşırı yük binmesini önler.
+
+---
+
+## Doğru Form İpuçları
+
+- **Omuzlar Geri:** Omuzlarınızı geride ve aşağıda tutarak sırtınızı düz tutun.
+- **Çekirdek Sıkı:** Gövdenizi sabit tutmak için karın kaslarınızı sıkı tutun.
+- **Derinlik:** Diziniz yere yakın olmalı ama temas etmemeli.
+- **Kontrol:** Hareketi yavaş ve kontrollü bir şekilde yapın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Ön Diz İleri Doğru Gitmesi:** Dizinizin ayak parmaklarınızı geçmesine izin vermeyin. Bu, diz eklemi üzerinde fazla baskı oluşturur.
+  - **Çözüm:** Adım mesafenizi artırarak veya başlangıç pozisyonunu ayarlayarak diz hizasını düzeltin.
+
+- **Gövdeyi Öne Eğmek:** Gövdenizin öne doğru eğilmesi dengenizi bozabilir.
+  - **Çözüm:** Çekirdek kaslarınızı sıkı tutarak gövdenizi dik tutun.
+
+- **Arkada Kalan Diz Yere Çarpması:** Arkadaki diz yere çarpmamalıdır.
+  - **Çözüm:** Kontrolü kaybetmemek için hareketi yavaşlatın.
+
+- **Ağırlığı Yanlış Taşımak:** Ağırlığı ön bacak yerine arka bacağa vermek.
+  - **Çözüm:** Ağırlığı ön bacağınıza odaklayarak hareketi gerçekleştirin.
+
+---
+
+## Varyasyonlar
+
+1. **Dambıl Bulgarian Split Squat:**
+   - Her iki elinizde dambıl tutarak yapılır. Ağırlık eklemek, bacak gücünü artırır.
+
+2. **Barbell Bulgarian Split Squat:**
+   - Sırtınızda bir barbell ile yapılır. Daha fazla denge ve güç gerektirir.
+
+3. **Smith Machine Bulgarian Split Squat:**
+   - Smith makinesi kullanarak daha sabit bir hareket sağlar. Başlangıç seviyesindekiler için uygundur.
+
+4. **Plyometric Bulgarian Split Squat:**
+   - Patlayıcı bir sıçrama ekleyerek yapılır. Güç ve hız gelişimine odaklanır.
+
+> 💡 **Not:** Farklı varyasyonlarla çalışarak kaslarınıza yeni uyaranlar sağlayabilirsiniz.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                | Set   | Tekrar | Dinlenme (dk) |
+|----------------------|-------|--------|---------------|
+| Güç Kazanımı         | 3-4   | 4-6    | 2-3           |
+| Hipertrofi (Kas Büyümesi) | 3-4   | 8-12   | 1-2           |
+| Dayanıklılık         | 2-3   | 15-20  | 1             |
+| Denge ve Stabilizasyon | 2-3   | 10-12  | 1-2           |
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Diz Sorunu Olanlar:** Diz problemleri olanlar için uygun olmayabilir. Alternatif egzersizlerle çalışmak daha iyi olabilir.
+- **Sırt Problemleri Olanlar:** Gövde stabilitesini korumakta zorlananlar dikkatli olmalı.
+- **Yeni Başlayanlar:** Öncelikle temel squat tekniklerini öğrenmelidirler.
+- **Denge Problemi Olanlar:** Denge sorunu yaşayanlar, önce dengeyi geliştiren egzersizlere odaklanabilirler.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Bulgarian Split Squat hangi kasları çalıştırır?**
+   - Kuadriseps, hamstringler, gluteus maximus ve kalf kaslarını çalıştırır.
+
+2. **Diz ağrısına neden olabilir mi?**
+   - Yanlış form veya fazla yük nedeniyle diz ağrısına neden olabilir.
+
+3. **Hangi ekipmanlar gereklidir?**
+   - Bir bench veya yükselti, opsiyonel olarak dambıl veya barbell.
+
+4. **Bulgarian Split Squat günlük yapılabilir mi?**
+   - Kas toparlanması için haftada 2-3 kez yeterlidir.
+
+5. **Başlangıç seviyesindekiler yapabilir mi?**
+   - Evet, ancak hafif ağırlıklarla veya sadece vücut ağırlığıyla başlamalıdırlar.
+
+6. **Hamstringleri nasıl etkiler?**
+   - Stabilizasyon için hamstringler çalışır, ancak ana hedef kuadriseps ve gluteus'tur.
+
+7. **Antrenman programlarına nasıl eklenir?**
+   - Bacak gününde ana hareketlerden biri olarak kullanılabilir.
+
+8. **Dengeyi nasıl geliştiririm?**
+   - Çekirdek kaslarınızı güçlendirerek ve denge çalışmaları yaparak.
+
+[1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) ile kişisel rekorlarınızı belirleyin ve antrenman yoğunluğunuzu optimize edin.`,
+    seoTitle: "Bulgarian Split Squat Nasıl Yapılır, Doğru Teknik | Gokalaf",
+    seoDescription: "Bulgarian split squat tekniği, varyasyonları, kas grupları ve sıkça yapılan hatalar. Tek bacak gücü için en etkili egzersizin detaylı rehberi.",
+    publishedAt: "2026-05-06T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "lat-pulldown-nasil-yapilir",
+    title: "Lat Pulldown Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Lat pulldown, V şeklinde geniş bir sırt için temel egzersizlerden biridir. Doğru tutuşu, omuz mekaniğini ve farklı varyasyonların hangi kasları nasıl çalıştırdığını öğrenin.",
+    heroImage: "/articles/lat-pulldown-nasil-yapilir.webp",
+    content: `## Lat Pulldown Nedir?
+
+Lat pulldown, sırt kaslarını özellikle latissimus dorsi'yi hedef alan bir direnç antrenmanı egzersizidir. Bu egzersiz, genellikle oturur pozisyonda, bir kablo makinesi kullanılarak yapılır. Lat pulldown, geniş bir sırt geliştirmek ve üst vücut gücünü artırmak için etkili bir yoldur. Ayrıca, omuz stabilitesini ve genel üst vücut simetrisini destekler.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Lat pulldown, öncelikle sırt kaslarını hedef alır. Ancak, bu egzersiz sırasında birçok kas grubu da aktif rol oynar.
+
+- **Latissimus Dorsi**: Ana hedef kas grubudur. Sırtın genişliğinden sorumludur.
+- **Biceps Brachii**: Çekiş sırasında kol bükülmesine yardımcı olur.
+- **Trapezius**: Omuzların stabilizasyonunu sağlar.
+- **Rhomboids**: Kürek kemiklerini birbirine çekerek sırtın merkezi kısmını çalıştırır.
+- **Teres Major ve Minor**: Omuz ekleminin stabilizasyonunda rol oynar.
+
+Lat pulldown, bu kas gruplarının senkronize çalışmasını gerektirir ve doğru form ile uygulandığında tüm bu kasları etkili bir şekilde çalıştırır.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+Lat pulldown egzersizini doğru bir şekilde gerçekleştirmek için aşağıdaki adımları takip edin:
+
+1. **Makine Ayarları**: Oturma yüksekliğini ayarlayın. Dizlerinizin altına gelen pedler sıkı olmalı, ancak rahatsız edici olmamalıdır.
+2. **Kavrama**: Barı omuz genişliğinden biraz daha geniş bir şekilde kavrayın. Avuç içleriniz size dönük olmalıdır.
+3. **Başlangıç Pozisyonu**: Dik oturun, göğsünüzü ileri çıkarın ve omuzlarınızı geriye çekin.
+4. **Çekiş**: Barı kontrollü bir şekilde aşağı doğru çekin. Bar, köprücük kemiğinizin hemen altına gelmelidir. Dirseklerinizi yanlarınızdan aşağı çekin.
+5. **Dönüş**: Barı yavaşça başlangıç pozisyonuna geri bırakın. Kollar tamamen düzleşmeden durun.
+
+> 💡 **Not:** Egzersiz sırasında nefes kontrolüne dikkat edin; çekiş sırasında nefes verin ve dönüş sırasında nefes alın.
+
+---
+
+## Doğru Form İpuçları
+
+Lat pulldown yaparken doğru formu korumak önemlidir. İşte dikkat edilmesi gereken bazı ipuçları:
+
+- **Göğüs Pozisyonu**: Göğsünüzü ileri çıkararak omuzlarınızı geriye çekin. Bu, sırt kaslarınızın daha iyi çalışmasını sağlar.
+- **Dirsek Pozisyonu**: Dirseklerinizi aşağı doğru çekin, yanlara açılmasın.
+- **Kontrol**: Hızlı ve kontrolsüz çekişlerden kaçının. Hareketi yavaş ve kontrollü yapın.
+- **Omurga**: Sırtınızı düz tutun, aşırı geriye yaslanmaktan kaçının.
+- **Bar Mesafesi**: Barı çenenizin altına kadar indirin, daha aşağıya inmemeye dikkat edin.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+Lat pulldown sırasında yapılan yaygın hatalar ve bunların çözümleri:
+
+- **Aşırı Geriye Yaslanma**: Çözüm: Sırtınızı dik tutun. Küçük bir eğim yeterlidir.
+- **Barı Aşırı İndirme**: Çözüm: Barı çenenizin altına kadar indirin, daha aşağıya gitmeyin.
+- **Hızlı ve Kontrolsüz Hareket**: Çözüm: Hareketi yavaş ve kontrollü gerçekleştirin.
+- **Yanlış Kavrama**: Çözüm: Omuz genişliğinden biraz daha geniş bir kavrama kullanın.
+- **Omuzları Yukarı Çekme**: Çözüm: Omuzlarınızı aşağıda ve geride tutun.
+
+---
+
+## Varyasyonlar
+
+Lat pulldown egzersizini çeşitlendirmek için farklı varyasyonlar deneyebilirsiniz:
+
+1. **Dar Kavrama Lat Pulldown**:
+   - Barı omuz genişliğinde veya daha dar bir şekilde kavrayın. Bu varyasyon, biceps ve orta sırt kaslarını daha fazla çalıştırır.
+
+2. **Ters Kavrama Lat Pulldown**:
+   - Avuç içlerinizi size dönük bir şekilde barı kavrayın. Bu varyasyon, biceps ve alt lat kaslarını daha fazla hedef alır.
+
+3. **Tek Kol Lat Pulldown**:
+   - Tek el ile bir kablo kullanarak çekiş yapın. Bu, asimetrik güç ve denge geliştirmeye yardımcı olur.
+
+4. **Kablolu Pulldown**:
+   - Serbest ağırlık yerine kablo makinesi kullanarak yapılır. Sürekli gerilim sağlar ve kas gelişimini artırır.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                | Set  | Tekrar | Dinlenme |
+|----------------------|------|--------|----------|
+| Kas Kütlesi          | 3-4  | 8-12   | 60-90 sn |
+| Güç                  | 4-5  | 4-6    | 2-3 dk   |
+| Dayanıklılık         | 2-3  | 15-20  | 30-60 sn |
+| Definasyon           | 3-4  | 10-15  | 45-60 sn |
+
+> 💡 **Not:** Set ve tekrar sayıları, antrenman hedeflerinize göre ayarlanmalıdır. Ağırlık seçimini, son tekrarda zorlanacak şekilde yapın.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+Lat pulldown egzersizi genellikle güvenli olmakla birlikte bazı kişiler için uygun olmayabilir:
+
+- **Omuz veya Sırt Yaralanmaları**: Bu bölgelerdeki mevcut rahatsızlıklar, egzersizi yaparken ağrıya neden olabilir.
+- **Kronik Bel Ağrısı**: Aşırı geriye yaslanma bel ağrılarını artırabilir.
+- **Yetersiz Hareket Kabiliyeti**: Omuz ve sırt hareketliliği kısıtlı olan bireyler, egzersizi doğru formda yapamayabilir.
+
+Herhangi bir rahatsızlık durumunda, bir uzmana danışmak önemlidir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Lat Pulldown ile Bent Over Row Arasındaki Fark Nedir?**
+   - Lat pulldown dikey bir çekiştir, bent over row ise yatay bir çekiştir. Her ikisi de farklı kas gruplarını öncelikli olarak hedef alır.
+
+2. **Lat Pulldown Evde Yapılabilir mi?**
+   - Evet, direnç bandı veya ev tipi kablo makineleri kullanarak yapılabilir.
+
+3. **Lat Pulldown Ağırlığı Nasıl Seçilmeli?**
+   - Son tekrarda zorlanacağınız, ancak formu bozmadan tamamlayabileceğiniz bir ağırlık seçin.
+
+4. **Lat Pulldown Kadınlar için Uygun mu?**
+   - Evet, kadınlar için de mükemmel bir sırt güçlendirme egzersizidir.
+
+5. **Lat Pulldown Ne Sıklıkla Yapılmalı?**
+   - Haftada 2-3 kez, diğer sırt egzersizleri ile kombinlenerek yapılabilir.
+
+6. **Sırt Ağrısı Yaşarsam Egzersize Devam Etmeli miyim?**
+   - Hayır, ağrı yaşarsanız egzersizi bırakın ve bir uzmana danışın.
+
+7. **Lat Pulldown ile Hangi Kaslar Gelişir?**
+   - Latissimus dorsi, biceps, trapezius, rhomboids gibi ana kas gruplarını çalıştırır.
+
+8. **Lat Pulldown Hangi Sporcular İçin İdealdir?**
+   - Vücut geliştirme, yüzme, kürek çekme gibi spor dalları ile ilgilenen kişiler için idealdir.
+
+---
+
+Lat pulldown, sırt kaslarını geliştirmek isteyen herkes için etkili bir egzersizdir. Ancak, doğru formda yapılması önemlidir. [1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) ve antrenman programını buna göre ayarla.`,
+    seoTitle: "Lat Pulldown Nasıl Yapılır, Doğru Form ve Tutuşlar | Gokalaf",
+    seoDescription: "Lat pulldown nasıl yapılır? Geniş sırt için doğru tutuş, açı ve teknik. Wide grip, close grip, reverse grip varyasyonları ve sıkça yapılan hatalar.",
+    publishedAt: "2026-05-07T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "face-pull-egzersizi",
+    title: "Face Pull Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Face pull, arka delt ve rotator cuff sağlığı için ihmal edilmemesi gereken bir egzersizdir. Doğru tekniği, kablo açısını ve omuz sakatlanmalarını önlemedeki rolünü inceliyoruz.",
+    heroImage: "/articles/face-pull-egzersizi.webp",
+    content: `## Face Pull Nedir?
+
+Face pull, genellikle direnç bandı veya kablo makinesi kullanılarak gerçekleştirilen bir üst vücut egzersizidir. Bu egzersiz, omuz sağlığını desteklemek ve postürü düzeltmek amacıyla sıkça önerilir. Arka delt (rear delt) ve rotator cuff kaslarını hedef alır. İyi bir postür ve güçlü omuzlar için etkili bir araçtır.
+
+---
+
+## Hangi Kasları Çalıştırır / Bilim / Mekanik
+
+Face pull egzersizi, özellikle arka delt kaslarını etkili bir şekilde çalıştırır. Bunun yanında, trapezius, rhomboid ve rotator cuff kasları da aktif rol oynar. Rotator cuff, omuz eklemini destekleyen dört küçük kas grubundan oluşur: supraspinatus, infraspinatus, teres minor ve subscapularis. Bu kaslar, omuz stabilitesini sağlamak için kritiktir.
+
+- **Arka Delt (Rear Delt)**: Omuzun arka kısmında yer alır ve kolun arka tarafa doğru hareketini sağlar.
+- **Trapezius**: Boyun ve sırtın üst kısmında yer alır, omuzları kaldırır ve geriye çeker.
+- **Rhomboid**: Omuz bıçaklarını bir araya getirir.
+- **Rotator Cuff**: Omuz eklemini stabilize eder ve döner hareketlerde destek sağlar.
+
+> 💡 **Not:** Face pull, genellikle omuz sakatlıklarını önlemek ve rehabilitasyon süreçlerinde kullanılır.
+
+---
+
+## Adım Adım Nasıl Yapılır
+
+Face pull egzersizini doğru bir şekilde yapmak için aşağıdaki adımları izleyin:
+
+1. **Başlangıç Pozisyonu**:
+   - Kablo makinesi veya direnç bandını yüz hizasında ayarlayın.
+   - Ayaklarınızı omuz genişliğinde açın ve dizlerinizi hafifçe bükün.
+
+2. **Tutuş**:
+   - Halatı avuç içleriniz birbirine bakacak şekilde tutun.
+   - Dirseklerinizi hafifçe yukarı kaldırarak başlayın.
+
+3. **Çekiş**:
+   - Halatı yüzünüze doğru çekin, dirseklerinizi geriye ve dışa doğru açarak.
+   - Omuz bıçaklarınızı sıkıştırarak hareketi tamamlayın.
+
+4. **Geri Dönüş**:
+   - Yavaşça başlangıç pozisyonuna dönün, kontrolü kaybetmeyin.
+
+5. **Tekrarlar**:
+   - Tavsiye edilen tekrar sayısı kadar uygulayın.
+
+> 💡 **Not:** Omuzlarınızın yukarı kalkmasına izin vermeyin; bu, boyun kaslarınızı gerebilir.
+
+---
+
+## Doğru Form İpuçları
+
+- **Dirseklerin Pozisyonu**: Dirseklerinizi omuz hizasında tutun. Çok yukarı veya aşağı kaydırmayın.
+- **Omuz Bıçakları**: Çekiş sırasında omuz bıçaklarınızı sıkıştırın. Bu, arka deltlerin etkin çalışmasını sağlar.
+- **Gövde Duruşu**: Gövdenizi dik tutun ve belinizi bükmeyin.
+- **Kontrol**: Hareketi yavaş ve kontrollü yapın. Hızlı ve aceleci çekişler formu bozar.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Yanlış Tutuş**: Avuç içlerinin yanlış pozisyonlanması kasların etkili çalışmasını engeller.
+  - **Çözüm**: Avuç içlerinizin birbirine dönük olduğundan emin olun.
+
+- **Omuzların Yükselmesi**: Omuzları yukarı kaldırmak boyun bölgesine fazla yük bindirir.
+  - **Çözüm**: Omuzlarınızı aşağıda ve gevşek tutun.
+
+- **Hızlı Çekiş**: Hızlı yapılan çekişler kasların etkili çalışmasını engeller.
+  - **Çözüm**: Yavaş ve kontrollü çekişler yapın.
+
+- **Aşırı Yük**: Çok fazla ağırlık kullanmak form bozukluğuna neden olabilir.
+  - **Çözüm**: Orta ağırlıklarla başlayın ve formu koruyun.
+
+---
+
+## Varyasyonlar
+
+### 1. Direnç Bandı ile Face Pull
+
+- **Ekipman**: Direnç bandı
+- **Uygulama**: Direnç bandını sabit bir noktaya bağlayın. Aynı hareketi, kablo yerine direnç bandı ile gerçekleştirin.
+
+### 2. Tek Ayak Üstünde Face Pull
+
+- **Ekipman**: Kablo makinesi
+- **Uygulama**: Dengeyi artırmak için tek ayak üstünde durarak egzersizi yapın. Bu varyasyon, çekirdek kaslarının daha fazla çalışmasını sağlar.
+
+### 3. Yüksek Çekişli Face Pull
+
+- **Ekipman**: Kablo makinesi
+- **Uygulama**: Halatı daha yüksek bir noktadan çekerek trapezius kaslarını daha fazla hedefleyin.
+
+### 4. Çift Halatlı Face Pull
+
+- **Ekipman**: İki ayrı halat
+- **Uygulama**: Her iki elde birer halat tutarak çalışın. Bu, her iki kolun eşit çalışmasını sağlar ve dengesizlikleri giderir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                  | Set | Tekrar | Dinlenme |
+|------------------------|-----|--------|----------|
+| Güç Kazanımı           | 3   | 8-10   | 60 saniye|
+| Hipertrofi (Kas Büyümesi)| 4   | 10-15  | 45 saniye|
+| Dayanıklılık           | 2   | 15-20  | 30 saniye|
+
+> 💡 **Not:** Dinlenme sürelerini hedefinize göre ayarlayın. Daha kısa dinlenme süreleri dayanıklılığı artırırken, daha uzun süreler güç kazanımına yardımcı olur.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Omuz Yaralanması Olanlar**: Aktif bir omuz yaralanması varsa, egzersizi yapmadan önce doktora danışın.
+- **Kronik Boyun Ağrısı Olanlar**: Boyun bölgesinde ağrı yaşayanlar dikkatli olmalı; hareket sırasında ağrı hissedilirse durulmalı.
+- **Formunu Kaybedenler**: Egzersiz sırasında formu kaybetmekten kaçının, bu sakatlıklara neden olabilir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Face pull hangi sıklıkla yapılmalı?**
+   Haftada 2-3 kez, diğer üst vücut antrenmanlarıyla birlikte yapılabilir.
+
+2. **Face pull ne zaman yapılmalı?**
+   Omuz günlerinde veya üst vücut antrenmanlarının sonunda yapılabilir.
+
+3. **Evde face pull yapılabilir mi?**
+   Evet, direnç bandı kullanarak evde yapılabilir.
+
+4. **Face pull omuz kaslarını büyütür mü?**
+   Evet, özellikle arka delt kaslarının hipertrofisine katkıda bulunur.
+
+5. **Kilo vermek için face pull etkili mi?**
+   Direkt kilo kaybına katkı sağlamaz, ancak kas kütlesini artırabilir.
+
+6. **Face pull boy uzatır mı?**
+   Hayır, ancak postürü iyileştirerek daha dik durmanıza yardımcı olabilir.
+
+7. **Face pull kaç set yapılmalı?**
+   Hedefinize göre 3-4 set önerilir.
+
+8. **Hangi ağırlıkla başlanmalı?**
+   Başlangıçta hafif ağırlıklarla başlayın ve formu koruyarak ağırlığı artırın.
+
+---
+
+Egzersizlerinizi yaparken dikkatli olun ve vücudunuzu dinleyin. Herhangi bir rahatsızlık durumunda profesyonel bir sağlık uzmanına danışın. Hedeflerinize ulaşmak için farklı egzersizleri deneyin ve çeşitlendirin. Daha fazla bilgi ve araçlar için [1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) bağlantısını ziyaret edin.`,
+    seoTitle: "Face Pull Nasıl Yapılır, Omuz Sağlığı için | Gokalaf",
+    seoDescription: "Face pull tekniği, hangi kasları çalıştırır, omuz sağlığına etkisi ve doğru ip kullanımı. Posture düzeltme için en etkili egzersiz.",
+    publishedAt: "2026-05-08T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "kettlebell-swing-nasil-yapilir",
+    title: "Kettlebell Swing Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Kettlebell swing, kondisyon, güç ve yağ yakımını birleştiren tek hareket. Hip hinge mekaniğini doğru kurarak omurga güvenliğini koruyup tüm vücudu nasıl çalıştıracağınızı öğrenin.",
+    heroImage: "/articles/kettlebell-swing-nasil-yapilir.webp",
+    content: `## Kettlebell Swing Nedir?
+
+Kettlebell swing, fonksiyonel bir güç ve kondisyon egzersizidir. Temel olarak kalça, bacak ve core kaslarını hedefler. Kettlebell, saplı bir ağırlık topu olarak tanımlanır ve bu egzersizle kas kütlesini artırmak, yağ yakımını hızlandırmak ve kardiyovasküler dayanıklılığı geliştirmek mümkündür. Rusya kökenli bu egzersiz, hip hinge hareketiyle karakterize edilir ve dinamik bir patlayıcı güç gerektirir.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Kettlebell swing, birden fazla kas grubunu aynı anda çalıştırır ve bu nedenle tam vücut egzersizleri arasında yer alır.
+
+- **Kalça Kasları (Gluteus Maximus):** Ana itici güç buradan gelir.
+- **Arka Bacak Kasları (Hamstrings):** Kalça fleksiyonu sırasında aktif rol oynar.
+- **Core Kasları (Abdominals ve Oblikler):** Stabilite için aktif olarak devreye girer.
+- **Sırt Kasları (Erector Spinae ve Latissimus Dorsi):** Gövdeyi sabit tutmaya yardımcı olur.
+- **Omuz Kasları (Deltoids):** Kettlebell'in yukarı doğru hareketini destekler.
+
+Bu kas gruplarının koordineli çalışması, kettlebell swing'i etkili bir egzersiz haline getirir.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Başlangıç Pozisyonu:**
+   - Ayaklarınızı omuz genişliğinde açın.
+   - Kettlebell'i ayaklarınızın önüne yerleştirin.
+   - Dizlerinizi hafifçe bükün ve kalçadan öne doğru eğilin.
+
+2. **Kettlebell'i Kavrama:**
+   - İki elinizle kettlebell'in sapını sıkıca kavrayın.
+   - Omurganızı nötr pozisyonda tutarak kalçanızı geriye itin.
+
+3. **İlk Salınım:**
+   - Kettlebell'i geriye doğru, bacaklarınızın arasına doğru salın.
+   - Kalçanızı patlayıcı bir şekilde öne doğru itin.
+
+4. **Yukarı Salınım:**
+   - Kettlebell'i göğüs hizasına kadar kaldırın.
+   - Bacaklar ve kalçalar tamamen uzamalı, core sıkı olmalıdır.
+
+5. **Tekrar Başlangıç:**
+   - Kettlebell'in yer çekimi ile aşağı doğru inmesine izin verin.
+   - Bu sırada kalçadan tekrar öne eğilin ve döngüyü tekrarlayın.
+
+---
+
+## Doğru Form İpuçları
+
+- **Kalça Harekete Odaklanın:** Hareketin merkezinde kalça itişi vardır. Dizler hafif bükülü kalmalıdır.
+- **Omurganızı Düz Tutun:** Eğilme sırasında nötr bir omurga korunmalıdır. Bu, bel bölgesinde yaralanmaları önler.
+- **Core Kaslarını Sıkı Tutun:** Stabilite ve denge için core kasları sürekli aktif olmalıdır.
+- **Kettlebell'i Omuz Yüksekliğinden Yukarı Kaldırmayın:** Bu, omuz eklemlerine gereksiz yük bindirir.
+
+> 💡 **Not:** Kettlebell swing sırasında nefes kontrolü önemlidir. Yukarı çıkarken nefes verin, aşağı inerken nefes alın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Kalçayı Yeterince İtmemek:** Hareketin gücünü kalçadan almak yerine sırtı kullanmak. Çözüm: Kalçayı itmeye odaklanın.
+- **Aşırı Diz Bükmek:** Squat benzeri bir pozisyonda yapmak. Çözüm: Dizleri hafif bükülü tutun ve kalçadan eğilin.
+- **Omuzları Kullanmak:** Kettlebell'i kollarla yukarı kaldırmak. Çözüm: Omuzlar yerine kalçadan güç alarak kaldırın.
+- **Yanlış Nefes Alma:** Nefes alışverişini doğru yapmamak. Çözüm: Salınım boyunca düzenli nefes alıp verin.
+
+---
+
+## Varyasyonlar
+
+1. **American Swing:**
+   - Kettlebell'i baş üstüne kadar kaldırın.
+   - Daha geniş bir hareket aralığı sunar, ancak omuz stabilitesi gerektirir.
+
+2. **Tek Kol Swing:**
+   - Tek el ile kettlebell kullanın.
+   - Core ve denge üzerinde daha fazla çalışmanızı sağlar.
+
+3. **Alternatif Kol Swing:**
+   - Her salınımda el değiştirin.
+   - Koordinasyon ve dengeyi geliştirir.
+
+4. **Çift Kettlebell Swing:**
+   - İki kettlebell ile aynı anda çalışın.
+   - Üst vücut ve core stabilitesini artırır.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                  | Set  | Tekrar | Dinlenme   |
+|------------------------|------|--------|------------|
+| **Kondisyon**          | 3    | 15-20  | 30 saniye  |
+| **Kas Dayanıklılığı**  | 4    | 10-15  | 45 saniye  |
+| **Güç Geliştirme**     | 5    | 6-10   | 1 dakika   |
+| **Yağ Yakımı**         | 4    | 20-25  | 30 saniye  |
+
+> 💡 **Not:** Hedeflerinize göre dinlenme sürelerini ve tekrar sayılarını ayarlayın. Kettlebell'in ağırlığını da seviyenize uygun seçin.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Bel Problemleri Olanlar:** Omurgaya binen yük nedeniyle dikkatli olunmalıdır.
+- **Yeni Başlayanlar:** Teknik incelikleri öğrenmeden ağır kettlebell'lerle çalışılmamalıdır.
+- **Hamileler:** Hormonların eklem stabilitesini etkilediği bu dönemde danışmanlık alınmalıdır.
+- **Omuz ve Diz Sorunları Olanlar:** Eklem sağlığına dikkat edilmelidir.
+
+> 💡 **Not:** Herhangi bir sağlık sorununuz varsa, yeni bir egzersiz programına başlamadan önce bir uzmana danışın.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Kettlebell swing kilo vermeye yardımcı olur mu?**
+   - Evet, yüksek yoğunluklu bir egzersizdir ve kaloriyi hızlı yakar.
+
+2. **Ne kadar ağırlıkla başlamalıyım?**
+   - Yeni başlayanlar için kadınlar 6-8 kg, erkekler 12-16 kg tercih edebilir.
+
+3. **Hangi sıklıkla yapılmalı?**
+   - Haftada 2-3 kez, diğer antrenman türleriyle kombinlenebilir.
+
+4. **Kettlebell swing sırt ağrısına neden olur mu?**
+   - Yanlış form kullanıldığında olabilir. Doğru teknikle yapılmalı.
+
+5. **Hangi ağırlığı seçmeliyim?**
+   - Başlangıç için kontrollü bir şekilde kaldırabileceğiniz ağırlığı seçin.
+
+6. **Kardiyo yerine geçer mi?**
+   - Evet, yüksek yoğunluklu bir kardiyo alternatifi olarak kullanılabilir.
+
+7. **Kettlebell'i nasıl seçmeliyim?**
+   - Sapı rahatça kavrayabileceğiniz ve kontrol edebileceğiniz bir kettlebell seçin.
+
+8. **Egzersiz öncesi ısınma gerekli mi?**
+   - Kesinlikle, özellikle kalça ve core kaslarını ısıtmak önemlidir.
+
+---
+
+[Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama) ve antrenmanlarını daha etkili hale getir.`,
+    seoTitle: "Kettlebell Swing Nasıl Yapılır, Tekniği ve Faydaları | Gokalaf",
+    seoDescription: "Kettlebell swing nasıl yapılır? Rus ve Amerikan stil farkları, hip hinge mekaniği, kalori yakımı ve pratik antrenman programı.",
+    publishedAt: "2026-05-09T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "burpee-nasil-yapilir",
+    title: "Burpee Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Burpee, tek hareketle hem kondisyon hem güç hem yağ yakımı sağlayan en yoğun vücut ağırlığı egzersizlerinden biridir. Doğru formu ve varyasyonları detaylı şekilde anlatıyoruz.",
+    heroImage: "/articles/burpee-nasil-yapilir.webp",
+    content: `## Burpee Nedir?
+
+Burpee, vücut ağırlığıyla yapılan çok yönlü bir kondisyon egzersizidir. Hem kardiyovasküler dayanıklılığı artırır hem de kuvvet kazanımı sağlar. Yüksek yoğunluklu interval antrenmanlarının (HIIT) vazgeçilmez bir parçası olan burpee, tüm vücudu çalıştırarak kalori yakımını hızlandırır. Bu egzersiz, özellikle kardiyo ve güç çalışmasını tek bir hareketle birleştirmek isteyenler için idealdir.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Burpee, birçok kas grubunu aynı anda çalıştıran bir egzersizdir. İşte burpee sırasında aktif olan başlıca kas grupları:
+
+- **Göğüs Kasları (Pectoralis Major):** Şınav pozisyonunda göğüs kasları aktif çalışır.
+- **Omuz Kasları (Deltoidler):** İtiş ve kalkış hareketlerinde omuz kasları devrededir.
+- **Kollar (Triceps ve Biceps):** Şınav ve itiş hareketlerinde kollar aktif rol oynar.
+- **Karın Kasları (Abdominal Kaslar):** Çekirdek stabilizasyonu için karın kasları sürekli çalışır.
+- **Sırt Kasları (Latissimus Dorsi):** İtiş hareketinde destek sağlar.
+- **Kalça ve Bacak Kasları (Quadriceps, Hamstrings, Gluteus):** Zıplama ve çömelme hareketlerinde büyük ölçüde çalışırlar.
+
+Bu kas gruplarının eş zamanlı çalışması, burpee'yi etkili bir tam vücut egzersizi yapar.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+Burpee hareketi birkaç adımda tamamlanır. İşte doğru formda burpee yapmanın detaylı adımları:
+
+1. **Başlangıç Pozisyonu:**
+   - Ayaklar omuz genişliğinde açık, kollar yanlarda serbest.
+   
+2. **Çömelme:**
+   - Dizleri bükerek çömel ve elleri omuz genişliğinde yere yerleştir.
+   
+3. **Ayakları Geri Atma:**
+   - Eller yerdeyken ayakları hızla geriye doğru iterek plank pozisyonuna geç.
+   
+4. **Şınav:**
+   - Göğsü yere yaklaştırarak bir şınav çek. (Opsiyonel adım)
+   
+5. **Ayakları Geri Çekme:**
+   - Ayakları hızla ellerin yanına çekerek çömelme pozisyonuna geri dön.
+   
+6. **Zıplama:**
+   - Çömelme pozisyonundan güçlü bir zıplama yaparak elleri baş üzerinde birleştir.
+
+7. **Tekrar:**
+   - Hareketi istenen tekrar sayısınca tekrarla.
+
+> 💡 **Not:** Hareketin her aşamasında kontrollü ve dengeli ol. Hız yerine formu önceliklendirmek sakatlanmaları önler.
+
+---
+
+## Doğru Form İpuçları
+
+- **Omurgayı Düz Tut:** Plank ve şınav pozisyonlarında sırtın düz olmasına dikkat et.
+- **Dizler Parmak Uçlarını Geçmemeli:** Çömelme sırasında dizlerin parmak uçlarını geçmemesine özen göster.
+- **Nefes Kontrolü:** Zıplarken nefes ver, çömelirken nefes al.
+- **Ayak Bileği ve Diz Eklemlerini Koruyun:** Yumuşak bir iniş ile zıplamayı sonlandır.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+1. **Yanlış Formda Çömelme:**
+   - **Çözüm:** Dizler parmak uçlarını geçmemeli ve sırt düz kalmalı.
+
+2. **Plankta Kalça Pozisyonu:**
+   - **Çözüm:** Kalçayı çok yukarıda veya aşağıda tutmak bel sorunlarına yol açabilir. Kalçayı düz bir hat üzerinde tut.
+
+3. **Yetersiz Nefes Kontrolü:**
+   - **Çözüm:** Hareket sırasında düzenli nefes alıp vermeye özen göster.
+
+4. **Zıplama Esnasında Dengesizlik:**
+   - **Çözüm:** Yumuşak iniş yaparak diz eklemlerini koru.
+
+---
+
+## Varyasyonlar
+
+1. **Basit Burpee:**
+   - Şınav ve zıplama hareketlerini içermeyen basit bir versiyondur. Yeni başlayanlar için uygundur.
+
+2. **Şınavlı Burpee:**
+   - Plank pozisyonunda bir şınav eklenir. Üst vücut kasları daha yoğun çalışır.
+
+3. **Zıplı Burpee:**
+   - Zıplama kısmı daha yüksek ve patlayıcı yapılır. Kardiyo etkisi artar.
+
+4. **Dambıllı Burpee:**
+   - Her iki elde dambıl tutarak yapılır. Ekstra direnç sağlar.
+
+5. **Tek Bacaklı Burpee:**
+   - Tek bacak üzerinde yapılan burpee, denge ve koordinasyonu artırır.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                     | Set  | Tekrar | Dinlenme     |
+|---------------------------|------|--------|--------------|
+| **Kardiyo Kondisyonu**    | 3    | 15-20  | 30 saniye    |
+| **Güç ve Dayanıklılık**   | 4    | 8-12   | 60 saniye    |
+| **Yağ Yakımı**            | 5    | 10-15  | 30-45 saniye |
+| **Fonksiyonel Fitness**   | 4    | 12-15  | 45 saniye    |
+
+> 💡 **Not:** Dinlenme sürelerini ihtiyaca göre ayarlayarak antrenmanın yoğunluğunu artırabilirsin.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Diz veya Bel Problemleri Olanlar:** Bu bölgelerdeki sorunlar burpee sırasında daha da kötüleşebilir.
+- **Yeni Başlayanlar:** Direkt olarak burpee yerine varyasyonları veya düşük tempolu versiyonları tercih etmeli.
+- **Hamileler:** Doktor onayı olmadan yapılmamalı.
+
+> 💡 **Not:** Herhangi bir sağlık sorunun varsa, egzersize başlamadan önce bir uzmana danış.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Burpee hangi egzersiz türüne girer?**
+   - Hem kardiyo hem de kuvvet egzersizi olarak sınıflandırılır.
+
+2. **Burpee kaç kalori yakar?**
+   - 10 dakikada yaklaşık 100 kalori yakar, kişisel faktörlere bağlı olarak değişebilir.
+
+3. **Her gün burpee yapabilir miyim?**
+   - Vücudun toparlanmasına izin vermek için her gün yerine haftada 3-4 kez yapmak daha uygundur.
+
+4. **Burpee hangi spor dallarında kullanılır?**
+   - CrossFit, boks, atletizm gibi birçok spor dalında kullanılır.
+
+5. **Burpee nasıl daha zor hale getirilir?**
+   - Dambıl ekleyerek veya zıplama yüksekliğini artırarak zorlaştırılır.
+
+6. **Burpee yaparken nefes kontrolü nasıl olmalı?**
+   - Zıplarken nefes ver, çömelirken nefes al.
+
+7. **Burpee ile kas yapılır mı?**
+   - Kas dayanıklılığı artar, ancak hacim kazanımı için ağırlık çalışmaları eklemek gerekir.
+
+8. **Burpee yaparken dizlerim ağrıyor, ne yapmalıyım?**
+   - Diz ağrısı yaşıyorsanız varyasyonları deneyin veya bir uzmana danışın.
+
+[Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama) ve antrenman programını buna göre planla.`,
+    seoTitle: "Burpee Nasıl Yapılır, Doğru Form ve Varyasyonlar | Gokalaf",
+    seoDescription: "Burpee nasıl yapılır? Adım adım teknik, kalori yakımı, varyasyonları ve dayanıklılık antrenmanı için pratik öneriler.",
+    publishedAt: "2026-05-10T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "mountain-climber-egzersizi",
+    title: "Mountain Climber Nasıl Yapılır",
+    category: "antrenman",
+    excerpt: "Mountain climber, core ve kondisyon antrenmanını birleştiren etkili bir egzersizdir. Doğru kalça pozisyonu, ritim ve farklı varyasyonlarla nasıl maksimum verim alacağınızı öğrenin.",
+    heroImage: "/articles/mountain-climber-egzersizi.webp",
+    content: `## Mountain Climber Nedir?
+
+Mountain climber, Türkçede "dağcı egzersizi" olarak bilinir ve yüksek yoğunluklu interval antrenman (HIIT) kapsamında sıkça kullanılan bir egzersizdir. Bu hareket, özellikle **core** kaslarını, yani karın ve bel bölgesini hedef alarak güçlendirir. Bunun yanı sıra kalp atış hızını artırarak etkin bir kardiyovasküler antrenman sağlar. Mountain climber, vücut ağırlığı ile yapılabilen ve herhangi bir ekipman gerektirmeyen bir egzersizdir, bu da onu her yerde uygulanabilir kılar.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Mountain climber, birden fazla kas grubunu aynı anda çalıştıran bileşik bir egzersizdir. İşte bu egzersizin hedef aldığı ana kas grupları:
+
+- **Karın Kasları**: Rectus abdominis ve oblikler, vücudun stabilitesini sağlamak için yoğun şekilde çalışır.
+- **Omuzlar**: Deltoid kasları, vücut ağırlığını taşırken aktif bir rol oynar.
+- **Göğüs**: Pektoralis major, vücut pozisyonunu korumak için kullanılır.
+- **Kollar**: Triceps ve biceps kasları, vücudu dengede tutmak için çalışır.
+- **Kalça ve Uyluk**: Quadriceps ve hamstringler, bacakların hareketine yardımcı olur.
+
+> 💡 **Not:** Mountain climber, kalp atış hızını artırarak yağ yakımını hızlandırır ve metabolizmayı canlandırır.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Başlangıç Pozisyonu**: Plank pozisyonunda başlayın. Elleriniz omuz genişliğinde ve doğrudan omuzların altında olsun. Vücudunuz baştan ayağa düz bir çizgi oluşturmalıdır.
+
+2. **Diz Çekme**: Sağ dizinizi göğsünüze doğru çekin. Bu esnada karın kaslarınızı sıkı tutun.
+
+3. **Bacak Değiştirme**: Sağ bacağınızı başlangıç pozisyonuna geri getirirken, aynı anda sol dizinizi göğsünüze doğru çekin. Bu hareketi hızlı ve kontrollü bir şekilde yapın.
+
+4. **Tekrar**: Bacakları hızlı bir şekilde değiştirerek bu hareketi belirlenen süre boyunca veya tekrar sayısı kadar devam ettirin.
+
+> 💡 **Not:** Hareket sırasında nefes alıp vermeyi unutmayın. Her bacak değişiminde bir nefes alın veya verin.
+
+---
+
+## Doğru Form İpuçları
+
+- **Vücut Pozisyonu**: Plank pozisyonunda vücudunuzun düz bir çizgi oluşturduğundan emin olun. Kalçalarınızı çok yukarı veya aşağı düşürmekten kaçının.
+- **Karın Kasları**: Karın kaslarınızı aktif tutarak belinizi koruyun ve stabiliteyi artırın.
+- **El ve Ayak Pozisyonu**: Ellerinizi omuz genişliğinde açın ve ayak parmaklarınız üzerinde durun. Bu, dengeyi sağlamaya yardımcı olur.
+- **Gözler İleri**: Başınız nötr pozisyonda, gözleriniz yere doğru hafifçe ileri baksın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Kalçaların Çok Yukarıda Olması**: Bu hata, belinizde gereksiz bir yük oluşturabilir. Çözüm: Vücudunuzu düz bir çizgide tutmaya odaklanın.
+- **Kontrolsüz Hareket**: Bacakları kontrolsüzce hareket ettirmek formu bozabilir. Çözüm: Hareketi yavaşça başlatın ve hızınızı zamanla artırın.
+- **Yanlış Nefes Tekniği**: Nefes almayı unutmak hızlı yorgunluğa yol açabilir. Çözüm: Her bacak değişiminde nefes alıp vermeye dikkat edin.
+- **Ellerin Yanlış Yerleşimi**: Eller omuzların çok önünde ya da arkasında olabilir. Çözüm: Ellerinizin omuz hizasında kalmasına özen gösterin.
+
+---
+
+## Varyasyonlar
+
+1. **Elevated Mountain Climber**  
+   Ayaklarınızı bir yükseltiye koyarak yapın. Bu, omuzlarınıza daha fazla yük bindirir ve core stabilitesini artırır.
+
+2. **Cross-Body Mountain Climber**  
+   Dizlerinizi karşı omuza doğru çekerek yapın. Bu, oblik kaslarını daha fazla çalıştırır.
+
+3. **Slow Mountain Climber**  
+   Hareketi yavaş ve kontrollü yapın. Bu, kasların daha fazla gerilmesine ve dayanıklılığın artmasına yardımcı olur.
+
+4. **Plank Jack Mountain Climber**  
+   Her bacak değişiminden önce ayaklarınızı yanlara doğru açarak bir plank jack ekleyin. Bu, kalori yakımını artırır ve bacak kaslarını daha fazla çalıştırır.
+
+> 💡 **Not:** Varyasyonlar, egzersiz rutininizi çeşitlendirmek ve farklı kas gruplarını hedeflemek için etkili bir yoldur.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef | Set | Tekrar | Dinlenme |
+|-------|-----|--------|----------|
+| Başlangıç | 3 | 15-20 saniye | 30 saniye |
+| Orta Seviye | 4 | 30-45 saniye | 30-45 saniye |
+| İleri Seviye | 5 | 60 saniye | 20-30 saniye |
+| Kardiyo | 4 | 1 dakika | 1 dakika |
+
+> 💡 **Not:** Dinlenme sürelerini ihtiyacınıza göre ayarlayın. Antrenman süresince formunuza odaklanın.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Bel Problemleri Olanlar**: Bel ağrısı yaşayanlar dikkatli olmalı veya bir uzmana danışmalıdır.
+- **Diz Problemleri**: Diz eklemleri üzerinde baskı oluşabileceğinden, diz problemi olan bireyler dikkat etmelidir.
+- **Yeni Başlayanlar**: İlk kez deneyenler, yavaş başlayarak formu mükemmelleştirmelidir.
+- **Yüksek Tansiyon**: Bu egzersiz kalp atış hızını artırabilir, bu yüzden hipertansiyon hastaları doktorlarına danışmalıdır.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Mountain climber ne kadar kalori yakar?**  
+   Yaklaşık 10 dakikalık yoğun bir mountain climber egzersizi, kişiye ve yoğunluğa bağlı olarak 100-150 kalori yakabilir.
+
+2. **Mountain climber hangi sıklıkla yapılmalı?**  
+   Haftada 3-4 kez yapılması uygundur. Ancak, vücut dinlenme süresine de önem verilmelidir.
+
+3. **Mountain climber sadece karın kaslarını mı çalıştırır?**  
+   Hayır, aynı zamanda omuzlar, kollar, göğüs ve bacakları da çalıştırır.
+
+4. **Bu egzersiz kilo vermeme yardımcı olur mu?**  
+   Evet, HIIT egzersizleri arasında yer aldığı için kalori yakımını artırarak kilo vermeye yardımcı olabilir.
+
+5. **Egzersizi yaparken dizlerim ağrıyor, ne yapmalıyım?**  
+   Ağrı hissederseniz hemen durun ve bir uzmana danışın. Formunuzu gözden geçirin.
+
+6. **Mountain climber'ı ne ile kombinleyebilirim?**  
+   Plank, burpee ve jumping jack gibi egzersizlerle kombinleyerek etkili bir kardiyo-antrenman rutini oluşturabilirsiniz.
+
+7. **Başlangıç seviyesindeyim, hangi varyasyonu denemeliyim?**  
+   Slow mountain climber ile başlayabilirsiniz. Bu, hareketi kontrol etmeyi öğrenmenize yardımcı olacaktır.
+
+8. **Mountain climber, core kaslarını ne kadar sürede güçlendirir?**  
+   Düzenli uygulama ile 4-6 hafta içinde core kaslarında belirgin bir güç artışı hissedebilirsiniz.
+
+[Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama)
+
+Mountain climber, etkili bir egzersiz olarak genel vücut kondisyonunu artırır ve kalori yakımını hızlandırır. Formunuzu koruyarak ve düzenli uygulayarak bu egzersizden maksimum fayda sağlayabilirsiniz.`,
+    seoTitle: "Mountain Climber Nasıl Yapılır, Doğru Teknik | Gokalaf",
+    seoDescription: "Mountain climber tekniği, hangi kasları çalıştırır, kalori yakımı ve karın yağı için etkili antrenman önerileri.",
+    publishedAt: "2026-05-11T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "push-pull-legs-programi",
+    title: "Push Pull Legs Antrenman Programı",
+    category: "antrenman",
+    excerpt: "Push pull legs, kas yapma odaklı en popüler antrenman bölümlerinden biridir. Mantığı, haftalık dağılımı, set-tekrar şemaları ve örnek 6 günlük programla detaylı bir rehber.",
+    heroImage: "/articles/push-pull-legs-programi.webp",
+    content: `## Push Pull Legs Antrenman Programı Nedir?
+
+Push Pull Legs (PPL) antrenman programı, vücut geliştirme ve güç kazanımı hedefleyen sporcular arasında oldukça popüler bir yapılandırmadır. Bu program, haftanın belirli günlerinde vücut kas gruplarını hedef alarak dengeli bir gelişim sağlar. "Push" günleri, itiş hareketleriyle göğüs, omuz ve triceps kaslarını çalıştırırken, "Pull" günleri çekiş hareketleriyle sırt ve biceps kaslarını hedef alır. "Legs" günleri ise bacak kaslarına odaklanır. Bu yapı, kasların yeterli dinlenme süresi almasını ve hipertrofi (kas büyümesi) için ideal bir ortam yaratır.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+PPL programı, vücudun ana kas gruplarını etkili bir şekilde çalıştırır:
+
+- **Push (İtiş)**: Göğüs, ön omuz, triceps
+- **Pull (Çekiş)**: Sırt, arka omuz, biceps
+- **Legs (Bacaklar)**: Quadriceps, hamstringler, gluteuslar, baldır kasları
+
+Bu dağılım, kas gruplarının haftada iki kez çalıştırılmasına olanak tanır. Bu sıklık, kas protein sentezini artırarak kas hipertrofisini destekler.
+
+> 💡 **Not:** Her kas grubu için haftada en az iki kez çalışmak, kas gelişimini optimize eder. Ancak yeterli dinlenme süresi ve beslenme de önemlidir.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Programı Planla**: Haftalık antrenman planını oluştur. Örneğin, Pazartesi Push, Salı Pull, Çarşamba Legs şeklinde başlayabilirsin.
+2. **Egzersiz Seçimi**: Her gün için 4-5 adet temel egzersiz belirle. Çok eklemli hareketler (örneğin bench press, squat) önceliklidir.
+3. **Set ve Tekrarlar**: Her egzersiz için genellikle 3-4 set ve 8-12 tekrar uygundur. Bu aralık hipertrofi için idealdir.
+4. **Dinlenme Süresi**: Setler arasında 60-90 saniye dinlen. Bu süre, kasların yeterince toparlanmasını sağlar.
+5. **İlerleme Kaydet**: Haftalık olarak ağırlıkları veya tekrar sayısını artırarak ilerlemeyi hedefle.
+
+> 💡 **Not:** Yeni başlayanlar için daha az set ve tekrar ile başlamak, vücudun adaptasyonu için faydalı olabilir.
+
+---
+
+## Doğru Form İpuçları
+
+- **Bench Press**: Sırtın doğal eğrisini koru, barı göğsüne kontrollü indir.
+- **Deadlift**: Belini düz tut, hareket boyunca çekirdeğini sıkı tut.
+- **Squat**: Dizlerin ayak parmaklarını geçmesine izin verme, topuklarını yerde tut.
+- **Overhead Press**: Ağırlığı baş üstüne kaldırırken belini fazla bükme, çekirdeğini sıkı tut.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Aşırı Ağırlık Kaldırma**: 
+  - Çözüm: Formdan ödün vermemek için uygun ağırlık seç.
+- **Yetersiz Isınma**: 
+  - Çözüm: Her antrenman öncesi 5-10 dakika dinamik ısınma yap.
+- **Yetersiz Dinlenme**: 
+  - Çözüm: Her kas grubunun en az 48 saat dinlenmesine izin ver.
+- **Düzensiz Beslenme**: 
+  - Çözüm: Antrenman sonrası protein ve karbonhidrat alımını ihmal etme.
+
+---
+
+## Varyasyonlar
+
+1. **Push Pull Legs 6 Gün**: Haftada 6 gün çalışarak her kas grubunu iki kez hedef alır.
+2. **Push Pull Legs 3 Gün**: Haftada 3 gün çalışarak her kas grubunu haftada bir kez çalıştırır, yeni başlayanlar için uygundur.
+3. **Üst/Alt Bölüm ile Kombinasyon**: Üst ve alt günlerini ekleyerek haftalık varyasyonu artırır.
+4. **Push/Pull/Legs/Push**: Haftada 4 gün çalışarak yoğunluğu artırır, dinlenme günleriyle kasları toparlar.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef             | Set         | Tekrar     | Dinlenme     |
+|-------------------|-------------|------------|--------------|
+| Hipertrofi        | 3-4         | 8-12       | 60-90 saniye |
+| Güç               | 4-5         | 3-5        | 2-3 dakika   |
+| Dayanıklılık      | 2-3         | 15-20      | 30-60 saniye |
+
+> 💡 **Not:** Set ve tekrar sayıları kişisel hedeflere göre ayarlanabilir. Başlangıçta düşük setlerle başlayıp zamanla artırmak mantıklıdır.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Yeni Başlayanlar**: PPL programı, deneyim gerektirir. Yeni başlayanlar için daha basit programlar önerilir.
+- **Yaralanma Geçmişi Olanlar**: Özellikle eklem veya kas yaralanması olanlar, önce doktor veya fizyoterapistlerine danışmalıdır.
+- **Yoğun İş Temposu Olanlar**: Haftada 6 gün antrenman yapmak zaman alıcıdır. İş yükü fazla olanlar daha kısa programlar düşünebilir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **PPL programı ile ne kadar sürede sonuç alırım?**
+   - Sonuçlar kişisel faktörlere bağlıdır. Genellikle 8-12 hafta sonrası gözle görülür değişiklikler başlar.
+
+2. **PPL programı yeni başlayanlar için uygun mu?**
+   - Genellikle değildir. Ancak süreklilik ve doğru form ile yeni başlayanlar da adapte olabilir.
+
+3. **Dinlenme günleri nasıl planlanmalı?**
+   - Her üç günlük döngüden sonra bir gün dinlenme önerilir.
+
+4. **Hangi ekipmanlar gereklidir?**
+   - Temel ekipmanlar: Barbell, dumbbell, ağırlık plakaları, bench, squat rack.
+
+5. **PPL programında kardiyo yapılmalı mı?**
+   - Kardiyo, genel kondisyonu artırmak için haftada 2-3 gün eklenebilir.
+
+6. **Beslenme nasıl olmalı?**
+   - Yüksek proteinli diyet, yeterli karbonhidrat ve sağlıklı yağlar içermeli.
+
+7. **Kadınlar için uygun mu?**
+   - Evet, PPL programı cinsiyet fark etmeksizin kas gelişimini destekler.
+
+8. **Hangi sıklıkla ağırlık artırılmalı?**
+   - Güç ve form izin verdiği sürece her 2-4 haftada bir artırılabilir.
+
+> 💡 **Not:** [1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) aracı ile maksimum kaldırış gücünü belirleyip, antrenmanlarını daha verimli planlayabilirsin.
+
+---
+
+Push Pull Legs antrenman programı, doğru uygulandığında etkili sonuçlar sunar. Ancak, her bireyin farklı ihtiyaçları ve kapasiteleri olduğu unutulmamalıdır. Programa başlamadan önce kişisel hedeflerinizi belirleyin ve uygun hazırlıklarla adım atın.`,
+    seoTitle: "Push Pull Legs Antrenman Programı, 6 Günlük Plan | Gokalaf",
+    seoDescription: "Push pull legs (PPL) programı nedir, nasıl uygulanır? 6 günlük örnek plan, set-tekrar şemaları, ileri seviye varyasyonlar ve sıkça yapılan hatalar.",
+    publishedAt: "2026-05-12T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "upper-lower-split-programi",
+    title: "Upper Lower Split Antrenman Programı",
+    category: "antrenman",
+    excerpt: "Upper lower split, haftada 4 gün antrenman yapanlar için en kanıtlanmış programlardan biridir. Üst-alt vücut bölümünün mantığını, frekans avantajını ve örnek 4 günlük plan ile detaylı şekilde anlatıyoruz.",
+    heroImage: "/articles/upper-lower-split-programi.webp",
+    content: `## Upper Lower Split Antrenman Nedir?
+
+Upper Lower Split antrenman, vücut geliştirme ve güç artırma hedefleri için sıkça tercih edilen bir program yapısıdır. Bu programda, vücut iki ana bölgeye ayrılır: üst vücut ve alt vücut. Genellikle haftada dört gün uygulanır ve her bölgeye iki gün ayrılır. Bu yapı, kas gruplarının yeterli dinlenme süresi almasını sağlarken, aynı zamanda antrenman sıklığını artırır.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Upper Lower Split, tüm kas gruplarını hedef alır. Üst vücut antrenmanları genellikle göğüs, sırt, omuzlar, biceps ve triceps gibi kasları içerir. Alt vücut antrenmanları ise quadriceps, hamstring, gluteus ve baldır kaslarını hedefler.
+
+### Üst Vücut Kasları
+
+- **Göğüs:** Pectoralis major ve minor
+- **Sırt:** Latissimus dorsi, trapezius, rhomboids
+- **Omuzlar:** Deltoid kasları
+- **Kollar:** Biceps brachii, triceps brachii
+
+### Alt Vücut Kasları
+
+- **Quadriceps:** Rectus femoris, vastus lateralis, vastus medialis
+- **Hamstring:** Biceps femoris, semitendinosus, semimembranosus
+- **Gluteus:** Gluteus maximus, medius, minimus
+- **Baldır:** Gastrocnemius, soleus
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+Upper Lower Split antrenmanını etkili bir şekilde uygulamak için aşağıdaki adımları takip edin:
+
+1. **Programı Planlayın:** Haftalık dört gün antrenman yapacak şekilde bir plan oluşturun. Örneğin, Pazartesi ve Perşembe günleri üst vücut, Salı ve Cuma günleri alt vücut çalışabilirsiniz.
+2. **Egzersizleri Seçin:** Her antrenman günü için 4-6 ana egzersiz belirleyin. Üst vücut günlerinde bench press, bent-over row gibi hareketleri; alt vücut günlerinde squat, deadlift gibi hareketleri tercih edin.
+3. **Set ve Tekrar Sayılarını Belirleyin:** Hipertrofi hedefi için genellikle 3-4 set ve 8-12 tekrar önerilir.
+4. **Dinlenme Sürelerini Ayarlayın:** Her set arasında 60-90 saniye dinlenin. Kas gruplarının toparlanması için haftada iki gün dinlenin.
+5. **İlerlemenizi Takip Edin:** Ağırlık ve tekrar sayılarınızı düzenli olarak kaydedin. Her hafta küçük artışlar yaparak ilerleme sağlayın.
+
+---
+
+## Doğru Form İpuçları
+
+- **Ağırlık Kontrolü:** Ağırlıkları kontrollü bir şekilde kaldırın ve indirin. Hızlı ve kontrolsüz hareketlerden kaçının.
+  
+- **Nefes Alma:** Zorlayıcı kısımda nefes verin (örneğin, bench press sırasında ağırlığı kaldırırken).
+
+- **Vücut Duruşu:** Sırtınızı doğru pozisyonda tutun. Omurganızı doğal eğriliğinde koruyun.
+
+> 💡 **Not:** Doğru formu korumak, sakatlık riskini azaltır ve kas aktivasyonunu maksimize eder.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Aşırı Ağırlık Kullanımı:** 
+  - **Çözüm:** Ağırlıkları kontrollü kaldırabileceğiniz bir seviyede tutun. Form bozulduğunda ağırlığı azaltın.
+
+- **Yetersiz Dinlenme:**
+  - **Çözüm:** Kasların toparlanması için her kas grubuna en az 48 saat dinlenme süresi tanıyın.
+
+- **Egzersiz Çeşitliliği Eksikliği:**
+  - **Çözüm:** Her hafta egzersizlerinizi değiştirin veya varyasyonlar ekleyin.
+
+- **Isınmayı Atlamak:**
+  - **Çözüm:** Her antrenmandan önce 5-10 dakika dinamik ısınma yapın.
+
+---
+
+## Varyasyonlar
+
+1. **Push-Pull-Legs (PPL):** Üç gün döngüsü ile üst vücut itiş hareketleri, çekiş hareketleri ve bacaklar için farklı bir yapı sunar.
+
+2. **Full Body Split:** Haftada üç gün tüm vücut çalışarak kas gruplarını daha sık uyarabilir, ancak daha az hacimle.
+
+3. **PHUL (Power Hypertrophy Upper Lower):** Güç ve hipertrofi odaklı, haftada dört gün üst ve alt vücut çalışması.
+
+4. **İzolasyon Odaklı Upper Lower:** Temel bileşik hareketlere ek olarak izolasyon hareketleri ekleyerek kas gruplarına daha fazla odaklanma sağlar.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef               | Set  | Tekrar | Dinlenme |
+|---------------------|------|--------|----------|
+| Hipertrofi          | 3-4  | 8-12   | 60-90 sn |
+| Güç Gelişimi        | 4-5  | 3-5    | 2-3 dk   |
+| Dayanıklılık        | 2-3  | 15-20  | 45-60 sn |
+| Genel Kondisyon     | 3    | 10-15  | 60 sn    |
+
+> 💡 **Not:** Hedeflerinize göre set ve tekrar sayılarını ayarlayın. Hipertrofi için orta ağırlık, orta tekrar kullanın.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Yeni Başlayanlar:** Temel hareketlerde ustalaşmadan önce bu programı uygulamaktan kaçının. Basit bir full body programı ile başlayın.
+- **Sakatlık Geçmişi Olanlar:** Özellikle ağırlık kaldırma sırasında sakatlık yaşamış olanlar, bir fizyoterapiste veya antrenöre danışmalı.
+- **Zaman Kısıtlaması Olanlar:** Haftada dört gün antrenman yapmak mümkün değilse, daha az gün içeren programlara yönelin.
+
+> 💡 **Not:** Programı kişisel hedefler ve fiziksel durumunuza göre özelleştirin. Gerekirse profesyonel destek alın.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Upper Lower Split programı kaç hafta sürmeli?**
+   - Genellikle 8-12 hafta uygulanır, ardından dinlenme veya farklı bir programa geçiş önerilir.
+
+2. **Upper Lower Split ile ne kadar süre sonra sonuç alabilirim?**
+   - Düzenli uygulama ve doğru beslenme ile 4-6 hafta içinde fark edilebilir gelişmeler gözlemlenebilir.
+
+3. **Upper Lower Split programı kardiyo içerir mi?**
+   - Kardiyo, programın bir parçası olarak eklenebilir. Genellikle dinlenme günlerinde veya antrenman sonrası uygulanır.
+
+4. **Bu program kadınlar için uygun mu?**
+   - Evet, cinsiyete bakılmaksızın herkes için uygundur. Egzersizlerin yoğunluğu ve ağırlıkları bireysel olarak ayarlanabilir.
+
+5. **Upper Lower Split ile kas kütlesi kazanabilir miyim?**
+   - Evet, doğru beslenme ve dinlenme ile kas kütlesi kazancı mümkündür.
+
+6. **Her gün aynı kas grubunu çalışmak zararlı mı?**
+   - Evet, kas gruplarının yeterince dinlenmesi ve toparlanması önemlidir. Aynı kas grubunu arka arkaya çalışmaktan kaçının.
+
+7. **Upper Lower Split ve Full Body Split arasında nasıl karar verebilirim?**
+   - Zamanınız ve hedefleriniz doğrultusunda seçim yapın. Daha sık antrenman yapabiliyorsanız Upper Lower Split tercih edebilirsiniz.
+
+8. **1RM'ni hesaplamalı mıyım?**
+   - Evet, antrenman programınızı daha iyi ayarlamak için 1RM değerlerinizi [1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) aracını kullanarak belirleyin.`,
+    seoTitle: "Upper Lower Split Antrenman Programı, 4 Günlük Plan | Gokalaf",
+    seoDescription: "Upper lower split nedir, nasıl uygulanır? 4 günlük örnek plan, hipertrofi ve güç dengesinin nasıl kurulacağı, set ve tekrar şemaları.",
+    publishedAt: "2026-05-13T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "full-body-antrenman-programi",
+    title: "Full Body Antrenman Programı",
+    category: "antrenman",
+    excerpt: "Full body antrenmanı, sınırlı zamanı olan ya da yeni başlayanlar için en verimli programlama yöntemidir. Mantığı, frekans avantajı ve örnek 3 günlük programla detaylı bir rehber.",
+    heroImage: "/articles/full-body-antrenman-programi.webp",
+    content: `## Full Body Antrenman Nedir?
+
+Full body antrenman, tüm vücuttaki kas gruplarını tek bir antrenman seansında çalıştırmayı hedefleyen bir egzersiz yaklaşımıdır. Bu tür programlar genellikle haftada 2-3 kez uygulanır. Özellikle zaman kısıtlaması olan bireyler için idealdir. Her antrenman seansında tüm kas gruplarını çalıştırmak, kas gelişimini optimize eder ve enerji tüketimini artırır.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Full body antrenman programları, büyük kas gruplarına odaklanarak tüm vücudu kapsar. Ana kas grupları şunlardır:
+
+- **Göğüs:** Bench press ve şınav gibi hareketlerle çalıştırılır.
+- **Sırt:** Deadlift ve barfiks gibi egzersizler sırt kaslarını hedefler.
+- **Bacaklar:** Squat ve lunge gibi hareketler bacak kaslarını etkili bir şekilde çalıştırır.
+- **Omuzlar:** Overhead press ve lateral raise gibi egzersizler omuzları hedef alır.
+- **Kollar:** Biceps curl ve triceps extension gibi hareketlerle kollar çalıştırılır.
+- **Karın:** Plank ve crunch gibi egzersizlerle karın kasları güçlendirilir.
+
+> 💡 **Not:** Ana kas gruplarını hedefleyen bileşik hareketler, daha fazla kas lifini çalıştırarak daha etkili sonuçlar sağlar.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Isınma (5-10 dakika):** Dinamik esneme ve hafif kardiyo ile başlayın.
+2. **Bench Press (3 set x 8-12 tekrar):** Göğüs ve triceps kaslarını çalıştırır.
+3. **Squat (3 set x 8-12 tekrar):** Quadriceps, hamstring ve kalça kaslarını hedefler.
+4. **Barfiks (3 set x 6-10 tekrar):** Sırt ve biceps kaslarını çalıştırır.
+5. **Overhead Press (3 set x 8-12 tekrar):** Omuz ve triceps kaslarını hedefler.
+6. **Deadlift (3 set x 8-12 tekrar):** Tüm vücut ve özellikle sırt, bacak kaslarını çalıştırır.
+7. **Plank (3 set x 30-60 saniye):** Karın kaslarını güçlendirir.
+
+> 💡 **Not:** Setler arasında 60-90 saniye dinlenin.
+
+---
+
+## Doğru Form İpuçları
+
+- **Bench Press:** Sırtınızı düz tutun ve ayaklarınızı yere sağlam basın. Barı göğsünüze doğru kontrollü bir şekilde indirin.
+- **Squat:** Dizlerinizi ayak parmaklarınızın hizasında tutun, sırtınızı dik tutarak çömelin.
+- **Barfiks:** Vücudunuzu düz tutun, kontrollü bir şekilde yukarı çekin ve yavaşça indirin.
+- **Overhead Press:** Çekirdek kaslarınızı sıkı tutarak omuzlarınızla itin.
+- **Deadlift:** Sırtınızı düz tutarak, kalçalarınızı geriye doğru itin ve barı kaldırın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Aşırı Ağırlık Kullanımı:** 
+  - Çözüm: Ağırlıkları kontrollü seçin, forma odaklanın.
+  
+- **Yetersiz Isınma:**
+  - Çözüm: Her antrenman öncesi 5-10 dakika ısınma yapın.
+
+- **Yanlış Form:**
+  - Çözüm: Hareketleri aynada kontrol edin veya bir eğitmenden yardım alın.
+
+- **Yetersiz Dinlenme:**
+  - Çözüm: Setler arasında yeterli dinlenme süresi tanıyın.
+
+- **Dengesiz Program:**
+  - Çözüm: Tüm kas gruplarını eşit şekilde programınıza dahil edin.
+
+---
+
+## Varyasyonlar
+
+1. **Dumbbell Bench Press:** Bench press yerine dambıl kullanarak dengeyi artırın.
+2. **Front Squat:** Squat yaparken barı ön omuzlarınızda tutarak quadricepsleri daha fazla çalıştırın.
+3. **Chin-Up:** Barfiks yerine avuç içleriniz size dönük şekilde çekin, bicepsleri daha fazla hedefler.
+4. **Arnold Press:** Overhead press yerine, omuzları farklı açılardan çalıştırmak için Arnold press deneyin.
+
+> 💡 **Not:** Varyasyonlar, antrenman programınıza çeşitlilik katarken farklı kas gruplarını da hedef alabilir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef          | Set  | Tekrar | Dinlenme    |
+|----------------|------|--------|-------------|
+| Güç            | 4-5  | 4-6    | 2-3 dakika  |
+| Hipertrofi     | 3-4  | 8-12   | 60-90 saniye|
+| Dayanıklılık   | 2-3  | 15-20  | 30-45 saniye|
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Yeni Başlayanlar:** Teknikleri öğrenmeden ağır yüklerle başlamamalı.
+- **Sakatlık Geçirenler:** Özellikle sırt ve diz problemleri olanlar doktor onayı almalı.
+- **Yaşlı Bireyler:** Düşük yoğunluklu ve daha fazla dinlenme süresi ile başlamalı.
+- **Hamile Kadınlar:** Doktor onayı olmadan başlamamalı.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Full body antrenman haftada kaç gün yapılmalı?**
+   - Genellikle haftada 2-3 gün önerilir.
+
+2. **Full body antrenmanla kas yapılabilir mi?**
+   - Evet, doğru beslenme ve dinlenme ile kas kütlesi artırılabilir.
+
+3. **Isınma ne kadar önemlidir?**
+   - Isınma sakatlanmaları önlemek ve performansı artırmak için kritiktir.
+
+4. **Kaç set ve tekrar yapmalıyım?**
+   - Hedefe göre değişir, ancak genellikle 3 set 8-12 tekrar idealdir.
+
+5. **Full body antrenman kilo vermek için uygun mu?**
+   - Evet, yüksek enerji tüketimi sağlar ve metabolizmayı hızlandırır.
+
+6. **Hangi ekipmanlar gereklidir?**
+   - Genellikle barbell, dambıl ve bench gibi temel ekipmanlar yeterlidir.
+
+7. **Antrenman sıklığını nasıl ayarlamalıyım?**
+   - Dinlenmeye ve toparlanmaya zaman ayırarak haftada 2-3 gün yapılabilir.
+
+8. **Antrenman programımı ne sıklıkla değiştirmeliyim?**
+   - Her 4-6 haftada bir programınızı gözden geçirin ve gerektiğinde değişiklik yapın.
+
+---
+
+Unutmayın, tüm vücut antrenmanları, dengeli bir şekilde kas gelişimi ve genel sağlık için etkili bir yöntemdir. Antrenman programınızı kişisel hedeflerinize göre uyarlamak önemlidir. İlerlemenizi değerlendirmek ve hedeflerinize ulaşmak için [1RM'ni hesapla](/araclar/bir-tekrar-max-hesaplama) aracımızı kullanabilirsiniz.`,
+    seoTitle: "Full Body Antrenman Programı, 3 Günlük Plan | Gokalaf",
+    seoDescription: "Full body antrenman programı nedir, kimlere uygundur? 3 günlük örnek plan, başlangıç ve ileri seviye için set-tekrar şemaları.",
+    publishedAt: "2026-05-14T10:00:00.000Z",
+    ctaText: "1RM'ni hesapla",
+    ctaLink: "/araclar/bir-tekrar-max-hesaplama",
+  },
+  {
+    slug: "karbonhidrat-sayma-yontemi",
+    title: "Karbonhidrat Sayma Nasıl Yapılır",
+    category: "beslenme",
+    excerpt: "Karbonhidrat sayma, hem kilo kontrolü hem de performans için en pratik beslenme takip yöntemlerinden biridir. Porsiyon hesabını, glisemik yükü ve günlük takibi nasıl yapacağınızı öğrenin.",
+    heroImage: "/articles/karbonhidrat-sayma-yontemi.webp",
+    content: `## Karbonhidrat Sayma Nedir?
+
+Karbonhidrat sayma, beslenme düzeninde karbonhidrat miktarını bilinçli bir şekilde kontrol etmek için kullanılan bir yöntemdir. Özellikle diyabet yönetimi ve kilo kontrolü için yaygındır. Bu yöntem, bireylerin günlük karbonhidrat alımını belirli bir hedefe göre ayarlamasını sağlar. Karbonhidratlar, kan şekerini doğrudan etkilediği için, bu sayma işlemi özellikle kan şekeri kontrolü için önem taşır.
+
+---
+
+## Karbonhidrat Saymanın Mekaniği
+
+Karbonhidratlar, vücutta enerji kaynağı olarak kullanılır. Ancak, fazla tüketildiğinde yağ olarak depolanabilir. Karbonhidrat sayma, bu besin öğesinin miktarını kontrol ederek enerji dengesini sağlamaya yardımcı olur. Glisemik yük, karbonhidratın kan şekerine etkisini gösterir ve karbonhidrat saymanın temelini oluşturur. Karbonhidrat sayarken hem miktar hem de glisemik yük dikkate alınmalıdır.
+
+---
+
+## Karbonhidrat Sayma Adımları
+
+1. **Günlük Hedef Belirleme:** Bireyin enerji ve sağlık hedeflerine göre günlük karbonhidrat miktarı belirlenir. Örneğin, kilo vermek isteyen bir kişi için günlük karbonhidrat hedefi 100-150 gram olabilir.
+   
+2. **Karbonhidrat İçeriğini Anlama:** Gıdaların etiketlerini okuyarak veya beslenme veritabanlarından bilgi alarak karbonhidrat içeriği öğrenilir.
+
+3. **Karbonhidratı Ölçme:** Mutfak terazisi veya ölçü kapları kullanarak gıdaların miktarı ölçülür.
+
+4. **Karbonhidratı Kaydetme:** Her öğünde tüketilen karbonhidrat miktarını kaydedin. Uygulamalar veya beslenme günlükleri bu süreçte yardımcı olur.
+
+5. **Toplamı Hesaplama:** Günün sonunda toplam karbonhidrat alımı kontrol edilir ve hedefle kıyaslanır.
+
+---
+
+## Doğru Form İpuçları
+
+- **Etiket Okuma:** Gıda etiketlerindeki karbonhidrat, lif ve şeker miktarına dikkat edin. Toplam karbonhidrat miktarından lif miktarını çıkararak net karbonhidratı hesaplayın.
+  
+- **Uygulama Kullanımı:** MyFitnessPal veya Cronometer gibi uygulamalar, karbonhidrat takibi için pratik araçlar sunar.
+
+> 💡 **Not:** Lifli gıdalar, kan şekerinin daha yavaş yükselmesine neden olur ve daha uzun süre tokluk sağlar.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Lifi Göz Ardı Etmek:** Lif miktarını toplam karbonhidrat hesaplamasına dahil etmek, gereksiz yere yüksek karbonhidrat alımına yol açabilir. Çözüm: Net karbonhidrat hesabı yapın.
+  
+- **Yanlış Porsiyon Kontrolü:** Göz kararı porsiyonlar genellikle yanlış hesaplamalara neden olur. Çözüm: Mutfak terazisi kullanın.
+
+- **Etiket Okumamak:** Gıdaların etiketlerini okumamak, gizli karbonhidrat kaynaklarını kaçırmanıza neden olabilir. Çözüm: Tüm paketli gıdaların etiketlerini dikkatlice inceleyin.
+
+- **Sadece Şekeri Saymak:** Şeker dışındaki karbonhidrat türlerini göz ardı etmek, yanlış toplam alıma yol açar. Çözüm: Kompleks karbonhidratları da hesaba katın.
+
+---
+
+## Karbonhidrat Sayma Varyasyonları
+
+1. **Net Karbonhidrat Sayma:** Toplam karbonhidratlardan lif ve bazı şeker alkollerini çıkararak net karbonhidratı hesaplama.
+
+2. **Glisemik İndeks Tabanlı Sayma:** Gıdaların glisemik indeksine göre karbonhidrat alımını düzenleme.
+
+3. **Tersine Karbonhidrat Sayma:** Günün son öğününe kadar karbonhidrat alımını minimumda tutup, akşam yemeğinde daha fazla tüketme.
+
+4. **Zaman Kısıtlı Beslenme:** Belirli zaman dilimlerinde karbonhidrat alımını sınırlandırarak, günün diğer saatlerinde daha serbest tüketim.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                   | Set  | Tekrar | Dinlenme |
+|-------------------------|------|--------|----------|
+| Kilo Verme              | 3    | 12-15  | 30 sn    |
+| Kas Kütlesi Artışı      | 4    | 8-12   | 60 sn    |
+| Dayanıklılık            | 2    | 15-20  | 15 sn    |
+| Genel Sağlık            | 3    | 10-12  | 45 sn    |
+
+> 💡 **Not:** Beslenme hedeflerinize göre karbonhidrat miktarını ayarlayın. Bu tablo, egzersiz programınıza uygun karbonhidrat alımını belirlemenize yardımcı olur.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Diyabet Hastaları:** Karbonhidrat sayma, diyabet yönetiminde etkili olabilir, ancak doktor veya diyetisyen gözetiminde yapılmalıdır.
+  
+- **Böbrek Hastaları:** Yüksek proteinli diyetlerle birlikte karbonhidrat kısıtlaması, böbreklere ekstra yük bindirebilir.
+
+- **Gebeler ve Emziren Anneler:** Bu gruplar için karbonhidrat miktarını kısıtlamak, enerji ve besin ihtiyacını karşılamada yetersiz kalabilir.
+
+- **Yeme Bozukluğu Geçmişi Olanlar:** Kalorileri veya makro besinleri aşırı takıntı haline getirmek, eski alışkanlıkları tetikleyebilir.
+
+> 💡 **Not:** Herhangi bir beslenme değişikliği yapmadan önce sağlık uzmanına danışın.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Karbonhidrat sayma neden önemlidir?**  
+   Karbonhidratlar, kan şekeri üzerinde doğrudan etkilidir. Sayma, kan şekeri kontrolünü ve kilo yönetimini kolaylaştırır.
+
+2. **Karbonhidrat sayarken hangi uygulamaları kullanabilirim?**  
+   MyFitnessPal, Cronometer ve Carb Manager gibi uygulamalar karbonhidrat takibi için idealdir.
+
+3. **Net karbonhidrat nedir?**  
+   Toplam karbonhidratlardan lif ve sindirilemeyen şeker alkollerini çıkararak elde edilen miktardır.
+
+4. **Glisemik yük neyi ifade eder?**  
+   Bir gıdanın kan şekerine olan etkisini, porsiyon büyüklüğüyle birlikte değerlendirir.
+
+5. **Karbonhidrat sayma sadece diyabetliler için mi?**  
+   Hayır, genel sağlık, kilo kontrolü ve spor performansı için de kullanılır.
+
+6. **Günde kaç gram karbonhidrat almalıyım?**  
+   Bu, kişisel hedeflere ve aktivite düzeyine bağlıdır. Genellikle 100-150 gram arası önerilir.
+
+7. **Karbonhidrat sayma kas kaybına neden olur mu?**  
+   Dengeli bir diyetle birlikte yapıldığında kas kaybına neden olmaz. Protein ve yağ alımını da dengelemek önemlidir.
+
+8. **Karbonhidrat sayma ile kilo vermek mümkün mü?**  
+   Evet, karbonhidrat alımını kontrol ederek kalori dengesini sağlamak kilo vermeye yardımcı olabilir.
+
+---
+
+[Makrolarını hesapla](/araclar/makro-hesaplama)
+
+Bu makalede karbonhidrat saymanın temellerini, doğru uygulama yöntemlerini ve dikkat edilmesi gereken noktaları ele aldık. Karbonhidrat sayma, bilinçli bir beslenme stratejisi olarak hedeflerinize ulaşmanıza yardımcı olabilir. Her zaman olduğu gibi, kişisel sağlık durumunuza uygun bir beslenme planı oluşturmak için bir uzmana danışmayı unutmayın.`,
+    seoTitle: "Karbonhidrat Sayma Nasıl Yapılır, Pratik Rehber | Gokalaf",
+    seoDescription: "Karbonhidrat sayma yöntemi nedir, neden önemlidir? Glisemik yük, porsiyon hesabı ve günlük pratik takip yöntemleri.",
+    publishedAt: "2026-05-15T10:00:00.000Z",
+    ctaText: "Makrolarını hesapla",
+    ctaLink: "/araclar/makro-hesaplama",
+  },
+  {
+    slug: "bel-agrisi-icin-egzersizler",
+    title: "Bel Ağrısı İçin Egzersizler",
+    category: "antrenman",
+    excerpt: "Bel ağrısı modern yaşamın en yaygın sorunlarından biri. Doğru egzersizlerle hem ağrıyı azaltabilir hem de tekrarlanmasını önleyebilirsiniz. Etkili hareketleri ve sakınılması gerekenleri detaylı şekilde inceliyoruz.",
+    heroImage: "/articles/bel-agrisi-icin-egzersizler.webp",
+    content: `## Bel Ağrısı Egzersizleri Nedir?
+
+Bel ağrısı, modern yaşamın en yaygın sorunlarından biri. Ağır kaldırma, uzun süreli oturma veya kötü postür gibi nedenlerle ortaya çıkabilir. Çoğu insan hayatının bir döneminde bel ağrısı yaşar. Bu sorun, hem günlük yaşam kalitesini düşürür hem de iş verimliliğini etkiler. Bel ağrısını hafifletmek ve önlemek için özel egzersizler geliştirilmiştir. Bu makalede, bel ağrısı için etkili egzersizleri, bu egzersizlerin hangi kasları çalıştırdığını, doğru form ipuçlarını ve sıkça yapılan hataları ele alacağız.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Bel ağrısı egzersizleri genellikle core bölgesi, lumbar bölgesi ve sırt kaslarını hedef alır. Bu egzersizler, kas dengesizliğini düzeltir, postürü iyileştirir ve omurgayı destekler.
+
+- **Core Kasları:** Transversus abdominis, obliquus internus ve externus, rectus abdominis gibi karın kasları.
+- **Lumbar Kasları:** Erector spinae, quadratus lumborum gibi bel kasları.
+- **Gluteal Kaslar:** Gluteus maximus, medius ve minimus.
+- **Kalça Fleksörleri:** İliopsoas gibi kaslar.
+- **Sırt Kasları:** Latissimus dorsi, trapezius.
+
+Bu kas gruplarının güçlenmesi, bel bölgesine binen yükü azaltır ve ağrıyı hafifletir.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+### 1. Pelvik Tilt
+
+1. Yere sırt üstü uzanın, dizlerinizi bükün ve ayak tabanlarınızı yere basın.
+2. Karın kaslarınızı sıkın ve belinizi yere doğru hafifçe bastırın.
+3. Bu pozisyonda 5 saniye bekleyin, ardından gevşeyin.
+4. 10-15 tekrar yapın.
+
+### 2. Köprü (Bridge)
+
+1. Sırt üstü uzanın, dizler bükülü ve ayaklar kalça genişliğinde açık.
+2. Topuklarınızı yere bastırarak kalçalarınızı yukarı kaldırın.
+3. Omuzlar, kalçalar ve dizler bir çizgi oluşturmalı.
+4. 3-5 saniye bu pozisyonda kalın, sonra yavaşça indirin.
+5. 10-15 tekrar yapın.
+
+### 3. Kedi-Deve (Cat-Camel)
+
+1. Eller ve dizler üzerinde masa pozisyonu alın.
+2. Nefes alırken sırtınızı yukarı doğru yuvarlayın (kedi pozisyonu).
+3. Nefes verirken sırtınızı aşağı doğru çukurlaştırın (deve pozisyonu).
+4. 10-15 tekrar yapın.
+
+### 4. Plank
+
+1. Yüz üstü uzanın ve dirseklerinizi omuzlarınızın altında konumlandırın.
+2. Ayak parmaklarınızı yere koyarak vücudunuzu düz bir çizgiye getirin.
+3. Karın kaslarınızı sıkın ve bu pozisyonda 20-30 saniye kalın.
+4. 3-5 tekrar yapın.
+
+> 💡 **Not:** Plank sırasında belinizi aşırı çukur yapmaktan kaçının; omurganız nötr pozisyonda kalmalı.
+
+---
+
+## Doğru Form İpuçları
+
+- **Nefes Kontrolü:** Egzersiz sırasında nefes alıp vermeyi unutmayın. Nefes tutmak tansiyonunuzu artırabilir.
+- **Yavaş ve Kontrollü Hareket:** Egzersizleri yavaş ve kontrollü bir şekilde yaparak kasları daha etkili çalıştırabilirsiniz.
+- **Omurga Pozisyonu:** Omurga nötr pozisyonda kalmalıdır. Aşırı kıvrılmadan kaçının.
+- **Diz ve Ayak Pozisyonu:** Dizler ayaklarla hizalı olmalı. Ayaklarınızı yere tam basın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Hatalı Form Kullanımı:** Yanlış form, sadece hedeflenen kasları çalıştırmamakla kalmaz, aynı zamanda yaralanma riskini artırır. Çözüm: Bir ayna karşısında çalışarak veya bir antrenörden geri bildirim alarak formunuzu kontrol edin.
+- **Aşırı Zorlanma:** Yeni başlayanlar için fazla ağırlık veya tekrar sayısı sakatlıklara yol açabilir. Çözüm: Kendi seviyenize uygun ağırlık ve tekrar sayısı seçin.
+- **Nefes Tutmak:** Egzersiz sırasında nefes tutmak tansiyonu artırabilir. Çözüm: Egzersiz boyunca düzenli nefes alın ve verin.
+- **Yetersiz Isınma:** Egzersizlere başlamadan önce yeterince ısınmamak, kas yaralanmalarına neden olabilir. Çözüm: 5-10 dakika hafif kardiyo ve dinamik esneme yaparak ısının.
+
+---
+
+## Varyasyonlar
+
+### 1. Yan Plank
+
+Yan plank, yan karın kaslarını güçlendirir ve dengeyi geliştirir.
+
+- Yan yatın, dirseğiniz omzunuzun altında, bacaklar düz.
+- Kalçalarınızı yukarı kaldırın, vücudunuz düz bir çizgi oluşturmalı.
+- Bu pozisyonda 15-30 saniye kalın.
+
+### 2. Bird Dog
+
+Bu egzersiz, core stabilitesini artırır ve bel kaslarını çalıştırır.
+
+- Eller ve dizler üzerinde masa pozisyonu alın.
+- Sağ kolunuzu ve sol bacağınızı aynı anda uzatın.
+- 2-3 saniye bu pozisyonda kalın, sonra başlangıç pozisyonuna dönün.
+- Her iki taraf için 10-15 tekrar yapın.
+
+### 3. Süpermen
+
+Sırt kaslarını güçlendirmek için idealdir.
+
+- Yüz üstü uzanın, kollar ileri doğru uzatılmış.
+- Aynı anda kollarınızı ve bacaklarınızı yukarı kaldırın.
+- 2-3 saniye bu pozisyonda kalın, sonra indirin.
+- 10-15 tekrar yapın.
+
+### 4. Dead Bug
+
+Core stabilitesini ve koordinasyonu geliştirir.
+
+- Yere sırt üstü uzanın, bacaklar masa pozisyonunda (90 derece bükülü).
+- Sağ kolunuzu ve sol bacağınızı aynı anda uzatın.
+- Başlangıç pozisyonuna dönün ve diğer tarafı çalıştırın.
+- 10-15 tekrar yapın.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                 | Set  | Tekrar | Dinlenme       |
+|-----------------------|------|--------|----------------|
+| Başlangıç Seviyesi    | 2    | 10-12  | 30-60 saniye   |
+| Orta Seviye           | 3    | 12-15  | 30-60 saniye   |
+| İleri Seviye          | 4    | 15-20  | 30-60 saniye   |
+| Rehabilitasyon        | 2    | 8-10   | 60-90 saniye   |
+
+> 💡 **Not:** Egzersizler arasında yeterli dinlenme süresi bırakmak, kasların yeterince toparlanmasını sağlar. Dinlenme sürenizi doğru hesaplamak için [Dinlenme süreni hesapla](/araclar/dinlenme-suresi-hesaplama) aracını kullanabilirsiniz.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Akut Ağrı:** Şiddetli bel ağrısı veya ani yaralanma yaşayanlar egzersiz yapmadan önce doktora danışmalı.
+- **Ameliyat Geçirmiş Kişiler:** Bel ameliyatı geçiren bireyler, doktor onayı olmadan bu egzersizleri yapmamalıdır.
+- **Hamileler:** Gebelik sırasında bel ağrısı yaşayanlar, güvenli egzersizler için uzman bir eğitmen veya doktorla çalışmalıdır.
+- **Kronik Bel Sorunları:** Spesifik bel sorunları olanlar, kişiselleştirilmiş bir egzersiz programı için fizyoterapistten yardım almalıdır.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Bel ağrısı için hangi egzersizler en etkilidir?**
+   - Pelvik tilt, köprü ve plank gibi core odaklı egzersizler en etkili olanlardır.
+
+2. **Egzersizler ne kadar sürede sonuç verir?**
+   - Düzenli uygulandığında, 4-6 hafta içinde ağrının hafiflediğini görebilirsiniz.
+
+3. **Her gün bu egzersizleri yapmalı mıyım?**
+   - Haftada 3-4 gün yapmak genellikle yeterlidir. Dinlenme günleri bırakmak kasların toparlanmasına izin verir.
+
+4. **Egzersizleri yaparken ağrı hissedersem ne yapmalıyım?**
+   - Ağrı hissettiğinizde egzersizi bırakın ve bir uzmana danışın.
+
+5. **Yoga veya pilates bel ağrısına iyi gelir mi?**
+   - Evet, bu disiplinler core kaslarını güçlendirir ve esnekliği artırır, bel ağrısını hafifletebilir.
+
+6. **Hangi pozisyonlar belime zarar verebilir?**
+   - Aşırı öne eğilme veya belin aşırı kıvrılması belinize zarar verebilir. Nötr omurga pozisyonunu koruyun.
+
+7. **Egzersizlerle birlikte başka ne yapabilirim?**
+   - İyi bir postür, düzenli esneme ve ergonomik çalışma şartları da bel sağlığını destekler.
+
+8. **Egzersizler yaşlılar için uygun mu?**
+   - Evet, ancak düşük yoğunluklu ve dikkatli bir şekilde uygulanmalıdır. Bir fizyoterapistten rehberlik almak faydalı olur.
+
+Bu makale, bel ağrısını hafifletmek ve önlemek için etkili egzersizler hakkında kapsamlı bir rehber sunmaktadır. Unutmayın, düzenli egzersiz ve doğru teknikle bel sağlığınızı önemli ölçüde iyileştirebilirsiniz.`,
+    seoTitle: "Bel Ağrısı İçin Egzersizler, Etkili Hareketler | Gokalaf",
+    seoDescription: "Bel ağrısını azaltan egzersizler, doğru core aktivasyonu, kaçınılması gereken hareketler ve günlük pratik program.",
+    publishedAt: "2026-05-16T10:00:00.000Z",
+    ctaText: "Dinlenme süreni hesapla",
+    ctaLink: "/araclar/dinlenme-suresi-hesaplama",
+  },
+  {
+    slug: "diz-agrisi-icin-egzersizler",
+    title: "Diz Ağrısı İçin Egzersizler",
+    category: "antrenman",
+    excerpt: "Diz ağrısının çoğu, diz çevresi kasların zayıflığından kaynaklanır. Doğru güçlendirme egzersizleriyle hem ağrıyı azaltıp hem de diz sağlığını uzun vadede koruyabilirsiniz.",
+    heroImage: "/articles/diz-agrisi-icin-egzersizler.webp",
+    content: `## Diz Ağrısı ve Egzersizlerin Önemi
+
+Diz ağrısı, birçok kişinin günlük yaşamını etkileyen yaygın bir sorundur. Sporcular, ofis çalışanları veya yaşlı bireyler olsun, herkes diz ağrısı yaşayabilir. Diz ağrısının birçok sebebi olabilir; en yaygın nedenler arasında patellar tendonit, runner's knee (koşucu dizi) ve aşırı kullanım bulunur. Bu makalede, diz ağrısını hafifletmeye yönelik egzersizleri, bu egzersizlerin nasıl yapılacağını ve dikkat edilmesi gereken noktaları ele alacağız.
+
+---
+
+## Diz Ağrısı Hangi Kasları Çalıştırır?
+
+Diz sağlığını korumak ve ağrıyı hafifletmek için birkaç kas grubuna odaklanmak önemlidir. Bu kas grupları arasında:
+
+- **Quadriceps**: Diz kapağının üstünde yer alan bu kas grubu, dizin stabilitesini artırır. Quadriceps kasları, dizin düzleştirilmesine yardımcı olur ve diz bölgesindeki yükü azaltır.
+- **Hamstringler**: Uyluğun arka kısmında bulunan bu kaslar, dizin bükülmesine yardımcı olur ve diz eklemi üzerinde dengeyi sağlar.
+- **Kalça Kasları**: Kalça kaslarının güçlendirilmesi, diz üzerindeki stresin azaltılmasına yardımcı olabilir. Kalça kasları, özellikle gluteus medius, dizin doğru hizalanmasına katkıda bulunur.
+- **Baldır Kasları**: Baldır kasları, diz eklemi üzerindeki yükü hafifletebilir ve dengeyi artırabilir.
+
+Diz ağrısı egzersizleri, bu kas gruplarını hedef alarak güçlendirmeyi amaçlar.
+
+---
+
+## Adım Adım Diz Ağrısı Egzersizleri
+
+### 1. Quadriceps Setleri
+
+1. **Başlangıç Pozisyonu**: Düz bir zemine oturun veya uzanın. Bacaklarınızı önünüzde düz uzatın.
+2. **Hareket**: Dizinizin altına küçük bir rulo veya havlu yerleştirin. Quadriceps kaslarınızı sıkın ve dizinizi düzleştirin.
+3. **Tutma Süresi**: Kasılmayı 5 saniye boyunca tutun ve ardından gevşetin.
+4. **Tekrarlar**: Her bacak için 10-15 tekrar yapın.
+
+### 2. Hamstring Curl
+
+1. **Başlangıç Pozisyonu**: Ayakta durun veya bir yüzeye tutunun.
+2. **Hareket**: Bir bacağınızı geriye doğru bükün, topuğunuzu kalçanıza doğru çekin.
+3. **Tutma Süresi**: 5 saniye boyunca pozisyonu koruyun ve ardından başlangıç pozisyonuna dönün.
+4. **Tekrarlar**: Her bacak için 10-15 tekrar yapın.
+
+### 3. Duvar Squat
+
+1. **Başlangıç Pozisyonu**: Sırtınızı duvara yaslayın ve ayaklarınızı omuz genişliğinde açın.
+2. **Hareket**: Dizlerinizi bükerek yavaşça aşağıya doğru çömelin, sırtınız duvarla temasını kaybetmesin.
+3. **Tutma Süresi**: 10-15 saniye pozisyonda kalın, ardından başlangıç pozisyonuna dönün.
+4. **Tekrarlar**: 8-10 tekrar yapın.
+
+### 4. Kalça Köprüsü
+
+1. **Başlangıç Pozisyonu**: Sırt üstü uzanın, dizlerinizi bükün, ayaklarınızı yere düz basın.
+2. **Hareket**: Kalçanızı yukarı kaldırın, omuzlarınızdan dizlerinize düz bir çizgi oluşturun.
+3. **Tutma Süresi**: 5 saniye boyunca pozisyonu koruyun, ardından yavaşça indirin.
+4. **Tekrarlar**: 10-15 tekrar yapın.
+
+> 💡 **Not:** Egzersizler sırasında ağrı hissederseniz, hemen durun ve bir uzmana danışın.
+
+---
+
+## Doğru Form İpuçları
+
+- **Kontrollü Hareket**: Egzersizleri yavaş ve kontrollü bir şekilde yapın. Ani hareketlerden kaçının.
+- **Nefes Kontrolü**: Egzersiz sırasında nefesinizi tutmayın. Doğru nefes alıp verin.
+- **Ekipman Kullanımı**: Gerekirse direnç bandı veya ağırlık kullanarak egzersizleri çeşitlendirin.
+- **Isınma**: Egzersizlere başlamadan önce 5-10 dakika boyunca hafif ısınma hareketleri yapın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Hızlı Egzersiz Yapmak**: Egzersizleri hızlı yapmak, diz üzerindeki yükü artırabilir ve sakatlanma riskini yükseltir. Kontrollü ve yavaş yapın.
+- **Yanlış Pozisyon**: Dizlerin doğru hizalanmaması, ekstra stres yaratabilir. Dizlerinizi ayaklarınızla aynı hizada tutun.
+- **Yeterince Dinlenmemek**: Kasların toparlanması için yeterli dinlenme süresi bırakın. 
+- **Ağrıya Rağmen Devam Etmek**: Ağrı hissettiğinizde egzersize devam etmeyin; bu, sakatlanmaya neden olabilir.
+
+---
+
+## Varyasyonlar
+
+### 1. Tek Bacaklı Kalça Köprüsü
+
+Kalça köprüsünü bir bacağınızı havada tutarak yapın. Bu, kalça ve diz stabilitesini artırır.
+
+### 2. Yarım Squat
+
+Tam çömelme yerine yarım squat yapın. Dizler üzerindeki yükü azaltır ve hareket açıklığını artırır.
+
+### 3. Step-Up
+
+Alçak bir platforma veya merdivene adım atarak bacaklarınızı güçlendirin. Diz ve kalça kaslarınızı çalıştırır.
+
+### 4. Yan Bacak Kaldırma
+
+Yerde yan yatarken üstteki bacağı yukarı kaldırın. Kalça kaslarını hedef alır ve dengeyi artırır.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef | Set | Tekrar | Dinlenme |
+|-------|-----|--------|----------|
+| Güçlendirme | 3 | 10-15 | 30-45 saniye |
+| Dayanıklılık | 2 | 15-20 | 20-30 saniye |
+| Rehabilitasyon | 2-3 | 8-12 | 45-60 saniye |
+
+> 💡 **Not:** Dinlenme sürelerini ihtiyacınıza göre ayarlayın. [Dinlenme süreni hesapla](/araclar/dinlenme-suresi-hesaplama)
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Akut Sakatlıklar**: Dizde akut sakatlık veya şişlik varsa egzersiz yapmaktan kaçının.
+- **Cerrahi Müdahale Sonrası**: Yakın zamanda diz ameliyatı geçirdiyseniz, doktorunuza danışmadan egzersize başlamayın.
+- **Kronik Ağrılar**: Sürekli diz ağrısı yaşıyorsanız, özel bir egzersiz programı için uzman bir fizyoterapistle görüşün.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Diz ağrısı için en iyi egzersiz hangisidir?**
+   - Quadriceps setleri, diz stabilitesini artırmak için etkili bir egzersizdir.
+
+2. **Egzersiz yaparken dizim ağrırsa ne yapmalıyım?**
+   - Hemen egzersizi durdurun ve bir uzmana danışın.
+
+3. **Her gün bu egzersizleri yapmalı mıyım?**
+   - Haftada 3-4 kez yapmak genellikle yeterlidir. Kasların toparlanması için dinlenme günleri bırakın.
+
+4. **Egzersizler ne kadar sürede etkili olur?**
+   - Düzenli uygulama ile 4-6 hafta içinde iyileşme gözlemlenebilir.
+
+5. **Diz ağrısına neden olan yanlış egzersizler nelerdir?**
+   - Yanlış formda yapılan squat veya lunges diz ağrısına neden olabilir.
+
+6. **Egzersizlerin yanına başka ne yapabilirim?**
+   - Buz uygulaması ve dinlenme, ağrıyı hafifletmeye yardımcı olabilir.
+
+7. **Koşucu dizi için hangi egzersizler önerilir?**
+   - Kalça köprüsü ve yan bacak kaldırma, koşucu dizine iyi gelir.
+
+8. **Bu egzersizler patellar tendonit için uygun mu?**
+   - Evet, özellikle quadriceps ve hamstring egzersizleri patellar tendoniti hafifletir.
+
+> 💡 **Not:** Herhangi bir egzersize başlamadan önce doktorunuza veya fizyoterapistinize danışın.`,
+    seoTitle: "Diz Ağrısı İçin Egzersizler, Güçlendirme Hareketleri | Gokalaf",
+    seoDescription: "Diz ağrısını azaltan ve diz çevresi kasları güçlendiren egzersizler. Quadriceps, hamstring ve kalça stabilitesi için pratik program.",
+    publishedAt: "2026-05-17T10:00:00.000Z",
+    ctaText: "Dinlenme süreni hesapla",
+    ctaLink: "/araclar/dinlenme-suresi-hesaplama",
+  },
+  {
+    slug: "postur-duzeltme-egzersizleri",
+    title: "Postür Düzeltme Egzersizleri",
+    category: "antrenman",
+    excerpt: "Bozuk postür, hem estetik hem sağlık açısından sorunlara yol açar. Sırt-omuz mobilitesi, core gücü ve esneme hareketleriyle postürünüzü kalıcı olarak düzeltmenin yollarını öğrenin.",
+    heroImage: "/articles/postur-duzeltme-egzersizleri.webp",
+    content: `## Postür Düzeltme Egzersizleri Nedir?
+
+Postür düzeltme egzersizleri, vücudun doğal duruşunu iyileştirmeye yönelik hareketlerdir. Amaç, omurga ve eklemlerin hizalanmasını düzeltmek, kas dengesizliklerini gidermek ve genel duruşu geliştirmektir. Uzun süreli oturma, yanlış duruş alışkanlıkları ve zayıf kaslar, postür bozukluklarına yol açabilir. Bu egzersizler, kamburluğu azaltabilir, omuzları açabilir ve dik duruşu teşvik edebilir.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Postür düzeltme egzersizleri, çeşitli kas gruplarını hedef alır. Başlıca çalıştırılan kaslar şunlardır:
+
+- **Erector Spinae:** Omurgayı destekler ve dik duruşu sağlar.
+- **Trapezius:** Omuzları geri çeker ve boyunla omuz arasındaki dengeyi sağlar.
+- **Rhomboids:** Omuz bıçaklarını birbirine yaklaştırarak sırtın üst kısmını destekler.
+- **Serratus Anterior:** Omuz hareketlerini stabilize eder ve ön-yan gövdeyi destekler.
+- **Core Kasları:** Karın ve bel çevresindeki kaslar, genel dengeyi ve duruşu korur.
+
+Bu kas gruplarının dengeli çalışması, postürün iyileşmesi için kritik öneme sahiptir.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Kedi-İnek Egzersizi:**
+   - Eller ve dizler üzerinde başlayın.
+   - Nefes alırken sırtınızı yukarı doğru yuvarlayın (kedi pozisyonu).
+   - Nefes verirken sırtınızı aşağı doğru çukur yapın (inek pozisyonu).
+   - 10 tekrar uygulayın.
+
+2. **Köprü Egzersizi:**
+   - Sırt üstü yatın, dizler bükülü, ayaklar yerde.
+   - Kalçanızı yukarı kaldırın, omuzlar yerde kalacak şekilde.
+   - 5 saniye tutun, yavaşça indirin.
+   - 3 set, 12 tekrar yapın.
+
+3. **Omuz Bıçaklarını Sıkıştırma:**
+   - Ayakta durun, kollar yanlarda.
+   - Omuz bıçaklarınızı birbirine doğru sıkıştırın.
+   - 5 saniye tutun, rahatlayın.
+   - 3 set, 10 tekrar uygulayın.
+
+4. **Duvar Meleği:**
+   - Sırtınızı duvara yaslayın, kolları yukarı kaldırın.
+   - Dirsekleri duvara temas ettirirken kolları aşağı ve yukarı hareket ettirin.
+   - 10 tekrar yapın.
+
+5. **Plank:**
+   - Yüzüstü pozisyonda, dirsekler ve ayak parmakları üzerinde durun.
+   - Vücudunuzu düz bir çizgi halinde tutun.
+   - 30 saniye ile başlayın, süreyi artırarak devam edin.
+
+---
+
+## Doğru Form İpuçları
+
+- **Dik Durun:** Egzersiz sırasında başınızı ve omuzlarınızı dik tutun.
+- **Nefes Kontrolü:** Hareket sırasında nefes alıp verme düzenine dikkat edin.
+- **Yavaş ve Kontrollü Hareketler:** Hızdan ziyade form önemlidir.
+- **Omurga Hizası:** Omurganızın doğal eğrisini koruyarak hareket edin.
+
+> 💡 **Not:** Herhangi bir ağrı veya rahatsızlık hissederseniz, egzersizi derhal durdurun ve bir uzmana danışın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Hızlı Hareket Etmek:** Hızlı yapılan hareketler kaslar yerine eklemleri zorlayabilir. Yavaş ve kontrollü hareket etmeye odaklanın.
+- **Yanlış Nefes Tekniği:** Nefes almadan yapılan egzersizler, kasların yeterince oksijenlenmesini engeller.
+- **Omuzları Yukarı Kaldırmak:** Omuzları kulaklara doğru çekmek yerine aşağıda ve rahat bırakın.
+- **Aşırı Gerilim:** Kasları aşırı germek yerine doğal sınırlar içinde kalın.
+
+---
+
+## Varyasyonlar
+
+1. **Direnç Bandı ile Omuz Açma:**
+   - Direnç bandını iki elinizle sıkıca tutun.
+   - Kolları düz tutarak bandı başınızın üzerine kaldırın.
+   - Omuzları açarak bandı geriye doğru çekin.
+
+2. **Tek Kol Plank:**
+   - Plank pozisyonunda bir kolunuzu kaldırın ve vücudu dengeleyin.
+   - 15 saniye tutun, diğer kola geçin.
+
+3. **Dairesel Omuz Hareketleri:**
+   - Ayakta durun, kolları yanlara açın.
+   - Küçük daireler çizerek omuzları çalıştırın.
+
+4. **Yüzüstü Yüzme:**
+   - Yüzüstü yatın, kolları öne uzatın.
+   - Alternatif kolları ve bacakları yukarı kaldırarak yüzme hareketi yapın.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef              | Set | Tekrar | Dinlenme |
+|--------------------|-----|--------|----------|
+| **Başlangıç**      | 2   | 8-10   | 60 sn    |
+| **Orta Düzey**     | 3   | 10-12  | 45 sn    |
+| **İleri Düzey**    | 4   | 12-15  | 30 sn    |
+
+> 💡 **Not:** Herhangi bir egzersiz programına başlamadan önce, özellikle sağlık sorunlarınız varsa, bir uzmana danışın.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Omurga Yaralanmaları:** Geçmişte ciddi omurga yaralanması yaşamış olanlar dikkat etmeli.
+- **Hamileler:** Hamilelik döneminde postür egzersizleri yaparken özel dikkat gereklidir.
+- **Akut Ağrı:** Egzersiz sırasında ağrı hissederseniz, durun ve bir doktora danışın.
+- **Denge Sorunları:** Denge problemi olanlar, uygun varyasyonları tercih etmelidir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Postür düzeltme egzersizleri ne kadar sürede sonuç verir?**
+   - Düzenli uygulandığında 4-6 hafta içinde iyileşme gözlemlenebilir.
+
+2. **Egzersizleri her gün yapmalı mıyım?**
+   - Haftada en az 3 kez yapılması önerilir, ancak her gün kısa süreli olarak da uygulanabilir.
+
+3. **Bu egzersizler ağrıya neden olabilir mi?**
+   - Doğru formda yapıldığında ağrıya neden olmamalıdır; ağrı varsa durmalı ve bir uzmana danışmalısınız.
+
+4. **Ofis çalışanları için hangi egzersizler uygundur?**
+   - Omuz bıçaklarını sıkıştırma ve duvar meleği gibi egzersizler ofiste kolayca uygulanabilir.
+
+5. **Plank yaparken belimde ağrı hissediyorum, ne yapmalıyım?**
+   - Belinizin çukurlaşmasına dikkat edin, karın kaslarınızı aktif tutarak pozisyonu düzeltin.
+
+6. **Hangi ekipmanlar gereklidir?**
+   - Çoğu egzersiz ekipmansız yapılabilir, ancak direnç bandı gibi basit ekipmanlar fayda sağlayabilir.
+
+7. **Postür düzeltme egzersizleri kilo verdirir mi?**
+   - Doğrudan kilo kaybı sağlamaz, ancak kas tonusunu artırarak metabolizmayı hızlandırabilir.
+
+8. **Egzersiz sırasında nefes alıp verme nasıl olmalıdır?**
+   - Hareketin zorlayıcı kısmında nefes verin, geri dönüşte nefes alın.
+
+> 💡 **Not:** Egzersiz programınızı kişisel ihtiyaçlarınıza göre uyarlamak için bir fizyoterapist ile çalışmak faydalı olabilir.
+
+---
+
+Yukarıda verilen egzersizler, postürünüzü iyileştirmek için etkili bir başlangıç noktasıdır. Düzenli olarak uygulandığında, duruşunuzu önemli ölçüde düzeltebilir ve günlük yaşam kalitenizi artırabilirsiniz. Antrenmanlarınızın yoğunluğunu artırırken dinlenme sürelerinizi de iyi ayarlayın. [Dinlenme süreni hesapla](/araclar/dinlenme-suresi-hesaplama) aracıyla antrenman verimliliğinizi artırabilirsiniz.`,
+    seoTitle: "Postür Düzeltme Egzersizleri, Pratik Hareketler | Gokalaf",
+    seoDescription: "Postürü düzelten egzersizler, sırt-omuz mobilitesi, masa başı çalışanlar için günlük rutin ve dik duruş için pratik öneriler.",
+    publishedAt: "2026-05-18T10:00:00.000Z",
+    ctaText: "Dinlenme süreni hesapla",
+    ctaLink: "/araclar/dinlenme-suresi-hesaplama",
+  },
+  {
+    slug: "karin-eritme-egzersizleri",
+    title: "Karın Eritme Egzersizleri",
+    category: "antrenman",
+    excerpt: "Karın yağı sadece izolasyon hareketleriyle erimez. Etkili karın eritme stratejisi, kalori açığı, kardiyo, core gücü ve direnç antrenmanını birleştirmeyi gerektirir. Etkili egzersiz seçimini ve mantığını anlatıyoruz.",
+    heroImage: "/articles/karin-eritme-egzersizleri.webp",
+    content: `## Karın Eritme Egzersizleri: Etkili Yöntemler ve Bilimsel Yaklaşım
+
+Karın eritme konusu, fitness dünyasında sıkça tartışılan bir konudur. Göbek eritmek, six pack elde etmek ve karın yağlarını azaltmak birçok kişinin hedefleri arasında yer alır. Ancak bu hedeflere ulaşmak, etkili ve doğru egzersiz programları uygulamayı gerektirir. Bu makalede, karın eritme egzersizlerini bilimsel temellerle ele alacağız.
+
+---
+
+## Hangi Kasları Çalıştırır: Bilim ve Mekanik
+
+Karın egzersizleri, esas olarak core bölgesini hedef alır. Core, vücudun merkezinde yer alır ve birçok kas grubunu içerir:
+
+- **Rektus Abdominis**: Genellikle "six pack" olarak bilinir. Karın bölgesinin ön kısmında yer alır ve omurganın fleksiyonunda rol oynar.
+- **Transversus Abdominis**: Karın içi basıncını düzenler ve stabilite sağlar.
+- **İç ve Dış Oblikler**: Yan karın kaslarıdır, rotasyon ve lateral fleksiyonda görev alır.
+- **Erector Spinae**: Omurganın dik durmasını sağlar ve core stabilitesine katkıda bulunur.
+
+Bu kas gruplarının optimal şekilde çalıştırılması, karın yağlarının azaltılmasına ve daha belirgin bir karın bölgesine ulaşılmasına yardımcı olur.
+
+---
+
+## Adım Adım Nasıl Yapılır
+
+Karın eritme egzersizlerini doğru formda uygulamak, etkinliklerini artırır ve sakatlanma riskini azaltır. İşte temel bir karın egzersizi rutinini adım adım nasıl yapabileceğiniz:
+
+1. **Crunches**
+   - Sırt üstü uzanın, dizlerinizi bükün ve ayaklarınızı yere düz basın.
+   - Ellerinizi başınızın arkasına koyun, dirseklerinizi yanlara açın.
+   - Karın kaslarınızı sıkarak üst gövdenizi yukarı kaldırın.
+   - Yavaşça başlangıç pozisyonuna dönün. 3 set, 15 tekrar önerilir.
+
+2. **Plank**
+   - Yüzüstü pozisyonda başlayın, dirseklerinizi ve ayak parmaklarınızı yere koyun.
+   - Vücudunuzu düz bir çizgide tutarak karın kaslarınızı sıkın.
+   - Bu pozisyonda 30-60 saniye arasında kalın. 3 set önerilir.
+
+3. **Russian Twists**
+   - Yerde oturun, dizlerinizi hafifçe bükün.
+   - Üst gövdenizi geriye yaslayın ve ayaklarınızı yerden kaldırın.
+   - İki elinizle bir ağırlık tutarak, gövdenizi sağa ve sola döndürün.
+   - Her iki tarafa 10 tekrar yapın. 3 set önerilir.
+
+4. **Leg Raises**
+   - Sırt üstü uzanın, ellerinizi kalçalarınızın altına yerleştirin.
+   - Bacaklarınızı düz tutarak yukarı kaldırın.
+   - Yavaşça başlangıç pozisyonuna indirin. 3 set, 12 tekrar önerilir.
+
+---
+
+## Doğru Form İpuçları
+
+Doğru form, karın egzersizlerinin etkinliğini artırır ve sakatlanma riskini azaltır:
+
+- **Nefes Kontrolü**: Egzersiz sırasında nefesinizi tutmak yerine, hareketin zor kısmında nefes verin.
+- **Karın Kaslarını Aktif Tutma**: Tüm hareketlerde karın kaslarınızı sürekli olarak sıkı tutun.
+- **Hız Kontrolü**: Hareketleri yavaş ve kontrollü yaparak kasların daha fazla çalışmasını sağlayın.
+
+> 💡 **Not:** Egzersizlerde formu korumak için aynada kendinizi izleyin veya bir partnerden yardım alın.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Sadece Karın Egzersizlerine Odaklanmak**: Karın yağlarının azalması için sadece karın egzersizleri yeterli değildir. Kardiyo ve genel vücut antrenmanları da gereklidir.
+- **Yanlış Nefes Almak**: Hareket sırasında nefes tutmak, performansı düşürür ve tansiyonu artırabilir.
+- **Hızlı Hareket Etmek**: Setleri hızlıca bitirmek, kasların yeterince çalışmasını engeller. Yavaş ve kontrollü hareket edin.
+- **Duruş Bozuklukları**: Özellikle plank ve crunches sırasında sırtın doğru pozisyonda olması önemlidir. Yanlış duruşlar sakatlanmalara yol açabilir.
+
+---
+
+## Varyasyonlar
+
+Karın egzersizlerinde çeşitlilik sağlamak, kasların farklı şekillerde çalışmasını sağlar ve motivasyonu artırır:
+
+1. **Bicycle Crunches**
+   - Sırt üstü yatın, dizlerinizi 90 derece bükün.
+   - Dirseklerinizi çapraz dizlere doğru çekerek bisiklet çevirme hareketi yapın.
+
+2. **Hanging Leg Raises**
+   - Barfiks çubuğuna asılın.
+   - Bacaklarınızı düz bir şekilde yukarı kaldırın ve yavaşça indirin.
+   - Alt karın kasları için etkilidir.
+
+3. **Side Plank**
+   - Yan pozisyonda, dirseğinizin üzerinde durun.
+   - Vücudunuzu düz bir çizgide tutarak yan karın kaslarınızı çalıştırın.
+
+4. **Mountain Climbers**
+   - Şınav pozisyonunda başlayın.
+   - Dizlerinizi hızlı bir şekilde göğsünüze doğru çekin, koşu hareketi gibi.
+
+> 💡 **Not:** Varyasyonları haftalık antrenman programınıza ekleyerek kasların adaptasyonunu önleyin.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                        | Set  | Tekrar | Dinlenme |
+|------------------------------|------|--------|----------|
+| Yağ Yakımı ve Dayanıklılık   | 3    | 15-20  | 30 sn    |
+| Kas Kütlesi ve Güç           | 4    | 8-12   | 60 sn    |
+| Fonksiyonel Güç ve Stabilite | 3    | 30-60 sn plank | 45 sn    |
+
+> 💡 **Not:** Dinlenme sürelerini, hedefinize göre ayarlayabilirsiniz. Daha kısa dinlenme süreleri, dayanıklılığı artırır.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+Karın egzersizleri çoğu kişi için uygundur, ancak bazı durumlarda dikkatli olunmalıdır:
+
+- **Bel Problemleri Olanlar**: Özellikle bel fıtığı olan bireyler, karın egzersizlerini doktor gözetiminde yapmalıdır.
+- **Hamileler**: Hamilelik döneminde karın egzersizleri riskli olabilir. Doktor tavsiyesi alınmalıdır.
+- **Yeni Başlayanlar**: Egzersizlere yeni başlayanlar, düşük yoğunluklu programlarla başlamalıdır.
+- **Kalp Sorunları Olanlar**: Kardiyo içeren karın egzersizleri, kalp sorunları olan bireyler için zorlayıcı olabilir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Karın eritme egzersizleri sadece karın bölgesini mi hedef alır?**
+   - Hayır, genel vücut yağ oranını azaltmak için kardiyo ve direnç antrenmanları da gereklidir.
+
+2. **Günde kaç dakika karın egzersizi yapmalıyım?**
+   - Haftada en az 3 gün, 15-20 dakika karın egzersizleri yapmak yeterlidir.
+
+3. **Karın yağlarını eritmek için diyet önemli mi?**
+   - Evet, kalori açığı yaratmak ve sağlıklı bir diyet uygulamak şarttır.
+
+4. **Plank yaparken sırtım ağrıyor, ne yapmalıyım?**
+   - Formunuzu kontrol edin, sırtınızı düz tutmaya özen gösterin. Ağrı devam ederse bir uzmana danışın.
+
+5. **Karın kaslarımın görünmesi için yağ oranım ne olmalı?**
+   - Erkeklerde %10-15, kadınlarda %15-20 arası yağ oranı genellikle karın kaslarının belirginleşmesi için yeterlidir.
+
+6. **HIIT karın egzersizleri etkili midir?**
+   - Evet, HIIT antrenmanları metabolizmayı hızlandırır ve yağ yakımını artırır.
+
+7. **Crunches yaparken boynum ağrıyor, neden?**
+   - Boynunuzu ellerinizle çekiyor olabilirsiniz. Hareketi karın kaslarıyla yapmaya odaklanın.
+
+8. **Varyasyonlar neden önemlidir?**
+   - Farklı egzersizlerle kasları şaşırtmak, adaptasyonu önler ve gelişimi hızlandırır.
+
+---
+
+> [Vücut yağ oranını hesapla](/araclar/vucut-yagi-orani-hesaplama)
+
+Karın eritme, disiplinli bir antrenman ve beslenme yaklaşımı gerektirir. Bilimsel temellerle oluşturulmuş bir program, hedeflerinize ulaşmanıza yardımcı olacaktır.`,
+    seoTitle: "Karın Eritme Egzersizleri, Etkili Hareketler | Gokalaf",
+    seoDescription: "Karın bölgesini sıkılaştıran ve göbek yağını eritmeye yardımcı egzersizler. HIIT, core ve kardiyo kombinasyonu için pratik program.",
+    publishedAt: "2026-05-19T10:00:00.000Z",
+    ctaText: "Vücut yağ oranını hesapla",
+    ctaLink: "/araclar/vucut-yagi-orani-hesaplama",
+  },
+  {
+    slug: "12-3-30-yuruyus-antrenmani",
+    title: "12-3-30 Yürüyüş Antrenmanı",
+    category: "antrenman",
+    excerpt: "12-3-30 yürüyüş antrenmanı, sosyal medyada viral olan basit ama etkili bir kardiyo yöntemidir. Bilimsel temelini, kalori yakımını ve haftalık program önerilerini detaylı şekilde inceliyoruz.",
+    heroImage: "/articles/12-3-30-yuruyus-antrenmani.webp",
+    content: `## 12-3-30 Yürüyüş Antrenmanı Nedir?
+
+12-3-30 yürüyüş antrenmanı, popüler bir treadmill programıdır. Bu antrenman, eğimli yürüyüşü temel alır ve özellikle kardiyo kapasitesini artırmak ve yağ yakmak isteyenler için idealdir. Program, 12 derece eğimle, 3 mil/saat hızda, 30 dakika boyunca yürümeyi içerir. Bu basit ama etkili yöntem, düşük etkili kardiyo arayanlar için uygundur.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+12-3-30 antrenmanı, vücutta birçok kas grubunu etkiler:
+
+- **Bacak Kasları:** Quadriceps, hamstringler ve baldır kasları yoğun çalışır.
+- **Kalça Kasları:** Gluteus maximus, eğimli yürüyüşle aktive olur.
+- **Çekirdek Kaslar:** Denge sağlamak için karın kasları devreye girer.
+- **Arka Bacak Kasları:** Eğimin artırdığı zorluk, arka bacak kaslarının daha fazla çalışmasını sağlar.
+
+Eğimli yürüyüş, özellikle alt vücut kaslarını hedef alır. Bu kasların güçlenmesi, genel dayanıklılığı artırır ve daha efektif bir kalori yakımı sağlar.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Isınma:** 5 dakika boyunca düz zemin üzerinde hafif tempolu yürüyüş yapın.
+2. **Eğimi Ayarla:** Treadmill'i %12 eğime ayarlayın.
+3. **Hızı Belirle:** Hızı 3 mil/saat (yaklaşık 4.8 km/saat) olarak ayarlayın.
+4. **30 Dakika Yürüyüş:** Başlangıçta 15 dakika ile başlayabilir, zamanla 30 dakikaya çıkabilirsiniz.
+5. **Soğuma:** Son 5 dakika eğimi düşürerek tempoyu yavaşlatın.
+6. **Esneme:** Antrenman sonrası kasları esnetmeyi unutmayın.
+
+> 💡 **Not:** Yeni başlayanlar için, eğimi %8-10 arasında ayarlamak uygun olabilir.
+
+---
+
+## Doğru Form İpuçları
+
+- **Dik Duruş:** Omuzlar geride, göğüs dışarıda ve baş dik olmalı.
+- **Kolları Kullan:** Kol hareketleri dengeyi sağlamaya yardımcı olur.
+- **Adım Uzunluğu:** Doğal ve rahat adımlar atın.
+- **Ayak İzi:** Topuklar önce yere temas etmeli, ardından parmak uçları.
+
+Bu ipuçları, antrenmanın verimliliğini artırır ve sakatlanma riskini azaltır.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Yanlış Eğim Ayarı:** %12 yerine daha düşük eğimde çalışmak, hedeflenen kasları yeterince çalıştırmaz.
+  - **Çözüm:** Eğim ayarını kontrol ederek başlayın.
+  
+- **Yanlış Hız Ayarı:** Hızı 3 mil/saat yerine daha yavaş veya daha hızlı ayarlamak.
+  - **Çözüm:** Treadmill üzerindeki hız göstergesini kontrol edin.
+  
+- **Kötü Duruş:** Omuzları öne eğmek veya başı öne eğmek.
+  - **Çözüm:** Aynada kendinizi kontrol edin veya bir arkadaşınızdan geri bildirim alın.
+  
+- **Kolları Sabitlemek:** Kollarınızı serbest bırakmak yerine tutunma.
+  - **Çözüm:** Kollarınızı serbest bırakın ve doğal şekilde sallayın.
+
+---
+
+## Varyasyonlar
+
+1. **Düşük Eğim Varyasyonu:** Yeni başlayanlar için %8 eğimle başlayın, zamanla artırın.
+2. **Hızlı Yürüyüş Varyasyonu:** Hızı 4 mil/saat (yaklaşık 6.4 km/saat) çıkartarak tempoyu artırın.
+3. **Daha Uzun Süre Varyasyonu:** 30 dakika yerine 45 dakikalık seanslar yapın.
+4. **Ağırlık Varyasyonu:** Hafif el ağırlıkları ile yürüyerek üst vücut kaslarını da çalıştırın.
+
+Bu varyasyonlar, antrenmanın zorluk seviyesini artırabilir ve farklı kas gruplarını daha etkili şekilde çalıştırabilir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef             | Set | Tekrar | Dinlenme |
+|-------------------|-----|--------|----------|
+| Yağ Yakımı        | 1   | 30 dk  | 0 dk     |
+| Kardiyo Gelişimi  | 1   | 35-45 dk | 5 dk    |
+| Dayanıklılık      | 1   | 60 dk  | 10 dk    |
+| Başlangıç Seviyesi| 1   | 20 dk  | 0 dk     |
+
+> 💡 **Not:** Antrenman süresini ve eğimini kademeli olarak artırarak vücudu adapte edin.
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Diz Problemleri:** Diz ağrısı yaşayanlar eğimli yürüyüşten kaçınmalı.
+- **Kalp Sorunları:** Kardiyovasküler rahatsızlığı olanlar doktor onayı almalı.
+- **Hamileler:** Hamile kadınlar için eğimli yürüyüş önerilmez.
+- **Baş Dönmesi:** Denge problemi yaşayanlar dikkatli olmalı.
+
+> 💡 **Not:** Herhangi bir sağlık sorunu olanlar antrenmana başlamadan önce doktorlarına danışmalıdır.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **12-3-30 antrenmanı her gün yapılabilir mi?**
+   - Evet, ancak haftada en az bir gün dinlenme önerilir.
+
+2. **Bu antrenman kilo vermek için yeterli mi?**
+   - Kalori alımınıza bağlı olarak kilo vermeye yardımcı olabilir.
+
+3. **Başka kardiyo egzersizleriyle birleştirilebilir mi?**
+   - Evet, bisiklet veya yüzme gibi düşük etkili egzersizlerle kombinlenebilir.
+
+4. **Bu antrenman hangi yaş grubu için uygundur?**
+   - Genellikle 18-65 yaş arası sağlıklı bireyler için uygundur.
+
+5. **Sakatlanma riskini nasıl azaltabilirim?**
+   - Doğru formu koruyarak ve uygun ayakkabı seçimiyle.
+
+6. **12-3-30 antrenmanı kas geliştirir mi?**
+   - Kas kütlesi artırmaz ancak kas dayanıklılığını artırır.
+
+7. **Hangi saatlerde yapmak daha etkili?**
+   - Kişisel tercihinize bağlı, sabah aç karna veya öğleden sonra yapılabilir.
+
+8. **Bu antrenman koşu bandı dışında yapılabilir mi?**
+   - Benzer eğimli açık hava yürüyüşleri ile yapılabilir ancak hız kontrolü zor olabilir.
+
+[Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama)
+
+Bu bilgiler, 12-3-30 yürüyüş antrenmanını etkili bir şekilde uygulamanız için sağlam bir temel sunar. Kendi fitness hedefleriniz doğrultusunda bu programı kişiselleştirerek en iyi sonuçları elde edebilirsiniz.`,
+    seoTitle: "12-3-30 Yürüyüş Antrenmanı, Detaylı Rehber | Gokalaf",
+    seoDescription: "12-3-30 yürüyüş antrenmanı nedir, nasıl yapılır? Kalori yakımı, etkinliği ve kimler için uygun olduğu hakkında detaylı analiz.",
+    publishedAt: "2026-05-20T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "pilates-nedir",
+    title: "Pilates Nedir, Faydaları Nelerdir",
+    category: "antrenman",
+    excerpt: "Pilates, core gücü, postür ve esneklik geliştirmek için bilimsel olarak desteklenen bir antrenman sistemidir. Temellerini, faydalarını ve başlangıç hareketlerini detaylı şekilde inceliyoruz.",
+    heroImage: "/articles/pilates-nedir.webp",
+    content: `## Pilates Nedir?
+
+Pilates, 20. yüzyılın başlarında Joseph Pilates tarafından geliştirilen bir egzersiz sistemidir. Başlangıçta, fiziksel rehabilitasyon amacıyla tasarlanmış olan bu sistem, zamanla genel fitness ve sağlık iyileştirmesi için popüler bir yöntem haline gelmiştir. Pilates, vücudun merkez kaslarını (core) hedef alarak postür, esneklik ve denge üzerinde etkili bir şekilde çalışır.
+
+---
+
+## Hangi Kasları Çalıştırır?
+
+Pilates egzersizleri, özellikle core kaslarını hedef alır. Core kasları; karın, bel, kalça ve pelvis bölgesindeki kasları içerir. Bunun yanında;
+
+- **Rektus Abdominis**: Karın bölgesinde yer alan ve "six-pack" olarak bilinen kas grubunu içerir.
+- **Transversus Abdominis**: İç karın kasları olarak bilinir, bel ve karın bölgesinde stabilizasyon sağlar.
+- **Oblikler**: Karın yan kaslarıdır, rotasyon ve yan bükülmelerde etkilidirler.
+- **Erector Spinae**: Sırtın alt kısmında yer alır, omurgayı destekler.
+- **Gluteus Maximus, Medius ve Minimus**: Kalça kaslarıdır, pelvis stabilizasyonunda önemlidirler.
+
+Pilates aynı zamanda tüm vücut kasları üzerinde de çalışır, ancak odak noktası core'dur.
+
+---
+
+## Bilim ve Mekanik
+
+Pilates'in faydaları üzerine yapılan araştırmalar, bu egzersiz sisteminin postür iyileştirme, esneklik artırma ve kas dengesizliklerini düzeltme konularında etkili olduğunu göstermektedir. Pilates, kasları izometrik ve eksantrik kasılmalarla çalıştırır. Bu, kasların hem uzama hem de sıkışma anında güçlenmesine yardımcı olur.
+
+- **Nöromüsküler Kontrol**: Pilates, vücudun hareketleri sırasında kasların doğru bir şekilde çalışmasını sağlar.
+- **Propriyosepsiyon**: Vücut farkındalığını artırır, bu da günlük aktivitelerde daha iyi kontrol sağlar.
+- **Denge ve Koordinasyon**: Pilates egzersizleri, denge ve koordinasyonu geliştirerek düşme riskini azaltır.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+### 1. Mat Pilates
+
+1. **Başlangıç Pozisyonu**: Sırt üstü yatın, dizler bükülü ve ayak tabanları yere basılı.
+2. **Nefes Alış**: Derin bir nefes alın, karın kaslarınızı hafifçe sıkın.
+3. **Hareket**: Pelvisinizi yukarı doğru yavaşça kaldırın, omurlarınızı tek tek yerden kaldırarak köprü pozisyonuna geçin.
+4. **Nefes Veriş**: Üst pozisyonda nefes verin ve başlangıç pozisyonuna dönün.
+5. **Tekrar**: 10-12 defa tekrarlayın.
+
+### 2. Reformer Pilates
+
+1. **Başlangıç Pozisyonu**: Reformer aleti üzerinde sırt üstü yatın, ayaklarınızı footbar üzerine yerleştirin.
+2. **Nefes Alış**: Derin bir nefes alın, core kaslarınızı aktif tutun.
+3. **Hareket**: Ayaklarınızı kullanarak arabayı iterek bacaklarınızı uzatın.
+4. **Nefes Veriş**: Arabayı yavaşça geri çekin, başlangıç pozisyonuna dönün.
+5. **Tekrar**: 8-10 defa tekrarlayın.
+
+---
+
+## Doğru Form İpuçları
+
+- **Nefes Kontrolü**: Her hareket sırasında doğru nefes alıp verin. Bu, kaslarınızın oksijenlenmesini artırır ve hareketlerin kontrolünü sağlar.
+- **Merkezleme**: Core kaslarını sürekli aktif tutun. Bu, omurga ve pelvis stabilizasyonunu artırır.
+- **Hareket Kontrolü**: Tüm hareketleri yavaş ve kontrollü bir şekilde yapın. Bu, kasların daha iyi çalışmasını sağlar.
+- **Duruş**: Omurga nötr pozisyonda kalmalı. Baş ve boyun, omurganın doğal hizasında olmalı.
+
+> 💡 **Not:** Pilates egzersizleri sırasında nefes almayı unutmayın. Doğru nefes, kasların daha etkin çalışmasını sağlar.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Hızlı Hareket Etme**: Pilates egzersizleri hızlı yapılmamalıdır. Yavaş ve kontrollü hareketler kas gelişimi için daha etkilidir.
+- **Nefesi Tutma**: Egzersiz sırasında nefesinizi tutmak kasların oksijen almasını engeller. Sürekli nefes alıp verin.
+- **Yanlış Pelvis Pozisyonu**: Pelvisin doğru pozisyonda olmaması, bel ağrılarına neden olabilir. Pelvis nötr pozisyonda olmalıdır.
+- **Boyun ve Omuz Gerginliği**: Boyun ve omuzları gereksiz yere sıkmak sakatlanmalara yol açabilir. Bu bölgeleri rahat bırakın.
+
+---
+
+## Varyasyonlar
+
+### 1. **Klasik Mat Pilates**
+
+Standart mat pilates hareketlerini içeren bu varyasyon, zeminde mat üzerinde yapılır. Core kaslarını güçlendirmek ve esneklik sağlamak için idealdir.
+
+### 2. **Reformer Pilates**
+
+Reformer makinesi ile yapılan bu varyasyon, direnç sağlayan yaylar kullanarak kasları daha derinlemesine çalıştırır. Özellikle rehabilitasyon ve güçlenme amaçlı tercih edilir.
+
+### 3. **Pilates Topu Kullanımı**
+
+Pilates topu, denge ve stabilizasyonu artırmak için mükemmel bir araçtır. Çeşitli hareketler için top kullanarak kasları farklı açılardan çalıştırabilirsiniz.
+
+### 4. **Pilates Halkası (Magic Circle)**
+
+Direnç seviyesini artırmak için kullanılan bir ekipmandır. Bacaklar, kollar ve core kasları üzerinde ekstra direnç sağlar.
+
+> 💡 **Not:** Varyasyonları seçerken, seviyenize uygun olanları tercih edin. İleri seviye varyasyonlar daha fazla denge ve kontrol gerektirir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                   | Set | Tekrar | Dinlenme       |
+|-------------------------|-----|--------|----------------|
+| Başlangıç Seviyesi      | 2   | 10-12  | 30-60 saniye   |
+| Orta Seviye             | 3   | 12-15  | 45-90 saniye   |
+| İleri Seviye            | 4   | 15-20  | 60-120 saniye  |
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+Pilates, birçok kişi için güvenli olsa da bazı durumlarda dikkat edilmesi gereken hususlar vardır:
+
+- **Hamilelik**: Hamile kadınların, doktorlarına danışarak modifiye edilmiş pilates programlarına katılmaları önerilir.
+- **Bel Fıtığı veya Disk Problemleri**: Bu tür rahatsızlıkları olan kişiler, pilates yapmadan önce doktorlarına danışmalıdır.
+- **Ciddi Kas veya İskelet Yaralanmaları**: Mevcut sakatlıklar, pilates sırasında daha da kötüleşebilir. Profesyonel bir eğitmen eşliğinde çalışılmalıdır.
+- **Kronik Ağrılar**: Ağrıların kaynağını bilmeden egzersiz yapmak sakatlanmalara yol açabilir. Öncelikle bir sağlık uzmanına başvurun.
+
+> 💡 **Not:** Pilates yaparken herhangi bir ağrı veya rahatsızlık hissederseniz, derhal durun ve bir uzmana danışın.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Pilates ile kilo verebilir miyim?**
+   Pilates, kas tonusunu artırır ve metabolizmayı hızlandırabilir. Ancak, kilo vermek için diyetle birlikte yapılması daha etkilidir.
+
+2. **Pilates ne sıklıkla yapılmalı?**
+   Haftada 3-4 kez düzenli olarak yapmak, en iyi sonuçları elde etmek için idealdir.
+
+3. **Mat pilates mi yoksa reformer pilates mi daha etkili?**
+   Her ikisi de etkili ancak farklıdır. Mat pilates, vücut ağırlığını kullanırken, reformer pilates direnç yayları ile çalışır. Hedeflerinize göre seçim yapabilirsiniz.
+
+4. **Pilates erkekler için uygun mu?**
+   Evet, pilates cinsiyet fark etmeksizin herkes için uygundur ve özellikle core gücünü artırmada etkilidir.
+
+5. **Pilates esnekliği artırır mı?**
+   Evet, düzenli pilates yapmak esnekliği artırır ve kas dengesizliklerini düzeltir.
+
+6. **Pilates yapmak için özel bir ekipman gerekir mi?**
+   Temel mat pilates için sadece bir mat yeterlidir. Ancak, reformer pilates için özel ekipmanlar gerekir.
+
+7. **Pilates ağrılarımı azaltabilir mi?**
+   Evet, doğru yapıldığında pilates, postürünüzü iyileştirerek ve kas dengesizliklerini düzelterek ağrıları azaltabilir.
+
+8. **Pilates cardio yerine geçer mi?**
+   Pilates bir cardio egzersizi değildir, fakat kas dayanıklılığını artırır ve kalp sağlığına dolaylı olarak katkı sağlar.
+
+---
+
+Daha fazla bilgi ve kişisel antrenman programınız için [Dinlenme süreni hesapla](/araclar/dinlenme-suresi-hesaplama) aracımızı kullanabilirsiniz.`,
+    seoTitle: "Pilates Nedir, Faydaları ve Temel Hareketler | Gokalaf",
+    seoDescription: "Pilates nedir, ne zaman ortaya çıkmıştır? Temel prensipleri, faydaları, mat pilates ile reformer farkı ve başlangıç hareketleri.",
+    publishedAt: "2026-05-21T10:00:00.000Z",
+    ctaText: "Dinlenme süreni hesapla",
+    ctaLink: "/araclar/dinlenme-suresi-hesaplama",
+  },
+  {
+    slug: "diyabet-ve-spor",
+    title: "Diyabet ve Spor",
+    category: "beslenme",
+    excerpt: "Diyabet hastalarında düzenli egzersiz hem insülin duyarlılığını artırır hem de kan şekeri kontrolünü kolaylaştırır. Hangi sporların uygun olduğunu ve dikkat edilmesi gerekenleri detaylı şekilde anlatıyoruz.",
+    heroImage: "/articles/diyabet-ve-spor.webp",
+    content: `## Diyabet ve Spor: Egzersizin Rolü
+
+Diyabet, vücudun kan şekeri seviyelerini düzenleme yeteneğini etkileyen bir metabolik hastalıktır. İki ana tipi olan tip 1 ve tip 2 diyabet, dünya genelinde milyonlarca insanı etkiler. Bu makalede, özellikle tip 2 diyabet ile yaşayan bireyler için spor ve egzersizin önemine odaklanacağız. Egzersizin kan şekeri kontrolü üzerindeki etkilerini ve diyabet yönetimindeki yerini inceleyeceğiz.
+
+---
+
+## Diyabet ve Spor: Hangi Kasları Çalıştırır?
+
+Egzersiz, vücuttaki kasları çalıştırarak insülin duyarlılığını artırır. Aerobik egzersizler ve direnç antrenmanları, farklı kas gruplarını hedefler ve glikoz metabolizmasını iyileştirir.
+
+- **Aerobik Egzersizler**: Yürüyüş, koşu, bisiklet sürme gibi aktiviteler büyük kas gruplarını çalıştırır. Kalp ve damar sağlığını destekler, kan şekeri seviyelerini düşürür.
+- **Direnç Antrenmanları**: Ağırlık kaldırma ve vücut ağırlığı egzersizleri, kas kütlesini artırarak bazal metabolizma hızını yükseltir. Bu durum, glikozun daha etkili kullanımını sağlar.
+
+---
+
+## Adım Adım Nasıl Yapılır?
+
+1. **Doktor Onayı Alın**: Diyabetli bireyler, yeni bir egzersiz programına başlamadan önce doktorlarından onay almalıdır.
+2. **Hedef Belirleyin**: Kan şekeri kontrolü, kilo kaybı veya genel sağlık gibi spesifik hedefler belirleyin.
+3. **Program Oluşturun**: Haftada en az 150 dakika orta yoğunlukta aerobik egzersiz yapmayı hedefleyin. Haftada 2-3 kez direnç antrenmanları ekleyin.
+4. **Düzenli Takip**: Kan şekeri seviyenizi egzersiz öncesi ve sonrası ölçerek değişimleri izleyin.
+5. **Beslenme Planlayın**: Egzersiz öncesi ve sonrası doğru besinleri alarak kan şekeri seviyelerinizi dengeleyin.
+
+---
+
+## Doğru Form İpuçları
+
+- **Isınma ve Soğuma**: Her egzersiz seansına 5-10 dakika düşük tempolu ısınma ve soğuma ekleyin.
+- **Doğru Postür**: Egzersiz sırasında duruşunuza dikkat edin. Omuzlar geride, karın kasları sıkı olmalıdır.
+- **Nefes Kontrolü**: Egzersiz sırasında nefesi tutmaktan kaçının. Düzenli nefes alıp verin.
+
+> 💡 **Not:** Egzersiz sırasında herhangi bir rahatsızlık veya baş dönmesi hissederseniz, hemen durup dinlenin.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Hatalı Beslenme**: Egzersiz sonrası yeterli karbonhidrat almamak kan şekeri düşmesine yol açabilir. **Çözüm**: Egzersiz sonrası dengeli bir öğün tüketin.
+- **Aşırı Egzersiz**: Çok fazla egzersiz yapmak, yaralanma riskini artırabilir. **Çözüm**: Yavaş başlayın ve kademeli olarak yoğunluğu artırın.
+- **Yetersiz Hidratasyon**: Egzersiz sırasında yeterli su içmemek performansı düşürebilir. **Çözüm**: Egzersiz öncesi, sırası ve sonrasında su için.
+- **Kan Şekeri Takibi Yapmamak**: Egzersiz sonrası kan şekeri seviyelerini kontrol etmemek risklidir. **Çözüm**: Düzenli olarak kan şekeri ölçümü yapın.
+
+---
+
+## Varyasyonlar
+
+1. **Yüzme**: Eklem dostu bir egzersizdir. Kan şekeri kontrolüne yardımcı olur ve tüm vücut kaslarını çalıştırır.
+2. **Yoga**: Stresi azaltır ve esnekliği artırır. Kan şekeri seviyelerini dengelemeye yardımcı olabilir.
+3. **Pilates**: Kas dayanıklılığını ve çekirdek gücünü artırır. Düşük etkili bir egzersiz seçeneğidir.
+4. **Yüksek Yoğunluklu Aralıklı Antrenman (HIIT)**: Kısa sürede etkili bir egzersizdir. İnsülin duyarlılığını artırabilir.
+
+> 💡 **Not:** Egzersiz türlerini haftalık programınıza farklı günlerde ekleyerek çeşitlilik sağlayın.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                       | Set  | Tekrar  | Dinlenme      |
+|-----------------------------|------|---------|---------------|
+| Aerobik Kondisyon           | 1    | 30 dk   | 5 dk (ısınma) |
+| Kas Dayanıklılığı           | 3    | 10-15   | 60 saniye     |
+| Güç ve Kuvvet               | 3-4  | 6-8     | 90 saniye     |
+| Esneklik ve Mobilite        | 2    | 5 dk    | 30 saniye     |
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Kontrolsüz Kan Şekeri**: Kan şekeri seviyeleri çok yüksek veya çok düşük olan bireyler, egzersiz yapmadan önce doktorlarına danışmalıdır.
+- **Kalp Problemleri Olanlar**: Kalp hastalığı olan bireyler, düşük etkili egzersizlerle başlamalıdır.
+- **Nöropati Sorunları**: Sinir hasarı olan bireyler, ayaklarını zorlayan aktivitelerden kaçınmalıdır.
+
+> 💡 **Not:** Egzersiz programınızda değişiklik yapmadan önce mutlaka bir sağlık profesyoneline danışın.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Egzersiz sırasında kan şekeri düşerse ne yapmalıyım?**
+   - Hemen egzersizi durdurun ve hızlı bir karbonhidrat kaynağı tüketin (örneğin, meyve suyu veya glikoz tabletleri).
+
+2. **Egzersiz öncesi ne yemeliyim?**
+   - Egzersizden 1-2 saat önce kompleks karbonhidrat ve protein içeren bir öğün tüketin.
+
+3. **Hangi egzersiz türü diyabet için en etkili?**
+   - Aerobik egzersizler ve direnç antrenmanlarının kombinasyonu en etkilidir.
+
+4. **Egzersiz yaparken kan şekerimi ne sıklıkla kontrol etmeliyim?**
+   - Egzersiz öncesi ve sonrası kan şekeri seviyelerinizi ölçün. Uzun süreli egzersizlerde ara ölçümler yapın.
+
+5. **Diyabet için en iyi zaman dilimi ne zaman?**
+   - Genellikle günün erken saatlerinde veya yemeklerden sonra egzersiz yapmak daha iyidir.
+
+6. **Egzersizden sonra kan şekeri neden yükselir?**
+   - Egzersiz, bazı durumlarda stres hormonlarının salınımını artırarak kan şekerini yükseltebilir. Düzenli izleme önemlidir.
+
+7. **Evde nasıl egzersiz yapabilirim?**
+   - Vücut ağırlığı egzersizleri, elastik bantlar ve hafif ağırlıklar kullanarak evde etkili bir program oluşturabilirsiniz.
+
+8. **Egzersiz yaparken nelere dikkat etmeliyim?**
+   - Doğru ayakkabı giymek, uygun kıyafet seçmek ve yeterli su tüketmek önemlidir.
+
+Diyabet yönetiminde egzersiz, sadece kan şekeri kontrolü için değil, genel sağlık ve yaşam kalitesi için de kritik bir rol oynar. Egzersiz programınızı planlarken, kişisel ihtiyaçlarınızı ve sağlık durumunuzu göz önünde bulundurmanız önemlidir. Sağlıklı bir yaşam tarzını desteklemek için [Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama) aracımızdan faydalanabilirsiniz.`,
+    seoTitle: "Diyabet ve Spor, Egzersizin Kan Şekerine Etkisi | Gokalaf",
+    seoDescription: "Diyabet hastalarında egzersizin kan şekerine etkisi, hangi sporlar uygun, beslenme önerileri ve dikkat edilecekler.",
+    publishedAt: "2026-05-22T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "stres-ve-kortizol-kontrolu",
+    title: "Stres ve Kortizol Kontrolü",
+    category: "beslenme",
+    excerpt: "Kortizol, kronik stres altında kas kaybı, yağlanma ve kötü uyku kalitesine yol açar. Bu hormonu doğal yollarla nasıl kontrol edebileceğinizi, yaşam tarzı ve beslenme önerileriyle detaylı şekilde anlatıyoruz.",
+    heroImage: "/articles/stres-ve-kortizol-kontrolu.webp",
+    content: `## Kortizol Nedir?
+
+Kortizol, böbreküstü bezleri tarafından üretilen bir steroid hormondur. Genellikle "stres hormonu" olarak bilinir çünkü vücudun strese yanıtında önemli bir rol oynar. Kortizol, kan şekeri seviyelerini artırır, bağışıklık sistemini baskılar ve metabolizmayı düzenler. Günlük ritimlere göre kortizol seviyesi sabahları en yüksek, akşama doğru ise en düşük seviyededir.
+
+Kortizol, vücudun enerji kaynaklarını mobilize etmesine yardımcı olur. Bu, glikozun kan dolaşımına salınmasını teşvik ederek ve kas dokusunun enerji için kullanılmasına izin vererek gerçekleşir. Ancak, kortizolün uzun süre yüksek seviyelerde kalması, sağlık üzerinde olumsuz etkiler yapabilir.
+
+---
+
+## Kortizol Hangi Kasları Çalıştırır / Bilim / Mekanik
+
+Kortizol, doğrudan kasları "çalıştırmaz" fakat kas dokusu üzerinde önemli etkileri vardır. Kronik olarak yüksek kortizol seviyeleri kas proteinlerini parçalayıcı etkisiyle bilinir. Bu süreç, glikoneogenez yoluyla proteinlerin glikoza dönüştürülmesini içerir. Uzun vadede, bu süreç kas kaybına neden olabilir.
+
+Kortizol, ayrıca kas glikojen depolarının kullanımını etkiler. Glikojen, kasların enerji kaynağıdır ve kortizol seviyeleri arttığında, bu depolar daha hızlı tükenebilir. Sonuç olarak, kas gücü ve dayanıklılığı azalabilir.
+
+> 💡 **Not:** Kortizol, vücut kompozisyonunu etkileyebilir. Yüksek kortizol seviyeleri, yağ depolanmasını artırabilir ve kas kütlesini azaltabilir.
+
+---
+
+## Adım Adım Kortizol Düşürme Yöntemleri
+
+1. **Düzenli Egzersiz:** Haftada en az 150 dakika orta yoğunlukta aerobik egzersiz yapın. Bu, kortizol seviyelerini düşürmede etkilidir.
+   
+2. **Uyku Düzenine Dikkat Edin:** Her gece 7-9 saat uyumaya çalışın. Uyku düzeni, kortizol seviyelerinin doğal ritmini korumaya yardımcı olur.
+
+3. **Beslenme Düzeni:** Omega-3 yağ asitleri, C vitamini ve magnezyum açısından zengin gıdalar tüketin. Bunlar kortizol seviyelerini dengeleyebilir.
+
+4. **Meditasyon ve Nefes Egzersizleri:** Günde 10-15 dakika meditasyon veya derin nefes egzersizleri yaparak stresi azaltın.
+
+5. **Kafein Tüketimini Azaltın:** Kafein, kortizol seviyelerini artırabilir. Kafein tüketimini günde 300 mg ile sınırlayın.
+
+6. **Sosyal Destek:** Aile ve arkadaşlarla vakit geçirmek, stresi azaltabilir ve kortizol seviyelerini düşürebilir.
+
+---
+
+## Doğru Form İpuçları
+
+- **Egzersiz İpuçları:** Egzersiz sırasında nefes kontrolünü sağlayın. Nefesinizi tutmak yerine, düzenli nefes alıp vermek kortizol seviyelerini yönetmeye yardımcı olabilir.
+  
+- **Beslenme İpuçları:** Yemekleri yavaş yemeye özen gösterin. Hızlı yemek yeme, kortizol seviyelerini artırabilir.
+
+- **Uyku İpuçları:** Uyku öncesi ekran zamanını sınırlayın. Mavi ışık, melatonin üretimini engelleyerek kortizol seviyelerini artırabilir.
+
+> 💡 **Not:** Egzersiz sonrası dinlenme sürecine önem verin. Aşırı egzersiz, kortizol seviyelerini artırabilir.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Aşırı Egzersiz Yapmak:** Aşırı yoğun ve uzun süreli egzersizler, kortizol seviyelerini yükseltebilir. Çözüm: Egzersiz ve dinlenme arasında denge kurun.
+
+- **Yetersiz Uyku:** Yetersiz uyku, kortizol seviyelerini artırabilir. Çözüm: Uyku hijyeninizi iyileştirin, düzenli uyuma saatleri belirleyin.
+
+- **Yanlış Beslenme:** Düşük karbonhidratlı diyetler kortizolü artırabilir. Çözüm: Dengeli bir makro besin dağılımı sağlayın.
+
+- **Stres Azaltıcı Teknikleri İhmal Etmek:** Meditasyon veya nefes egzersizlerini ihmal etmek, kortizol seviyelerinin yüksek kalmasına neden olabilir. Çözüm: Günlük rutininize stres azaltıcı aktiviteler ekleyin.
+
+---
+
+## Kortizol Düşürme Varyasyonları
+
+1. **Yoga:** Yoga, hem fiziksel hem de zihinsel stresi azaltabilir. Haftada 2-3 seans yaparak kortizol seviyelerini düşürmeye yardımcı olabilirsiniz.
+
+2. **Tai Chi:** Yavaş ve kontrollü hareketler içeren bu egzersiz, stres yönetimi ve kortizol kontrolü için etkilidir.
+
+3. **Aromaterapi:** Lavanta yağı gibi bazı esansiyel yağlar, rahatlama sağlayarak kortizol seviyelerini düşürebilir.
+
+4. **Zihinsel Görselleştirme:** Pozitif görselleştirme teknikleri, stres yönetimine katkıda bulunabilir. Günlük 10 dakika uygulama yapabilirsiniz.
+
+> 💡 **Not:** Farklı varyasyonlar, kişisel tercihlere göre seçilebilir. Her birey için aynı etkiyi göstermeyebilir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef                    | Set   | Tekrar | Dinlenme   |
+|--------------------------|-------|--------|------------|
+| Orta Yoğunlukta Kardiyo  | 3     | 30 dk  | 1 dk       |
+| Yoga Seansı              | 2     | 45 dk  | 5 dk       |
+| Kuvvet Antrenmanı        | 3     | 12-15  | 1-2 dk     |
+| Meditasyon               | -     | 15 dk  | -          |
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+- **Hamileler:** Kortizol seviyelerini etkileyen yoğun egzersizlerden kaçınılmalıdır.
+  
+- **Kalp Problemi Olanlar:** Kardiyo egzersizleri sırasında dikkatli olunmalıdır.
+
+- **Kronik Yorgunluk Sendromu Olanlar:** Aşırı egzersizden kaçınılmalıdır. Dinlenme süresine dikkat edilmelidir.
+
+- **Hormon Dengesizliği Olanlar:** Profesyonel bir sağlık danışmanının gözetiminde kortizol yönetimi yapılmalıdır.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **Kortizol seviyelerini ne sıklıkla ölçmeliyim?**
+   - Kortizol seviyeleri genellikle belirli semptomlar gösterildiğinde ölçülür. Doktor tavsiyesi üzerine ölçüm yapılmalıdır.
+
+2. **Kortizol seviyelerini düşürmek ne kadar zaman alır?**
+   - Değişiklikleri fark etmek haftalar sürebilir. Düzenli uygulamalarla daha hızlı sonuç alınabilir.
+
+3. **Kortizol seviyesi düşükse ne olur?**
+   - Düşük kortizol seviyesi, yorgunluk ve düşük kan şekeri gibi belirtilere neden olabilir.
+
+4. **Kortizol diyetle kontrol edilebilir mi?**
+   - Evet, özellikle omega-3, C vitamini ve magnezyum açısından zengin diyetler kortizol seviyelerini dengeleyebilir.
+
+5. **Stres yönetimi için en etkili egzersiz nedir?**
+   - Yoga ve meditasyon, stresi azaltmada oldukça etkilidir.
+
+6. **Kortizol kas kaybına neden olur mu?**
+   - Evet, kronik yüksek kortizol seviyeleri kas proteinlerini parçalayarak kas kaybına yol açabilir.
+
+7. **Kortizol seviyemi nasıl düşürebilirim?**
+   - Düzenli egzersiz, yeterli uyku, dengeli beslenme ve stres yönetimi teknikleri ile düşürülebilir.
+
+8. **Kortizol seviyeleri yaşla birlikte değişir mi?**
+   - Evet, yaşla birlikte kortizol üretiminde değişiklikler olabilir. 
+
+Günlük kortizol dengenizi sağlamak ve sağlığınızı korumak için yukarıdaki yöntemleri uygulayın. Ayrıca, metabolizmanızı daha iyi anlamak için [Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama).`,
+    seoTitle: "Stres ve Kortizol Kontrolü, Doğal Yöntemler | Gokalaf",
+    seoDescription: "Kortizol nedir, neden artar? Strese bağlı kortizol artışını kontrol etme yolları, beslenme, uyku ve antrenman önerileri.",
+    publishedAt: "2026-05-23T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
+  {
+    slug: "ems-antrenman-nedir",
+    title: "EMS Antrenman Nedir",
+    category: "antrenman",
+    excerpt: "EMS antrenmanı son yıllarda popülerleşen bir egzersiz formu. Bilimsel temelini, gerçek faydalarını, risklerini ve klasik direnç antrenmanıyla karşılaştırmasını objektif şekilde inceliyoruz.",
+    heroImage: "/articles/ems-antrenman-nedir.webp",
+    content: `## EMS Antrenman Nedir?
+
+Elektrik Kas Stimülasyonu (EMS), kasları elektriksel uyarılarla çalıştıran bir antrenman yöntemidir. EMS antrenmanı, kasların kasılmasını sağlamak için düşük voltajlı elektrik akımlarını kullanır. Bu yöntem, fiziksel aktivite sırasında kasların doğal şekilde çalıştırılmasını taklit eder. Özellikle sporcular, fizik tedavi hastaları ve fit kalmak isteyen bireyler arasında popülerdir.
+
+---
+
+## Hangi Kasları Çalıştırır / Bilim / Mekanik
+
+EMS antrenmanı, vücuttaki hemen hemen tüm kas gruplarını çalıştırabilir. Elektriksel uyarılar, kas liflerini doğrudan hedef alır ve kasılmaları tetikler. Özellikle:
+
+- **Quadriceps** ve **hamstring** gibi büyük kas grupları
+- **Karın kasları** ve **oblikler**
+- **Göğüs**, **sırt** ve **omuz kasları**
+
+EMS, kas liflerini doğrudan uyarması sayesinde, kas hipertrofisini ve dayanıklılığını artırabilir. **Miha Bodytec** gibi cihazlar, farklı frekans ve yoğunluk ayarları sunarak, kas dayanıklılığı ve gücünü artırmada esneklik sağlar.
+
+---
+
+## Adım Adım Nasıl Yapılır
+
+1. **Hazırlık:** Uygun bir EMS cihazı seçin ve elektrotları hedef kas gruplarına yerleştirin.
+2. **Cihaz Ayarları:** Cihazın frekans ve yoğunluk seviyelerini ihtiyacınıza göre ayarlayın. Yeni başlayanlar için düşük seviyeler önerilir.
+3. **Antrenman Başlat:** Cihazı çalıştırın ve kasılmaları hissetmeye başlayın.
+4. **Kombinasyon:** EMS antrenmanını, geleneksel egzersizlerle kombine ederek etkisini artırın.
+5. **Süre:** Tipik bir EMS seansı 20-30 dakika sürer.
+
+> 💡 **Not:** EMS seansları sırasında bol su tüketin.
+
+---
+
+## Doğru Form İpuçları
+
+- **Cihaz Ayarları:** İlk kez kullanıyorsanız, cihazı düşük voltajda başlatın.
+- **Vücut Duruşu:** Kasılma sırasında doğru duruşu koruyun. Duruş bozulursa, etkili kasılma sağlanamaz.
+- **Elektrot Yerleşimi:** Elektrotları doğru kas gruplarına yerleştirin. Yanlış yerleştirme etkisini azaltabilir.
+- **Nefes Alma:** Kasılmalar sırasında derin nefes alıp vermeye devam edin.
+
+> 💡 **Not:** Uzman bir eğitmenle başlamanız, formunuzu kontrol etmenize yardımcı olabilir.
+
+---
+
+## Sıkça Yapılan Hatalar
+
+- **Yanlış Elektrot Yerleşimi:** Elektrotların yanlış konumlandırılması, etkili kasılmayı engeller.
+  - **Çözüm:** Elektrotların doğru yerleştirildiğinden emin olmak için bir uzmanla çalışın.
+  
+- **Aşırı Yüksek Frekans:** Çok yüksek frekansta başlamak, kas spazmına neden olabilir.
+  - **Çözüm:** Başlangıçta düşük seviyelerde başlayın ve yavaşça artırın.
+  
+- **Yanlış Kas Grubu Seçimi:** Hedeflenmeyen kas gruplarına odaklanmak, sonuçları olumsuz etkiler.
+  - **Çözüm:** Hedeflerinize uygun kas gruplarını belirleyin.
+  
+- **Yetersiz Dinlenme:** Kaslar yeterince dinlenmezse, aşırı yüklenme riski artar.
+  - **Çözüm:** Her seans arasında yeterli dinlenme süresi bırakın.
+
+> 💡 **Not:** EMS antrenmanları arasında en az 48 saatlik bir dinlenme süresi önerilir.
+
+---
+
+## Varyasyonlar
+
+1. **Dinamik EMS Antrenmanı:** Geleneksel egzersizlerle birlikte EMS kullanımı. Örneğin, squats yaparken EMS uygulamak.
+   
+2. **Statik EMS Antrenmanı:** Sadece EMS cihazı ile, hareket etmeden kasılma sağlamak. Özellikle rehabilitasyon süreçlerinde faydalı olabilir.
+   
+3. **Hedeflenmiş Kas Grubu EMS:** Spesifik kas gruplarına odaklanarak yoğun seanslar. Örneğin, biceps veya triceps için.
+   
+4. **Kardiyo ile Kombine EMS:** Hafif kardiyo egzersizleri ile birlikte EMS kullanımı, yağ yakımını artırabilir.
+
+---
+
+## Set-Tekrar Şeması / Antrenman Programı
+
+| Hedef | Set | Tekrar | Dinlenme |
+|-------|-----|--------|----------|
+| Kas Gücü | 3 | 15-20 sn | 2 dk |
+| Dayanıklılık | 4 | 30 sn | 1 dk |
+| Yağ Yakma | 5 | 45 sn | 1,5 dk |
+| Rehabilitasyon | 2 | 10-15 sn | 3 dk |
+
+---
+
+## Kimler Yapmamalı / Dikkat Edilecekler
+
+EMS antrenmanı, bazı bireyler için uygun olmayabilir. Özellikle:
+
+- **Kalp pili veya diğer elektronik implantlara sahip olanlar**: Elektrik akımları bu cihazlarla etkileşimde bulunabilir.
+- **Hamileler**: Karın bölgesine uygulanan EMS, hamilelikte önerilmez.
+- **Kalp sorunları olanlar**: Elektrik akımı kalp ritmini etkileyebilir.
+- **Deri hastalıkları olanlar**: Elektrotların deriye zarar verme riski vardır.
+
+EMS antrenmanına başlamadan önce, sağlık profesyoneline danışmak önemlidir.
+
+---
+
+## Sıkça Sorulan Sorular
+
+1. **EMS antrenmanı hangi sıklıkla yapılmalıdır?**
+   - Haftada 2-3 kez önerilir. Kasların dinlenmesi için yeterli süre bırakılmalıdır.
+
+2. **EMS antrenmanı ile ne kadar sürede sonuç alabilirim?**
+   - Düzenli kullanımda 4-6 hafta içinde belirgin sonuçlar görülebilir.
+
+3. **EMS yağ yakımını artırır mı?**
+   - Evet, özellikle kardiyo ile kombine edildiğinde yağ yakımını destekler.
+
+4. **Miha Bodytec cihazı nasıl çalışır?**
+   - Kas gruplarına yerleştirilen elektrotlar aracılığıyla elektriksel uyarılar gönderir.
+
+5. **EMS antrenmanı ağrıya neden olur mu?**
+   - Doğru seviyelerde kullanıldığında ağrı hissettirmez. Hafif bir kasılma hissi normaldir.
+
+6. **EMS ve geleneksel antrenmanların farkı nedir?**
+   - EMS, kasları doğrudan elektrikle uyarırken, geleneksel antrenman fiziksel hareketlerle kasları çalıştırır.
+
+7. **EMS antrenmanı ile kas hacmi artar mı?**
+   - Evet, düzenli kullanımda kas hipertrofisini destekler.
+
+8. **EMS antrenmanı herkes için uygun mu?**
+   - Çeşitli sağlık durumları nedeni ile herkes için uygun olmayabilir. Öncesinde doktor tavsiyesi alınmalıdır.
+
+> [Günlük kalori ihtiyacını hesapla](/araclar/kalori-hesaplama)`,
+    seoTitle: "EMS Antrenman Nedir, Faydaları ve Riskleri | Gokalaf",
+    seoDescription: "EMS antrenman nedir, nasıl çalışır? Elektrik kas stimülasyonunun faydaları, riskleri, kalori yakımı ve klasik antrenmanla karşılaştırma.",
+    publishedAt: "2026-05-24T10:00:00.000Z",
+    ctaText: "Günlük kalori ihtiyacını hesapla",
+    ctaLink: "/araclar/kalori-hesaplama",
+  },
 ];
 
 export function getArticleBySlug(slug: string): StaticArticle | undefined {
