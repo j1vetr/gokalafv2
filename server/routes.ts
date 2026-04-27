@@ -95,16 +95,42 @@ export async function registerRoutes(
     return new Date().toISOString().split("T")[0];
   }
 
-  function buildUrlset(pages: { loc: string; priority: string; changefreq: string; lastmod?: string }[]) {
+  function escapeXml(s: string) {
+    return s
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&apos;");
+  }
+
+  type SitemapPage = {
+    loc: string;
+    priority: string;
+    changefreq: string;
+    lastmod?: string;
+    images?: { loc: string; title?: string; caption?: string }[];
+  };
+
+  function buildUrlset(pages: SitemapPage[]) {
     const today = getToday();
+    const hasImages = pages.some(p => p.images && p.images.length > 0);
+    const ns = hasImages
+      ? `xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"`
+      : `xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"`;
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(p => `  <url>
+<urlset ${ns}>
+${pages.map(p => {
+  const imageBlocks = (p.images || []).map(img => `    <image:image>
+      <image:loc>${escapeXml(img.loc)}</image:loc>${img.title ? `\n      <image:title>${escapeXml(img.title)}</image:title>` : ""}${img.caption ? `\n      <image:caption>${escapeXml(img.caption)}</image:caption>` : ""}
+    </image:image>`).join("\n");
+  return `  <url>
     <loc>${SITEMAP_BASE}${p.loc}</loc>
     <lastmod>${p.lastmod || today}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>
-  </url>`).join("\n")}
+    <priority>${p.priority}</priority>${imageBlocks ? "\n" + imageBlocks : ""}
+  </url>`;
+}).join("\n")}
 </urlset>`;
   }
 
@@ -181,12 +207,18 @@ ${pages.map(p => `  <url>
     const today = getToday();
     try {
       const { articles: staticArticles } = await import("../shared/articles-data.js");
-      const pages = staticArticles.map((a: any) => ({
-        loc: `/yazilar/${a.slug}`,
-        priority: "0.85",
-        changefreq: "monthly",
-        lastmod: a.publishedAt ? new Date(a.publishedAt).toISOString().split("T")[0] : today,
-      }));
+      const pages = staticArticles.map((a: any) => {
+        const heroUrl = a.heroImage
+          ? (a.heroImage.startsWith("http") ? a.heroImage : `${SITEMAP_BASE}${a.heroImage}`)
+          : null;
+        return {
+          loc: `/yazilar/${a.slug}`,
+          priority: "0.85",
+          changefreq: "monthly",
+          lastmod: a.publishedAt ? new Date(a.publishedAt).toISOString().split("T")[0] : today,
+          images: heroUrl ? [{ loc: heroUrl, title: a.title, caption: a.excerpt || a.title }] : [],
+        };
+      });
       res.setHeader("Content-Type", "application/xml");
       res.send(buildUrlset(pages));
     } catch (error) {
@@ -199,12 +231,19 @@ ${pages.map(p => `  <url>
   // Hareketler sitemap — her istekte veritabanından taze çeker
   app.get("/sitemap-hareketler.xml", async (_req, res) => {
     try {
-      const slugs = await storage.getAllExerciseSlugs();
-      const pages = slugs.map((slug: string) => ({
-        loc: `/egzersiz-akademisi/${slug}`,
-        priority: "0.75",
-        changefreq: "monthly",
-      }));
+      const exercises = await storage.getAllExercises();
+      const pages = exercises.map((ex: any) => {
+        const firstImage = Array.isArray(ex.images) && ex.images.length > 0 ? ex.images[0] : null;
+        const imgUrl = firstImage
+          ? (firstImage.startsWith("http") ? firstImage : `${SITEMAP_BASE}${firstImage.startsWith("/") ? "" : "/"}${firstImage}`)
+          : null;
+        return {
+          loc: `/egzersiz-akademisi/${ex.slug}`,
+          priority: "0.75",
+          changefreq: "monthly",
+          images: imgUrl ? [{ loc: imgUrl, title: ex.name || ex.slug }] : [],
+        };
+      });
       res.setHeader("Content-Type", "application/xml");
       res.send(buildUrlset(pages));
     } catch (error) {

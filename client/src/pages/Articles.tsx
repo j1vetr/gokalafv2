@@ -51,8 +51,12 @@ function FeaturedCard({ article }: { article: (typeof articles)[0] }) {
           <img
             src={article.heroImage}
             alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-[1200ms] ease-out"
+            width={1280}
+            height={720}
             loading="eager"
+            decoding="async"
+            {...({ fetchpriority: "high" } as any)}
+            className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-[1200ms] ease-out"
           />
           {/* Left-to-right gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 md:via-[#050505]/70 to-[#050505]/30" />

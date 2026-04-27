@@ -1476,6 +1476,20 @@ export function injectMeta(html: string, meta: MetaTags): string {
       /<meta property="og:site_name"/,
       `${articleMeta}\n    <meta property="og:site_name"`
     );
+
+    if (meta.ogImage) {
+      // Preload yolu, sayfanın <img src> ile birebir aynı olmalı (aksi halde tarayıcı 2 kez indirir).
+      // ogImage mutlak (https://gokalaf.com/...) — body içindeki <img src> ise göreli (/articles/...).
+      // Bu yüzden mutlak URL'in BASE_URL kısmını söküp göreli yola çeviriyoruz.
+      const preloadHref = meta.ogImage.startsWith("https://gokalaf.com")
+        ? meta.ogImage.slice("https://gokalaf.com".length)
+        : meta.ogImage;
+      const preloadLink = `<link rel="preload" as="image" href="${preloadHref}" fetchpriority="high" />`;
+      result = result.replace(
+        /<link rel="canonical"/,
+        `${preloadLink}\n    <link rel="canonical"`
+      );
+    }
   }
 
   if (meta.schema) {

@@ -222,6 +222,11 @@ export default function ArticleDetail() {
             <img
               src={article.heroImage}
               alt={article.title}
+              width={1280}
+              height={720}
+              loading="eager"
+              decoding="async"
+              {...({ fetchpriority: "high" } as any)}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent"></div>
